@@ -1,9 +1,24 @@
-BeginPackage[ "WolframInstitute`InfraCausality`" ];
+Package["WolframInstitute`InfraCausality`"]
 
-$InfraCausalityKernelDir = DirectoryName[ $InputFileName ];
+(* Tools.wl *)
+PackageExport[GetSources]
+PackageExport[GetSinks]
+PackageExport[RandomCausalGraph]
+PackageExport[FindChain]
 
-Get[ FileNameJoin[ { $InfraCausalityKernelDir, "Tools.wl" } ] ];
-Get[ FileNameJoin[ { $InfraCausalityKernelDir, "LightRays.wl" } ] ];
-Get[ FileNameJoin[ { $InfraCausalityKernelDir, "LightRaysVisualization.wl" } ] ];
+(* LightRays.wl *)
+PackageExport[ForwardLightCone]
+PackageExport[BackwardLightCone]
+PackageExport[CausalInterval]
+PackageExport[ChainCausalInterval]
+PackageExport[LongestPathFoliation]
+PackageExport[ProperTime]
+PackageExport[MostAbsorbers]
+PackageExport[OutgoingLightRays]
+PackageExport[IncomingLightRays]
 
-EndPackage[];
+(* LightRaysVisualization.wl *)
+PackageExport[VisualizeLightRays]
+
+
+ClearAll["WolframInstitute`InfraCausality`**`*", "WolframInstitute`InfraCausality`*"]

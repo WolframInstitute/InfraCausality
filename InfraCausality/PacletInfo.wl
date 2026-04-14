@@ -14,6 +14,11 @@ PacletObject[
         "Kernel",
         "Root" -> "Kernel",
         "Context" -> {"WolframInstitute`InfraCausality`"}
+      },
+      {
+        "Documentation",
+        "Root" -> "Documentation",
+        "Language" -> "English"
       }
     }
   |>

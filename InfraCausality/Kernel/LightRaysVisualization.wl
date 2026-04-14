@@ -1,8 +1,4 @@
-(* ::Package:: *)
-(* LightRaysVisualization.wl — Visualization for light ray structure on graphs *)
-(* Requires: Tools.wl, LightRays.wl *)
-(* Load with: Get["Code/LightRaysVisualization.wl"] *)
-
+Package["WolframInstitute`InfraCausality`"]
 
 VisualizeLightRays[ g_Graph ] :=
   DynamicModule[ { vertices, selectedVertex, vertexCoords },

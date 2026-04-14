@@ -1,0 +1,146 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      5872,        137]
+NotebookOptionsPosition[      3771,        105]
+NotebookOutlinePosition[      4088,        119]
+CellTagsIndexPosition[      4045,        116]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["InfraCausality", "Title",ExpressionUUID->"d5c238a8-039c-45ba-8e81-c6c2bea7fd12"],
+
+Cell["\<\
+Causal structure and special relativity on finite directed graphs (DAGs). \
+Implements light cones, proper time, light rays, chain finding, and \
+interactive visualization for discrete causal sets.\
+\>", "Text",ExpressionUUID->"0986ffcf-382c-43fb-9929-01c0d9fc58fd"],
+
+Cell["Graph Utilities", "Section",ExpressionUUID->"f29bd72a-889d-4c54-a950-f38233e67e93"],
+
+Cell["\<\
+GetSources \\u2014 vertices with no incoming edges (source events)\
+\>", "Item",ExpressionUUID->"6fa42d8e-5d7c-406b-b392-123193b44104"],
+
+Cell["\<\
+GetSinks \\u2014 vertices with no outgoing edges (sink events)\
+\>", "Item",ExpressionUUID->"05c407ae-3780-49b5-a13c-38296b5a6948"],
+
+Cell["\<\
+RandomCausalGraph \\u2014 generate a random connected DAG with Wolfram \
+Physics styling\
+\>", "Item",ExpressionUUID->"5047e9c9-0a3f-4225-b214-afff7a1e79ad"],
+
+Cell["\<\
+FindChain \\u2014 find longest or maximally separated directed paths \
+(methods: \"Longest\", \"Separated\")\
+\>", "Item",ExpressionUUID->"68c7fda8-c42f-4a00-a5c9-96a4949cfb75"],
+
+Cell["Light Cones and Causal Structure", "Section",ExpressionUUID->"31deb94e-2567-447e-9402-5afab688fcd8"],
+
+Cell["\<\
+ForwardLightCone \\u2014 subgraph of all events causally reachable from a \
+vertex\
+\>", "Item",ExpressionUUID->"f31e264c-40c0-496a-bd9f-fbf5319a228b"],
+
+Cell["\<\
+BackwardLightCone \\u2014 subgraph of all events in the causal past of a \
+vertex\
+\>", "Item",ExpressionUUID->"cd5a1b43-a345-4671-b6f0-4ab98ee36908"],
+
+Cell["\<\
+CausalInterval \\u2014 intersection of forward and backward light cones \
+(Alexandrov set)\
+\>", "Item",ExpressionUUID->"8db6abcd-968e-4f80-8723-6ea81f2ce8ac"],
+
+Cell["\<\
+ChainCausalInterval \\u2014 causal interval determined by a chain (directed \
+path)\
+\>", "Item",ExpressionUUID->"8e6226c5-421b-417d-887a-c826362d504a"],
+
+Cell["Proper Time and Foliations", "Section",ExpressionUUID->"b68818bf-2a90-4d03-ae65-a0760309c9a1"],
+
+Cell["\<\
+LongestPathFoliation \\u2014 partition vertices into layers by longest-path \
+distance from sources\
+\>", "Item",ExpressionUUID->"61daffb8-2f13-4618-850f-016f55bd22f6"],
+
+Cell["\<\
+ProperTime \\u2014 assign proper time coordinates from a foliation\
+\>", "Item",ExpressionUUID->"5c39d004-c850-4841-98d4-1e4ca82c65ac"],
+
+Cell["\<\
+MostAbsorbers \\u2014 select representative events at each proper time with \
+maximal backward light cones\
+\>", "Item",ExpressionUUID->"34a0e0f9-8bd5-4619-a282-ba1f9623c52f"],
+
+Cell["Light Rays", "Section",ExpressionUUID->"e66deb9b-4ce1-4a3e-b028-3a98576ddae3"],
+
+Cell["\<\
+OutgoingLightRays \\u2014 vertices on the boundary of the forward light cone \
+(null geodesics)\
+\>", "Item",ExpressionUUID->"0196cb71-9d19-4e12-ae4d-d471acb44c6d"],
+
+Cell["\<\
+IncomingLightRays \\u2014 vertices on the boundary of the backward light cone\
+\
+\>", "Item",ExpressionUUID->"b7110375-d3fa-47b0-9872-6e15d5724859"],
+
+Cell["Visualization", "Section",ExpressionUUID->"8136b2a1-2d47-4bc3-8555-164d5c9aeffa"],
+
+Cell["\<\
+VisualizeLightRays \\u2014 interactive DynamicModule: click a vertex to see \
+its outgoing and incoming light rays\
+\>", "Item",ExpressionUUID->"3aa03d61-d4a3-4187-95c1-6a27c8c507c3"]
+},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0826f7b0-d471-48ea-a051-d25c9960e2e8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 86, 0, 70, "Title",ExpressionUUID->"d5c238a8-039c-45ba-8e81-c6c2bea7fd12"],
+Cell[643, 22, 276, 4, 70, "Text",ExpressionUUID->"0986ffcf-382c-43fb-9929-01c0d9fc58fd"],
+Cell[922, 28, 89, 0, 70, "Section",ExpressionUUID->"f29bd72a-889d-4c54-a950-f38233e67e93"],
+Cell[1014, 30, 145, 2, 70, "Item",ExpressionUUID->"6fa42d8e-5d7c-406b-b392-123193b44104"],
+Cell[1162, 34, 141, 2, 70, "Item",ExpressionUUID->"05c407ae-3780-49b5-a13c-38296b5a6948"],
+Cell[1306, 38, 167, 3, 70, "Item",ExpressionUUID->"5047e9c9-0a3f-4225-b214-afff7a1e79ad"],
+Cell[1476, 43, 187, 3, 70, "Item",ExpressionUUID->"68c7fda8-c42f-4a00-a5c9-96a4949cfb75"],
+Cell[1666, 48, 106, 0, 70, "Section",ExpressionUUID->"31deb94e-2567-447e-9402-5afab688fcd8"],
+Cell[1775, 50, 161, 3, 70, "Item",ExpressionUUID->"f31e264c-40c0-496a-bd9f-fbf5319a228b"],
+Cell[1939, 55, 160, 3, 70, "Item",ExpressionUUID->"cd5a1b43-a345-4671-b6f0-4ab98ee36908"],
+Cell[2102, 60, 169, 3, 70, "Item",ExpressionUUID->"8db6abcd-968e-4f80-8723-6ea81f2ce8ac"],
+Cell[2274, 65, 162, 3, 70, "Item",ExpressionUUID->"8e6226c5-421b-417d-887a-c826362d504a"],
+Cell[2439, 70, 100, 0, 70, "Section",ExpressionUUID->"b68818bf-2a90-4d03-ae65-a0760309c9a1"],
+Cell[2542, 72, 178, 3, 70, "Item",ExpressionUUID->"61daffb8-2f13-4618-850f-016f55bd22f6"],
+Cell[2723, 77, 145, 2, 70, "Item",ExpressionUUID->"5c39d004-c850-4841-98d4-1e4ca82c65ac"],
+Cell[2871, 81, 185, 3, 70, "Item",ExpressionUUID->"34a0e0f9-8bd5-4619-a282-ba1f9623c52f"],
+Cell[3059, 86, 84, 0, 70, "Section",ExpressionUUID->"e66deb9b-4ce1-4a3e-b028-3a98576ddae3"],
+Cell[3146, 88, 174, 3, 70, "Item",ExpressionUUID->"0196cb71-9d19-4e12-ae4d-d471acb44c6d"],
+Cell[3323, 93, 158, 3, 70, "Item",ExpressionUUID->"b7110375-d3fa-47b0-9872-6e15d5724859"],
+Cell[3484, 98, 87, 0, 70, "Section",ExpressionUUID->"8136b2a1-2d47-4bc3-8555-164d5c9aeffa"],
+Cell[3574, 100, 193, 3, 70, "Item",ExpressionUUID->"3aa03d61-d4a3-4187-95c1-6a27c8c507c3"]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,4 +1,4 @@
-(* ::Package:: *)
+Package["WolframInstitute`InfraCausality`"]
 
 (* ========================= Light Cones ========================= *)
 
