@@ -99,8 +99,11 @@ separatedScore[ pairwiseDistances_List, target_ ] :=
 
 PackageScope[ tipToChainDistance ]
 tipToChainDistance[ lpDistMat_List, vertexIdx_Association, tip_, chain_List ] :=
-  With[ { distances = Select[ -lpDistMat[[ vertexIdx[ # ], vertexIdx[ tip ] ]] & /@ chain, # > 0 & ] },
-    If[ distances === {}, Infinity, Min[ distances ] ]
+  If[ MemberQ[ chain, tip ],
+    0,
+    With[ { distances = Select[ -lpDistMat[[ vertexIdx[ # ], vertexIdx[ tip ] ]] & /@ chain, # > 0 & ] },
+      If[ distances === {}, Infinity, Min[ distances ] ]
+    ]
   ]
 
 PackageScope[ scoreTuple ]

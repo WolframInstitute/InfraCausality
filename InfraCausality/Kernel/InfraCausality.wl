@@ -20,6 +20,9 @@ PackageExport[IncomingLightRays]
 (* LightRaysVisualization.wl *)
 PackageExport[VisualizeLightRays]
 
+(* FoliationVisualization.wl *)
+PackageExport[VisualizeFoliatedCausalGraph]
+
 (* EPS.wl *)
 PackageExport[MultiMessageFunction]
 PackageExport[FindMessageFunction]
