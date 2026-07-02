@@ -1,12 +1,20 @@
-# InfraCausality
+# ⏳ InfraCausality
 
 > ⚠️ **Actively developed, experimental research code.** It undergoes frequent cleanings and refactors, and the API may change without notice.
 
-Causal structure and special relativity on finite directed graphs.
+Minimal model of special relativity on oriented graphs and hypergraphs.
 
-Develops minimal models of special relativity notions on directed graphs, including Bondi k-calculus, EPS (Ehlers-Pirani-Schild) axioms, and Knuth-style kinematics.
+## 🎯 Goals
 
-## Install
+- observers related by transformations
+- inertial observers and the Unruh effect
+- observer's time and Lorentz transformations
+- event horizons, black holes, and white holes
+- functions and tests for the EPS (Ehlers-Pirani-Schild) axioms
+- mass, energy, and momentum from Knuth's dynamics
+- visualizations and interactive constructions for Minkowski geometry and Bondi k-calculus
+
+## ✨ Usage
 
 Install from the Wolfram Cloud:
 
@@ -15,16 +23,8 @@ PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/InfraCausality.pacle
 Needs["WolframInstitute`InfraCausality`"]
 ```
 
-## Quick Start
+Explore the paclet in the **[LLM-generated presentation notebook](https://www.wolframcloud.com/obj/hajek_pavel/InfraCausality/Presentation.nb)** (runs on the Wolfram Cloud).
 
-```wolfram
-Needs["WolframInstitute`InfraCausality`"]
-
-graph = RandomConnectedDAG[{20, 40}, GraphLayout -> "LayeredDigraphEmbedding"];
-chains = FindChain[graph, 2, "Method" -> "Diverse"];
-MultiMessageFunction[graph, chains[[1]], chains[[2]]]
-```
-
-## License
+## ⚖️ License
 
 MIT
