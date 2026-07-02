@@ -6,24 +6,41 @@ PackageExport[GetSinks]
 PackageExport[RandomCausalGraph]
 PackageExport[FindChain]
 
-(* LightRays.wl *)
+(* InfraObjects.wl *)
+PackageExport[InfraChain]
+PackageExport[InfraLightRay]
+PackageExport[InfraLightCone]
+PackageExport[InfraCausalInterval]
+PackageExport[InfraEvent]
+PackageExport[InfraChainQ]
+PackageExport[InfraLightRayQ]
+PackageExport[InfraLightConeQ]
+PackageExport[InfraCausalIntervalQ]
+PackageExport[InfraEventQ]
+
+(* RelativisticMechanics.wl *)
 PackageExport[ForwardLightCone]
 PackageExport[BackwardLightCone]
 PackageExport[CausalInterval]
 PackageExport[ChainCausalInterval]
-PackageExport[LongestPathFoliation]
-PackageExport[ProperTime]
-PackageExport[MostAbsorbers]
+PackageExport[UniversalFoliation]
+PackageExport[UniversalTime]
+PackageExport[MaximalAbsorber]
+PackageExport[MaximalEmitter]
 PackageExport[OutgoingLightRays]
 PackageExport[IncomingLightRays]
 
-(* LightRaysVisualization.wl *)
-PackageExport[VisualizeLightRays]
+(* RelativisticDynamics.wl *)
+PackageExport[ChainProjection]
+PackageExport[ChainLightReach]
+PackageExport[InfraEnergy]
+PackageExport[InfraMomentum]
+PackageExport[InfraMass]
+PackageExport[InfraInterval]
+PackageExport[InfraVelocity]
+PackageExport[InfraKinematics]
 
-(* FoliationVisualization.wl *)
-PackageExport[VisualizeFoliatedCausalGraph]
-
-(* EPS.wl *)
+(* EPSAxiomatics.wl *)
 PackageExport[MultiMessageFunction]
 PackageExport[FindMessageFunction]
 PackageExport[MultiEchoFunction]
@@ -31,19 +48,11 @@ PackageExport[FindEchoFunction]
 PackageExport[EchoGraph]
 PackageExport[MonotoneQ]
 
-(* EPSVisualization.wl *)
+(* Visualization.wl *)
+PackageExport[VisualizeLightRays]
+PackageExport[VisualizeFoliatedCausalGraph]
 PackageExport[VisualizeMessageFunction]
 PackageExport[VisualizeEchoFunction]
-
-(* KnuthKinematics.wl *)
-PackageExport[ChainProjection]
-PackageExport[ChainLightReach]
-PackageExport[KnuthEnergy]
-PackageExport[KnuthMomentum]
-PackageExport[KnuthMass]
-PackageExport[KnuthInterval]
-PackageExport[KnuthVelocity]
-PackageExport[KnuthKinematics]
 
 (* BondiKCalculus.wl *)
 PackageExport[KFactor]

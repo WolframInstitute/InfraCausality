@@ -1,5 +1,17 @@
 Package["WolframInstitute`InfraCausality`"]
 
+
+(* Bondi k-calculus on the Euclidean (s, phi)-plane: two straight worldlines
+   from a common origin with light zigzags at fixed angle phi.  The k-factor
+   k(v) = Sqrt[(1 + v) / (1 - v)] is the radar Doppler ratio; the per-segment
+   ratios kOut = Sin[phi] / Sin[phi - alpha] and kIn = Sin[phi + alpha] / Sin[phi]
+   satisfy kOut * kIn = k^2.
+
+   References:
+     Bondi, Relativity and Common Sense (Doubleday, 1964; Dover, 1980).
+     Penrose, The Road to Reality, Ch. 18 (Knopf, 2004).                       *)
+
+
 (* ========================= Algebraic Primitives ========================= *)
 
 KFactor::usage =

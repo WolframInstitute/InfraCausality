@@ -1,52 +1,52 @@
-BeginTestSection["KnuthKinematics"]
+BeginTestSection["RelativisticDynamics"]
 
 (* ========================= Algebraic primitives ========================= *)
 
 VerificationTest[
-  KnuthEnergy[ 1, 0 ],
+  InfraEnergy[ 1, 0 ],
   1/2,
-  TestID -> "KnuthEnergy-basic"
+  TestID -> "InfraEnergy-basic"
 ]
 
 VerificationTest[
-  KnuthMomentum[ 1, 0 ],
+  InfraMomentum[ 1, 0 ],
   1/2,
-  TestID -> "KnuthMomentum-basic"
+  TestID -> "InfraMomentum-basic"
 ]
 
 VerificationTest[
-  KnuthInterval[ 2, 3 ],
+  InfraInterval[ 2, 3 ],
   6,
-  TestID -> "KnuthInterval-basic"
+  TestID -> "InfraInterval-basic"
 ]
 
 VerificationTest[
-  KnuthMass[ 4, 9 ],
+  InfraMass[ 4, 9 ],
   6,
-  TestID -> "KnuthMass-positive"
+  TestID -> "InfraMass-positive"
 ]
 
 VerificationTest[
-  KnuthMass[ -4, 9 ],
+  InfraMass[ -4, 9 ],
   6,
-  TestID -> "KnuthMass-uses-abs"
+  TestID -> "InfraMass-uses-abs"
 ]
 
 VerificationTest[
-  KnuthVelocity[ 3, 1 ],
+  InfraVelocity[ 3, 1 ],
   1/2,
-  TestID -> "KnuthVelocity-basic"
+  TestID -> "InfraVelocity-basic"
 ]
 
 VerificationTest[
-  KnuthVelocity[ p, p ],
+  InfraVelocity[ p, p ],
   0,
-  TestID -> "KnuthVelocity-equal-projections-zero"
+  TestID -> "InfraVelocity-equal-projections-zero"
 ]
 
 (* ========================= ChainProjection ========================= *)
 
-$knuthGraph = Graph[
+$dynGraph = Graph[
   { 1 -> 2, 2 -> 3, 3 -> 4,
     5 -> 6, 6 -> 7, 7 -> 8,
     1 -> 6, 2 -> 7, 3 -> 8,
@@ -58,27 +58,27 @@ $refChain = { 1, 2, 3, 4 };
 $targetChain = { 5, 6, 7, 8 };
 
 VerificationTest[
-  NumericQ @ N @ ChainProjection[ $knuthGraph, $refChain, $targetChain ],
+  NumericQ @ N @ ChainProjection[ $dynGraph, $refChain, $targetChain ],
   True,
   TestID -> "ChainProjection-default-numeric"
 ]
 
 VerificationTest[
-  ChainProjection[ $knuthGraph, $refChain, $targetChain, "Method" -> "Cone" ] ===
-    ChainProjection[ $knuthGraph, $refChain, $targetChain ],
+  ChainProjection[ $dynGraph, $refChain, $targetChain, "Method" -> "Cone" ] ===
+    ChainProjection[ $dynGraph, $refChain, $targetChain ],
   True,
   TestID -> "ChainProjection-method-cone-matches-default"
 ]
 
 VerificationTest[
-  NumericQ @ N @ ChainProjection[ $knuthGraph, $refChain, $targetChain, "Method" -> "LightRays" ],
+  NumericQ @ N @ ChainProjection[ $dynGraph, $refChain, $targetChain, "Method" -> "LightRays" ],
   True,
   TestID -> "ChainProjection-method-lightrays-numeric"
 ]
 
 VerificationTest[
-  ChainProjection[ $knuthGraph, $refChain, $targetChain, "Method" -> "LightRays" ] <=
-    ChainProjection[ $knuthGraph, $refChain, $targetChain, "Method" -> "Cone" ],
+  ChainProjection[ $dynGraph, $refChain, $targetChain, "Method" -> "LightRays" ] <=
+    ChainProjection[ $dynGraph, $refChain, $targetChain, "Method" -> "Cone" ],
   True,
   TestID -> "ChainProjection-lightrays-subset-of-cone"
 ]
@@ -86,43 +86,43 @@ VerificationTest[
 (* ========================= ChainLightReach ========================= *)
 
 VerificationTest[
-  ListQ @ ChainLightReach[ $knuthGraph, $refChain ],
+  ListQ @ ChainLightReach[ $dynGraph, $refChain ],
   True,
   TestID -> "ChainLightReach-returns-list"
 ]
 
 VerificationTest[
-  SubsetQ[ VertexList[ $knuthGraph ], ChainLightReach[ $knuthGraph, $refChain ] ],
+  SubsetQ[ VertexList[ $dynGraph ], ChainLightReach[ $dynGraph, $refChain ] ],
   True,
   TestID -> "ChainLightReach-in-graph"
 ]
 
-(* ========================= KnuthKinematics full pipeline ========================= *)
+(* ========================= InfraKinematics full pipeline ========================= *)
 
-$kin = KnuthKinematics[ $knuthGraph, $refChain, { $targetChain, { 5, 6, 7 } }, "Method" -> "Cone" ];
+$kin = InfraKinematics[ $dynGraph, $refChain, { $targetChain, { 5, 6, 7 } }, "Method" -> "Cone" ];
 
 VerificationTest[
   Head @ $kin,
   Association,
-  TestID -> "KnuthKinematics-returns-association"
+  TestID -> "InfraKinematics-returns-association"
 ]
 
 VerificationTest[
   Sort @ Keys @ $kin,
   Sort @ { "Projections", "Energy", "Momentum", "Mass", "GeometricMass", "Interval", "Velocity" },
-  TestID -> "KnuthKinematics-has-expected-keys"
+  TestID -> "InfraKinematics-has-expected-keys"
 ]
 
 VerificationTest[
   Length @ $kin[ "Projections" ],
   2,
-  TestID -> "KnuthKinematics-projections-per-target"
+  TestID -> "InfraKinematics-projections-per-target"
 ]
 
 VerificationTest[
-  Head @ KnuthKinematics[ $knuthGraph, $refChain, { $targetChain, { 5, 6, 7 } }, "Method" -> "LightRays" ],
+  Head @ InfraKinematics[ $dynGraph, $refChain, { $targetChain, { 5, 6, 7 } }, "Method" -> "LightRays" ],
   Association,
-  TestID -> "KnuthKinematics-lightrays-method-runs"
+  TestID -> "InfraKinematics-lightrays-method-runs"
 ]
 
 (* ========================= Larger random graph ========================= *)
@@ -132,13 +132,13 @@ VerificationTest[
   Quiet @ With[ { g = RandomCausalGraph[ { 25, 50 } ] },
     With[ { chains = FindChain[ g, 3, "Method" -> "Separated" ] },
       If[ Length[ chains ] >= 2,
-        Head @ KnuthKinematics[ g, First @ chains, Rest @ chains, "Method" -> "LightRays" ],
+        Head @ InfraKinematics[ g, First @ chains, Rest @ chains, "Method" -> "LightRays" ],
         Association
       ]
     ]
   ],
   Association,
-  TestID -> "KnuthKinematics-random-graph-smoke"
+  TestID -> "InfraKinematics-random-graph-smoke"
 ]
 
 EndTestSection[]
