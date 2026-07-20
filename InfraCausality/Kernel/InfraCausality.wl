@@ -1,5 +1,9 @@
 Package["WolframInstitute`InfraCausality`"]
 
+(* Colors.wl *)
+PackageExport[$CausalColors]
+PackageExport[CausalGraphStyle]
+
 (* Tools.wl *)
 PackageExport[GetSources]
 PackageExport[GetSinks]
