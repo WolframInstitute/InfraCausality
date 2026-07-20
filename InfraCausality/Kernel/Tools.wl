@@ -2,7 +2,7 @@ Package["WolframInstitute`InfraCausality`"]
 
 
 (* Generic graph utilities: source/sink extraction, random causal graphs,
-   path metrics, and chain finding (longest or maximally separated).         *)
+   and chain finding (longest or maximally separated).                       *)
 
 
 (* =========================== Sources & sinks =========================== *)
@@ -41,68 +41,7 @@ RandomCausalGraph[ spec_, opt : OptionsPattern[ Graph ] ] :=
   ]
 
 
-(* =========================== Path-set distances =========================== *)
-
-(* Hausdorff distance: max_{x in X} min_{y in Y} d(x, y), symmetrised. *)
-
-PackageScope[ HausdorffDistance ]
-HausdorffDistance[ d_List, setX_, setY_ ] :=
-  With[ { distSubMatrix = d[[ setX, setY ]] },
-    Max[ Max[ Min /@ distSubMatrix ], Max[ Min /@ Transpose @ distSubMatrix ] ]
-  ]
-
-HausdorffDistance[ g_Graph, setX_List, setY_List ] :=
-  With[ { distSubMatrix = Outer[ GraphDistance[ g, #1, #2 ] &, setX, setY, 1 ] },
-    Max[ Max[ Min /@ distSubMatrix ], Max[ Min /@ Transpose @ distSubMatrix ] ]
-  ]
-
-
-(* Frechet distance with reducer f (default Max), evaluated on the diagonal of
-   the pairwise-distance matrix.                                              *)
-
-PackageScope[ FrechetDistance ]
-FrechetDistance[ d_List, setX_, setY_, f_ : Max ] :=
-  f @ Diagonal @ d[[ setX, setY ]]
-
-FrechetDistance[ g_Graph, setX_List, setY_List, f_ : Max ] :=
-  f @ Diagonal @ Outer[ GraphDistance[ g, #1, #2 ] &, setX, setY, 1 ]
-
-
-(* Separation: minimum pairwise distance between two vertex sets. *)
-
-PackageScope[ Separation ]
-Separation[ d_List, setX_, setY_ ] :=
-  Min @ d[[ setX, setY ]]
-
-Separation[ g_Graph, setX_List, setY_List ] :=
-  Min @ Outer[ GraphDistance[ g, #1, #2 ] &, setX, setY, 1 ]
-
-
 (* =========================== Internal scoring helpers =========================== *)
-
-(* CentralElement: indices sorted by eccentricity (ascending). *)
-
-PackageScope[ CentralElement ]
-CentralElement[ distanceMatrix_List ] :=
-  SortBy[ Range @ Length @ distanceMatrix, Max[ distanceMatrix[[ # ]] ] & ]
-
-
-(* DiverseElement: greedy farthest-point sampling of n indices. *)
-
-PackageScope[ DiverseElement ]
-DiverseElement[ distanceMatrix_List, n_ ] :=
-  Module[ { selected, remaining, best },
-    selected  = { First @ CentralElement @ distanceMatrix };
-    remaining = Complement[ Range @ Length @ distanceMatrix, selected ];
-    Do[
-      best      = First @ MaximalBy[ remaining, idx |-> Min[ distanceMatrix[[ idx, selected ]] ] ];
-      AppendTo[ selected, best ];
-      remaining = DeleteCases[ remaining, best ],
-      { Min[ n, Length @ distanceMatrix ] - 1 }
-    ];
-    selected
-  ]
-
 
 (* separatedScore[ds, target]: score a list of pairwise tip distances against
    a target separation. Infinity asks for the {min, max} pair, a number asks
