@@ -3,7 +3,7 @@ PacletObject[
     "Name" -> "WolframInstitute/InfraCausality",
     "Description" -> "Causal structure and special relativity on finite directed graphs",
     "Creator" -> "Pavel Hajek",
-    "Version" -> "1.1.1",
+    "Version" -> "1.2.0",
     "WolframVersion" -> "14.3+",
     "PublisherID" -> "WolframInstitute",
     "License" -> "MIT",
