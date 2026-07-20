@@ -1,0 +1,398 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     17430,        389]
+NotebookOptionsPosition[     12040,        307]
+NotebookOutlinePosition[     12498,        323]
+CellTagsIndexPosition[     12455,        320]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Bondi k-Calculus", "GuideTitle",ExpressionUUID->"571c8bcf-cefe-475f-8da1-c2b8b7e97158"],
+
+Cell["\<\
+Bondi k-calculus as Euclidean geometry: two straight worldlines from a common \
+origin with light zigzagging at a fixed angle phi; the k-factor emerges as an \
+arc-length ratio and proper time is logarithmic in arc-length.\
+\>", "GuideAbstract",ExpressionUUID->"37c084d9-cb84-41af-8f43-7e8404e31c6f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",ExpressionUUID->"6af95cd5-39d2-4e18-a365-221dcf00469f"],
+
+Cell[CellGroupData[{
+
+Cell["k-factor algebra", "GuideFunctionsSubsection",ExpressionUUID->"3464cbdf-c014-43f3-9086-bbc81f65dc8f"],
+
+Cell[TextData[{
+ Cell[BoxData["KFactor"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "be04a526-ec0b-4068-b906-e78db508e570"],
+ " \[LongDash] Bondi k-factor Sqrt[(1+v)/(1-v)]; angular form KFactor[v, \
+phi]"
+}], "GuideText",ExpressionUUID->"38f8ef98-f23e-49df-8603-b06cf734c9be"],
+
+Cell[TextData[{
+ Cell[BoxData["VelocityFromK"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "905804cf-fa69-42a3-b3ac-5c6b04a06db0"],
+ " \[LongDash] (k^2 - 1)/(k^2 + 1)"
+}], "GuideText",ExpressionUUID->"0eab6b83-5db8-4958-9277-fbeb0aae8b87"],
+
+Cell[TextData[{
+ Cell[BoxData["Rapidity"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2f1d1a69-ceb2-494d-8f1e-ee386c64acde"],
+ " \[LongDash] ArcTanh[v]"
+}], "GuideText",ExpressionUUID->"5d0651f7-87f6-4dbc-82e8-226d47e76bbd"],
+
+Cell[TextData[{
+ Cell[BoxData["RapidityFromK"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "7f517097-79c9-4c52-8c31-4cd415971670"],
+ " \[LongDash] Log[k]"
+}], "GuideText",ExpressionUUID->"03733c94-15f6-4708-84da-b4b9bb21b7e9"],
+
+Cell[TextData[{
+ Cell[BoxData["LorentzGamma"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "32c17c33-a6e6-406b-a733-bcf46ba3430f"],
+ " \[LongDash] (k + 1/k)/2"
+}], "GuideText",ExpressionUUID->"11fd2bd7-9e44-4811-9a4c-cfbd7327131d"],
+
+Cell[TextData[{
+ Cell[BoxData["OutgoingRatio"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "964c6cec-853c-4a51-8137-664f2a1d2e2f"],
+ " \[LongDash] arc-length ratio from Alice's emission to Bob's reception"
+}], "GuideText",ExpressionUUID->"e784ede1-c481-42c5-abf5-6fb2f60beb8e"],
+
+Cell[TextData[{
+ Cell[BoxData["IncomingRatio"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "b6769f7a-3ca0-4474-b4bb-65c4f5488a61"],
+ " \[LongDash] arc-length ratio from Bob's emission to Alice's reception"
+}], "GuideText",ExpressionUUID->"734d0ec5-9d23-4e3b-bcd9-ec4c6348831c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Worldline geometry", "GuideFunctionsSubsection",ExpressionUUID->"11bf86a0-ae16-41db-8a6c-0bda6af5685d"],
+
+Cell[TextData[{
+ Cell[BoxData["WorldlineAngle"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ac05f933-4682-493c-9cc4-926d68dc6da0"],
+ " \[LongDash] Euclidean angle of Bob's worldline against Alice's"
+}], "GuideText",ExpressionUUID->"17a65d10-0bb6-4eed-921f-e0190e201a87"],
+
+Cell[TextData[{
+ Cell[BoxData["WorldlineDirection"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3ab4d4f2-32fb-4666-9ca5-b9696f4b594c"],
+ " \[LongDash] unit direction of Bob's worldline"
+}], "GuideText",ExpressionUUID->"68710280-81b1-4f14-abd7-74216e2b4031"],
+
+Cell[TextData[{
+ Cell[BoxData["WorldlineNormal"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "6b3ebf93-795c-4aeb-b052-996779369b0f"],
+ " \[LongDash] in-plane normal to Bob's worldline"
+}], "GuideText",ExpressionUUID->"6948fbcf-4522-4c5d-89f9-58aafc688a6b"],
+
+Cell[TextData[{
+ Cell[BoxData["WorldlinePoint"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "49ffd78e-214d-4986-b1d0-a4831cbb7130"],
+ " \[LongDash] point on Bob's worldline at arc-length s"
+}], "GuideText",ExpressionUUID->"79b17ad5-da6e-4e45-95e6-d4d2f1f4f53a"],
+
+Cell[TextData[{
+ Cell[BoxData["WorldlinePointAtProperTime"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "9f65ecf2-6ce8-400e-82e1-9fd36d85f4be"],
+ " \[LongDash] point on Bob's worldline at proper time tau"
+}], "GuideText",ExpressionUUID->"f1b9a13f-ae47-4f88-91a2-bb60b27cf686"],
+
+Cell[TextData[{
+ Cell[BoxData["ProperTimeScale"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "baf3e298-83aa-4516-8bfe-32e37bac3012"],
+ " \[LongDash] ratio of proper time to Euclidean arc-length on Bob's worldline"
+}], "GuideText",ExpressionUUID->"50d528f3-3a39-439e-a54d-401a12f31843"],
+
+Cell[TextData[{
+ Cell[BoxData["SimultaneityLine"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "b397f12c-4348-4410-8830-e3b647c138ce"],
+ " \[LongDash] Bob's simultaneity line at arc-length s"
+}], "GuideText",ExpressionUUID->"1f1acd4b-cf4d-44d2-9a6c-5441d82c1289"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Light rays and radar", "GuideFunctionsSubsection",ExpressionUUID->"b423ab45-36af-499a-9a7b-0290d6da7d35"],
+
+Cell[TextData[{
+ Cell[BoxData["LightDirection"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "e60f862b-9dd1-4ed7-bb1f-ab054321d760"],
+ " \[LongDash] unit vector of a light ray at angle phi to the vertical"
+}], "GuideText",ExpressionUUID->"bb8bf90c-7ce5-4118-8053-d1f8b067adbe"],
+
+Cell[TextData[{
+ Cell[BoxData["LightZigzag"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0d1217d2-0fa9-4333-9bdb-0c4bdfaa0591"],
+ " \[LongDash] n reflection events of light bouncing between Alice and Bob"
+}], "GuideText",ExpressionUUID->"32ac6e22-e8cf-458a-a05e-ca411c37d135"],
+
+Cell[TextData[{
+ Cell[BoxData["RadarCoordinatesFromAlice"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "039d8305-51bd-4495-90ff-75e91567a3ca"],
+ " \[LongDash] Alice's radar time and distance for a point event"
+}], "GuideText",ExpressionUUID->"ae9a7b35-f789-4f06-88a9-ad6f63118638"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Constructions", "GuideFunctionsSubsection",ExpressionUUID->"f9e27c02-de0a-40d7-8949-64af874dad74"],
+
+Cell[TextData[{
+ Cell[BoxData["BondiClock"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "1b3d0ff6-c808-436d-9116-05ada052cf19"],
+ " \[LongDash] worldlines with a light signal bouncing n times; ticks show \
+proper time"
+}], "GuideText",ExpressionUUID->"ea13172c-8124-4eba-b219-c1fb26aea435"],
+
+Cell[TextData[{
+ Cell[BoxData["DopplerConstruction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "deccbd22-6734-4325-b672-0d907a998ad5"],
+ " \[LongDash] n light pulses from Alice to Bob showing the k-factor as pulse \
+spacing"
+}], "GuideText",ExpressionUUID->"b5f8ff0d-4f1b-49f7-b032-6975557757e3"],
+
+Cell[TextData[{
+ Cell[BoxData["TimeDilationConstruction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ede4a065-001a-472e-90f5-88954086b814"],
+ " \[LongDash] radar construction illustrating gamma = (k + 1/k)/2"
+}], "GuideText",ExpressionUUID->"d71e3112-708d-408d-9504-19a03ced6352"],
+
+Cell[TextData[{
+ Cell[BoxData["SimultaneityConstruction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ec00a7bb-6fe3-4323-a50a-bc1346bc5f8b"],
+ " \[LongDash] overlaid simultaneity lines showing relativity of \
+simultaneity"
+}], "GuideText",ExpressionUUID->"5a954c7e-c8d8-461b-bce2-f0dd16fa5329"],
+
+Cell[TextData[{
+ Cell[BoxData["LengthContractionConstruction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "40eabd44-a6c4-4080-8fb8-bb515c9f11da"],
+ " \[LongDash] radar measurement of a moving rod yielding L/gamma"
+}], "GuideText",ExpressionUUID->"5915f39d-7ff0-493d-9d44-56d474a6d604"],
+
+Cell[TextData[{
+ Cell[BoxData["VelocityAdditionConstruction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2fa84533-8a44-4595-9870-3aa89459fdaf"],
+ " \[LongDash] three worldlines showing k-factor multiplication"
+}], "GuideText",ExpressionUUID->"553a8bf2-7282-4335-bff9-9f853b94e951"],
+
+Cell[TextData[{
+ Cell[BoxData["LightClockConstruction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "650c6401-db92-4abe-a808-b23e3ab3f99a"],
+ " \[LongDash] Bob's transverse light clock with n bounces"
+}], "GuideText",ExpressionUUID->"61d25c79-e696-478b-af1b-506216041b85"],
+
+Cell[TextData[{
+ Cell[BoxData["BondiExplorer"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ff906e21-9a21-415a-b203-d5cfb931f40f"],
+ " \[LongDash] interactive Manipulate over all seven constructions"
+}], "GuideText",ExpressionUUID->"0ebd7b38-0a32-4aba-85fe-903702fe0555"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",ExpressionUUID->"4b806025-c2f1-4079-b1a1-030679cbb313"],
+
+Cell[TextData[{
+ ButtonBox["InfraCausality",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/InfraCausality"],
+ " \[LongDash] index of the InfraCausality guides"
+}], "GuideMoreAbout",ExpressionUUID->"c848b154-57d1-4331-b213-c35a5b430526"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "GuideRelatedLinksSection",ExpressionUUID->"52ea03bf-4b57-41c6-ac4c-9de26da6d354"],
+
+Cell[TextData[ButtonBox["InfraCausality on GitHub",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://github.com/WolframInstitute/InfraCausality"], 
+   None}]], "GuideRelatedLinks",ExpressionUUID->"6bbb7e7c-196d-4919-bca5-\
+f00a5f29bf81"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",ExpressionUUID->"bc8e24e4-f41a-4e5d-b95f-9b5f5727140f"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["1.2.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"6cf1edfc-76c1-4d1b-accb-b9acfe390bd8"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"ea0e2eef-ae27-4ed1-877b-84baed6481d4"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "8d93c5ce-32ba-4bbf-b1a7-00d2ffd1ceb6"]
+}], "History",ExpressionUUID->"9eb5872c-2cc8-4383-a30d-da553b56d130"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"d97b302a-447a-4810-b75e-4de7585d3f83"],
+
+Cell["Guide", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"50b1f17a-d85b-46f3-a474-de7f1def4222"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"7fd3d619-e8d4-4990-b813-c98247b2a70d"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"d4ae4919-7395-4b2c-a656-77aafc05a5a3"],
+
+Cell["WolframInstitute/InfraCausality/guide/BondiKCalculus", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"97c663f3-f521-4050-aaeb-da848fe10575"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"ef57e530-ad8a-47cf-ba93-70a4e618d8da"],
+
+Cell["k-factor", "Keywords",ExpressionUUID->"a7076745-18ed-41c7-930f-93c80c3043b8"],
+
+Cell["Doppler", "Keywords",ExpressionUUID->"32894546-0b75-4641-beb7-5ebf36e7914a"],
+
+Cell["special relativity", "Keywords",ExpressionUUID->"6b6d9566-cee2-4bd9-994b-7a60ca72fe28"]
+}, Closed]]
+}, Open  ]]
+},
+TaggingRules-><|"Paclet" -> "WolframInstitute/InfraCausality"|>,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (May 19, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"25cab304-9f79-4f60-9191-0c45fbc5d672"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 93, 0, 70, "GuideTitle",ExpressionUUID->"571c8bcf-cefe-475f-8da1-c2b8b7e97158"],
+Cell[672, 24, 310, 4, 70, "GuideAbstract",ExpressionUUID->"37c084d9-cb84-41af-8f43-7e8404e31c6f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1019, 33, 88, 0, 70, "GuideFunctionsSection",ExpressionUUID->"6af95cd5-39d2-4e18-a365-221dcf00469f"],
+Cell[CellGroupData[{
+Cell[1132, 37, 107, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"3464cbdf-c014-43f3-9086-bbc81f65dc8f"],
+Cell[1242, 39, 320, 6, 70, "GuideText",ExpressionUUID->"38f8ef98-f23e-49df-8603-b06cf734c9be"],
+Cell[1565, 47, 281, 5, 70, "GuideText",ExpressionUUID->"0eab6b83-5db8-4958-9277-fbeb0aae8b87"],
+Cell[1849, 54, 267, 5, 70, "GuideText",ExpressionUUID->"5d0651f7-87f6-4dbc-82e8-226d47e76bbd"],
+Cell[2119, 61, 268, 5, 70, "GuideText",ExpressionUUID->"03733c94-15f6-4708-84da-b4b9bb21b7e9"],
+Cell[2390, 68, 272, 5, 70, "GuideText",ExpressionUUID->"11fd2bd7-9e44-4811-9a4c-cfbd7327131d"],
+Cell[2665, 75, 319, 5, 70, "GuideText",ExpressionUUID->"e784ede1-c481-42c5-abf5-6fb2f60beb8e"],
+Cell[2987, 82, 319, 5, 70, "GuideText",ExpressionUUID->"734d0ec5-9d23-4e3b-bcd9-ec4c6348831c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3343, 92, 109, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"11bf86a0-ae16-41db-8a6c-0bda6af5685d"],
+Cell[3455, 94, 313, 5, 70, "GuideText",ExpressionUUID->"17a65d10-0bb6-4eed-921f-e0190e201a87"],
+Cell[3771, 101, 300, 5, 70, "GuideText",ExpressionUUID->"68710280-81b1-4f14-abd7-74216e2b4031"],
+Cell[4074, 108, 298, 5, 70, "GuideText",ExpressionUUID->"6948fbcf-4522-4c5d-89f9-58aafc688a6b"],
+Cell[4375, 115, 303, 5, 70, "GuideText",ExpressionUUID->"79b17ad5-da6e-4e45-95e6-d4d2f1f4f53a"],
+Cell[4681, 122, 318, 5, 70, "GuideText",ExpressionUUID->"f1b9a13f-ae47-4f88-91a2-bb60b27cf686"],
+Cell[5002, 129, 327, 5, 70, "GuideText",ExpressionUUID->"50d528f3-3a39-439e-a54d-401a12f31843"],
+Cell[5332, 136, 304, 5, 70, "GuideText",ExpressionUUID->"1f1acd4b-cf4d-44d2-9a6c-5441d82c1289"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5673, 146, 111, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"b423ab45-36af-499a-9a7b-0290d6da7d35"],
+Cell[5787, 148, 318, 5, 70, "GuideText",ExpressionUUID->"bb8bf90c-7ce5-4118-8053-d1f8b067adbe"],
+Cell[6108, 155, 319, 5, 70, "GuideText",ExpressionUUID->"32ac6e22-e8cf-458a-a05e-ca411c37d135"],
+Cell[6430, 162, 323, 5, 70, "GuideText",ExpressionUUID->"ae9a7b35-f789-4f06-88a9-ad6f63118638"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6790, 172, 104, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"f9e27c02-de0a-40d7-8949-64af874dad74"],
+Cell[6897, 174, 332, 6, 70, "GuideText",ExpressionUUID->"ea13172c-8124-4eba-b219-c1fb26aea435"],
+Cell[7232, 182, 340, 6, 70, "GuideText",ExpressionUUID->"b5f8ff0d-4f1b-49f7-b032-6975557757e3"],
+Cell[7575, 190, 324, 5, 70, "GuideText",ExpressionUUID->"d71e3112-708d-408d-9504-19a03ced6352"],
+Cell[7902, 197, 337, 6, 70, "GuideText",ExpressionUUID->"5a954c7e-c8d8-461b-bce2-f0dd16fa5329"],
+Cell[8242, 205, 328, 5, 70, "GuideText",ExpressionUUID->"5915f39d-7ff0-493d-9d44-56d474a6d604"],
+Cell[8573, 212, 325, 5, 70, "GuideText",ExpressionUUID->"553a8bf2-7282-4335-bff9-9f853b94e951"],
+Cell[8901, 219, 314, 5, 70, "GuideText",ExpressionUUID->"61d25c79-e696-478b-af1b-506216041b85"],
+Cell[9218, 226, 313, 5, 70, "GuideText",ExpressionUUID->"0ebd7b38-0a32-4aba-85fe-903702fe0555"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9580, 237, 102, 0, 70, "GuideMoreAboutSection",ExpressionUUID->"4b806025-c2f1-4079-b1a1-030679cbb313"],
+Cell[9685, 239, 271, 5, 70, "GuideMoreAbout",ExpressionUUID->"c848b154-57d1-4331-b213-c35a5b430526"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9993, 249, 104, 0, 70, "GuideRelatedLinksSection",ExpressionUUID->"52ea03bf-4b57-41c6-ac4c-9de26da6d354"],
+Cell[10100, 251, 244, 5, 70, "GuideRelatedLinks",ExpressionUUID->"6bbb7e7c-196d-4919-bca5-f00a5f29bf81"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10381, 261, 90, 0, 70, "MetadataSection",ExpressionUUID->"bc8e24e4-f41a-4e5d-b95f-9b5f5727140f"],
+Cell[10474, 263, 459, 11, 70, "History",ExpressionUUID->"9eb5872c-2cc8-4383-a30d-da553b56d130"],
+Cell[CellGroupData[{
+Cell[10958, 278, 102, 0, 70, "CategorizationSection",ExpressionUUID->"d97b302a-447a-4810-b75e-4de7585d3f83"],
+Cell[11063, 280, 116, 2, 70, "Categorization",ExpressionUUID->"50b1f17a-d85b-46f3-a474-de7f1def4222"],
+Cell[11182, 284, 142, 2, 70, "Categorization",ExpressionUUID->"7fd3d619-e8d4-4990-b813-c98247b2a70d"],
+Cell[11327, 288, 136, 1, 70, "Categorization",ExpressionUUID->"d4ae4919-7395-4b2c-a656-77aafc05a5a3"],
+Cell[11466, 291, 152, 1, 70, "Categorization",ExpressionUUID->"97c663f3-f521-4050-aaeb-da848fe10575"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[11655, 297, 90, 0, 70, "KeywordsSection",ExpressionUUID->"ef57e530-ad8a-47cf-ba93-70a4e618d8da"],
+Cell[11748, 299, 83, 0, 70, "Keywords",ExpressionUUID->"a7076745-18ed-41c7-930f-93c80c3043b8"],
+Cell[11834, 301, 82, 0, 70, "Keywords",ExpressionUUID->"32894546-0b75-4641-beb7-5ebf36e7914a"],
+Cell[11919, 303, 93, 0, 70, "Keywords",ExpressionUUID->"6b6d9566-cee2-4bd9-994b-7a60ca72fe28"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

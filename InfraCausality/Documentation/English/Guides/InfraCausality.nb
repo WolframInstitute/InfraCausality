@@ -3,109 +3,153 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Wolfram 14.3' *)
+(* CreatedBy='Wolfram 15.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      5872,        137]
-NotebookOptionsPosition[      3771,        105]
-NotebookOutlinePosition[      4088,        119]
-CellTagsIndexPosition[      4045,        116]
+NotebookDataLength[      8196,        193]
+NotebookOptionsPosition[      5553,        147]
+NotebookOutlinePosition[      6011,        163]
+CellTagsIndexPosition[      5968,        160]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell["InfraCausality", "Title",ExpressionUUID->"d5c238a8-039c-45ba-8e81-c6c2bea7fd12"],
+
+Cell[CellGroupData[{
+Cell["InfraCausality", "GuideTitle",ExpressionUUID->"9b273d07-51c7-4ef1-8b26-3b1d7e51677c"],
 
 Cell["\<\
-Causal structure and special relativity on finite directed graphs (DAGs). \
-Implements light cones, proper time, light rays, chain finding, and \
-interactive visualization for discrete causal sets.\
-\>", "Text",ExpressionUUID->"0986ffcf-382c-43fb-9929-01c0d9fc58fd"],
+Causal structure and special relativity on finite metric spaces: events are \
+vertices, causal order is reachability, observers are chains, and light rays \
+are distinguished walks. Bondi k-calculus, the EPS axioms, and Knuth \
+kinematics are rebuilt combinatorially.\
+\>", "GuideAbstract",ExpressionUUID->"504d0cc7-cedc-4ae4-849e-1400cac56cba"]
+}, Open  ]],
 
-Cell["Graph Utilities", "Section",ExpressionUUID->"f29bd72a-889d-4c54-a950-f38233e67e93"],
+Cell[CellGroupData[{
 
-Cell["\<\
-GetSources \\u2014 vertices with no incoming edges (source events)\
-\>", "Item",ExpressionUUID->"6fa42d8e-5d7c-406b-b392-123193b44104"],
+Cell["Related Guides", "GuideMoreAboutSection",ExpressionUUID->"52c693bb-7157-4cd6-893d-0788e6a88de4"],
 
-Cell["\<\
-GetSinks \\u2014 vertices with no outgoing edges (sink events)\
-\>", "Item",ExpressionUUID->"05c407ae-3780-49b5-a13c-38296b5a6948"],
+Cell[TextData[{
+ ButtonBox["CausalGraphs",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/CausalGraphs"],
+ " \[LongDash] Causal graphs are finite directed acyclic graphs treated as \
+causal sets: events are vertices, causal order is reachability, and observers \
+are chains. This guide covers substrate generation, chain finding, the \
+multi-realisation Infra wrappers, and the causal colour palette."
+}], "GuideMoreAbout",ExpressionUUID->"2ace5925-9605-4982-a9aa-8021e24f36ac"],
 
-Cell["\<\
-RandomCausalGraph \\u2014 generate a random connected DAG with Wolfram \
-Physics styling\
-\>", "Item",ExpressionUUID->"5047e9c9-0a3f-4225-b214-afff7a1e79ad"],
+Cell[TextData[{
+ ButtonBox["LightConesAndUniversalTime",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:WolframInstitute/InfraCausality/guide/LightConesAndUniversalTime"],\
 
-Cell["\<\
-FindChain \\u2014 find longest or maximally separated directed paths \
-(methods: \"Longest\", \"Separated\")\
-\>", "Item",ExpressionUUID->"68c7fda8-c42f-4a00-a5c9-96a4949cfb75"],
+ " \[LongDash] Discrete light cones J+ and J-, causal intervals, the \
+universal foliation by longest chain length from the sources, extremal events \
+per slice, and combinatorial null geodesics."
+}], "GuideMoreAbout",ExpressionUUID->"1cafc941-1a1c-4fa0-b96a-5dadcc5a8830"],
 
-Cell["Light Cones and Causal Structure", "Section",ExpressionUUID->"31deb94e-2567-447e-9402-5afab688fcd8"],
+Cell[TextData[{
+ ButtonBox["KnuthKinematics",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:WolframInstitute/InfraCausality/guide/KnuthKinematics"],
+ " \[LongDash] Knuth-style combinatorial kinematics: two chain projections \
+play the role of light-cone coordinates p and q, and energy, momentum, mass, \
+interval, and velocity are their algebraic combinations."
+}], "GuideMoreAbout",ExpressionUUID->"3c7139d8-6d71-4532-b3f9-12fbcf63bc06"],
 
-Cell["\<\
-ForwardLightCone \\u2014 subgraph of all events causally reachable from a \
-vertex\
-\>", "Item",ExpressionUUID->"f31e264c-40c0-496a-bd9f-fbf5319a228b"],
+Cell[TextData[{
+ ButtonBox["EPSAxiomatics",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/EPSAxiomatics"],
+ " \[LongDash] Ehlers-Pirani-Schild axiomatics on graphs: message and echo \
+maps between worldlines built from outgoing light rays, with monotonicity \
+(axiom D1) encoding the chronological order."
+}], "GuideMoreAbout",ExpressionUUID->"75c1c2f4-2c08-4883-a568-de82144357dd"],
 
-Cell["\<\
-BackwardLightCone \\u2014 subgraph of all events in the causal past of a \
-vertex\
-\>", "Item",ExpressionUUID->"cd5a1b43-a345-4671-b6f0-4ab98ee36908"],
+Cell[TextData[{
+ ButtonBox["BondiKCalculus",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/BondiKCalculus"],
+ " \[LongDash] Bondi k-calculus as Euclidean geometry: two straight \
+worldlines from a common origin with light zigzagging at a fixed angle phi; \
+the k-factor emerges as an arc-length ratio and proper time is logarithmic in \
+arc-length."
+}], "GuideMoreAbout",ExpressionUUID->"0c933380-abfe-43b2-bbdb-283d1f3c8a9a"]
+}, Open  ]],
 
-Cell["\<\
-CausalInterval \\u2014 intersection of forward and backward light cones \
-(Alexandrov set)\
-\>", "Item",ExpressionUUID->"8db6abcd-968e-4f80-8723-6ea81f2ce8ac"],
+Cell[CellGroupData[{
 
-Cell["\<\
-ChainCausalInterval \\u2014 causal interval determined by a chain (directed \
-path)\
-\>", "Item",ExpressionUUID->"8e6226c5-421b-417d-887a-c826362d504a"],
+Cell["Related Links", "GuideRelatedLinksSection",ExpressionUUID->"643f1dc4-4656-4d23-b905-15fb152761ae"],
 
-Cell["Proper Time and Foliations", "Section",ExpressionUUID->"b68818bf-2a90-4d03-ae65-a0760309c9a1"],
+Cell[TextData[ButtonBox["InfraCausality on GitHub",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://github.com/WolframInstitute/InfraCausality"], 
+   None}]], "GuideRelatedLinks",ExpressionUUID->"207e6e6f-878c-4879-918f-\
+7cb80b559f8e"]
+}, Open  ]],
 
-Cell["\<\
-LongestPathFoliation \\u2014 partition vertices into layers by longest-path \
-distance from sources\
-\>", "Item",ExpressionUUID->"61daffb8-2f13-4618-850f-016f55bd22f6"],
+Cell[CellGroupData[{
 
-Cell["\<\
-ProperTime \\u2014 assign proper time coordinates from a foliation\
-\>", "Item",ExpressionUUID->"5c39d004-c850-4841-98d4-1e4ca82c65ac"],
+Cell["Metadata", "MetadataSection",ExpressionUUID->"dc91ff19-f7da-4b4f-9c3c-7a237412b417"],
 
-Cell["\<\
-MostAbsorbers \\u2014 select representative events at each proper time with \
-maximal backward light cones\
-\>", "Item",ExpressionUUID->"34a0e0f9-8bd5-4619-a282-ba1f9623c52f"],
+Cell[TextData[{
+ "New in: ",
+ Cell["1.2.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"ae384795-dc32-43e1-a69b-2c8f6c709503"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"1a14fc5a-d0d2-4c13-8636-902bc26a0e75"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "8719a19a-1c64-47de-8cd0-76842eebbf05"]
+}], "History",ExpressionUUID->"bca7a6f9-5bb6-4adf-9f92-bfb6c1019884"],
 
-Cell["Light Rays", "Section",ExpressionUUID->"e66deb9b-4ce1-4a3e-b028-3a98576ddae3"],
+Cell[CellGroupData[{
 
-Cell["\<\
-OutgoingLightRays \\u2014 vertices on the boundary of the forward light cone \
-(null geodesics)\
-\>", "Item",ExpressionUUID->"0196cb71-9d19-4e12-ae4d-d471acb44c6d"],
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"6787a337-77ad-4b3a-8966-87d45ca6cd91"],
 
-Cell["\<\
-IncomingLightRays \\u2014 vertices on the boundary of the backward light cone\
-\
-\>", "Item",ExpressionUUID->"b7110375-d3fa-47b0-9872-6e15d5724859"],
+Cell["Guide", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"0c6717d6-d31a-4adb-af56-90f42dcc949e"],
 
-Cell["Visualization", "Section",ExpressionUUID->"8136b2a1-2d47-4bc3-8555-164d5c9aeffa"],
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"93c65263-f052-423e-9891-3bfe635201e1"],
 
-Cell["\<\
-VisualizeLightRays \\u2014 interactive DynamicModule: click a vertex to see \
-its outgoing and incoming light rays\
-\>", "Item",ExpressionUUID->"3aa03d61-d4a3-4187-95c1-6a27c8c507c3"]
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"662f6f7b-d72b-41d6-bf3c-9bd74678d1f4"],
+
+Cell["WolframInstitute/InfraCausality/guide/InfraCausality", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"283907af-804a-45fe-8ad6-9f58acb0a64f"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"b77677ed-9b66-483b-825f-2278564a79c6"],
+
+Cell["causal set", "Keywords",ExpressionUUID->"9d6d02bb-8584-4637-af3d-e6c3eb6a87f6"],
+
+Cell["special relativity", "Keywords",ExpressionUUID->"47ac1ea5-722b-4369-83c7-600d3aa35894"],
+
+Cell["discrete spacetime", "Keywords",ExpressionUUID->"0bc53210-2bb4-4253-8b3f-4114c9bbbf6d"]
+}, Closed]]
+}, Open  ]]
 },
-FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
-StyleDefinitions->"Default.nb",
-ExpressionUUID->"0826f7b0-d471-48ea-a051-d25c9960e2e8"
+TaggingRules-><|"Paclet" -> "WolframInstitute/InfraCausality"|>,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (May 19, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"25cab304-9f79-4f60-9191-0c45fbc5d672"
 ]
 (* End of Notebook Content *)
 
@@ -118,27 +162,39 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[554, 20, 86, 0, 70, "Title",ExpressionUUID->"d5c238a8-039c-45ba-8e81-c6c2bea7fd12"],
-Cell[643, 22, 276, 4, 70, "Text",ExpressionUUID->"0986ffcf-382c-43fb-9929-01c0d9fc58fd"],
-Cell[922, 28, 89, 0, 70, "Section",ExpressionUUID->"f29bd72a-889d-4c54-a950-f38233e67e93"],
-Cell[1014, 30, 145, 2, 70, "Item",ExpressionUUID->"6fa42d8e-5d7c-406b-b392-123193b44104"],
-Cell[1162, 34, 141, 2, 70, "Item",ExpressionUUID->"05c407ae-3780-49b5-a13c-38296b5a6948"],
-Cell[1306, 38, 167, 3, 70, "Item",ExpressionUUID->"5047e9c9-0a3f-4225-b214-afff7a1e79ad"],
-Cell[1476, 43, 187, 3, 70, "Item",ExpressionUUID->"68c7fda8-c42f-4a00-a5c9-96a4949cfb75"],
-Cell[1666, 48, 106, 0, 70, "Section",ExpressionUUID->"31deb94e-2567-447e-9402-5afab688fcd8"],
-Cell[1775, 50, 161, 3, 70, "Item",ExpressionUUID->"f31e264c-40c0-496a-bd9f-fbf5319a228b"],
-Cell[1939, 55, 160, 3, 70, "Item",ExpressionUUID->"cd5a1b43-a345-4671-b6f0-4ab98ee36908"],
-Cell[2102, 60, 169, 3, 70, "Item",ExpressionUUID->"8db6abcd-968e-4f80-8723-6ea81f2ce8ac"],
-Cell[2274, 65, 162, 3, 70, "Item",ExpressionUUID->"8e6226c5-421b-417d-887a-c826362d504a"],
-Cell[2439, 70, 100, 0, 70, "Section",ExpressionUUID->"b68818bf-2a90-4d03-ae65-a0760309c9a1"],
-Cell[2542, 72, 178, 3, 70, "Item",ExpressionUUID->"61daffb8-2f13-4618-850f-016f55bd22f6"],
-Cell[2723, 77, 145, 2, 70, "Item",ExpressionUUID->"5c39d004-c850-4841-98d4-1e4ca82c65ac"],
-Cell[2871, 81, 185, 3, 70, "Item",ExpressionUUID->"34a0e0f9-8bd5-4619-a282-ba1f9623c52f"],
-Cell[3059, 86, 84, 0, 70, "Section",ExpressionUUID->"e66deb9b-4ce1-4a3e-b028-3a98576ddae3"],
-Cell[3146, 88, 174, 3, 70, "Item",ExpressionUUID->"0196cb71-9d19-4e12-ae4d-d471acb44c6d"],
-Cell[3323, 93, 158, 3, 70, "Item",ExpressionUUID->"b7110375-d3fa-47b0-9872-6e15d5724859"],
-Cell[3484, 98, 87, 0, 70, "Section",ExpressionUUID->"8136b2a1-2d47-4bc3-8555-164d5c9aeffa"],
-Cell[3574, 100, 193, 3, 70, "Item",ExpressionUUID->"3aa03d61-d4a3-4187-95c1-6a27c8c507c3"]
+Cell[CellGroupData[{
+Cell[576, 22, 91, 0, 70, "GuideTitle",ExpressionUUID->"9b273d07-51c7-4ef1-8b26-3b1d7e51677c"],
+Cell[670, 24, 355, 5, 70, "GuideAbstract",ExpressionUUID->"504d0cc7-cedc-4ae4-849e-1400cac56cba"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1062, 34, 102, 0, 70, "GuideMoreAboutSection",ExpressionUUID->"52c693bb-7157-4cd6-893d-0788e6a88de4"],
+Cell[1167, 36, 512, 8, 70, "GuideMoreAbout",ExpressionUUID->"2ace5925-9605-4982-a9aa-8021e24f36ac"],
+Cell[1682, 46, 447, 9, 70, "GuideMoreAbout",ExpressionUUID->"1cafc941-1a1c-4fa0-b96a-5dadcc5a8830"],
+Cell[2132, 57, 440, 8, 70, "GuideMoreAbout",ExpressionUUID->"3c7139d8-6d71-4532-b3f9-12fbcf63bc06"],
+Cell[2575, 67, 417, 7, 70, "GuideMoreAbout",ExpressionUUID->"75c1c2f4-2c08-4883-a568-de82144357dd"],
+Cell[2995, 76, 461, 8, 70, "GuideMoreAbout",ExpressionUUID->"0c933380-abfe-43b2-bbdb-283d1f3c8a9a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3493, 89, 104, 0, 70, "GuideRelatedLinksSection",ExpressionUUID->"643f1dc4-4656-4d23-b905-15fb152761ae"],
+Cell[3600, 91, 244, 5, 70, "GuideRelatedLinks",ExpressionUUID->"207e6e6f-878c-4879-918f-7cb80b559f8e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3881, 101, 90, 0, 70, "MetadataSection",ExpressionUUID->"dc91ff19-f7da-4b4f-9c3c-7a237412b417"],
+Cell[3974, 103, 459, 11, 70, "History",ExpressionUUID->"bca7a6f9-5bb6-4adf-9f92-bfb6c1019884"],
+Cell[CellGroupData[{
+Cell[4458, 118, 102, 0, 70, "CategorizationSection",ExpressionUUID->"6787a337-77ad-4b3a-8966-87d45ca6cd91"],
+Cell[4563, 120, 116, 2, 70, "Categorization",ExpressionUUID->"0c6717d6-d31a-4adb-af56-90f42dcc949e"],
+Cell[4682, 124, 142, 2, 70, "Categorization",ExpressionUUID->"93c65263-f052-423e-9891-3bfe635201e1"],
+Cell[4827, 128, 136, 1, 70, "Categorization",ExpressionUUID->"662f6f7b-d72b-41d6-bf3c-9bd74678d1f4"],
+Cell[4966, 131, 152, 1, 70, "Categorization",ExpressionUUID->"283907af-804a-45fe-8ad6-9f58acb0a64f"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5155, 137, 90, 0, 70, "KeywordsSection",ExpressionUUID->"b77677ed-9b66-483b-825f-2278564a79c6"],
+Cell[5248, 139, 85, 0, 70, "Keywords",ExpressionUUID->"9d6d02bb-8584-4637-af3d-e6c3eb6a87f6"],
+Cell[5336, 141, 93, 0, 70, "Keywords",ExpressionUUID->"47ac1ea5-722b-4369-83c7-600d3aa35894"],
+Cell[5432, 143, 93, 0, 70, "Keywords",ExpressionUUID->"0bc53210-2bb4-4253-8b3f-4114c9bbbf6d"]
+}, Closed]]
+}, Open  ]]
 }
 ]
 *)

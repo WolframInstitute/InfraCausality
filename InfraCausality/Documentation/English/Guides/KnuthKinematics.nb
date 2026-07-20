@@ -1,0 +1,252 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     10014,        243]
+NotebookOptionsPosition[      6433,        181]
+NotebookOutlinePosition[      6891,        197]
+CellTagsIndexPosition[      6848,        194]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Knuth Kinematics", "GuideTitle",ExpressionUUID->"1b2cfc2e-c42b-429e-bd18-a87c359d2f11"],
+
+Cell["\<\
+Knuth-style combinatorial kinematics: two chain projections play the role of \
+light-cone coordinates p and q, and energy, momentum, mass, interval, and \
+velocity are their algebraic combinations.\
+\>", "GuideAbstract",ExpressionUUID->"4e442ab1-067c-4aa8-a49c-44248abcb635"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",ExpressionUUID->"88bdc5d2-d829-429c-8f8d-bccc288a5754"],
+
+Cell[CellGroupData[{
+
+Cell["Chain projections", "GuideFunctionsSubsection",ExpressionUUID->"125a7496-07a0-49e7-9684-38c97e74a92d"],
+
+Cell[TextData[{
+ Cell[BoxData["ChainProjection"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "28608f5f-d406-443c-8200-e9b3b4557d55"],
+ " \[LongDash] fraction of source events whose forward reach lands in the \
+target chain"
+}], "GuideText",ExpressionUUID->"1b9e3bf3-1369-4653-bd3b-1a1704bdd95d"],
+
+Cell[TextData[{
+ Cell[BoxData["ChainLightReach"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "1ae16c83-216e-463d-b78a-4838220fbe08"],
+ " \[LongDash] joint future light front of a chain"
+}], "GuideText",ExpressionUUID->"93c25867-8a2d-4192-9976-20c84c9c7f63"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Knuth scalars", "GuideFunctionsSubsection",ExpressionUUID->"82d2b6b6-f56d-484f-b869-6f0970ac6203"],
+
+Cell[TextData[{
+ Cell[BoxData["InfraEnergy"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "579053ab-aa2c-4886-b67b-fb337b4bf74f"],
+ " \[LongDash] E = (p + q)/2 from two light-cone projections"
+}], "GuideText",ExpressionUUID->"10ca93f3-601a-4591-88eb-a073d001ca07"],
+
+Cell[TextData[{
+ Cell[BoxData["InfraMomentum"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "6c70b3e4-ec5d-40a5-b93c-532180486378"],
+ " \[LongDash] P = (p - q)/2"
+}], "GuideText",ExpressionUUID->"bc5b916b-0667-4991-a659-1812646b72ea"],
+
+Cell[TextData[{
+ Cell[BoxData["InfraMass"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "0391d01f-f952-46bd-83d0-e397bb6d2134"],
+ " \[LongDash] m = Sqrt[|p q|]"
+}], "GuideText",ExpressionUUID->"b28a500f-faa8-4232-9b0e-046ad1148d8a"],
+
+Cell[TextData[{
+ Cell[BoxData["InfraInterval"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3632d84d-c87b-4f29-89bb-f7a7527950bf"],
+ " \[LongDash] squared interval p q = E^2 - P^2"
+}], "GuideText",ExpressionUUID->"11ad66f4-b950-49d6-a66f-bccefac46a29"],
+
+Cell[TextData[{
+ Cell[BoxData["InfraVelocity"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "274b0c48-08df-4ece-946b-12d81bdefa20"],
+ " \[LongDash] beta = (p - q)/(p + q)"
+}], "GuideText",ExpressionUUID->"0432bbd3-50f1-4723-a856-89d80d496d52"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pipeline", "GuideFunctionsSubsection",ExpressionUUID->"47ecdca0-f2d7-45dd-bb11-1708148ec547"],
+
+Cell[TextData[{
+ Cell[BoxData["InfraKinematics"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "7c20da3a-ba23-4d12-8c3c-cae6d4e11bab"],
+ " \[LongDash] tabulates all Knuth scalars for a reference chain against \
+target chains"
+}], "GuideText",ExpressionUUID->"8c8c470e-98d9-4214-9368-8a5d9db99175"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",ExpressionUUID->"91ed7c1b-0f6f-4b3e-82aa-cfe0bb0adc79"],
+
+Cell[TextData[{
+ ButtonBox["InfraCausality",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/InfraCausality"],
+ " \[LongDash] index of the InfraCausality guides"
+}], "GuideMoreAbout",ExpressionUUID->"bcf3336e-4ded-4d56-a5f3-e00942f74d54"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "GuideRelatedLinksSection",ExpressionUUID->"cd9cacc5-fa82-42d7-9521-c20e6cab867d"],
+
+Cell[TextData[ButtonBox["InfraCausality on GitHub",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://github.com/WolframInstitute/InfraCausality"], 
+   None}]], "GuideRelatedLinks",ExpressionUUID->"acfad5d8-4173-41a1-a617-\
+ae7cde9def0a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",ExpressionUUID->"051beac8-4df7-4426-a91d-d23999ecb5be"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["1.2.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"ce1a5dea-7466-43df-b9dc-d75f2d8a03a9"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"bcf25d89-960d-4d42-9bcd-e2994dc1d1cb"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "411348aa-cc76-4265-b23b-26b2e96cfd8d"]
+}], "History",ExpressionUUID->"3e0c86e9-7391-482e-98f2-b55e68d3c4f9"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"7d28aba8-2946-4c23-a9b9-88844c644d23"],
+
+Cell["Guide", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"15f3801c-8e62-4c13-934b-9a8e2251a287"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"8f2a4f40-331c-4778-ac79-bc793d01b9c0"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"8e327736-d990-44e3-876b-d0af9599abc2"],
+
+Cell["WolframInstitute/InfraCausality/guide/KnuthKinematics", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"dc360511-6094-4f7f-bf8f-3806b8f3f59a"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"9e0a2744-c190-4358-b1d9-20ba5fcb1cb4"],
+
+Cell["energy", "Keywords",ExpressionUUID->"1344cf44-4b05-43ff-b866-4780ad663936"],
+
+Cell["momentum", "Keywords",ExpressionUUID->"d27d8bd0-629b-4f7e-9574-fb7f845363be"],
+
+Cell["light-cone coordinates", "Keywords",ExpressionUUID->"37ae79e9-5ca0-4af1-8251-28caf1329202"]
+}, Closed]]
+}, Open  ]]
+},
+TaggingRules-><|"Paclet" -> "WolframInstitute/InfraCausality"|>,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (May 19, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"25cab304-9f79-4f60-9191-0c45fbc5d672"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 93, 0, 70, "GuideTitle",ExpressionUUID->"1b2cfc2e-c42b-429e-bd18-a87c359d2f11"],
+Cell[672, 24, 285, 4, 70, "GuideAbstract",ExpressionUUID->"4e442ab1-067c-4aa8-a49c-44248abcb635"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[994, 33, 88, 0, 70, "GuideFunctionsSection",ExpressionUUID->"88bdc5d2-d829-429c-8f8d-bccc288a5754"],
+Cell[CellGroupData[{
+Cell[1107, 37, 108, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"125a7496-07a0-49e7-9684-38c97e74a92d"],
+Cell[1218, 39, 337, 6, 70, "GuideText",ExpressionUUID->"1b9e3bf3-1369-4653-bd3b-1a1704bdd95d"],
+Cell[1558, 47, 299, 5, 70, "GuideText",ExpressionUUID->"93c25867-8a2d-4192-9976-20c84c9c7f63"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1894, 57, 104, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"82d2b6b6-f56d-484f-b869-6f0970ac6203"],
+Cell[2001, 59, 305, 5, 70, "GuideText",ExpressionUUID->"10ca93f3-601a-4591-88eb-a073d001ca07"],
+Cell[2309, 66, 275, 5, 70, "GuideText",ExpressionUUID->"bc5b916b-0667-4991-a659-1812646b72ea"],
+Cell[2587, 73, 273, 5, 70, "GuideText",ExpressionUUID->"b28a500f-faa8-4232-9b0e-046ad1148d8a"],
+Cell[2863, 80, 294, 5, 70, "GuideText",ExpressionUUID->"11ad66f4-b950-49d6-a66f-bccefac46a29"],
+Cell[3160, 87, 284, 5, 70, "GuideText",ExpressionUUID->"0432bbd3-50f1-4723-a856-89d80d496d52"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3481, 97, 99, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"47ecdca0-f2d7-45dd-bb11-1708148ec547"],
+Cell[3583, 99, 337, 6, 70, "GuideText",ExpressionUUID->"8c8c470e-98d9-4214-9368-8a5d9db99175"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3969, 111, 102, 0, 70, "GuideMoreAboutSection",ExpressionUUID->"91ed7c1b-0f6f-4b3e-82aa-cfe0bb0adc79"],
+Cell[4074, 113, 271, 5, 70, "GuideMoreAbout",ExpressionUUID->"bcf3336e-4ded-4d56-a5f3-e00942f74d54"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4382, 123, 104, 0, 70, "GuideRelatedLinksSection",ExpressionUUID->"cd9cacc5-fa82-42d7-9521-c20e6cab867d"],
+Cell[4489, 125, 244, 5, 70, "GuideRelatedLinks",ExpressionUUID->"acfad5d8-4173-41a1-a617-ae7cde9def0a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4770, 135, 90, 0, 70, "MetadataSection",ExpressionUUID->"051beac8-4df7-4426-a91d-d23999ecb5be"],
+Cell[4863, 137, 459, 11, 70, "History",ExpressionUUID->"3e0c86e9-7391-482e-98f2-b55e68d3c4f9"],
+Cell[CellGroupData[{
+Cell[5347, 152, 102, 0, 70, "CategorizationSection",ExpressionUUID->"7d28aba8-2946-4c23-a9b9-88844c644d23"],
+Cell[5452, 154, 116, 2, 70, "Categorization",ExpressionUUID->"15f3801c-8e62-4c13-934b-9a8e2251a287"],
+Cell[5571, 158, 142, 2, 70, "Categorization",ExpressionUUID->"8f2a4f40-331c-4778-ac79-bc793d01b9c0"],
+Cell[5716, 162, 136, 1, 70, "Categorization",ExpressionUUID->"8e327736-d990-44e3-876b-d0af9599abc2"],
+Cell[5855, 165, 153, 1, 70, "Categorization",ExpressionUUID->"dc360511-6094-4f7f-bf8f-3806b8f3f59a"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6045, 171, 90, 0, 70, "KeywordsSection",ExpressionUUID->"9e0a2744-c190-4358-b1d9-20ba5fcb1cb4"],
+Cell[6138, 173, 81, 0, 70, "Keywords",ExpressionUUID->"1344cf44-4b05-43ff-b866-4780ad663936"],
+Cell[6222, 175, 83, 0, 70, "Keywords",ExpressionUUID->"d27d8bd0-629b-4f7e-9574-fb7f845363be"],
+Cell[6308, 177, 97, 0, 70, "Keywords",ExpressionUUID->"37ae79e9-5ca0-4af1-8251-28caf1329202"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
