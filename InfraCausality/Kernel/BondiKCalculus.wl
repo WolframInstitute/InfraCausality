@@ -172,7 +172,6 @@ SimultaneityLine[ velocity_, radarArcLength_, lightAngle_ : Pi/4, extent_ : 1 ] 
   With[ { dir = WorldlineDirection[ velocity, lightAngle ],
            lightOut = LightDirection[ lightAngle, True ],
            lightIn = LightDirection[ lightAngle, False ] },
-    With[ { basePoint = radarArcLength dir },
-      { basePoint + extent lightIn, basePoint, basePoint + extent lightOut }
-    ]
+    { basePoint = radarArcLength dir },
+    { basePoint + extent lightIn, basePoint, basePoint + extent lightOut }
   ]
