@@ -177,7 +177,7 @@ VerificationTest[
 (* ========================= Separated method: larger graph ========================= *)
 
 VerificationTest[
-  With[ { graph = RandomConnectedDAG[ { 30, 60 } ] },
+  With[ { graph = RandomCausalGraph[ { 30, 60 } ] },
     With[ { chains = FindChain[ graph, 3, "Method" -> "Separated" ] },
       Length[ chains ] >= 1 &&
       AllTrue[ chains,
