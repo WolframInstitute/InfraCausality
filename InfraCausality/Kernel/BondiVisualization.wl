@@ -2,19 +2,19 @@ Package["WolframInstitute`InfraCausality`"]
 
 (* === Color Palette === *)
 
-$BondiColors = <|
-  "Alice" -> RGBColor[ 0.4, 0.65, 0.95 ],
-  "Bob" -> RGBColor[ 0.95, 0.45, 0.45 ],
-  "Carol" -> RGBColor[ 0.35, 0.78, 0.45 ],
-  "Light" -> RGBColor[ 0.95, 0.82, 0.2 ],
-  "LightFaded" -> RGBColor[ 0.92, 0.88, 0.6 ],
-  "Event" -> RGBColor[ 0.65, 0.5, 0.85 ],
-  "Simultaneity" -> RGBColor[ 0.9, 0.65, 0.35 ],
-  "SimAlice" -> RGBColor[ 0.55, 0.75, 0.95 ],
-  "SimBob" -> RGBColor[ 0.95, 0.6, 0.6 ],
-  "Tick" -> GrayLevel[ 0.35 ],
-  "Label" -> GrayLevel[ 0.2 ],
-  "Background" -> RGBColor[ 0.98, 0.98, 0.96 ]
+$BondiColors := <|
+  "Alice" -> $CausalColors[ "Observer1" ],
+  "Bob" -> $CausalColors[ "Observer2" ],
+  "Carol" -> $CausalColors[ "Observer3" ],
+  "Light" -> $CausalColors[ "LightRay" ],
+  "LightFaded" -> $CausalColors[ "LightRayFaded" ],
+  "Event" -> $CausalColors[ "Event" ],
+  "Simultaneity" -> $CausalColors[ "Simultaneity" ],
+  "SimAlice" -> Lighter[ $CausalColors[ "Observer1" ], 0.3 ],
+  "SimBob" -> Lighter[ $CausalColors[ "Observer2" ], 0.3 ],
+  "Tick" -> $CausalColors[ "Tick" ],
+  "Label" -> $CausalColors[ "Label" ],
+  "Background" -> $CausalColors[ "Background" ]
 |>;
 
 
