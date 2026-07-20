@@ -60,7 +60,7 @@ MultiEchoFunction[ g_Graph, path1_List, path2_List ] :=
       msg21 = MultiMessageFunction[ g, path2, path1 ]
     },
     Association @ Map[
-      v |-> v -> Union @@ ( q |-> Lookup[ msg21, q, {} ] ) /@ msg12[ v ],
+      v |-> v -> Union @@ Lookup[ msg21, msg12[ v ], {} ],
       path1
     ]
   ]
