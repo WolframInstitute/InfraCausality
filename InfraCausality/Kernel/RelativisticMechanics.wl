@@ -95,23 +95,25 @@ UniversalTime[ g_Graph ] :=
    light cone is largest -- "most-informed" events with the broadest causal
    past on their slice.  Returns Association[ slice -> InfraEvent[{v, ...}] ]. *)
 
-MaximalAbsorber[ g_ ] :=
-  KeySort @ GroupBy[
-    Normal @ UniversalTime @ g,
-    Last -> First,
-    InfraEvent @ MaximalBy[ #, p |-> VertexCount @ BackwardLightCone[ g, p ] ] &
-  ]
+MaximalAbsorber[ g_ ] := extremalEvents[ g, BackwardLightCone ]
 
 
 (* MaximalEmitter[g]: per universal-time slice, the events whose forward
    light cone is largest -- "most-influential" events with the broadest causal
    future on their slice.                                                     *)
 
-MaximalEmitter[ g_ ] :=
+MaximalEmitter[ g_ ] := extremalEvents[ g, ForwardLightCone ]
+
+
+(* extremalEvents[g, cone]: per universal-time slice, the events whose cone
+   volume is largest.                                                         *)
+
+PackageScope[ extremalEvents ]
+extremalEvents[ g_, cone_ ] :=
   KeySort @ GroupBy[
     Normal @ UniversalTime @ g,
     Last -> First,
-    InfraEvent @ MaximalBy[ #, p |-> VertexCount @ ForwardLightCone[ g, p ] ] &
+    InfraEvent @ MaximalBy[ #, p |-> VertexCount @ cone[ g, p ] ] &
   ]
 
 
@@ -123,46 +125,14 @@ MaximalEmitter[ g_ ] :=
 
 OutgoingLightRays[ g_, v_ ] :=
   With[
-    {
-      forwardCone = ForwardLightCone[ g, v ]
-    },
-    With[
-      {
-        coords = UniversalTime @ forwardCone,
-        vertices = VertexList @ forwardCone
-      },
-      With[
-        {
-          volumes = AssociationMap[
-            VertexCount @ BackwardLightCone[ forwardCone, # ] &, vertices
-          ]
-        },
-        Select[ vertices, coords[ # ] + 1 == volumes[ # ] & ]
-      ]
-    ]
+    { forwardCone = ForwardLightCone[ g, v ] },
+    { coords = UniversalTime @ forwardCone, vertices = VertexList @ forwardCone },
+    { volumes = AssociationMap[ VertexCount @ BackwardLightCone[ forwardCone, # ] &, vertices ] },
+    Select[ vertices, coords[ # ] + 1 == volumes[ # ] & ]
   ]
 
 
 (* IncomingLightRays[g, v]: vertex set of events on incoming null geodesics
    into v -- the time-reverse of OutgoingLightRays.                           *)
 
-IncomingLightRays[ g_, v_ ] :=
-  With[
-    {
-      backwardCone = BackwardLightCone[ g, v ]
-    },
-    With[
-      {
-        coords = UniversalTime @ ReverseGraph @ backwardCone,
-        vertices = VertexList @ backwardCone
-      },
-      With[
-        {
-          volumes = AssociationMap[
-            VertexCount @ ForwardLightCone[ backwardCone, # ] &, vertices
-          ]
-        },
-        Select[ vertices, coords[ # ] + 1 == volumes[ # ] & ]
-      ]
-    ]
-  ]
+IncomingLightRays[ g_, v_ ] := OutgoingLightRays[ ReverseGraph @ g, v ]

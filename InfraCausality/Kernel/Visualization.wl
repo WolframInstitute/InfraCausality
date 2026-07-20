@@ -163,20 +163,18 @@ foliationHighlightPiece[ emb_Association, scale_, elem_, color_, opacity_, prese
       verts       = Replace[ elem, Style[ x_, _ ] :> x ],
       forcedColor = Replace[ elem, { Style[ _, c_ ] :> c, _ :> color } ]
     },
-    With[
-      {
-        ordered = If[ TrueQ @ preserveOrder, verts, SortBy[ verts, First @ emb @ # & ] ]
-      },
-      Which[
-        Length @ ordered > 1,
-          { Opacity[ opacity ], forcedColor, Line[ Map[ emb, ordered ] ] },
-        Length @ ordered == 1,
-          { Opacity[ opacity ], forcedColor,
-            Rectangle[
-              emb[ First @ ordered ] - { scale, scale },
-              emb[ First @ ordered ] + { scale, scale }
-            ] },
-        True, { }
-      ]
+    {
+      ordered = If[ TrueQ @ preserveOrder, verts, SortBy[ verts, First @ emb @ # & ] ]
+    },
+    Which[
+      Length @ ordered > 1,
+        { Opacity[ opacity ], forcedColor, Line[ Map[ emb, ordered ] ] },
+      Length @ ordered == 1,
+        { Opacity[ opacity ], forcedColor,
+          Rectangle[
+            emb[ First @ ordered ] - { scale, scale },
+            emb[ First @ ordered ] + { scale, scale }
+          ] },
+      True, { }
     ]
   ]
