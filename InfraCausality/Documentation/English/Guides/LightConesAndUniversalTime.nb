@@ -1,0 +1,288 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     11989,        279]
+NotebookOptionsPosition[      8017,        213]
+NotebookOutlinePosition[      8475,        229]
+CellTagsIndexPosition[      8432,        226]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Light Cones and Universal Time", "GuideTitle",ExpressionUUID->"4b833716-8e6a-4947-8271-6d64c6b541f9"],
+
+Cell["\<\
+Discrete light cones J+ and J-, causal intervals, the universal foliation by \
+longest chain length from the sources, extremal events per slice, and \
+combinatorial null geodesics.\
+\>", "GuideAbstract",ExpressionUUID->"699c34c8-604e-489c-9df0-8d1a848462d9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",ExpressionUUID->"24154582-d875-4a97-9c69-518601d55c42"],
+
+Cell[CellGroupData[{
+
+Cell["Light cones and causal intervals", "GuideFunctionsSubsection",ExpressionUUID->"2fe443a8-2836-4598-aec4-bd6fbc516c80"],
+
+Cell[TextData[{
+ Cell[BoxData["ForwardLightCone"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "16da8632-930b-4c4a-a535-338d65745de7"],
+ " \[LongDash] subgraph of events reachable from v, the discrete J+(v)"
+}], "GuideText",ExpressionUUID->"474b636a-55cd-45fc-89aa-bdf22c5bd304"],
+
+Cell[TextData[{
+ Cell[BoxData["BackwardLightCone"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "fe055248-614f-4901-9cc7-4ec1df48a856"],
+ " \[LongDash] subgraph of events that reach v, the discrete J-(v)"
+}], "GuideText",ExpressionUUID->"b66a7ff6-99aa-4a88-bade-42b66cfd53f7"],
+
+Cell[TextData[{
+ Cell[BoxData["CausalInterval"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "422f8ca8-199e-4408-9315-e8a77431b5b3"],
+ " \[LongDash] subgraph of events between v1 and v2 in the causal order"
+}], "GuideText",ExpressionUUID->"a9431a3f-971e-4864-b929-645855248c0b"],
+
+Cell[TextData[{
+ Cell[BoxData["ChainCausalInterval"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "f665c6b5-aa4c-4df7-945a-45d39b253cbb"],
+ " \[LongDash] causal closure of a chain: events both reachable from and \
+reaching the chain"
+}], "GuideText",ExpressionUUID->"809867be-1205-4cc4-829a-1a6002cc3502"],
+
+Cell[TextData[{
+ Cell[BoxData["OutgoingLightRays"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "22b14b0c-4d72-412f-9b05-8f6e76f5ccd3"],
+ " \[LongDash] events on outgoing null geodesics from v: no overtaking within \
+the forward cone"
+}], "GuideText",ExpressionUUID->"42e78e86-5335-4e10-9135-c53a5ef7dab2"],
+
+Cell[TextData[{
+ Cell[BoxData["IncomingLightRays"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "76a525f8-42b3-49ee-8081-6527b177e7f1"],
+ " \[LongDash] events on incoming null geodesics into v, the time reverse"
+}], "GuideText",ExpressionUUID->"46448ee1-f69b-4a9b-b9ff-61705fd1f1a5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Universal time and extremal events", "GuideFunctionsSubsection",ExpressionUUID->"2bef2ac1-e20a-4f8a-93e5-832b4cc304c8"],
+
+Cell[TextData[{
+ Cell[BoxData["UniversalFoliation"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "25d72c88-da97-4ce4-943f-6296b01c25af"],
+ " \[LongDash] partition of events by longest chain length from the sources, \
+the simultaneity slices"
+}], "GuideText",ExpressionUUID->"4975f532-4fc2-4408-a41d-7056015367f9"],
+
+Cell[TextData[{
+ Cell[BoxData["UniversalTime"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "b9a392da-7efd-4970-969e-5d9506bde689"],
+ " \[LongDash] slice index of every event as an Association"
+}], "GuideText",ExpressionUUID->"b37bd872-9ff1-4f87-b7fc-c655f92c9df2"],
+
+Cell[TextData[{
+ Cell[BoxData["MaximalAbsorber"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "99603c9c-72c8-479b-8518-30a300e58e33"],
+ " \[LongDash] per slice, the events with the largest causal past"
+}], "GuideText",ExpressionUUID->"cc12bfd0-573e-474b-9034-cfebab5aae6c"],
+
+Cell[TextData[{
+ Cell[BoxData["MaximalEmitter"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "a21e813c-ec55-418f-94e7-e4b9db41450d"],
+ " \[LongDash] per slice, the events with the largest causal future"
+}], "GuideText",ExpressionUUID->"05b55512-e55c-40dc-aedc-72ecce4efd50"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Visualization", "GuideFunctionsSubsection",ExpressionUUID->"2be4923b-5753-4fee-89fa-f512da1b758a"],
+
+Cell[TextData[{
+ Cell[BoxData["VisualizeLightRays"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "94404c72-0284-49ad-9b98-fe9af2d7925d"],
+ " \[LongDash] click an event to highlight its outgoing and incoming light \
+rays"
+}], "GuideText",ExpressionUUID->"8cd6bb48-eb4c-4d9b-80cb-ed28b5da691d"],
+
+Cell[TextData[{
+ Cell[BoxData["VisualizeFoliatedCausalGraph"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "e04c4419-4c47-4d00-8823-35e5df7e480c"],
+ " \[LongDash] foliation as coloured slices with optional chains"
+}], "GuideText",ExpressionUUID->"410013d3-47e5-4c46-969e-9dc36404c482"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",ExpressionUUID->"bfe288ae-b652-4f7c-8f44-40784ec14d27"],
+
+Cell[TextData[{
+ ButtonBox["InfraCausality",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/InfraCausality"],
+ " \[LongDash] index of the InfraCausality guides"
+}], "GuideMoreAbout",ExpressionUUID->"881c9a8e-8be2-4cd7-b49f-bead6a64ec20"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "GuideRelatedLinksSection",ExpressionUUID->"11aa920e-229b-428a-b510-327938b30ed9"],
+
+Cell[TextData[ButtonBox["InfraCausality on GitHub",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://github.com/WolframInstitute/InfraCausality"], 
+   None}]], "GuideRelatedLinks",ExpressionUUID->"ab2b4ebe-06f2-4a8c-a88f-\
+b49416ab2e95"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",ExpressionUUID->"aeab8d59-e834-44b5-978c-bc6f51d120c5"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["1.2.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"ceb2735d-7d5c-4c05-b12d-e02411c33173"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"d18ec33c-1eb3-4af4-8aaa-25258e8b687e"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "a3a81421-83f2-4648-b589-d2e0cd247050"]
+}], "History",ExpressionUUID->"a6060cf9-a07e-413e-94ac-50a6aeecc14a"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"9378ab41-56e2-49bc-99ec-bf9aca175889"],
+
+Cell["Guide", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"b3895dbc-03f3-4352-8ebc-4aa7f5241dfe"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"f919a452-0654-4d7b-8db6-418c81c43909"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"131f37c9-c61d-4334-b9c5-29c4e95d576b"],
+
+Cell["\<\
+WolframInstitute/InfraCausality/guide/LightConesAndUniversalTime\
+\>", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"1c225e11-6a95-486e-878d-f60fc97f4baf"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"31a6b962-6b1d-473a-9d67-4c14f10e2824"],
+
+Cell["light cone", "Keywords",ExpressionUUID->"d52677c6-13a9-42ad-adae-43a97e210852"],
+
+Cell["causal interval", "Keywords",ExpressionUUID->"a88ee7af-561d-4e2a-9381-027eafa12498"],
+
+Cell["foliation", "Keywords",ExpressionUUID->"051d684a-d7c5-4970-a6c1-0bded099ba3b"]
+}, Closed]]
+}, Open  ]]
+},
+TaggingRules-><|"Paclet" -> "WolframInstitute/InfraCausality"|>,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (May 19, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"25cab304-9f79-4f60-9191-0c45fbc5d672"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 107, 0, 70, "GuideTitle",ExpressionUUID->"4b833716-8e6a-4947-8271-6d64c6b541f9"],
+Cell[686, 24, 268, 4, 70, "GuideAbstract",ExpressionUUID->"699c34c8-604e-489c-9df0-8d1a848462d9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[991, 33, 88, 0, 70, "GuideFunctionsSection",ExpressionUUID->"24154582-d875-4a97-9c69-518601d55c42"],
+Cell[CellGroupData[{
+Cell[1104, 37, 123, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"2fe443a8-2836-4598-aec4-bd6fbc516c80"],
+Cell[1230, 39, 320, 5, 70, "GuideText",ExpressionUUID->"474b636a-55cd-45fc-89aa-bdf22c5bd304"],
+Cell[1553, 46, 317, 5, 70, "GuideText",ExpressionUUID->"b66a7ff6-99aa-4a88-bade-42b66cfd53f7"],
+Cell[1873, 53, 319, 5, 70, "GuideText",ExpressionUUID->"a9431a3f-971e-4864-b929-645855248c0b"],
+Cell[2195, 60, 346, 6, 70, "GuideText",ExpressionUUID->"809867be-1205-4cc4-829a-1a6002cc3502"],
+Cell[2544, 68, 347, 6, 70, "GuideText",ExpressionUUID->"42e78e86-5335-4e10-9135-c53a5ef7dab2"],
+Cell[2894, 76, 324, 5, 70, "GuideText",ExpressionUUID->"46448ee1-f69b-4a9b-b9ff-61705fd1f1a5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3255, 86, 125, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"2bef2ac1-e20a-4f8a-93e5-832b4cc304c8"],
+Cell[3383, 88, 354, 6, 70, "GuideText",ExpressionUUID->"4975f532-4fc2-4408-a41d-7056015367f9"],
+Cell[3740, 96, 306, 5, 70, "GuideText",ExpressionUUID->"b37bd872-9ff1-4f87-b7fc-c655f92c9df2"],
+Cell[4049, 103, 314, 5, 70, "GuideText",ExpressionUUID->"cc12bfd0-573e-474b-9034-cfebab5aae6c"],
+Cell[4366, 110, 315, 5, 70, "GuideText",ExpressionUUID->"05b55512-e55c-40dc-aedc-72ecce4efd50"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4718, 120, 104, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"2be4923b-5753-4fee-89fa-f512da1b758a"],
+Cell[4825, 122, 333, 6, 70, "GuideText",ExpressionUUID->"8cd6bb48-eb4c-4d9b-80cb-ed28b5da691d"],
+Cell[5161, 130, 326, 5, 70, "GuideText",ExpressionUUID->"410013d3-47e5-4c46-969e-9dc36404c482"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5536, 141, 102, 0, 70, "GuideMoreAboutSection",ExpressionUUID->"bfe288ae-b652-4f7c-8f44-40784ec14d27"],
+Cell[5641, 143, 271, 5, 70, "GuideMoreAbout",ExpressionUUID->"881c9a8e-8be2-4cd7-b49f-bead6a64ec20"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5949, 153, 104, 0, 70, "GuideRelatedLinksSection",ExpressionUUID->"11aa920e-229b-428a-b510-327938b30ed9"],
+Cell[6056, 155, 244, 5, 70, "GuideRelatedLinks",ExpressionUUID->"ab2b4ebe-06f2-4a8c-a88f-b49416ab2e95"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6337, 165, 90, 0, 70, "MetadataSection",ExpressionUUID->"aeab8d59-e834-44b5-978c-bc6f51d120c5"],
+Cell[6430, 167, 459, 11, 70, "History",ExpressionUUID->"a6060cf9-a07e-413e-94ac-50a6aeecc14a"],
+Cell[CellGroupData[{
+Cell[6914, 182, 102, 0, 70, "CategorizationSection",ExpressionUUID->"9378ab41-56e2-49bc-99ec-bf9aca175889"],
+Cell[7019, 184, 116, 2, 70, "Categorization",ExpressionUUID->"b3895dbc-03f3-4352-8ebc-4aa7f5241dfe"],
+Cell[7138, 188, 142, 2, 70, "Categorization",ExpressionUUID->"f919a452-0654-4d7b-8db6-418c81c43909"],
+Cell[7283, 192, 136, 1, 70, "Categorization",ExpressionUUID->"131f37c9-c61d-4334-b9c5-29c4e95d576b"],
+Cell[7422, 195, 172, 3, 70, "Categorization",ExpressionUUID->"1c225e11-6a95-486e-878d-f60fc97f4baf"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7631, 203, 90, 0, 70, "KeywordsSection",ExpressionUUID->"31a6b962-6b1d-473a-9d67-4c14f10e2824"],
+Cell[7724, 205, 85, 0, 70, "Keywords",ExpressionUUID->"d52677c6-13a9-42ad-adae-43a97e210852"],
+Cell[7812, 207, 90, 0, 70, "Keywords",ExpressionUUID->"a88ee7af-561d-4e2a-9381-027eafa12498"],
+Cell[7905, 209, 84, 0, 70, "Keywords",ExpressionUUID->"051d684a-d7c5-4970-a6c1-0bded099ba3b"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,243 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      9876,        234]
+NotebookOptionsPosition[      6438,        175]
+NotebookOutlinePosition[      6896,        191]
+CellTagsIndexPosition[      6853,        188]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["EPS Axiomatics", "GuideTitle",ExpressionUUID->"9393d35f-c104-44af-b7a6-87374b77fd43"],
+
+Cell["\<\
+Ehlers-Pirani-Schild axiomatics on graphs: message and echo maps between \
+worldlines built from outgoing light rays, with monotonicity (axiom D1) \
+encoding the chronological order.\
+\>", "GuideAbstract",ExpressionUUID->"c1c70a4c-53ea-4412-a7a5-9c4511bf0faa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",ExpressionUUID->"07f09b67-b91d-41d2-9d78-24e720deba29"],
+
+Cell[CellGroupData[{
+
+Cell["Message and echo functions", "GuideFunctionsSubsection",ExpressionUUID->"44166f18-e531-48f7-9bff-3936a4d6dc47"],
+
+Cell[TextData[{
+ Cell[BoxData["MultiMessageFunction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "7e999bcf-6126-450a-92ee-24b6102052a3"],
+ " \[LongDash] for each event on path1, the events on path2 reached by an \
+outgoing light ray"
+}], "GuideText",ExpressionUUID->"864191ec-51c8-4dfb-98b6-5b682e55cbbc"],
+
+Cell[TextData[{
+ Cell[BoxData["FindMessageFunction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "b154133f-b3ae-4e7f-a2fd-3c00ce5059af"],
+ " \[LongDash] all monotone single-valued selections, the EPS message maps"
+}], "GuideText",ExpressionUUID->"1a773c69-0ddd-44ee-8353-bedb3b86ef9c"],
+
+Cell[TextData[{
+ Cell[BoxData["MultiEchoFunction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "c8af6736-d5bd-4a00-8c61-74bee2a232c8"],
+ " \[LongDash] set-valued round trip path1 to path2 and back"
+}], "GuideText",ExpressionUUID->"758033b7-7a3f-4b41-a95f-ceca97486055"],
+
+Cell[TextData[{
+ Cell[BoxData["FindEchoFunction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "6eb58e0d-33d9-4312-9e04-247c4e5c23be"],
+ " \[LongDash] all monotone single-valued echo maps"
+}], "GuideText",ExpressionUUID->"3a95a938-3a6d-4ea0-bbc9-f569203b66b7"],
+
+Cell[TextData[{
+ Cell[BoxData["EchoGraph"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "c97483f7-9ad3-4587-b854-fe35d394296c"],
+ " \[LongDash] echo map as a directed graph from each event to its images"
+}], "GuideText",ExpressionUUID->"2262afe5-37bd-4cba-b165-ab1f1dcdc493"],
+
+Cell[TextData[{
+ Cell[BoxData["MonotoneQ"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "db20b96a-566e-4edb-aa26-a7ed411192a2"],
+ " \[LongDash] tests EPS axiom D1: the map preserves the chain order"
+}], "GuideText",ExpressionUUID->"7ef552bf-4da0-4948-abba-24f9e68ea1a7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Visualization", "GuideFunctionsSubsection",ExpressionUUID->"62aab725-ec47-4a37-ab2d-fd94f26f1c6a"],
+
+Cell[TextData[{
+ Cell[BoxData["VisualizeMessageFunction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "f5d9f996-8678-4fd9-b7c2-c6b4f3397773"],
+ " \[LongDash] click an event on path1 to see its message images on path2"
+}], "GuideText",ExpressionUUID->"1d3c546f-fb30-4b94-98d8-c6463aaddb53"],
+
+Cell[TextData[{
+ Cell[BoxData["VisualizeEchoFunction"], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "70ea945f-b06f-4689-9ac0-d89c6803387d"],
+ " \[LongDash] static overlay of the echo function"
+}], "GuideText",ExpressionUUID->"fedb3a9b-6735-41e9-a882-08181e895b0c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",ExpressionUUID->"14dbf9f1-6e1e-4b53-b4bd-76c56060ce19"],
+
+Cell[TextData[{
+ ButtonBox["InfraCausality",
+  BaseStyle->"Link",
+  ButtonData->"paclet:WolframInstitute/InfraCausality/guide/InfraCausality"],
+ " \[LongDash] index of the InfraCausality guides"
+}], "GuideMoreAbout",ExpressionUUID->"ee215ede-3903-460f-8712-b1b4d8f9ccd1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "GuideRelatedLinksSection",ExpressionUUID->"0129a007-edb9-47a0-ad63-adc5199a79f4"],
+
+Cell[TextData[ButtonBox["InfraCausality on GitHub",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://github.com/WolframInstitute/InfraCausality"], 
+   None}]], "GuideRelatedLinks",ExpressionUUID->"15a1e9fd-6777-40a0-b672-\
+e8ee87d06919"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",ExpressionUUID->"abe1f695-0a31-413f-8372-97ac20261f5d"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["1.2.0", "HistoryData",
+  CellTags->"New",ExpressionUUID->"4ce6a971-8dc7-4daf-9157-c551ba9b6dba"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"06099889-2112-49bc-9ca9-0724deb66488"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "2f22d71d-8779-4007-ae92-12604eafb58b"]
+}], "History",ExpressionUUID->"b35347d3-e2f6-4459-9f26-d8f1cf993ffd"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",ExpressionUUID->"a5c3504c-430a-4450-95d1-a3c0f17a0e3b"],
+
+Cell["Guide", "Categorization",
+ CellLabel->
+  "Entity Type",ExpressionUUID->"08294fae-376b-43d9-8d53-966abc4541a8"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->
+  "Paclet Name",ExpressionUUID->"00b1d2dd-bfe9-48d4-bee5-523d0a3706d5"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",ExpressionUUID->"b2d705fb-1749-498b-b275-61d87ddb8f7c"],
+
+Cell["WolframInstitute/InfraCausality/guide/EPSAxiomatics", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"99314038-b3d4-4d5b-a47a-377b342f4054"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",ExpressionUUID->"b5b15ccf-9546-4f7d-b272-e564cff38a00"],
+
+Cell["message function", "Keywords",ExpressionUUID->"7640287d-c19a-4c13-9f47-d751b4e08498"],
+
+Cell["echo function", "Keywords",ExpressionUUID->"b84ed82f-635e-4033-8bba-5d79869a4877"],
+
+Cell["monotonicity", "Keywords",ExpressionUUID->"868b9a6c-b930-4fd5-b693-6f06b0d39edd"]
+}, Closed]]
+}, Open  ]]
+},
+TaggingRules-><|"Paclet" -> "WolframInstitute/InfraCausality"|>,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (May 19, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"25cab304-9f79-4f60-9191-0c45fbc5d672"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 91, 0, 70, "GuideTitle",ExpressionUUID->"9393d35f-c104-44af-b7a6-87374b77fd43"],
+Cell[670, 24, 270, 4, 70, "GuideAbstract",ExpressionUUID->"c1c70a4c-53ea-4412-a7a5-9c4511bf0faa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[977, 33, 88, 0, 70, "GuideFunctionsSection",ExpressionUUID->"07f09b67-b91d-41d2-9d78-24e720deba29"],
+Cell[CellGroupData[{
+Cell[1090, 37, 117, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"44166f18-e531-48f7-9bff-3936a4d6dc47"],
+Cell[1210, 39, 348, 6, 70, "GuideText",ExpressionUUID->"864191ec-51c8-4dfb-98b6-5b682e55cbbc"],
+Cell[1561, 47, 327, 5, 70, "GuideText",ExpressionUUID->"1a773c69-0ddd-44ee-8353-bedb3b86ef9c"],
+Cell[1891, 54, 311, 5, 70, "GuideText",ExpressionUUID->"758033b7-7a3f-4b41-a95f-ceca97486055"],
+Cell[2205, 61, 301, 5, 70, "GuideText",ExpressionUUID->"3a95a938-3a6d-4ea0-bbc9-f569203b66b7"],
+Cell[2509, 68, 316, 5, 70, "GuideText",ExpressionUUID->"2262afe5-37bd-4cba-b165-ab1f1dcdc493"],
+Cell[2828, 75, 311, 5, 70, "GuideText",ExpressionUUID->"7ef552bf-4da0-4948-abba-24f9e68ea1a7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3176, 85, 104, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"62aab725-ec47-4a37-ab2d-fd94f26f1c6a"],
+Cell[3283, 87, 331, 5, 70, "GuideText",ExpressionUUID->"1d3c546f-fb30-4b94-98d8-c6463aaddb53"],
+Cell[3617, 94, 305, 5, 70, "GuideText",ExpressionUUID->"fedb3a9b-6735-41e9-a882-08181e895b0c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3971, 105, 102, 0, 70, "GuideMoreAboutSection",ExpressionUUID->"14dbf9f1-6e1e-4b53-b4bd-76c56060ce19"],
+Cell[4076, 107, 271, 5, 70, "GuideMoreAbout",ExpressionUUID->"ee215ede-3903-460f-8712-b1b4d8f9ccd1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4384, 117, 104, 0, 70, "GuideRelatedLinksSection",ExpressionUUID->"0129a007-edb9-47a0-ad63-adc5199a79f4"],
+Cell[4491, 119, 244, 5, 70, "GuideRelatedLinks",ExpressionUUID->"15a1e9fd-6777-40a0-b672-e8ee87d06919"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4772, 129, 90, 0, 70, "MetadataSection",ExpressionUUID->"abe1f695-0a31-413f-8372-97ac20261f5d"],
+Cell[4865, 131, 459, 11, 70, "History",ExpressionUUID->"b35347d3-e2f6-4459-9f26-d8f1cf993ffd"],
+Cell[CellGroupData[{
+Cell[5349, 146, 102, 0, 70, "CategorizationSection",ExpressionUUID->"a5c3504c-430a-4450-95d1-a3c0f17a0e3b"],
+Cell[5454, 148, 116, 2, 70, "Categorization",ExpressionUUID->"08294fae-376b-43d9-8d53-966abc4541a8"],
+Cell[5573, 152, 142, 2, 70, "Categorization",ExpressionUUID->"00b1d2dd-bfe9-48d4-bee5-523d0a3706d5"],
+Cell[5718, 156, 136, 1, 70, "Categorization",ExpressionUUID->"b2d705fb-1749-498b-b275-61d87ddb8f7c"],
+Cell[5857, 159, 151, 1, 70, "Categorization",ExpressionUUID->"99314038-b3d4-4d5b-a47a-377b342f4054"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6045, 165, 90, 0, 70, "KeywordsSection",ExpressionUUID->"b5b15ccf-9546-4f7d-b272-e564cff38a00"],
+Cell[6138, 167, 91, 0, 70, "Keywords",ExpressionUUID->"7640287d-c19a-4c13-9f47-d751b4e08498"],
+Cell[6232, 169, 88, 0, 70, "Keywords",ExpressionUUID->"b84ed82f-635e-4033-8bba-5d79869a4877"],
+Cell[6323, 171, 87, 0, 70, "Keywords",ExpressionUUID->"868b9a6c-b930-4fd5-b693-6f06b0d39edd"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
