@@ -172,9 +172,7 @@ scoreTuple[ lpDistMat_List, vertexIdx_Association, chains_List, tuple_List, acti
 Options[ FindChain ] = { "Method" -> "Longest", "TargetSeparation" -> Infinity, "TieBreaker" -> First };
 
 FindChain[ g_Graph, v1_, v2_, n_Integer, opts : OptionsPattern[] ] :=
-  With[ { result = FindChain[ g, v1, v2, UpTo[ n ], opts ] },
-    If[ Length @ result < n, $Failed, result ]
-  ]
+  FindChain[ g, v1, v2, UpTo[ n ], opts ]
 
 FindChain[ g_Graph, v1_, v2_, UpTo[ n_Integer ], opts : OptionsPattern[] ] :=
   Module[ { method, negGraph, d },
@@ -193,9 +191,7 @@ FindChain[ g_Graph, v1_, v2_, opts : OptionsPattern[] ] /; ! MatchQ[ v2, _Rule |
   FindChain[ g, v1, v2, 1, opts ]
 
 FindChain[ g_Graph, n_Integer, opts : OptionsPattern[] ] :=
-  With[ { result = FindChain[ g, UpTo[ n ], opts ] },
-    If[ Length @ result < n, $Failed, result ]
-  ]
+  FindChain[ g, UpTo[ n ], opts ]
 
 FindChain[ g_Graph, UpTo[ n_Integer ], opts : OptionsPattern[] ] :=
   If[ OptionValue[ "Method" ] === "Separated",
