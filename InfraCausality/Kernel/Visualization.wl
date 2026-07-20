@@ -11,8 +11,8 @@ Package["WolframInstitute`InfraCausality`"]
 
 (* =========================== Light rays =========================== *)
 
-(* Click any vertex to highlight its outgoing (yellow) and incoming (purple)
-   light rays.                                                                *)
+(* Click any vertex to highlight its outgoing (light-ray yellow) and incoming
+   (echo purple) light rays.                                                  *)
 
 VisualizeLightRays[ g_Graph ] :=
   DynamicModule[ { vertices, selectedVertex, vertexCoords },
@@ -26,15 +26,15 @@ VisualizeLightRays[ g_Graph ] :=
             TransitiveReductionGraph @ Subgraph[ g,
               OutgoingLightRays[ VertexOutComponentGraph[ g, selectedVertex ], selectedVertex ]
             ],
-            Directive[ Yellow, Thick ]
+            Directive[ $CausalColors[ "LightRay" ], Thick ]
           ],
           Style[
             TransitiveReductionGraph @ Subgraph[ g,
               IncomingLightRays[ VertexInComponentGraph[ g, selectedVertex ], selectedVertex ]
             ],
-            Directive[ Purple, Thick ]
+            Directive[ $CausalColors[ "Echo" ], Thick ]
           ],
-          Style[ selectedVertex, Directive[ Red ] ]
+          Style[ selectedVertex, Directive[ $CausalColors[ "Accent" ] ] ]
         }
       ],
       { "MouseClicked" :>
@@ -51,8 +51,8 @@ VisualizeLightRays[ g_Graph ] :=
 (* =========================== Foliated causal graph =========================== *)
 
 Options[ VisualizeFoliatedCausalGraph ] = {
-  "SliceColorFunction"   -> ( ColorData[ "Rainbow" ][ # ] & ),
-  "ChainColorFunction"   -> ( ColorData[ "SunsetColors" ][ # ] & ),
+  "SliceColorFunction"   -> ( t |-> Blend[ { Lighter[ $CausalColors[ "Causal" ], 0.5 ], Darker[ $CausalColors[ "Causal" ], 0.25 ] }, t ] ),
+  "ChainColorFunction"   -> ( t |-> Blend[ { $CausalColors[ "Observer1" ], $CausalColors[ "Observer3" ], $CausalColors[ "Observer2" ] }, t ] ),
   "SliceOpacity"         -> 0.3,
   "ChainOpacity"         -> 0.7,
   "HighlightThickness"   -> 0.03,
@@ -95,13 +95,13 @@ VisualizeFoliatedCausalGraph[ g_Graph, foliation_List, chains_List : { },
 (* =========================== EPS visualisations =========================== *)
 
 PackageScope[ $EPSColors ]
-$EPSColors = <|
-  "Path1"        -> RGBColor[ 0.2, 0.5, 0.9 ],
-  "Path2"        -> RGBColor[ 0.9, 0.3, 0.3 ],
-  "LightRay"     -> RGBColor[ 0.95, 0.82, 0.2 ],
-  "MessageArrow" -> RGBColor[ 0.4, 0.8, 0.4 ],
-  "EchoArrow"    -> RGBColor[ 0.7, 0.4, 0.9 ],
-  "Selected"     -> RGBColor[ 1.0, 0.6, 0.0 ]
+$EPSColors := <|
+  "Path1"        -> $CausalColors[ "Observer1" ],
+  "Path2"        -> $CausalColors[ "Observer2" ],
+  "LightRay"     -> $CausalColors[ "LightRay" ],
+  "MessageArrow" -> $CausalColors[ "Observer3" ],
+  "EchoArrow"    -> $CausalColors[ "Echo" ],
+  "Selected"     -> $CausalColors[ "Accent" ]
 |>;
 
 

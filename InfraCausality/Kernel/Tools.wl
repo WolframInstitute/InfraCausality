@@ -30,14 +30,13 @@ RandomConnectedDAG[ spec_, opt : OptionsPattern[ Graph ] ] :=
   ]
 
 
-(* RandomCausalGraph[{n, m}]: a RandomConnectedDAG styled with the
-   WolframPhysicsProject palette and a layered embedding.                    *)
+(* RandomCausalGraph[{n, m}]: a RandomConnectedDAG styled with the causal
+   palette and a layered embedding.                                          *)
 
 RandomCausalGraph[ spec_, opt : OptionsPattern[ Graph ] ] :=
   Graph[
     RandomConnectedDAG[ spec, opt ],
-    VertexStyle -> ResourceFunction[ "WolframPhysicsProjectStyleData" ][ "CausalGraph", "VertexStyle" ],
-    EdgeStyle   -> ResourceFunction[ "WolframPhysicsProjectStyleData" ][ "CausalGraph", "EdgeStyle"   ],
+    Sequence @@ CausalGraphStyle[ "Default" ],
     GraphLayout -> "LayeredDigraphEmbedding"
   ]
 
