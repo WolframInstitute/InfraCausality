@@ -192,7 +192,7 @@ longestChains[ g_Graph, n_Integer ] :=
 
 (* successorsAtLevel: vertices reachable in one directed step from tip,
    restricted to the given reachable set and the requested universal-time
-   level.  Top-level helper to remove the nested Module from separatedGrow. *)
+   level.                                                                    *)
 
 PackageScope[ successorsAtLevel ]
 successorsAtLevel[ g_Graph, tip_, level_, vertexLevel_Association, reachable_List ] :=

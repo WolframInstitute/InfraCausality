@@ -150,8 +150,7 @@ MonotoneQ[ path1_List, path2_List, f_Association ] :=
 (* =========================== Internal helper =========================== *)
 
 (* composeEcho: compose one m12 with one m21 to get an echo map on path1, and
-   keep it only if monotone.  Top-level helper to remove the nested Module
-   inside FindEchoFunction's Table.                                           *)
+   keep it only if monotone.                                                  *)
 
 PackageScope[ composeEcho ]
 composeEcho[ path1_List, m12_Association, m21_Association ] :=

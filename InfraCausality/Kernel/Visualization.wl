@@ -152,9 +152,7 @@ VisualizeEchoFunction[ g_Graph, path1_List, path2_List ] :=
 (* =========================== Internal helper =========================== *)
 
 (* foliationHighlightPiece: render a single slice or chain element as a Line
-   when it has multiple vertices, or as a Rectangle when it is a singleton.
-   Top-level helper -- keeps VisualizeFoliatedCausalGraph free of nested
-   Module.                                                                    *)
+   when it has multiple vertices, or as a Rectangle when it is a singleton.   *)
 
 PackageScope[ foliationHighlightPiece ]
 foliationHighlightPiece[ emb_Association, scale_, elem_, color_, opacity_, preserveOrder_ ] :=
