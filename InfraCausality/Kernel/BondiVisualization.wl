@@ -157,21 +157,18 @@ DopplerConstruction::usage =
 to Bob, displaying the Bondi k-factor as a pulse-spacing ratio.";
 
 DopplerConstruction[ velocity_, nPulses_ : 6, opts : OptionsPattern[] ] :=
-  Module[ { phi, k, alpha, kOut, emitStart, spacing,
-            emitArcs, receiveArcs, maxArc, scale, dir, normal, elements },
-    phi = OptionValue[ "LightAngle" ];
-    k = KFactor[ velocity, phi ] // N;
-    alpha = WorldlineAngle[ velocity, phi ];
-    kOut = OutgoingRatio[ velocity, phi ];
-    dir = WorldlineDirection[ velocity, phi ];
-    normal = WorldlineNormal[ velocity, phi ];
-    emitStart = OptionValue[ "EmitStart" ];
-    spacing = OptionValue[ "PulseSpacing" ];
-    emitArcs = Table[ emitStart + n spacing, { n, 0, nPulses - 1 } ];
-    receiveArcs = kOut # & /@ emitArcs;
-    maxArc = 1.15 Max[ receiveArcs ];
-    scale = maxArc;
-    elements = {
+  With[
+    { phi = OptionValue[ "LightAngle" ],
+      emitStart = OptionValue[ "EmitStart" ],
+      spacing = OptionValue[ "PulseSpacing" ] },
+    { kOut = OutgoingRatio[ velocity, phi ],
+      dir = WorldlineDirection[ velocity, phi ],
+      normal = WorldlineNormal[ velocity, phi ] },
+    { emitArcs = Table[ emitStart + n spacing, { n, 0, nPulses - 1 } ] },
+    { receiveArcs = kOut emitArcs },
+    { maxArc = 1.15 Max[ receiveArcs ] },
+    { scale = maxArc },
+    { elements = {
       DrawWorldline[ 0, { 0, maxArc }, phi ],
       DrawWorldline[ velocity, { 0, maxArc }, phi ],
       Table[
@@ -188,7 +185,7 @@ DopplerConstruction[ velocity_, nPulses_ : 6, opts : OptionsPattern[] ] :=
         { -0.05 scale, (emitArcs[[ 1 ]] + emitArcs[[ 2 ]]) / 2 } ],
       DrawLabel[ "k \[CapitalDelta]\[Tau]",
         (receiveArcs[[ 1 ]] + receiveArcs[[ 2 ]]) / 2 dir + 0.06 scale normal ]
-    };
+    } },
     Graphics[ elements,
       AspectRatio -> Automatic,
       ImageSize -> OptionValue[ ImageSize ],
@@ -210,26 +207,23 @@ event on Bob's worldline, with Alice's emission, Bob's event, and Alice's \
 return light ray, illustrating gamma = (k + 1/k)/2.";
 
 TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
-  Module[ { phi, k, alpha, kOut, kIn, gamma,
-            eventArc, bobPoint, emitArc, returnArc, radarArc,
-            dir, normal, maxArc, scale, simLine, elements },
-    phi = OptionValue[ "LightAngle" ];
-    k = KFactor[ velocity, phi ] // N;
-    gamma = (k + 1/k) / 2;
-    alpha = WorldlineAngle[ velocity, phi ];
-    kOut = OutgoingRatio[ velocity, phi ];
-    kIn = IncomingRatio[ velocity, phi ];
-    dir = WorldlineDirection[ velocity, phi ];
-    normal = WorldlineNormal[ velocity, phi ];
-    eventArc = OptionValue[ "EventArcLength" ];
-    bobPoint = eventArc dir;
-    emitArc = eventArc / kOut;
-    returnArc = eventArc kIn;
-    radarArc = (emitArc + returnArc) / 2;
-    maxArc = 1.15 returnArc;
-    scale = maxArc;
-    simLine = SimultaneityLine[ 0, radarArc, phi, 0.3 scale ];
-    elements = {
+  With[
+    { phi = OptionValue[ "LightAngle" ],
+      eventArc = OptionValue[ "EventArcLength" ] },
+    { k = KFactor[ velocity, phi ] // N,
+      kOut = OutgoingRatio[ velocity, phi ],
+      kIn = IncomingRatio[ velocity, phi ],
+      dir = WorldlineDirection[ velocity, phi ],
+      normal = WorldlineNormal[ velocity, phi ] },
+    { gamma = (k + 1/k) / 2,
+      bobPoint = eventArc dir,
+      emitArc = eventArc / kOut,
+      returnArc = eventArc kIn },
+    { radarArc = (emitArc + returnArc) / 2,
+      maxArc = 1.15 returnArc },
+    { scale = maxArc },
+    { simLine = SimultaneityLine[ 0, radarArc, phi, 0.3 scale ] },
+    { elements = {
       DrawWorldline[ 0, { 0, maxArc }, phi ],
       DrawWorldline[ velocity, { 0, maxArc }, phi ],
       DrawLightRay[ { 0, emitArc }, bobPoint ],
@@ -251,7 +245,7 @@ TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
         { -0.1 scale, maxArc 0.95 }, 9 ],
       DrawTicks[ 0, { 1, Floor[ maxArc ] }, phi, scale ],
       DrawTicks[ velocity, { 1, Max[ 1, Floor[ maxArc ProperTimeScale[ velocity, phi ] ] ] }, phi, scale ]
-    };
+    } },
     Graphics[ elements,
       AspectRatio -> Automatic,
       ImageSize -> OptionValue[ ImageSize ],
@@ -273,19 +267,16 @@ SimultaneityConstruction::usage =
 lines at a common arc-length, showing the relativity of simultaneity.";
 
 SimultaneityConstruction[ velocity_, opts : OptionsPattern[] ] :=
-  Module[ { phi, alpha, arcLen, extent, dir, normal, maxArc, scale,
-            aliceSim, bobSim, elements },
-    phi = OptionValue[ "LightAngle" ];
-    alpha = WorldlineAngle[ velocity, phi ];
-    dir = WorldlineDirection[ velocity, phi ];
-    normal = WorldlineNormal[ velocity, phi ];
-    arcLen = OptionValue[ "ArcLength" ];
-    extent = OptionValue[ "Extent" ];
-    maxArc = arcLen + extent + 0.3;
-    scale = maxArc;
-    aliceSim = SimultaneityLine[ 0, arcLen, phi, extent ];
-    bobSim = SimultaneityLine[ velocity, arcLen, phi, extent ];
-    elements = {
+  With[
+    { phi = OptionValue[ "LightAngle" ],
+      arcLen = OptionValue[ "ArcLength" ],
+      extent = OptionValue[ "Extent" ] },
+    { dir = WorldlineDirection[ velocity, phi ],
+      maxArc = arcLen + extent + 0.3 },
+    { scale = maxArc,
+      aliceSim = SimultaneityLine[ 0, arcLen, phi, extent ],
+      bobSim = SimultaneityLine[ velocity, arcLen, phi, extent ] },
+    { elements = {
       DrawWorldline[ 0, { 0, maxArc }, phi ],
       DrawWorldline[ velocity, { 0, maxArc }, phi ],
       { AbsoluteThickness[ 2 ], Dashing[ { 0.015, 0.008 } ],
@@ -296,7 +287,7 @@ SimultaneityConstruction[ velocity_, opts : OptionsPattern[] ] :=
       DrawEvent[ arcLen dir, scale ],
       DrawLabel[ "Alice's now", aliceSim[[ 3 ]] + { 0.04 scale, 0 }, 9 ],
       DrawLabel[ "Bob's now", bobSim[[ 3 ]] + { 0.04 scale, 0 }, 9 ]
-    };
+    } },
     Graphics[ elements,
       AspectRatio -> Automatic,
       ImageSize -> OptionValue[ ImageSize ],
@@ -318,31 +309,27 @@ LengthContractionConstruction::usage =
 Bob's rod via radar, yielding L/gamma.";
 
 LengthContractionConstruction[ velocity_, opts : OptionsPattern[] ] :=
-  Module[ { phi, k, alpha, kOut, kIn, gamma, rodLength, measureArc,
-            dir, normal, rodOffset, frontPoint, backPoint,
-            emitFront, returnFront, aliceFront,
-            radarBack, aliceBack, maxArc, scale, elements },
-    phi = OptionValue[ "LightAngle" ];
-    k = KFactor[ velocity, phi ] // N;
-    gamma = (k + 1/k) / 2;
-    alpha = WorldlineAngle[ velocity, phi ];
-    kOut = OutgoingRatio[ velocity, phi ];
-    kIn = IncomingRatio[ velocity, phi ];
-    dir = WorldlineDirection[ velocity, phi ];
-    normal = WorldlineNormal[ velocity, phi ];
-    rodLength = OptionValue[ "RodRestLength" ];
-    measureArc = OptionValue[ "MeasureArcLength" ];
-    rodOffset = rodLength normal;
-    frontPoint = measureArc dir;
-    backPoint = measureArc dir + rodOffset;
-    emitFront = measureArc / kOut;
-    returnFront = measureArc kIn;
-    aliceFront = (emitFront + returnFront) / 2;
-    radarBack = RadarCoordinatesFromAlice[ backPoint, phi ];
-    aliceBack = radarBack[ "RadarTime" ];
-    maxArc = 1.15 Max[ returnFront, radarBack[ "ReturnArcLength" ] ];
-    scale = maxArc;
-    elements = {
+  With[
+    { phi = OptionValue[ "LightAngle" ],
+      rodLength = OptionValue[ "RodRestLength" ],
+      measureArc = OptionValue[ "MeasureArcLength" ] },
+    { k = KFactor[ velocity, phi ] // N,
+      kOut = OutgoingRatio[ velocity, phi ],
+      kIn = IncomingRatio[ velocity, phi ],
+      dir = WorldlineDirection[ velocity, phi ],
+      normal = WorldlineNormal[ velocity, phi ] },
+    { gamma = (k + 1/k) / 2,
+      rodOffset = rodLength normal,
+      frontPoint = measureArc dir,
+      emitFront = measureArc / kOut,
+      returnFront = measureArc kIn },
+    { backPoint = frontPoint + rodOffset,
+      aliceFront = (emitFront + returnFront) / 2 },
+    { radarBack = RadarCoordinatesFromAlice[ backPoint, phi ] },
+    { aliceBack = radarBack[ "RadarTime" ],
+      maxArc = 1.15 Max[ returnFront, radarBack[ "ReturnArcLength" ] ] },
+    { scale = maxArc },
+    { elements = {
       DrawWorldline[ 0, { 0, maxArc }, phi ],
       DrawWorldline[ velocity, { 0, maxArc }, phi ],
       { AbsoluteThickness[ 1.5 ], $BondiColors[ "Bob" ], Opacity[ 0.5 ],
@@ -365,7 +352,7 @@ LengthContractionConstruction[ velocity_, opts : OptionsPattern[] ] :=
       DrawLabel[
         Row[ { "L/\[Gamma] = ", NumberForm[ N[ rodLength / gamma ], { 3, 2 } ] } ],
         { -0.08 scale, (aliceFront + aliceBack) / 2 }, 9 ]
-    };
+    } },
     Graphics[ elements,
       AspectRatio -> Automatic,
       ImageSize -> OptionValue[ ImageSize ],
@@ -387,32 +374,26 @@ Carol) with k-factors k1, k2, k1 k2, illustrating that velocity addition \
 is multiplication of k-factors.";
 
 VelocityAdditionConstruction[ v1_, v2_, opts : OptionsPattern[] ] :=
-  Module[ { phi, k1, k2, kTotal, vTotal, alpha1, alphaTotal,
-            dir1, dirTotal, normal1, normalTotal,
-            emitArc, kOut1, kOutTotal,
-            bobArc, carolArc, bobPoint, carolPoint,
-            maxArc, scale, elements },
-    phi = OptionValue[ "LightAngle" ];
-    k1 = KFactor[ v1, phi ] // N;
-    k2 = KFactor[ v2, phi ] // N;
-    kTotal = k1 k2;
-    vTotal = VelocityFromK[ kTotal ];
-    alpha1 = WorldlineAngle[ v1, phi ];
-    alphaTotal = WorldlineAngle[ vTotal, phi ];
-    dir1 = WorldlineDirection[ v1, phi ];
-    dirTotal = WorldlineDirection[ vTotal, phi ];
-    normal1 = WorldlineNormal[ v1, phi ];
-    normalTotal = WorldlineNormal[ vTotal, phi ];
-    emitArc = OptionValue[ "EmitArcLength" ];
-    kOut1 = OutgoingRatio[ v1, phi ];
-    kOutTotal = OutgoingRatio[ vTotal, phi ];
-    bobArc = emitArc kOut1;
-    carolArc = emitArc kOutTotal;
-    bobPoint = bobArc dir1;
-    carolPoint = carolArc dirTotal;
-    maxArc = 1.2 Max[ bobArc, carolArc ];
-    scale = maxArc;
-    elements = {
+  With[
+    { phi = OptionValue[ "LightAngle" ],
+      emitArc = OptionValue[ "EmitArcLength" ] },
+    { k1 = KFactor[ v1, phi ] // N,
+      k2 = KFactor[ v2, phi ] // N },
+    { kTotal = k1 k2 },
+    { vTotal = VelocityFromK[ kTotal ] },
+    { dir1 = WorldlineDirection[ v1, phi ],
+      dirTotal = WorldlineDirection[ vTotal, phi ],
+      normal1 = WorldlineNormal[ v1, phi ],
+      normalTotal = WorldlineNormal[ vTotal, phi ],
+      kOut1 = OutgoingRatio[ v1, phi ],
+      kOutTotal = OutgoingRatio[ vTotal, phi ] },
+    { bobArc = emitArc kOut1,
+      carolArc = emitArc kOutTotal },
+    { bobPoint = bobArc dir1,
+      carolPoint = carolArc dirTotal,
+      maxArc = 1.2 Max[ bobArc, carolArc ] },
+    { scale = maxArc },
+    { elements = {
       DrawWorldline[ 0, { 0, maxArc }, phi, $BondiColors[ "Alice" ] ],
       DrawWorldline[ v1, { 0, maxArc }, phi, $BondiColors[ "Bob" ] ],
       DrawWorldline[ vTotal, { 0, maxArc }, phi, $BondiColors[ "Carol" ] ],
@@ -435,7 +416,7 @@ VelocityAdditionConstruction[ v1_, v2_, opts : OptionsPattern[] ] :=
           Row[ { Subscript[ "v", "\[CirclePlus]" ], " = ", NumberForm[ N[ vTotal ], { 3, 2 } ] } ]
         }, Spacings -> 0.3 ],
         { -0.12 scale, maxArc 0.5 }, 9 ]
-    };
+    } },
     Graphics[ elements,
       AspectRatio -> Automatic,
       ImageSize -> OptionValue[ ImageSize ],
@@ -470,14 +451,15 @@ LightClockConstruction[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
     lightOut = LightDirection[ phi, True ];
     lightIn = LightDirection[ phi, False ];
     events = NestList[
-      Module[ { p = #Point, side = #Side, lightDir, offset, t },
-        lightDir = If[ side === "observer", lightOut, lightIn ];
-        offset = If[ side === "observer", mirrorOffset, -mirrorOffset ];
-        t = (offset[[ 2 ]] dir[[ 1 ]] - offset[[ 1 ]] dir[[ 2 ]]) /
-            (lightDir[[ 1 ]] dir[[ 2 ]] - lightDir[[ 2 ]] dir[[ 1 ]]);
-        <| "Point" -> p + t lightDir,
+      event |-> With[
+        { side = event[ "Side" ] },
+        { lightDir = If[ side === "observer", lightOut, lightIn ],
+          offset   = If[ side === "observer", mirrorOffset, -mirrorOffset ] },
+        { t = (offset[[ 2 ]] dir[[ 1 ]] - offset[[ 1 ]] dir[[ 2 ]]) /
+              (lightDir[[ 1 ]] dir[[ 2 ]] - lightDir[[ 2 ]] dir[[ 1 ]]) },
+        <| "Point" -> event[ "Point" ] + t lightDir,
            "Side" -> If[ side === "observer", "mirror", "observer" ] |>
-      ] &,
+      ],
       <| "Point" -> startArc dir, "Side" -> "observer" |>,
       nBounces
     ];
