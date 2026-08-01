@@ -1,6 +1,6 @@
-# ⏳ InfraCausality
-
 > ⚠️ **Actively developed, experimental research code.** It undergoes frequent cleanings and refactors, and the API may change without notice.
+
+# ⏳ InfraCausality
 
 Minimal model of special relativity on oriented graphs and hypergraphs.
 
@@ -26,6 +26,13 @@ Needs["WolframInstitute`InfraCausality`"]
 Explore the paclet in the **[LLM-generated presentation notebook](https://www.wolframcloud.com/obj/hajek_pavel/InfraCausality/Presentation.nb)** (runs on the Wolfram Cloud).
 
 Ready-made example substrates and ambient styles for the analyses: **[LLM-generated example-graphs notebook](https://www.wolframcloud.com/obj/hajek_pavel/ExampleGraphs.nb)** (runs on the Wolfram Cloud).
+
+## 📓 Research Notebooks
+
+> ⚠️ **LLM-generated theory from code.** These notebooks are written by an LLM directly from the repository using [ClaudePluginComputationalResearch](https://github.com/WolframInstitute/ClaudePluginComputationalResearch) as a demonstration of a new form of access to computational knowledge, where the source of truth lies in the code. They are **not revised by a human** by default.
+
+| Notebook | Description | Link | Revision By |
+|----------|-------------|------|-------------|
 
 ## ⚖️ License
 
