@@ -56,30 +56,14 @@ ChainCausalInterval[ g_, c_ ] :=
 
 (* =========================== Universal time =========================== *)
 
-(* Universal foliation: partition of vertices by maximum directed distance from
-   the source set.  Slice k = events whose longest past chain from a source has
-   length k.  Computed as -GraphDistance with edge weights -1.                *)
-
-UniversalFoliation[ g_Graph ] :=
-  With[
-    {
-      sources = GetSources[ g ],
-      negDistMatrix = -GraphDistanceMatrix[
-        Graph[ g, EdgeWeight -> ConstantArray[ -1, EdgeCount[ g ] ] ]
-      ]
-    },
-    Values @ KeySort @ GroupBy[
-      Normal @ AssociationThread[
-        VertexList @ g ->
-          MapThread[ Min, negDistMatrix[[ VertexIndex[ g, sources ], All ]] ]
-      ],
-      Last -> First
-    ]
-  ]
-
-
-(* Universal time: assigns to every vertex its slice index in the universal
-   foliation (0 on sources, k on slice k).                                    *)
+UniversalTime[ graph_Graph ] :=
+  With[ { predecessors = GroupBy[ EdgeList @ graph, ( e |-> e[[ 2 ]] ) -> ( e |-> e[[ 1 ]] ) ] },
+    KeyTake[
+      Fold[
+        { time, v } |-> Append[ time, v -> Max[ 0, 1 + Lookup[ time, Lookup[ predecessors, Key[ v ], { } ] ] ] ],
+        <| |>,
+        TopologicalSort @ graph ],
+      VertexList @ graph ] ]
 
 UniversalTime[ g_Graph, foliation_List ] :=
   Association @ Catenate @ MapIndexed[
@@ -87,8 +71,8 @@ UniversalTime[ g_Graph, foliation_List ] :=
     foliation
   ]
 
-UniversalTime[ g_Graph ] :=
-  UniversalTime[ g, UniversalFoliation[ g ] ]
+UniversalFoliation[ graph_Graph ] :=
+  Values @ KeySort @ GroupBy[ Normal @ UniversalTime @ graph, Last -> First, Sort ]
 
 
 (* MaximalAbsorber[g]: per universal-time slice, the events whose backward
