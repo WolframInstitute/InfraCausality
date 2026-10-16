@@ -77,9 +77,12 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ Values @ MaximalAbsorber[ $mechGraph ], InfraEventQ ],
+  With[ { slices = UniversalFoliation @ $mechGraph },
+    AllTrue[ Normal @ MaximalAbsorber @ $mechGraph,
+      rule |-> With[ { slice = slices[[ First @ rule + 1 ]], volume = v |-> Length @ VertexInComponent[ $mechGraph, { v } ] },
+        SubsetQ[ slice, Last @ rule ] && AllTrue[ Last @ rule, v |-> volume[ v ] == Max[ volume /@ slice ] ] ] ] ],
   True,
-  TestID -> "MaximalAbsorber-values-are-InfraEvent"
+  TestID -> "MaximalAbsorber-Mech-largest-past-in-slice"
 ]
 
 VerificationTest[
@@ -89,9 +92,12 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ Values @ MaximalEmitter[ $mechGraph ], InfraEventQ ],
+  With[ { slices = UniversalFoliation @ $mechGraph },
+    AllTrue[ Normal @ MaximalEmitter @ $mechGraph,
+      rule |-> With[ { slice = slices[[ First @ rule + 1 ]], volume = v |-> Length @ VertexOutComponent[ $mechGraph, { v } ] },
+        SubsetQ[ slice, Last @ rule ] && AllTrue[ Last @ rule, v |-> volume[ v ] == Max[ volume /@ slice ] ] ] ] ],
   True,
-  TestID -> "MaximalEmitter-values-are-InfraEvent"
+  TestID -> "MaximalEmitter-Mech-largest-future-in-slice"
 ]
 
 (* ========================= Light rays ========================= *)
@@ -172,31 +178,5 @@ VerificationTest[ $raysNullQ[ $random12 ], True, TestID -> "OutgoingLightRays-Ra
 VerificationTest[ $raysTreeQ[ $twoSource ], True, TestID -> "OutgoingLightRays-TwoSource-Hasse-tree" ]
 
 VerificationTest[ $raysTreeQ[ $random12 ], True, TestID -> "OutgoingLightRays-Random12-Hasse-tree" ]
-
-(* ========================= InfraObjects ========================= *)
-
-VerificationTest[
-  InfraChain[ { { 1, 2 }, { 3, 4 } } ][ "Length" ],
-  2,
-  TestID -> "InfraChain-length"
-]
-
-VerificationTest[
-  InfraChain[ { InfraChain[ { { 1, 2 } } ], InfraChain[ { { 3, 4 } } ] } ],
-  InfraChain[ { { 1, 2 }, { 3, 4 } } ],
-  TestID -> "InfraChain-auto-flatten"
-]
-
-VerificationTest[
-  InfraChain[ { { 1, 2 }, { 3, 4 } } ][[ 1 ]],
-  InfraChain[ { { 1, 2 } } ],
-  TestID -> "InfraChain-Part-wraps"
-]
-
-VerificationTest[
-  Length @ InfraEvent[ { 1, 2, 3 } ],
-  3,
-  TestID -> "InfraEvent-Length-overload"
-]
 
 EndTestSection[]

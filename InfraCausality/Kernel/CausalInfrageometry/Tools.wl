@@ -1,4 +1,8 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
+
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
+
+(* WolframInstitute`InfraCausality` :: CausalInfrageometry :: Tools *)
 
 
 (* Generic graph utilities: source/sink extraction, random causal graphs,

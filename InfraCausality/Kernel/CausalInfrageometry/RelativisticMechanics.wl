@@ -1,4 +1,8 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
+
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
+
+(* WolframInstitute`InfraCausality` :: CausalInfrageometry :: RelativisticMechanics *)
 
 
 (* Light cones, causal intervals, universal time and light rays on a finite
@@ -77,7 +81,7 @@ UniversalFoliation[ graph_Graph ] :=
 
 (* MaximalAbsorber[g]: per universal-time slice, the events whose backward
    light cone is largest -- "most-informed" events with the broadest causal
-   past on their slice.  Returns Association[ slice -> InfraEvent[{v, ...}] ]. *)
+   past on their slice.  Returns Association[ slice -> {v, ...} ].           *)
 
 MaximalAbsorber[ g_ ] := extremalEvents[ g, BackwardLightCone ]
 
@@ -97,7 +101,7 @@ extremalEvents[ g_, cone_ ] :=
   KeySort @ GroupBy[
     Normal @ UniversalTime @ g,
     Last -> First,
-    InfraEvent @ MaximalBy[ #, p |-> VertexCount @ cone[ g, p ] ] &
+    MaximalBy[ #, p |-> VertexCount @ cone[ g, p ] ] &
   ]
 
 

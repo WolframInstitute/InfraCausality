@@ -1,4 +1,8 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
+
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
+
+(* WolframInstitute`InfraCausality` :: Experimental :: KnuthKinematics *)
 
 
 (* Combinatorial relativistic dynamics on chains of a causal graph.

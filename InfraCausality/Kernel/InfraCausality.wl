@@ -1,28 +1,16 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
 
-(* Colors.wl *)
-PackageExport[$CausalColors]
-PackageExport[CausalGraphStyle]
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* Tools.wl *)
+(* WolframInstitute`InfraCausality` :: Kernel :: InfraCausality *)
+
+(* CausalInfrageometry *)
+
 PackageExport[GetSources]
 PackageExport[GetSinks]
 PackageExport[RandomCausalGraph]
 PackageExport[FindChain]
 
-(* InfraObjects.wl *)
-PackageExport[InfraChain]
-PackageExport[InfraLightRay]
-PackageExport[InfraLightCone]
-PackageExport[InfraCausalInterval]
-PackageExport[InfraEvent]
-PackageExport[InfraChainQ]
-PackageExport[InfraLightRayQ]
-PackageExport[InfraLightConeQ]
-PackageExport[InfraCausalIntervalQ]
-PackageExport[InfraEventQ]
-
-(* RelativisticMechanics.wl *)
 PackageExport[ForwardLightCone]
 PackageExport[BackwardLightCone]
 PackageExport[CausalInterval]
@@ -34,17 +22,14 @@ PackageExport[MaximalEmitter]
 PackageExport[OutgoingLightRays]
 PackageExport[IncomingLightRays]
 
-(* RelativisticDynamics.wl *)
-PackageExport[ChainProjection]
-PackageExport[ChainLightReach]
-PackageExport[InfraEnergy]
-PackageExport[InfraMomentum]
-PackageExport[InfraMass]
-PackageExport[InfraInterval]
-PackageExport[InfraVelocity]
-PackageExport[InfraKinematics]
+PackageExport[VisualizeLightRays]
+PackageExport[VisualizeFoliatedCausalGraph]
+PackageExport[VisualizeMessageFunction]
+PackageExport[VisualizeEchoFunction]
+PackageExport[BondiExplorer]
 
-(* EPSAxiomatics.wl *)
+(* InfraObservers *)
+
 PackageExport[MultiMessageFunction]
 PackageExport[FindMessageFunction]
 PackageExport[MultiEchoFunction]
@@ -52,13 +37,13 @@ PackageExport[FindEchoFunction]
 PackageExport[EchoGraph]
 PackageExport[MonotoneQ]
 
-(* Visualization.wl *)
-PackageExport[VisualizeLightRays]
-PackageExport[VisualizeFoliatedCausalGraph]
-PackageExport[VisualizeMessageFunction]
-PackageExport[VisualizeEchoFunction]
+(* CausalSubstrates *)
 
-(* BondiKCalculus.wl *)
+PackageExport[$CausalColors]
+PackageExport[CausalGraphStyle]
+
+(* BondiKCalculus *)
+
 PackageExport[KFactor]
 PackageExport[VelocityFromK]
 PackageExport[WorldlineAngle]
@@ -77,7 +62,17 @@ PackageExport[LightZigzag]
 PackageExport[RadarCoordinatesFromAlice]
 PackageExport[SimultaneityLine]
 
-(* BondiVisualization.wl *)
+(* Experimental *)
+
+PackageExport[ChainProjection]
+PackageExport[ChainLightReach]
+PackageExport[InfraEnergy]
+PackageExport[InfraMomentum]
+PackageExport[InfraMass]
+PackageExport[InfraInterval]
+PackageExport[InfraVelocity]
+PackageExport[InfraKinematics]
+
 PackageExport[BondiClock]
 PackageExport[DopplerConstruction]
 PackageExport[TimeDilationConstruction]
@@ -85,9 +80,6 @@ PackageExport[SimultaneityConstruction]
 PackageExport[LengthContractionConstruction]
 PackageExport[VelocityAdditionConstruction]
 PackageExport[LightClockConstruction]
-
-(* BondiExplorer.wl *)
-PackageExport[BondiExplorer]
 
 
 ClearAll["WolframInstitute`InfraCausality`**`*", "WolframInstitute`InfraCausality`*"]

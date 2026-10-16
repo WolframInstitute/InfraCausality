@@ -1,4 +1,8 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
+
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
+
+(* WolframInstitute`InfraCausality` :: InfraObservers :: EPSAxiomatics *)
 
 
 (* Ehlers-Pirani-Schild axiomatics on a finite directed graph.

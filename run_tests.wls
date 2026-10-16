@@ -8,7 +8,7 @@ PacletDirectoryLoad[$pacletDir <> "/InfraCausality"];
 Needs["WolframInstitute`InfraCausality`"];
 
 $testDir = FileNameJoin[{$pacletDir, "InfraCausality", "Tests"}];
-$testFiles = FileNames["*.wlt", $testDir];
+$testFiles = FileNames["*.wlt", $testDir, Infinity];
 
 If[$testFiles === {},
     Print["No test files found in ", $testDir];

@@ -1,4 +1,8 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
+
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
+
+(* WolframInstitute`InfraCausality` :: CausalSubstrates :: Colors *)
 
 
 (* Causal colour palette: the causal-graph orange family plus observer and

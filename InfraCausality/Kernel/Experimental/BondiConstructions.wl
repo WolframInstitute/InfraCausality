@@ -1,4 +1,8 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
+
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
+
+(* WolframInstitute`InfraCausality` :: Experimental :: BondiConstructions *)
 
 (* === Color Palette === *)
 
@@ -98,9 +102,6 @@ Options[ BondiClock ] = {
   ImageSize -> 500
 };
 
-BondiClock::usage =
-  "BondiClock[v, n] renders Alice's and Bob's worldlines with a light \
-signal bouncing n times between them; tick marks show proper time.";
 
 BondiClock[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
   Module[ { phi, k, alpha, emitArc, events, maxArc, scale, elements },
@@ -152,9 +153,6 @@ Options[ DopplerConstruction ] = {
   ImageSize -> 500
 };
 
-DopplerConstruction::usage =
-  "DopplerConstruction[v, n] shows n evenly spaced light pulses from Alice \
-to Bob, displaying the Bondi k-factor as a pulse-spacing ratio.";
 
 DopplerConstruction[ velocity_, nPulses_ : 6, opts : OptionsPattern[] ] :=
   With[
@@ -201,10 +199,6 @@ Options[ TimeDilationConstruction ] = {
   ImageSize -> 500
 };
 
-TimeDilationConstruction::usage =
-  "TimeDilationConstruction[v] displays the radar construction for a single \
-event on Bob's worldline, with Alice's emission, Bob's event, and Alice's \
-return light ray, illustrating gamma = (k + 1/k)/2.";
 
 TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
   With[
@@ -262,9 +256,6 @@ Options[ SimultaneityConstruction ] = {
   ImageSize -> 500
 };
 
-SimultaneityConstruction::usage =
-  "SimultaneityConstruction[v] overlays Alice's and Bob's simultaneity \
-lines at a common arc-length, showing the relativity of simultaneity.";
 
 SimultaneityConstruction[ velocity_, opts : OptionsPattern[] ] :=
   With[
@@ -304,9 +295,6 @@ Options[ LengthContractionConstruction ] = {
   ImageSize -> 500
 };
 
-LengthContractionConstruction::usage =
-  "LengthContractionConstruction[v] shows Alice measuring the length of \
-Bob's rod via radar, yielding L/gamma.";
 
 LengthContractionConstruction[ velocity_, opts : OptionsPattern[] ] :=
   With[
@@ -368,10 +356,6 @@ Options[ VelocityAdditionConstruction ] = {
   ImageSize -> 550
 };
 
-VelocityAdditionConstruction::usage =
-  "VelocityAdditionConstruction[v1, v2] shows three worldlines (Alice, Bob, \
-Carol) with k-factors k1, k2, k1 k2, illustrating that velocity addition \
-is multiplication of k-factors.";
 
 VelocityAdditionConstruction[ v1_, v2_, opts : OptionsPattern[] ] :=
   With[
@@ -433,9 +417,6 @@ Options[ LightClockConstruction ] = {
   ImageSize -> 550
 };
 
-LightClockConstruction::usage =
-  "LightClockConstruction[v, n] draws Bob's transverse light clock with n \
-bounces between observer and mirror.";
 
 LightClockConstruction[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
   Module[ { phi, alpha, dir, normal, clockLen, startArc,
