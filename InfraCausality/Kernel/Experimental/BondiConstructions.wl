@@ -4,6 +4,49 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: Experimental :: BondiConstructions *)
 
+(* ========================= Worldline Geometry ========================= *)
+
+WorldlineDirection[ velocity_, lightAngle_ : Pi/4 ] :=
+  With[ { alpha = WorldlineAngle[ velocity, lightAngle ] },
+    { Sin[ alpha ], Cos[ alpha ] }
+  ]
+
+WorldlinePoint[ velocity_, arcLength_, lightAngle_ : Pi/4 ] :=
+  arcLength WorldlineDirection[ velocity, lightAngle ]
+
+WorldlineNormal[ velocity_, lightAngle_ : Pi/4 ] :=
+  With[ { alpha = WorldlineAngle[ velocity, lightAngle ] },
+    { Cos[ alpha ], -Sin[ alpha ] }
+  ]
+
+ProperTimeScale[ velocity_, lightAngle_ : Pi/4 ] :=
+  With[ { k = KFactor[ velocity, lightAngle ],
+           kOut = OutgoingRatio[ velocity, lightAngle ] },
+    k / kOut
+  ]
+
+WorldlinePointAtProperTime[ velocity_, properTime_, lightAngle_ : Pi/4 ] :=
+  WorldlinePoint[ velocity, properTime / ProperTimeScale[ velocity, lightAngle ], lightAngle ]
+
+
+(* ========================= Light Ray Geometry ========================= *)
+
+LightDirection[ lightAngle_, rightgoing_ : True ] :=
+  If[ rightgoing,
+    { Sin[ lightAngle ], Cos[ lightAngle ] },
+    { -Sin[ lightAngle ], Cos[ lightAngle ] }
+  ]
+
+
+SimultaneityLine[ velocity_, radarArcLength_, lightAngle_ : Pi/4, extent_ : 1 ] :=
+  With[ { dir = WorldlineDirection[ velocity, lightAngle ],
+           lightOut = LightDirection[ lightAngle, True ],
+           lightIn = LightDirection[ lightAngle, False ] },
+    { basePoint = radarArcLength dir },
+    { basePoint + extent lightIn, basePoint, basePoint + extent lightOut }
+  ]
+
+
 (* === Color Palette === *)
 
 $BondiColors := <|
@@ -313,7 +356,7 @@ LengthContractionConstruction[ velocity_, opts : OptionsPattern[] ] :=
       returnFront = measureArc kIn },
     { backPoint = frontPoint + rodOffset,
       aliceFront = (emitFront + returnFront) / 2 },
-    { radarBack = RadarCoordinatesFromAlice[ backPoint, phi ] },
+    { radarBack = BondiRadarCoordinates[ backPoint, phi ] },
     { aliceBack = radarBack[ "RadarTime" ],
       maxArc = 1.15 Max[ returnFront, radarBack[ "ReturnArcLength" ] ] },
     { scale = maxArc },

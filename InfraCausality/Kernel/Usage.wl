@@ -26,11 +26,10 @@ RandomInfraFutureLightCone::usage = "RandomInfraFutureLightCone[g, InfraFutureLi
 RandomInfraPastLightCone::usage = "RandomInfraPastLightCone[g, InfraPastLightCone[v], n] gives n distinct incoming light rays of v drawn uniformly as vertex lists ending at v; RandomInfraPastLightCone[g, v, n] is the shortcut.";
 InfraLightRayQ::usage = "InfraLightRayQ[g, chain] gives True if the vertex list chain is a saturated chain on g equal to the causal diamond of its first and last events.";
 
-VisualizeLightRays::usage = "VisualizeLightRays[g] gives an interactive drawing of g in which clicking an event highlights its outgoing and incoming light rays.";
-VisualizeFoliatedCausalGraph::usage = "VisualizeFoliatedCausalGraph[g, foliation, chains] draws g with the slices of foliation and the given chains overlaid as coloured bands on its embedding.";
-VisualizeMessageFunction::usage = "VisualizeMessageFunction[g, a, b] gives an interactive drawing of the observers a and b on g in which clicking a tick of a highlights its message images on b.";
-VisualizeEchoFunction::usage = "VisualizeEchoFunction[g, a, b] draws the observers a and b on g, the static backdrop of an echo-function picture.";
-BondiExplorer::usage = "BondiExplorer[] gives a Manipulate over the seven Bondi k-calculus constructions with sliders for velocity, light angle, bounces and a second velocity.";
+LightConeViewer::usage = "LightConeViewer[g] gives a Manipulate drawing g in which clicking an event v highlights its causal future and past and its future and past light cones.";
+MessageFunctionViewer::usage = "MessageFunctionViewer[g, a, b] gives a Manipulate drawing the observers a and b on g in which choosing a tick of a highlights its message images on b and the light rays carrying them.";
+FoliationViewer::usage = "FoliationViewer[g] gives a Manipulate with a slider over the universal time k drawing the slice InfraSlice[k] over the earlier band InfraSlice[{0, k - 1}].";
+BondiViewer::usage = "BondiViewer[] gives a Manipulate over the seven Bondi k-calculus constructions with sliders for velocity, light angle, bounces and a second velocity.";
 
 UniversalTime::usage = "UniversalTime[g] gives the height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources.";
 UniversalFoliation::usage = "UniversalFoliation[g] gives the level sets of UniversalTime[g] as sorted vertex lists, slice k holding the events whose longest chain from a source has k edges.";
@@ -58,24 +57,12 @@ RapidityFromK::usage = "RapidityFromK[k] gives the rapidity Log[k] of the Bondi 
 LorentzGamma::usage = "LorentzGamma[v] gives the Lorentz factor (k + 1/k)/2 with k = KFactor[v].";
 OutgoingRatio::usage = "OutgoingRatio[v, phi] gives the arc-length ratio Sin[phi]/Sin[phi - alpha] from an emission on the rest worldline to its reception on the worldline of velocity v.";
 IncomingRatio::usage = "IncomingRatio[v, phi] gives the arc-length ratio Sin[phi + alpha]/Sin[phi] from an emission on the worldline of velocity v to its reception on the rest worldline.";
-WorldlineDirection::usage = "WorldlineDirection[v, phi] gives the unit direction {Sin[alpha], Cos[alpha]} of the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
-WorldlinePoint::usage = "WorldlinePoint[v, s, phi] gives the point at Euclidean arc length s from the origin on the worldline of velocity v.";
-WorldlineNormal::usage = "WorldlineNormal[v, phi] gives the unit normal {Cos[alpha], -Sin[alpha]} to the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
-ProperTimeScale::usage = "ProperTimeScale[v, phi] gives the ratio KFactor[v, phi]/OutgoingRatio[v, phi] of proper time to Euclidean arc length on the worldline of velocity v.";
-WorldlinePointAtProperTime::usage = "WorldlinePointAtProperTime[v, tau, phi] gives the point at proper time tau on the worldline of velocity v.";
-LightDirection::usage = "LightDirection[phi, right] gives the unit direction of a light ray at angle phi to the time axis, pointing to positive x when right is True.";
 LightZigzag::usage = "LightZigzag[v, s0, n, phi] gives the n + 1 reflection events of light bouncing between the rest worldline and the worldline of velocity v from arc length s0, as associations.";
-RadarCoordinatesFromAlice::usage = "RadarCoordinatesFromAlice[{x, y}, phi] gives the radar time, the radar distance and the emission and return arc lengths of the plane event {x, y} for the observer at rest.";
-SimultaneityLine::usage = "SimultaneityLine[v, s, phi, extent] gives the two light-ray ends and the base point of the simultaneity line of the worldline of velocity v at arc length s.";
+BondiRadarCoordinates::usage = "BondiRadarCoordinates[{x, y}, phi] gives the radar time, the radar distance and the emission and return arc lengths of the plane event {x, y} for the observer at rest.";
 
-ChainProjection::usage = "ChainProjection[g, a, b] gives the number of events of the chain b in the causal future of the chain a divided by the length of a; \"Method\" -> \"LightRays\" uses the light rays of a.";
+ChainProjection::usage = "ChainProjection[g, a, b] gives the fraction of the events of the chain a whose causal future meets the chain b; \"Method\" -> \"LightRays\" uses their future light cones instead.";
 ChainLightReach::usage = "ChainLightReach[g, c] gives the union of the vertex sets of the outgoing light rays of the events of the chain c.";
-InfraEnergy::usage = "InfraEnergy[p, q] gives the Knuth energy (p + q)/2 of the projection pair p, q.";
-InfraMomentum::usage = "InfraMomentum[p, q] gives the Knuth momentum (p - q)/2 of the projection pair p, q.";
-InfraMass::usage = "InfraMass[p, q] gives the Knuth mass Sqrt[Abs[p q]] of the projection pair p, q.";
-InfraInterval::usage = "InfraInterval[p, q] gives the Knuth squared interval p q of the projection pair p, q.";
-InfraVelocity::usage = "InfraVelocity[p, q] gives the Knuth velocity (p - q)/(p + q) of the projection pair p, q.";
-InfraKinematics::usage = "InfraKinematics[g, ref, targets] gives the projections of the chain ref onto each target chain and the Knuth scalars of every pair of projections, as an association.";
+InfraKinematics::usage = "InfraKinematics[g, ref, targets] gives the projections of the chain ref onto the target chains and, for every pair p, q of them, the Knuth energy, momentum, mass, interval and velocity.";
 MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal past has the most vertices.";
 MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal future has the most vertices.";
 RandomInfraMessageFunction::usage = "RandomInfraMessageFunction[g, InfraMessageFunction[a, b], n] gives n distinct monotone selections of the message relation as associations, drawn uniformly; All enumerates them.";
@@ -88,3 +75,10 @@ SimultaneityConstruction::usage = "SimultaneityConstruction[v] draws the simulta
 LengthContractionConstruction::usage = "LengthContractionConstruction[v] draws the radar measurement of a rod moving at velocity v by the rest observer, illustrating the contracted length L/gamma.";
 VelocityAdditionConstruction::usage = "VelocityAdditionConstruction[v1, v2] draws three worldlines with Bondi factors k1, k2 and k1 k2, illustrating that composing velocities multiplies Bondi factors.";
 LightClockConstruction::usage = "LightClockConstruction[v, n] draws a transverse light clock carried by the observer of velocity v, with n bounces between observer and mirror.";
+WorldlineDirection::usage = "WorldlineDirection[v, phi] gives the unit direction {Sin[alpha], Cos[alpha]} of the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
+WorldlinePoint::usage = "WorldlinePoint[v, s, phi] gives the point at Euclidean arc length s from the origin on the worldline of velocity v.";
+WorldlineNormal::usage = "WorldlineNormal[v, phi] gives the unit normal {Cos[alpha], -Sin[alpha]} to the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
+WorldlinePointAtProperTime::usage = "WorldlinePointAtProperTime[v, tau, phi] gives the point at proper time tau on the worldline of velocity v.";
+ProperTimeScale::usage = "ProperTimeScale[v, phi] gives the ratio KFactor[v, phi]/OutgoingRatio[v, phi] of proper time to Euclidean arc length on the worldline of velocity v.";
+LightDirection::usage = "LightDirection[phi, right] gives the unit direction of a light ray at angle phi to the time axis, pointing to positive x when right is True.";
+SimultaneityLine::usage = "SimultaneityLine[v, s, phi, extent] gives the two light-ray ends and the base point of the simultaneity line of the worldline of velocity v at arc length s.";

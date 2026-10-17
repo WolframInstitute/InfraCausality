@@ -4,184 +4,108 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: CausalInfrageometry :: CausalViewers *)
 
+PackageScope[ lightConeReading ]
 
-(* Interactive and static visualisations for causal-graph constructions.
-   Hosts:
-     VisualizeLightRays              click-to-highlight outgoing/incoming rays
-     VisualizeFoliatedCausalGraph    overlay slices and chains on an embedding
-     VisualizeMessageFunction        EPS message map demo
-     VisualizeEchoFunction           EPS echo map overlay
-     BondiExplorer                   Manipulate over the Bondi constructions   *)
+PackageScope[ messageReading ]
 
+PackageScope[ foliationReading ]
 
-(* =========================== Light rays =========================== *)
+lightConeReading[ g_Graph, v_ ] :=
+  <|
+    "Event" -> v,
+    "Time" -> UniversalTime[ g ][ v ],
+    "Future" -> Keys @ InfraMeasurement[ g, InfraCausalFuture[ v ], "VertexDensity" ],
+    "Past" -> Keys @ InfraMeasurement[ g, InfraCausalPast[ v ], "VertexDensity" ],
+    "FutureLightCone" -> Keys @ InfraMeasurement[ g, InfraFutureLightCone[ v ], "VertexDensity" ],
+    "PastLightCone" -> Keys @ InfraMeasurement[ g, InfraPastLightCone[ v ], "VertexDensity" ],
+    "FutureRays" -> InfraMeasurement[ g, InfraFutureLightCone[ v ], "Cardinality" ],
+    "PastRays" -> InfraMeasurement[ g, InfraPastLightCone[ v ], "Cardinality" ]
+  |>
 
-(* Click any vertex to highlight its outgoing (light-ray yellow) and incoming
-   (echo purple) light rays.                                                  *)
+messageReading[ g_Graph, a_List, b_List, v_ ] :=
+  With[ { images = Lookup[ InfraMeasurement[ g, InfraMessageFunction[ a, b ], "Relation" ], Key[ v ], { } ],
+          tree = InfraMeasurement[ g, InfraFutureLightCone[ v ], "Graph" ] },
+    <|
+      "Tick" -> v,
+      "Images" -> images,
+      "Rays" -> Map[ w |-> FindShortestPath[ tree, v, w ], images ]
+    |>
+  ]
 
-VisualizeLightRays[ g_Graph ] :=
-  DynamicModule[ { vertices, selectedVertex, vertexCoords },
-    vertices       = VertexList @ g;
-    vertexCoords   = AssociationThread[ vertices, VertexCoordinates /. AbsoluteOptions @ g ];
-    selectedVertex = First @ vertices;
-    Dynamic @ EventHandler[
-      HighlightGraph[ g,
-        {
-          Style[
-            InfraMeasurement[ g, InfraFutureLightCone[ selectedVertex ], "Graph" ],
-            Directive[ StandardOrange, Thick ]
-          ],
-          Style[
-            InfraMeasurement[ g, InfraPastLightCone[ selectedVertex ], "Graph" ],
-            Directive[ StandardBlue, Thick ]
-          ],
-          Style[ selectedVertex, Directive[ StandardRed ] ]
-        }
-      ],
-      { "MouseClicked" :>
-        With[ { mp = MousePosition[ "Graphics" ] },
-          If[ mp =!= None,
-            selectedVertex = First @ MinimalBy[ vertices, EuclideanDistance[ vertexCoords[ # ], mp ] & ]
-          ]
-        ]
-      }
+foliationReading[ g_Graph, k_Integer ] :=
+  <|
+    "Time" -> k,
+    "Slice" -> Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ],
+    "Earlier" -> Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k - 1 } ], "VertexDensity" ]
+  |>
+
+LightConeViewer[ g_Graph ] :=
+  With[ { nearest = Nearest[ GraphEmbedding[ g ] -> VertexList[ g ] ],
+          start = First @ GraphCenter @ UndirectedGraph @ g },
+    Manipulate[
+      With[ { reading = lightConeReading[ g, v ] },
+        Labeled[
+          EventHandler[
+            InfraSubstrateHighlight[ g, {
+              InfraCausalFuture[ v ] -> Lighter[ StandardOrange, 0.6 ],
+              InfraCausalPast[ v ] -> Lighter[ StandardBlue, 0.6 ],
+              InfraFutureLightCone[ v ] -> StandardOrange,
+              InfraPastLightCone[ v ] -> StandardBlue,
+              { v } -> StandardRed } ],
+            { "MouseClicked" :> With[ { mp = MousePosition[ "Graphics" ] },
+              If[ mp =!= None, v = First @ nearest[ mp ] ] ] },
+            PassEventsDown -> True ],
+          Row[ {
+            "event ", v, ",  t = ", reading[ "Time" ],
+            ",  |J+| = ", Length @ reading[ "Future" ], ",  |J-| = ", Length @ reading[ "Past" ],
+            ",  rays out ", reading[ "FutureRays" ], ",  rays in ", reading[ "PastRays" ] } ],
+          Top ] ],
+      { { v, start }, None },
+      TrackedSymbols :> { v },
+      SaveDefinitions -> True
     ]
   ]
 
-
-(* =========================== Foliated causal graph =========================== *)
-
-Options[ VisualizeFoliatedCausalGraph ] = {
-  "SliceColorFunction"   -> ( t |-> Blend[ { Lighter[ StandardOrange, 0.5 ], Darker[ StandardOrange, 0.25 ] }, t ] ),
-  "ChainColorFunction"   -> ( t |-> Blend[ { StandardBlue, StandardGreen, StandardRed }, t ] ),
-  "SliceOpacity"         -> 0.3,
-  "ChainOpacity"         -> 0.7,
-  "HighlightThickness"   -> 0.03,
-  ImageSize              -> Automatic
-};
-
-(* Render a foliation as coloured slices and (optionally) chains as coloured
-   poly-lines on top of the graph embedding.                                  *)
-
-VisualizeFoliatedCausalGraph[ g_Graph, foliation_List, chains_List : { },
-    opts : OptionsPattern[ { VisualizeFoliatedCausalGraph, Graph, Graphics } ] ] :=
-  Module[ { emb, scale, thickness, sliceCF, chainCF, sliceOp, chainOp, numS, numC,
-            coords, sliceGraphics, chainGraphics },
-    emb       = AssociationThread[ VertexList @ g, GraphEmbedding @ g ];
-    coords    = Values @ emb;
-    thickness = OptionValue[ "HighlightThickness" ];
-    scale     = If[ Length @ coords >= 1, ( Max @ coords - Min @ coords ) thickness, thickness ];
-    sliceCF   = OptionValue[ "SliceColorFunction" ];
-    chainCF   = OptionValue[ "ChainColorFunction" ];
-    sliceOp   = OptionValue[ "SliceOpacity" ];
-    chainOp   = OptionValue[ "ChainOpacity" ];
-    numS      = Max[ 1, Length @ foliation ];
-    numC      = Max[ 1, Length @ chains ];
-    sliceGraphics = MapIndexed[
-      { elem, idx } |-> foliationHighlightPiece[ emb, scale, elem, sliceCF[ First @ idx / numS ], sliceOp, False ],
-      foliation
-    ];
-    chainGraphics = MapIndexed[
-      { elem, idx } |-> foliationHighlightPiece[ emb, scale, elem, chainCF[ First @ idx / numC ], chainOp, True ],
-      chains
-    ];
-    Show[
-      g,
-      Graphics[ { Thickness[ thickness ], sliceGraphics, chainGraphics } ],
-      Sequence @@ FilterRules[ { opts }, Options @ Graphics ]
+MessageFunctionViewer[ g_Graph, a_List, b_List ] :=
+  With[ { nearest = Nearest[ Lookup[ AssociationThread[ VertexList[ g ], GraphEmbedding[ g ] ], a ] -> Range @ Length @ a ] },
+    Manipulate[
+      With[ { reading = messageReading[ g, a, b, a[[ k ]] ] },
+        Labeled[
+          EventHandler[
+            InfraSubstrateHighlight[ g, {
+              InfraWalk[ a ] -> StandardBlue,
+              InfraWalk[ b ] -> StandardRed,
+              rayGraph[ g, Map[ w |-> { a[[ k ]], w }, reading[ "Images" ] ] ] -> StandardOrange,
+              reading[ "Images" ] -> StandardGreen,
+              { a[[ k ]] } -> StandardMagenta } ],
+            { "MouseClicked" :> With[ { mp = MousePosition[ "Graphics" ] },
+              If[ mp =!= None, k = First @ nearest[ mp ] ] ] },
+            PassEventsDown -> True ],
+          Row[ { "message from ", a[[ k ]], " to ", reading[ "Images" ] } ],
+          Top ] ],
+      { { k, 1, "Tick" }, 1, Length @ a, 1, Appearance -> "Labeled" },
+      TrackedSymbols :> { k },
+      SaveDefinitions -> True
     ]
   ]
 
-
-(* =========================== EPS visualisations =========================== *)
-
-PackageScope[ $EPSColors ]
-$EPSColors := <|
-  "Path1"        -> StandardBlue,
-  "Path2"        -> StandardRed,
-  "LightRay"     -> StandardOrange,
-  "MessageArrow" -> StandardGreen,
-  "EchoArrow"    -> StandardPurple,
-  "Selected"     -> StandardMagenta
-|>;
-
-
-(* Click a vertex on path1 to see its message images on path2 and the
-   outgoing light rays that carry them.                                       *)
-
-VisualizeMessageFunction[ g_Graph, path1_List, path2_List ] :=
-  With[
-    {
-      msg = InfraMeasurement[ g, InfraMessageFunction[ path1, path2 ], "Relation" ]
-    },
-    DynamicModule[ { selectedVertex = First @ path1 },
-      Dynamic @ With[
-        {
-          targets = Lookup[ msg, selectedVertex, { } ]
-        },
-        HighlightGraph[ g,
-          {
-            Style[ Subgraph[ g, path1 ], Directive[ $EPSColors[ "Path1" ], Thick ] ],
-            Style[ Subgraph[ g, path2 ], Directive[ $EPSColors[ "Path2" ], Thick ] ],
-            Style[ selectedVertex, Directive[ $EPSColors[ "Selected" ], PointSize[ 0.03 ] ] ],
-            Style[ #, Directive[ $EPSColors[ "MessageArrow" ], PointSize[ 0.025 ] ] ] & /@ targets
-          },
-          VertexLabels -> "Name",
-          ImageSize    -> 500,
-          PlotLabel    -> Row[ { "Message from ", selectedVertex, " \[RightArrow] ", targets } ]
-        ]
-      ]
+FoliationViewer[ g_Graph ] :=
+  With[ { height = Max @ UniversalTime @ g },
+    Manipulate[
+      With[ { reading = foliationReading[ g, k ] },
+        Labeled[
+          InfraSubstrateHighlight[ g, {
+            InfraSlice[ { 0, k - 1 } ] -> Lighter[ StandardBlue, 0.5 ],
+            InfraSlice[ k ] -> StandardOrange } ],
+          Row[ { "t = ", k, ",  slice ", Length @ reading[ "Slice" ], " events,  earlier ", Length @ reading[ "Earlier" ], " events" } ],
+          Top ] ],
+      { { k, 0, "Time" }, 0, height, 1, Appearance -> "Labeled" },
+      TrackedSymbols :> { k },
+      SaveDefinitions -> True
     ]
   ]
 
-
-(* Static overlay of the echo function on path1 via path2. *)
-
-VisualizeEchoFunction[ g_Graph, path1_List, path2_List ] :=
-  HighlightGraph[ g,
-    {
-      Style[ Subgraph[ g, path1 ], Directive[ $EPSColors[ "Path1" ], Thick ] ],
-      Style[ Subgraph[ g, path2 ], Directive[ $EPSColors[ "Path2" ], Thick ] ]
-    },
-    VertexLabels -> "Name",
-    ImageSize    -> 500,
-    Epilog       -> { $EPSColors[ "EchoArrow" ], Thick, Arrowheads[ 0.03 ] },
-    PlotLabel    -> "Echo function on Path1 via Path2"
-  ]
-
-
-(* =========================== Internal helper =========================== *)
-
-(* foliationHighlightPiece: render a single slice or chain element as a Line
-   when it has multiple vertices, or as a Rectangle when it is a singleton.   *)
-
-PackageScope[ foliationHighlightPiece ]
-foliationHighlightPiece[ emb_Association, scale_, elem_, color_, opacity_, preserveOrder_ ] :=
-  With[
-    {
-      verts       = Replace[ elem, Style[ x_, _ ] :> x ],
-      forcedColor = Replace[ elem, { Style[ _, c_ ] :> c, _ :> color } ]
-    },
-    {
-      ordered = If[ TrueQ @ preserveOrder, verts, SortBy[ verts, First @ emb @ # & ] ]
-    },
-    Which[
-      Length @ ordered > 1,
-        { Opacity[ opacity ], forcedColor, Line[ Map[ emb, ordered ] ] },
-      Length @ ordered == 1,
-        { Opacity[ opacity ], forcedColor,
-          Rectangle[
-            emb[ First @ ordered ] - { scale, scale },
-            emb[ First @ ordered ] + { scale, scale }
-          ] },
-      True, { }
-    ]
-  ]
-
-
-(* =========================== Bondi explorer =========================== *)
-
-BondiExplorer[] :=
+BondiViewer[] :=
   Manipulate[
     Switch[ construction,
       "Clock",
