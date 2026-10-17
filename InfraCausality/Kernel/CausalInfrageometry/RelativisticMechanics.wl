@@ -14,50 +14,6 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
        arXiv:1005.4172.                                                        *)
 
 
-(* =========================== Light cones =========================== *)
-
-(* Forward light cone: subgraph induced by all events reachable from v along
-   directed paths of length <= len.  Discrete analog of J^+(v).               *)
-
-ForwardLightCone[ g_, v_List, len_ : Infinity ] :=
-  VertexOutComponentGraph[ g, v, len ]
-
-ForwardLightCone[ g_, v_, len_ : Infinity ] :=
-  VertexOutComponentGraph[ g, { v }, len ]
-
-
-(* Backward light cone: subgraph induced by events from which v is reachable
-   along directed paths of length <= len.  Discrete analog of J^-(v).         *)
-
-BackwardLightCone[ g_, v_List, len_ : Infinity ] :=
-  VertexInComponentGraph[ g, v, len ]
-
-BackwardLightCone[ g_, v_, len_ : Infinity ] :=
-  VertexInComponentGraph[ g, { v }, len ]
-
-
-(* Causal interval J^+(v1) \[Intersection] J^-(v2): subgraph of events between
-   v1 and v2 in the causal order.                                             *)
-
-CausalInterval[ g_, v1_, v2_, len_ : Infinity ] :=
-  Subgraph[ g,
-    Intersection[
-      VertexList @ ForwardLightCone[ g, v1, len ],
-      VertexList @ BackwardLightCone[ g, v2, len ]
-    ]
-  ]
-
-
-(* Causal closure of a chain c: events both reachable from c and able to reach
-   c.  Returns the vertex list (graph reconstruction is one Subgraph call).   *)
-
-ChainCausalInterval[ g_, c_ ] :=
-  Intersection[
-    VertexList @ ForwardLightCone[ g, c ],
-    VertexList @ BackwardLightCone[ g, c ]
-  ]
-
-
 (* =========================== Universal time =========================== *)
 
 UniversalTime[ graph_Graph ] :=
@@ -83,14 +39,14 @@ UniversalFoliation[ graph_Graph ] :=
    light cone is largest -- "most-informed" events with the broadest causal
    past on their slice.  Returns Association[ slice -> {v, ...} ].           *)
 
-MaximalAbsorber[ g_ ] := extremalEvents[ g, BackwardLightCone ]
+MaximalAbsorber[ g_ ] := extremalEvents[ g, InfraCausalPast ]
 
 
 (* MaximalEmitter[g]: per universal-time slice, the events whose forward
    light cone is largest -- "most-influential" events with the broadest causal
    future on their slice.                                                     *)
 
-MaximalEmitter[ g_ ] := extremalEvents[ g, ForwardLightCone ]
+MaximalEmitter[ g_ ] := extremalEvents[ g, InfraCausalFuture ]
 
 
 (* extremalEvents[g, cone]: per universal-time slice, the events whose cone
@@ -101,7 +57,7 @@ extremalEvents[ g_, cone_ ] :=
   KeySort @ GroupBy[
     Normal @ UniversalTime @ g,
     Last -> First,
-    MaximalBy[ #, p |-> VertexCount @ cone[ g, p ] ] &
+    MaximalBy[ #, p |-> InfraMeasurement[ g, cone[ p ], "CountingMeasure" ] ] &
   ]
 
 
@@ -113,9 +69,9 @@ extremalEvents[ g_, cone_ ] :=
 
 OutgoingLightRays[ g_, v_ ] :=
   With[
-    { forwardCone = ForwardLightCone[ g, v ] },
+    { forwardCone = InfraMeasurement[ g, InfraCausalFuture[ v ], "Subgraph" ] },
     { coords = UniversalTime @ forwardCone, vertices = VertexList @ forwardCone },
-    { volumes = AssociationMap[ VertexCount @ BackwardLightCone[ forwardCone, # ] &, vertices ] },
+    { volumes = AssociationMap[ InfraMeasurement[ forwardCone, InfraCausalPast[ # ], "CountingMeasure" ] &, vertices ] },
     Select[ vertices, coords[ # ] + 1 == volumes[ # ] & ]
   ]
 

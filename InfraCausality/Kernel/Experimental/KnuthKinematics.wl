@@ -31,7 +31,7 @@ Options[ ChainProjection ] = { "Method" -> "Cone" };
 ChainProjection[ g_Graph, source_List, target_List, OptionsPattern[] ] :=
   Switch[ OptionValue[ "Method" ],
     "Cone",
-      Length @ Intersection[ VertexOutComponent[ g, source ], target ] / Length @ source,
+      Length @ Intersection[ Keys @ InfraMeasurement[ g, InfraCausalFuture[ source ], "VertexDensity" ], target ] / Length @ source,
     "LightRays",
       Length @ Intersection[ ChainLightReach[ g, source ], target ] / Length @ source
   ]

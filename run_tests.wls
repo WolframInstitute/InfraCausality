@@ -5,6 +5,7 @@
 $pacletDir = DirectoryName[$InputFileName];
 
 PacletDirectoryLoad[$pacletDir <> "/InfraCausality"];
+Needs["WolframInstitute`InfraGeometry`"];
 Needs["WolframInstitute`InfraCausality`"];
 
 $testDir = FileNameJoin[{$pacletDir, "InfraCausality", "Tests"}];

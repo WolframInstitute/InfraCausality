@@ -42,32 +42,6 @@ VerificationTest[
   TestID -> "UniversalTime-values-integer"
 ]
 
-(* ========================= Light cones ========================= *)
-
-VerificationTest[
-  Head @ ForwardLightCone[ $mechGraph, 1 ],
-  Graph,
-  TestID -> "ForwardLightCone-returns-graph"
-]
-
-VerificationTest[
-  Head @ BackwardLightCone[ $mechGraph, 4 ],
-  Graph,
-  TestID -> "BackwardLightCone-returns-graph"
-]
-
-VerificationTest[
-  Head @ CausalInterval[ $mechGraph, 1, 4 ],
-  Graph,
-  TestID -> "CausalInterval-returns-graph"
-]
-
-VerificationTest[
-  ListQ @ ChainCausalInterval[ $mechGraph, { 1, 2, 3, 4 } ],
-  True,
-  TestID -> "ChainCausalInterval-returns-list"
-]
-
 (* ========================= MaximalAbsorber / MaximalEmitter ========================= *)
 
 VerificationTest[
