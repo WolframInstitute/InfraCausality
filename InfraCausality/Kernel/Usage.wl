@@ -45,6 +45,7 @@ InfraMessageFunction::usage = "InfraMessageFunction[a, b] is the message relatio
 InfraEchoFunction::usage = "InfraEchoFunction[a, b] is the echo relation of observer a via observer b, v -> the events of a lit from the message images of v; its members are the monotone compositions of two selections.";
 InfraMessageFunctionQ::usage = "InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f] gives True if the association f picks one message image on b for every tick of a that has one and preserves the order (EPS D1).";
 InfraEchoFunctionQ::usage = "InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f] gives True if the association f sends ticks of a to one of their echo images on a and preserves the order of a.";
+InfraRadarChart::usage = "InfraRadarChart[a] is the radar chart of the observer a, giving each event between its ticks the radar time (i + j)/2 and distance (j - i)/2 of its emission tick i and reception tick j; a list of observers joins charts.";
 
 $CausalColors::usage = "$CausalColors is the association of named colours used by the causal drawings.";
 CausalGraphStyle::usage = "CausalGraphStyle[tier] gives the VertexStyle and EdgeStyle options of a causal graph drawing, tier being \"Default\", \"Opaque\", \"Faint\" or \"Gray\".";

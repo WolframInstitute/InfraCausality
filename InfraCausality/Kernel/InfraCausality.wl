@@ -51,6 +51,7 @@ PackageExport[InfraMessageFunction]
 PackageExport[InfraEchoFunction]
 PackageExport[InfraMessageFunctionQ]
 PackageExport[InfraEchoFunctionQ]
+PackageExport[InfraRadarChart]
 
 (* CausalSubstrates *)
 
