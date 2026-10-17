@@ -4,8 +4,6 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: Kernel :: Usage *)
 
-RandomCausalGraph::usage = "RandomCausalGraph[{n, m}] gives a random connected directed acyclic graph with n vertices and m edges, an acyclic orientation of a random connected graph.";
-
 InfraCausalFuture::usage = "InfraCausalFuture[v] is the causal future J+(v) of the event or event set v, the events reached from it; InfraCausalFuture[v, t] keeps those whose longest chain from v has at most t edges.";
 InfraCausalPast::usage = "InfraCausalPast[v] is the causal past J-(v) of the event or event set v, the events reaching it; InfraCausalPast[v, t] keeps those whose longest chain to v has at most t edges.";
 RandomInfraCausalFuture::usage = "RandomInfraCausalFuture[g, InfraCausalFuture[v], n] gives the support of the causal future on g as a sorted vertex list, its only member; RandomInfraCausalFuture[g, v] is the shortcut.";
@@ -47,8 +45,10 @@ InfraMessageFunctionQ::usage = "InfraMessageFunctionQ[g, InfraMessageFunction[a,
 InfraEchoFunctionQ::usage = "InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f] gives True if the association f sends ticks of a to one of their echo images on a and preserves the order of a.";
 InfraRadarChart::usage = "InfraRadarChart[a] is the radar chart of the observer a, giving each event between its ticks the radar time (i + j)/2 and distance (j - i)/2 of its emission tick i and reception tick j; a list of observers joins charts.";
 
-$CausalColors::usage = "$CausalColors is the association of named colours used by the causal drawings.";
-CausalGraphStyle::usage = "CausalGraphStyle[tier] gives the VertexStyle and EdgeStyle options of a causal graph drawing, tier being \"Default\", \"Opaque\", \"Faint\" or \"Gray\".";
+CausalSubstrate::usage = "CausalSubstrate[name, size] gives the named causal graph at size \"Small\", \"Medium\" or \"Large\", a transitively reduced DAG; CausalSubstrate[] lists the names by group.";
+CausalSubstrateStyle::usage = "CausalSubstrateStyle[size] gives the Graph options a causal substrate of size \"Small\", \"Medium\" or \"Large\" is drawn with; CausalSubstrateStyle[name, size] those of a named substrate.";
+CausalSubstrateCode::usage = "CausalSubstrateCode[name, size] gives the held code that builds CausalSubstrate[name, size].";
+RandomCausalGraph::usage = "RandomCausalGraph[{n, p}] gives the Hasse diagram of a transitive percolation on events 1..n with link probability p; {n, m} orients a random connected graph, Method -> {\"Sprinkling\", d} sprinkles.";
 
 KFactor::usage = "KFactor[v] gives the Bondi factor Sqrt[(1 + v)/(1 - v)], and KFactor[v, phi] its angular form Sqrt[Sin[phi + alpha]/Sin[phi - alpha]] with alpha = WorldlineAngle[v, phi].";
 VelocityFromK::usage = "VelocityFromK[k] gives the velocity (k^2 - 1)/(k^2 + 1) of the Bondi factor k.";

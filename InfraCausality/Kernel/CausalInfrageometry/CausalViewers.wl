@@ -29,13 +29,13 @@ VisualizeLightRays[ g_Graph ] :=
         {
           Style[
             InfraMeasurement[ g, InfraFutureLightCone[ selectedVertex ], "Graph" ],
-            Directive[ $CausalColors[ "LightRay" ], Thick ]
+            Directive[ StandardOrange, Thick ]
           ],
           Style[
             InfraMeasurement[ g, InfraPastLightCone[ selectedVertex ], "Graph" ],
-            Directive[ $CausalColors[ "Echo" ], Thick ]
+            Directive[ StandardBlue, Thick ]
           ],
-          Style[ selectedVertex, Directive[ $CausalColors[ "Accent" ] ] ]
+          Style[ selectedVertex, Directive[ StandardRed ] ]
         }
       ],
       { "MouseClicked" :>
@@ -52,8 +52,8 @@ VisualizeLightRays[ g_Graph ] :=
 (* =========================== Foliated causal graph =========================== *)
 
 Options[ VisualizeFoliatedCausalGraph ] = {
-  "SliceColorFunction"   -> ( t |-> Blend[ { Lighter[ $CausalColors[ "Causal" ], 0.5 ], Darker[ $CausalColors[ "Causal" ], 0.25 ] }, t ] ),
-  "ChainColorFunction"   -> ( t |-> Blend[ { $CausalColors[ "Observer1" ], $CausalColors[ "Observer3" ], $CausalColors[ "Observer2" ] }, t ] ),
+  "SliceColorFunction"   -> ( t |-> Blend[ { Lighter[ StandardOrange, 0.5 ], Darker[ StandardOrange, 0.25 ] }, t ] ),
+  "ChainColorFunction"   -> ( t |-> Blend[ { StandardBlue, StandardGreen, StandardRed }, t ] ),
   "SliceOpacity"         -> 0.3,
   "ChainOpacity"         -> 0.7,
   "HighlightThickness"   -> 0.03,
@@ -97,12 +97,12 @@ VisualizeFoliatedCausalGraph[ g_Graph, foliation_List, chains_List : { },
 
 PackageScope[ $EPSColors ]
 $EPSColors := <|
-  "Path1"        -> $CausalColors[ "Observer1" ],
-  "Path2"        -> $CausalColors[ "Observer2" ],
-  "LightRay"     -> $CausalColors[ "LightRay" ],
-  "MessageArrow" -> $CausalColors[ "Observer3" ],
-  "EchoArrow"    -> $CausalColors[ "Echo" ],
-  "Selected"     -> $CausalColors[ "Accent" ]
+  "Path1"        -> StandardBlue,
+  "Path2"        -> StandardRed,
+  "LightRay"     -> StandardOrange,
+  "MessageArrow" -> StandardGreen,
+  "EchoArrow"    -> StandardPurple,
+  "Selected"     -> StandardMagenta
 |>;
 
 

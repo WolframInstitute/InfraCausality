@@ -7,18 +7,18 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 (* === Color Palette === *)
 
 $BondiColors := <|
-  "Alice" -> $CausalColors[ "Observer1" ],
-  "Bob" -> $CausalColors[ "Observer2" ],
-  "Carol" -> $CausalColors[ "Observer3" ],
-  "Light" -> $CausalColors[ "LightRay" ],
-  "LightFaded" -> $CausalColors[ "LightRayFaded" ],
-  "Event" -> $CausalColors[ "Event" ],
-  "Simultaneity" -> $CausalColors[ "Simultaneity" ],
-  "SimAlice" -> Lighter[ $CausalColors[ "Observer1" ], 0.3 ],
-  "SimBob" -> Lighter[ $CausalColors[ "Observer2" ], 0.3 ],
-  "Tick" -> $CausalColors[ "Tick" ],
-  "Label" -> $CausalColors[ "Label" ],
-  "Background" -> $CausalColors[ "Background" ]
+  "Alice" -> StandardBlue,
+  "Bob" -> StandardRed,
+  "Carol" -> StandardGreen,
+  "Light" -> StandardYellow,
+  "LightFaded" -> Lighter[ StandardYellow, 0.5 ],
+  "Event" -> StandardPurple,
+  "Simultaneity" -> StandardOrange,
+  "SimAlice" -> Lighter[ StandardBlue, 0.3 ],
+  "SimBob" -> Lighter[ StandardRed, 0.3 ],
+  "Tick" -> Darker[ StandardGray, 0.3 ],
+  "Label" -> Darker[ StandardGray, 0.6 ],
+  "Background" -> Lighter[ StandardGray, 0.95 ]
 |>;
 
 
@@ -40,7 +40,7 @@ DrawLightRay[ from_List, to_List, color_ : Automatic ] :=
     AbsoluteThickness[ 1.2 ], Line[ { from, to } ] }
 
 DrawEvent[ point_List, scale_ : 1 ] :=
-  { $BondiColors[ "Event" ], EdgeForm[ { GrayLevel[ 0.3 ], AbsoluteThickness[ 0.8 ] } ],
+  { $BondiColors[ "Event" ], EdgeForm[ { Darker[ StandardGray, 0.4 ], AbsoluteThickness[ 0.8 ] } ],
     Disk[ point, 0.01 scale ] }
 
 DrawTicks[ velocity_, tauRange_List, lightAngle_, scale_ : 1 ] :=

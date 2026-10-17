@@ -20,6 +20,10 @@ PacletObject[
         "Documentation",
         "Root" -> "Documentation",
         "Language" -> "English"
+      },
+      {
+        "Asset",
+        "Assets" -> { { "WolframModelCausalGraphs", "./Resources/WolframModelCausalGraphs.wxf" } }
       }
     }
   |>

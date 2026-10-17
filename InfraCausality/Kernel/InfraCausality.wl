@@ -6,8 +6,6 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* CausalInfrageometry *)
 
-PackageExport[RandomCausalGraph]
-
 PackageExport[InfraCausalFuture]
 PackageExport[InfraCausalPast]
 PackageExport[RandomInfraCausalFuture]
@@ -55,8 +53,10 @@ PackageExport[InfraRadarChart]
 
 (* CausalSubstrates *)
 
-PackageExport[$CausalColors]
-PackageExport[CausalGraphStyle]
+PackageExport[CausalSubstrate]
+PackageExport[CausalSubstrateStyle]
+PackageExport[CausalSubstrateCode]
+PackageExport[RandomCausalGraph]
 
 (* BondiKCalculus *)
 
