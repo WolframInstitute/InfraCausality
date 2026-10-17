@@ -41,12 +41,10 @@ RandomInfraSlice::usage = "RandomInfraSlice[g, InfraSlice[k], n] gives the suppo
 InfraSliceQ::usage = "InfraSliceQ[g, set] gives True if the vertex list set is a nonempty level set of UniversalTime[g].";
 InfraAntichainQ::usage = "InfraAntichainQ[g, set] gives True if the vertex list set is duplicate-free and no two of its elements are comparable in the causal order of g.";
 
-MultiMessageFunction::usage = "MultiMessageFunction[g, a, b] gives the message relation from observer a to observer b, the association v -> the events of b on an outgoing light ray of v, for every v on a.";
-FindMessageFunction::usage = "FindMessageFunction[g, a, b] gives every monotone single-valued selection of the message relation from a to b, and FindMessageFunction[g, a, b, n] the first n of them.";
-MultiEchoFunction::usage = "MultiEchoFunction[g, a, b] gives the echo relation of a via b, the association v -> the events of a reached by light from the message images of v on b.";
-FindEchoFunction::usage = "FindEchoFunction[g, a, b] gives every monotone single-valued echo map on a composed of single-valued message selections from a to b and from b to a; option \"MonotoneMessages\".";
-EchoGraph::usage = "EchoGraph[f] gives the directed graph with an edge v -> w for every image w of v under the association f of message or echo images.";
-MonotoneQ::usage = "MonotoneQ[a, b, f] tests EPS axiom D1 for f, that for v before w on a no position on b of an image of v exceeds a position of an image of w.";
+InfraMessageFunction::usage = "InfraMessageFunction[a, b] is the message relation from observer a to observer b, v -> the events of b in the future light cone of v; its members are the monotone single-valued selections.";
+InfraEchoFunction::usage = "InfraEchoFunction[a, b] is the echo relation of observer a via observer b, v -> the events of a lit from the message images of v; its members are the monotone compositions of two selections.";
+InfraMessageFunctionQ::usage = "InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f] gives True if the association f picks one message image on b for every tick of a that has one and preserves the order (EPS D1).";
+InfraEchoFunctionQ::usage = "InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f] gives True if the association f sends ticks of a to one of their echo images on a and preserves the order of a.";
 
 $CausalColors::usage = "$CausalColors is the association of named colours used by the causal drawings.";
 CausalGraphStyle::usage = "CausalGraphStyle[tier] gives the VertexStyle and EdgeStyle options of a causal graph drawing, tier being \"Default\", \"Opaque\", \"Faint\" or \"Gray\".";
@@ -79,6 +77,8 @@ InfraVelocity::usage = "InfraVelocity[p, q] gives the Knuth velocity (p - q)/(p 
 InfraKinematics::usage = "InfraKinematics[g, ref, targets] gives the projections of the chain ref onto each target chain and the Knuth scalars of every pair of projections, as an association.";
 MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal past has the most vertices.";
 MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal future has the most vertices.";
+RandomInfraMessageFunction::usage = "RandomInfraMessageFunction[g, InfraMessageFunction[a, b], n] gives n distinct monotone selections of the message relation as associations, drawn uniformly; All enumerates them.";
+RandomInfraEchoFunction::usage = "RandomInfraEchoFunction[g, InfraEchoFunction[a, b], n] gives n distinct monotone echo maps of a via b, compositions of two message selections, as associations; All enumerates them.";
 
 BondiClock::usage = "BondiClock[v, n] draws the rest worldline and the worldline of velocity v with a light signal bouncing n times between them and proper-time ticks.";
 DopplerConstruction::usage = "DopplerConstruction[v, n] draws n evenly spaced light pulses from the rest worldline to the worldline of velocity v, showing the Bondi factor as a pulse-spacing ratio.";

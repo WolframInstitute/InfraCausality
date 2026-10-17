@@ -47,12 +47,10 @@ PackageExport[InfraAntichainQ]
 
 (* InfraObservers *)
 
-PackageExport[MultiMessageFunction]
-PackageExport[FindMessageFunction]
-PackageExport[MultiEchoFunction]
-PackageExport[FindEchoFunction]
-PackageExport[EchoGraph]
-PackageExport[MonotoneQ]
+PackageExport[InfraMessageFunction]
+PackageExport[InfraEchoFunction]
+PackageExport[InfraMessageFunctionQ]
+PackageExport[InfraEchoFunctionQ]
 
 (* CausalSubstrates *)
 
@@ -92,6 +90,9 @@ PackageExport[InfraKinematics]
 
 PackageExport[MaximalAbsorber]
 PackageExport[MaximalEmitter]
+
+PackageExport[RandomInfraMessageFunction]
+PackageExport[RandomInfraEchoFunction]
 
 PackageExport[BondiClock]
 PackageExport[DopplerConstruction]

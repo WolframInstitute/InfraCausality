@@ -112,7 +112,7 @@ $EPSColors := <|
 VisualizeMessageFunction[ g_Graph, path1_List, path2_List ] :=
   With[
     {
-      msg = MultiMessageFunction[ g, path1, path2 ]
+      msg = InfraMeasurement[ g, InfraMessageFunction[ path1, path2 ], "Relation" ]
     },
     DynamicModule[ { selectedVertex = First @ path1 },
       Dynamic @ With[
