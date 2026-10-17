@@ -130,7 +130,7 @@ VerificationTest[
 VerificationTest[
   SeedRandom[ 17 ];
   Quiet @ With[ { g = RandomCausalGraph[ { 25, 50 } ] },
-    With[ { chains = FindChain[ g, 3, "Method" -> "Separated" ] },
+    With[ { chains = RandomInfraObserver[ g, UpTo[ 3 ] ] },
       If[ Length[ chains ] >= 2,
         Head @ InfraKinematics[ g, First @ chains, Rest @ chains, "Method" -> "LightRays" ],
         Association

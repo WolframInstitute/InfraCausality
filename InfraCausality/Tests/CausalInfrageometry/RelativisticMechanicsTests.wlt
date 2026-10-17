@@ -74,27 +74,7 @@ VerificationTest[
   TestID -> "MaximalEmitter-Mech-largest-future-in-slice"
 ]
 
-(* ========================= Light rays ========================= *)
-
-VerificationTest[
-  ListQ @ OutgoingLightRays[ $mechGraph, 1 ],
-  True,
-  TestID -> "OutgoingLightRays-returns-list"
-]
-
-VerificationTest[
-  SubsetQ[ VertexList @ $mechGraph, OutgoingLightRays[ $mechGraph, 1 ] ],
-  True,
-  TestID -> "OutgoingLightRays-vertices-in-graph"
-]
-
-VerificationTest[
-  ListQ @ IncomingLightRays[ $mechGraph, 4 ],
-  True,
-  TestID -> "IncomingLightRays-returns-list"
-]
-
-(* ========================= Universal time and light rays: invariants ========================= *)
+(* ========================= Universal time: invariants ========================= *)
 
 $twoSource = Graph[ { 1 -> 3, 2 -> 4, 3 -> 4, 4 -> 5 } ];
 
@@ -109,15 +89,6 @@ $antichainSlicesQ = g |-> AllTrue[ UniversalFoliation @ g,
 $partitionQ = g |-> With[ { slices = UniversalFoliation @ g }, Length @ Catenate @ slices == VertexCount @ g && Sort @ Catenate @ slices === Sort @ VertexList @ g ];
 
 $zeroOnSourcesQ = g |-> Sort @ Keys @ Select[ UniversalTime @ g, EqualTo[ 0 ] ] === Sort @ Pick[ VertexList @ g, VertexInDegree @ g, 0 ];
-
-$longestChain = { g, v, e } |-> If[ v === e, 0, Max[ Length /@ FindPath[ g, v, e, Infinity, All ] ] - 1 ];
-
-$raysInFutureQ = g |-> AllTrue[ VertexList @ g, v |-> SubsetQ[ VertexOutComponent[ g, { v } ], OutgoingLightRays[ g, v ] ] ];
-
-$raysNullQ = g |-> AllTrue[ VertexList @ g, v |-> AllTrue[ OutgoingLightRays[ g, v ],
-  e |-> Length @ Intersection[ VertexOutComponent[ g, { v } ], VertexInComponent[ g, { e } ] ] == 1 + $longestChain[ g, v, e ] ] ];
-
-$raysTreeQ = g |-> AllTrue[ VertexList @ g, v |-> TreeGraphQ @ TransitiveReductionGraph @ Subgraph[ g, OutgoingLightRays[ g, v ] ] ];
 
 VerificationTest[
   UniversalFoliation[ $twoSource ],
@@ -140,17 +111,5 @@ VerificationTest[ $partitionQ[ $random12 ], True, TestID -> "UniversalFoliation-
 VerificationTest[ $zeroOnSourcesQ[ $twoSource ], True, TestID -> "UniversalTime-TwoSource-zero-exactly-on-sources" ]
 
 VerificationTest[ $zeroOnSourcesQ[ $random12 ], True, TestID -> "UniversalTime-Random12-zero-exactly-on-sources" ]
-
-VerificationTest[ $raysInFutureQ[ $twoSource ], True, TestID -> "OutgoingLightRays-TwoSource-in-causal-future" ]
-
-VerificationTest[ $raysInFutureQ[ $random12 ], True, TestID -> "OutgoingLightRays-Random12-in-causal-future" ]
-
-VerificationTest[ $raysNullQ[ $twoSource ], True, TestID -> "OutgoingLightRays-TwoSource-interval-is-chain" ]
-
-VerificationTest[ $raysNullQ[ $random12 ], True, TestID -> "OutgoingLightRays-Random12-interval-is-chain" ]
-
-VerificationTest[ $raysTreeQ[ $twoSource ], True, TestID -> "OutgoingLightRays-TwoSource-Hasse-tree" ]
-
-VerificationTest[ $raysTreeQ[ $random12 ], True, TestID -> "OutgoingLightRays-Random12-Hasse-tree" ]
 
 EndTestSection[]

@@ -59,24 +59,3 @@ extremalEvents[ g_, cone_ ] :=
     Last -> First,
     MaximalBy[ #, p |-> InfraMeasurement[ g, cone[ p ], "CountingMeasure" ] ] &
   ]
-
-
-(* =========================== Light rays =========================== *)
-
-(* OutgoingLightRays[g, v]: vertex set of events on outgoing null geodesics
-   from v.  Characterised within the forward cone by t(p) + 1 == |J^-(p)|,
-   i.e. every past step is unique -- no overtaking.                           *)
-
-OutgoingLightRays[ g_, v_ ] :=
-  With[
-    { forwardCone = InfraMeasurement[ g, InfraCausalFuture[ v ], "Subgraph" ] },
-    { coords = UniversalTime @ forwardCone, vertices = VertexList @ forwardCone },
-    { volumes = AssociationMap[ InfraMeasurement[ forwardCone, InfraCausalPast[ # ], "CountingMeasure" ] &, vertices ] },
-    Select[ vertices, coords[ # ] + 1 == volumes[ # ] & ]
-  ]
-
-
-(* IncomingLightRays[g, v]: vertex set of events on incoming null geodesics
-   into v -- the time-reverse of OutgoingLightRays.                           *)
-
-IncomingLightRays[ g_, v_ ] := OutgoingLightRays[ ReverseGraph @ g, v ]

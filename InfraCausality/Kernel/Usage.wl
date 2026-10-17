@@ -4,10 +4,7 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: Kernel :: Usage *)
 
-GetSources::usage = "GetSources[g] gives the sources of the directed graph g, the vertices of in-degree zero.";
-GetSinks::usage = "GetSinks[g] gives the sinks of the directed graph g, the vertices of out-degree zero.";
 RandomCausalGraph::usage = "RandomCausalGraph[{n, m}] gives a random connected directed acyclic graph with n vertices and m edges, an acyclic orientation of a random connected graph.";
-FindChain::usage = "FindChain[g, p, q, n] gives up to n longest chains from p to q, and FindChain[g, n] up to n source-to-sink chains of decreasing length; option \"Method\" -> \"Longest\" | \"Separated\".";
 
 InfraCausalFuture::usage = "InfraCausalFuture[v] is the causal future J+(v) of the event or event set v, the events reached from it; InfraCausalFuture[v, t] keeps those whose longest chain from v has at most t edges.";
 InfraCausalPast::usage = "InfraCausalPast[v] is the causal past J-(v) of the event or event set v, the events reaching it; InfraCausalPast[v, t] keeps those whose longest chain to v has at most t edges.";
@@ -22,8 +19,18 @@ UniversalFoliation::usage = "UniversalFoliation[g] gives the level sets of Unive
 UniversalTime::usage = "UniversalTime[g] gives the height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources; UniversalTime[g, foliation] indexes a given foliation.";
 MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the universal foliation, the events of the slice whose causal past has the most vertices.";
 MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the events of the slice whose causal future has the most vertices.";
-OutgoingLightRays::usage = "OutgoingLightRays[g, v] gives the events e in the causal future of v whose causal diamond with v is a chain, the vertex set of the outgoing light rays of v.";
-IncomingLightRays::usage = "IncomingLightRays[g, v] gives the events e in the causal past of v whose causal diamond with v is a chain, the vertex set of the incoming light rays of v.";
+InfraWorldline::usage = "InfraWorldline[p, q] is the set of timelike geodesics from p to q, every longest chain between them; InfraWorldline[] is the set of longest chains of the graph.";
+RandomInfraWorldline::usage = "RandomInfraWorldline[g, InfraWorldline[p, q], n] gives n distinct longest chains from p to q drawn uniformly as vertex lists; RandomInfraWorldline[g, p, q, n] and RandomInfraWorldline[g, n] are shortcuts.";
+InfraWorldlineQ::usage = "InfraWorldlineQ[g, chain] gives True if the vertex list chain is a saturated chain on g whose number of edges is the longest-chain length from its first to its last event.";
+InfraChainQ::usage = "InfraChainQ[g, list] gives True if the vertex list list is duplicate-free and each element precedes the next in the causal order of g.";
+InfraObserver::usage = "InfraObserver[p, q] is the set of observers from p to q, every saturated chain between them; InfraObserver[] is the set of inextendible saturated chains, source to sink.";
+RandomInfraObserver::usage = "RandomInfraObserver[g, InfraObserver[p, q], n] gives n distinct saturated chains from p to q drawn uniformly as vertex lists; RandomInfraObserver[g, p, q, n] and RandomInfraObserver[g, n] are shortcuts.";
+InfraObserverQ::usage = "InfraObserverQ[g, chain] gives True if the vertex list chain is a saturated chain on g, each pair of consecutive events an edge of the Hasse diagram.";
+InfraFutureLightCone::usage = "InfraFutureLightCone[v] is the future light cone of v, the events e whose causal diamond with v is a chain; its members are the outgoing light rays, the maximal chains of the cone from v.";
+InfraPastLightCone::usage = "InfraPastLightCone[v] is the past light cone of v, the events e whose causal diamond with v is a chain; its members are the incoming light rays, the maximal chains of the cone into v.";
+RandomInfraFutureLightCone::usage = "RandomInfraFutureLightCone[g, InfraFutureLightCone[v], n] gives n distinct outgoing light rays of v drawn uniformly as vertex lists; RandomInfraFutureLightCone[g, v, n] is the shortcut.";
+RandomInfraPastLightCone::usage = "RandomInfraPastLightCone[g, InfraPastLightCone[v], n] gives n distinct incoming light rays of v drawn uniformly as vertex lists ending at v; RandomInfraPastLightCone[g, v, n] is the shortcut.";
+InfraLightRayQ::usage = "InfraLightRayQ[g, chain] gives True if the vertex list chain is a saturated chain on g equal to the causal diamond of its first and last events.";
 
 VisualizeLightRays::usage = "VisualizeLightRays[g] gives an interactive drawing of g in which clicking an event highlights its outgoing and incoming light rays.";
 VisualizeFoliatedCausalGraph::usage = "VisualizeFoliatedCausalGraph[g, foliation, chains] draws g with the slices of foliation and the given chains overlaid as coloured bands on its embedding.";

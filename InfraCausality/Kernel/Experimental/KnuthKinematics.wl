@@ -41,7 +41,7 @@ ChainProjection[ g_Graph, source_List, target_List, OptionsPattern[] ] :=
    chain c -- the joint future light front of the chain.                       *)
 
 ChainLightReach[ g_Graph, chain_List ] :=
-  Union @@ ( OutgoingLightRays[ g, # ] & /@ chain )
+  Union @@ ( Keys @ InfraMeasurement[ g, InfraFutureLightCone[ # ], "VertexDensity" ] & /@ chain )
 
 
 (* =========================== Scalar combinations =========================== *)

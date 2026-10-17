@@ -25,7 +25,7 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 MultiMessageFunction[ g_Graph, path1_List, path2_List ] :=
   Association @ Map[
-    v |-> v -> Intersection[ OutgoingLightRays[ g, v ], path2 ],
+    v |-> v -> Intersection[ Keys @ InfraMeasurement[ g, InfraFutureLightCone[ v ], "VertexDensity" ], path2 ],
     path1
   ]
 

@@ -28,15 +28,11 @@ VisualizeLightRays[ g_Graph ] :=
       HighlightGraph[ g,
         {
           Style[
-            TransitiveReductionGraph @ Subgraph[ g,
-              OutgoingLightRays[ VertexOutComponentGraph[ g, selectedVertex ], selectedVertex ]
-            ],
+            InfraMeasurement[ g, InfraFutureLightCone[ selectedVertex ], "Graph" ],
             Directive[ $CausalColors[ "LightRay" ], Thick ]
           ],
           Style[
-            TransitiveReductionGraph @ Subgraph[ g,
-              IncomingLightRays[ VertexInComponentGraph[ g, selectedVertex ], selectedVertex ]
-            ],
+            InfraMeasurement[ g, InfraPastLightCone[ selectedVertex ], "Graph" ],
             Directive[ $CausalColors[ "Echo" ], Thick ]
           ],
           Style[ selectedVertex, Directive[ $CausalColors[ "Accent" ] ] ]
