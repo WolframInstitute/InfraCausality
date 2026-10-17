@@ -15,10 +15,6 @@ InfraCausalPastQ::usage = "InfraCausalPastQ[g, set] gives True if the vertex lis
 InfraCausalDiamond::usage = "InfraCausalDiamond[p, q] is the causal diamond, J+(p) intersected with J-(q); InfraCausalDiamond[s] is the causal hull of the event set s, J+(s) intersected with J-(s).";
 RandomInfraCausalDiamond::usage = "RandomInfraCausalDiamond[g, InfraCausalDiamond[p, q], n] gives the support of the diamond on g as a sorted vertex list, its only member; RandomInfraCausalDiamond[g, p, q] is the shortcut.";
 InfraCausalDiamondQ::usage = "InfraCausalDiamondQ[g, set] gives True if the vertex list set has a least element p and a greatest element q on g and equals the causal diamond of p and q.";
-UniversalFoliation::usage = "UniversalFoliation[g] gives the level sets of UniversalTime[g] as sorted vertex lists, slice k holding the events whose longest chain from a source has k edges.";
-UniversalTime::usage = "UniversalTime[g] gives the height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources; UniversalTime[g, foliation] indexes a given foliation.";
-MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the universal foliation, the events of the slice whose causal past has the most vertices.";
-MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the events of the slice whose causal future has the most vertices.";
 InfraWorldline::usage = "InfraWorldline[p, q] is the set of timelike geodesics from p to q, every longest chain between them; InfraWorldline[] is the set of longest chains of the graph.";
 RandomInfraWorldline::usage = "RandomInfraWorldline[g, InfraWorldline[p, q], n] gives n distinct longest chains from p to q drawn uniformly as vertex lists; RandomInfraWorldline[g, p, q, n] and RandomInfraWorldline[g, n] are shortcuts.";
 InfraWorldlineQ::usage = "InfraWorldlineQ[g, chain] gives True if the vertex list chain is a saturated chain on g whose number of edges is the longest-chain length from its first to its last event.";
@@ -37,6 +33,13 @@ VisualizeFoliatedCausalGraph::usage = "VisualizeFoliatedCausalGraph[g, foliation
 VisualizeMessageFunction::usage = "VisualizeMessageFunction[g, a, b] gives an interactive drawing of the observers a and b on g in which clicking a tick of a highlights its message images on b.";
 VisualizeEchoFunction::usage = "VisualizeEchoFunction[g, a, b] draws the observers a and b on g, the static backdrop of an echo-function picture.";
 BondiExplorer::usage = "BondiExplorer[] gives a Manipulate over the seven Bondi k-calculus constructions with sliders for velocity, light angle, bounces and a second velocity.";
+
+UniversalTime::usage = "UniversalTime[g] gives the height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources.";
+UniversalFoliation::usage = "UniversalFoliation[g] gives the level sets of UniversalTime[g] as sorted vertex lists, slice k holding the events whose longest chain from a source has k edges.";
+InfraSlice::usage = "InfraSlice[k] is the slice of the universal time at height k, the events t(v) = k; InfraSlice[{k1, k2}] is the band of events with k1 <= t(v) <= k2.";
+RandomInfraSlice::usage = "RandomInfraSlice[g, InfraSlice[k], n] gives the support of the slice or band on g as a sorted vertex list, its only member; RandomInfraSlice[g, k] is the shortcut.";
+InfraSliceQ::usage = "InfraSliceQ[g, set] gives True if the vertex list set is a nonempty level set of UniversalTime[g].";
+InfraAntichainQ::usage = "InfraAntichainQ[g, set] gives True if the vertex list set is duplicate-free and no two of its elements are comparable in the causal order of g.";
 
 MultiMessageFunction::usage = "MultiMessageFunction[g, a, b] gives the message relation from observer a to observer b, the association v -> the events of b on an outgoing light ray of v, for every v on a.";
 FindMessageFunction::usage = "FindMessageFunction[g, a, b] gives every monotone single-valued selection of the message relation from a to b, and FindMessageFunction[g, a, b, n] the first n of them.";
@@ -74,6 +77,8 @@ InfraMass::usage = "InfraMass[p, q] gives the Knuth mass Sqrt[Abs[p q]] of the p
 InfraInterval::usage = "InfraInterval[p, q] gives the Knuth squared interval p q of the projection pair p, q.";
 InfraVelocity::usage = "InfraVelocity[p, q] gives the Knuth velocity (p - q)/(p + q) of the projection pair p, q.";
 InfraKinematics::usage = "InfraKinematics[g, ref, targets] gives the projections of the chain ref onto each target chain and the Knuth scalars of every pair of projections, as an association.";
+MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal past has the most vertices.";
+MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal future has the most vertices.";
 
 BondiClock::usage = "BondiClock[v, n] draws the rest worldline and the worldline of velocity v with a light signal bouncing n times between them and proper-time ticks.";
 DopplerConstruction::usage = "DopplerConstruction[v, n] draws n evenly spaced light pulses from the rest worldline to the worldline of velocity v, showing the Bondi factor as a pulse-spacing ratio.";

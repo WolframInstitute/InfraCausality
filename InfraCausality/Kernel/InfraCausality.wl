@@ -30,16 +30,20 @@ PackageExport[RandomInfraFutureLightCone]
 PackageExport[RandomInfraPastLightCone]
 PackageExport[InfraLightRayQ]
 
-PackageExport[UniversalFoliation]
-PackageExport[UniversalTime]
-PackageExport[MaximalAbsorber]
-PackageExport[MaximalEmitter]
-
 PackageExport[VisualizeLightRays]
 PackageExport[VisualizeFoliatedCausalGraph]
 PackageExport[VisualizeMessageFunction]
 PackageExport[VisualizeEchoFunction]
 PackageExport[BondiExplorer]
+
+(* CausalTime *)
+
+PackageExport[UniversalTime]
+PackageExport[UniversalFoliation]
+PackageExport[InfraSlice]
+PackageExport[RandomInfraSlice]
+PackageExport[InfraSliceQ]
+PackageExport[InfraAntichainQ]
 
 (* InfraObservers *)
 
@@ -85,6 +89,9 @@ PackageExport[InfraMass]
 PackageExport[InfraInterval]
 PackageExport[InfraVelocity]
 PackageExport[InfraKinematics]
+
+PackageExport[MaximalAbsorber]
+PackageExport[MaximalEmitter]
 
 PackageExport[BondiClock]
 PackageExport[DopplerConstruction]
