@@ -69,7 +69,7 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 
 ### Experimental: causal-set estimators
 
-- `InfraMeasurement` (InfraGeometry) of a diamond: "OrderingFraction", "MyrheimMeyerDimension", "IntervalAbundances", "BenincasaDowkerAction", the causal-set observables of the interval
+- `InfraMeasurement` (InfraGeometry) of a diamond: "OrderingFraction", "MyrheimMeyerDimension", "MidpointScalingDimension", "IntervalAbundances", "BenincasaDowkerDAlembertian", "BenincasaDowkerRicci", "BenincasaDowkerAction", the causal-set observables of the interval
 
 ### Experimental: Knuth kinematics
 
