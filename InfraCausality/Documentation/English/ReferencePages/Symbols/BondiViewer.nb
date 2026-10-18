@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     16505,        449]
-NotebookOptionsPosition[     11278,        339]
-NotebookOutlinePosition[     12353,        372]
-CellTagsIndexPosition[     12274,        367]
+NotebookDataLength[    165857,       3473]
+NotebookOptionsPosition[    158710,       3334]
+NotebookOutlinePosition[    159887,       3369]
+CellTagsIndexPosition[    159806,       3364]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,7 @@ Cell["BondiViewer", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"e51acc12-aefa-44bc-902d-f0e44e0bbd9d"],
+ Cell["   ", "ModInfo",ExpressionUUID->"6c5cad25-e249-4722-a626-e0683635700e"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -35,12 +35,192 @@ Cell[TextData[{
     "PackageLink",
     BaseStyle->"InlineFormula"], "[", "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "0b715df6-34a3-4869-a0b3-32f207a449c3"],
+  "eb3d8814-571d-4f6a-904f-6f7d0871e8e3"],
  "\[LineSeparator]",
- "gives a Manipulate over the seven Bondi k-calculus constructions with \
-sliders for velocity, light angle, bounces and a second velocity.",
+ "gives a ",
+ Cell[BoxData["Manipulate"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "67b66731-fdab-4d1e-b2db-f2ba04b583bb"],
+ " over the seven Bondi k-calculus constructions with sliders for the \
+velocity, the light angle, the number of bounces and a second velocity.",
  "\n"
-}], "Usage",ExpressionUUID->"ab5ef623-2201-44fa-9394-1f87373e5ca5"]
+}], "Usage",ExpressionUUID->"d3dbf516-8710-41ff-b209-75a00b31f6f9"],
+
+Cell["\<\
+Experimental: viewer. The interface of the viewers may change.\
+\>", "Notes",ExpressionUUID->"4fa20487-8a71-49aa-b483-1d6bb013a08b"],
+
+Cell["\<\
+Definition: the frame draws the chosen construction with the slider values, \
+at image size 480:\
+\>", "Notes",ExpressionUUID->"1ed061e5-8d92-4842-97f2-9337b2f1df34"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "fe944f0c-205e-4277-8660-babcfc704b87"], Cell["Construction", "TableText",
+     FontWeight->Bold,ExpressionUUID->"7fa29bdb-4462-452f-b950-3103ed33f997"],
+     Cell["Frame", "TableText",
+     FontWeight->Bold,ExpressionUUID->"6acee8c1-d50d-4313-8067-58668ea82e1d"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "a2e01e66-e64d-41ce-ad1b-f5dde55308e7"], Cell[
+    "Clock", "TableText",ExpressionUUID->
+     "ef3c1e27-66c0-4e08-911a-22783e5b3f82"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["BondiClock"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/BondiClock", 
+        "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       StyleBox["n", "TI"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "e68458eb-3b37-4a52-9bd7-6fe4a7b1f12f"]], "TableText",ExpressionUUID->
+     "60ad38ac-50ea-4607-91b7-0e8f172caf50"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "e0a1b98d-7df6-4541-8f78-929c64b27b7e"], Cell[
+    "Doppler", "TableText",ExpressionUUID->
+     "007cd3d2-de66-444d-a5cc-f52c21c9d97a"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["DopplerConstruction"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/DopplerConstruction", 
+        "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       StyleBox["n", "TI"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "3221d80a-5146-488e-9fea-97570e9c6cb3"]], "TableText",ExpressionUUID->
+     "975892ff-4d57-4335-b4e4-f60f0dd0c3f9"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "b9ca3bcf-c10a-438b-b1c8-e256c4794136"], Cell[
+    "Time Dilation", "TableText",ExpressionUUID->
+     "15658283-d695-4d0f-9dd3-f25182111062"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["TimeDilationConstruction"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/TimeDilationConstruction",
+         "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "80c9b350-872f-499a-832e-e7db00380863"]], "TableText",ExpressionUUID->
+     "5e9985d7-16a5-4e5c-8db7-aa248f32521c"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "872bed7b-0d4f-49cd-aeea-21cf30961a8e"], Cell[
+    "Simultaneity", "TableText",ExpressionUUID->
+     "4003f278-31e8-48f8-9225-a94d37400246"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["SimultaneityConstruction"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/SimultaneityConstruction",
+         "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "8a69764e-9638-447d-be9d-f14c7b8b211d"]], "TableText",ExpressionUUID->
+     "b25ccd47-73d4-4d81-965a-5c83e1f0389b"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "ecb2fd72-e693-45a7-a398-35e10579c30a"], Cell[
+    "Length Contraction", "TableText",ExpressionUUID->
+     "02a71985-09a5-44fc-bf5a-f3fb99090547"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["LengthContractionConstruction"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/\
+LengthContractionConstruction", 
+        "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "8fbf549c-f335-4112-b75b-1adf9a875b6c"]], "TableText",ExpressionUUID->
+     "4e45df58-cd18-4ac1-a4af-27d8f77043f4"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "9808a6cf-a276-4b06-bf68-62fec1f2a244"], Cell[
+    "Velocity Addition", "TableText",ExpressionUUID->
+     "bd6d5ec6-4bec-4d58-bbf7-131d5c8436f6"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["VelocityAdditionConstruction"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/\
+VelocityAdditionConstruction", 
+        "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       StyleBox["\[Beta]2", "TI"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "28441fb8-6325-413e-844a-d120ebdf8021"]], "TableText",ExpressionUUID->
+     "a57b83fa-671a-4a93-89ad-c9606a180949"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "a367d46e-b963-4fe8-acb8-c1e9e0ef8bc1"], Cell[
+    "Light Clock", "TableText",ExpressionUUID->
+     "d4dd8872-5fe9-4fca-9a4e-5223a5bbd429"], Cell[TextData[Cell[BoxData[
+     RowBox[{
+      TemplateBox[{
+        Cell[
+         TextData["LightClockConstruction"]], 
+        "paclet:WolframInstitute/InfraCausality/ref/LightClockConstruction", 
+        "WolframInstitute/InfraCausality Package Symbol"},
+       "PackageLink",
+       BaseStyle->"InlineFormula"], "[", 
+      RowBox[{
+       StyleBox["\[Beta]", "TR"], ",", " ", 
+       StyleBox["n", "TI"], ",", " ", 
+       RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", 
+        StyleBox["\[CurlyPhi]", "TR"]}]}], "]"}]], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "a59bd780-87d9-4ef3-96bd-e17d46451b00"]], "TableText",ExpressionUUID->
+     "4b2a03c1-b24a-415a-8057-1866ddf55ea9"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"6e56d9aa-9bd5-495a-8329-\
+3b14d12d1677"],
+
+Cell[TextData[{
+ "The sliders are the velocity ",
+ StyleBox["\[Beta]", "TI"],
+ " \[Element] [0.05, 0.9] (initially 0.4), the light angle ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " \[Element] [0.15, \[Pi]/2 \[Minus] 0.05] (initially \[Pi]/4), the bounces \
+or pulses ",
+ StyleBox["n", "TI"],
+ " \[Element] {3, \[Ellipsis], 15} (initially 8) and the second velocity ",
+ StyleBox["\[Beta]", "TI"],
+ "2 \[Element] [0.05, 0.85] (initially 0.3), used by the velocity addition \
+only. The result has ",
+ Cell[BoxData[
+  RowBox[{"SaveDefinitions", " ", "->", " ", "True"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "a9fb54db-559e-4ddb-81d3-fd2405d67940"],
+ ", so it keeps working in a fresh session."
+}], "Notes",ExpressionUUID->"21dffc08-48fb-4a5c-9b65-3fd479eab8db"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -62,45 +242,76 @@ Cell[TextData[{
 
 Cell[TextData[{
  Cell[BoxData[
-  TagBox[
-   FrameBox["\<\"XXXX\"\>"],
-   "FunctionPlaceholder"]], "InlineSeeAlsoFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "04f1f4f6-42ff-41c1-be38-c72199e55033"],
+  TemplateBox[{
+    Cell[
+     TextData["BondiClock"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/BondiClock", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "b2263e18-209d-4315-bd94-f2db7a426fa3"],
+ " \[FilledVerySmallSquare] ",
  Cell[BoxData[
-  RowBox[{
-  Cell[TextData[StyleBox[
-   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
-    "e52cc72c-b17b-4daf-ba13-e4031a732989"], 
-   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
-     FrontEndObject[
-      LinkObject["i7bzb_shm", 209, 9]], 22], $CellContext`cellobj$$ = 
-    CellObject[6753]}, 
-    TemplateBox[{
-      GraphicsBox[{{
-         Thickness[0.06], 
-         StrokeForm[
-          Hue[0.4167, 0.406, 0.502]], 
-         CircleBox[{0, 0}]}, {
-         Thickness[0.06], 
-         StrokeForm[
-          Hue[0.4167, 0.406, 0.502]], 
-         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
-         Thickness[0.06], 
-         StrokeForm[
-          Hue[0.4167, 0.406, 0.502]], 
-         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
-       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
-       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
-       BaselinePosition -> (Center -> 
-        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
-     "InlineListingAddButton"],
-    Initialization:>($CellContext`nbobj$$ = 
-      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
-  "InlineListingAddButton",ExpressionUUID->
-  "ac548b96-3ee5-484c-99df-e6462c430c8c"]
-}], "SeeAlso",
- CellID->173389911,ExpressionUUID->"a2765fad-d0fd-4f94-9539-78ed28f4fade"]
+  TemplateBox[{
+    Cell[
+     TextData["DopplerConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/DopplerConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "181175ef-f9a0-4fb0-9752-c4f33078af7d"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["TimeDilationConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/TimeDilationConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "b7617ce3-8fb2-4020-a930-d258640f2fc8"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SimultaneityConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/SimultaneityConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4c3b2515-cc7a-4114-a6bb-98fd1f90aff5"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LengthContractionConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/\
+LengthContractionConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "b3ede134-e1d0-48fe-a39e-f4ea14b59600"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["VelocityAdditionConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/VelocityAdditionConstruction",
+     "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "3fcb059b-e826-4f7a-a27e-0f07c88298d3"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LightClockConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/LightClockConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "72ccaab1-938c-40c3-bea2-0e02b1eeee2d"]
+}], "SeeAlso",ExpressionUUID->"9f95542b-5620-4553-8611-b892250e63a8"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -127,8 +338,8 @@ Cell[TextData[Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:WolframInstitute/InfraCausality/guide/BondiKCalculus"]], \
-"InlineFormula",ExpressionUUID->"248bb9ff-c1c8-4ab4-b29c-9fd779f4e88a"]], \
-"MoreAbout",ExpressionUUID->"568c8a26-e690-42a8-9f01-1e987b83e287"]
+"InlineFormula",ExpressionUUID->"8e67547c-bf99-44c3-8df2-8b703a1b3541"]], \
+"MoreAbout",ExpressionUUID->"591d62db-aa97-4ca5-beaf-79c6dc14d35a"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -171,6 +382,8 @@ Cell[BoxData[{
  CellID->1969679695,ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502"]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[GridBox[{
     {
@@ -184,6 +397,2633 @@ Cell[BoxData[
    }],
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
+
+Cell["The viewer, opening on the Bondi clock.", "ExampleText",ExpressionUUID->"ceb47e8b-0d2b-4d65-9782-04b22a0c083e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BondiViewer", "[", "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"2bea12d8-e96d-4a31-a33d-1116db5d034f"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{
+    WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$ = 8,
+     WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`construction$\
+$ = "Clock", 
+    WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`lightAngle$$ =
+     Rational[1, 4] Pi, 
+    WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2$$ = 0.3, 
+    WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$ = 
+    0.4, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[
+       WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+construction$$], "Clock", "Construction"}, {
+      "Clock", "Doppler", "Time Dilation", "Simultaneity", 
+       "Length Contraction", "Velocity Addition", "Light Clock"}, ControlType -> 
+      SetterBar}, {{
+       Hold[
+       WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$]\
+, 0.4, "\[Beta]"}, 0.05, 0.9, ControlType -> Manipulator}, {{
+       Hold[
+       WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`lightAngle$\
+$], Rational[1, 4] Pi, "\[Phi] (light angle)"}, 0.15, 1.5207963267948965`, 
+      ControlType -> Manipulator}, {{
+       Hold[
+       WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$],
+        8, "Bounces / Pulses"}, 3, 15, 1, ControlType -> Manipulator}, {{
+       Hold[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2$$],
+        0.3, 
+       Subscript["\[Beta]", "2"]}, 0.05, 0.85, ControlType -> Manipulator}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, Typeset`keyframeActionsQ$$ = False, 
+    Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {
+       WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$ = 
+        8, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+construction$$ = "Clock", 
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$ = Rational[1, 4] Pi, 
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2$$ = 
+        0.3, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity$$ = 0.4}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Switch[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+construction$$, "Clock", 
+        WolframInstitute`InfraCausality`BondiClock[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$, 
+         "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480], "Doppler", 
+        WolframInstitute`InfraCausality`DopplerConstruction[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$, 
+         "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480], "Time Dilation", 
+        WolframInstitute`InfraCausality`TimeDilationConstruction[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480], "Simultaneity", 
+        WolframInstitute`InfraCausality`SimultaneityConstruction[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480], "Length Contraction", 
+        WolframInstitute`InfraCausality`LengthContractionConstruction[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480], "Velocity Addition", 
+        WolframInstitute`InfraCausality`VelocityAdditionConstruction[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2$$, 
+         "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480], "Light Clock", 
+        WolframInstitute`InfraCausality`LightClockConstruction[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$$\
+, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$, 
+         "LightAngle" -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, ImageSize -> 480]], 
+      "Specifications" :> {{{
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+construction$$, "Clock", "Construction"}, {
+         "Clock", "Doppler", "Time Dilation", "Simultaneity", 
+          "Length Contraction", "Velocity Addition", "Light Clock"}, 
+         ControlType -> SetterBar}, 
+        Delimiter, {{
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity$\
+$, 0.4, "\[Beta]"}, 0.05, 0.9}, {{
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, Rational[1, 4] Pi, "\[Phi] (light angle)"}, 0.15, 
+         1.5207963267948965`}, {{
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$$\
+, 8, "Bounces / Pulses"}, 3, 15, 1}, 
+        Delimiter, {{
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2$$, 
+          0.3, 
+          Subscript["\[Beta]", "2"]}, 0.05, 0.85}}, 
+      "Options" :> {
+       TrackedSymbols :> {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+construction$$, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity$$, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle$$, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounces$\
+$, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2$$}}, 
+      "DefaultOptions" :> {}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({WolframInstitute`InfraCausality`BondiClock[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces, 
+           Blank[]], 8], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`ticks = 
+          TrueQ[
+            OptionValue["ShowTicks"]], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+tickLabels = TrueQ[
+            OptionValue["ShowTickLabels"]]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k = N[
+            WolframInstitute`InfraCausality`KFactor[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]]\
+}, {WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc = 
+          Replace[
+            OptionValue["EmitArcLength"], Automatic -> 
+            Max[0.05, 1./
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k^(
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces/2)]]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`events = 
+          WolframInstitute`InfraCausality`LightZigzag[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc,
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          1.1 Max[
+             Lookup[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+events, "ArcLength"]]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauAlice = 
+          Floor[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`ProperTimeScale[
+             0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+phi]], WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxTauBob = 
+          Floor[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`ProperTimeScale[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]]}, 
+         
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           0, {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {0, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           WolframInstitute`InfraCausality`PackageScope`drawZigzag[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc,
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           If[
+            And[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`ticks,
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauAlice >= 1], 
+            WolframInstitute`InfraCausality`PackageScope`drawTicks[
+            0, {1, WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`maxTauAlice}, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], Nothing], 
+           If[
+            And[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`ticks,
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauBob >= 1], 
+            WolframInstitute`InfraCausality`PackageScope`drawTicks[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {1, 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauBob}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], Nothing], 
+           If[
+            And[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`ticks,
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+tickLabels, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauAlice >= 1], 
+            WolframInstitute`InfraCausality`PackageScope`drawTickLabels[
+            0, {1, WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`maxTauAlice}, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, -1], Nothing], 
+           If[
+            And[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`ticks,
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+tickLabels, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauBob >= 1], 
+            WolframInstitute`InfraCausality`PackageScope`drawTickLabels[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {1, 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxTauBob}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, 1], Nothing], 
+           If[
+            TrueQ[
+             OptionValue["ShowEventLabels"]], 
+            WolframInstitute`InfraCausality`PackageScope`drawEventLabels[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+events, 0.05 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], Nothing]}, 
+          OptionValue[ImageSize], 0.06]], 
+       Options[WolframInstitute`InfraCausality`BondiClock] = {
+        "LightAngle" -> Pi/4, "EmitArcLength" -> Automatic, "ShowTicks" -> 
+         True, "ShowTickLabels" -> False, "ShowEventLabels" -> False, 
+         ImageSize -> 500}, 
+       TagSet[WolframInstitute`InfraCausality`BondiClock, 
+        MessageName[WolframInstitute`InfraCausality`BondiClock, "usage"], 
+        "BondiClock[v, n] draws the rest worldline and the worldline of \
+velocity v with a light signal bouncing n times between them and proper-time \
+ticks."], WolframInstitute`InfraCausality`KFactor[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]]] := 
+       Sqrt[(1 + 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity)/(1 - 
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity)], WolframInstitute`InfraCausality`KFactor[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+          Blank[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha = WolframInstitute`InfraCausality`WorldlineAngle[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]}, 
+         Sqrt[
+         Sin[WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle + 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha]/Sin[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle - 
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha]]], 
+       TagSet[WolframInstitute`InfraCausality`KFactor, 
+        MessageName[WolframInstitute`InfraCausality`KFactor, "usage"], 
+        "KFactor[v] gives the Bondi factor Sqrt[(1 + v)/(1 - v)], and \
+KFactor[v, phi] its angular form Sqrt[Sin[phi + alpha]/Sin[phi - alpha]] with \
+alpha = WorldlineAngle[v, phi]."], 
+       WolframInstitute`InfraCausality`WorldlineAngle[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       ArcTan[WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity Tan[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]], 
+       TagSet[WolframInstitute`InfraCausality`WorldlineAngle, 
+        MessageName[WolframInstitute`InfraCausality`WorldlineAngle, "usage"], 
+        "WorldlineAngle[v, phi] gives the Euclidean angle ArcTan[v Tan[phi]] \
+between the worldline of velocity v and the time axis, for light at angle \
+phi."], WolframInstitute`InfraCausality`LightZigzag[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+emitArcLength, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+nBounces, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       With[{WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha = WolframInstitute`InfraCausality`WorldlineAngle[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle], 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`kOut = 
+          WolframInstitute`InfraCausality`OutgoingRatio[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle], 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`kIn = 
+          WolframInstitute`InfraCausality`IncomingRatio[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]}, 
+         NestList[
+          Function[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`event, 
+           If[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+event["Observer"] === "Alice", 
+            
+            With[{WolframInstitute`InfraCausality`BondiKCalculus`\
+PackagePrivate`arc = 
+              WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+event["ArcLength"] 
+               WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+kOut}, <|"Observer" -> "Bob", "ArcLength" -> 
+              WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+arc, "Point" -> 
+              WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+arc {
+                 Sin[
+                 WolframInstitute`InfraCausality`BondiKCalculus`\
+PackagePrivate`alpha], 
+                 Cos[
+                 WolframInstitute`InfraCausality`BondiKCalculus`\
+PackagePrivate`alpha]}|>], 
+            
+            With[{WolframInstitute`InfraCausality`BondiKCalculus`\
+PackagePrivate`arc = 
+              WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+event["ArcLength"] 
+               WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+kIn}, <|"Observer" -> "Alice", "ArcLength" -> 
+              WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+arc, "Point" -> {
+               0, WolframInstitute`InfraCausality`BondiKCalculus`\
+PackagePrivate`arc}|>]]], <|
+          "Observer" -> "Alice", "ArcLength" -> 
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+emitArcLength, 
+           "Point" -> {
+            0, WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+emitArcLength}|>, 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+nBounces]], 
+       TagSet[WolframInstitute`InfraCausality`LightZigzag, 
+        MessageName[WolframInstitute`InfraCausality`LightZigzag, "usage"], 
+        "LightZigzag[v, s0, n, phi] gives the n + 1 reflection events of \
+light bouncing between the rest worldline and the worldline of velocity v \
+from arc length s0, as associations."], 
+       WolframInstitute`InfraCausality`OutgoingRatio[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       With[{WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha = WolframInstitute`InfraCausality`WorldlineAngle[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]}, 
+         Sin[WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]/Sin[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle - 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`alpha]\
+], 
+       TagSet[WolframInstitute`InfraCausality`OutgoingRatio, 
+        MessageName[WolframInstitute`InfraCausality`OutgoingRatio, "usage"], 
+        "OutgoingRatio[v, phi] gives the arc-length ratio Sin[phi]/Sin[phi - \
+alpha] from an emission on the rest worldline to its reception on the \
+worldline of velocity v."], WolframInstitute`InfraCausality`IncomingRatio[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       With[{WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha = WolframInstitute`InfraCausality`WorldlineAngle[
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]}, 
+         Sin[WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle + 
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+alpha]/Sin[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]], 
+       TagSet[WolframInstitute`InfraCausality`IncomingRatio, 
+        MessageName[WolframInstitute`InfraCausality`IncomingRatio, "usage"], 
+        "IncomingRatio[v, phi] gives the arc-length ratio Sin[phi + \
+alpha]/Sin[phi] from an emission on the worldline of velocity v to its \
+reception on the rest worldline."], 
+       WolframInstitute`InfraCausality`ProperTimeScale[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       WolframInstitute`InfraCausality`KFactor[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]/WolframInstitute`InfraCausality`OutgoingRatio[
+        WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+velocity, 
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle], 
+       TagSet[WolframInstitute`InfraCausality`ProperTimeScale, 
+        MessageName[WolframInstitute`InfraCausality`ProperTimeScale, "usage"],
+         "ProperTimeScale[v, phi] gives the ratio of proper time to Euclidean \
+arc length on the worldline of velocity v for light at angle phi, KFactor[v, \
+phi]/OutgoingRatio[v, phi]."], 
+       WolframInstitute`InfraCausality`PackageScope`bondiGraphics[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`elements, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`size, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`padding, 
+          
+          Blank[]]] := 
+       Graphics[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`elements, 
+         AspectRatio -> Automatic, ImageSize -> 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`size, 
+         Background -> 
+         WolframInstitute`InfraCausality`PackageScope`bondiColor[
+          "Background"], PlotRangePadding -> 
+         Scaled[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+padding]], WolframInstitute`InfraCausality`PackageScope`bondiColor[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`name, 
+          Blank[String]]] := 
+       Lookup[<|"Alice" -> StandardBlue, "Bob" -> StandardRed, "Carol" -> 
+          StandardGreen, "Light" -> StandardYellow, "LightFaded" -> 
+          Lighter[StandardYellow, 0.5], "Event" -> StandardPurple, 
+          "Simultaneity" -> StandardOrange, "SimAlice" -> 
+          Lighter[StandardBlue, 0.3], "SimBob" -> Lighter[StandardRed, 0.3], 
+          "Tick" -> Darker[StandardGray, 0.3], "Label" -> 
+          Darker[StandardGray, 0.6], "Background" -> 
+          Lighter[StandardGray, 0.95]|>, 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`name], 
+       WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`range, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]]] := 
+       WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`range, 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+         Which[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity == 
+          0, 
+          WolframInstitute`InfraCausality`PackageScope`bondiColor["Alice"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity > 0, 
+          WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"], 
+          True, 
+          WolframInstitute`InfraCausality`PackageScope`bondiColor["Carol"]]], 
+       WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], {
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+           Blank[]]}, 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`color, 
+          Blank[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}, {
+          AbsoluteThickness[2.5], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`color, 
+          
+          Line[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+from WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir}]}\
+], WolframInstitute`InfraCausality`WorldlineDirection[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+alpha = WolframInstitute`InfraCausality`WorldlineAngle[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}, {
+          Sin[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`alpha], 
+          
+          Cos[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`alpha]}]\
+, 
+       TagSet[WolframInstitute`InfraCausality`WorldlineDirection, 
+        MessageName[
+        WolframInstitute`InfraCausality`WorldlineDirection, "usage"], 
+        "WorldlineDirection[v, phi] gives the unit direction {Sin[alpha], \
+Cos[alpha]} of the worldline of velocity v, with alpha = WorldlineAngle[v, \
+phi]."], WolframInstitute`InfraCausality`PackageScope`drawZigzag[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc, 
+          
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`nBounces, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`scale, 
+          Blank[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+points = Lookup[
+            WolframInstitute`InfraCausality`LightZigzag[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc,
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], "Point"]}, {{
+           WolframInstitute`InfraCausality`PackageScope`bondiColor["Light"], 
+           AbsoluteThickness[1.2], 
+           Line[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`points]\
+}, 
+          Map[
+           Function[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+            
+            WolframInstitute`InfraCausality`PackageScope`drawEvent[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point,
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+scale]], WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`points]}]\
+, WolframInstitute`InfraCausality`PackageScope`drawEvent[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`scale, 
+          Blank[]]] := {
+         WolframInstitute`InfraCausality`PackageScope`bondiColor["Event"], 
+         EdgeForm[{
+           Darker[StandardGray, 0.4], 
+           AbsoluteThickness[0.8]}], 
+         Disk[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+          0.01 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+scale]}, WolframInstitute`InfraCausality`PackageScope`drawTicks[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], {
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+           Blank[]]}, 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`scale, 
+          Blank[]]] := 
+       WolframInstitute`InfraCausality`PackageScope`drawTicks[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, \
+{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to}, 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`scale,
+          1], WolframInstitute`InfraCausality`PackageScope`drawTicks[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], {
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+           Blank[]]}, 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`scale, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`spacing, 
+          
+          Blank[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+pScale = WolframInstitute`InfraCausality`ProperTimeScale[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal = 
+          WolframInstitute`InfraCausality`WorldlineNormal[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}, {
+          WolframInstitute`InfraCausality`PackageScope`bondiColor["Tick"], 
+          AbsoluteThickness[1], 
+          Map[
+           Function[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`n, 
+            
+            With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+point = (WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`n (
+                 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+spacing/WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`pScale)) 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+dir}, 
+             
+             Line[{WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`point - 0.02 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+scale WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal, 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+point + 0.02 
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+scale WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal}]]], 
+           
+           Range[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to]]}]\
+, WolframInstitute`InfraCausality`WorldlineNormal[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+alpha = WolframInstitute`InfraCausality`WorldlineAngle[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}, {
+          Cos[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`alpha], \
+-Sin[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`alpha]}], 
+       TagSet[WolframInstitute`InfraCausality`WorldlineNormal, 
+        MessageName[WolframInstitute`InfraCausality`WorldlineNormal, "usage"],
+         "WorldlineNormal[v, phi] gives the unit normal {Cos[alpha], \
+-Sin[alpha]} to the worldline of velocity v, with alpha = WorldlineAngle[v, \
+phi]."], WolframInstitute`InfraCausality`PackageScope`drawTickLabels[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], {
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+           Blank[]]}, 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`scale, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`side, 
+          Blank[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+pScale = WolframInstitute`InfraCausality`ProperTimeScale[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal = 
+          WolframInstitute`InfraCausality`WorldlineNormal[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}, 
+         Map[
+          Function[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`tau, 
+           Text[
+            Style[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`tau, 
+             9, 
+             WolframInstitute`InfraCausality`PackageScope`bondiColor[
+             "Label"]], (
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`tau/
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+pScale) WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir + 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`side 
+             0.04 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+scale WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal]], 
+          Range[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to]]], 
+       WolframInstitute`InfraCausality`PackageScope`drawEventLabels[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`events, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`offset, 
+          Blank[]]] := MapThread[
+         Function[{
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`event, 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`n}, 
+          Text[
+           Style[
+            Superscript[
+            "k", WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+n], 8, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Label"]],
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`event[
+            "Point"] + 
+           If[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+event["Observer"] === "Alice", -1, 1] {
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+offset, 0}]], {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`events, 
+          Range[
+          0, Length[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+events] - 1]}], WolframInstitute`InfraCausality`DopplerConstruction[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`nPulses, 
+           Blank[]], 6], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitStart = OptionValue["EmitStart"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`spacing = 
+          OptionValue["PulseSpacing"]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`kOut = 
+          WolframInstitute`InfraCausality`OutgoingRatio[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal = 
+          WolframInstitute`InfraCausality`WorldlineNormal[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs = Map[
+            Function[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`n, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitStart + WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`n 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+spacing], 
+            Range[
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nPulses - 1]]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receiveArcs = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`kOut 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          1.15 Max[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receiveArcs]}, 
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           0, {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {0, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           MapThread[
+            
+            Function[{
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emit,
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receive}, 
+             
+             WolframInstitute`InfraCausality`PackageScope`drawLightRay[{
+              0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emit}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`receive 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir]\
+], {WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArcs, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receiveArcs}], 
+           Map[
+            Function[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emit, 
+             
+             
+             WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+              0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emit}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc]], 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs], 
+           Map[
+            Function[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receive, 
+             WolframInstitute`InfraCausality`PackageScope`drawEvent[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receive WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir, 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc]], 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receiveArcs], {
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Alice"], 
+            
+            AbsoluteThickness[2], 
+            Line[{{0, 
+               Part[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs, 1]}, {0, 
+               Part[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs, 2]}}]}, {
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"], 
+            AbsoluteThickness[2], 
+            
+            Line[{Part[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+receiveArcs, 1] 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir,
+               Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`receiveArcs, 2] 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir}\
+]}, 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "\[CapitalDelta]\[Tau]", {(-0.05) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, (Part[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs, 1] + Part[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArcs, 2])/2}], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "k \[CapitalDelta]\[Tau]", ((
+               Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`receiveArcs, 1] + 
+               Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`receiveArcs, 2])/2) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir + 
+            0.06 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal]}, 
+          OptionValue[ImageSize], 0.06]], 
+       Options[WolframInstitute`InfraCausality`DopplerConstruction] = {
+        "LightAngle" -> Pi/4, "EmitStart" -> 0.15, "PulseSpacing" -> 0.12, 
+         ImageSize -> 500}, 
+       TagSet[WolframInstitute`InfraCausality`DopplerConstruction, 
+        MessageName[
+        WolframInstitute`InfraCausality`DopplerConstruction, "usage"], 
+        "DopplerConstruction[v, n] draws n evenly spaced light pulses from \
+the rest worldline to the worldline of velocity v, showing the Bondi factor \
+as a pulse-spacing ratio."], 
+       WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+          Blank[List]]] := 
+       WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+         WolframInstitute`InfraCausality`PackageScope`bondiColor["Light"]], 
+       WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`color, 
+          Blank[]]] := {
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`color, 
+         AbsoluteThickness[1.2], 
+         Line[{
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`from, 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`to}]}, 
+       WolframInstitute`InfraCausality`PackageScope`drawLabel[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`text, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+          Blank[List]]] := 
+       WolframInstitute`InfraCausality`PackageScope`drawLabel[
+        WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`text, 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+         10], WolframInstitute`InfraCausality`PackageScope`drawLabel[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`text, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+          Blank[List]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`fontSize, 
+          Blank[]]] := Text[
+         Style[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`text, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+fontSize, 
+          WolframInstitute`InfraCausality`PackageScope`bondiColor["Label"]], 
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point], 
+       WolframInstitute`InfraCausality`TimeDilationConstruction[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+eventArc = OptionValue["EventArcLength"]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k = N[
+            WolframInstitute`InfraCausality`KFactor[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`pScale = 
+          WolframInstitute`InfraCausality`ProperTimeScale[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal = 
+          WolframInstitute`InfraCausality`WorldlineNormal[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+eventArc/WolframInstitute`InfraCausality`OutgoingRatio[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnArc = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+eventArc WolframInstitute`InfraCausality`IncomingRatio[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bobPoint = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+eventArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarArc = (
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArc + 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnArc)/2, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          1.15 Max[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnArc, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+eventArc], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`spacing = 
+          Replace[
+            OptionValue["TickSpacing"], Automatic -> 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+eventArc (WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`pScale/
+              4)]}, 
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           0, {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {0, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArc}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint], 
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint, {0, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnArc}], {Dashed, 
+            AbsoluteThickness[1.5], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "Simultaneity"], 
+            Line[
+             Rest[
+              WolframInstitute`InfraCausality`SimultaneityLine[
+              0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+               First[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`bobPoint] + 
+               0.1 WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`maxArc]]]}, {
+            AbsoluteThickness[2.5], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "Simultaneity"], 
+            
+            Line[{{0, 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarArc}, {0, 
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarArc} + 0.01 {1, 0}}]}, 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnArc}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarArc}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Subscript[
+            "\[Tau]", "emit"], {(-0.06) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc}], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Subscript["\[Tau]", "B"], 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint + 0.05 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Subscript[
+            "\[Tau]", "return"], {(-0.06) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`returnArc}\
+], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Subscript[
+            "\[Tau]", "radar"], {(-0.06) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`radarArc}]\
+, 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Row[{"\[Gamma] = ", 
+              
+              NumberForm[(
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k + 
+                1/WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+k)/2, {3, 2}]}], {(-0.1) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc 
+             0.95}, 9], 
+           WolframInstitute`InfraCausality`PackageScope`drawTicks[0, {1, 
+             Floor[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc/WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`spacing]}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`spacing], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawTicks[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {1, 
+             Floor[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc (WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`pScale/
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+spacing)]}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`spacing]}, 
+          OptionValue[ImageSize], 0.08]], 
+       Options[WolframInstitute`InfraCausality`TimeDilationConstruction] = {
+        "LightAngle" -> Pi/4, "EventArcLength" -> 0.6, "TickSpacing" -> 
+         Automatic, ImageSize -> 500}, 
+       TagSet[WolframInstitute`InfraCausality`TimeDilationConstruction, 
+        MessageName[
+        WolframInstitute`InfraCausality`TimeDilationConstruction, "usage"], 
+        "TimeDilationConstruction[v] draws the radar construction of one \
+event on the worldline of velocity v, illustrating the time dilation gamma = \
+(k + 1/k)/2."], WolframInstitute`InfraCausality`SimultaneityLine[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+arcLength, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`extent, 
+           
+           Blank[]], 1]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`base = 
+          
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+arcLength WolframInstitute`InfraCausality`WorldlineDirection[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`along = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`extent 
+           Normalize[{
+              Tan[
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity}]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`base - 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`along, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`base, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`base + 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`along}], 
+       TagSet[WolframInstitute`InfraCausality`SimultaneityLine, 
+        MessageName[
+        WolframInstitute`InfraCausality`SimultaneityLine, "usage"], 
+        "SimultaneityLine[v, s, phi, extent] gives {left end, base point, \
+right end} of the simultaneity line through the point at arc length s on the \
+worldline of velocity v: the events whose radar midpoint on that worldline is \
+the base point, along {Tan[phi], v} and extent to each side."], 
+       WolframInstitute`InfraCausality`SimultaneityConstruction[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`arcLen = 
+          OptionValue["ArcLength"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`extent = 
+          OptionValue["Extent"]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`arcLen + 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`extent + 
+           0.3, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceSim = WolframInstitute`InfraCausality`SimultaneityLine[
+           0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+arcLen, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+extent], WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bobSim = 
+          WolframInstitute`InfraCausality`SimultaneityLine[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`arcLen, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+extent]}, 
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           0, {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {0, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], {
+            AbsoluteThickness[2], 
+            Dashing[{0.015, 0.008}], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "SimAlice"], 
+            Line[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceSim]}, {
+            AbsoluteThickness[2], 
+            Dashing[{0.015, 0.008}], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["SimBob"], 
+            Line[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobSim]}, 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+arcLen}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`arcLen 
+            WolframInstitute`InfraCausality`WorldlineDirection[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "Alice's now", 
+            Part[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceSim, 3] + {
+             0.04 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, 0}, 9], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "Bob's now", 
+            Part[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobSim, 3] + {
+             0.04 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, 0}, 9]}, 
+          OptionValue[ImageSize], 0.08]], 
+       Options[WolframInstitute`InfraCausality`SimultaneityConstruction] = {
+        "LightAngle" -> Pi/4, "ArcLength" -> 0.7, "Extent" -> 0.35, ImageSize -> 
+         500}, 
+       TagSet[WolframInstitute`InfraCausality`SimultaneityConstruction, 
+        MessageName[
+        WolframInstitute`InfraCausality`SimultaneityConstruction, "usage"], 
+        "SimultaneityConstruction[v] draws the simultaneity lines of the rest \
+observer and the observer of velocity v at a common arc length, illustrating \
+the relativity of simultaneity."], 
+       WolframInstitute`InfraCausality`LengthContractionConstruction[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rodLength = OptionValue["RodRestLength"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+measureArc = OptionValue["MeasureArcLength"]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k = N[
+            WolframInstitute`InfraCausality`KFactor[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rodOffset = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rodLength WolframInstitute`InfraCausality`WorldlineNormal[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitFront = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+measureArc/WolframInstitute`InfraCausality`OutgoingRatio[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnFront = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+measureArc 
+           WolframInstitute`InfraCausality`IncomingRatio[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+measureArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceFront = (
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitFront + 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnFront)/2}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint + 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rodOffset}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarBack = 
+          WolframInstitute`InfraCausality`BondiRadarCoordinates[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]},\
+ {WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`aliceBack = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarBack["RadarTime"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          1.15 Max[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnFront, 
+             
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarBack["ReturnArcLength"]]}, 
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           0, {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, {0, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], {
+            AbsoluteThickness[1.5], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"], 
+            Opacity[0.5], 
+            Dashing[{0.01, 0.006}], 
+            
+            Line[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rodOffset, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+dir + WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`rodOffset}]}\
+, {
+            AbsoluteThickness[3], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"], 
+            Opacity[0.6], 
+            
+            Line[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint, 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint}]}, 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitFront}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "LightFaded"]], 
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint, {
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+returnFront}, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "LightFaded"]], 
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[{0, 
+             
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarBack["EmitArcLength"]}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "LightFaded"]], 
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint, {0, 
+             
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+radarBack["ReturnArcLength"]}, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "LightFaded"]], {
+            AbsoluteThickness[3], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "Simultaneity"], 
+            
+            Line[{{(-0.01) 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceFront}, {(-0.01) 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`aliceBack}\
+}]}, 
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceFront}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceBack}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "L", (WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+frontPoint + 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+backPoint)/2 + 
+            0.03 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir, 10], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Row[{"L/\[Gamma] = ", 
+              NumberForm[
+               N[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rodLength/((WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k + 
+                 1/WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`k)/2)], {3, 2}]}], {(-0.08) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, (WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceFront + 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+aliceBack)/2}, 9]}, 
+          OptionValue[ImageSize], 0.08]], 
+       Options[WolframInstitute`InfraCausality`LengthContractionConstruction] = \
+{"LightAngle" -> Pi/4, "RodRestLength" -> 0.15, "MeasureArcLength" -> 0.6, 
+         ImageSize -> 500}, 
+       TagSet[WolframInstitute`InfraCausality`LengthContractionConstruction, 
+        MessageName[
+        WolframInstitute`InfraCausality`LengthContractionConstruction, 
+         "usage"], 
+        "LengthContractionConstruction[v] draws the radar measurement of a \
+rod moving at velocity v by the rest observer, illustrating the contracted \
+length L/gamma."], WolframInstitute`InfraCausality`BondiRadarCoordinates[{
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`x, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`y, 
+           Blank[]]}, 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle, 
+           Blank[]], Pi/4]] := 
+       With[{WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+emit = WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`y - 
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`x/
+           Tan[WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle], 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+receive = WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`y + 
+           WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`x/
+            Tan[WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+lightAngle]}, <|
+         "RadarTime" -> (
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+emit + WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`receive)/
+           2, 
+          "RadarDistance" -> (
+            WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+receive - WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`emit)/
+           2, "EmitArcLength" -> 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`emit, 
+          "ReturnArcLength" -> 
+          WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`\
+receive|>], 
+       TagSet[WolframInstitute`InfraCausality`BondiRadarCoordinates, 
+        MessageName[
+        WolframInstitute`InfraCausality`BondiRadarCoordinates, "usage"], 
+        "BondiRadarCoordinates[{x, y}, phi] gives the radar time, the radar \
+distance and the emission and return arc lengths of the plane event {x, y} \
+for the observer at rest."], 
+       WolframInstitute`InfraCausality`VelocityAdditionConstruction[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v1, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2, 
+          Blank[]], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc = 
+          OptionValue["EmitArcLength"]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k1 = N[
+            WolframInstitute`InfraCausality`KFactor[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v1, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]]\
+, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k2 = N[
+            WolframInstitute`InfraCausality`KFactor[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v2, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]]\
+}, {WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`vTotal = 
+          WolframInstitute`InfraCausality`VelocityFromK[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k1 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k2]}, \
+{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir1 = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v1, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+dirTotal = WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`vTotal,
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi],
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bobArc = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc 
+           WolframInstitute`InfraCausality`OutgoingRatio[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v1, 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi],
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+carolArc = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`emitArc 
+           WolframInstitute`InfraCausality`OutgoingRatio[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+vTotal, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bobPoint = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bobArc 
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir1, 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+carolPoint = 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+carolArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dirTotal,
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          1.2 Max[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`carolArc]}\
+, 
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           0, {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Alice"]], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v1, {
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"]], 
+           WolframInstitute`InfraCausality`PackageScope`drawWorldline[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`vTotal,\
+ {0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Carol"]], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArc}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint], 
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+carolPoint], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawLightRay[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArc}, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+carolPoint, 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor[
+            "LightFaded"]], 
+           
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[{
+            0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+emitArc}, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+bobPoint, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawEvent[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+carolPoint, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "Alice", {(-0.05) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc 
+             0.95}, 10], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "Bob", WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc 0.95 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir1 + 
+            0.04 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`WorldlineNormal[
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`v1, 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+phi], 10], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+           "Carol", 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc 0.95 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+dirTotal + 0.04 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`WorldlineNormal[
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+vTotal, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 10], 
+           WolframInstitute`InfraCausality`PackageScope`drawLabel[
+            Column[{
+              Row[{
+                Subscript["k", "1"], " = ", 
+                NumberForm[
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+k1, {3, 2}]}], 
+              Row[{
+                Subscript["k", "2"], " = ", 
+                NumberForm[
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+k2, {3, 2}]}], 
+              Row[{
+                Subscript["k", "1"], 
+                Subscript["k", "2"], " = ", 
+                NumberForm[
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+k1 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`k2, {3, 2}]}], 
+              
+              Row[{
+                Subscript["v", "\[CirclePlus]"], " = ", 
+                NumberForm[
+                 N[
+                 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+vTotal], {3, 2}]}]}, Spacings -> 0.3], {(-0.12) 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc 
+             0.5}, 9]}, 
+          OptionValue[ImageSize], 0.1]], 
+       Options[WolframInstitute`InfraCausality`VelocityAdditionConstruction] = \
+{"LightAngle" -> Pi/4, "EmitArcLength" -> 0.2, ImageSize -> 550}, 
+       TagSet[WolframInstitute`InfraCausality`VelocityAdditionConstruction, 
+        MessageName[
+        WolframInstitute`InfraCausality`VelocityAdditionConstruction, 
+         "usage"], 
+        "VelocityAdditionConstruction[v1, v2] draws three worldlines with \
+Bondi factors k1, k2 and k1 k2, illustrating that composing velocities \
+multiplies Bondi factors."], WolframInstitute`InfraCausality`VelocityFromK[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`k, 
+          Blank[]]] := (
+         WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`k^2 - 
+         1)/(WolframInstitute`InfraCausality`BondiKCalculus`PackagePrivate`k^\
+2 + 1), 
+       TagSet[WolframInstitute`InfraCausality`VelocityFromK, 
+        MessageName[WolframInstitute`InfraCausality`VelocityFromK, "usage"], 
+        "VelocityFromK[k] gives the velocity (k^2 - 1)/(k^2 + 1) of the Bondi \
+factor k."], WolframInstitute`InfraCausality`LightClockConstruction[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`velocity, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces, 
+           Blank[]], 8], 
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`opts, 
+          OptionsPattern[]]] := 
+       With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi = 
+          OptionValue["LightAngle"]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir = 
+          WolframInstitute`InfraCausality`WorldlineDirection[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal = 
+          WolframInstitute`InfraCausality`WorldlineNormal[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi], 
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+mirrorOffset = 
+          OptionValue["ClockLength"] 
+           WolframInstitute`InfraCausality`WorldlineNormal[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`phi]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounce = 
+          Function[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`event, 
+            
+            
+            With[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightDir = WolframInstitute`InfraCausality`LightDirection[
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+phi, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`event[
+                 "Side"] === "observer"], 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+offset = If[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`event[
+                 "Side"] === "observer", 
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+mirrorOffset, -
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+mirrorOffset]}, {
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`t = (
+                Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`offset, 1] 
+                 Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`dir, 2] - 
+                Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`offset, 2] 
+                Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`dir, 1])/(
+               Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`lightDir, 1] 
+                Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`dir, 2] - 
+               Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`lightDir, 2] 
+               Part[WolframInstitute`InfraCausality`BondiFigures`\
+PackagePrivate`dir, 1])}, <|
+             "Point" -> 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+event["Point"] + 
+               WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`t 
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightDir, "Side" -> 
+              If[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+event["Side"] === "observer", "mirror", "observer"]|>]]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`events = 
+          NestList[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`bounce,\
+ <|"Point" -> OptionValue["StartArcLength"] 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir,
+              "Side" -> "observer"|>, 
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+nBounces]}, {
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc = 
+          1.1 Max[
+             Map[Norm, 
+              Lookup[
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+events, "Point"]]]}, 
+         WolframInstitute`InfraCausality`PackageScope`bondiGraphics[{
+           If[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity != 0, {
+             AbsoluteThickness[1.5], 
+             WolframInstitute`InfraCausality`PackageScope`bondiColor["Alice"], 
+             Opacity[0.3], 
+             
+             Line[{{0, 0}, {
+               0, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc}}]}, Nothing], {
+            AbsoluteThickness[2.5], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"], 
+            
+            Line[{{0, 0}, 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir}]}, {
+            AbsoluteThickness[1.5], 
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Bob"], 
+            Opacity[0.4], 
+            
+            Line[{WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+mirrorOffset, 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir + 
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+mirrorOffset}]}, {
+            WolframInstitute`InfraCausality`PackageScope`bondiColor["Light"], 
+            
+            AbsoluteThickness[1.2], 
+            Line[
+             Lookup[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+events, "Point"]]}, 
+           Map[
+            Function[
+            WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`point, 
+             WolframInstitute`InfraCausality`PackageScope`drawEvent[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+point, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`maxArc]], 
+            Lookup[
+             Select[
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+events, 
+              Function[
+              WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+event, WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`event[
+                "Side"] === "observer"]], "Point"]], 
+           If[
+           WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity != 0, 
+            WolframInstitute`InfraCausality`PackageScope`drawLabel[
+             Row[{"\[Beta] = ", 
+               NumberForm[
+                N[
+                WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+velocity], {3, 2}]}], 
+             WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`dir + 
+             0.05 WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+maxArc WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`normal, 9],
+             Nothing]}, 
+          OptionValue[ImageSize], 0.06]], 
+       Options[WolframInstitute`InfraCausality`LightClockConstruction] = {
+        "LightAngle" -> Pi/4, "ClockLength" -> 0.12, "StartArcLength" -> 0.1, 
+         ImageSize -> 550}, 
+       TagSet[WolframInstitute`InfraCausality`LightClockConstruction, 
+        MessageName[
+        WolframInstitute`InfraCausality`LightClockConstruction, "usage"], 
+        "LightClockConstruction[v, n] draws a transverse light clock carried \
+by the observer of velocity v, with n bounces between observer and mirror."], 
+       WolframInstitute`InfraCausality`LightDirection[
+         Pattern[
+         WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle, 
+          Blank[]], 
+         Optional[
+          Pattern[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rightgoing, 
+           Blank[]], True]] := 
+       If[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+rightgoing, {
+          Sin[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], 
+          Cos[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}, {-
+          Sin[WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle], 
+          Cos[
+          WolframInstitute`InfraCausality`BondiFigures`PackagePrivate`\
+lightAngle]}], 
+       TagSet[WolframInstitute`InfraCausality`LightDirection, 
+        MessageName[WolframInstitute`InfraCausality`LightDirection, "usage"], 
+        "LightDirection[phi, right] gives the unit direction of a light ray \
+at angle phi to the time axis, pointing to positive x when right is True."]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"9c7e90f7-36c0-4f9c-bca7-19d887750093"]
+}, Open  ]],
+
+Cell["\<\
+The seven frames at the initial slider values, drawn without the viewer.\
+\>", "ExampleText",ExpressionUUID->"357b482e-e4fe-4321-87ed-8d7702a90d22"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{
+   RowBox[{"Partition", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"BondiClock", "[", 
+        RowBox[{"0.4", ",", " ", "8"}], "]"}], ",", " ", 
+       RowBox[{"DopplerConstruction", "[", 
+        RowBox[{"0.4", ",", " ", "8"}], "]"}], ",", " ", 
+       RowBox[{"TimeDilationConstruction", "[", "0.4", "]"}], ",", " ", 
+       RowBox[{"SimultaneityConstruction", "[", "0.4", "]"}], ",", "\n", "  ", 
+       RowBox[{"LengthContractionConstruction", "[", "0.4", "]"}], ",", " ", 
+       RowBox[{"VelocityAdditionConstruction", "[", 
+        RowBox[{"0.4", ",", " ", "0.3"}], "]"}], ",", " ", 
+       RowBox[{"LightClockConstruction", "[", 
+        RowBox[{"0.4", ",", " ", "8"}], "]"}], ",", " ", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", "}"}], "]"}]}], "}"}], ",", " ", "4"}], "]"}], ",", " ", 
+   
+   RowBox[{"ImageSize", " ", "->", " ", "800"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"a4a75c9a-643e-4cdb-84cb-069e0b292e39"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0., 5.988888888888891}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {2.2242174950540217`, 5.560543737635054}}]}, {
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.18367346938775506`}, {0.1224489795918367, 
+            0.30612244897959173`}, {0, 0.42857142857142855`}, {
+            0.2857142857142857, 0.7142857142857142}, {0, 1.}, {
+            0.6666666666666666, 1.6666666666666665`}, {
+            0, 2.3333333333333335`}, {1.5555555555555556`, 
+            3.888888888888889}, {0, 5.4444444444444455`}}]}, {
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0, 0.18367346938775506`}, 0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0.1224489795918367, 0.30612244897959173`}, 
+            0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0, 0.42857142857142855`}, 0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0.2857142857142857, 0.7142857142857142}, 
+            0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], DiskBox[{0, 1.}, 0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0.6666666666666666, 1.6666666666666665`}, 
+            0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0, 2.3333333333333335`}, 0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{1.5555555555555556`, 3.888888888888889}, 
+            0.05988888888888891]}, 
+          {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+           AbsoluteThickness[0.8]}], 
+           DiskBox[{0, 5.4444444444444455`}, 0.05988888888888891]}}}, 
+        {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+         LineBox[{{-0.11977777777777782`, 1.}, {0.11977777777777782`, 1.}}], 
+         LineBox[{{-0.11977777777777782`, 2.}, {0.11977777777777782`, 2.}}], 
+         LineBox[{{-0.11977777777777782`, 3.}, {0.11977777777777782`, 3.}}], 
+         LineBox[{{-0.11977777777777782`, 4.}, {0.11977777777777782`, 4.}}], 
+         LineBox[{{-0.11977777777777782`, 5.}, {0.11977777777777782`, 
+          5.}}]}, 
+        {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+         LineBox[{{0.32522490571928364`, 1.1355738010810423`}, {
+          0.5476466552246858, 1.0466051012788813`}}], 
+         LineBox[{{0.7616606861912684, 2.226663252261004}, {
+          0.9840824356966705, 2.1376945524588433`}}], 
+         LineBox[{{1.198096466663253, 3.317752703440966}, {
+          1.4205182161686554`, 3.2287840036388054`}}], 
+         LineBox[{{1.6345322471352377`, 4.4088421546209275`}, {
+          1.85695399664064, 4.319873454818767}}], 
+         LineBox[{{2.0709680276072224`, 5.499931605800889}, {
+          2.293389777112625, 5.410962905998728}}]}},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->500,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.06]], {271., -640.6976909144383}, 
+      ImageScaled[{0.5, 0.5}], {500., 1239.3953818288767},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0., 2.043670044307544}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {0.7589999999999999, 1.8974999999999997`}}]}, {
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.15}, {0.09999999999999999, 
+            0.24999999999999997`}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.27}, {0.18000000000000002`, 0.45000000000000007`}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.39}, {0.26, 0.65}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.51}, {0.34, 0.85}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.63}, {0.42, 1.05}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.75}, {0.49999999999999994`, 1.25}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.87}, {0.58, 1.45}}]}, 
+         {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+          LineBox[{{0, 0.99}, {0.6599999999999999, 1.65}}]}}, {
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.15}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.27}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.39}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.51}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.63}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.75}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.87}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0, 0.99}, 0.02043670044307544]}}, {
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.09999999999999999, 0.24999999999999997`}, 
+           0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.18000000000000002`, 0.45000000000000007`}, 
+           0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.26, 0.65}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.34, 0.85}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.42, 1.05}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.49999999999999994`, 1.25}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.58, 1.45}, 0.02043670044307544]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.6599999999999999, 1.65}, 0.02043670044307544]}}, 
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2], 
+         LineBox[{{0, 0.15}, {0, 0.27}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2], 
+         LineBox[{{0.09999999999999999, 0.24999999999999997`}, {
+          0.18000000000000002`, 0.45000000000000007`}}]}, InsetBox[
+         StyleBox["\<\"\[CapitalDelta]\[Tau]\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.1021835022153772, 0.21000000000000002}],
+         InsetBox[
+         StyleBox["\<\"k \[CapitalDelta]\[Tau]\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.25385, 0.30446000000000006}]},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->500,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.06]], {838., -640.6976909144383}, 
+      ImageScaled[{0.5, 0.5}], {500., 1185.174278171925},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0., 0.8969084833951606}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {0.3331034482758621, 0.8327586206896552}}]}, 
+        {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+         LineBox[{{0, 0.33425160871869336`}, {0.22283440581246222`, 
+           0.5570860145311556}}]}, 
+        {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+         LineBox[{{0.22283440581246222`, 0.5570860145311556}, {
+           0, 0.779920420343618}}]}, 
+        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.5], 
+         Dashing[{Small, Small}], 
+         LineBox[{{0., 0.5570860145311557}, {0.3125252541519783, 
+          0.5570860145311557}}]}, 
+        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0.5570860145311557}, {0.01, 0.5570860145311557}}]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0, 0.33425160871869336`}, 0.008969084833951606]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0.22283440581246222`, 0.5570860145311556}, 
+          0.008969084833951606]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0, 0.779920420343618}, 0.008969084833951606]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0, 0.5570860145311557}, 0.008969084833951606]}, InsetBox[
+         StyleBox[
+          SubscriptBox["\<\"\[Tau]\"\>", "\<\"emit\"\>"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 
+            0.248]], {-0.05381450900370963, 0.33425160871869336}], InsetBox[
+         StyleBox[
+          SubscriptBox["\<\"\[Tau]\"\>", "\<\"B\"\>"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.264472336846945, 0.5404308421173625}], 
+        InsetBox[
+         StyleBox[
+          SubscriptBox["\<\"\[Tau]\"\>", "\<\"return\"\>"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.05381450900370963, 0.779920420343618}], 
+        InsetBox[
+         StyleBox[
+          SubscriptBox["\<\"\[Tau]\"\>", "\<\"radar\"\>"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.05381450900370963, 0.5570860145311557}],
+         InsetBox[
+         StyleBox[
+          TemplateBox[{"\"\[Gamma] = \"", 
+            TagBox[
+             InterpretationBox[
+              StyleBox["\"1.09\"", ShowStringCharacters -> False], 
+              1.091089451179962, AutoDelete -> True], 
+             NumberForm[#, {3, 2}]& ]},
+           "RowDefault"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->9,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.08969084833951607, 0.8520630592254025}], 
+        {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+         LineBox[{{-0.017938169667903212`, 0.12764444150951448`}, {
+          0.017938169667903212`, 0.12764444150951448`}}], 
+         LineBox[{{-0.017938169667903212`, 0.25528888301902897`}, {
+          0.017938169667903212`, 0.25528888301902897`}}], 
+         LineBox[{{-0.017938169667903212`, 0.38293332452854345`}, {
+          0.017938169667903212`, 0.38293332452854345`}}], 
+         LineBox[{{-0.017938169667903212`, 0.5105777660380579}, {
+          0.017938169667903212`, 0.5105777660380579}}], 
+         LineBox[{{-0.017938169667903212`, 0.6382222075475724}, {
+          0.017938169667903212`, 0.6382222075475724}}], 
+         LineBox[{{-0.017938169667903212`, 0.7658666490570869}, {
+          0.017938169667903212`, 0.7658666490570869}}], 
+         LineBox[{{-0.017938169667903212`, 0.8935110905666014}, {
+          0.017938169667903212`, 0.8935110905666014}}]}, 
+        {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+         LineBox[{{0.03905342903932245, 0.14593357259830614`}, {
+          0.07236377386690866, 0.13260943466727165`}}], 
+         LineBox[{{0.094762030492438, 0.28520507623109503`}, {
+          0.12807237532002422`, 0.27188093830006055`}}], 
+         LineBox[{{0.15047063194555355`, 0.4244765798638839}, {
+          0.18378097677313976`, 0.4111524419328494}}], 
+         LineBox[{{0.20617923339866912`, 0.5637480834966728}, {
+          0.23948957822625533`, 0.5504239455656383}}], 
+         LineBox[{{0.2618878348517847, 0.7030195871294618}, {
+          0.2951981796793709, 0.6896954491984273}}]}},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->500,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.08]], {1430., -640.6976909144383}, 
+      ImageScaled[{0.5, 0.5}], {500., 1059.5699400324083},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0., 1.3499999999999999`}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {0.50137741307804, 1.2534435326951}}]}, 
+        {RGBColor[0.58, 0.72, 1.], AbsoluteThickness[2], 
+         Dashing[{0.015, 0.008}], 
+         LineBox[{{-0.35, 0.7}, {0., 0.7}, {0.35, 0.7}}]}, 
+        {RGBColor[0.9510000000000001, 0.489, 0.489], AbsoluteThickness[2], 
+         Dashing[{0.015, 0.008}], 
+         LineBox[{{-0.06499336836196812, 0.5199469468957452}, {
+          0.2599734734478726, 0.6499336836196815}, {0.5849403152577133, 
+          0.7799204203436179}}]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], DiskBox[{0, 0.7}, 0.013499999999999998]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0.2599734734478726, 0.6499336836196815}, 
+          0.013499999999999998]}, InsetBox[
+         StyleBox["\<\"Alice's now\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->9,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.40399999999999997, 0.7}], InsetBox[
+         StyleBox["\<\"Bob's now\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->9,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.6389403152577133, 0.7799204203436179}]},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->500,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.08]], {1997., -640.6976909144383}, 
+      ImageScaled[{0.5, 0.5}], {500., 682.1836767160714},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {
+     InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0., 0.9930058209017848}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {0.3687931034482758, 0.9219827586206896}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[1.5], Opacity[0.5], 
+         Dashing[{0.01, 0.006}], 
+         LineBox[{{0.1392715036327889, -0.055708601453115555`}, {
+          0.5080646070810647, 0.866274157167574}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[3], Opacity[0.6], 
+         LineBox[{{0.22283440581246222`, 0.5570860145311556}, {
+          0.3621059094452511, 0.5013774130780401}}]}, 
+        {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+         LineBox[{{0, 0.33425160871869336`}, {0.22283440581246222`, 
+           0.5570860145311556}}]}, 
+        {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+         LineBox[{{0.22283440581246222`, 0.5570860145311556}, {
+           0, 0.779920420343618}}]}, 
+        {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+         LineBox[{{0, 0.13927150363278895`}, {0.3621059094452511, 
+           0.5013774130780401}}]}, 
+        {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+         LineBox[{{0.3621059094452511, 0.5013774130780401}, {
+           0, 0.8634833225232912}}]}, 
+        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[3], 
+         LineBox[{{-0.009930058209017848, 
+          0.5570860145311557}, {-0.009930058209017848, 0.5013774130780401}}]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0.22283440581246222`, 0.5570860145311556}, 
+          0.009930058209017848]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0.3621059094452511, 0.5013774130780401}, 
+          0.009930058209017848]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0, 0.5570860145311557}, 0.009930058209017848]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0, 0.5013774130780401}, 0.009930058209017848]}, InsetBox[
+         StyleBox["\<\"L\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.30353395073230494, 0.5568911965632186}], 
+        InsetBox[
+         StyleBox[
+          TemplateBox[{"\"L/\[Gamma] = \"", 
+            TagBox[
+             InterpretationBox[
+              StyleBox["\"0.14\"", ShowStringCharacters -> False], 
+              0.13747727084867517`, AutoDelete -> True], 
+             NumberForm[#, {3, 2}]& ]},
+           "RowDefault"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->9,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.07944046567214279, 0.5292317138045979}]},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->500,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.08]], {271., -1940.9571697502847}, 
+      ImageScaled[{0.5, 0.5}], {500., 891.7301758310447},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0., 0.7547184905645284}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {0.28029541066770847`, 0.7007385266692712}}]}, 
+        {RGBColor[0.14, 0.8, 0.14], AbsoluteThickness[2.5], 
+         LineBox[{{0., 0.}, {0.40000000000000013`, 0.6400000000000001}}]}, 
+        {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+         LineBox[{{0, 0.2}, {0.13333333333333333`, 0.33333333333333337`}}]}, 
+        {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+         LineBox[{{0.13333333333333333`, 0.33333333333333337`}, {
+          0.3333333333333334, 0.5333333333333334}}]}, 
+        {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+         LineBox[{{0, 0.2}, {0.3333333333333334, 0.5333333333333334}}]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], DiskBox[{0, 0.2}, 0.007547184905645285]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0.13333333333333333`, 0.33333333333333337`}, 
+          0.007547184905645285]}, 
+        {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+         AbsoluteThickness[0.8]}], 
+         DiskBox[{0.3333333333333334, 0.5333333333333334}, 
+          0.007547184905645285]}, InsetBox[
+         StyleBox["\<\"Alice\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.037735924528226425, 0.716982566036302}],
+         InsetBox[
+         StyleBox["\<\"Bob\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.29431018120109387, 0.6544897839090992}], 
+        InsetBox[
+         StyleBox["\<\"Carol\"\>",
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->10,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.40560000000000007, 0.5920000000000001}], 
+        InsetBox[
+         StyleBox[
+          TagBox[GridBox[{
+             {
+              TemplateBox[{
+                SubscriptBox["\"k\"", "\"1\""], "\" = \"", 
+                TagBox[
+                 InterpretationBox[
+                  StyleBox["\"1.53\"", ShowStringCharacters -> False], 
+                  1.5275252316519468`, AutoDelete -> True], 
+                 NumberForm[#, {3, 2}]& ]},
+               "RowDefault"]},
+             {
+              TemplateBox[{
+                SubscriptBox["\"k\"", "\"2\""], "\" = \"", 
+                TagBox[
+                 InterpretationBox[
+                  StyleBox["\"1.36\"", ShowStringCharacters -> False], 
+                  1.3627702877384937`, AutoDelete -> True], 
+                 NumberForm[#, {3, 2}]& ]},
+               "RowDefault"]},
+             {
+              TemplateBox[{
+                SubscriptBox["\"k\"", "\"1\""], 
+                SubscriptBox["\"k\"", "\"2\""], "\" = \"", 
+                TagBox[
+                 InterpretationBox[
+                  StyleBox["\"2.08\"", ShowStringCharacters -> False], 
+                  2.0816659994661326`, AutoDelete -> True], 
+                 NumberForm[#, {3, 2}]& ]},
+               "RowDefault"]},
+             {
+              TemplateBox[{
+                SubscriptBox["\"v\"", "\"\[CirclePlus]\""], "\" = \"", 
+                TagBox[
+                 InterpretationBox[
+                  StyleBox["\"0.63\"", ShowStringCharacters -> False], 0.625, 
+                  AutoDelete -> True], NumberForm[#, {3, 2}]& ]},
+               "RowDefault"]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.3}}}],
+           
+           "Column"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->9,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {-0.09056621886774341, 0.3773592452822642}]},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->550,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.1]], {838., -1940.9571697502847}, 
+      ImageScaled[{0.5, 0.5}], {550., 836.0839609061966},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{
+        {RGBColor[0.4, 0.6, 1], AbsoluteThickness[1.5], Opacity[0.3], 
+         LineBox[{{0, 0}, {0, 1.5682857142857145`}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+         LineBox[{{0, 0}, {0.5824466921450502, 1.4561167303626255`}}]}, 
+        {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[1.5], Opacity[0.4], 
+         LineBox[{{0.11141720290623111`, -0.044566881162492446`}, {
+          0.6938638950512813, 1.411549849200133}}]}, 
+        {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+         LineBox[{{0.037139067635410375`, 0.09284766908852593}, {
+          0.25254565992079053`, 0.3082542613739061}, {0.16022854894134186`, 
+          0.40057137235335477`}, {0.37563514122672204`, 0.6159779646387349}, {
+          0.28331803024727337`, 0.7082950756181835}, {0.4987246225326535, 
+          0.9237016679035637}, {0.4064075115532048, 1.0160187788830124`}, {
+          0.6218141038385849, 1.2314253711683925`}, {0.5294969928591363, 
+          1.3237424821478412`}}]}, {
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.037139067635410375`, 0.09284766908852593}, 
+           0.015682857142857144]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.16022854894134186`, 0.40057137235335477`}, 
+           0.015682857142857144]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.28331803024727337`, 0.7082950756181835}, 
+           0.015682857142857144]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.4064075115532048, 1.0160187788830124`}, 
+           0.015682857142857144]}, 
+         {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+          AbsoluteThickness[0.8]}], 
+          DiskBox[{0.5294969928591363, 1.3237424821478412`}, 
+           0.015682857142857144]}}, InsetBox[
+         StyleBox[
+          TemplateBox[{"\"\[Beta] = \"", 
+            TagBox[
+             InterpretationBox[
+              StyleBox["\"0.40\"", ShowStringCharacters -> False], 0.4, 
+              AutoDelete -> True], NumberForm[#, {3, 2}]& ]},
+           "RowDefault"],
+          StripOnInput->False,
+          LineColor->RGBColor[0.248, 0.248, 0.248],
+          FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+          BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+          GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+          FontSize->9,
+          
+          FontColor->RGBColor[
+           0.248, 0.248, 0.248]], {0.6552525286631814, 1.426994395755373}]},
+       AspectRatio->Automatic,
+       Background->RGBColor[0.981, 0.981, 0.981],
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       ImageSize->550,
+       PlotInteractivity:>True,
+       PlotRangePadding->Scaled[0.06]], {1430., -1940.9571697502847}, 
+      ImageScaled[{0.5, 0.5}], {550., 1277.123575842816},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+     InsetBox[
+      GraphicsBox[{},
+       DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+       DisplayFunction->Identity,
+       ImagePadding->{{5.789191061375089*^-15, 1.0000000000000568`}, {
+        1.0000000000000042`, 2.2737367544323206`*^-13}},
+       PlotInteractivity:>True], {1997., -1940.9571697502847}, 
+      ImageScaled[{0.5, 0.5}], {360., 359.4256},
+      BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}}, {}},
+  
+  ImageSize->800,
+  Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+  PlotRange->{{0, 2268.}, {-2600.518957671693, 0}},
+  PlotRangePadding->Automatic]], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"c553ab15-d6af-4cba-a1e4-8b15cbebc340"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -230,12 +3070,167 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[Cell[
   "Properties & Relations", "ExampleSection",ExpressionUUID->
    "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
   $Line = 0; Null]], "ExampleSection",
  CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell[TextData[{
+ "Over the slider ranges the Bondi clock frame keeps its identity: the \
+reflections on the moving worldline grow by ",
+ Cell[BoxData[
+  SuperscriptBox[
+   StyleBox["k", "TI"], "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "55aa56df-ac93-40d0-8779-5fefe0d8a095"],
+ "."
+}], "ExampleText",ExpressionUUID->"3900e148-622e-4a48-904c-c0575c633031"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AllTrue", "[", 
+  RowBox[{
+   RowBox[{"Tuples", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0.05", ",", " ", "0.4", ",", " ", "0.9"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0.15", ",", " ", 
+        RowBox[{"Pi", "/", "4"}], ",", " ", 
+        RowBox[{
+         RowBox[{"Pi", "/", "2"}], " ", "-", " ", "0.05"}]}], "}"}]}], "}"}], 
+    "]"}], ",", " ", 
+   RowBox[{"Apply", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v", ",", " ", "phi"}], "}"}], " ", "|->", "\n", "  ", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"bob", " ", "=", " ", 
+         RowBox[{"Select", "[", 
+          RowBox[{
+           RowBox[{"Cases", "[", 
+            RowBox[{
+             RowBox[{"BondiClock", "[", 
+              RowBox[{"v", ",", " ", "8", ",", " ", 
+               RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", "phi"}]}], "]"}],
+              ",", " ", 
+             RowBox[{
+              RowBox[{"Disk", "[", 
+               RowBox[{"c_", ",", " ", "_"}], "]"}], " ", ":>", " ", "c"}], ",",
+              " ", "Infinity"}], "]"}], ",", " ", 
+           RowBox[{"c", " ", "|->", " ", 
+            RowBox[{
+             RowBox[{"c", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], " ", ">", " ", "0"}]}]}], 
+          "]"}]}], "}"}], ",", "\n", "    ", 
+       RowBox[{
+        RowBox[{"Max", "[", 
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{"Ratios", "[", 
+            RowBox[{"Map", "[", 
+             RowBox[{"Norm", ",", " ", "bob"}], "]"}], "]"}], " ", "-", " ", 
+           RowBox[{
+            RowBox[{"KFactor", "[", "v", "]"}], "^", "2"}]}], "]"}], "]"}], 
+        " ", "<", " ", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "6"}]}]}]}], "]"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"625d2b7f-a69a-4896-a0c5-7ddd93dc376e"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"f29d323b-b049-4c98-ab28-c87fbafc5432"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Over the slider ranges the velocity addition frame composes the velocities: \
+Carol's reception is ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["k", "TI"], "1"], 
+   SubscriptBox[
+    StyleBox["k", "TI"], "2"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "4b47a077-2345-4251-bd16-714cf1e35e36"],
+ " times Alice's emission in proper time."
+}], "ExampleText",ExpressionUUID->"f01faf78-d6ae-4184-b8a0-c6cdc2a563e1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AllTrue", "[", 
+  RowBox[{
+   RowBox[{"Tuples", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0.05", ",", " ", "0.4", ",", " ", "0.9"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0.05", ",", " ", "0.3", ",", " ", "0.85"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0.15", ",", " ", 
+        RowBox[{"Pi", "/", "4"}], ",", " ", 
+        RowBox[{
+         RowBox[{"Pi", "/", "2"}], " ", "-", " ", "0.05"}]}], "}"}]}], "}"}], 
+    "]"}], ",", " ", 
+   RowBox[{"Apply", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v1", ",", " ", "v2", ",", " ", "phi"}], "}"}], " ", "|->", 
+     "\n", "  ", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"d", " ", "=", " ", 
+         RowBox[{"Cases", "[", 
+          RowBox[{
+           RowBox[{"VelocityAdditionConstruction", "[", 
+            RowBox[{"v1", ",", " ", "v2", ",", " ", 
+             RowBox[{"\"\<LightAngle\>\"", " ", "->", " ", "phi"}]}], "]"}], ",",
+            " ", 
+           RowBox[{
+            RowBox[{"Disk", "[", 
+             RowBox[{"c_", ",", " ", "_"}], "]"}], " ", ":>", " ", "c"}], ",",
+            " ", "Infinity"}], "]"}]}], "}"}], ",", "\n", "    ", 
+       RowBox[{
+        RowBox[{"Abs", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"ProperTimeScale", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"v1", " ", "+", " ", "v2"}], ")"}], "/", 
+              RowBox[{"(", 
+               RowBox[{"1", " ", "+", " ", 
+                RowBox[{"v1", " ", "v2"}]}], ")"}]}], ",", " ", "phi"}], 
+            "]"}], " ", 
+           RowBox[{
+            RowBox[{"Norm", "[", 
+             RowBox[{"d", "[", 
+              RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", 
+            RowBox[{"d", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", ",", " ", "2"}], "]"}], "]"}]}]}], " ", "-", " ", 
+          RowBox[{
+           RowBox[{"KFactor", "[", "v1", "]"}], " ", 
+           RowBox[{"KFactor", "[", "v2", "]"}]}]}], "]"}], " ", "<", " ", 
+        RowBox[{"10", "^", 
+         RowBox[{"-", "6"}]}]}]}], "]"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"8b0b9aa9-f22a-4898-af82-14635632748f"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"4581199c-b453-4491-aaf6-e3a071576aef"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[BoxData[
  InterpretationBox[Cell[
@@ -308,7 +3303,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
  CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
 
 Cell["WolframInstitute/InfraCausality/ref/BondiViewer", "Categorization",
- CellLabel->"URI",ExpressionUUID->"c711ac8e-57c2-40b1-b8ff-fdafbe11e98b"]
+ CellLabel->"URI",ExpressionUUID->"a8663382-a4da-42e7-b68e-cbf339d413e0"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -342,7 +3337,9 @@ WindowMargins->{{5, Automatic}, {Automatic, 0}},
 TaggingRules->{
  "Metadata" -> {
    "title" -> "BondiViewer", "context" -> "WolframInstitute`InfraCausality`", 
-    "keywords" -> {}, "summary" -> "", "paclet" -> 
+    "keywords" -> {
+     "viewer", "Bondi k-calculus", "interactive", "Manipulate", "figures", 
+      "experimental"}, "summary" -> "", "paclet" -> 
     "WolframInstitute/InfraCausality", "uri" -> 
     "WolframInstitute/InfraCausality/ref/BondiViewer", "type" -> "Symbol", 
     "index" -> True, "language" -> "en"}},
@@ -359,14 +3356,14 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[6138, 189, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[148212, 3029, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 12081, 360}
+ {"ExtendedExamples", 159610, 3357}
  }
 *)
 (*NotebookFileOutline
@@ -374,80 +3371,107 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 109, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[688, 25, 707, 17, 70, "Usage",ExpressionUUID->"ab5ef623-2201-44fa-9394-1f87373e5ca5"]
+Cell[688, 25, 856, 21, 70, "Usage",ExpressionUUID->"d3dbf516-8710-41ff-b209-75a00b31f6f9"],
+Cell[1547, 48, 142, 2, 70, "Notes",ExpressionUUID->"4fa20487-8a71-49aa-b483-1d6bb013a08b"],
+Cell[1692, 52, 176, 3, 70, "Notes",ExpressionUUID->"1ed061e5-8d92-4842-97f2-9337b2f1df34"],
+Cell[1871, 57, 6667, 146, 70, "2ColumnTableMod",ExpressionUUID->"6e56d9aa-9bd5-495a-8329-3b14d12d1677"],
+Cell[8541, 205, 777, 17, 70, "Notes",ExpressionUUID->"21dffc08-48fb-4a5c-9b65-3fd479eab8db"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1432, 47, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+Cell[9355, 227, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[1894, 62, 1543, 40, 70, "SeeAlso",ExpressionUUID->"a2765fad-d0fd-4f94-9539-78ed28f4fade",
- CellID->173389911]
+Cell[9817, 242, 2656, 71, 70, "SeeAlso",ExpressionUUID->"9f95542b-5620-4553-8611-b892250e63a8"]
 }, Open  ]],
-Cell[3452, 105, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+Cell[12488, 316, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
-Cell[3912, 121, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+Cell[12948, 332, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[4031, 124, 306, 6, 70, "MoreAbout",ExpressionUUID->"568c8a26-e690-42a8-9f01-1e987b83e287"]
+Cell[13067, 335, 306, 6, 70, "MoreAbout",ExpressionUUID->"591d62db-aa97-4ca5-beaf-79c6dc14d35a"]
 }, Open  ]],
-Cell[4352, 133, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+Cell[13388, 344, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
 Cell[CellGroupData[{
-Cell[4848, 150, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+Cell[13884, 361, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
  CellID->1718580883],
-Cell[5382, 166, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+Cell[14418, 377, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
  CellID->1969679695]
 }, Open  ]],
-Cell[5671, 173, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
- CellID->880084151],
 Cell[CellGroupData[{
-Cell[6138, 189, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[14729, 386, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+ CellID->880084151],
+Cell[15174, 400, 117, 0, 70, "ExampleText",ExpressionUUID->"ceb47e8b-0d2b-4d65-9782-04b22a0c083e"],
+Cell[CellGroupData[{
+Cell[15316, 404, 138, 2, 70, "Input",ExpressionUUID->"2bea12d8-e96d-4a31-a33d-1116db5d034f"],
+Cell[15457, 408, 98783, 1932, 70, "Output",ExpressionUUID->"9c7e90f7-36c0-4f9c-bca7-19d887750093"]
+}, Open  ]],
+Cell[114255, 2343, 158, 2, 70, "ExampleText",ExpressionUUID->"357b482e-e4fe-4321-87ed-8d7702a90d22"],
+Cell[CellGroupData[{
+Cell[114438, 2349, 1039, 22, 70, "Input",ExpressionUUID->"a4a75c9a-643e-4cdb-84cb-069e0b292e39"],
+Cell[115480, 2373, 32683, 650, 70, "Output",ExpressionUUID->"c553ab15-d6af-4cba-a1e4-8b15cbebc340"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[148212, 3029, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
-Cell[6628, 204, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[148702, 3044, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[6873, 211, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[148947, 3051, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
-Cell[7141, 218, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[149215, 3058, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
-Cell[7388, 225, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[149462, 3065, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
-Cell[7639, 232, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[CellGroupData[{
+Cell[149735, 3074, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[7901, 239, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[149997, 3081, 381, 9, 70, "ExampleText",ExpressionUUID->"3900e148-622e-4a48-904c-c0575c633031"],
+Cell[CellGroupData[{
+Cell[150403, 3094, 1900, 51, 70, "Input",ExpressionUUID->"625d2b7f-a69a-4896-a0c5-7ddd93dc376e"],
+Cell[152306, 3147, 110, 1, 70, "Output",ExpressionUUID->"f29d323b-b049-4c98-ab28-c87fbafc5432"]
+}, Open  ]],
+Cell[152431, 3151, 465, 12, 70, "ExampleText",ExpressionUUID->"f01faf78-d6ae-4184-b8a0-c6cdc2a563e1"],
+Cell[CellGroupData[{
+Cell[152921, 3167, 2272, 60, 70, "Input",ExpressionUUID->"8b0b9aa9-f22a-4898-af82-14635632748f"],
+Cell[155196, 3229, 110, 1, 70, "Output",ExpressionUUID->"4581199c-b453-4491-aaf6-e3a071576aef"]
+}, Open  ]]
+}, Open  ]],
+Cell[155333, 3234, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[8156, 246, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[155588, 3241, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[8416, 253, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[155848, 3248, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8702, 263, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[156134, 3258, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[8815, 266, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[156247, 3261, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[9316, 282, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[156748, 3277, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[9804, 297, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[157236, 3292, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[9941, 301, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[157373, 3296, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[10103, 305, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[157535, 3300, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[10262, 309, 147, 1, 70, "Categorization",ExpressionUUID->"c711ac8e-57c2-40b1-b8ff-fdafbe11e98b"]
+Cell[157694, 3304, 147, 1, 70, "Categorization",ExpressionUUID->"a8663382-a4da-42e7-b68e-cbf339d413e0"]
 }, Closed]],
-Cell[10424, 313, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[157856, 3308, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[10559, 318, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[157991, 3313, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[10682, 321, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[158114, 3316, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[10834, 325, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[158266, 3320, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[10974, 329, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[158406, 3324, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[11113, 333, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[158545, 3328, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]

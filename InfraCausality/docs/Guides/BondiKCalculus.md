@@ -8,6 +8,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/BondiKCalculus
 Keywords: [Bondi k-calculus, k-factor, Doppler factor, special relativity, rapidity, Lorentz factor, radar coordinates, light zigzag, proper time, Bondi figures]
 RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrates]
+RelatedTutorials: [BondiKCalculus]
 ---
 
 ## Abstract

@@ -1,0 +1,2632 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    101190,       2623]
+NotebookOptionsPosition[     88448,       2412]
+NotebookOutlinePosition[     89533,       2442]
+CellTagsIndexPosition[     89490,       2439]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Bondi k-Calculus: Special Relativity in the Euclidean Plane", "Title",
+ CellID->509267359,ExpressionUUID->"4ddb5767-1f00-4973-a411-49eacd07850d"],
+
+Cell[TextData[{
+ "Bondi's k-calculus derives special relativity from one number: two inertial \
+observers who meet at an event, and one sends light signals at proper-time \
+interval ",
+ StyleBox["T", "TI"],
+ ", the other receives them at interval ",
+ StyleBox["kT", "TI"],
+ ". Everything below follows from ",
+ StyleBox["k", "TI"],
+ " and the radar rule."
+}], "Item",ExpressionUUID->"6c3aa9c0-e4cd-41f1-a0c4-b2efe2e3577f"],
+
+Cell[TextData[{
+ "The constructions are drawn in the Euclidean plane: the observer at rest is \
+the time axis, an observer of velocity ",
+ StyleBox["v", "TI"],
+ " is a straight ray from the same origin, and light runs at a fixed angle ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " to the time axis. The k-factor appears as a ratio of arc lengths."
+}], "Item",ExpressionUUID->"a44caa78-8b8b-46c6-8f44-4f0feb04de24"],
+
+Cell["\<\
+The order is the order of the k-calculus: the k-factor and the Doppler \
+effect, radar time and distance, time dilation, simultaneity, length \
+contraction, velocity addition, the light clock, and the Bondi clock, whose \
+bounces grow geometrically.\
+\>", "Item",ExpressionUUID->"68ead13d-ced5-4d1a-af8f-cc4fad51c065"],
+
+Cell["\<\
+The functions take no graph; units have the speed of light 1. The figures are \
+experimental: each claim made from a figure below is checked on the \
+primitives it draws.\
+\>", "Item",ExpressionUUID->"5d74fed4-bd3e-49ea-aef9-b395da7b0a67"],
+
+Cell["Setup", "Section",ExpressionUUID->"8c0037ab-a3fb-4ca4-9227-c36e2cb09a7b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraGeometry`\>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraCausality`\>\"", 
+  "]"}]}], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"5290c8c4-e37e-4e8e-9f0f-b98ecb38ad4b"],
+
+Cell["The Euclidean picture", "Section",ExpressionUUID->"166cb6a1-560e-47d4-ae1a-ccdf1711398f"],
+
+Cell[TextData[{
+ "The rest observer, Alice, is the time axis {0, 1}. The observer of velocity \
+",
+ StyleBox["v", "TI"],
+ ", Bob, is the ray at the angle ",
+ StyleBox["\[Alpha]", "TI"],
+ " = arctan(",
+ StyleBox["v", "TI"],
+ " tan ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ ") of ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["WorldlineAngle"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/WorldlineAngle", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "9f66897c-26e1-4db1-84b3-4761d983b19a"],
+ ", with direction ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["WorldlineDirection"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/WorldlineDirection", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "dd5a323a-4df5-4f2a-8047-5f080d1664e8"],
+ "; light runs along the two directions of ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LightDirection"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/LightDirection", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4482438d-b859-4a9c-a6ca-04257a181a26"],
+ ". The light angle is a choice of drawing: ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " = \[Pi]/4 is the usual Minkowski diagram, and the other angles rescale the \
+space axis."
+}], "Item",ExpressionUUID->"f0d10733-0b81-4e01-aedb-98f62924bb95"],
+
+Cell[TextData[{
+ "Alice (blue), Bob at ",
+ StyleBox["v", "TI"],
+ " = 0.6 (red) and the two light directions (yellow), at the light angles \
+\[Pi]/4 and \[Pi]/3."
+}], "Item",ExpressionUUID->"b11a82bf-bca7-4901-9b58-e483bdb7521d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GraphicsRow", " ", "@", " ", 
+  RowBox[{"Table", "[", "\n", "  ", 
+   RowBox[{
+    RowBox[{"Graphics", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"StandardBlue", ",", " ", 
+          RowBox[{"AbsoluteThickness", "[", "2", "]"}], ",", " ", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}], "]"}]}], "}"}], ",",
+         "\n", "    ", 
+        RowBox[{"{", 
+         RowBox[{"StandardRed", ",", " ", 
+          RowBox[{"AbsoluteThickness", "[", "2", "]"}], ",", " ", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"WorldlinePoint", "[", 
+              RowBox[{"0.6", ",", " ", "1", ",", " ", "phi"}], "]"}]}], "}"}],
+            "]"}]}], "}"}], ",", "\n", "    ", 
+        RowBox[{"{", 
+         RowBox[{"StandardYellow", ",", " ", "Dashed", ",", " ", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"LightDirection", "[", 
+              RowBox[{"phi", ",", " ", "True"}], "]"}]}], "}"}], "]"}], ",", 
+          " ", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+             RowBox[{"LightDirection", "[", 
+              RowBox[{"phi", ",", " ", "False"}], "]"}]}], "}"}], "]"}]}], 
+         "}"}]}], "}"}], ",", "\n", "    ", 
+      RowBox[{"PlotLabel", " ", "->", " ", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<\[Phi] = \>\"", ",", " ", "phi"}], "}"}], "]"}]}]}], 
+     "]"}], ",", "\n", "  ", 
+    RowBox[{"{", 
+     RowBox[{"phi", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Pi", "/", "4"}], ",", " ", 
+        RowBox[{"Pi", "/", "3"}]}], "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"f9a7c6e0-f74c-403c-9e2c-b8006c9370a3"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[{
+       {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2], 
+        LineBox[{{0, 0}, {0, 1}}]}, 
+       {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2], 
+        LineBox[{{0, 0}, {0.5144957554275266, 0.8574929257125442}}]}, 
+       {RGBColor[1, 0.75, 0], Dashing[{Small, Small}], 
+        LineBox[NCache[{{0, 0}, {2^Rational[-1, 2], 2^Rational[-1, 2]}}, {{0, 
+           0}, {0.7071067811865475, 0.7071067811865475}}]], 
+        LineBox[NCache[{{0, 0}, {-2^Rational[-1, 2], 2^Rational[-1, 2]}}, {{0,
+            0}, {-0.7071067811865475, 0.7071067811865475}}]]}},
+      DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+      DisplayFunction->Identity,
+      ImagePadding->{{-1.2459353823683473`*^-15, 0.}, {8.280750269487893*^-17,
+        0.}},
+      PlotInteractivity:>True,
+      PlotLabel->FormBox[
+        TemplateBox[{"\"\[Phi] = \"", 
+          FractionBox["\[Pi]", "4"]}, "RowDefault"], TraditionalForm]], {160., -131.02781985023785},
+      ImageScaled[{0.5, 0.5}], {300., 242.0556397004757},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{
+       {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2], 
+        LineBox[{{0, 0}, {0, 1}}]}, 
+       {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2], 
+        LineBox[{{0, 0}, {0.7205766921228921, 0.6933752452815364}}]}, 
+       {RGBColor[1, 0.75, 0], Dashing[{Small, Small}], 
+        LineBox[NCache[{{0, 0}, {
+           Rational[1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {{0, 0}, {
+           0.8660254037844386, 0.5}}]], 
+        LineBox[NCache[{{0, 0}, {
+           Rational[-1, 2] 3^Rational[1, 2], Rational[1, 2]}}, {{0, 
+           0}, {-0.8660254037844386, 0.5}}]]}},
+      DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+      DisplayFunction->Identity,
+      ImagePadding->{{1.0191497842675312`*^-14, 0.}, {8.280750269487893*^-17, 
+       0.}},
+      PlotInteractivity:>True,
+      PlotLabel->FormBox[
+        TemplateBox[{"\"\[Phi] = \"", 
+          FractionBox["\[Pi]", "3"]}, "RowDefault"], TraditionalForm]], {480., -131.02781985023785},
+      ImageScaled[{0.5, 0.5}], {300., 242.0556397004757},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+  ImageSize->{640., 262.0556397004757},
+  Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+  PlotRange->{{0, 640.}, {-262.0556397004757, 0}},
+  PlotRangePadding->Automatic]], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"666d0ed8-a453-469b-b91b-7a037cb665d5"]
+}, Open  ]],
+
+Cell["The k-factor and the Doppler effect", "Section",ExpressionUUID->"83f32eca-26c4-4422-a681-2fe7d84d9d29"],
+
+Cell[TextData[{
+ "Alice emits pulses at equal intervals of her proper time; Bob receives them \
+at equal intervals of his, ",
+ StyleBox["k", "TI"],
+ " times longer. By symmetry the same ",
+ StyleBox["k", "TI"],
+ " relates Bob's emissions to Alice's receptions. Radar gives ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["k", "TI"], "=", 
+   SqrtBox[
+    RowBox[{
+     StyleBox["(",
+      SpanMaxSize->1], 
+     RowBox[{"1", "+", 
+      StyleBox["v", "TI"]}], 
+     StyleBox[")",
+      SpanMaxSize->1], "/", 
+     StyleBox["(",
+      SpanMaxSize->1], 
+     RowBox[{"1", "-", 
+      StyleBox["v", "TI"]}], 
+     StyleBox[")",
+      SpanMaxSize->1]}]]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "38bb58b2-fb90-493c-bdac-49487c654b83"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["KFactor"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/KFactor", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "41d402d8-5da4-42c4-9bbd-71e686b1cd5b"],
+ "), the relativistic Doppler factor: the velocity 3/5 has ",
+ StyleBox["k", "TI"],
+ " = 2."
+}], "Item",ExpressionUUID->"0dffd3cd-9cf6-4982-93f1-6ee8741899c6"],
+
+Cell[TextData[{
+ "In the picture, light emitted at arc length ",
+ StyleBox["s", "TI"],
+ " on Alice's worldline reaches Bob at arc length ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["k", "TI"], 
+    StyleBox[
+     RowBox[{"o", "u", "t"}], "TI"]], 
+   StyleBox["s", "TI"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "9298b526-3363-49a0-bc11-d6cf9585f542"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["OutgoingRatio"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/OutgoingRatio", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "afa02ac7-6da2-4e8b-9fc9-e9c348be54b5"],
+ "), and light from Bob at ",
+ StyleBox["s", "TI"],
+ " reaches Alice at ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["k", "TI"], 
+    StyleBox[
+     RowBox[{"i", "n"}], "TI"]], 
+   StyleBox["s", "TI"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "ba3d0be2-dda8-4747-93a1-ee9f4d82b826"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["IncomingRatio"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/IncomingRatio", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "7262e356-da91-4b6a-b1d7-6ca0f9f69a82"],
+ "). These are Euclidean ratios and depend on ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ "; the k-factor ",
+ Cell[BoxData[
+  SqrtBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["k", "TI"], 
+     StyleBox[
+      RowBox[{"o", "u", "t"}], "TI"]], 
+    SubscriptBox[
+     StyleBox["k", "TI"], 
+     StyleBox[
+      RowBox[{"i", "n"}], "TI"]]}]]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "97c335e4-d0b0-43ad-9dfc-a6ab6e9985bc"],
+ " does not."
+}], "Item",ExpressionUUID->"2ddadd4f-20ed-445c-8167-1ff9af67111f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"KFactor", "[", 
+    RowBox[{"3", "/", "5"}], "]"}], ",", " ", 
+   RowBox[{"FullSimplify", " ", "@", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"KFactor", "[", 
+       RowBox[{
+        RowBox[{"3", "/", "5"}], ",", " ", "phi"}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"phi", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Pi", "/", "6"}], ",", " ", 
+          RowBox[{"Pi", "/", "4"}], ",", " ", 
+          RowBox[{"Pi", "/", "3"}]}], "}"}]}], "}"}]}], "]"}]}]}], 
+  "}"}]], "Input",
+ CellLabel->"In[3]:= ",ExpressionUUID->"91c48163-a3bf-4693-a905-7fec09b26c78"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2", ",", "2"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]= ",ExpressionUUID->"b7d56de0-04be-4769-89a0-88806a8738eb"]
+}, Open  ]],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["DopplerConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/DopplerConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4331e1ad-a26a-4516-a37a-4ec1ab3893d2"],
+ " draws six pulses from Alice to Bob at ",
+ StyleBox["v", "TI"],
+ " = 0.6. The first emission interval \[CapitalDelta]\[Tau] and its reception \
+interval ",
+ StyleBox["k", "TI"],
+ "\[CapitalDelta]\[Tau] are marked."
+}], "Item",ExpressionUUID->"ca69737d-31d3-430c-950c-2226e1e9b099"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DopplerConstruction", "[", "0.6", "]"}]], "Input",
+ CellLabel->"In[4]:= ",ExpressionUUID->"075d4785-6f2b-43c0-a08c-f33374fda220"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {0., 2.514598004652036}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {1.2937500000000002`, 2.15625}}]}, {
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.15}, {0.22500000000000006`, 0.37500000000000006`}}]}, 
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.27}, {0.40500000000000014`, 0.6750000000000002}}]}, 
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.39}, {0.5850000000000002, 0.9750000000000003}}]}, 
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.51}, {0.7650000000000002, 1.2750000000000004`}}]}, 
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.63}, {0.9450000000000003, 1.5750000000000004`}}]}, 
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.75}, {1.1250000000000002`, 1.8750000000000002`}}]}}, {
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], DiskBox[{0, 0.15}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], DiskBox[{0, 0.27}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], DiskBox[{0, 0.39}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], DiskBox[{0, 0.51}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], DiskBox[{0, 0.63}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], DiskBox[{0, 0.75}, 0.02514598004652036]}}, {
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.22500000000000006`, 0.37500000000000006`}, 
+      0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.40500000000000014`, 0.6750000000000002}, 
+      0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.5850000000000002, 0.9750000000000003}, 
+      0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.7650000000000002, 1.2750000000000004`}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.9450000000000003, 1.5750000000000004`}, 0.02514598004652036]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{1.1250000000000002`, 1.8750000000000002`}, 
+      0.02514598004652036]}}, 
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2], 
+    LineBox[{{0, 0.15}, {0, 0.27}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2], 
+    LineBox[{{0.22500000000000006`, 0.37500000000000006`}, {
+     0.40500000000000014`, 0.6750000000000002}}]}, InsetBox[
+    StyleBox["\<\"\[CapitalDelta]\[Tau]\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.1257299002326018, 0.21000000000000002}], 
+   InsetBox[
+    StyleBox["\<\"k \[CapitalDelta]\[Tau]\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {0.44437500000000013, 0.44737500000000013}]},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->500,
+  PlotRangePadding->Scaled[0.06]]], "Output",
+ CellLabel->"Out[4]= ",ExpressionUUID->"522aacca-8b49-4956-8c96-b693035a27cf"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Read off the drawing, the reception intervals in Bob's proper time are ",
+ StyleBox["k", "TI"],
+ " = 2 times the emission intervals."
+}], "Item",ExpressionUUID->"112d3280-4699-475a-8898-aea8be1a4ed4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"disks", " ", "=", " ", 
+     RowBox[{"Cases", "[", 
+      RowBox[{
+       RowBox[{"DopplerConstruction", "[", "0.6", "]"}], ",", " ", 
+       RowBox[{
+        RowBox[{"Disk", "[", 
+         RowBox[{"c_", ",", " ", "_"}], "]"}], " ", ":>", " ", "c"}], ",", 
+       " ", "Infinity"}], "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{
+    RowBox[{"Differences", "[", 
+     RowBox[{
+      RowBox[{"ProperTimeScale", "[", "0.6", "]"}], " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{"Norm", ",", " ", 
+        RowBox[{"Select", "[", 
+         RowBox[{"disks", ",", " ", 
+          RowBox[{"c", " ", "|->", " ", 
+           RowBox[{
+            RowBox[{"c", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], " ", ">", " ", "0"}]}]}], 
+         "]"}]}], "]"}]}], "]"}], "/", 
+    RowBox[{"Differences", "[", 
+     RowBox[{
+      RowBox[{"Select", "[", 
+       RowBox[{"disks", ",", " ", 
+        RowBox[{"c", " ", "|->", " ", 
+         RowBox[{
+          RowBox[{"c", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], " ", "==", " ", "0"}]}]}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", " ", "2"}], "]"}], "]"}], "]"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[5]:= ",ExpressionUUID->"832a2801-b76f-4ad7-a02c-286fe2f407d3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2.`", ",", "2.`", ",", "2.`", ",", "1.9999999999999982`", ",", "2.`"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[5]= ",ExpressionUUID->"8a60e6fd-a3b3-4f17-8a61-6ccebead0d46"]
+}, Open  ]],
+
+Cell["Proper time is linear in arc length", "Section",ExpressionUUID->"41e18542-b185-4d0d-b2f6-7988a032fda5"],
+
+Cell[TextData[{
+ "Bob's proper time is not his Euclidean arc length, but it is proportional \
+to it: the event at arc length ",
+ StyleBox["s", "TI"],
+ " on his worldline has proper time ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ProperTimeScale"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/ProperTimeScale", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "04ff7326-7b44-40a1-a4b1-f7c15317668b"],
+ "[",
+ StyleBox["v", "TI"],
+ ", ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ "] ",
+ StyleBox["s", "TI"],
+ ", with the scale ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["k", "TI"], "/", 
+   SubscriptBox[
+    StyleBox["k", "TI"], 
+    StyleBox[
+     RowBox[{"o", "u", "t"}], "TI"]]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "51a7122b-9bac-494c-8e3d-6da65c179f7f"],
+ ". This is the identity that makes the Euclidean picture honest; it is \
+verified against the radar interval ",
+ Cell[BoxData[
+  SqrtBox[
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["t", "TI"], "2"], "-", 
+    SuperscriptBox[
+     StyleBox["x", "TI"], "2"]}]]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "14cca0d6-cfe9-4288-8796-2da9432b21e7"],
+ " below."
+}], "Item",ExpressionUUID->"fbde2848-ac1e-4a4d-9f20-558e41099287"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{"TrigExpand", "[", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"r", " ", "=", " ", 
+        RowBox[{"BondiRadarCoordinates", "[", 
+         RowBox[{
+          RowBox[{"s", " ", 
+           RowBox[{"WorldlineDirection", "[", 
+            RowBox[{"v", ",", " ", "phi"}], "]"}]}], ",", " ", "phi"}], 
+         "]"}]}], "}"}], ",", "\n", "  ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"r", "[", "\"\<RadarTime\>\"", "]"}], "^", "2"}], " ", "-", 
+        " ", 
+        RowBox[{
+         RowBox[{"r", "[", "\"\<RadarDistance\>\"", "]"}], "^", "2"}]}], " ", 
+       "==", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ProperTimeScale", "[", 
+          RowBox[{"v", ",", " ", "phi"}], "]"}], "^", "2"}], " ", 
+        RowBox[{"s", "^", "2"}]}]}]}], "]"}], "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"0", " ", "<", " ", "v", " ", "<", " ", "1"}], " ", "&&", " ", 
+    RowBox[{"0", " ", "<", " ", "phi", " ", "<", " ", 
+     RowBox[{"Pi", "/", "2"}]}]}]}], "]"}]], "Input",
+ CellLabel->"In[6]:= ",ExpressionUUID->"fb276b8a-0f83-468a-8682-a59ec7bd981a"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[6]= ",ExpressionUUID->"d8059436-d654-40ea-a53a-dd166ec108d0"]
+}, Open  ]],
+
+Cell["Radar time and radar distance", "Section",ExpressionUUID->"e31954a4-55ac-4ec8-9ce1-edba9b982907"],
+
+Cell[TextData[{
+ "Alice locates an event by radar: she sends light at her proper time ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["T", "TI"], "1"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "bff74954-846f-4dc6-8933-d02645474dab"],
+ ", it is echoed at the event and returns at ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["T", "TI"], "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "1ad1062c-52f9-48ed-9171-ac1176070b62"],
+ ". The event's radar time is ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SubscriptBox[
+     StyleBox["T", "TI"], "1"], "+", 
+    SubscriptBox[
+     StyleBox["T", "TI"], "2"]}], 
+   StyleBox[")",
+    SpanMaxSize->1], "/", "2"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d2eedb0a-0fff-462a-bf23-c16b58ecdbbe"],
+ " and its radar distance ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SubscriptBox[
+     StyleBox["T", "TI"], "2"], "-", 
+    SubscriptBox[
+     StyleBox["T", "TI"], "1"]}], 
+   StyleBox[")",
+    SpanMaxSize->1], "/", "2"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "c2293407-1737-4aaa-8e98-0c8646e424c9"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BondiRadarCoordinates"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/BondiRadarCoordinates", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "b50eb132-98b1-4d02-ac59-8a96c0a1e2c2"],
+ ")."
+}], "Item",ExpressionUUID->"f1c22b71-cc41-4aa8-a010-f14c12692e41"],
+
+Cell[TextData[{
+ "Apply it to Bob. Alice sends at ",
+ StyleBox["T", "TI"],
+ "; Bob receives at ",
+ StyleBox["kT", "TI"],
+ " on his clock and echoes at once; Alice receives at ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["k", "TI"], "\[CenterDot]", 
+   StyleBox["k", "TI"], 
+   StyleBox["T", "TI"], "=", 
+   SuperscriptBox[
+    StyleBox["k", "TI"], "2"], 
+   StyleBox["T", "TI"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "7a1469a7-3adf-41f6-8fe0-1e9d882f0753"],
+ ". So Bob's reflection has radar time ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["k", "TI"], "2"], "+", "1"}], 
+   StyleBox[")",
+    SpanMaxSize->1], 
+   StyleBox["T", "TI"], "/", "2"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "a420e792-16b8-461b-9f14-eed3bb9ddfed"],
+ " and radar distance ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["k", "TI"], "2"], "-", "1"}], 
+   StyleBox[")",
+    SpanMaxSize->1], 
+   StyleBox["T", "TI"], "/", "2"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "dd0e8b11-037e-4ddc-aac4-45a511831f77"],
+ ", and Bob's velocity is their ratio ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["k", "TI"], "2"], "-", "1"}], 
+   StyleBox[")",
+    SpanMaxSize->1], "/", 
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["k", "TI"], "2"], "+", "1"}], 
+   StyleBox[")",
+    SpanMaxSize->1]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "a6dc0ff8-1710-48b2-8e8b-b143929675c7"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["VelocityFromK"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/VelocityFromK", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "09ad6d9e-291a-4e4c-ae59-7a7c6520ff2e"],
+ "). With ",
+ StyleBox["k", "TI"],
+ " = 2 and ",
+ StyleBox["T", "TI"],
+ " = 1:"
+}], "Item",ExpressionUUID->"115c8fc1-bad8-444e-9a3b-ab5a4bb8904b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"k", " ", "=", " ", "2"}], ",", " ", 
+     RowBox[{"T", " ", "=", " ", "1"}]}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", "^", "2"}], " ", "+", " ", "1"}], ")"}], " ", 
+      RowBox[{"T", "/", "2"}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", "^", "2"}], " ", "-", " ", "1"}], ")"}], " ", 
+      RowBox[{"T", "/", "2"}]}], ",", " ", 
+     RowBox[{"VelocityFromK", "[", "k", "]"}]}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[7]:= ",ExpressionUUID->"42888db1-141d-4740-b0a6-9f25c9ea95df"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["5", "2"], ",", 
+   FractionBox["3", "2"], ",", 
+   FractionBox["3", "5"]}], "}"}]], "Output",
+ CellLabel->"Out[7]= ",ExpressionUUID->"0a7d1d65-8d77-4e4f-b035-4cd49b6595b3"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The same numbers from the picture: the first reflection of a light zigzag (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LightZigzag"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/LightZigzag", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "563751af-bf69-4baa-9e31-779c1531fea2"],
+ ") from Alice's arc length 1 to Bob at velocity 3/5 has radar time 5/2 and \
+radar distance 3/2, and Bob's clock reads ",
+ StyleBox["kT", "TI"],
+ " = 2 there."
+}], "Item",ExpressionUUID->"a34b27fa-8eed-4356-adc1-06a936ef16ff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"bounce", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"LightZigzag", "[", 
+       RowBox[{
+        RowBox[{"3", "/", "5"}], ",", " ", "1", ",", " ", "1"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{"x", " ", "|->", " ", 
+        RowBox[{"FullSimplify", " ", "@", " ", 
+         RowBox[{"TrigExpand", " ", "@", " ", "x"}]}]}], ",", " ", 
+       RowBox[{"KeyTake", "[", 
+        RowBox[{
+         RowBox[{"BondiRadarCoordinates", "[", 
+          RowBox[{"bounce", "[", "\"\<Point\>\"", "]"}], "]"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"\"\<RadarTime\>\"", ",", " ", "\"\<RadarDistance\>\""}], 
+          "}"}]}], "]"}]}], "]"}], ",", "\n", "    ", 
+     RowBox[{"FullSimplify", "[", 
+      RowBox[{
+       RowBox[{"ProperTimeScale", "[", 
+        RowBox[{"3", "/", "5"}], "]"}], " ", 
+       RowBox[{"bounce", "[", "\"\<ArcLength\>\"", "]"}]}], "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[8]:= ",ExpressionUUID->"55f734a0-4bfc-43f0-ba4c-5f71113f261c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"RadarTime\"\>", "\[Rule]", 
+      FractionBox["5", "2"]}], ",", 
+     RowBox[{"\<\"RadarDistance\"\>", "\[Rule]", 
+      FractionBox["3", "2"]}]}], "\[RightAssociation]"}], ",", "2"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[8]= ",ExpressionUUID->"9de3579a-1996-4f66-a2b1-e3829c64a694"]
+}, Open  ]],
+
+Cell["Time dilation", "Section",ExpressionUUID->"2571bbc8-0eb0-4dee-b813-562241e051d5"],
+
+Cell[TextData[{
+ "In the computation above Bob's clock read ",
+ StyleBox["kT", "TI"],
+ " at the reflection, while Alice's radar time of it is ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["k", "TI"], "2"], "+", "1"}], 
+   StyleBox[")",
+    SpanMaxSize->1], 
+   StyleBox["T", "TI"], "/", "2"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "10d6b538-ce70-402d-afdf-e1cd42c33a7f"],
+ ". Their ratio is the Lorentz factor ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["\[Gamma]", "TI"], "=", 
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    StyleBox["k", "TI"], "+", "1", "/", 
+    StyleBox["k", "TI"]}], 
+   StyleBox[")",
+    SpanMaxSize->1], "/", "2", "=", "1", "/", 
+   SqrtBox[
+    RowBox[{"1", "-", 
+     SuperscriptBox[
+      StyleBox["v", "TI"], "2"]}]]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "991bc94b-513e-4d28-b06f-de0ee9db9c0b"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LorentzGamma"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/LorentzGamma", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "6b96f4b0-2676-47c6-8463-e563d381204f"],
+ "): Alice assigns every event on Bob's worldline \[Gamma] times Bob's own \
+reading. At ",
+ StyleBox["v", "TI"],
+ " = 3/5, \[Gamma] = (2 + 1/2)/2 = 5/4."
+}], "Item",ExpressionUUID->"e5daf8c6-08a9-4948-a860-70b45ea461bd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"LorentzGamma", "[", 
+    RowBox[{"3", "/", "5"}], "]"}], ",", " ", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"BondiRadarCoordinates", "[", 
+        RowBox[{
+         RowBox[{"WorldlinePointAtProperTime", "[", 
+          RowBox[{
+           RowBox[{"3", "/", "5"}], ",", " ", "tau", ",", " ", 
+           RowBox[{"Pi", "/", "3"}]}], "]"}], ",", " ", 
+         RowBox[{"Pi", "/", "3"}]}], "]"}], "[", "\"\<RadarTime\>\"", "]"}], 
+      " ", "==", " ", 
+      RowBox[{
+       RowBox[{"5", "/", "4"}], " ", "tau"}]}], ",", " ", 
+     RowBox[{"tau", " ", ">", " ", "0"}]}], "]"}]}], "}"}]], "Input",
+ CellLabel->"In[9]:= ",ExpressionUUID->"141046bf-4901-47e7-90da-82d197c5adb5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["5", "4"], ",", "True"}], "}"}]], "Output",
+ CellLabel->"Out[9]= ",ExpressionUUID->"fbf48568-712c-4dfd-a3c4-258a688e9141"]
+}, Open  ]],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["TimeDilationConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/TimeDilationConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "0340adbb-9ae0-4ad0-b3d3-f8266047270f"],
+ " draws the radar measurement of one event ",
+ StyleBox["B", "TI"],
+ " of Bob's. Both worldlines carry ticks at equal proper-time steps, a \
+quarter of Bob's reading at ",
+ StyleBox["B", "TI"],
+ "; Alice's ticks reach her radar time of ",
+ StyleBox["B", "TI"],
+ " after \[Gamma] times as many steps, and the dashed line is her \
+simultaneity line through ",
+ StyleBox["B", "TI"],
+ "."
+}], "Item",ExpressionUUID->"a2e1e4fc-f277-449c-88b0-bea9ced25fba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TimeDilationConstruction", "[", "0.6", "]"}]], "Input",
+ CellLabel->
+  "In[10]:= ",ExpressionUUID->"0097f2c6-5f26-4fff-b580-0d5c47538176"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {0., 0.9466721899866487}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {0.48705882352941177`, 0.8117647058823529}}]}, 
+   {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+    LineBox[{{0, 0.20579830217101056`}, {0.30869745325651593`, 
+      0.5144957554275265}}]}, 
+   {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+    LineBox[{{0.30869745325651593`, 0.5144957554275265}, {
+      0, 0.8231932086840424}}]}, 
+   {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.5], 
+    Dashing[{Small, Small}], 
+    LineBox[{{0., 0.5144957554275265}, {0.4033646722551808, 
+     0.5144957554275265}}]}, 
+   {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0.5144957554275265}, {0.01, 0.5144957554275265}}]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0, 0.20579830217101056`}, 0.009466721899866488]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0.30869745325651593`, 0.5144957554275265}, 
+     0.009466721899866488]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0, 0.8231932086840424}, 0.009466721899866488]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0, 0.5144957554275265}, 0.009466721899866488]}, InsetBox[
+    StyleBox[
+     SubscriptBox["\<\"\[Tau]\"\>", "\<\"emit\"\>"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.05680033139919892, 0.20579830217101056}], 
+   InsetBox[
+    StyleBox[
+     SubscriptBox["\<\"\[Tau]\"\>", "\<\"B\"\>"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {0.3492856885506336, 0.4901428142510559}], 
+   InsetBox[
+    StyleBox[
+     SubscriptBox["\<\"\[Tau]\"\>", "\<\"return\"\>"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.05680033139919892, 0.8231932086840424}], 
+   InsetBox[
+    StyleBox[
+     SubscriptBox["\<\"\[Tau]\"\>", "\<\"radar\"\>"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.05680033139919892, 0.5144957554275265}], 
+   InsetBox[
+    StyleBox[
+     TemplateBox[{"\"\[Gamma] = \"", 
+       TagBox[
+        InterpretationBox[
+         StyleBox["\"1.25\"", ShowStringCharacters -> False], 1.25, 
+         AutoDelete -> True], NumberForm[#, {3, 2}]& ]},
+      "RowDefault"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->9,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.09466721899866487, 0.8993385804873162}], 
+   {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+    LineBox[{{-0.018933443799732975`, 0.10289915108550528`}, {
+     0.018933443799732975`, 0.10289915108550528`}}], 
+    LineBox[{{-0.018933443799732975`, 0.20579830217101056`}, {
+     0.018933443799732975`, 0.20579830217101056`}}], 
+    LineBox[{{-0.018933443799732975`, 0.3086974532565158}, {
+     0.018933443799732975`, 0.3086974532565158}}], 
+    LineBox[{{-0.018933443799732975`, 0.4115966043420211}, {
+     0.018933443799732975`, 0.4115966043420211}}], 
+    LineBox[{{-0.018933443799732975`, 0.5144957554275263}, {
+     0.018933443799732975`, 0.5144957554275263}}], 
+    LineBox[{{-0.018933443799732975`, 0.6173949065130316}, {
+     0.018933443799732975`, 0.6173949065130316}}], 
+    LineBox[{{-0.018933443799732975`, 0.7202940575985369}, {
+     0.018933443799732975`, 0.7202940575985369}}], 
+    LineBox[{{-0.018933443799732975`, 0.8231932086840422}, {
+     0.018933443799732975`, 0.8231932086840422}}], 
+    LineBox[{{-0.018933443799732975`, 0.9260923597695475}, {
+     0.018933443799732975`, 0.9260923597695475}}]}, 
+   {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+    LineBox[{{0.060939069196481926`, 0.13836511532746984`}, {
+     0.09340965743177604, 0.11888276238629338`}}], 
+    LineBox[{{0.1381134325106109, 0.2669890541843515}, {0.17058402074590504`, 
+     0.247506701243175}}], 
+    LineBox[{{0.21528779582473986`, 0.3956129930412331}, {0.247758384060034, 
+     0.3761306401000566}}], 
+    LineBox[{{0.29246215913886886`, 0.5242369318981147}, {0.324932747374163, 
+     0.5047545789569382}}], 
+    LineBox[{{0.3696365224529979, 0.6528608707549964}, {0.402107110688292, 
+     0.6333785178138199}}], 
+    LineBox[{{0.4468108857671268, 0.7814848096118779}, {0.47928147400242094`, 
+     0.7620024566707014}}]}},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->500,
+  PlotRangePadding->Scaled[0.08]]], "Output",
+ CellLabel->
+  "Out[10]= ",ExpressionUUID->"0d77623c-7150-45c8-9ddf-6a4bdf5b2e8f"]
+}, Open  ]],
+
+Cell["Simultaneity", "Section",ExpressionUUID->"02b350b4-2157-4d61-bcc6-9914cdfea7a8"],
+
+Cell[TextData[{
+ "Bob calls an event simultaneous with his event ",
+ StyleBox["B", "TI"],
+ " when its radar emission and return on his worldline are equally far before \
+and after ",
+ StyleBox["B", "TI"],
+ ". These events form a line through ",
+ StyleBox["B", "TI"],
+ ", along ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    RowBox[{
+     StyleBox["tan",
+      FontSlant->"Plain"], "\[ThinSpace]", "\[CurlyPhi]"}], ",", 
+    StyleBox["v", "TI"]}], 
+   StyleBox[")",
+    SpanMaxSize->1]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "b91fa2ba-41fd-445b-aae6-5456f435089b"],
+ " (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SimultaneityLine"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/SimultaneityLine", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "a125f259-9ae9-48c2-b810-ee68967c75bf"],
+ "): horizontal for Alice, and of slope ",
+ StyleBox["v", "TI"],
+ " at ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " = \[Pi]/4 for Bob. Events simultaneous for one observer are not \
+simultaneous for the other."
+}], "Item",ExpressionUUID->"f00b22a6-9b6f-48ba-acb0-695c3e05d3c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SimultaneityConstruction", "[", "0.6", "]"}]], "Input",
+ CellLabel->
+  "In[11]:= ",ExpressionUUID->"927fbe57-3df1-431a-aab4-eb2b24bc4fb7"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {0., 1.3499999999999999`}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {0.6945692698271608, 1.1576154497119346`}}]}, 
+   {RGBColor[0.58, 0.72, 1.], AbsoluteThickness[2], Dashing[{0.015, 0.008}], 
+    LineBox[{{-0.35, 0.7}, {0., 0.7}, {0.35, 0.7}}]}, 
+   {RGBColor[0.9510000000000001, 0.489, 0.489], AbsoluteThickness[2], 
+    Dashing[{0.015, 0.008}], 
+    LineBox[{{0.06002450479987809, 0.4201715335991466}, {0.3601470287992686, 
+     0.6002450479987809}, {0.6602695527986591, 0.7803185623984151}}]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], DiskBox[{0, 0.7}, 0.013499999999999998]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0.3601470287992686, 0.6002450479987809}, 0.013499999999999998]}, 
+   InsetBox[
+    StyleBox["\<\"Alice's now\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->9,
+     FontColor->RGBColor[0.248, 0.248, 0.248]], {0.40399999999999997, 0.7}], 
+   InsetBox[
+    StyleBox["\<\"Bob's now\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->9,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {0.7142695527986591, 0.7803185623984151}]},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->500,
+  PlotRangePadding->Scaled[0.08]]], "Output",
+ CellLabel->
+  "Out[11]= ",ExpressionUUID->"cf9b6508-05bb-4993-8ecc-f42c255cccc0"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Every point of Bob's line has its radar midpoint at ",
+ StyleBox["B", "TI"],
+ ": here ",
+ StyleBox["B", "TI"],
+ " is at arc length ",
+ StyleBox["s", "TI"],
+ " and the point at the end of the line, for every velocity and light angle."
+}], "Item",ExpressionUUID->"ecd07893-7fa1-473a-9d58-993d064fde9b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"midpoint", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", " ", "v", ",", " ", "phi"}], "}"}], " ", "|->", " ", 
+      
+      RowBox[{"Mean", "[", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{"right", " ", "|->", " ", 
+          RowBox[{"First", " ", "@", " ", 
+           RowBox[{"LinearSolve", "[", 
+            RowBox[{
+             RowBox[{"Transpose", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"WorldlineDirection", "[", 
+                 RowBox[{"v", ",", " ", "phi"}], "]"}], ",", " ", 
+                RowBox[{"LightDirection", "[", 
+                 RowBox[{"phi", ",", " ", "right"}], "]"}]}], "}"}], "]"}], ",",
+              " ", "p"}], "]"}]}]}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"True", ",", " ", "False"}], "}"}]}], "]"}], "]"}]}]}], 
+    "}"}], ",", "\n", "  ", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"midpoint", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"SimultaneityLine", "[", 
+          RowBox[{"v", ",", " ", "s", ",", " ", "phi", ",", " ", "c"}], "]"}],
+          "[", 
+         RowBox[{"[", "3", "]"}], "]"}], ",", " ", "v", ",", " ", "phi"}], 
+       "]"}], " ", "==", " ", "s"}], ",", " ", 
+     RowBox[{
+      RowBox[{"0", " ", "<", " ", "v", " ", "<", " ", "1"}], " ", "&&", " ", 
+      RowBox[{"0", " ", "<", " ", "phi", " ", "<", " ", 
+       RowBox[{"Pi", "/", "2"}]}], " ", "&&", " ", 
+      RowBox[{"s", " ", ">", " ", "0"}], " ", "&&", " ", 
+      RowBox[{"c", " ", ">", " ", "0"}]}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[12]:= ",ExpressionUUID->"942b062c-c54f-4e22-904d-9d9867fe596a"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->
+  "Out[12]= ",ExpressionUUID->"6deb97e1-7739-4813-acd9-b343fb682c0d"]
+}, Open  ]],
+
+Cell["Length contraction", "Section",ExpressionUUID->"b7741be8-ae02-4c13-9a29-7e32a44fc899"],
+
+Cell[TextData[{
+ "A rod at rest for Bob has two parallel worldlines. Its rest length ",
+ StyleBox["L", "TI"],
+ " is measured across them along Bob's line of simultaneity; Alice measures \
+across them at one of her radar times, and she finds ",
+ StyleBox["L", "TI"],
+ "/\[Gamma]. The computation in radar coordinates, for ",
+ StyleBox["L", "TI"],
+ " = 1 and ",
+ StyleBox["v", "TI"],
+ " = 3/5: the back end is displaced along Bob's simultaneity direction by \
+Minkowski length 1, and Alice's length is the difference of the radar \
+distances of the two worldlines at one radar time."
+}], "Item",ExpressionUUID->"d973a62f-fa5e-4d29-860e-6ecc4ce1c7ef"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"v", " ", "=", " ", 
+      RowBox[{"3", "/", "5"}]}], ",", " ", 
+     RowBox[{"phi", " ", "=", " ", 
+      RowBox[{"Pi", "/", "4"}]}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"radar", " ", "=", " ", 
+      RowBox[{"p", " ", "|->", " ", 
+       RowBox[{"Values", " ", "@", " ", 
+        RowBox[{"KeyTake", "[", 
+         RowBox[{
+          RowBox[{"BondiRadarCoordinates", "[", 
+           RowBox[{"p", ",", " ", "phi"}], "]"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<RadarTime\>\"", ",", " ", "\"\<RadarDistance\>\""}], 
+           "}"}]}], "]"}]}]}]}], ",", " ", 
+     RowBox[{"u", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Tan", "[", "phi", "]"}], ",", " ", "v"}], "}"}]}]}], "}"}], ",",
+    "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{"n", " ", "=", " ", 
+     RowBox[{"u", "/", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"radar", "[", "u", "]"}], "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "^", "2"}], " ", "-", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"radar", "[", "u", "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "^", "2"}]}], "]"}]}]}], "}"}], ",",
+    "\n", "  ", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"radar", "[", "n", "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], " ", "-", " ", 
+       RowBox[{"v", " ", 
+        RowBox[{
+         RowBox[{"radar", "[", "n", "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], ",", " ", 
+      RowBox[{"1", "/", 
+       RowBox[{"LorentzGamma", "[", "v", "]"}]}]}], "}"}], "]"}]}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[13]:= ",ExpressionUUID->"828dcf0e-560f-4418-a01f-329befc13d4c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["4", "5"], ",", 
+   FractionBox["4", "5"]}], "}"}]], "Output",
+ CellLabel->
+  "Out[13]= ",ExpressionUUID->"38d983ac-064b-4bea-b4a0-5d35471752b4"]
+}, Open  ]],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LengthContractionConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/\
+LengthContractionConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4e43b8c2-2ef0-43e9-af3c-617567abd768"],
+ " draws a rod at ",
+ StyleBox["v", "TI"],
+ " = 0.6 and its radar measurement by Alice. Its back end is offset along the \
+Euclidean normal of Bob's worldline rather than his line of simultaneity, so \
+the drawn rod is longer than the printed ",
+ StyleBox["L", "TI"],
+ ": its printed ",
+ StyleBox["L", "TI"],
+ "/\[Gamma] is the contraction of a rod of rest length ",
+ StyleBox["L", "TI"],
+ ", not a reading of the drawing (see its reference page)."
+}], "Item",ExpressionUUID->"1890b596-c5f1-4695-834e-4c13de0d9d30"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LengthContractionConstruction", "[", "0.6", "]"}]], "Input",
+ CellLabel->
+  "In[14]:= ",ExpressionUUID->"7a01e7c9-449d-4cc6-a98a-59a90b8e7bd4"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {0., 1.0058392018608142`}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {0.5175, 0.8624999999999999}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[1.5], Opacity[0.5], 
+    Dashing[{0.01, 0.006}], 
+    LineBox[{{0.12862393885688161`, -0.07717436331412898}, {
+     0.6461239388568816, 0.785325636685871}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[3], Opacity[0.6], 
+    LineBox[{{0.30869745325651593`, 0.5144957554275265}, {
+     0.43732139211339754`, 0.4373213921133975}}]}, 
+   {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+    LineBox[{{0, 0.20579830217101056`}, {0.30869745325651593`, 
+      0.5144957554275265}}]}, 
+   {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+    LineBox[{{0.30869745325651593`, 0.5144957554275265}, {
+      0, 0.8231932086840424}}]}, 
+   {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+    LineBox[{{0, -5.551115123125783*^-17}, {0.43732139211339754`, 
+      0.4373213921133975}}]}, 
+   {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+    LineBox[{{0.43732139211339754`, 0.4373213921133975}, {
+      0, 0.874642784226795}}]}, 
+   {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[3], 
+    LineBox[{{-0.010058392018608142`, 
+     0.5144957554275265}, {-0.010058392018608142`, 0.4373213921133975}}]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0.30869745325651593`, 0.5144957554275265}, 
+     0.010058392018608142]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0.43732139211339754`, 0.4373213921133975}, 
+     0.010058392018608142]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0, 0.5144957554275265}, 0.010058392018608142]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0, 0.4373213921133975}, 0.010058392018608142]}, InsetBox[
+    StyleBox["\<\"L\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {0.38853442268495675, 0.501783573770462}], 
+   InsetBox[
+    StyleBox[
+     TemplateBox[{"\"L/\[Gamma] = \"", 
+       TagBox[
+        InterpretationBox[
+         StyleBox["\"0.12\"", ShowStringCharacters -> False], 0.12, 
+         AutoDelete -> True], NumberForm[#, {3, 2}]& ]},
+      "RowDefault"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->9,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.08046713614886514, 0.475908573770462}]},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->500,
+  PlotRangePadding->Scaled[0.08]]], "Output",
+ CellLabel->
+  "Out[14]= ",ExpressionUUID->"d1d7eced-5f96-4b6b-a0b9-f91fbda8fb8e"]
+}, Open  ]],
+
+Cell["Velocity addition", "Section",ExpressionUUID->"bc21fd26-891e-4bdd-8364-15e94858ebeb"],
+
+Cell[TextData[{
+ "Carol moves at ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["v", "TI"], "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "2c5f2353-ef03-45a7-9ff2-18a3b46d1e0b"],
+ " relative to Bob, who moves at ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["v", "TI"], "1"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "902a0bd6-d007-4639-8049-5f8a1e575977"],
+ " relative to Alice. A signal from Alice to Carol passing Bob is received by \
+Bob at ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["k", "TI"], "1"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "719f3dad-5707-4cf0-be3a-b5e0d56f3db4"],
+ " times its emission and by Carol at ",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["k", "TI"], "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "8a5ccc06-043b-4fb8-8285-9d1fc43dfbb4"],
+ " times Bob's reception, so the k-factor of Carol relative to Alice is ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["k", "TI"], "1"], 
+   SubscriptBox[
+    StyleBox["k", "TI"], "2"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "b5fcc471-2f5c-4d79-b082-b497163deea0"],
+ ": k-factors multiply, and the composed velocity is ",
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["VelocityFromK"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/VelocityFromK", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["k1", "TI"], " ", 
+    StyleBox["k2", "TI"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "caa3b47d-8783-475f-ab4d-59b778fbe50f"],
+ " ",
+ Cell[BoxData[
+  RowBox[{"=", 
+   RowBox[{
+    StyleBox["(",
+     SpanMaxSize->1], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["v", "TI"], "1"], "+", 
+     SubscriptBox[
+      StyleBox["v", "TI"], "2"]}], 
+    StyleBox[")",
+     SpanMaxSize->1], "/", 
+    StyleBox["(",
+     SpanMaxSize->1], 
+    RowBox[{"1", "+", 
+     SubscriptBox[
+      StyleBox["v", "TI"], "1"], 
+     SubscriptBox[
+      StyleBox["v", "TI"], "2"]}], 
+    StyleBox[")",
+     SpanMaxSize->1]}]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "185b8f12-f4b5-4872-a5f4-cf41a4529164"],
+ ". The rapidities ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["log",
+    FontSlant->"Plain"], "\[ThinSpace]", 
+   StyleBox["k", "TI"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d27349e9-f168-4c82-ab64-bf51d9dff834"],
+ " add (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RapidityFromK"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/RapidityFromK", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "140ba180-9f06-47a3-b5eb-227cc79d4418"],
+ ")."
+}], "Item",ExpressionUUID->"95606e24-1669-423a-8d84-afd6f7feedba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"VelocityFromK", "[", 
+      RowBox[{
+       RowBox[{"KFactor", "[", "v1", "]"}], " ", 
+       RowBox[{"KFactor", "[", "v2", "]"}]}], "]"}], " ", "==", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"v1", " ", "+", " ", "v2"}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"1", " ", "+", " ", 
+        RowBox[{"v1", " ", "v2"}]}], ")"}]}]}], " ", "&&", " ", 
+    RowBox[{
+     RowBox[{"Rapidity", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"v1", " ", "+", " ", "v2"}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"1", " ", "+", " ", 
+         RowBox[{"v1", " ", "v2"}]}], ")"}]}], "]"}], " ", "==", " ", 
+     RowBox[{
+      RowBox[{"Rapidity", "[", "v1", "]"}], " ", "+", " ", 
+      RowBox[{"Rapidity", "[", "v2", "]"}]}]}]}], ",", "\n", "  ", 
+   RowBox[{
+    RowBox[{"0", " ", "<", " ", "v1", " ", "<", " ", "1"}], " ", "&&", " ", 
+    RowBox[{"0", " ", "<", " ", "v2", " ", "<", " ", "1"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[15]:= ",ExpressionUUID->"8f80b71f-629c-47e3-a361-1a2c61bbdbeb"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->
+  "Out[15]= ",ExpressionUUID->"aba78c43-8ce3-4bc6-8303-de8675ffa607"]
+}, Open  ]],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["VelocityAdditionConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/VelocityAdditionConstruction",
+     "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "8a5e5f2b-3d0b-4112-8198-b6dc4ec6ffca"],
+ " draws the three worldlines and the signal: 0.4 composed with 0.3 is \
+0.625."
+}], "Item",ExpressionUUID->"eff07470-5ccd-48c9-b0e8-0e4343994851"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"VelocityAdditionConstruction", "[", 
+  RowBox[{"0.4", ",", " ", "0.3"}], "]"}]], "Input",
+ CellLabel->
+  "In[16]:= ",ExpressionUUID->"b60fd4c4-ce76-4ab1-9912-911abf01a6bd"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {0., 0.7547184905645284}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {0.28029541066770847`, 0.7007385266692712}}]}, 
+   {RGBColor[0.14, 0.8, 0.14], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {0.40000000000000013`, 0.6400000000000001}}]}, 
+   {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+    LineBox[{{0, 0.2}, {0.13333333333333333`, 0.33333333333333337`}}]}, 
+   {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+    LineBox[{{0.13333333333333333`, 0.33333333333333337`}, {
+     0.3333333333333334, 0.5333333333333334}}]}, 
+   {RGBColor[1., 0.875, 0.5], AbsoluteThickness[1.2], 
+    LineBox[{{0, 0.2}, {0.3333333333333334, 0.5333333333333334}}]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], DiskBox[{0, 0.2}, 0.007547184905645285]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0.13333333333333333`, 0.33333333333333337`}, 
+     0.007547184905645285]}, 
+   {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+    AbsoluteThickness[0.8]}], 
+    DiskBox[{0.3333333333333334, 0.5333333333333334}, 0.007547184905645285]}, 
+   InsetBox[
+    StyleBox["\<\"Alice\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.037735924528226425, 0.716982566036302}], 
+   InsetBox[
+    StyleBox["\<\"Bob\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {0.29431018120109387, 0.6544897839090992}], 
+   InsetBox[
+    StyleBox["\<\"Carol\"\>",
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->10,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {0.40560000000000007, 0.5920000000000001}], 
+   InsetBox[
+    StyleBox[
+     TagBox[GridBox[{
+        {
+         TemplateBox[{
+           SubscriptBox["\"k\"", "\"1\""], "\" = \"", 
+           TagBox[
+            InterpretationBox[
+             StyleBox["\"1.53\"", ShowStringCharacters -> False], 
+             1.5275252316519468`, AutoDelete -> True], 
+            NumberForm[#, {3, 2}]& ]},
+          "RowDefault"]},
+        {
+         TemplateBox[{
+           SubscriptBox["\"k\"", "\"2\""], "\" = \"", 
+           TagBox[
+            InterpretationBox[
+             StyleBox["\"1.36\"", ShowStringCharacters -> False], 
+             1.3627702877384937`, AutoDelete -> True], 
+            NumberForm[#, {3, 2}]& ]},
+          "RowDefault"]},
+        {
+         TemplateBox[{
+           SubscriptBox["\"k\"", "\"1\""], 
+           SubscriptBox["\"k\"", "\"2\""], "\" = \"", 
+           TagBox[
+            InterpretationBox[
+             StyleBox["\"2.08\"", ShowStringCharacters -> False], 
+             2.0816659994661326`, AutoDelete -> True], 
+            NumberForm[#, {3, 2}]& ]},
+          "RowDefault"]},
+        {
+         TemplateBox[{
+           SubscriptBox["\"v\"", "\"\[CirclePlus]\""], "\" = \"", 
+           TagBox[
+            InterpretationBox[
+             StyleBox["\"0.63\"", ShowStringCharacters -> False], 0.625, 
+             AutoDelete -> True], NumberForm[#, {3, 2}]& ]},
+          "RowDefault"]}
+       },
+       DefaultBaseStyle->"Column",
+       GridBoxAlignment->{"Columns" -> {{Left}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+       
+       GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0.3}}}],
+      "Column"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->9,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {-0.09056621886774341, 0.3773592452822642}]},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->550,
+  PlotRangePadding->Scaled[0.1]]], "Output",
+ CellLabel->
+  "Out[16]= ",ExpressionUUID->"965158ca-5f4a-4569-8022-a87c17dd98f2"]
+}, Open  ]],
+
+Cell[TextData[{
+ "On the drawing, Carol's reception is ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["k", "TI"], "1"], 
+   SubscriptBox[
+    StyleBox["k", "TI"], "2"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "3fda8779-6fae-4cb7-9887-6f44871c8b08"],
+ " times Alice's emission in proper time."
+}], "Item",ExpressionUUID->"6c44e2a7-c1ac-4403-a7fc-ffd5d0261591"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"d", " ", "=", " ", 
+     RowBox[{"Cases", "[", 
+      RowBox[{
+       RowBox[{"VelocityAdditionConstruction", "[", 
+        RowBox[{"0.4", ",", " ", "0.3"}], "]"}], ",", " ", 
+       RowBox[{
+        RowBox[{"Disk", "[", 
+         RowBox[{"c_", ",", " ", "_"}], "]"}], " ", ":>", " ", "c"}], ",", 
+       " ", "Infinity"}], "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ProperTimeScale", "[", "0.625", "]"}], " ", 
+      RowBox[{
+       RowBox[{"Norm", "[", 
+        RowBox[{"d", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", 
+       RowBox[{"d", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", " ", "2"}], "]"}], "]"}]}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"KFactor", "[", "0.4", "]"}], " ", 
+      RowBox[{"KFactor", "[", "0.3", "]"}]}]}], "}"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[17]:= ",ExpressionUUID->"d9b4cc37-5ef0-48fe-89d4-e36131a75499"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2.081665999466133`", ",", "2.0816659994661326`"}], "}"}]], "Output",\
+
+ CellLabel->
+  "Out[17]= ",ExpressionUUID->"b27595bd-a421-4c66-bc01-7f81c9782ae6"]
+}, Open  ]],
+
+Cell["The light clock", "Section",ExpressionUUID->"6c29ff70-eefe-4834-8874-3ebb87eda73a"],
+
+Cell[TextData[{
+ "Bob carries a mirror on a parallel worldline and bounces light between \
+himself and it. Each round trip is the same translate along his worldline, so \
+his ticks are equally spaced in his proper time, while Alice's radar times of \
+the ticks are \[Gamma] times further apart: time dilation again, now of a \
+physical clock (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["LightClockConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/LightClockConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "5e3129e4-c476-4286-8981-b31b04c187e0"],
+ ")."
+}], "Item",ExpressionUUID->"de0649ca-d509-46f8-b74d-e20299227310"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LightClockConstruction", "[", "0.6", "]"}]], "Input",
+ CellLabel->
+  "In[18]:= ",ExpressionUUID->"864f5bea-1289-42a3-b5c4-4afc0858e2ce"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[1.5], Opacity[0.3], 
+    LineBox[{{0, 0}, {0, 2.3540000000000005`}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {1.2111230082763977`, 2.0185383471273295`}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[1.5], Opacity[0.4], 
+    LineBox[{{0.1028991510855053, -0.061739490651303186`}, {1.314022159361903,
+      1.9567988564760264`}}]}, 
+   {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+    LineBox[{{0.05144957554275266, 0.08574929257125442}, {
+     0.40130668923347074`, 0.4356064062619725}, {0.31384241081079123`, 
+     0.523070684684652}, {0.6636995245015094, 0.87292779837537}, {
+     0.5762352460788298, 0.9603920767980496}, {0.9260923597695478, 
+     1.3102491904887676`}, {0.8386280813468683, 1.3977134689114472`}, {
+     1.1884851950375863`, 1.7475705826021652`}, {1.1010209166149068`, 
+     1.8350348610248448`}}]}, {
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.05144957554275266, 0.08574929257125442}, 
+      0.023540000000000005]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.31384241081079123`, 0.523070684684652}, 
+      0.023540000000000005]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.5762352460788298, 0.9603920767980496}, 0.023540000000000005]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{0.8386280813468683, 1.3977134689114472`}, 
+      0.023540000000000005]}, 
+    {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+     AbsoluteThickness[0.8]}], 
+     DiskBox[{1.1010209166149068`, 1.8350348610248448`}, 
+      0.023540000000000005]}}, InsetBox[
+    StyleBox[
+     TemplateBox[{"\"\[Beta] = \"", 
+       TagBox[
+        InterpretationBox[
+         StyleBox["\"0.60\"", ShowStringCharacters -> False], 0.6, AutoDelete -> 
+         True], NumberForm[#, {3, 2}]& ]},
+      "RowDefault"],
+     StripOnInput->False,
+     LineColor->RGBColor[0.248, 0.248, 0.248],
+     FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+     BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+     GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+     FontSize->9,
+     FontColor->RGBColor[
+      0.248, 0.248, 0.248]], {1.3120499256327642, 1.9579821967135096}]},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->550,
+  PlotRangePadding->Scaled[0.06]]], "Output",
+ CellLabel->
+  "Out[18]= ",ExpressionUUID->"a83f8440-d060-4be9-b15d-0219fca392ef"]
+}, Open  ]],
+
+Cell["\<\
+The ratio of Alice's radar-time steps to Bob's proper-time steps between \
+consecutive ticks is \[Gamma] = 5/4.\
+\>", "Item",ExpressionUUID->"34646181-2c8e-45e9-9cdc-20cb36e24ccd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"ticks", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"First", "[", 
+       RowBox[{"Cases", "[", 
+        RowBox[{
+         RowBox[{"LightClockConstruction", "[", "0.6", "]"}], ",", " ", 
+         RowBox[{
+          RowBox[{"Line", "[", 
+           RowBox[{"pts_", " ", "/;", " ", 
+            RowBox[{
+             RowBox[{"Length", "[", "pts", "]"}], " ", ">", " ", "3"}]}], 
+           "]"}], " ", ":>", " ", "pts"}], ",", " ", "Infinity"}], "]"}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"1", " ", ";;", " ", 
+        RowBox[{"-", "1"}], " ", ";;", " ", "2"}], "]"}], "]"}]}], "}"}], ",",
+    "\n", "  ", 
+   RowBox[{
+    RowBox[{"Differences", "[", 
+     RowBox[{"ticks", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", " ", "2"}], "]"}], "]"}], "]"}], "/", 
+    RowBox[{"Differences", "[", 
+     RowBox[{
+      RowBox[{"ProperTimeScale", "[", "0.6", "]"}], " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{"Norm", ",", " ", "ticks"}], "]"}]}], "]"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[19]:= ",ExpressionUUID->"f2e350a2-452e-44ce-a97d-82ee6bc717d3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.2500000000000004`", ",", "1.25`", ",", "1.2500000000000009`", ",", 
+   "1.2500000000000002`"}], "}"}]], "Output",
+ CellLabel->
+  "Out[19]= ",ExpressionUUID->"43771732-8347-4e7c-83b7-c37eb1d21a86"]
+}, Open  ]],
+
+Cell["The Bondi clock", "Section",ExpressionUUID->"34233e0e-ed09-4334-9c0d-11a629bea5ed"],
+
+Cell[TextData[{
+ "Let the light bounce back and forth between Alice and Bob (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BondiClock"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/BondiClock", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "7f7e8d64-a176-443b-963d-d088f15601bc"],
+ "). Each event's proper time is ",
+ StyleBox["k", "TI"],
+ " times the one before, so Alice's reception arc lengths grow by ",
+ Cell[BoxData[
+  SuperscriptBox[
+   StyleBox["k", "TI"], "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "d7a9f7a9-3fe6-4a16-8e29-572350057a40"],
+ " per round trip: the reflections are spaced geometrically, while the \
+proper-time ticks on each worldline are evenly spaced. The labels ",
+ Cell[BoxData[
+  SuperscriptBox[
+   StyleBox["k", "TI"], 
+   StyleBox["m", "TI"]]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "03f110f7-e44c-45b9-a805-9e03fdd7394f"],
+ " give the proper times in units of the first emission."
+}], "Item",ExpressionUUID->"7eac3151-8ea5-4093-9bc5-8c54d7316028"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BondiClock", "[", 
+  RowBox[{"0.6", ",", " ", "8", ",", " ", 
+   RowBox[{"\"\<ShowEventLabels\>\"", " ", "->", " ", "True"}]}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[20]:= ",ExpressionUUID->"7e1b8054-edf8-4a31-9513-f2f02aadea6e"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2.5], 
+    LineBox[{{0, 0}, {0., 17.600000000000016`}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2.5], 
+    LineBox[{{0., 0.}, {9.055125295524476, 15.091875492540792`}}]}, {
+    {RGBColor[1, 0.75, 0], AbsoluteThickness[1.2], 
+     LineBox[{{0, 0.0625}, {0.09375000000000003, 0.15625000000000003`}, {
+       0, 0.25000000000000006`}, {0.37500000000000017`, 0.6250000000000002}, {
+       0, 1.0000000000000004`}, {1.500000000000001, 2.5000000000000018`}, {
+       0, 4.000000000000003}, {6.000000000000005, 10.000000000000009`}, {
+       0, 16.000000000000014`}}]}, {
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], DiskBox[{0, 0.0625}, 0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{0.09375000000000003, 0.15625000000000003`}, 
+       0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{0, 0.25000000000000006`}, 0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{0.37500000000000017`, 0.6250000000000002}, 
+       0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{0, 1.0000000000000004`}, 0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{1.500000000000001, 2.5000000000000018`}, 0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{0, 4.000000000000003}, 0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{6.000000000000005, 10.000000000000009`}, 0.17600000000000016]}, 
+     {RGBColor[0.8, 0.3, 0.8], EdgeForm[{RGBColor[0.372, 0.372, 0.372], 
+      AbsoluteThickness[0.8]}], 
+      DiskBox[{0, 16.000000000000014`}, 0.17600000000000016]}}}, 
+   {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+    LineBox[{{-0.3520000000000003, 1.}, {0.3520000000000003, 1.}}], 
+    LineBox[{{-0.3520000000000003, 2.}, {0.3520000000000003, 2.}}], 
+    LineBox[{{-0.3520000000000003, 3.}, {0.3520000000000003, 3.}}], 
+    LineBox[{{-0.3520000000000003, 4.}, {0.3520000000000003, 4.}}], 
+    LineBox[{{-0.3520000000000003, 5.}, {0.3520000000000003, 5.}}], 
+    LineBox[{{-0.3520000000000003, 6.}, {0.3520000000000003, 6.}}], 
+    LineBox[{{-0.3520000000000003, 7.}, {0.3520000000000003, 7.}}], 
+    LineBox[{{-0.3520000000000003, 8.}, {0.3520000000000003, 8.}}], 
+    LineBox[{{-0.3520000000000003, 9.}, {0.3520000000000003, 9.}}], 
+    LineBox[{{-0.3520000000000003, 10.}, {0.3520000000000003, 10.}}], 
+    LineBox[{{-0.3520000000000003, 11.}, {0.3520000000000003, 11.}}], 
+    LineBox[{{-0.3520000000000003, 12.}, {0.3520000000000003, 12.}}], 
+    LineBox[{{-0.3520000000000003, 13.}, {0.3520000000000003, 13.}}], 
+    LineBox[{{-0.3520000000000003, 14.}, {0.3520000000000003, 14.}}], 
+    LineBox[{{-0.3520000000000003, 15.}, {0.3520000000000003, 15.}}], 
+    LineBox[{{-0.3520000000000003, 16.}, {0.3520000000000003, 16.}}], 
+    LineBox[{{-0.3520000000000003, 17.}, {0.3520000000000003, 17.}}]}, 
+   {RGBColor[0.434, 0.434, 0.434], AbsoluteThickness[1], 
+    LineBox[{{0.4481624901491844, 1.4311025059104898`}, {1.0518375098508161`, 
+     1.0688974940895106`}}], 
+    LineBox[{{1.1981624901491847`, 2.68110250591049}, {1.8018375098508161`, 
+     2.318897494089511}}], 
+    LineBox[{{1.9481624901491847`, 3.93110250591049}, {2.551837509850816, 
+     3.568897494089511}}], 
+    LineBox[{{2.698162490149185, 5.1811025059104905`}, {3.3018375098508166`, 
+     4.818897494089511}}], 
+    LineBox[{{3.4481624901491856`, 6.431102505910491}, {4.0518375098508175`, 
+     6.068897494089512}}], 
+    LineBox[{{4.198162490149185, 7.6811025059104905`}, {4.801837509850817, 
+     7.318897494089511}}], 
+    LineBox[{{4.948162490149186, 8.931102505910491}, {5.5518375098508175`, 
+     8.568897494089512}}], 
+    LineBox[{{5.698162490149186, 10.181102505910491`}, {6.3018375098508175`, 
+     9.818897494089512}}], 
+    LineBox[{{6.448162490149186, 11.431102505910491`}, {7.0518375098508175`, 
+     11.068897494089512`}}], 
+    LineBox[{{7.198162490149187, 12.681102505910493`}, {7.801837509850818, 
+     12.318897494089514`}}], 
+    LineBox[{{7.948162490149186, 13.931102505910493`}, {8.551837509850818, 
+     13.568897494089514`}}], 
+    LineBox[{{8.698162490149185, 15.181102505910491`}, {9.301837509850818, 
+     14.818897494089512`}}]}, {InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "0"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {-0.8800000000000008, 0.0625}], InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "1"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {0.9737500000000008, 0.15625000000000003}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "2"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {-0.8800000000000008, 0.25000000000000006}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "3"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {1.255000000000001, 0.6250000000000002}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "4"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {-0.8800000000000008, 1.0000000000000004}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "5"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {2.3800000000000017, 2.5000000000000018}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "6"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {-0.8800000000000008, 4.000000000000003}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "7"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {6.880000000000006, 10.000000000000009}], 
+    InsetBox[
+     StyleBox[
+      TemplateBox[{"\"k\"", "8"},
+       "Superscript"],
+      StripOnInput->False,
+      LineColor->RGBColor[0.248, 0.248, 0.248],
+      FrontFaceColor->RGBColor[0.248, 0.248, 0.248],
+      BackFaceColor->RGBColor[0.248, 0.248, 0.248],
+      GraphicsColor->RGBColor[0.248, 0.248, 0.248],
+      FontSize->8,
+      FontColor->RGBColor[
+       0.248, 0.248, 0.248]], {-0.8800000000000008, 16.000000000000014}]}},
+  AspectRatio->Automatic,
+  Background->RGBColor[0.981, 0.981, 0.981],
+  ImageSize->500,
+  PlotRangePadding->Scaled[0.06]]], "Output",
+ CellLabel->
+  "Out[20]= ",ExpressionUUID->"92618e32-3e93-4af2-9f6c-00baed4aab40"]
+}, Open  ]],
+
+Cell[TextData[{
+ "From Alice's arc length 1 at velocity 3/5, her reception arc lengths are \
+the powers of ",
+ Cell[BoxData[
+  RowBox[{
+   SuperscriptBox[
+    StyleBox["k", "TI"], "2"], "=", "4"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "e089e197-155f-48c6-a07a-bee366e8d34a"],
+ ", so the number of round trips to the arc length ",
+ StyleBox["s", "TI"],
+ " is ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["log",
+    FontSlant->"Plain"], "\[ThinSpace]", 
+   StyleBox["s", "TI"], "/", 
+   StyleBox["log",
+    FontSlant->"Plain"], "\[ThinSpace]", 
+   SuperscriptBox[
+    StyleBox["k", "TI"], "2"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "1325aec5-f4d8-46c7-8329-b199acdc0557"],
+ ", a logarithm of the arc length."
+}], "Item",ExpressionUUID->"d4489c59-ee22-4f48-85f4-1da7e2105442"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"arcs", " ", "=", " ", 
+     RowBox[{"FullSimplify", " ", "@", " ", 
+      RowBox[{"Lookup", "[", 
+       RowBox[{
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"LightZigzag", "[", 
+           RowBox[{
+            RowBox[{"3", "/", "5"}], ",", " ", "1", ",", " ", "8"}], "]"}], ",",
+           " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "[", "\"\<Observer\>\"", "]"}], " ", "===", 
+            " ", "\"\<Alice\>\""}], " ", "&"}]}], "]"}], ",", 
+        " ", "\"\<ArcLength\>\""}], "]"}]}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{"arcs", ",", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Log", "[", "arcs", "]"}], "/", 
+       RowBox[{"Log", "[", 
+        RowBox[{
+         RowBox[{"KFactor", "[", 
+          RowBox[{"3", "/", "5"}], "]"}], "^", "2"}], "]"}]}], " ", "//", " ",
+       "FullSimplify"}]}], "}"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[21]:= ",ExpressionUUID->"4ef2dd47-ffd0-4a78-b0b4-fb953ffd3267"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4", ",", "16", ",", "64", ",", "256"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4"}], "}"}]}], 
+  "}"}]], "Output",
+ CellLabel->
+  "Out[21]= ",ExpressionUUID->"5b21f44e-c4ee-4817-b444-0c838cb27177"]
+}, Open  ]],
+
+Cell["From the plane to graphs", "Section",ExpressionUUID->"3e38cc32-cb31-4d82-81ec-f5f4b38dc9e1"],
+
+Cell[TextData[{
+ "On a causal graph the same radar rule gives the radar chart of an observer \
+chain, ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraRadarChart"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraRadarChart", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "455ce39d-82bb-493c-8e2c-fa7947735c77"],
+ ", whose time and distance are the half-sum and half-difference of the \
+emission and reception ticks; the Causal Infrageometry tutorial builds it. \
+The k-factor has a graph reading as well: on the diamond lattice the chain at \
+rest echoed by a chain of velocity 1/(2",
+ StyleBox["p", "TI"],
+ " + 1) reads ",
+ Cell[BoxData[
+  SqrtBox[
+   RowBox[{
+    StyleBox["(",
+     SpanMaxSize->1], 
+    RowBox[{
+     StyleBox["p", "TI"], "+", "1"}], 
+    StyleBox[")",
+     SpanMaxSize->1], "/", 
+    StyleBox["p", "TI"]}]]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "21fa654a-b05e-4e25-a265-d7b5546f88a1"],
+ ", the Bondi factor of that velocity."
+}], "Item",ExpressionUUID->"23e89d91-2ac4-4435-bb80-3e470f454021"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"KFactor", "[", 
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", "p"}], " ", "+", " ", "1"}], ")"}]}], "]"}], " ", "==",
+     " ", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"p", " ", "+", " ", "1"}], ")"}], "/", "p"}], "]"}]}], ",", 
+   " ", 
+   RowBox[{"p", " ", ">", " ", "0"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[22]:= ",ExpressionUUID->"6a982690-161c-43be-8930-b05e9d745789"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->
+  "Out[22]= ",ExpressionUUID->"f699be95-d202-4076-a200-dabbc23f7981"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "TutorialMoreAboutSection",
+ CellChangeTimes->{{3.843042384656711*^9, 3.843042386024461*^9}},
+ CellID->23220180,ExpressionUUID->"5257eb3e-c622-464d-9014-cc39ccdeadf5"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BondiKCalculus"]], 
+    "paclet:WolframInstitute/InfraCausality/guide/BondiKCalculus"},
+   "RefLinkPlain",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
+  "c31dbcc7-11ad-4f39-84b2-deb05b885b7b"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraObservers"]], 
+    "paclet:WolframInstitute/InfraCausality/guide/InfraObservers"},
+   "RefLinkPlain",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
+  "70026c38-3353-4df8-bf85-4c1a3940cba3"]
+}], "TutorialMoreAbout",ExpressionUUID->"1bfcb8f6-a191-40a6-a016-\
+ef7802aa8858"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Tech Notes", "RelatedTutorialsSection",
+ CellID->415694126,ExpressionUUID->"b2e45423-8573-455e-a176-5d94c88daeca"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["CausalInfrageometryTutorial"]], 
+   "paclet:WolframInstitute/InfraCausality/tutorial/\
+CausalInfrageometryTutorial"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"dcd42ecc-3ecb-4c58-8951-59cd59bd00c4"]], \
+"RelatedTutorials",ExpressionUUID->"f261896c-a262-495c-bc4d-00ca261f34ff"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"38acdcf9-123b-4203-93d8-59fc1f9c4ab9"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"9e04c779-a98d-4274-b63e-a9437d005a21"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"e5363c95-b3fd-42e2-a6c8-60e1218df4dd"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "991fde72-3054-4dea-97b6-83b389d54674"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"72ab9502-89c9-4b16-9ce4-9a5270f3244a"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"92ac9f0b-ee9b-473e-a1b0-116a912bcdd0"],
+
+Cell["Tutorial", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"42f179a2-5985-429e-8a53-eaef0eb8edd1"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"5ee37782-a9f3-410a-9c77-31ee5fde0f9c"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"ede4e8bf-a791-499c-bac0-9252a967c621"],
+
+Cell["WolframInstitute/InfraCausality/tutorial/BondiKCalculus", \
+"Categorization",
+ CellLabel->"URI",ExpressionUUID->"560814b2-453a-4008-be81-a30216aee64c"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"cad3e2f5-97ed-4ec0-b746-8f0b1d4c7db5"],
+
+Cell["Bondi k-calculus", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["k-factor", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["radar time", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["radar distance", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["time dilation", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["Doppler effect", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["velocity addition", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["simultaneity", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["length contraction", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["light clock", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["light zigzag", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"],
+
+Cell["proper time", "Keywords",
+ CellID->1251852827,ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 771},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "BondiKCalculus", "context" -> 
+    "WolframInstitute`InfraCausality`", 
+    "keywords" -> {
+     "Bondi k-calculus", "k-factor", "radar time", "radar distance", 
+      "time dilation", "Doppler effect", "velocity addition", "simultaneity", 
+      "length contraction", "light clock", "light zigzag", "proper time"}, 
+    "summary" -> "", "paclet" -> "WolframInstitute/InfraCausality", "uri" -> 
+    "WolframInstitute/InfraCausality/tutorial/BondiKCalculus", "type" -> 
+    "Tutorial", "index" -> True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TechNotePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"d301168b-d1fb-48ec-b587-e40ee4be4221"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 151, 1, 70, "Title",ExpressionUUID->"4ddb5767-1f00-4973-a411-49eacd07850d",
+ CellID->509267359],
+Cell[730, 25, 422, 10, 70, "Item",ExpressionUUID->"6c3aa9c0-e4cd-41f1-a0c4-b2efe2e3577f"],
+Cell[1155, 37, 406, 7, 70, "Item",ExpressionUUID->"a44caa78-8b8b-46c6-8f44-4f0feb04de24"],
+Cell[1564, 46, 328, 5, 70, "Item",ExpressionUUID->"68ead13d-ced5-4d1a-af8f-cc4fad51c065"],
+Cell[1895, 53, 249, 4, 70, "Item",ExpressionUUID->"5d74fed4-bd3e-49ea-aef9-b395da7b0a67"],
+Cell[2147, 59, 79, 0, 70, "Section",ExpressionUUID->"8c0037ab-a3fb-4ca4-9227-c36e2cb09a7b"],
+Cell[2229, 61, 282, 6, 70, "Input",ExpressionUUID->"5290c8c4-e37e-4e8e-9f0f-b98ecb38ad4b"],
+Cell[2514, 69, 95, 0, 70, "Section",ExpressionUUID->"166cb6a1-560e-47d4-ae1a-ccdf1711398f"],
+Cell[2612, 71, 1561, 44, 70, "Item",ExpressionUUID->"f0d10733-0b81-4e01-aedb-98f62924bb95"],
+Cell[4176, 117, 228, 5, 70, "Item",ExpressionUUID->"b11a82bf-bca7-4901-9b58-e483bdb7521d"],
+Cell[CellGroupData[{
+Cell[4429, 126, 2294, 59, 70, "Input",ExpressionUUID->"f9a7c6e0-f74c-403c-9e2c-b8006c9370a3"],
+Cell[6726, 187, 2514, 49, 70, "Output",ExpressionUUID->"666d0ed8-a453-469b-b91b-7a037cb665d5"]
+}, Open  ]],
+Cell[9255, 239, 109, 0, 70, "Section",ExpressionUUID->"83f32eca-26c4-4422-a681-2fe7d84d9d29"],
+Cell[9367, 241, 1226, 39, 70, "Item",ExpressionUUID->"0dffd3cd-9cf6-4982-93f1-6ee8741899c6"],
+Cell[10596, 282, 1892, 62, 70, "Item",ExpressionUUID->"2ddadd4f-20ed-445c-8167-1ff9af67111f"],
+Cell[CellGroupData[{
+Cell[12513, 348, 668, 19, 70, "Input",ExpressionUUID->"91c48163-a3bf-4693-a905-7fec09b26c78"],
+Cell[13184, 369, 211, 5, 70, "Output",ExpressionUUID->"b7d56de0-04be-4769-89a0-88806a8738eb"]
+}, Open  ]],
+Cell[13410, 377, 633, 16, 70, "Item",ExpressionUUID->"ca69737d-31d3-430c-950c-2226e1e9b099"],
+Cell[CellGroupData[{
+Cell[14068, 397, 153, 2, 70, "Input",ExpressionUUID->"075d4785-6f2b-43c0-a08c-f33374fda220"],
+Cell[14224, 401, 4293, 80, 70, "Output",ExpressionUUID->"522aacca-8b49-4956-8c96-b693035a27cf"]
+}, Open  ]],
+Cell[18532, 484, 218, 4, 70, "Item",ExpressionUUID->"112d3280-4699-475a-8898-aea8be1a4ed4"],
+Cell[CellGroupData[{
+Cell[18775, 492, 1309, 36, 70, "Input",ExpressionUUID->"832a2801-b76f-4ad7-a02c-286fe2f407d3"],
+Cell[20087, 530, 214, 5, 70, "Output",ExpressionUUID->"8a60e6fd-a3b3-4f17-8a61-6ccebead0d46"]
+}, Open  ]],
+Cell[20316, 538, 109, 0, 70, "Section",ExpressionUUID->"41e18542-b185-4d0d-b2f6-7988a032fda5"],
+Cell[20428, 540, 1335, 42, 70, "Item",ExpressionUUID->"fbde2848-ac1e-4a4d-9f20-558e41099287"],
+Cell[CellGroupData[{
+Cell[21788, 586, 1172, 31, 70, "Input",ExpressionUUID->"fb276b8a-0f83-468a-8682-a59ec7bd981a"],
+Cell[22963, 619, 110, 1, 70, "Output",ExpressionUUID->"d8059436-d654-40ea-a53a-dd166ec108d0"]
+}, Open  ]],
+Cell[23088, 623, 103, 0, 70, "Section",ExpressionUUID->"e31954a4-55ac-4ec8-9ce1-edba9b982907"],
+Cell[23194, 625, 1626, 52, 70, "Item",ExpressionUUID->"f1c22b71-cc41-4aa8-a010-f14c12692e41"],
+Cell[24823, 679, 2152, 76, 70, "Item",ExpressionUUID->"115c8fc1-bad8-444e-9a3b-ab5a4bb8904b"],
+Cell[CellGroupData[{
+Cell[27000, 759, 696, 20, 70, "Input",ExpressionUUID->"42888db1-141d-4740-b0a6-9f25c9ea95df"],
+Cell[27699, 781, 228, 6, 70, "Output",ExpressionUUID->"0a7d1d65-8d77-4e4f-b035-4cd49b6595b3"]
+}, Open  ]],
+Cell[27942, 790, 641, 15, 70, "Item",ExpressionUUID->"a34b27fa-8eed-4356-adc1-06a936ef16ff"],
+Cell[CellGroupData[{
+Cell[28608, 809, 1175, 30, 70, "Input",ExpressionUUID->"55f734a0-4bfc-43f0-ba4c-5f71113f261c"],
+Cell[29786, 841, 389, 10, 70, "Output",ExpressionUUID->"9de3579a-1996-4f66-a2b1-e3829c64a694"]
+}, Open  ]],
+Cell[30190, 854, 87, 0, 70, "Section",ExpressionUUID->"2571bbc8-0eb0-4dee-b813-562241e051d5"],
+Cell[30280, 856, 1500, 47, 70, "Item",ExpressionUUID->"e5daf8c6-08a9-4948-a860-70b45ea461bd"],
+Cell[CellGroupData[{
+Cell[31805, 907, 774, 20, 70, "Input",ExpressionUUID->"141046bf-4901-47e7-90da-82d197c5adb5"],
+Cell[32582, 929, 177, 4, 70, "Output",ExpressionUUID->"fbf48568-712c-4dfd-a3c4-258a688e9141"]
+}, Open  ]],
+Cell[32774, 936, 812, 21, 70, "Item",ExpressionUUID->"a2e1e4fc-f277-449c-88b0-bea9ced25fba"],
+Cell[CellGroupData[{
+Cell[33611, 961, 162, 3, 70, "Input",ExpressionUUID->"0097f2c6-5f26-4fff-b580-0d5c47538176"],
+Cell[33776, 966, 5849, 127, 70, "Output",ExpressionUUID->"0d77623c-7150-45c8-9ddf-6a4bdf5b2e8f"]
+}, Open  ]],
+Cell[39640, 1096, 86, 0, 70, "Section",ExpressionUUID->"02b350b4-2157-4d61-bcc6-9914cdfea7a8"],
+Cell[39729, 1098, 1234, 38, 70, "Item",ExpressionUUID->"f00b22a6-9b6f-48ba-acb0-695c3e05d3c4"],
+Cell[CellGroupData[{
+Cell[40988, 1140, 162, 3, 70, "Input",ExpressionUUID->"927fbe57-3df1-431a-aab4-eb2b24bc4fb7"],
+Cell[41153, 1145, 1949, 41, 70, "Output",ExpressionUUID->"cf9b6508-05bb-4993-8ecc-f42c255cccc0"]
+}, Open  ]],
+Cell[43117, 1189, 318, 8, 70, "Item",ExpressionUUID->"ecd07893-7fa1-473a-9d58-993d064fde9b"],
+Cell[CellGroupData[{
+Cell[43460, 1201, 1760, 45, 70, "Input",ExpressionUUID->"942b062c-c54f-4e22-904d-9d9867fe596a"],
+Cell[45223, 1248, 114, 2, 70, "Output",ExpressionUUID->"6deb97e1-7739-4813-acd9-b343fb682c0d"]
+}, Open  ]],
+Cell[45352, 1253, 92, 0, 70, "Section",ExpressionUUID->"b7741be8-ae02-4c13-9a29-7e32a44fc899"],
+Cell[45447, 1255, 648, 13, 70, "Item",ExpressionUUID->"d973a62f-fa5e-4d29-860e-6ecc4ce1c7ef"],
+Cell[CellGroupData[{
+Cell[46120, 1272, 1872, 55, 70, "Input",ExpressionUUID->"828dcf0e-560f-4418-a01f-329befc13d4c"],
+Cell[47995, 1329, 200, 6, 70, "Output",ExpressionUUID->"38d983ac-064b-4bea-b4a0-5d35471752b4"]
+}, Open  ]],
+Cell[48210, 1338, 887, 22, 70, "Item",ExpressionUUID->"1890b596-c5f1-4695-834e-4c13de0d9d30"],
+Cell[CellGroupData[{
+Cell[49122, 1364, 167, 3, 70, "Input",ExpressionUUID->"7a01e7c9-449d-4cc6-a98a-59a90b8e7bd4"],
+Cell[49292, 1369, 3309, 72, 70, "Output",ExpressionUUID->"d1d7eced-5f96-4b6b-a0b9-f91fbda8fb8e"]
+}, Open  ]],
+Cell[52616, 1444, 91, 0, 70, "Section",ExpressionUUID->"bc21fd26-891e-4bdd-8364-15e94858ebeb"],
+Cell[52710, 1446, 2901, 93, 70, "Item",ExpressionUUID->"95606e24-1669-423a-8d84-afd6f7feedba"],
+Cell[CellGroupData[{
+Cell[55636, 1543, 1128, 31, 70, "Input",ExpressionUUID->"8f80b71f-629c-47e3-a361-1a2c61bbdbeb"],
+Cell[56767, 1576, 114, 2, 70, "Output",ExpressionUUID->"aba78c43-8ce3-4bc6-8303-de8675ffa607"]
+}, Open  ]],
+Cell[56896, 1581, 515, 12, 70, "Item",ExpressionUUID->"eff07470-5ccd-48c9-b0e8-0e4343994851"],
+Cell[CellGroupData[{
+Cell[57436, 1597, 196, 4, 70, "Input",ExpressionUUID->"b60fd4c4-ce76-4ab1-9912-911abf01a6bd"],
+Cell[57635, 1603, 4695, 113, 70, "Output",ExpressionUUID->"965158ca-5f4a-4569-8022-a87c17dd98f2"]
+}, Open  ]],
+Cell[62345, 1719, 396, 11, 70, "Item",ExpressionUUID->"6c44e2a7-c1ac-4403-a7fc-ffd5d0261591"],
+Cell[CellGroupData[{
+Cell[62766, 1734, 1001, 28, 70, "Input",ExpressionUUID->"d9b4cc37-5ef0-48fe-89d4-e36131a75499"],
+Cell[63770, 1764, 193, 5, 70, "Output",ExpressionUUID->"b27595bd-a421-4c66-bc01-7f81c9782ae6"]
+}, Open  ]],
+Cell[63978, 1772, 89, 0, 70, "Section",ExpressionUUID->"6c29ff70-eefe-4834-8874-3ebb87eda73a"],
+Cell[64070, 1774, 758, 16, 70, "Item",ExpressionUUID->"de0649ca-d509-46f8-b74d-e20299227310"],
+Cell[CellGroupData[{
+Cell[64853, 1794, 160, 3, 70, "Input",ExpressionUUID->"864f5bea-1289-42a3-b5c4-4afc0858e2ce"],
+Cell[65016, 1799, 2710, 56, 70, "Output",ExpressionUUID->"a83f8440-d060-4be9-b15d-0219fca392ef"]
+}, Open  ]],
+Cell[67741, 1858, 190, 3, 70, "Item",ExpressionUUID->"34646181-2c8e-45e9-9cdc-20cb36e24ccd"],
+Cell[CellGroupData[{
+Cell[67956, 1865, 1160, 33, 70, "Input",ExpressionUUID->"f2e350a2-452e-44ce-a97d-82ee6bc717d3"],
+Cell[69119, 1900, 241, 6, 70, "Output",ExpressionUUID->"43771732-8347-4e7c-83b7-c37eb1d21a86"]
+}, Open  ]],
+Cell[69375, 1909, 89, 0, 70, "Section",ExpressionUUID->"34233e0e-ed09-4334-9c0d-11a629bea5ed"],
+Cell[69467, 1911, 1143, 28, 70, "Item",ExpressionUUID->"7eac3151-8ea5-4093-9bc5-8c54d7316028"],
+Cell[CellGroupData[{
+Cell[70635, 1943, 254, 6, 70, "Input",ExpressionUUID->"7e1b8054-edf8-4a31-9513-f2f02aadea6e"],
+Cell[70892, 1951, 8967, 194, 70, "Output",ExpressionUUID->"92618e32-3e93-4af2-9f6c-00baed4aab40"]
+}, Open  ]],
+Cell[79874, 2148, 823, 24, 70, "Item",ExpressionUUID->"d4489c59-ee22-4f48-85f4-1da7e2105442"],
+Cell[CellGroupData[{
+Cell[80722, 2176, 1061, 30, 70, "Input",ExpressionUUID->"4ef2dd47-ffd0-4a78-b0b4-fb953ffd3267"],
+Cell[81786, 2208, 321, 9, 70, "Output",ExpressionUUID->"5b21f44e-c4ee-4817-b444-0c838cb27177"]
+}, Open  ]],
+Cell[82122, 2220, 98, 0, 70, "Section",ExpressionUUID->"3e38cc32-cb31-4d82-81ec-f5f4b38dc9e1"],
+Cell[82223, 2222, 1158, 31, 70, "Item",ExpressionUUID->"23e89d91-2ac4-4435-bb80-3e470f454021"],
+Cell[CellGroupData[{
+Cell[83406, 2257, 534, 17, 70, "Input",ExpressionUUID->"6a982690-161c-43be-8930-b05e9d745789"],
+Cell[83943, 2276, 114, 2, 70, "Output",ExpressionUUID->"f699be95-d202-4076-a200-dabbc23f7981"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84094, 2283, 190, 2, 70, "TutorialMoreAboutSection",ExpressionUUID->"5257eb3e-c622-464d-9014-cc39ccdeadf5",
+ CellID->23220180],
+Cell[84287, 2287, 675, 19, 70, "TutorialMoreAbout",ExpressionUUID->"1bfcb8f6-a191-40a6-a016-ef7802aa8858"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84999, 2311, 128, 1, 70, "RelatedTutorialsSection",ExpressionUUID->"b2e45423-8573-455e-a176-5d94c88daeca",
+ CellID->415694126],
+Cell[85130, 2314, 392, 10, 70, "RelatedTutorials",ExpressionUUID->"f261896c-a262-495c-bc4d-00ca261f34ff"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[85571, 2330, 110, 1, 70, "MetadataSection",ExpressionUUID->"38acdcf9-123b-4203-93d8-59fc1f9c4ab9",
+ CellID->311882160],
+Cell[85684, 2333, 476, 12, 70, "History",ExpressionUUID->"72ab9502-89c9-4b16-9ce4-9a5270f3244a",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[86185, 2349, 123, 1, 70, "CategorizationSection",ExpressionUUID->"92ac9f0b-ee9b-473e-a1b0-116a912bcdd0",
+ CellID->1122911449],
+Cell[86311, 2352, 136, 2, 70, "Categorization",ExpressionUUID->"42f179a2-5985-429e-8a53-eaef0eb8edd1",
+ CellID->686433507],
+Cell[86450, 2356, 159, 2, 70, "Categorization",ExpressionUUID->"5ee37782-a9f3-410a-9c77-31ee5fde0f9c",
+ CellID->605800465],
+Cell[86612, 2360, 156, 2, 70, "Categorization",ExpressionUUID->"ede4e8bf-a791-499c-bac0-9252a967c621",
+ CellID->468444828],
+Cell[86771, 2364, 157, 2, 70, "Categorization",ExpressionUUID->"560814b2-453a-4008-be81-a30216aee64c"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[86965, 2371, 111, 1, 70, "KeywordsSection",ExpressionUUID->"cad3e2f5-97ed-4ec0-b746-8f0b1d4c7db5",
+ CellID->1427428552],
+Cell[87079, 2374, 112, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87194, 2377, 104, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87301, 2380, 106, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87410, 2383, 110, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87523, 2386, 109, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87635, 2389, 110, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87748, 2392, 113, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87864, 2395, 108, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[87975, 2398, 114, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[88092, 2401, 107, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[88202, 2404, 108, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827],
+Cell[88313, 2407, 107, 1, 70, "Keywords",ExpressionUUID->"7d839546-a25f-4ff1-84c3-c40cc0be71bd",
+ CellID->1251852827]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

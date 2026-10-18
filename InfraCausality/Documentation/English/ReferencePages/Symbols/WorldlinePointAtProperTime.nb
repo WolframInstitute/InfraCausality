@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     16649,        454]
-NotebookOptionsPosition[     11391,        344]
-NotebookOutlinePosition[     12496,        377]
-CellTagsIndexPosition[     12417,        372]
+NotebookDataLength[     23156,        639]
+NotebookOptionsPosition[     16560,        506]
+NotebookOutlinePosition[     17793,        542]
+CellTagsIndexPosition[     17714,        537]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,7 @@ Cell["WorldlinePointAtProperTime", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"685b5d9d-fb0d-45ad-915b-be8936b94fe6"],
+ Cell["   ", "ModInfo",ExpressionUUID->"ee73c861-e282-49e9-bcec-1457d2a1cad3"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -36,14 +36,79 @@ Cell[TextData[{
     BaseStyle->"InlineFormula"], "[", 
    RowBox[{
     StyleBox["v", "TI"], ",", " ", 
-    StyleBox["tau", "TI"], ",", " ", 
-    StyleBox["phi", "TI"]}], "]"}]], "InlineFormula",
+    StyleBox["\[Tau]", "TR"], ",", " ", 
+    StyleBox["\[CurlyPhi]", "TR"]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "7ed88aae-328f-4d73-91f0-80a797e6043c"],
+  "b032d78c-787b-424b-9482-b3a7e0484e20"],
  "\[LineSeparator]",
- "gives the point at proper time tau on the worldline of velocity v.",
- "\n"
-}], "Usage",ExpressionUUID->"a731fcb0-99f6-4b8c-9cea-1671f0ed0461"]
+ "gives the point at proper time ",
+ StyleBox["\[Tau]", "TI"],
+ " on the worldline of velocity ",
+ StyleBox["v", "TI"],
+ ".",
+ "\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"08ecabf6-8532-4a60-9739-40e4fa9686e6"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["WorldlinePointAtProperTime"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/WorldlinePointAtProperTime", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["v", "TI"], ",", " ", 
+    StyleBox["\[Tau]", "TR"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "bbc642a1-3f6f-49c2-bf94-31749ad2da93"],
+ "\[LineSeparator]",
+ "takes ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " = \[Pi]/4."
+}], "Usage",ExpressionUUID->"6eae6659-f700-4b59-aab1-f6d35068c3cb"],
+
+Cell["\<\
+Experimental: drawing helper. The helpers behind the Bondi figures may change.\
+\>", "Notes",ExpressionUUID->"496f8cf6-9be5-4a8c-84f0-4ae30712b6f3"],
+
+Cell[TextData[{
+ "Definition: ",
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["WorldlinePoint"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/WorldlinePoint", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["v", "TI"], ",", " ", 
+    RowBox[{
+     StyleBox["\[Tau]", "TR"], " ", "/", " ", 
+     RowBox[{"ProperTimeScale", "[", 
+      RowBox[{
+       StyleBox["v", "TI"], ",", " ", 
+       StyleBox["\[CurlyPhi]", "TR"]}], "]"}]}], ",", " ", 
+    StyleBox["\[CurlyPhi]", "TR"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "6b410a20-1b71-40e1-b420-1927cd0f3218"],
+ ", the point whose radar interval ",
+ Cell[BoxData[
+  SqrtBox[
+   RowBox[{
+    SuperscriptBox[
+     StyleBox["t", "TI"], "2"], "-", 
+    SuperscriptBox[
+     StyleBox["x", "TI"], "2"]}]]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "5dbd9249-fa34-4bd8-b538-8d49f47e60d7"],
+ " for the rest observer is ",
+ StyleBox["\[Tau]", "TI"],
+ ". Points at equal proper-time steps are equally spaced along the \
+worldline."
+}], "Notes",ExpressionUUID->"2a34591b-3b1e-4b81-8070-42d8b62c7bc1"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -65,45 +130,45 @@ Cell[TextData[{
 
 Cell[TextData[{
  Cell[BoxData[
-  TagBox[
-   FrameBox["\<\"XXXX\"\>"],
-   "FunctionPlaceholder"]], "InlineSeeAlsoFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "04f1f4f6-42ff-41c1-be38-c72199e55033"],
+  TemplateBox[{
+    Cell[
+     TextData["WorldlinePoint"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/WorldlinePoint", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "c095809d-3738-4c74-b836-cbedcbca09fd"],
+ " \[FilledVerySmallSquare] ",
  Cell[BoxData[
-  RowBox[{
-  Cell[TextData[StyleBox[
-   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
-    "e52cc72c-b17b-4daf-ba13-e4031a732989"], 
-   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
-     FrontEndObject[
-      LinkObject["i7bzb_shm", 209, 9]], 22], $CellContext`cellobj$$ = 
-    CellObject[6753]}, 
-    TemplateBox[{
-      GraphicsBox[{{
-         Thickness[0.06], 
-         StrokeForm[
-          Hue[0.4167, 0.406, 0.502]], 
-         CircleBox[{0, 0}]}, {
-         Thickness[0.06], 
-         StrokeForm[
-          Hue[0.4167, 0.406, 0.502]], 
-         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
-         Thickness[0.06], 
-         StrokeForm[
-          Hue[0.4167, 0.406, 0.502]], 
-         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
-       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
-       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
-       BaselinePosition -> (Center -> 
-        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
-     "InlineListingAddButton"],
-    Initialization:>($CellContext`nbobj$$ = 
-      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
-  "InlineListingAddButton",ExpressionUUID->
-  "ac548b96-3ee5-484c-99df-e6462c430c8c"]
-}], "SeeAlso",
- CellID->173389911,ExpressionUUID->"a2765fad-d0fd-4f94-9539-78ed28f4fade"]
+  TemplateBox[{
+    Cell[
+     TextData["ProperTimeScale"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/ProperTimeScale", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "19b39a52-d955-48fa-932c-5a283e73ab6f"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BondiRadarCoordinates"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/BondiRadarCoordinates", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "767cf092-d3e4-439b-be9f-b87215f6bb3a"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["TimeDilationConstruction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/TimeDilationConstruction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4d3252d2-dc9c-452d-9da1-1da5e60535b1"]
+}], "SeeAlso",ExpressionUUID->"534e2404-27a3-46b9-8bdc-bf1cd3804f2b"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -130,8 +195,8 @@ Cell[TextData[Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:WolframInstitute/InfraCausality/guide/BondiKCalculus"]], \
-"InlineFormula",ExpressionUUID->"fd058b49-1ef6-499f-9b61-789868837c60"]], \
-"MoreAbout",ExpressionUUID->"d1f97aed-8fbb-42ab-a1db-01fc899a9454"]
+"InlineFormula",ExpressionUUID->"12449c46-afc1-4a0b-9db0-08d2a0a924d2"]], \
+"MoreAbout",ExpressionUUID->"305f845c-a662-43a4-8ae9-e5ad8b830f4a"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -174,6 +239,8 @@ Cell[BoxData[{
  CellID->1969679695,ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502"]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[GridBox[{
     {
@@ -187,6 +254,27 @@ Cell[BoxData[
    }],
   $Line = 0; Null]], "PrimaryExamplesSection",
  CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
+
+Cell["The point at proper time 1 on the worldline of velocity 3/5.", \
+"ExampleText",ExpressionUUID->"867d7016-9fb5-4592-a42c-21968448e9d9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", " ", "@", " ", 
+  RowBox[{"WorldlinePointAtProperTime", "[", 
+   RowBox[{
+    RowBox[{"3", "/", "5"}], ",", " ", "1"}], "]"}]}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"7034cf39-63c1-44da-b17f-a78c886b483f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["3", "4"], ",", 
+   FractionBox["5", "4"]}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"96228d2b-0f39-40ac-a8ba-5bf7078d443c"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -233,12 +321,86 @@ Cell[BoxData[
   $Line = 0; Null]], "ExampleSection",
  CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  InterpretationBox[Cell[
   "Properties & Relations", "ExampleSection",ExpressionUUID->
    "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
   $Line = 0; Null]], "ExampleSection",
  CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell["\<\
+The radar interval of the point is its proper time, at every velocity and \
+light angle.\
+\>", "ExampleText",ExpressionUUID->"c01eac71-e3de-466e-bc8f-3c973d684b3e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{"TrigExpand", "[", 
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"r", " ", "=", " ", 
+        RowBox[{"BondiRadarCoordinates", "[", 
+         RowBox[{
+          RowBox[{"WorldlinePointAtProperTime", "[", 
+           RowBox[{"v", ",", " ", "tau", ",", " ", "phi"}], "]"}], ",", " ", 
+          "phi"}], "]"}]}], "}"}], ",", "\n", "  ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"r", "[", "\"\<RadarTime\>\"", "]"}], "^", "2"}], " ", "-", 
+        " ", 
+        RowBox[{
+         RowBox[{"r", "[", "\"\<RadarDistance\>\"", "]"}], "^", "2"}]}], " ", 
+       "==", " ", 
+       RowBox[{"tau", "^", "2"}]}]}], "]"}], "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"0", " ", "<", " ", "v", " ", "<", " ", "1"}], " ", "&&", " ", 
+    RowBox[{"0", " ", "<", " ", "phi", " ", "<", " ", 
+     RowBox[{"Pi", "/", "2"}]}], " ", "&&", " ", 
+    RowBox[{"tau", " ", ">", " ", "0"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"f63c2b9f-c629-480c-aa74-b135155cb1cc"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"b95aca90-1aa1-427c-afac-04c639296b9d"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The radar time of the point is \[Gamma] ",
+ StyleBox["\[Tau]", "TI"],
+ ": time dilation."
+}], "ExampleText",ExpressionUUID->"5ac482e8-4593-4fe3-bbf2-1d119bc45abe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"BondiRadarCoordinates", "[", 
+      RowBox[{
+       RowBox[{"WorldlinePointAtProperTime", "[", 
+        RowBox[{
+         RowBox[{"3", "/", "5"}], ",", " ", "tau", ",", " ", 
+         RowBox[{"Pi", "/", "3"}]}], "]"}], ",", " ", 
+       RowBox[{"Pi", "/", "3"}]}], "]"}], "[", "\"\<RadarTime\>\"", "]"}], 
+    " ", "==", " ", 
+    RowBox[{
+     RowBox[{"LorentzGamma", "[", 
+      RowBox[{"3", "/", "5"}], "]"}], " ", "tau"}]}], ",", " ", 
+   RowBox[{"tau", " ", ">", " ", "0"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"9eafd6a8-6167-4c32-8cc9-699cc009eccf"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"45357490-4c28-4d92-885d-80abc167fe16"]
+}, Open  ]]
+}, Open  ]],
 
 Cell[BoxData[
  InterpretationBox[Cell[
@@ -313,7 +475,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
 Cell["\<\
 WolframInstitute/InfraCausality/ref/WorldlinePointAtProperTime\
 \>", "Categorization",
- CellLabel->"URI",ExpressionUUID->"44bc4801-c018-48c8-80df-495e4048d442"]
+ CellLabel->"URI",ExpressionUUID->"4ad90003-2345-413a-9b40-421b475669be"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -347,7 +509,10 @@ WindowMargins->{{5, Automatic}, {Automatic, 0}},
 TaggingRules->{
  "Metadata" -> {
    "title" -> "WorldlinePointAtProperTime", "context" -> 
-    "WolframInstitute`InfraCausality`", "keywords" -> {}, "summary" -> "", 
+    "WolframInstitute`InfraCausality`", 
+    "keywords" -> {
+     "worldline", "proper time", "point", "Euclidean picture", 
+      "drawing helper", "Bondi k-calculus", "experimental"}, "summary" -> "", 
     "paclet" -> "WolframInstitute/InfraCausality", "uri" -> 
     "WolframInstitute/InfraCausality/ref/WorldlinePointAtProperTime", "type" -> 
     "Symbol", "index" -> True, "language" -> "en"}},
@@ -364,14 +529,14 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[6228, 192, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[8950, 280, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 12224, 365}
+ {"ExtendedExamples", 17521, 530}
  }
 *)
 (*NotebookFileOutline
@@ -379,80 +544,100 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 124, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[703, 25, 782, 20, 70, "Usage",ExpressionUUID->"a731fcb0-99f6-4b8c-9cea-1671f0ed0461"]
+Cell[703, 25, 1494, 43, 70, "Usage",ExpressionUUID->"6eae6659-f700-4b59-aab1-f6d35068c3cb"],
+Cell[2200, 70, 158, 2, 70, "Notes",ExpressionUUID->"496f8cf6-9be5-4a8c-84f0-4ae30712b6f3"],
+Cell[2361, 74, 1211, 36, 70, "Notes",ExpressionUUID->"2a34591b-3b1e-4b81-8070-42d8b62c7bc1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1522, 50, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+Cell[3609, 115, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[1984, 65, 1543, 40, 70, "SeeAlso",ExpressionUUID->"a2765fad-d0fd-4f94-9539-78ed28f4fade",
- CellID->173389911]
+Cell[4071, 130, 1509, 40, 70, "SeeAlso",ExpressionUUID->"534e2404-27a3-46b9-8bdc-bf1cd3804f2b"]
 }, Open  ]],
-Cell[3542, 108, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+Cell[5595, 173, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
-Cell[4002, 124, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+Cell[6055, 189, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[4121, 127, 306, 6, 70, "MoreAbout",ExpressionUUID->"d1f97aed-8fbb-42ab-a1db-01fc899a9454"]
+Cell[6174, 192, 306, 6, 70, "MoreAbout",ExpressionUUID->"305f845c-a662-43a4-8ae9-e5ad8b830f4a"]
 }, Open  ]],
-Cell[4442, 136, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+Cell[6495, 201, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
 Cell[CellGroupData[{
-Cell[4938, 153, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+Cell[6991, 218, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
  CellID->1718580883],
-Cell[5472, 169, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+Cell[7525, 234, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
  CellID->1969679695]
 }, Open  ]],
-Cell[5761, 176, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
- CellID->880084151],
 Cell[CellGroupData[{
-Cell[6228, 192, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[7836, 243, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+ CellID->880084151],
+Cell[8281, 257, 140, 1, 70, "ExampleText",ExpressionUUID->"867d7016-9fb5-4592-a42c-21968448e9d9"],
+Cell[CellGroupData[{
+Cell[8446, 262, 256, 5, 70, "Input",ExpressionUUID->"7034cf39-63c1-44da-b17f-a78c886b483f"],
+Cell[8705, 269, 196, 5, 70, "Output",ExpressionUUID->"96228d2b-0f39-40ac-a8ba-5bf7078d443c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8950, 280, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
-Cell[6718, 207, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[9440, 295, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[6963, 214, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[9685, 302, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
-Cell[7231, 221, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[9953, 309, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
-Cell[7478, 228, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[10200, 316, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
-Cell[7729, 235, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[CellGroupData[{
+Cell[10473, 325, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[7991, 242, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[10735, 332, 174, 3, 70, "ExampleText",ExpressionUUID->"c01eac71-e3de-466e-bc8f-3c973d684b3e"],
+Cell[CellGroupData[{
+Cell[10934, 339, 1080, 27, 70, "Input",ExpressionUUID->"f63c2b9f-c629-480c-aa74-b135155cb1cc"],
+Cell[12017, 368, 110, 1, 70, "Output",ExpressionUUID->"b95aca90-1aa1-427c-afac-04c639296b9d"]
+}, Open  ]],
+Cell[12142, 372, 181, 4, 70, "ExampleText",ExpressionUUID->"5ac482e8-4593-4fe3-bbf2-1d119bc45abe"],
+Cell[CellGroupData[{
+Cell[12348, 380, 672, 17, 70, "Input",ExpressionUUID->"9eafd6a8-6167-4c32-8cc9-699cc009eccf"],
+Cell[13023, 399, 110, 1, 70, "Output",ExpressionUUID->"45357490-4c28-4d92-885d-80abc167fe16"]
+}, Open  ]]
+}, Open  ]],
+Cell[13160, 404, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[8246, 249, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[13415, 411, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[8506, 256, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[13675, 418, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8792, 266, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[13961, 428, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[8905, 269, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[14074, 431, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[9406, 285, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[14575, 447, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[9894, 300, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[15063, 462, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[10031, 304, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[15200, 466, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[10193, 308, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[15362, 470, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[10352, 312, 170, 3, 70, "Categorization",ExpressionUUID->"44bc4801-c018-48c8-80df-495e4048d442"]
+Cell[15521, 474, 170, 3, 70, "Categorization",ExpressionUUID->"4ad90003-2345-413a-9b40-421b475669be"]
 }, Closed]],
-Cell[10537, 318, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[15706, 480, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[10672, 323, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[15841, 485, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[10795, 326, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[15964, 488, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[10947, 330, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[16116, 492, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[11087, 334, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[16256, 496, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[11226, 338, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[16395, 500, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]

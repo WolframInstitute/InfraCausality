@@ -39,14 +39,14 @@ paths are the causal relation: ",
  " to ",
  StyleBox["v", "TI"],
  ". Everything below is read off the graph alone."
-}], "Item",ExpressionUUID->"5b596e47-5a73-4851-aad9-6bd2b4d9ca02"],
+}], "Item",ExpressionUUID->"55fa039a-355e-4139-a22f-1e7f4305b77f"],
 
 Cell["\<\
 The pipeline: causal graph \[RightArrow] cones and diamonds \[RightArrow] \
 worldlines and observers \[RightArrow] universal time \[RightArrow] message \
 functions \[RightArrow] radar chart \[RightArrow] the observer space fibered \
 over the chart.\
-\>", "Item",ExpressionUUID->"bc7f7c1d-0506-4ab6-a5df-2e07a6f2e55c"],
+\>", "Item",ExpressionUUID->"8b6aa422-3f63-42b0-8464-bb80e9432076"],
 
 Cell[TextData[{
  "Each construction is an inert head, such as ",
@@ -54,34 +54,34 @@ Cell[TextData[{
   RowBox[{"InfraCausalDiamond", "[", 
    RowBox[{"p", ",", " ", "q"}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "f3fcbeda-fc34-4e18-9d1a-1ebe9cfb3f57"],
+  "931937c1-0810-4c34-aec0-dc781ee7c210"],
  " or ",
  Cell[BoxData[
   RowBox[{"InfraRadarChart", "[", "a", "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "bf2026f3-9f40-49e7-9bfb-61f93f85073c"],
+  "ddb5937a-441c-4dca-84d4-6b49134a3bfc"],
  ", that holds its data and computes nothing; ",
  Cell[BoxData["InfraMeasurement"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "8b596163-6e63-4a21-8f62-3d2153ff6c10"],
+  "e74b6156-f141-441a-a9da-e7cb5b2edd10"],
  " reads it on a graph, a ",
  Cell[BoxData["RandomInfra\[Ellipsis]"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "094660b4-45fa-4a41-8953-fecc3f20bacd"],
+  "e9dcf2c5-7c2c-4049-8fb7-744c31dbd1db"],
  " sampler draws its members and ",
  Cell[BoxData["InfraSubstrateHighlight"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "5423a07e-c4c7-493c-a2b0-397f72163a14"],
+  "6a1897bc-1541-4ff8-9fdc-b8f6ff739234"],
  " draws it."
-}], "Item",ExpressionUUID->"cf97b1ce-3ad6-4461-b191-c45ec2114dcb"],
+}], "Item",ExpressionUUID->"185e641d-42eb-4c22-bed4-2a16f1749d42"],
 
 Cell["\<\
 The running example is the diamond lattice at size \"Small\", the 7 \[Times] \
 7 light-cone lattice of 1 + 1 Minkowski space; a sprinkling and the cylinder \
 lattice show where the lattice is special.\
-\>", "Item",ExpressionUUID->"577db67f-a0e2-455b-8da4-1de430b9c16a"],
+\>", "Item",ExpressionUUID->"151ab7f8-ac1c-429e-8b70-768b7880d34b"],
 
-Cell["Setup", "Section",ExpressionUUID->"04b44d54-7001-4cd5-b561-d0c0e36034cb"],
+Cell["Setup", "Section",ExpressionUUID->"486b5a7d-37b2-41f4-a3cf-32b3c53117e3"],
 
 Cell[BoxData[{
  RowBox[{
@@ -89,16 +89,16 @@ Cell[BoxData[{
   ";"}], "\n", 
  RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraCausality`\>\"", 
   "]"}]}], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"0c665e8b-d022-4025-907f-02fecc38d612"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"345b392c-a87c-417f-baec-a6fc77e0c407"],
 
-Cell["The causal graph", "Section",ExpressionUUID->"a2ae62a8-9f57-4668-9c65-97c88b039526"],
+Cell["The causal graph", "Section",ExpressionUUID->"72474a24-a170-403b-8ede-56bf717dd95a"],
 
 Cell["\<\
 The three substrates of the documentation: the diamond lattice, the Hasse \
 diagram of the product order on {0, \[Ellipsis], 6}\.b2; a sprinkling of 25 \
 points into a causal diamond of two-dimensional Minkowski space; and the \
 cylinder lattice, a light-cone lattice closed in space. Time runs upward.\
-\>", "Item",ExpressionUUID->"71253d45-4872-4d0b-905a-c9a0f7e86d1f"],
+\>", "Item",ExpressionUUID->"59f074d4-b632-49cf-93f5-f10e43a69cad"],
 
 Cell[CellGroupData[{
 
@@ -115,7 +115,7 @@ Cell[BoxData[
         " ", "\"\<MinkowskiSprinkling2D\>\"", ",", 
         " ", "\"\<CylinderLatticeGraph\>\""}], "}"}]}], "}"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"e0dfa961-40cc-4bc6-960e-c65adb01b27e"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"cc2889e4-42da-4af8-b70b-534e0771babd"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -1730,7 +1730,7 @@ Cell[BoxData[
   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
   PlotRange->{{0, 645.}, {-289.05333957994384`, 0}},
   PlotRangePadding->Automatic]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"2c38de26-e803-44d9-a159-73c513cc7539"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"05d9efb0-4b8c-49b5-ac6d-811446e08913"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -1765,7 +1765,7 @@ order (",
  " + ",
  StyleBox["j", "TI"],
  ")/2."
-}], "Item",ExpressionUUID->"6ab77ed6-461b-4dcf-8bb0-03fe5dcf4538"],
+}], "Item",ExpressionUUID->"5f8eaa71-a6ef-4af0-87ae-98a7afb4537c"],
 
 Cell[CellGroupData[{
 
@@ -1795,13 +1795,13 @@ Cell[BoxData[
             RowBox[{"Thread", "[", 
              RowBox[{"v", " ", "<=", " ", "w"}], "]"}]}]}]}], "]"}]}]}]}]}], 
     "]"}]}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"0469169a-1dcf-40e4-8ee7-75d33541f93f"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"514a831d-3909-486a-8d08-0e735b85c3a9"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"11fc62ed-bce1-45a2-9acb-e34e49fbae34"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"47d1a2dc-e086-4b6b-a7e5-0aad8568cbf4"]
 }, Open  ]],
 
-Cell["Cones and diamonds", "Section",ExpressionUUID->"61b6c565-8100-4be2-b330-cda9b1e8157d"],
+Cell["Cones and diamonds", "Section",ExpressionUUID->"0112e656-1d5e-4981-8372-e9f439b3c63c"],
 
 Cell[TextData[{
  "The ",
@@ -1847,12 +1847,12 @@ Cell[TextData[{
  ") keeps the events reached from ",
  StyleBox["p", "TI"],
  " by a light ray, a chain that cannot be lengthened between its ends."
-}], "Item",ExpressionUUID->"db21f5be-a2a5-451b-8dff-a6580c8cb69a"],
+}], "Item",ExpressionUUID->"55f51b25-da2e-41fa-a94a-a7171a50b092"],
 
 Cell["\<\
 On the lattice: the future of {1, 0} (orange), the past of {5, 4} (blue), \
 their diamond (green), and the light cone of {1, 0} (red), its two null lines.\
-\>", "Item",ExpressionUUID->"57ceeaa5-0acc-4d75-a9b5-2fa5d0995f8b"],
+\>", "Item",ExpressionUUID->"faae3a24-8423-4b07-ab92-ebad84fb1f81"],
 
 Cell[CellGroupData[{
 
@@ -1899,7 +1899,7 @@ Cell[BoxData[
              RowBox[{"1", ",", " ", "0"}], "}"}], "]"}], " ", "->", " ", 
            "StandardRed"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], 
   "]"}]], "Input",
- CellLabel->"In[4]:= ",ExpressionUUID->"c57d05be-3c32-4d66-a21e-436dd6c85863"],
+ CellLabel->"In[4]:= ",ExpressionUUID->"54225f32-eb8e-4519-8ec4-9becf99087f4"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -3921,7 +3921,7 @@ Cell[BoxData[
   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
   PlotRange->{{0, 479.22181657344635`}, {-446.9756817679202, 0}},
   PlotRangePadding->Automatic]], "Output",
- CellLabel->"Out[4]= ",ExpressionUUID->"4a9b6d6a-fdf2-498c-b9a0-1c1322a49e97"]
+ CellLabel->"Out[4]= ",ExpressionUUID->"a3d8eb8b-a3d8-4291-bec9-9391df8d3230"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -3943,7 +3943,7 @@ Cell[TextData[{
  " \[Minus] ",
  StyleBox["j", "TI"],
  " + 1) events."
-}], "Item",ExpressionUUID->"08bf28e6-d07d-4247-8480-28b4ec3998a7"],
+}], "Item",ExpressionUUID->"7b8cb472-c3b6-43ad-91a5-4b5531ebef80"],
 
 Cell[CellGroupData[{
 
@@ -3964,17 +3964,17 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{"5", ",", " ", "4"}], "}"}]}], "]"}], ",", 
      " ", "\"\<CountingMeasure\>\""}], "]"}]}], "]"}]], "Input",
- CellLabel->"In[5]:= ",ExpressionUUID->"bf213072-4c71-47df-87a1-abb64a4dd36e"],
+ CellLabel->"In[5]:= ",ExpressionUUID->"647c9913-bb36-43c7-b3f5-2ad843dac336"],
 
 Cell[BoxData["25"], "Output",
- CellLabel->"Out[5]= ",ExpressionUUID->"17f2caca-2dfe-4f77-9b1e-ad8ba785c2ed"]
+ CellLabel->"Out[5]= ",ExpressionUUID->"be062fad-ffe8-4de2-9e5c-dcceb2de200d"]
 }, Open  ]],
 
 Cell["\<\
 On the sprinkling the light cone of an event is a tree of light rays, not two \
 lines: a ray is a maximal chain between its ends, and several can leave an \
 event in each direction.\
-\>", "Item",ExpressionUUID->"50d1ab53-2dee-4447-ac10-50b484342e25"],
+\>", "Item",ExpressionUUID->"f0092411-77ee-4112-9ae0-46944e455162"],
 
 Cell[CellGroupData[{
 
@@ -3996,7 +3996,7 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"InfraFutureLightCone", "[", "2", "]"}], " ", "->", " ", 
         "StandardRed"}], ",", " ", "2"}], "}"}]}], "]"}]}], "]"}]], "Input",
- CellLabel->"In[6]:= ",ExpressionUUID->"a68be482-5792-4a8c-87e2-e8103393e5d6"],
+ CellLabel->"In[6]:= ",ExpressionUUID->"3f3758f9-6261-49e6-89b2-97a789c4ff0b"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -4704,10 +4704,10 @@ Cell[BoxData[
   DefaultBaseStyle->"NetworkGraphics",
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
- CellLabel->"Out[6]= ",ExpressionUUID->"4b01553e-eab5-4a9d-90c1-6fc9063f0ea7"]
+ CellLabel->"Out[6]= ",ExpressionUUID->"28600f48-c6b8-49e7-b693-cbe4b2e52ff6"]
 }, Open  ]],
 
-Cell["Worldlines and observers", "Section",ExpressionUUID->"7c8898bf-a798-4cee-9d43-4ed0de7782c4"],
+Cell["Worldlines and observers", "Section",ExpressionUUID->"54a25691-c4c8-4387-b6a8-b62f18fe5a2b"],
 
 Cell[TextData[{
  "An ",
@@ -4729,11 +4729,11 @@ number of steps is the proper time \[Tau](",
  "). The hierarchy of the chain predicates is light ray \
 \[DoubleLongRightArrow] worldline \[DoubleLongRightArrow] observer \
 \[DoubleLongRightArrow] chain."
-}], "Item",ExpressionUUID->"510a373f-0361-40ea-8638-1e8f9a0f5912"],
+}], "Item",ExpressionUUID->"180f58a2-08c0-48d2-b549-d7ab3c6c2761"],
 
 Cell["\<\
 A worldline from {0, 0} to {6, 6}, drawn with the diamond it lies in.\
-\>", "Item",ExpressionUUID->"8007531d-5e4a-45f9-91c3-9761837e9032"],
+\>", "Item",ExpressionUUID->"6e091fc1-2474-4b3e-a7b7-31ccb6f6c04b"],
 
 Cell[CellGroupData[{
 
@@ -4774,7 +4774,7 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"InfraWalk", "[", "a", "]"}], " ", "->", " ", 
         "StandardRed"}]}], "}"}]}], "]"}]}], "]"}]], "Input",
- CellLabel->"In[7]:= ",ExpressionUUID->"16b780c2-20e6-4946-9dc5-41a69ec67d2a"],
+ CellLabel->"In[7]:= ",ExpressionUUID->"bf15f994-3719-4b3d-a401-40b45f669d69"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -5967,14 +5967,14 @@ Cell[BoxData[
   DefaultBaseStyle->"NetworkGraphics",
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
- CellLabel->"Out[7]= ",ExpressionUUID->"02cea1d3-4df1-4c73-aae5-7938e66f6761"]
+ CellLabel->"Out[7]= ",ExpressionUUID->"cac7211b-e88d-46b0-b949-ee4e77e9bdb1"]
 }, Open  ]],
 
 Cell["\<\
 On the lattice every observer from corner to corner has twelve steps, so the \
 924 = (12 choose 6) observers are all worldlines. On the sprinkling only 21 \
 of the 49 observers from the first to the last event are longest chains.\
-\>", "Item",ExpressionUUID->"ba244e2d-06ac-40f4-8d1a-fd15e1de7f00"],
+\>", "Item",ExpressionUUID->"7b88d026-9cea-47d2-9fe5-6cb94e3425ce"],
 
 Cell[CellGroupData[{
 
@@ -6026,7 +6026,7 @@ Cell[BoxData[
           RowBox[{"1", ",", " ", "25"}], "]"}], ",", 
          " ", "\"\<Cardinality\>\""}], "]"}]}], "}"}]}], "}"}]}], 
   "]"}]], "Input",
- CellLabel->"In[8]:= ",ExpressionUUID->"674321d0-98b9-4f6a-9278-67dcff313faa"],
+ CellLabel->"In[8]:= ",ExpressionUUID->"b02af99d-ca4b-478b-b1bd-bdfc8836c27c"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -6035,7 +6035,7 @@ Cell[BoxData[
     RowBox[{"924", ",", "924"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"21", ",", "49"}], "}"}]}], "}"}]], "Output",
- CellLabel->"Out[8]= ",ExpressionUUID->"0e531be6-32cc-4c0a-9e49-3b78217c9374"]
+ CellLabel->"Out[8]= ",ExpressionUUID->"38cd20a7-0158-4d08-8fd4-a29226df2c2b"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -6053,7 +6053,7 @@ Cell[TextData[{
  StyleBox["m", "TI"],
  " + 1) has two events between. It will matter below, since the radar chart \
 accepts any chain."
-}], "Item",ExpressionUUID->"aca20e7c-4611-4e5b-af93-b7641c2e4d2e"],
+}], "Item",ExpressionUUID->"41a8597d-66b8-4ddc-b6ab-581a3bdce1e7"],
 
 Cell[CellGroupData[{
 
@@ -6094,15 +6094,15 @@ Cell[BoxData[
              RowBox[{"{", 
               RowBox[{"6", ",", " ", "6"}], "}"}]}], "]"}]}], "]"}]}], 
         ")"}]}], "]"}]}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[9]:= ",ExpressionUUID->"be783981-2f87-4ae0-b2a8-6b3b7480e9c7"],
+ CellLabel->"In[9]:= ",ExpressionUUID->"845aec19-d4f2-47ef-9f92-1d21982c7315"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"True", ",", "False", ",", "True"}], "}"}]], "Output",
- CellLabel->"Out[9]= ",ExpressionUUID->"4472d7e2-b85a-43c0-b364-5a78266d4978"]
+ CellLabel->"Out[9]= ",ExpressionUUID->"795d5553-2ed8-4bac-9d1f-b77256980f09"]
 }, Open  ]],
 
-Cell["Universal time", "Section",ExpressionUUID->"fcc4b518-260c-44d0-8ef7-24c3ac126fc0"],
+Cell["Universal time", "Section",ExpressionUUID->"c5eae4af-cc57-4f48-9e4b-0cde22d2b8aa"],
 
 Cell[TextData[{
  "The ",
@@ -6115,7 +6115,7 @@ level sets, the ",
  ", are antichains that partition the events. They are the simultaneity \
 surfaces that need no observer. On the lattice the slices are the \
 antidiagonals; on the sprinkling they are ragged."
-}], "Item",ExpressionUUID->"491be50f-74b9-4a1b-8d92-733d6df058d5"],
+}], "Item",ExpressionUUID->"fe385d52-690c-4769-b7cc-dfafa7be5ac0"],
 
 Cell[CellGroupData[{
 
@@ -6141,7 +6141,7 @@ Cell[BoxData[
         " ", "\"\<MinkowskiSprinkling2D\>\""}], "}"}]}], "}"}]}], 
    "]"}]}]], "Input",
  CellLabel->
-  "In[10]:= ",ExpressionUUID->"c0c91dae-738c-46e0-81f6-4443578f41d8"],
+  "In[10]:= ",ExpressionUUID->"3192a574-fe7d-472c-96f9-e01cc2c36ee9"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -7605,7 +7605,7 @@ Cell[BoxData[
   PlotRange->{{0, 623.6109082867231}, {-451.4878408839601, 0}},
   PlotRangePadding->Automatic]], "Output",
  CellLabel->
-  "Out[10]= ",ExpressionUUID->"53bbf6bd-0972-4ef2-9851-292c8c8cb168"]
+  "Out[10]= ",ExpressionUUID->"c0fd4116-9d6f-43d2-bf9e-6800e3b790a1"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -7614,7 +7614,7 @@ Cell[TextData[{
  "-th tick of the worldline above lies on the slice ",
  StyleBox["m", "TI"],
  " \[Minus] 1."
-}], "Item",ExpressionUUID->"b886c04b-ad01-4a06-af73-9ef2a7065689"],
+}], "Item",ExpressionUUID->"dc8f24c6-fc02-42b1-8c45-ee3677f49992"],
 
 Cell[CellGroupData[{
 
@@ -7644,7 +7644,7 @@ Cell[BoxData[
     RowBox[{"UniversalTime", "[", "g", "]"}], " ", "/@", " ", "a"}]}], 
   "]"}]], "Input",
  CellLabel->
-  "In[11]:= ",ExpressionUUID->"9e78e8e0-fa1b-4185-8421-d440f6cd30c1"],
+  "In[11]:= ",ExpressionUUID->"dcf6f1ff-a89b-4bcd-99de-794aa8b3833d"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -7652,10 +7652,10 @@ Cell[BoxData[
   "0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",",
     "8", ",", "9", ",", "10", ",", "11", ",", "12"}], "}"}]], "Output",
  CellLabel->
-  "Out[11]= ",ExpressionUUID->"3dfe4fd0-d23a-4f0a-be47-fb3899ed61df"]
+  "Out[11]= ",ExpressionUUID->"b8f041cf-bfe0-4159-bb51-759924158955"]
 }, Open  ]],
 
-Cell["Message functions", "Section",ExpressionUUID->"5c4b57a7-a657-4fae-ae5d-58e24df36357"],
+Cell["Message functions", "Section",ExpressionUUID->"46d10b6f-800d-47ad-9d5b-0e9a18cc5fd7"],
 
 Cell[TextData[{
  "Two observers ",
@@ -7689,7 +7689,7 @@ the discrete form of the Ehlers\[Dash]Pirani\[Dash]Schild axiom D1. An ",
  " composed with one back to ",
  StyleBox["a", "TI"],
  "."
-}], "Item",ExpressionUUID->"f31c4d4e-673f-4e1d-bcf6-35b5c9da2aaf"],
+}], "Item",ExpressionUUID->"10f6475d-00b9-4414-b0ee-597cf82d5bc0"],
 
 Cell[TextData[{
  "The worldline ",
@@ -7702,7 +7702,7 @@ messages from ",
  " to ",
  StyleBox["b", "TI"],
  " (orange)."
-}], "Item",ExpressionUUID->"4c1a5b14-5b04-4393-baf1-a5dc67023ff2"],
+}], "Item",ExpressionUUID->"1b28bac9-021e-438f-8814-3d9d8f7b5eb7"],
 
 Cell[CellGroupData[{
 
@@ -7752,7 +7752,7 @@ Cell[BoxData[
         RowBox[{"InfraWalk", "[", "b", "]"}], " ", "->", " ", 
         "StandardRed"}]}], "}"}]}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[12]:= ",ExpressionUUID->"af04d615-cec5-4186-9215-e78f74f9ee74"],
+  "In[12]:= ",ExpressionUUID->"339fc94e-b62d-488b-9fb6-109a9e51db31"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -8772,7 +8772,7 @@ Cell[BoxData[
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
  CellLabel->
-  "Out[12]= ",ExpressionUUID->"b02d01da-2c5f-4ef1-9d5b-7f55f445de87"]
+  "Out[12]= ",ExpressionUUID->"3d40bdee-59b2-4761-ab6d-883beb4b795b"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -8786,7 +8786,7 @@ are many message functions: 36 from ",
  " via ",
  StyleBox["b", "TI"],
  "."
-}], "Item",ExpressionUUID->"d2ad2a1f-8ae2-42d0-ab50-91f1316e171f"],
+}], "Item",ExpressionUUID->"8bce8742-2663-470d-9269-4fa399f4b600"],
 
 Cell[CellGroupData[{
 
@@ -8839,18 +8839,18 @@ Cell[BoxData[
         RowBox[{"a", ",", " ", "b"}], "]"}], ",", 
        " ", "\"\<Cardinality\>\""}], "]"}]}], "}"}]}], "]"}]], "Input",
  CellLabel->
-  "In[13]:= ",ExpressionUUID->"f5e1566e-ea80-4166-92f8-cd64a7d81b6e"],
+  "In[13]:= ",ExpressionUUID->"f175824b-13c2-4042-a330-663be714827a"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"36", ",", "24", ",", "168"}], "}"}]], "Output",
  CellLabel->
-  "Out[13]= ",ExpressionUUID->"52a6bd64-6e79-42ef-9e5f-9d8f99c4789c"]
+  "Out[13]= ",ExpressionUUID->"b85f070f-f164-40e2-934b-1de9441b21b5"]
 }, Open  ]],
 
 Cell["\<\
 One message function, drawn as the light rays from each tick to its image.\
-\>", "Item",ExpressionUUID->"eeaa29bc-95a3-4f2b-9f96-4bcfe1670bfc"],
+\>", "Item",ExpressionUUID->"c899440d-ab70-4438-b2f3-b293ad7440da"],
 
 Cell[CellGroupData[{
 
@@ -8919,7 +8919,7 @@ Cell[BoxData[
           RowBox[{"InfraWalk", "[", "b", "]"}], " ", "->", " ", 
           "StandardRed"}]}], "}"}]}], "]"}]}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[14]:= ",ExpressionUUID->"940744a1-2875-49d7-a410-a254defc5bdf"],
+  "In[14]:= ",ExpressionUUID->"f31e89ac-0ce6-4874-a325-ccaa2a994e59"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -10178,10 +10178,10 @@ Cell[BoxData[
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
  CellLabel->
-  "Out[14]= ",ExpressionUUID->"0acf8d37-9457-477b-9c51-a4dfba46c8c2"]
+  "Out[14]= ",ExpressionUUID->"8b80956c-aff3-4f00-b0e4-3bbe3f08d8a2"]
 }, Open  ]],
 
-Cell["The radar chart", "Section",ExpressionUUID->"c39476f9-7291-40e1-82b1-7fac713323f0"],
+Cell["The radar chart", "Section",ExpressionUUID->"82aaf6bf-c95e-4fad-96ee-f6c084b9b4eb"],
 
 Cell[TextData[{
  "The radar chart of an observer ",
@@ -10217,13 +10217,13 @@ Cell[TextData[{
  " \[Minus] ",
  StyleBox["i", "TI"],
  ")/2. A tick is its own emission and reception."
-}], "Item",ExpressionUUID->"b5823851-bd3e-4e4a-a455-942ad869c442"],
+}], "Item",ExpressionUUID->"983c370e-4885-42ed-9c66-39657b5273d0"],
 
 Cell["\<\
 The worldline on the lattice (left) and the radar domain redrawn at its chart \
 positions, distance across and time up (right). The worldline becomes the \
 vertical axis and the lattice unfolds to one side of it.\
-\>", "Item",ExpressionUUID->"5cf4b457-d881-42e1-8198-f025fd0b5d34"],
+\>", "Item",ExpressionUUID->"e3a05ba0-09fb-4512-97c8-42d32a88a492"],
 
 Cell[CellGroupData[{
 
@@ -10269,7 +10269,7 @@ Cell[BoxData[
           RowBox[{"InfraWalk", "[", "a", "]"}], " ", "->", " ", 
           "StandardRed"}], "}"}]}], "]"}]}], "}"}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[15]:= ",ExpressionUUID->"7a623c9e-b3b1-4082-a879-42fbb954d29d"],
+  "In[15]:= ",ExpressionUUID->"53de713f-9145-4dd0-97b4-ea38abffcd2e"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -11743,7 +11743,7 @@ Cell[BoxData[
   PlotRange->{{0, 479.2218164962618}, {-446.97568176550817`, 0}},
   PlotRangePadding->Automatic]], "Output",
  CellLabel->
-  "Out[15]= ",ExpressionUUID->"3336355e-ccf9-473a-abc2-73620c09f8e1"]
+  "Out[15]= ",ExpressionUUID->"bb7ede93-ff1f-4a63-a2ee-91fa01c67ba0"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -11751,7 +11751,7 @@ Cell[TextData[{
 coordinates. Radar time never decreases along an edge, and the ticks sit at {",
  StyleBox["m", "TI"],
  ", 0}."
-}], "Item",ExpressionUUID->"2545c0d0-eb77-4aeb-8038-050d3d215a5a"],
+}], "Item",ExpressionUUID->"2adb914a-0a32-4f53-8970-9c9184fece6d"],
 
 Cell[CellGroupData[{
 
@@ -11813,19 +11813,19 @@ Cell[BoxData[
           RowBox[{"Length", "[", "a", "]"}]}], "}"}]}], "]"}]}]}], "}"}]}], 
   "]"}]], "Input",
  CellLabel->
-  "In[16]:= ",ExpressionUUID->"f8328178-6965-4302-8843-50d44e74a7ba"],
+  "In[16]:= ",ExpressionUUID->"222147bc-acd1-4051-afdd-e42e29fa887b"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"49", ",", "49", ",", "True", ",", "True"}], "}"}]], "Output",
  CellLabel->
-  "Out[16]= ",ExpressionUUID->"75920f82-687b-4056-a7fc-631dfed0645d"]
+  "Out[16]= ",ExpressionUUID->"bdb5945a-c52d-4683-81fa-21935f386131"]
 }, Open  ]],
 
 Cell["\<\
 The base graph is the order the chart induces on its coordinate cells, drawn \
 at the cells.\
-\>", "Item",ExpressionUUID->"1c6c99e9-dc6c-40c7-8f78-c048fc7bfcc2"],
+\>", "Item",ExpressionUUID->"803e2668-0c8d-48c5-8ea7-4ad318125d43"],
 
 Cell[CellGroupData[{
 
@@ -11856,7 +11856,7 @@ Cell[BoxData[
      RowBox[{"InfraRadarChart", "[", "a", "]"}], ",", 
      " ", "\"\<BaseGraph\>\""}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[17]:= ",ExpressionUUID->"32d7d8a3-6618-48b4-a0ec-67b4d3fd61cc"],
+  "In[17]:= ",ExpressionUUID->"69d8c4dd-471f-4a87-b61b-b7cba12b379e"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -12359,10 +12359,10 @@ Cell[BoxData[
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
  CellLabel->
-  "Out[17]= ",ExpressionUUID->"b61625a9-0134-4bb9-b15c-85f91fb60dc3"]
+  "Out[17]= ",ExpressionUUID->"b97b5993-b042-4eb4-9748-aa2d5942e499"]
 }, Open  ]],
 
-Cell["The observer fibration", "Section",ExpressionUUID->"178bb7fa-3c0c-4e23-8631-04a0cf7292e1"],
+Cell["The observer fibration", "Section",ExpressionUUID->"7429cf06-e425-4397-b662-22153fd97180"],
 
 Cell[TextData[{
  "The ",
@@ -12377,7 +12377,7 @@ Cell[TextData[{
     "WolframInstitute/InfraGeometry Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "b472d7ee-5cdd-461c-a694-ebea629146ee"],
+  "9efbe109-bb68-4ced-a8cb-8306ea75ab02"],
  " whose total graph is the undirected radar domain and whose projection is \
 the chart. Its fibers are the coordinate cells, the events the observer \
 cannot tell apart, and the bundle functions of InfraGeometry apply to it \
@@ -12386,13 +12386,13 @@ unchanged. A ",
   FontWeight->"Bold"],
  " picks one event in every fiber; it is continuous when it maps base edges \
 to edges."
-}], "Item",ExpressionUUID->"22684a79-05d0-411b-b3ee-6285ae2466f4"],
+}], "Item",ExpressionUUID->"9fca8b19-7962-42b3-b111-e739f678b09a"],
 
 Cell["\<\
 For the worldline every fiber is a single event: the fibration is a fiber \
 bundle with a point as fiber, and it has exactly one continuous section, the \
 inverse of the chart.\
-\>", "Item",ExpressionUUID->"87e365fa-1f2a-4b50-9022-160069e8816c"],
+\>", "Item",ExpressionUUID->"0258661d-fb58-4a98-a49e-e714b740e8e1"],
 
 Cell[CellGroupData[{
 
@@ -12443,7 +12443,7 @@ Cell[BoxData[
          RowBox[{"RandomInfraSection", "[", "fib", "]"}]}], ")"}]}], "]"}]}], 
     "}"}]}], "]"}]], "Input",
  CellLabel->
-  "In[18]:= ",ExpressionUUID->"6aa25ae0-c647-4cd6-bb57-fb396fa10acf"],
+  "In[18]:= ",ExpressionUUID->"791c6bf9-5781-4f05-a24b-8547198d8173"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -12451,10 +12451,10 @@ Cell[BoxData[
    RowBox[{"{", "1", "}"}], ",", "True", ",", "True", ",", "1", ",", "True"}],
    "}"}]], "Output",
  CellLabel->
-  "Out[18]= ",ExpressionUUID->"495af41b-fe06-4799-8db2-9f0b763cbc78"]
+  "Out[18]= ",ExpressionUUID->"a7ecb250-6d2b-4815-98ef-db74609d6f45"]
 }, Open  ]],
 
-Cell["The diagonal fold", "Subsection",ExpressionUUID->"56e0c19e-5cc0-4c5b-b172-252444396625"],
+Cell["The diagonal fold", "Subsection",ExpressionUUID->"22786858-8184-4605-bd7d-aedaa5999ccb"],
 
 Cell[TextData[{
  "The diagonal {(",
@@ -12473,7 +12473,7 @@ unsigned, so its chart cannot tell left from right: the events (",
  ") get the same coordinates. The lattice with the diagonal (red) and the \
 events left of it (blue), beside the domain at its chart positions, where the \
 two halves lie on top of each other."
-}], "Item",ExpressionUUID->"b4002742-8fa4-4bad-b9cc-a2963e179324"],
+}], "Item",ExpressionUUID->"8ac60896-2cf8-45b0-b6b8-e395675e3d78"],
 
 Cell[CellGroupData[{
 
@@ -12524,7 +12524,7 @@ Cell[BoxData[
           RowBox[{"InfraWalk", "[", "diagonal", "]"}], " ", "->", " ", 
           "StandardRed"}], "}"}]}], "]"}]}], "}"}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[19]:= ",ExpressionUUID->"28082498-b4c5-49ec-ac6a-9d4a48cef570"],
+  "In[19]:= ",ExpressionUUID->"043bfa0c-ac7d-42da-b0a5-2a7121e16b47"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -13938,7 +13938,7 @@ Cell[BoxData[
   PlotRange->{{0, 479.2218164962618}, {-446.97568176550817`, 0}},
   PlotRangePadding->Automatic]], "Output",
  CellLabel->
-  "Out[19]= ",ExpressionUUID->"d3a3b002-5974-4d8b-b946-56f8ace2ad27"]
+  "Out[19]= ",ExpressionUUID->"73a1f70f-100b-4ab6-8bb8-307cde41b6bf"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -13953,7 +13953,7 @@ Cell[TextData[{
  ")} and the single events of the diagonal. The fold is a fibration, every \
 base edge lifts at every point, but no fiber bundle, since the fibers have \
 two sizes. Its two continuous sections are the two sides of the diagonal."
-}], "Item",ExpressionUUID->"3162430a-9ad7-4fd3-a294-8c4b73a9ebee"],
+}], "Item",ExpressionUUID->"7b0d6a8a-ff6b-462a-9f0f-3228a0584f65"],
 
 Cell[CellGroupData[{
 
@@ -14017,7 +14017,7 @@ Cell[BoxData[
              RowBox[{"Last", "[", "v", "]"}]}]}]}], "]"}]}], "}"}], "]"}]}]}],
      "}"}]}], "]"}]], "Input",
  CellLabel->
-  "In[20]:= ",ExpressionUUID->"753fdc96-401e-431c-be7f-8c4d2dec0705"],
+  "In[20]:= ",ExpressionUUID->"211d4f88-6d00-487c-920f-b5b05a78be2c"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -14026,7 +14026,7 @@ Cell[BoxData[
     RowBox[{"1", ",", "2"}], "}"}], ",", "True", ",", "False", ",", "True"}], 
   "}"}]], "Output",
  CellLabel->
-  "Out[20]= ",ExpressionUUID->"d6b08c97-0f74-40ab-9e59-6d8826adba2b"]
+  "Out[20]= ",ExpressionUUID->"54c0cea0-5ddc-45b6-99cd-6a55e3d8f56d"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -14037,7 +14037,7 @@ Cell[TextData[{
  " + 1)} runs beside the diagonal; on the 36 events both observers chart, the \
 joined chart, the two charts concatenated, is injective, and every fiber is a \
 single event."
-}], "Item",ExpressionUUID->"a44e433e-4cd2-48af-a3d2-6b90676d1c7b"],
+}], "Item",ExpressionUUID->"ee5d413a-3f6b-4ff2-846d-3d9bbb239c6b"],
 
 Cell[CellGroupData[{
 
@@ -14087,14 +14087,14 @@ Cell[BoxData[
           RowBox[{"g", ",", " ", "chart", ",", " ", "\"\<Fibration\>\""}], 
           "]"}]}]}]}], "]"}]}], "}"}]}], "]"}]], "Input",
  CellLabel->
-  "In[21]:= ",ExpressionUUID->"701462b4-948b-48b5-ae65-295a946b7db5"],
+  "In[21]:= ",ExpressionUUID->"7b96cc21-a455-4e6b-8567-d65a66ccedc2"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"36", ",", "True", ",", 
    RowBox[{"{", "1", "}"}]}], "}"}]], "Output",
  CellLabel->
-  "Out[21]= ",ExpressionUUID->"75962f10-d27d-46a1-ba68-efc94396390a"]
+  "Out[21]= ",ExpressionUUID->"593789d0-f291-4312-bc19-0018ba0b2686"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -14142,7 +14142,7 @@ Cell[BoxData[
         RowBox[{"InfraWalk", "[", "beside", "]"}], " ", "->", " ", 
         "StandardBlue"}]}], "}"}]}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[22]:= ",ExpressionUUID->"068867d0-0d1f-41fe-b0de-3b92be7b24b5"],
+  "In[22]:= ",ExpressionUUID->"1d60f431-4b70-4a43-b1ec-1d1c80c70be8"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -15121,10 +15121,10 @@ Cell[BoxData[
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
  CellLabel->
-  "Out[22]= ",ExpressionUUID->"c115c9cb-7373-4ec5-ace6-e651501c22b3"]
+  "Out[22]= ",ExpressionUUID->"af2f32b4-5885-45e2-a4e4-82e4c112b238"]
 }, Open  ]],
 
-Cell["The cylinder loop", "Subsection",ExpressionUUID->"6e082e6f-0f10-446f-8f1f-8fe00bb49173"],
+Cell["The cylinder loop", "Subsection",ExpressionUUID->"73ba884a-a41e-4479-98f8-e5e51b17ab20"],
 
 Cell[TextData[{
  "On the cylinder lattice light can go round the universe. The column {(0, ",
@@ -15134,7 +15134,7 @@ Cell[TextData[{
 the five events of the ray have emission tick 1 and reception tick 7 and \
 share the cell {4, 3}. The column (red), its radar domain (green) and the \
 loop (orange), beside the base graph."
-}], "Item",ExpressionUUID->"aca1729b-6fe7-472f-b99b-47e2ad242832"],
+}], "Item",ExpressionUUID->"8c88e692-72e6-4fc7-b413-8b9da2f2a9f2"],
 
 Cell[CellGroupData[{
 
@@ -15190,7 +15190,7 @@ Cell[BoxData[
         RowBox[{"InfraRadarChart", "[", "column", "]"}], ",", 
         " ", "\"\<BaseGraph\>\""}], "]"}]}], "}"}], "]"}]}], "]"}]], "Input",
  CellLabel->
-  "In[23]:= ",ExpressionUUID->"b99394d2-5380-4608-94d2-7cc181fb400e"],
+  "In[23]:= ",ExpressionUUID->"d4f1938b-dbad-473a-b806-f654b367215a"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -15934,7 +15934,7 @@ Cell[BoxData[
   PlotRange->{{0, 623.6109082095387}, {-451.4878408815481, 0}},
   PlotRangePadding->Automatic]], "Output",
  CellLabel->
-  "Out[23]= ",ExpressionUUID->"49084040-fcd7-421d-b68f-22c27771994e"]
+  "Out[23]= ",ExpressionUUID->"c8b60b71-d29d-4436-843e-da41c36d256f"]
 }, Open  ]],
 
 Cell["\<\
@@ -15942,7 +15942,7 @@ Here the observer space is not a fibration. The base edge from the cell {1, \
 0} of the first tick into the loop's cell {4, 3} lifts at (1, 1), the first \
 event of the ray, and at no other event of the fiber: the loop's interior \
 events are not adjacent to (0, 0).\
-\>", "Item",ExpressionUUID->"d0fff913-bc68-4fff-b760-505a4c87a4ed"],
+\>", "Item",ExpressionUUID->"10c93830-d658-484e-b66d-71326feb7477"],
 
 Cell[CellGroupData[{
 
@@ -15990,7 +15990,7 @@ Cell[BoxData[
              RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", "v"}], "]"}]}], 
          "]"}]}]}], "]"}]}], "}"}]}], "]"}]], "Input",
  CellLabel->
-  "In[24]:= ",ExpressionUUID->"9991322f-6e0b-43de-8428-36e6cc5f4ef1"],
+  "In[24]:= ",ExpressionUUID->"99b5fea4-b35f-458e-ab65-5b769ab296f6"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -16011,14 +16011,14 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"1", ",", "1"}], "}"}], "}"}]}], "}"}]], "Output",
  CellLabel->
-  "Out[24]= ",ExpressionUUID->"e57ebd96-2e93-4ff9-b1d0-c9f92b2c420c"]
+  "Out[24]= ",ExpressionUUID->"f42d0404-c49a-4067-9e5d-baba9e8ad351"]
 }, Open  ]],
 
 Cell["\<\
 Being a fibration is thus a property of the substrate as well as of the \
 observer. On the sprinkling, too, the chart of a longest chain identifies \
 events, 23 events on 15 cells, and is no fibration.\
-\>", "Item",ExpressionUUID->"0819c489-1e07-433d-8baf-449d8c762881"],
+\>", "Item",ExpressionUUID->"f5c2ebd0-1c28-4e4d-b072-b3f994e722ce"],
 
 Cell[CellGroupData[{
 
@@ -16055,16 +16055,16 @@ Cell[BoxData[
      RowBox[{"InfraFibrationQ", "[", "fib", "]"}]}], "}"}]}], "]"}]], "Input",\
 
  CellLabel->
-  "In[25]:= ",ExpressionUUID->"f41219fd-5178-42ad-b07a-f97619533a73"],
+  "In[25]:= ",ExpressionUUID->"09d7fe1f-c9aa-45bb-8fad-c2ba63bfcde7"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"23", ",", "15", ",", "False"}], "}"}]], "Output",
  CellLabel->
-  "Out[25]= ",ExpressionUUID->"c3449e2c-a7b4-4b17-bfc3-e919e7157f08"]
+  "Out[25]= ",ExpressionUUID->"a0fbee29-6667-49d8-afc6-93b563006a85"]
 }, Open  ]],
 
-Cell["Open questions", "Section",ExpressionUUID->"31796150-833a-445a-b986-b50345d6e0b9"],
+Cell["Open questions", "Section",ExpressionUUID->"ef980f29-6c24-46d4-8367-6fd5c556baf3"],
 
 Cell[TextData[{
  "The observer space is handed to InfraGeometry as an undirected fibration, \
@@ -16072,21 +16072,21 @@ because its bundle functions test undirected edges; the causal direction \
 survives only in the ",
  Cell[BoxData["\"\<Subgraph\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "adf099fa-9a61-452d-af51-057037c11abe"],
+  "2719f796-910a-43bf-9d8b-33cab6076a46"],
  " and ",
  Cell[BoxData["\"\<BaseGraph\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "9f9b687d-e773-4853-9e5d-5035af782084"],
+  "29e94fdd-b8ff-46bb-a01e-e7432f45dd5d"],
  " readings of the chart. Which bundle notions keep their meaning on the \
 directed domain?"
-}], "Item",ExpressionUUID->"63bc7c35-ad2c-4e6c-8fc5-7f3e6149c99c"],
+}], "Item",ExpressionUUID->"de523582-7e95-4551-b87a-d29cf94f2068"],
 
 Cell["\<\
 On the sprinkling a single longest chain identifies events and fails the \
 lifting condition. How many observers does a joined chart need before the \
 observer space of a sprinkling becomes a fibration, and how does that number \
 grow with the density?\
-\>", "Item",ExpressionUUID->"3495397b-449c-4f7b-b7eb-207f71a6ae33"],
+\>", "Item",ExpressionUUID->"00009647-57a0-422a-85bd-cf6ddd051755"],
 
 Cell[CellGroupData[{
 
@@ -16102,7 +16102,7 @@ Cell[TextData[{
     "paclet:WolframInstitute/InfraCausality/guide/CausalInfrageometry"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "4ae3c6e7-e98a-4bd2-b8e7-b6402c828d2a"],
+  "f3eaf644-4dad-4f9b-8d3e-605a476bd444"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -16111,7 +16111,7 @@ Cell[TextData[{
     "paclet:WolframInstitute/InfraCausality/guide/CausalTime"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "c40249ea-1b7e-42eb-8e9e-de1b88ca104b"],
+  "79da3b21-2f1d-4f83-9d3a-4c4e52420af1"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -16120,7 +16120,7 @@ Cell[TextData[{
     "paclet:WolframInstitute/InfraCausality/guide/InfraObservers"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "55014591-2173-42e5-a072-9d7dc9f61f75"],
+  "71494e9a-45cb-4968-94c2-5512aeb03fb7"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -16129,9 +16129,9 @@ Cell[TextData[{
     "paclet:WolframInstitute/InfraCausality/guide/CausalSubstrates"},
    "RefLinkPlain",
    BaseStyle->{"InlineFormula"}]], "InlineFormula",ExpressionUUID->
-  "8c5eb2bd-d561-4649-8c5b-0d2af5c3a507"]
-}], "TutorialMoreAbout",ExpressionUUID->"3275a655-2ce5-4883-ae86-\
-e48fdbaabbc4"]
+  "de3087dd-0d44-481d-98f1-e3af473d77f0"]
+}], "TutorialMoreAbout",ExpressionUUID->"ddf0611e-2c7b-4ea0-9507-\
+efec7b374411"]
 }, Open  ]],
 
 Cell["Related Tech Notes", "RelatedTutorialsSection",
@@ -16177,7 +16177,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
 Cell["\<\
 WolframInstitute/InfraCausality/tutorial/CausalInfrageometryTutorial\
 \>", "Categorization",
- CellLabel->"URI",ExpressionUUID->"7df71217-f5ed-4b50-bb1e-16d21a73c115"]
+ CellLabel->"URI",ExpressionUUID->"6fb41b0c-d5e4-4c79-bbc9-782b71c6bd8c"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -16261,152 +16261,152 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 163, 3, 70, "Title",ExpressionUUID->"4ddb5767-1f00-4973-a411-49eacd07850d",
  CellID->509267359],
-Cell[742, 27, 455, 14, 70, "Item",ExpressionUUID->"5b596e47-5a73-4851-aad9-6bd2b4d9ca02"],
-Cell[1200, 43, 327, 5, 70, "Item",ExpressionUUID->"bc7f7c1d-0506-4ab6-a5df-2e07a6f2e55c"],
-Cell[1530, 50, 1057, 25, 70, "Item",ExpressionUUID->"cf97b1ce-3ad6-4461-b191-c45ec2114dcb"],
-Cell[2590, 77, 279, 4, 70, "Item",ExpressionUUID->"577db67f-a0e2-455b-8da4-1de430b9c16a"],
-Cell[2872, 83, 79, 0, 70, "Section",ExpressionUUID->"04b44d54-7001-4cd5-b561-d0c0e36034cb"],
-Cell[2954, 85, 282, 6, 70, "Input",ExpressionUUID->"0c665e8b-d022-4025-907f-02fecc38d612"],
-Cell[3239, 93, 90, 0, 70, "Section",ExpressionUUID->"a2ae62a8-9f57-4668-9c65-97c88b039526"],
-Cell[3332, 95, 381, 5, 70, "Item",ExpressionUUID->"71253d45-4872-4d0b-905a-c9a0f7e86d1f"],
+Cell[742, 27, 455, 14, 70, "Item",ExpressionUUID->"55fa039a-355e-4139-a22f-1e7f4305b77f"],
+Cell[1200, 43, 327, 5, 70, "Item",ExpressionUUID->"8b6aa422-3f63-42b0-8464-bb80e9432076"],
+Cell[1530, 50, 1057, 25, 70, "Item",ExpressionUUID->"185e641d-42eb-4c22-bed4-2a16f1749d42"],
+Cell[2590, 77, 279, 4, 70, "Item",ExpressionUUID->"151ab7f8-ac1c-429e-8b70-768b7880d34b"],
+Cell[2872, 83, 79, 0, 70, "Section",ExpressionUUID->"486b5a7d-37b2-41f4-a3cf-32b3c53117e3"],
+Cell[2954, 85, 282, 6, 70, "Input",ExpressionUUID->"345b392c-a87c-417f-baec-a6fc77e0c407"],
+Cell[3239, 93, 90, 0, 70, "Section",ExpressionUUID->"72474a24-a170-403b-8ede-56bf717dd95a"],
+Cell[3332, 95, 381, 5, 70, "Item",ExpressionUUID->"59f074d4-b632-49cf-93f5-f10e43a69cad"],
 Cell[CellGroupData[{
-Cell[3738, 104, 543, 13, 70, "Input",ExpressionUUID->"e0dfa961-40cc-4bc6-960e-c65adb01b27e"],
-Cell[4284, 119, 78763, 1613, 70, "Output",ExpressionUUID->"2c38de26-e803-44d9-a159-73c513cc7539"]
+Cell[3738, 104, 543, 13, 70, "Input",ExpressionUUID->"cc2889e4-42da-4af8-b70b-534e0771babd"],
+Cell[4284, 119, 78763, 1613, 70, "Output",ExpressionUUID->"05d9efb0-4b8c-49b5-ac6d-811446e08913"]
 }, Open  ]],
-Cell[83062, 1735, 792, 32, 70, "Item",ExpressionUUID->"6ab77ed6-461b-4dcf-8bb0-03fe5dcf4538"],
+Cell[83062, 1735, 792, 32, 70, "Item",ExpressionUUID->"5f8eaa71-a6ef-4af0-87ae-98a7afb4537c"],
 Cell[CellGroupData[{
-Cell[83879, 1771, 1045, 26, 70, "Input",ExpressionUUID->"0469169a-1dcf-40e4-8ee7-75d33541f93f"],
-Cell[84927, 1799, 110, 1, 70, "Output",ExpressionUUID->"11fc62ed-bce1-45a2-9acb-e34e49fbae34"]
+Cell[83879, 1771, 1045, 26, 70, "Input",ExpressionUUID->"514a831d-3909-486a-8d08-0e735b85c3a9"],
+Cell[84927, 1799, 110, 1, 70, "Output",ExpressionUUID->"47d1a2dc-e086-4b6b-a7e5-0aad8568cbf4"]
 }, Open  ]],
-Cell[85052, 1803, 92, 0, 70, "Section",ExpressionUUID->"61b6c565-8100-4be2-b330-cda9b1e8157d"],
-Cell[85147, 1805, 986, 44, 70, "Item",ExpressionUUID->"db21f5be-a2a5-451b-8dff-a6580c8cb69a"],
-Cell[86136, 1851, 233, 3, 70, "Item",ExpressionUUID->"57ceeaa5-0acc-4d75-a9b5-2fa5d0995f8b"],
+Cell[85052, 1803, 92, 0, 70, "Section",ExpressionUUID->"0112e656-1d5e-4981-8372-e9f439b3c63c"],
+Cell[85147, 1805, 986, 44, 70, "Item",ExpressionUUID->"55f51b25-da2e-41fa-a94a-a7171a50b092"],
+Cell[86136, 1851, 233, 3, 70, "Item",ExpressionUUID->"faae3a24-8423-4b07-ab92-ebad84fb1f81"],
 Cell[CellGroupData[{
-Cell[86394, 1858, 1665, 43, 70, "Input",ExpressionUUID->"c57d05be-3c32-4d66-a21e-436dd6c85863"],
-Cell[88062, 1903, 96994, 2020, 70, "Output",ExpressionUUID->"4a9b6d6a-fdf2-498c-b9a0-1c1322a49e97"]
+Cell[86394, 1858, 1665, 43, 70, "Input",ExpressionUUID->"54225f32-eb8e-4519-8ec4-9becf99087f4"],
+Cell[88062, 1903, 96994, 2020, 70, "Output",ExpressionUUID->"a3d8eb8b-a3d8-4291-bec9-9391df8d3230"]
 }, Open  ]],
-Cell[185071, 3926, 435, 19, 70, "Item",ExpressionUUID->"08bf28e6-d07d-4247-8480-28b4ec3998a7"],
+Cell[185071, 3926, 435, 19, 70, "Item",ExpressionUUID->"7b8cb472-c3b6-43ad-91a5-4b5531ebef80"],
 Cell[CellGroupData[{
-Cell[185531, 3949, 685, 17, 70, "Input",ExpressionUUID->"bf213072-4c71-47df-87a1-abb64a4dd36e"],
-Cell[186219, 3968, 108, 1, 70, "Output",ExpressionUUID->"17f2caca-2dfe-4f77-9b1e-ad8ba785c2ed"]
+Cell[185531, 3949, 685, 17, 70, "Input",ExpressionUUID->"647c9913-bb36-43c7-b3f5-2ad843dac336"],
+Cell[186219, 3968, 108, 1, 70, "Output",ExpressionUUID->"be062fad-ffe8-4de2-9e5c-dcceb2de200d"]
 }, Open  ]],
-Cell[186342, 3972, 260, 4, 70, "Item",ExpressionUUID->"50d1ab53-2dee-4447-ac10-50b484342e25"],
+Cell[186342, 3972, 260, 4, 70, "Item",ExpressionUUID->"f0092411-77ee-4112-9ae0-46944e455162"],
 Cell[CellGroupData[{
-Cell[186627, 3980, 742, 18, 70, "Input",ExpressionUUID->"a68be482-5792-4a8c-87e2-e8103393e5d6"],
-Cell[187372, 4000, 35212, 706, 70, "Output",ExpressionUUID->"4b01553e-eab5-4a9d-90c1-6fc9063f0ea7"]
+Cell[186627, 3980, 742, 18, 70, "Input",ExpressionUUID->"3f3758f9-6261-49e6-89b2-97a789c4ff0b"],
+Cell[187372, 4000, 35212, 706, 70, "Output",ExpressionUUID->"28600f48-c6b8-49e7-b693-cbe4b2e52ff6"]
 }, Open  ]],
-Cell[222599, 4709, 98, 0, 70, "Section",ExpressionUUID->"7c8898bf-a798-4cee-9d43-4ed0de7782c4"],
-Cell[222700, 4711, 680, 20, 70, "Item",ExpressionUUID->"510a373f-0361-40ea-8638-1e8f9a0f5912"],
-Cell[223383, 4733, 148, 2, 70, "Item",ExpressionUUID->"8007531d-5e4a-45f9-91c3-9761837e9032"],
+Cell[222599, 4709, 98, 0, 70, "Section",ExpressionUUID->"54a25691-c4c8-4387-b6a8-b62f18fe5a2b"],
+Cell[222700, 4711, 680, 20, 70, "Item",ExpressionUUID->"180f58a2-08c0-48d2-b549-d7ab3c6c2761"],
+Cell[223383, 4733, 148, 2, 70, "Item",ExpressionUUID->"6e091fc1-2474-4b3e-a7b7-31ccb6f6c04b"],
 Cell[CellGroupData[{
-Cell[223556, 4739, 1381, 37, 70, "Input",ExpressionUUID->"16b780c2-20e6-4946-9dc5-41a69ec67d2a"],
-Cell[224940, 4778, 56540, 1191, 70, "Output",ExpressionUUID->"02cea1d3-4df1-4c73-aae5-7938e66f6761"]
+Cell[223556, 4739, 1381, 37, 70, "Input",ExpressionUUID->"bf15f994-3719-4b3d-a401-40b45f669d69"],
+Cell[224940, 4778, 56540, 1191, 70, "Output",ExpressionUUID->"cac7211b-e88d-46b0-b949-ee4e77e9bdb1"]
 }, Open  ]],
-Cell[281495, 5972, 308, 4, 70, "Item",ExpressionUUID->"ba244e2d-06ac-40f4-8d1a-fd15e1de7f00"],
+Cell[281495, 5972, 308, 4, 70, "Item",ExpressionUUID->"7b88d026-9cea-47d2-9fe5-6cb94e3425ce"],
 Cell[CellGroupData[{
-Cell[281828, 5980, 1903, 48, 70, "Input",ExpressionUUID->"674321d0-98b9-4f6a-9278-67dcff313faa"],
-Cell[283734, 6030, 256, 7, 70, "Output",ExpressionUUID->"0e531be6-32cc-4c0a-9e49-3b78217c9374"]
+Cell[281828, 5980, 1903, 48, 70, "Input",ExpressionUUID->"b02af99d-ca4b-478b-b1bd-bdfc8836c27c"],
+Cell[283734, 6030, 256, 7, 70, "Output",ExpressionUUID->"38cd20a7-0158-4d08-8fd4-a29226df2c2b"]
 }, Open  ]],
-Cell[284005, 6040, 424, 15, 70, "Item",ExpressionUUID->"aca20e7c-4611-4e5b-af93-b7641c2e4d2e"],
+Cell[284005, 6040, 424, 15, 70, "Item",ExpressionUUID->"41a8597d-66b8-4ddc-b6ab-581a3bdce1e7"],
 Cell[CellGroupData[{
-Cell[284454, 6059, 1412, 37, 70, "Input",ExpressionUUID->"be783981-2f87-4ae0-b2a8-6b3b7480e9c7"],
-Cell[285869, 6098, 172, 3, 70, "Output",ExpressionUUID->"4472d7e2-b85a-43c0-b364-5a78266d4978"]
+Cell[284454, 6059, 1412, 37, 70, "Input",ExpressionUUID->"845aec19-d4f2-47ef-9f92-1d21982c7315"],
+Cell[285869, 6098, 172, 3, 70, "Output",ExpressionUUID->"795d5553-2ed8-4bac-9d1f-b77256980f09"]
 }, Open  ]],
-Cell[286056, 6104, 88, 0, 70, "Section",ExpressionUUID->"fcc4b518-260c-44d0-8ef7-24c3ac126fc0"],
-Cell[286147, 6106, 476, 11, 70, "Item",ExpressionUUID->"491be50f-74b9-4a1b-8d92-733d6df058d5"],
+Cell[286056, 6104, 88, 0, 70, "Section",ExpressionUUID->"c5eae4af-cc57-4f48-9e4b-0cde22d2b8aa"],
+Cell[286147, 6106, 476, 11, 70, "Item",ExpressionUUID->"fe385d52-690c-4769-b7cc-dfafa7be5ac0"],
 Cell[CellGroupData[{
-Cell[286648, 6121, 818, 22, 70, "Input",ExpressionUUID->"c0c91dae-738c-46e0-81f6-4443578f41d8"],
-Cell[287469, 6145, 73386, 1462, 70, "Output",ExpressionUUID->"53bbf6bd-0972-4ef2-9851-292c8c8cb168"]
+Cell[286648, 6121, 818, 22, 70, "Input",ExpressionUUID->"3192a574-fe7d-472c-96f9-e01cc2c36ee9"],
+Cell[287469, 6145, 73386, 1462, 70, "Output",ExpressionUUID->"c0fd4116-9d6f-43d2-bf9e-6800e3b790a1"]
 }, Open  ]],
-Cell[360870, 7610, 267, 6, 70, "Item",ExpressionUUID->"b886c04b-ad01-4a06-af73-9ef2a7065689"],
+Cell[360870, 7610, 267, 6, 70, "Item",ExpressionUUID->"dc8f24c6-fc02-42b1-8c45-ee3677f49992"],
 Cell[CellGroupData[{
-Cell[361162, 7620, 944, 26, 70, "Input",ExpressionUUID->"9e78e8e0-fa1b-4185-8421-d440f6cd30c1"],
-Cell[362109, 7648, 276, 6, 70, "Output",ExpressionUUID->"3dfe4fd0-d23a-4f0a-be47-fb3899ed61df"]
+Cell[361162, 7620, 944, 26, 70, "Input",ExpressionUUID->"dcf6f1ff-a89b-4bcd-99de-794aa8b3833d"],
+Cell[362109, 7648, 276, 6, 70, "Output",ExpressionUUID->"b8f041cf-bfe0-4159-bb51-759924158955"]
 }, Open  ]],
-Cell[362400, 7657, 91, 0, 70, "Section",ExpressionUUID->"5c4b57a7-a657-4fae-ae5d-58e24df36357"],
-Cell[362494, 7659, 847, 32, 70, "Item",ExpressionUUID->"f31c4d4e-673f-4e1d-bcf6-35b5c9da2aaf"],
-Cell[363344, 7693, 342, 11, 70, "Item",ExpressionUUID->"4c1a5b14-5b04-4393-baf1-a5dc67023ff2"],
+Cell[362400, 7657, 91, 0, 70, "Section",ExpressionUUID->"46d10b6f-800d-47ad-9d5b-0e9a18cc5fd7"],
+Cell[362494, 7659, 847, 32, 70, "Item",ExpressionUUID->"10f6475d-00b9-4414-b0ee-597cf82d5bc0"],
+Cell[363344, 7693, 342, 11, 70, "Item",ExpressionUUID->"1b28bac9-021e-438f-8814-3d9d8f7b5eb7"],
 Cell[CellGroupData[{
-Cell[363711, 7708, 1685, 46, 70, "Input",ExpressionUUID->"af04d615-cec5-4186-9215-e78f74f9ee74"],
-Cell[365399, 7756, 47702, 1018, 70, "Output",ExpressionUUID->"b02d01da-2c5f-4ef1-9d5b-7f55f445de87"]
+Cell[363711, 7708, 1685, 46, 70, "Input",ExpressionUUID->"339fc94e-b62d-488b-9fb6-109a9e51db31"],
+Cell[365399, 7756, 47702, 1018, 70, "Output",ExpressionUUID->"3d40bdee-59b2-4761-ab6d-883beb4b795b"]
 }, Open  ]],
-Cell[413116, 8777, 361, 11, 70, "Item",ExpressionUUID->"d2ad2a1f-8ae2-42d0-ab50-91f1316e171f"],
+Cell[413116, 8777, 361, 11, 70, "Item",ExpressionUUID->"8bce8742-2663-470d-9269-4fa399f4b600"],
 Cell[CellGroupData[{
-Cell[413502, 8792, 1870, 49, 70, "Input",ExpressionUUID->"f5e1566e-ea80-4166-92f8-cd64a7d81b6e"],
-Cell[415375, 8843, 170, 4, 70, "Output",ExpressionUUID->"52a6bd64-6e79-42ef-9e5f-9d8f99c4789c"]
+Cell[413502, 8792, 1870, 49, 70, "Input",ExpressionUUID->"f175824b-13c2-4042-a330-663be714827a"],
+Cell[415375, 8843, 170, 4, 70, "Output",ExpressionUUID->"b85f070f-f164-40e2-934b-1de9441b21b5"]
 }, Open  ]],
-Cell[415560, 8850, 153, 2, 70, "Item",ExpressionUUID->"eeaa29bc-95a3-4f2b-9f96-4bcfe1670bfc"],
+Cell[415560, 8850, 153, 2, 70, "Item",ExpressionUUID->"c899440d-ab70-4438-b2f3-b293ad7440da"],
 Cell[CellGroupData[{
-Cell[415738, 8856, 2395, 65, 70, "Input",ExpressionUUID->"940744a1-2875-49d7-a410-a254defc5bdf"],
-Cell[418136, 8923, 58762, 1257, 70, "Output",ExpressionUUID->"0acf8d37-9457-477b-9c51-a4dfba46c8c2"]
+Cell[415738, 8856, 2395, 65, 70, "Input",ExpressionUUID->"f31e89ac-0ce6-4874-a325-ccaa2a994e59"],
+Cell[418136, 8923, 58762, 1257, 70, "Output",ExpressionUUID->"8b80956c-aff3-4f00-b0e4-3bbe3f08d8a2"]
 }, Open  ]],
-Cell[476913, 10183, 89, 0, 70, "Section",ExpressionUUID->"c39476f9-7291-40e1-82b1-7fac713323f0"],
-Cell[477005, 10185, 838, 34, 70, "Item",ExpressionUUID->"b5823851-bd3e-4e4a-a455-942ad869c442"],
-Cell[477846, 10221, 291, 4, 70, "Item",ExpressionUUID->"5cf4b457-d881-42e1-8198-f025fd0b5d34"],
+Cell[476913, 10183, 89, 0, 70, "Section",ExpressionUUID->"82aaf6bf-c95e-4fad-96ee-f6c084b9b4eb"],
+Cell[477005, 10185, 838, 34, 70, "Item",ExpressionUUID->"983c370e-4885-42ed-9c66-39657b5273d0"],
+Cell[477846, 10221, 291, 4, 70, "Item",ExpressionUUID->"e3a05ba0-09fb-4512-97c8-42d32a88a492"],
 Cell[CellGroupData[{
-Cell[478162, 10229, 1601, 42, 70, "Input",ExpressionUUID->"7a623c9e-b3b1-4082-a879-42fbb954d29d"],
-Cell[479766, 10273, 72178, 1472, 70, "Output",ExpressionUUID->"3336355e-ccf9-473a-abc2-73620c09f8e1"]
+Cell[478162, 10229, 1601, 42, 70, "Input",ExpressionUUID->"53de713f-9145-4dd0-97b4-ea38abffcd2e"],
+Cell[479766, 10273, 72178, 1472, 70, "Output",ExpressionUUID->"bb7ede93-ff1f-4a63-a2ee-91fa01c67ba0"]
 }, Open  ]],
-Cell[551959, 11748, 269, 5, 70, "Item",ExpressionUUID->"2545c0d0-eb77-4aeb-8038-050d3d215a5a"],
+Cell[551959, 11748, 269, 5, 70, "Item",ExpressionUUID->"2adb914a-0a32-4f53-8970-9c9184fece6d"],
 Cell[CellGroupData[{
-Cell[552253, 11757, 2190, 58, 70, "Input",ExpressionUUID->"f8328178-6965-4302-8843-50d44e74a7ba"],
-Cell[554446, 11817, 184, 4, 70, "Output",ExpressionUUID->"75920f82-687b-4056-a7fc-631dfed0645d"]
+Cell[552253, 11757, 2190, 58, 70, "Input",ExpressionUUID->"222147bc-acd1-4051-afdd-e42e29fa887b"],
+Cell[554446, 11817, 184, 4, 70, "Output",ExpressionUUID->"bdb5945a-c52d-4683-81fa-21935f386131"]
 }, Open  ]],
-Cell[554645, 11824, 171, 3, 70, "Item",ExpressionUUID->"1c6c99e9-dc6c-40c7-8f78-c048fc7bfcc2"],
+Cell[554645, 11824, 171, 3, 70, "Item",ExpressionUUID->"803e2668-0c8d-48c5-8ea7-4ad318125d43"],
 Cell[CellGroupData[{
-Cell[554841, 11831, 1020, 27, 70, "Input",ExpressionUUID->"32d7d8a3-6618-48b4-a0ec-67b4d3fd61cc"],
-Cell[555864, 11860, 21896, 501, 70, "Output",ExpressionUUID->"b61625a9-0134-4bb9-b15c-85f91fb60dc3"]
+Cell[554841, 11831, 1020, 27, 70, "Input",ExpressionUUID->"69d8c4dd-471f-4a87-b61b-b7cba12b379e"],
+Cell[555864, 11860, 21896, 501, 70, "Output",ExpressionUUID->"b97b5993-b042-4eb4-9748-aa2d5942e499"]
 }, Open  ]],
-Cell[577775, 12364, 96, 0, 70, "Section",ExpressionUUID->"178bb7fa-3c0c-4e23-8631-04a0cf7292e1"],
-Cell[577874, 12366, 893, 22, 70, "Item",ExpressionUUID->"22684a79-05d0-411b-b3ee-6285ae2466f4"],
-Cell[578770, 12390, 255, 4, 70, "Item",ExpressionUUID->"87e365fa-1f2a-4b50-9022-160069e8816c"],
+Cell[577775, 12364, 96, 0, 70, "Section",ExpressionUUID->"7429cf06-e425-4397-b662-22153fd97180"],
+Cell[577874, 12366, 893, 22, 70, "Item",ExpressionUUID->"9fca8b19-7962-42b3-b111-e739f678b09a"],
+Cell[578770, 12390, 255, 4, 70, "Item",ExpressionUUID->"0258661d-fb58-4a98-a49e-e714b740e8e1"],
 Cell[CellGroupData[{
-Cell[579050, 12398, 1853, 47, 70, "Input",ExpressionUUID->"6aa25ae0-c647-4cd6-bb57-fb396fa10acf"],
-Cell[580906, 12447, 222, 6, 70, "Output",ExpressionUUID->"495af41b-fe06-4799-8db2-9f0b763cbc78"]
+Cell[579050, 12398, 1853, 47, 70, "Input",ExpressionUUID->"791c6bf9-5781-4f05-a24b-8547198d8173"],
+Cell[580906, 12447, 222, 6, 70, "Output",ExpressionUUID->"a7ecb250-6d2b-4815-98ef-db74609d6f45"]
 }, Open  ]],
-Cell[581143, 12456, 94, 0, 70, "Subsection",ExpressionUUID->"56e0c19e-5cc0-4c5b-b172-252444396625"],
-Cell[581240, 12458, 602, 17, 70, "Item",ExpressionUUID->"b4002742-8fa4-4bad-b9cc-a2963e179324"],
+Cell[581143, 12456, 94, 0, 70, "Subsection",ExpressionUUID->"22786858-8184-4605-bd7d-aedaa5999ccb"],
+Cell[581240, 12458, 602, 17, 70, "Item",ExpressionUUID->"8ac60896-2cf8-45b0-b6b8-e395675e3d78"],
 Cell[CellGroupData[{
-Cell[581867, 12479, 1835, 47, 70, "Input",ExpressionUUID->"28082498-b4c5-49ec-ac6a-9d4a48cef570"],
-Cell[583705, 12528, 67228, 1412, 70, "Output",ExpressionUUID->"d3a3b002-5974-4d8b-b946-56f8ace2ad27"]
+Cell[581867, 12479, 1835, 47, 70, "Input",ExpressionUUID->"043bfa0c-ac7d-42da-b0a5-2a7121e16b47"],
+Cell[583705, 12528, 67228, 1412, 70, "Output",ExpressionUUID->"73a1f70f-100b-4ab6-8bb8-307cde41b6bf"]
 }, Open  ]],
-Cell[650948, 13943, 461, 12, 70, "Item",ExpressionUUID->"3162430a-9ad7-4fd3-a294-8c4b73a9ebee"],
+Cell[650948, 13943, 461, 12, 70, "Item",ExpressionUUID->"7b0d6a8a-ff6b-462a-9f0f-3228a0584f65"],
 Cell[CellGroupData[{
-Cell[651434, 13959, 2376, 60, 70, "Input",ExpressionUUID->"753fdc96-401e-431c-be7f-8c4d2dec0705"],
-Cell[653813, 14021, 238, 7, 70, "Output",ExpressionUUID->"d6b08c97-0f74-40ab-9e59-6d8826adba2b"]
+Cell[651434, 13959, 2376, 60, 70, "Input",ExpressionUUID->"211d4f88-6d00-487c-920f-b5b05a78be2c"],
+Cell[653813, 14021, 238, 7, 70, "Output",ExpressionUUID->"54c0cea0-5ddc-45b6-99cd-6a55e3d8f56d"]
 }, Open  ]],
-Cell[654066, 14031, 363, 8, 70, "Item",ExpressionUUID->"a44e433e-4cd2-48af-a3d2-6b90676d1c7b"],
+Cell[654066, 14031, 363, 8, 70, "Item",ExpressionUUID->"ee5d413a-3f6b-4ff2-846d-3d9bbb239c6b"],
 Cell[CellGroupData[{
-Cell[654454, 14043, 1797, 46, 70, "Input",ExpressionUUID->"701462b4-948b-48b5-ae65-295a946b7db5"],
-Cell[656254, 14091, 194, 5, 70, "Output",ExpressionUUID->"75962f10-d27d-46a1-ba68-efc94396390a"]
+Cell[654454, 14043, 1797, 46, 70, "Input",ExpressionUUID->"7b96cc21-a455-4e6b-8567-d65a66ccedc2"],
+Cell[656254, 14091, 194, 5, 70, "Output",ExpressionUUID->"593789d0-f291-4312-bc19-0018ba0b2686"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[656485, 14101, 1557, 43, 70, "Input",ExpressionUUID->"068867d0-0d1f-41fe-b0de-3b92be7b24b5"],
-Cell[658045, 14146, 44672, 977, 70, "Output",ExpressionUUID->"c115c9cb-7373-4ec5-ace6-e651501c22b3"]
+Cell[656485, 14101, 1557, 43, 70, "Input",ExpressionUUID->"1d60f431-4b70-4a43-b1ec-1d1c80c70be8"],
+Cell[658045, 14146, 44672, 977, 70, "Output",ExpressionUUID->"af2f32b4-5885-45e2-a4e4-82e4c112b238"]
 }, Open  ]],
-Cell[702732, 15126, 94, 0, 70, "Subsection",ExpressionUUID->"6e082e6f-0f10-446f-8f1f-8fe00bb49173"],
-Cell[702829, 15128, 528, 8, 70, "Item",ExpressionUUID->"aca1729b-6fe7-472f-b99b-47e2ad242832"],
+Cell[702732, 15126, 94, 0, 70, "Subsection",ExpressionUUID->"73ba884a-a41e-4479-98f8-e5e51b17ab20"],
+Cell[702829, 15128, 528, 8, 70, "Item",ExpressionUUID->"8c88e692-72e6-4fc7-b413-8b9da2f2a9f2"],
 Cell[CellGroupData[{
-Cell[703382, 15140, 2065, 52, 70, "Input",ExpressionUUID->"b99394d2-5380-4608-94d2-7cc181fb400e"],
-Cell[705450, 15194, 35809, 742, 70, "Output",ExpressionUUID->"49084040-fcd7-421d-b68f-22c27771994e"]
+Cell[703382, 15140, 2065, 52, 70, "Input",ExpressionUUID->"d4f1938b-dbad-473a-b806-f654b367215a"],
+Cell[705450, 15194, 35809, 742, 70, "Output",ExpressionUUID->"c8b60b71-d29d-4436-843e-da41c36d256f"]
 }, Open  ]],
-Cell[741274, 15939, 345, 5, 70, "Item",ExpressionUUID->"d0fff913-bc68-4fff-b760-505a4c87a4ed"],
+Cell[741274, 15939, 345, 5, 70, "Item",ExpressionUUID->"10c93830-d658-484e-b66d-71326feb7477"],
 Cell[CellGroupData[{
-Cell[741644, 15948, 1669, 44, 70, "Input",ExpressionUUID->"9991322f-6e0b-43de-8428-36e6cc5f4ef1"],
-Cell[743316, 15994, 589, 19, 70, "Output",ExpressionUUID->"e57ebd96-2e93-4ff9-b1d0-c9f92b2c420c"]
+Cell[741644, 15948, 1669, 44, 70, "Input",ExpressionUUID->"99b5fea4-b35f-458e-ab65-5b769ab296f6"],
+Cell[743316, 15994, 589, 19, 70, "Output",ExpressionUUID->"f42d0404-c49a-4067-9e5d-baba9e8ad351"]
 }, Open  ]],
-Cell[743920, 16016, 280, 4, 70, "Item",ExpressionUUID->"0819c489-1e07-433d-8baf-449d8c762881"],
+Cell[743920, 16016, 280, 4, 70, "Item",ExpressionUUID->"f5c2ebd0-1c28-4e4d-b072-b3f994e722ce"],
 Cell[CellGroupData[{
-Cell[744225, 16024, 1263, 33, 70, "Input",ExpressionUUID->"f41219fd-5178-42ad-b07a-f97619533a73"],
-Cell[745491, 16059, 172, 4, 70, "Output",ExpressionUUID->"c3449e2c-a7b4-4b17-bfc3-e919e7157f08"]
+Cell[744225, 16024, 1263, 33, 70, "Input",ExpressionUUID->"09d7fe1f-c9aa-45bb-8fad-c2ba63bfcde7"],
+Cell[745491, 16059, 172, 4, 70, "Output",ExpressionUUID->"a0fbee29-6667-49d8-afc6-93b563006a85"]
 }, Open  ]],
-Cell[745678, 16066, 88, 0, 70, "Section",ExpressionUUID->"31796150-833a-445a-b986-b50345d6e0b9"],
-Cell[745769, 16068, 639, 13, 70, "Item",ExpressionUUID->"63bc7c35-ad2c-4e6c-8fc5-7f3e6149c99c"],
-Cell[746411, 16083, 331, 5, 70, "Item",ExpressionUUID->"3495397b-449c-4f7b-b7eb-207f71a6ae33"],
+Cell[745678, 16066, 88, 0, 70, "Section",ExpressionUUID->"ef980f29-6c24-46d4-8367-6fd5c556baf3"],
+Cell[745769, 16068, 639, 13, 70, "Item",ExpressionUUID->"de523582-7e95-4551-b87a-d29cf94f2068"],
+Cell[746411, 16083, 331, 5, 70, "Item",ExpressionUUID->"00009647-57a0-422a-85bd-cf6ddd051755"],
 Cell[CellGroupData[{
 Cell[746767, 16092, 190, 2, 70, "TutorialMoreAboutSection",ExpressionUUID->"5257eb3e-c622-464d-9014-cc39ccdeadf5",
  CellID->23220180],
-Cell[746960, 16096, 1291, 37, 70, "TutorialMoreAbout",ExpressionUUID->"3275a655-2ce5-4883-ae86-e48fdbaabbc4"]
+Cell[746960, 16096, 1291, 37, 70, "TutorialMoreAbout",ExpressionUUID->"ddf0611e-2c7b-4ea0-9507-efec7b374411"]
 }, Open  ]],
 Cell[748266, 16136, 128, 1, 70, "RelatedTutorialsSection",ExpressionUUID->"b2e45423-8573-455e-a176-5d94c88daeca",
  CellID->415694126]
@@ -16425,7 +16425,7 @@ Cell[749310, 16168, 159, 2, 70, "Categorization",ExpressionUUID->"5ee37782-a9f3-
  CellID->605800465],
 Cell[749472, 16172, 156, 2, 70, "Categorization",ExpressionUUID->"ede4e8bf-a791-499c-bac0-9252a967c621",
  CellID->468444828],
-Cell[749631, 16176, 176, 3, 70, "Categorization",ExpressionUUID->"7df71217-f5ed-4b50-bb1e-16d21a73c115"]
+Cell[749631, 16176, 176, 3, 70, "Categorization",ExpressionUUID->"6fb41b0c-d5e4-4c79-bbc9-782b71c6bd8c"]
 }, Closed]],
 Cell[CellGroupData[{
 Cell[749844, 16184, 111, 1, 70, "KeywordsSection",ExpressionUUID->"cad3e2f5-97ed-4ec0-b746-8f0b1d4c7db5",
