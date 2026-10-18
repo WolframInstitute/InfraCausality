@@ -87,6 +87,23 @@ InfraWorldline /: InfraMeasurement[ graph_Graph, InfraWorldline[ p_, q_ ], "Leng
 InfraWorldline /: InfraMeasurement[ graph_Graph, InfraWorldline[ ], "Length" ] :=
   Max[ 0, Values @ UniversalTime @ graph ]
 
+InfraWorldline /: InfraMeasurement[ graph_Graph, InfraWorldline[ p_ ], "Graph" ] :=
+  With[ { future = Subgraph[ graph, VertexOutComponent[ graph, { p } ] ] },
+    { up = UniversalTime @ future, down = UniversalTime @ ReverseGraph @ future },
+    { carriers = Select[ VertexList @ future, up[ # ] + down[ # ] == Max @ Values @ up & ] },
+    Graph[ carriers, Select[ EdgeList @ Subgraph[ future, carriers ], up[ Last @ # ] == up[ First @ # ] + 1 & ] ] ]
+
+InfraWorldline /: InfraMeasurement[ graph_Graph, InfraWorldline[ p_ ], "Length" ] :=
+  Max @ Values @ UniversalTime @ Subgraph[ graph, VertexOutComponent[ graph, { p } ] ]
+
+InfraWorldline /: InfraMeasurement[ graph_Graph, InfraWorldline[ knots : Repeated[ _, { 3, Infinity } ] ], "Graph" ] :=
+  With[ { legs = InfraMeasurement[ graph, InfraWorldline @@ #, "Graph" ] & /@ Partition[ { knots }, 2, 1 ] },
+    If[ AnyTrue[ legs, VertexCount @ # == 0 & ], Graph[ { }, { } ],
+      Graph[ DeleteDuplicates @ Catenate[ VertexList /@ legs ], Catenate[ EdgeList /@ legs ] ] ] ]
+
+InfraWorldline /: InfraMeasurement[ graph_Graph, InfraWorldline[ knots : Repeated[ _, { 3, Infinity } ] ], "Length" ] :=
+  Total[ InfraMeasurement[ graph, InfraWorldline @@ #, "Length" ] & /@ Partition[ { knots }, 2, 1 ] ]
+
 InfraWorldline /: InfraMeasurement[ _Graph, _InfraWorldline, "Faithful" ] :=
   True
 

@@ -14,6 +14,28 @@ $cylinder = Graph[ Flatten @ Table[
 
 $shortcut = Graph[ { 1 -> 2, 2 -> 3, 3 -> 4, 1 -> 5, 5 -> 4, 1 -> 3 } ];
 
+$lattice = Graph[ Flatten @ Table[
+  Select[ { { i, j } -> { i + 1, j }, { i, j } -> { i, j + 1 } }, Max @ Last @ # <= 4 & ],
+  { i, 0, 4 }, { j, 0, 4 } ] ];
+
+$knots = { { 0, 0 }, { 2, 1 }, { 4, 4 } };
+
+$cuts = { g, knots } |-> Accumulate @ Prepend[ InfraMeasurement[ g, InfraWorldline @@ #, "Length" ] & /@ Partition[ knots, 2, 1 ], 1 ];
+
+$polylineQ = { g, knots } |-> With[ { members = RandomInfraWorldline[ g, InfraWorldline @@ knots, All ], cuts = $cuts[ g, knots ] },
+  InfraMeasurement[ g, InfraWorldline @@ knots, "Cardinality" ] == Length @ members ==
+      Times @@ ( InfraMeasurement[ g, InfraWorldline @@ #, "Cardinality" ] & /@ Partition[ knots, 2, 1 ] ) &&
+    InfraMeasurement[ g, InfraWorldline @@ knots, "Length" ] == Total[ InfraMeasurement[ g, InfraWorldline @@ #, "Length" ] & /@ Partition[ knots, 2, 1 ] ] &&
+    AllTrue[ members, m |-> m[[ cuts ]] === knots && InfraChainQ[ g, m ] && InfraObserverQ[ g, m ] &&
+      AllTrue[ Range[ Length @ knots - 1 ], i |-> InfraWorldlineQ[ g, Take[ m, { cuts[[ i ]], cuts[[ i + 1 ]] } ] ] ] ] ];
+
+$fromQ = { g, p } |-> With[ { members = RandomInfraWorldline[ g, InfraWorldline[ p ], All ], future = VertexOutComponent[ g, { p } ] },
+  { height = Max[ InfraMeasurement[ g, InfraWorldline[ p, # ], "Length" ] & /@ future ] },
+  InfraMeasurement[ g, InfraWorldline[ p ], "Length" ] == height &&
+    InfraMeasurement[ g, InfraWorldline[ p ], "Cardinality" ] == Length @ members &&
+    Sort @ members === Sort @ Catenate[ Select[ $longestPaths[ g, p, # ], Length @ # == height + 1 & ] & /@ future ] &&
+    InfraWorldlineQ[ g, members ] ];
+
 $comparablePairs = g |-> Select[ Tuples[ VertexList @ g, 2 ], pair |-> MemberQ[ VertexOutComponent[ g, { First @ pair } ], Last @ pair ] ];
 
 $paths = { g, p, q } |-> If[ p === q, { { p } }, FindPath[ g, p, q, Infinity, All ] ];
@@ -164,6 +186,63 @@ VerificationTest[
       Abs[ Count[ Table[ RandomInfraObserver[ g, 1, 7 ], 1500 ], { 1, 2, 4, 7 } ] / 1500. - 1 / 3 ] < 0.04 ] ],
   True,
   TestID -> "RandomInfraObserver-Branching-uniform-over-members"
+]
+
+VerificationTest[
+  Values @ InfraMeasurement[ $lattice, InfraWorldline @@ $knots, { "Cardinality", "Length" } ],
+  { Binomial[ 3, 1 ] Binomial[ 5, 2 ], 3 + 5 },
+  TestID -> "InfraWorldline-Lattice-polyline-product-cardinality-and-summed-length"
+]
+
+VerificationTest[ $polylineQ[ $lattice, $knots ], True, TestID -> "InfraWorldline-Lattice-polyline-members-concatenate-leg-worldlines" ]
+
+VerificationTest[
+  $polylineQ[ $lattice, { { 0, 0 }, { 1, 1 }, { 2, 1 }, { 4, 4 } } ] && $polylineQ[ $cylinder, { { 0, 0 }, { 1, 1 }, { 1, 3 } } ] && $polylineQ[ $shortcut, { 1, 3, 4 } ],
+  True,
+  TestID -> "InfraWorldline-Lattice-Cylinder-Shortcut-polyline-members-concatenate-leg-worldlines"
+]
+
+VerificationTest[
+  With[ { members = RandomInfraWorldline[ $lattice, InfraWorldline @@ $knots, All ] },
+    AllTrue[ RandomInfraObserver[ $lattice, InfraObserver[ { 0, 0 }, { 4, 4 } ], All ],
+      path |-> InfraMemberQ[ $lattice, InfraWorldline @@ $knots, path ] === MemberQ[ members, path ] ] ],
+  True,
+  TestID -> "InfraWorldline-Lattice-polyline-InfraMemberQ-agrees-with-sampler"
+]
+
+VerificationTest[
+  With[ { bad = InfraWorldline[ { 0, 0 }, { 4, 4 }, { 2, 1 } ] },
+    { RandomInfraWorldline[ $lattice, bad, All ], RandomInfraWorldline[ $lattice, bad ], InfraMeasurement[ $lattice, bad, "Cardinality" ] } ],
+  { { }, { }, 0 },
+  TestID -> "InfraWorldline-Lattice-non-monotone-knots-empty-family"
+]
+
+VerificationTest[
+  With[ { members = RandomInfraWorldline[ $lattice, InfraWorldline[ { 1, 1 } ], All ] },
+    { Length @ members, Union[ Last /@ members ], Union[ Length /@ members ] - 1, InfraMeasurement[ $lattice, InfraWorldline[ { 1, 1 } ], "Length" ] } ],
+  { 20, { { 4, 4 } }, { 6 }, 6 },
+  TestID -> "InfraWorldline-Lattice-from-event-twenty-longest-chains-to-the-top"
+]
+
+VerificationTest[
+  $fromQ[ $lattice, { 1, 1 } ] && $fromQ[ $cylinder, { 0, 0 } ] && $fromQ[ $shortcut, 1 ] && $fromQ[ $twoSource, 1 ] &&
+    $fromQ[ Graph[ { 1 -> 2, 2 -> 3, 1 -> 4, 4 -> 5, 1 -> 6 } ], 1 ],
+  True,
+  TestID -> "InfraWorldline-Lattice-Cylinder-Shortcut-TwoSource-Branching-from-event-longest-chains"
+]
+
+VerificationTest[
+  { RandomInfraWorldline[ $twoSource, InfraWorldline[ 2 ], All ], RandomInfraWorldline[ $twoSource, InfraWorldline[ 5 ], All ] },
+  { { { 2, 4, 5 } }, { { 5 } } },
+  TestID -> "InfraWorldline-TwoSource-from-event-literal"
+]
+
+VerificationTest[
+  With[ { members = RandomInfraWorldline[ $lattice, InfraWorldline[ { 1, 1 } ], All ] },
+    AllTrue[ members, InfraMemberQ[ $lattice, InfraWorldline[ { 1, 1 } ], # ] & ] &&
+      ! InfraMemberQ[ $lattice, InfraWorldline[ { 1, 1 } ], { { 1, 1 }, { 2, 1 }, { 3, 1 } } ] ],
+  True,
+  TestID -> "InfraWorldline-Lattice-from-event-InfraMemberQ-agrees-with-sampler"
 ]
 
 EndTestSection[]

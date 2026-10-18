@@ -5,7 +5,7 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraWorldline
-Keywords: [worldline, timelike geodesic, longest chain, proper time, maximal chain, twin paradox, symbolic object]
+Keywords: [worldline, timelike geodesic, longest chain, proper time, maximal chain, twin paradox, polyline worldline, piecewise geodesic, symbolic object]
 SeeAlso: [RandomInfraWorldline, InfraWorldlineQ, InfraObserver, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, InfraChainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
@@ -15,6 +15,10 @@ RelatedGuides: [CausalInfrageometry]
 <code>[InfraWorldline]()[*p*, *q*]</code> is the family of timelike geodesics from *p* to *q*: every longest chain from *p* to *q* at once.
 
 <code>[InfraWorldline]()[]</code> is the family of longest chains of the whole graph.
+
+<code>[InfraWorldline]()[*p*1, …, *pk*]</code> is the family of piecewise geodesics through the knots *p*1 ≺ … ≺ *pk*: a longest chain from each knot to the next, concatenated.
+
+<code>[InfraWorldline]()[*p*]</code> is the family of longest chains starting at *p*.
 
 ## Details & Options
 
@@ -36,6 +40,8 @@ The head holds its two events and computes nothing. Its graph, <code>[`InfraMeas
 <code>[InfraWorldline]()[]</code> is the same construction on the whole graph: the chains from a source to a sink whose length is the height of the graph, the maximum of [UniversalTime]().
 
 A member is a vertex list in causal order; [RandomInfraWorldline]() draws members uniformly, and [InfraWorldlineQ]() recognises one. Every worldline is an observer, a saturated chain; see [InfraObserver]().
+
+Experimental: the two further call forms are the same construction on other graphs. <code>[InfraWorldline]()[*p*1, …, *pk*]</code>, with *k* ≥ 3, is the polyline whose legs are the worldlines from *p*<sub>*i*</sub> to *p*<sub>*i*+1</sub>; its `"Graph"` is the union of the legs' graphs, which meet only at the knots, so every path from *p*1 to *pk* passes every knot and is a member, `"Length"` is the sum τ(*p*1, *p*2) + … + τ(*p*<sub>*k*−1</sub>, *pk*) of the legs' proper times and `"Cardinality"` the product of their cardinalities. A member is a piecewise geodesic, the discrete twin who turns at the knots; between the same endpoints it is at most as long as a worldline. When some knot does not precede the next the family is empty. <code>[InfraWorldline]()[*p*]</code> is the family of longest chains that start at *p*: with *h* the largest proper time τ(*p*, *e*) over the causal future of *p*, its `"Graph"` keeps the events *v* of *J*⁺(*p*) with τ(*p*, *v*) + τ⁻(*v*) = *h*, where τ⁻(*v*) is the longest chain from *v* inside *J*⁺(*p*), and the edges along which τ(*p*, ·) rises by one; its `"Length"` is *h*. Both forms are sampled by [RandomInfraWorldline]() and recognised by <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)</code> like the two-event form.
 
 Corresponding notions:
 
@@ -98,6 +104,63 @@ With[
   InfraSubstrateHighlight[g, {InfraWorldline[]}]]
 ```
 
+## Scope
+
+### Experimental: polyline worldlines
+
+The piecewise geodesics through three knots of the diamond lattice: a worldline from the first knot to the second, then from the second to the third. Every member passes the middle knot.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  InfraSubstrateHighlight[g, {InfraWorldline[{0, 0}, {4, 1}, {6, 6}], {0, 0}, {4, 1}, {6, 6}}]]
+```
+
+The proper time of the polyline is the sum of its legs' proper times, and its cardinality is their product, 5 times 21.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  Values @ InfraMeasurement[g, InfraWorldline[{0, 0}, {4, 1}, {6, 6}], {"Length", "Cardinality"}]]
+```
+
+Three members drawn as walks. Each one turns at the middle knot.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {members = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {4, 1}, {6, 6}], 3])},
+  GraphicsRow @ Table[InfraSubstrateHighlight[g, {InfraWalk[member]}], {member, members}]]
+```
+
+A polyline on the sprinkling, through an event of the first slice, an event of its future and an event of that one's future.
+
+```wl
+With[
+  {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
+  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[4]]])},
+  {r = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, q], RandomInfraSlice[g, InfraSlice[7]]])},
+  InfraSubstrateHighlight[g, {InfraWorldline[p, q, r], p, q, r}]]
+```
+
+The longest chains starting at an event of the diamond lattice all end at the top corner; their proper time is the height of the event's future.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  InfraSubstrateHighlight[g, {InfraWorldline[{2, 1}], {2, 1}}]]
+```
+
+The longest chains starting at an event of the sprinkling, and their proper time.
+
+```wl
+With[
+  {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
+  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+  {InfraSubstrateHighlight[g, {InfraWorldline[p], p}], InfraMeasurement[g, InfraWorldline[p], "Length"]}]
+```
+
 ## Properties and Relations
 
 The cardinality is the number of members, and every member is a chain of τ(*p*, *q*) + 1 events that passes [InfraWorldlineQ]().
@@ -131,4 +194,37 @@ With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   AllTrue[Select[Tuples[VertexList[g], 2], Apply[{p, q} |-> MemberQ[RandomInfraCausalFuture[g, p], q]]], Apply[{p, q} |->
     InfraMeasurement[g, InfraWorldline[p, q], "Length"] == UniversalTime[InfraMeasurement[g, InfraCausalDiamond[p, q], "Subgraph"]][q]]]]
+```
+
+The members of a polyline are the concatenations of one worldline per leg: the cardinality is the product of the legs' cardinalities, the proper time their sum, and splitting a member at the knots gives a worldline on each leg.
+
+```wl
+Table[
+  With[
+    {g = CausalSubstrate[name, "Small"]},
+    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[3]]])},
+    {r = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, q], RandomInfraSlice[g, InfraSlice[5]]])},
+    {members = RandomInfraWorldline[g, InfraWorldline[p, q, r], All],
+     cuts = Accumulate @ {1, InfraMeasurement[g, InfraWorldline[p, q], "Length"], InfraMeasurement[g, InfraWorldline[q, r], "Length"]}},
+    Length[members] == InfraMeasurement[g, InfraWorldline[p, q, r], "Cardinality"] ==
+        InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"] InfraMeasurement[g, InfraWorldline[q, r], "Cardinality"] &&
+      InfraMeasurement[g, InfraWorldline[p, q, r], "Length"] == Last[cuts] - 1 &&
+      AllTrue[members, member |-> InfraWorldlineQ[g, Take[member, cuts[[{1, 2}]]]] && InfraWorldlineQ[g, Take[member, cuts[[{2, 3}]]]]]],
+  {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
+```
+
+The longest chains starting at *p* are worldlines from *p* to events of its future at the largest proper time from *p*.
+
+```wl
+Table[
+  With[
+    {g = CausalSubstrate[name, "Small"]},
+    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {members = RandomInfraWorldline[g, InfraWorldline[p], All],
+     height = Max[InfraMeasurement[g, InfraWorldline[p, #], "Length"] & /@ RandomInfraCausalFuture[g, p]]},
+    InfraMeasurement[g, InfraWorldline[p], "Length"] == height &&
+      Union[Length /@ members] == {height + 1} && InfraWorldlineQ[g, members] &&
+      AllTrue[members, InfraMemberQ[g, InfraWorldline[p], #] &]],
+  {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
