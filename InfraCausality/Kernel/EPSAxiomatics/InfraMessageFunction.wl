@@ -6,6 +6,8 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 PackageScope[ messageRelation ]
 
+PackageScope[ messageDomain ]
+
 PackageScope[ selectionDAG ]
 
 PackageScope[ monotoneSelections ]

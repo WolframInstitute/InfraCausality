@@ -30,19 +30,19 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 | `"Cardinality"` | the number of message functions: the number of source-to-sink paths of the selection graph, counted by dynamic programming over the ticks of *a* |
 | `"Faithful"` | `True`: the correspondence between members and source-to-sink paths of the selection graph is exact |
 
-A member is an association from the ticks of *a* with a message to ticks of *b*. [InfraMessageFunctionQ]() recognises one, and the experimental [RandomInfraMessageFunction]() draws members uniformly or enumerates them, as paths of the `"SelectionGraph"`: the two graphs differ in that `"Graph"` is the relation itself, while `"SelectionGraph"` is the chain-head DAG through which `"Cardinality"` and the sampler read the members. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the light rays that carry its messages.
+A member is an association from the ticks of *a* with a message to ticks of *b*. [InfraMessageFunctionQ]() recognises one, and [RandomInfraMessageFunction]() draws members uniformly or enumerates them, as paths of the `"SelectionGraph"`: the two graphs differ in that `"Graph"` is the relation itself, while `"SelectionGraph"` is the chain-head DAG through which `"Cardinality"` and the sampler read the members. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the light rays that carry its messages.
 
-Experimental: the EPS defects measure how far the relation is from a monotone bijection of *a* onto *b*, the message function of two inertial observers in Minkowski space. They are read on a window of *a*, the ticks that remain after the option `"Margin" -> b` drops *b* ticks at each end (default 0), given as a fourth argument; the images stay in the whole of *b*. With *M*(*v*) the image of a window tick and *n* the window size:
+The EPS defects measure how far the relation is from a monotone bijection of *a* onto *b*, the message function of two inertial observers in Minkowski space. They are read on a window of *a*, the ticks that remain after the option `"Margin" -> b` drops *b* ticks at each end (default 0), given as a fourth argument; the images stay in the whole of *b*. With *M*(*v*) the image of a window tick and *n* the window size:
 
 | Property | Value |
 |---|---|
 | `"DomainDefect"` | #{*v* : *M*(*v*) = ∅} / *n*, the fraction of ticks without a message |
 | `"FunctionDefect"` | the mean over the window of max(0, \|*M*(*v*)\| − 1) / max(1, \|*M*(*v*)\|), zero exactly when every image has at most one tick |
 | `"InjectivityDefect"` | 1 − ν / *n*, with ν the size of a maximum matching of the bipartite graph of the relation |
-| `"OrderDefect"` | the fraction of ordered tick pairs *v* before *w* in the window for which some image of *v* comes after some image of *w* on *b* |
+| `"OrderDefect"` | the fraction of ordered tick pairs *v* before *w* in the window for which some image of *v* comes after some image of *w* on *b*; equal single images are no violation |
 | `"KFactor"` | the ratio of received to sent tick spans of the earliest-image selection: with *v*, *w* the first and last window ticks that have a message, (pos *f*(*w*) − pos *f*(*v*)) / (pos *w* − pos *v*), positions counted on *b* and on *a* |
 
-The four defects lie in [0, 1]; the injectivity defect is at least the domain defect, since a matching uses no tick without a message. The k-factor is the graph form of the Bondi factor: in Minkowski space an inertial observer receding at speed *v* receives the ticks of another at *k* = √((1 + *v*)/(1 − *v*)) proper seconds per second sent. On a graph the tick spans are chain lengths, so the reading is a clock-rate statement, and it is the Bondi factor only where ticks count proper time. On the diamond lattice the chain {(*m*, *m*)} at rest sends its ticks one to one to the chain {(2*m*, *m*)} of velocity 1/3, k-factor 1 instead of √2, because that chain's ticks are √2 times longer in proper time; the echo read on the resting clock alone recovers √2, see [InfraEchoFunction]().
+The four defects lie in [0, 1]; the injectivity defect is at least the domain defect, since a matching uses no tick without a message. The order defect compares image spans weakly, so a tie, two ticks with the same single image, is a defect of injectivity and not of order; strict monotonicity is the vanishing of both. All four vanish exactly when the relation is a single-valued map with strictly increasing images, axiom D1 on the window. The k-factor is the graph form of the Bondi factor: in Minkowski space an inertial observer receding at speed *v* receives the ticks of another at *k* = √((1 + *v*)/(1 − *v*)) proper seconds per second sent. On a graph the tick spans are chain lengths, so the reading is a clock-rate statement, and it is the Bondi factor only where ticks count proper time. On the diamond lattice the chain {(*m*, *m*)} at rest sends its ticks one to one to the chain {(2*m*, *m*)} of velocity 1/3, k-factor 1 instead of √2, because that chain's ticks are √2 times longer in proper time; the echo read on the resting clock alone recovers √2, see [InfraEchoFunction]().
 
 Corresponding notions:
 
@@ -109,7 +109,7 @@ With[
 
 ## Scope
 
-### Experimental readings
+### Defects and the k-factor
 
 The lattice observers at rest, the chain {(*m*, *m*)} and its parallel {(*m*, *m* + 2)}, exchange their ticks one to one: on the interior window the four defects vanish and the k-factor is 1.
 
@@ -219,7 +219,7 @@ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-The experimental defects lie in the unit interval, and the injectivity defect is at least the domain defect.
+The defects lie in the unit interval, and the injectivity defect is at least the domain defect.
 
 ```wl
 Table[

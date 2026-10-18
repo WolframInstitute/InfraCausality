@@ -56,12 +56,9 @@ PackageExport[InfraMessageFunction]
 PackageExport[InfraEchoFunction]
 PackageExport[InfraMessageFunctionQ]
 PackageExport[InfraEchoFunctionQ]
-PackageExport[InfraRadarCoordinates]
-
-(* Experimental: selections *)
-
 PackageExport[RandomInfraMessageFunction]
 PackageExport[RandomInfraEchoFunction]
+PackageExport[InfraRadarCoordinates]
 
 (* CausalSubstrates *)
 

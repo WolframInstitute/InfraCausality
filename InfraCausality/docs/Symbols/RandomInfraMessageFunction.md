@@ -5,7 +5,7 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraMessageFunction
-Keywords: [message function, monotone selection, sampler, uniform, count contract, EPS axioms, experimental]
+Keywords: [message function, monotone selection, sampler, uniform, count contract, EPS axioms, axiom D1]
 SeeAlso: [InfraMessageFunction, InfraMessageFunctionQ, RandomInfraEchoFunction, InfraEchoFunction, MessageFunctionViewer]
 RelatedGuides: [EPSAxiomatics]
 ---
@@ -17,8 +17,6 @@ RelatedGuides: [EPSAxiomatics]
 <code>[RandomInfraMessageFunction]()[*g*, [InfraMessageFunction]()[*a*, *b*], *n*]</code> gives a `List` of *n* distinct message functions, or `{}` when there are fewer; `UpTo[n]` gives at most *n*; `All` gives every one.
 
 ## Details & Options
-
-Experimental: selections.
 
 Definition: the members of <code>[InfraMessageFunction]()[*a*, *b*]</code> are the monotone single-valued selections *f* of the message relation *M*(*v*) = *E*⁺(*v*) ∩ *b*, defined on the ticks with *M*(*v*) ≠ ∅ ([InfraMessageFunctionQ]()). They are the source-to-sink paths of a layered selection graph: one layer per tick with a message, one node per admissible image, and an edge between consecutive layers when the image does not move backwards on *b*. The sampler draws these paths with the chain engine of [RandomInfraTimelikeGeodesic](), uniformly, by path-count weights, and reads each path back as an association.
 

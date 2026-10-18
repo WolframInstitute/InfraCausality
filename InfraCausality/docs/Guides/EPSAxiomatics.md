@@ -22,27 +22,23 @@ An observer is a worldline, a saturated chain, whose positions are read as the t
 - `InfraMessageFunction` the message relation from observer $a$ to observer $b$, $v \mapsto E^+(v) \cap b$, whose members are its monotone single-valued selections
 - `InfraEchoFunction` the echo relation of $a$ via $b$, a message to $b$ returned to $a$, whose members are the compositions $f_{ba} \circ f_{ab}$ of two message functions
 
+- `RandomInfraMessageFunction` random message functions, drawn uniformly by the path weights of the selection graph; All enumerates them
+- `RandomInfraEchoFunction` random echo functions, drawn uniformly from the distinct compositions; All enumerates them
+
 - `InfraMessageFunctionQ`, `InfraEchoFunctionQ`
 
 ### Radar coordinates
 
 - `InfraRadarCoordinates` the radar coordinates of one observer: radar time $(i + j)/2$ and radar distance $(j - i)/2$ of every event in the radar domain, with its time and distance marginals, its domain (a set head, read by its vertex density), the directed subgraph on the domain and the base graph on the coordinate cells
-
-### Experimental: selections
-
-- `RandomInfraMessageFunction`, `RandomInfraEchoFunction` random monotone selections of a message relation and random echo compositions; All enumerates them
-
-### Experimental: joined radar coordinates
-
 - `InfraRadarCoordinates` of a list of observers, the joined radar coordinates: the coordinates concatenated on the common radar domain; a second observer unfolds the mirror of the first
 
-### Experimental: the observer space
+### The observer space
 
 - `InfraMeasurement` (InfraGeometry) of a chart: "Fibration", the observer space, the undirected radar domain fibered over the chart, whose fibers are the events the observer cannot tell apart
 - `InfraFibration` (InfraGeometry), `InfraFibers` (InfraGeometry), `InfraBaseGraph` (InfraGeometry), `InfraSection` (InfraGeometry), `InfraConnection` (InfraGeometry), `InfraHolonomy` (InfraGeometry)
 
 - `InfraFibrationQ` (InfraGeometry), `InfraFiberBundleQ` (InfraGeometry)
 
-### Experimental: EPS defects
+### Distance from the axioms
 
 - `InfraMeasurement` (InfraGeometry) of a message or echo relation: "DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", how far the relation is from a monotone bijection on the window left by the option "Margin", and "KFactor", the Bondi factor of two observers from their tick-span ratios, exact on the lattice for the chains $\{((p+1)m, pm)\}$ of velocity $1/(2p+1)$

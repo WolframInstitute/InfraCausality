@@ -139,4 +139,39 @@ VerificationTest[
   TestID -> "RandomInfraEchoFunction-diamond6-count-contract"
 ]
 
+VerificationTest[
+  With[ { head = InfraEchoFunction[ $stairShifted, $stair ] },
+    SeedRandom[ 1 ];
+    With[ { counts = Counts @ Table[ RandomInfraEchoFunction[ $diamond6, head ], 300 ] },
+      Length @ counts == InfraMeasurement[ $diamond6, head, "Cardinality" ] && AllTrue[ Values @ counts, c |-> Abs[ c / 300 - 1 / 13 ] < 0.05 ] ] ],
+  True,
+  TestID -> "RandomInfraEchoFunction-diamond6-uniform-over-the-thirteen-members"
+]
+
+VerificationTest[
+  With[ { head = InfraEchoFunction[ $stair, $stairShifted ] },
+    RandomInfraEchoFunction[ $diamond6, head, 3, "NextVertexFunction" -> Identity ] ===
+      Take[ SortBy[ RandomInfraEchoFunction[ $diamond6, head, All ], Values ], 3 ] ],
+  True,
+  TestID -> "RandomInfraEchoFunction-diamond6-identity-first-in-sorted-order"
+]
+
+VerificationTest[
+  With[ { head = InfraEchoFunction[ $stair, $stairShifted ] },
+    Sort @ RandomInfraEchoFunction[ $diamond6, head, All, "NextVertexFunction" -> RandomSample ] === Sort @ RandomInfraEchoFunction[ $diamond6, head, All ] ],
+  True,
+  TestID -> "RandomInfraEchoFunction-diamond6-random-sample-permutes-the-enumeration"
+]
+
+VerificationTest[
+  With[ { head = InfraEchoFunction[ $stair, $stairShifted ] },
+    { walks = ( SeedRandom[ 2 ]; RandomInfraEchoFunction[ $diamond6, head, 5, "NextVertexFunction" -> RandomChoice ] ) },
+    { Length @ walks, DuplicateFreeQ @ walks, AllTrue[ walks, f |-> InfraEchoFunctionQ[ $diamond6, head, f ] ],
+      RandomInfraEchoFunction[ $diamond6, head, 25, "NextVertexFunction" -> RandomChoice ],
+      Length @ RandomInfraEchoFunction[ $diamond6, head, UpTo[ 30 ], "NextVertexFunction" -> RandomChoice ],
+      MatchQ[ RandomInfraEchoFunction[ $diamond6, head, All, "NextVertexFunction" -> RandomChoice ], _RandomInfraEchoFunction ] } ],
+  { 5, True, True, { }, 24, True },
+  TestID -> "RandomInfraEchoFunction-diamond6-random-walks-are-distinct-members-and-keep-the-count-contract"
+]
+
 EndTestSection[]
