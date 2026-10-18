@@ -42,7 +42,7 @@ $sprinklingPair = seed |-> With[ { g = ( SeedRandom[ seed ]; RandomCausalGraph[ 
   { pb = First[ Select[ Rest @ early, p |-> ! MemberQ[ VertexOutComponent[ g, { pa } ], p ] && ! MemberQ[ VertexInComponent[ g, { pa } ], p ] ], early[[ 2 ]] ] },
   { qa = $target[ g, c, pa, 0, 0.05 ], qb = $target[ g, c, pb, 0.35, 0.05 ] },
   { va = $velocity[ c, pa, qa ], vb = $velocity[ c, pb, qb ] },
-  { a = ( SeedRandom[ seed ]; RandomInfraWorldline[ g, pa, qa ] ), b = RandomInfraWorldline[ g, pb, qb ] },
+  { a = ( SeedRandom[ seed ]; RandomInfraTimelikeGeodesic[ g, pa, qa ] ), b = RandomInfraTimelikeGeodesic[ g, pb, qb ] },
   { g, a, b, ( vb - va ) / ( 1 - va vb ) } ];
 
 VerificationTest[

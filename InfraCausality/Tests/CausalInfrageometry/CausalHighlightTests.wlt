@@ -12,7 +12,7 @@ $column = { g, k } |-> Select[ VertexList @ g, v |-> First @ v == k ];
 
 $heads = { g, p, q, a, b } |-> {
   InfraCausalFuture[ p ], InfraCausalPast[ q ], InfraCausalDiamond[ p, q ], InfraSlice[ 1 ],
-  InfraWorldline[ p, q ], InfraObserver[ p, q ], InfraFutureLightCone[ p ], InfraPastLightCone[ q ],
+  InfraTimelikeGeodesic[ p, q ], InfraObserver[ p, q ], InfraFutureLightCone[ p ], InfraPastLightCone[ q ],
   InfraMessageFunction[ a, b ], InfraEchoFunction[ a, b ] };
 
 $cases = {
@@ -33,7 +33,7 @@ $cabinet = Apply[ { x, y, t } |-> { x + y / ( 2 Sqrt[ 2 ] ), t + y / ( 2 Sqrt[ 2
 $spatial = name |-> With[ { g = CausalSubstrate[ name, "Small", "KeepCoordinates" -> True ] },
   { p = First @ Pick[ VertexList @ g, VertexInDegree @ g, 0 ] },
   { q = Last @ TopologicalSort @ Subgraph[ g, VertexOutComponent[ g, p ] ] },
-  { a = ( SeedRandom[ 1 ]; RandomInfraWorldline[ g, InfraWorldline[ p, q ] ] ) },
+  { a = ( SeedRandom[ 1 ]; RandomInfraTimelikeGeodesic[ g, InfraTimelikeGeodesic[ p, q ] ] ) },
   { r = InfraSubstrateHighlight[ g, { InfraCausalFuture[ p ] -> StandardOrange, InfraWalk[ a ] -> StandardGreen } ] },
   { Dimensions @ GraphEmbedding @ g, GraphQ @ r, Length @ a > 1,
     Max @ Abs[ GraphEmbedding @ r - $cabinet /@ GraphEmbedding @ g ] < 10^-12,
@@ -41,7 +41,7 @@ $spatial = name |-> With[ { g = CausalSubstrate[ name, "Small", "KeepCoordinates
 
 VerificationTest[
   With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
-    { r = InfraSubstrateHighlight[ g, { InfraCausalFuture[ { 1, 1 } ] -> StandardOrange, InfraWorldline[ { 0, 0 }, { 6, 6 } ], InfraSlice[ 1 ] } ] },
+    { r = InfraSubstrateHighlight[ g, { InfraCausalFuture[ { 1, 1 } ] -> StandardOrange, InfraTimelikeGeodesic[ { 0, 0 }, { 6, 6 } ], InfraSlice[ 1 ] } ] },
     { GraphQ @ r, $MessageList } ],
   { True, { } },
   TestID -> "CausalHighlight-DiamondLatticeGraph-list-form-graph-without-messages"
@@ -95,7 +95,7 @@ VerificationTest[
 
 VerificationTest[
   With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
-    { a = ( SeedRandom[ 1 ]; RandomInfraWorldline[ g, InfraWorldline[ { 1, 0 }, { 5, 4 } ] ] ) },
+    { a = ( SeedRandom[ 1 ]; RandomInfraTimelikeGeodesic[ g, InfraTimelikeGeodesic[ { 1, 0 }, { 5, 4 } ] ] ) },
     { domain = Sort @ InfraMeasurement[ g, InfraRadarChart[ a ], "Domain" ],
       list = InfraSubstrateHighlight[ g, { InfraRadarChart[ a ] -> StandardGreen, InfraWalk[ a ] } ],
       single = InfraSubstrateHighlight[ g, InfraRadarChart[ a ] ] },

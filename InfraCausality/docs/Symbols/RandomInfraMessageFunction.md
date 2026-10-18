@@ -20,7 +20,7 @@ RelatedGuides: [InfraObservers]
 
 Experimental: selections.
 
-Definition: the members of <code>[InfraMessageFunction]()[*a*, *b*]</code> are the monotone single-valued selections *f* of the message relation *M*(*v*) = *E*⁺(*v*) ∩ *b*, defined on the ticks with *M*(*v*) ≠ ∅ ([InfraMessageFunctionQ]()). They are the source-to-sink paths of a layered selection graph: one layer per tick with a message, one node per admissible image, and an edge between consecutive layers when the image does not move backwards on *b*. The sampler draws these paths with the chain engine of [RandomInfraWorldline](), uniformly, by path-count weights, and reads each path back as an association.
+Definition: the members of <code>[InfraMessageFunction]()[*a*, *b*]</code> are the monotone single-valued selections *f* of the message relation *M*(*v*) = *E*⁺(*v*) ∩ *b*, defined on the ticks with *M*(*v*) ≠ ∅ ([InfraMessageFunctionQ]()). They are the source-to-sink paths of a layered selection graph: one layer per tick with a message, one node per admissible image, and an edge between consecutive layers when the image does not move backwards on *b*. The sampler draws these paths with the chain engine of [RandomInfraTimelikeGeodesic](), uniformly, by path-count weights, and reads each path back as an association.
 
 The count contract and the option are those of the chain samplers:
 
@@ -48,8 +48,8 @@ A random message function between an observer *a* (blue) and an observer *b* (re
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {f = (SeedRandom[1]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b]])},
     InfraSubstrateHighlight[g, Join[
       KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> StandardOrange, f],
@@ -62,8 +62,8 @@ Every message function of the sprinkling observers.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All]]
 ```
 
@@ -72,8 +72,8 @@ Three distinct message functions of the cylinder observers.
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ (SeedRandom[2]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b], 3])]
 ```
 
@@ -82,8 +82,8 @@ The draws are uniform: 200 draws of the ten message functions between the cylind
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   {draws = (SeedRandom[3]; Table[RandomInfraMessageFunction[g, InfraMessageFunction[a, b]], 200])},
   BarChart[Values @ KeySort @ Counts[Values /@ draws], ChartStyle -> StandardBlue, AxesLabel -> {"member", "draws"}]]
 ```
@@ -97,8 +97,8 @@ With `Identity` the members come in the sorted order of their images, and the st
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   RandomInfraMessageFunction[g, InfraMessageFunction[a, b], 10, "NextVertexFunction" -> Identity] ===
     SortBy[RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All], Values]]
 ```
@@ -111,8 +111,8 @@ With[
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {members = RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All],
      relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}], position = AssociationThread[b, Range @ Length[b]]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"] &&
@@ -126,8 +126,8 @@ The count contract: a strict count above the cardinality gives `{}`, `UpTo` caps
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {head = InfraMessageFunction[a, b]},
     {card = InfraMeasurement[g, head, "Cardinality"]},
     RandomInfraMessageFunction[g, head, card + 1] === {} && Length[RandomInfraMessageFunction[g, head, UpTo[card + 5]]] == card &&

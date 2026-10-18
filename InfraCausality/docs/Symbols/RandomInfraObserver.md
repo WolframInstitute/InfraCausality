@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraObserver
 Keywords: [observer, saturated chain, clock, uniform sampling, sampler, count contract, NextVertexFunction]
-SeeAlso: [InfraObserver, InfraObserverQ, RandomInfraWorldline, InfraMessageFunction, InfraRadarChart, InfraMeasurement, InfraMemberQ]
+SeeAlso: [InfraObserver, InfraObserverQ, RandomInfraTimelikeGeodesic, InfraMessageFunction, InfraRadarChart, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -90,7 +90,7 @@ With[
 
 ## Properties and Relations
 
-`All` gives `"Cardinality"` distinct members, each passing [InfraObserverQ](), and the worldlines between the same events are among them.
+`All` gives `"Cardinality"` distinct members, each passing [InfraObserverQ](), and the timelike geodesics between the same events are among them.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -100,7 +100,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraObserver[p, q], "Cardinality"] &&
-      InfraObserverQ[g, members] && SubsetQ[members, RandomInfraWorldline[g, InfraWorldline[p, q], All]]]]
+      InfraObserverQ[g, members] && SubsetQ[members, RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]]]]
 ```
 
 The distinct numbers of edges of the members are the `"Length"` reading of the head.

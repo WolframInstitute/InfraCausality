@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraRadarChart
 Keywords: [radar coordinates, radar time, radar distance, coordinatization, observer space, fibration, EPS axioms, Bondi k-calculus, symbolic object]
-SeeAlso: [InfraObserver, InfraWorldline, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
+SeeAlso: [InfraObserver, InfraTimelikeGeodesic, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
 RelatedGuides: [InfraObservers]
 ---
 
@@ -50,23 +50,23 @@ Corresponding notions:
 
 ## Basic Examples
 
-A random worldline of the substrate (blue) and its radar chart (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws a chart by its radar domain, the events it charts.
+A random timelike geodesic of the substrate (blue) and its radar chart (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws a chart by its radar domain, the events it charts.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardOrange, InfraWalk[a] -> StandardBlue}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-A worldline between two inner events of the diamond lattice charts only their causal diamond; the rest of the lattice stays grey.
+A timelike geodesic between two inner events of the diamond lattice charts only their causal diamond; the rest of the lattice stays grey.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{1, 0}, {5, 4}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{1, 0}, {5, 4}]])},
   InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardGreen, InfraWalk[a] -> StandardRed}]]
 ```
 
@@ -75,7 +75,7 @@ The base graph of the chart, the order on its coordinate cells, drawn at distanc
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{1, 0}, {5, 4}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{1, 0}, {5, 4}]])},
   InfraMeasurement[g, InfraRadarChart[a], "BaseGraph"]]
 ```
 
@@ -85,7 +85,7 @@ The radar domains of the two lattices redrawn in their radar coordinates, distan
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[a], "Subgraph"], {InfraWalk[a]}]],
   {name, {"DiamondLatticeGraph", "CylinderLatticeGraph"}}]
 ```
@@ -95,7 +95,7 @@ The radar coordinates of the first events of the sprinkling: the ticks 1, 2 and 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
   Take[Normal @ InfraMeasurement[g, InfraRadarChart[a], "Coordinates"], 10]]
 ```
 
@@ -105,7 +105,7 @@ The number of events of the radar domain beside the number of coordinate cells, 
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     {Length @ InfraMeasurement[g, InfraRadarChart[a], "Domain"], Length @ InfraFibers @ InfraMeasurement[g, InfraRadarChart[a], "Fibration"]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -115,8 +115,8 @@ A second observer separates what the first one identifies: on the events both ob
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   {domain = InfraMeasurement[g, InfraRadarChart[{a, b}], "Domain"]},
   {Length @ domain,
    Length @ Union @ Values @ KeyTake[InfraMeasurement[g, InfraRadarChart[a], "Coordinates"], domain],
@@ -131,7 +131,7 @@ A tick of the observer is its own emission and reception: the *m*-th tick has ra
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     {coordinates = InfraMeasurement[g, InfraRadarChart[a], "Coordinates"]},
     coordinates /@ a === Table[{m, 0}, {m, Length @ a}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -143,7 +143,7 @@ Radar time never decreases along an edge of the domain, and radar distance is ne
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     {time = InfraMeasurement[g, InfraRadarChart[a], "Time"]},
     AllTrue[EdgeList @ InfraMeasurement[g, InfraRadarChart[a], "Subgraph"], edge |-> time[First @ edge] <= time[Last @ edge]] &&
       AllTrue[InfraMeasurement[g, InfraRadarChart[a], "Distance"], NonNegative]],
@@ -156,7 +156,7 @@ The radar domain is the causal diamond of the first and the last tick, and the f
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     {domain = InfraMeasurement[g, InfraRadarChart[a], "Domain"]},
     domain === Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ a, Last @ a], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraRadarChart[a], "VertexDensity"] &&
       Sort @ VertexList @ InfraSubgraph[g, InfraRadarChart[a]] === domain && AllTrue[VertexList[g], e |-> InfraMemberQ[g, InfraRadarChart[a], e] === MemberQ[domain, e]] &&

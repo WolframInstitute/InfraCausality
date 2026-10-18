@@ -36,8 +36,8 @@ The messages from an observer *a* (blue) to an observer *b* (red) on the diamond
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}]},
     {InfraMessageFunctionQ[g, InfraMessageFunction[a, b], First /@ relation],
      InfraMessageFunctionQ[g, InfraMessageFunction[a, b], Last /@ relation],
@@ -50,8 +50,8 @@ A message function of the lattice observers drawn as the light rays from each ti
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   {f = (SeedRandom[2]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b]])},
   Labeled[
     InfraSubstrateHighlight[g, Join[
@@ -65,8 +65,8 @@ The consecutive ticks {1, 4} and {2, 4} of the lattice observer *a* have the sam
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   {f = First /@ DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}]},
   {InfraMessageFunctionQ[g, InfraMessageFunction[a, b], Join[f, <|{1, 4} -> {4, 4}, {2, 4} -> {6, 4}|>]],
    InfraMessageFunctionQ[g, InfraMessageFunction[a, b], Join[f, <|{1, 4} -> {6, 4}, {2, 4} -> {4, 4}|>]]}]
@@ -80,8 +80,8 @@ Among all single-valued selections of the relation, the predicate accepts exactl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}], position = AssociationThread[b, Range @ Length[b]]},
     {selections = AssociationThread[Keys @ relation, #] & /@ Tuples[Values @ relation]},
     Sort[Select[selections, f |-> InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f]]] ===
@@ -95,8 +95,8 @@ The number of message functions is the `"Cardinality"` of the head, and [`InfraM
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}]},
     {selections = AssociationThread[Keys @ relation, #] & /@ Tuples[Values @ relation]},
     Count[selections, f_ /; InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f]] == InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"] &&
@@ -111,8 +111,8 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[Range[3], seed |->
       With[
-        {a = (SeedRandom[seed]; RandomInfraWorldline[g])},
-        {b = (SeedRandom[seed]; RandomInfraWorldline[VertexDelete[g, a]])},
+        {a = (SeedRandom[seed]; RandomInfraTimelikeGeodesic[g])},
+        {b = (SeedRandom[seed]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
         {relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}]},
         InfraMessageFunctionQ[g, InfraMessageFunction[a, b], First /@ relation]]]]]
 ```

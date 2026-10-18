@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraLightRayQ
 Keywords: [light ray, null geodesic, null separation, light cone, predicate, chain hierarchy]
-SeeAlso: [InfraFutureLightCone, InfraPastLightCone, RandomInfraFutureLightCone, RandomInfraPastLightCone, InfraWorldlineQ, InfraObserverQ, InfraChainQ]
+SeeAlso: [InfraFutureLightCone, InfraPastLightCone, RandomInfraFutureLightCone, RandomInfraPastLightCone, InfraTimelikeGeodesicQ, InfraObserverQ, InfraChainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -29,13 +29,13 @@ A light ray is the strongest condition of the chain hierarchy, each condition st
 | Predicate | A chain *e*0 ≺ … ≺ *ek* such that |
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
-| [InfraWorldlineQ]() | *k* = τ(*e*0, *ek*) |
+| [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
 | [InfraObserverQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
 ## Basic Examples
 
-On each substrate: an outgoing light ray passes, and a worldline from the same event to the event four slices up with the largest diamond fails, since the diamond of its ends is larger than the chain.
+On each substrate: an outgoing light ray passes, and a timelike geodesic from the same event to the event four slices up with the largest diamond fails, since the diamond of its ends is larger than the chain.
 
 ```wl
 Table[
@@ -44,12 +44,12 @@ Table[
     {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
     {w = First @ MaximalBy[Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[5], "VertexDensity"]], e |-> Length @ Keys @ InfraMeasurement[g, InfraCausalDiamond[v, e], "VertexDensity"]]},
     {ray = (SeedRandom[5]; RandomInfraFutureLightCone[g, v])},
-    {member = (SeedRandom[5]; RandomInfraWorldline[g, v, w])},
+    {member = (SeedRandom[5]; RandomInfraTimelikeGeodesic[g, v, w])},
     {InfraLightRayQ[g, ray], InfraLightRayQ[g, member], Length[Keys @ InfraMeasurement[g, InfraCausalDiamond[v, w], "VertexDensity"]] == Length[member]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-On the diamond lattice a null line is a light ray; a staircase between the same rows is a worldline but not a light ray, since its diamond is a rectangle.
+On the diamond lattice a null line is a light ray; a staircase between the same rows is a timelike geodesic but not a light ray, since its diamond is a rectangle.
 
 ```wl
 With[
@@ -58,7 +58,7 @@ With[
   GraphicsRow @ Table[
     Labeled[
       InfraSubstrateHighlight[g, {InfraCausalDiamond[First @ chain, Last @ chain], InfraWalk[chain]}],
-      {InfraWorldlineQ[g, chain], InfraLightRayQ[g, chain]}],
+      {InfraTimelikeGeodesicQ[g, chain], InfraLightRayQ[g, chain]}],
     {chain, {null, stair}}]]
 ```
 
@@ -84,7 +84,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
           InfraLightRayQ[g, chain] === MemberQ[Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"], w]]]]]]
 ```
 
-Every light ray is a worldline: the only chain between its ends is also the longest.
+Every light ray is a timelike geodesic: the only chain between its ends is also the longest.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -92,7 +92,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
       AllTrue[RandomInfraFutureLightCone[g, v, All], ray |->
-        InfraWorldlineQ[g, ray] && InfraMeasurement[g, InfraWorldline[First @ ray, Last @ ray], "Cardinality"] == 1]]]]
+        InfraTimelikeGeodesicQ[g, ray] && InfraMeasurement[g, InfraTimelikeGeodesic[First @ ray, Last @ ray], "Cardinality"] == 1]]]]
 ```
 
 The events of a light ray form a causal diamond.

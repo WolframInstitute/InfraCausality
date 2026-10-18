@@ -77,7 +77,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {slices = UniversalFoliation[g]},
-    Length[slices] == Length[(SeedRandom[1]; RandomInfraWorldline[g])] &&
+    Length[slices] == Length[(SeedRandom[1]; RandomInfraTimelikeGeodesic[g])] &&
       slices === Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, 0, Length[slices] - 1}]]]
 ```
 

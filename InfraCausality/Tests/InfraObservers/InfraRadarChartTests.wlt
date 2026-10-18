@@ -135,7 +135,7 @@ VerificationTest[
 
 VerificationTest[
   With[ { fib = $fibration[ $diamond, $stair ] },
-    { InfraWorldlineQ[ $diamond, $stair ], DuplicateFreeQ @ Values @ $coordinates[ $diamond, $stair ],
+    { InfraTimelikeGeodesicQ[ $diamond, $stair ], DuplicateFreeQ @ Values @ $coordinates[ $diamond, $stair ],
       Union[ VertexCount /@ Values @ InfraFibers @ fib ], InfraFibrationQ @ fib, InfraFiberBundleQ @ fib } ],
   { True, True, { 1 }, True, True },
   TestID -> "InfraRadarChart-diamond-staircase-worldline-chart-is-a-bijection"
@@ -256,10 +256,10 @@ VerificationTest[
 VerificationTest[
   With[ { g = $diamond },
     { p = First @ Pick[ VertexList @ g, VertexInDegree @ g, 0 ], q = First @ Pick[ VertexList @ g, VertexOutDegree @ g, 0 ] },
-    { a = ( SeedRandom[ 1 ]; RandomInfraWorldline[ g, InfraWorldline[ p, q ] ] ) },
+    { a = ( SeedRandom[ 1 ]; RandomInfraTimelikeGeodesic[ g, InfraTimelikeGeodesic[ p, q ] ] ) },
     { chart = InfraRadarChart[ a ] },
     { fib = InfraMeasurement[ g, chart, "Fibration" ] },
-    { InfraWorldlineQ[ g, a ], AcyclicGraphQ @ InfraMeasurement[ g, chart, "BaseGraph" ], Length @ InfraFibers @ fib,
+    { InfraTimelikeGeodesicQ[ g, a ], AcyclicGraphQ @ InfraMeasurement[ g, chart, "BaseGraph" ], Length @ InfraFibers @ fib,
       InfraFibrationQ @ fib, InfraSectionQ[ fib, RandomInfraSection @ fib ], $MessageList } ],
   { True, True, 16, True, True, { } },
   TestID -> "InfraRadarChart-diamond-pipeline-worldline-chart-fibration-section"

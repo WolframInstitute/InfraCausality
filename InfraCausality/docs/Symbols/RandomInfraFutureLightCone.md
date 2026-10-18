@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraFutureLightCone
 Keywords: [light ray, outgoing light ray, future light cone, null geodesic, uniform sampling, sampler, count contract]
-SeeAlso: [InfraFutureLightCone, RandomInfraPastLightCone, InfraLightRayQ, RandomInfraWorldline, ChainLightReach, InfraMeasurement, InfraMemberQ]
+SeeAlso: [InfraFutureLightCone, RandomInfraPastLightCone, InfraLightRayQ, RandomInfraTimelikeGeodesic, ChainLightReach, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -33,7 +33,7 @@ The count contract is the one every `RandomInfra…` sampler shares:
 | `UpTo[n]` | a `List` of min(*n*, `"Cardinality"`) distinct rays |
 | `All` | every ray, enumerated without drawing |
 
-The option `"NextVertexFunction"` replaces the uniform descent as it does for [RandomInfraWorldline](): `Identity` enumerates the rays in sorted order, `RandomSample` in shuffled order, `RandomChoice` draws random walks (not combined with `All`), and a function *f* of the sorted next events sets or prunes the search.
+The option `"NextVertexFunction"` replaces the uniform descent as it does for [RandomInfraTimelikeGeodesic](): `Identity` enumerates the rays in sorted order, `RandomSample` in shuffled order, `RandomChoice` draws random walks (not combined with `All`), and a function *f* of the sorted next events sets or prunes the search.
 
 [InfraLightRayQ]() recognises a ray.
 

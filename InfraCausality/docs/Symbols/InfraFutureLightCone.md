@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraFutureLightCone
 Keywords: [light cone, future light cone, light ray, null geodesic, null separation, tree, symbolic object]
-SeeAlso: [InfraPastLightCone, RandomInfraFutureLightCone, InfraLightRayQ, InfraCausalFuture, InfraWorldline, InfraMessageFunction, LightConeViewer]
+SeeAlso: [InfraPastLightCone, RandomInfraFutureLightCone, InfraLightRayQ, InfraCausalFuture, InfraTimelikeGeodesic, InfraMessageFunction, LightConeViewer]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -95,7 +95,7 @@ Table[
     AllTrue[VertexList[g], v |->
       Keys[InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] ===
         Select[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], e |->
-          Length[Keys @ InfraMeasurement[g, InfraCausalDiamond[v, e], "VertexDensity"]] == InfraMeasurement[g, InfraWorldline[v, e], "Length"] + 1]]],
+          Length[Keys @ InfraMeasurement[g, InfraCausalDiamond[v, e], "VertexDensity"]] == InfraMeasurement[g, InfraTimelikeGeodesic[v, e], "Length"] + 1]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

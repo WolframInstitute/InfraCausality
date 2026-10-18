@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraPastLightCone
 Keywords: [light cone, past light cone, incoming light ray, null geodesic, null separation, tree, symbolic object]
-SeeAlso: [InfraFutureLightCone, RandomInfraPastLightCone, InfraLightRayQ, InfraCausalPast, InfraWorldline, LightConeViewer]
+SeeAlso: [InfraFutureLightCone, RandomInfraPastLightCone, InfraLightRayQ, InfraCausalPast, InfraTimelikeGeodesic, LightConeViewer]
 RelatedGuides: [CausalInfrageometry]
 ---
 

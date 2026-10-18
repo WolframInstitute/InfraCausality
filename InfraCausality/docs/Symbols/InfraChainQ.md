@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraChainQ
 Keywords: [chain, totally ordered subset, causal order, predicate, chain hierarchy]
-SeeAlso: [InfraObserverQ, InfraWorldlineQ, InfraLightRayQ, InfraCausalDiamond, RandomInfraObserver, InfraAntichainQ]
+SeeAlso: [InfraObserverQ, InfraTimelikeGeodesicQ, InfraLightRayQ, InfraCausalDiamond, RandomInfraObserver, InfraAntichainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -27,7 +27,7 @@ The chain predicates form a hierarchy, each condition stronger than the next:
 | Predicate | A chain *e*0 ≺ … ≺ *ek* such that |
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
-| [InfraWorldlineQ]() | *k* = τ(*e*0, *ek*) |
+| [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
 | [InfraObserverQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
@@ -41,7 +41,7 @@ On each substrate: every second event of a longest chain of the graph, the same 
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {member = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
+    {member = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
     {chain = member[[1 ;; -1 ;; 2]]},
     {InfraChainQ[g, chain], InfraChainQ[g, Reverse @ chain], InfraChainQ[g, Append[chain, Last @ chain]]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -66,13 +66,13 @@ With[
 
 ## Properties and Relations
 
-A list is a chain exactly when its events are pairwise comparable and listed in causal order, so every sublist of a chain is a chain. Checked on every subset of a worldline of each substrate.
+A list is a chain exactly when its events are pairwise comparable and listed in causal order, so every sublist of a chain is a chain. Checked on every subset of a timelike geodesic of each substrate.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {member = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
+    {member = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
     AllTrue[Subsets[Take[member, UpTo[8]], {1, Infinity}], InfraChainQ[g, #] &] &&
       AllTrue[Subsets[Take[member, UpTo[8]], {2}], pair |-> ! InfraChainQ[g, Reverse @ pair]]]]
 ```

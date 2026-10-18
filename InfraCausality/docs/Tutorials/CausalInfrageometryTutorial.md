@@ -6,12 +6,12 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/tutorial/CausalInfrageometryTutorial
-Keywords: [causal graph, causal diamond, worldline, observer, universal time, message function, echo function, radar chart, radar coordinates, observer space, fibration, section, EPS axioms]
+Keywords: [causal graph, causal diamond, timelike geodesic, observer, universal time, message function, echo function, radar chart, radar coordinates, observer space, fibration, section, EPS axioms]
 RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrates]
 ---
 
 - A **causal graph** is a directed acyclic graph whose vertices are events and whose directed paths are the causal relation: *u* ≼ *v* when a path leads from *u* to *v*. Everything below is read off the graph alone.
-- The pipeline: causal graph → cones and diamonds → worldlines and observers → universal time → message functions → radar chart → the observer space fibered over the chart.
+- The pipeline: causal graph → cones and diamonds → timelike geodesics and observers → universal time → message functions → radar chart → the observer space fibered over the chart.
 - Each construction is an inert head, such as `InfraCausalDiamond[p, q]` or `InfraRadarChart[a]`, that holds its data and computes nothing; `InfraMeasurement` reads it on a graph, a `RandomInfra…` sampler draws the members of a chain head and `InfraSubstrateHighlight` draws it.
 - The running example is the diamond lattice at size "Small", the 7 × 7 light-cone lattice of 1 + 1 Minkowski space; a sprinkling and the cylinder lattice show where the lattice is special.
 
@@ -68,25 +68,25 @@ With[
   InfraSubstrateHighlight[g, {InfraCausalFuture[2] -> StandardOrange, InfraFutureLightCone[2] -> StandardRed, 2}]]
 ```
 
-## Worldlines and observers
+## Timelike geodesics and observers
 
-- An **observer** is a saturated chain, a directed path of the substrate; its positions are the ticks of a clock. A **worldline** from *p* to *q* is a longest chain between them, the discrete inertial observer: its number of steps is the proper time τ(*p*, *q*). The hierarchy of the chain predicates is light ray ⟹ worldline ⟹ observer ⟹ chain.
-- A worldline from {0, 0} to {6, 6}, drawn with the diamond it lies in.
+- An **observer** is a saturated chain, a directed path of the substrate; its positions are the ticks of a clock. A **timelike geodesic** from *p* to *q* is a longest chain between them, the discrete inertial observer: its number of steps is the proper time τ(*p*, *q*). The hierarchy of the chain predicates is light ray ⟹ timelike geodesic ⟹ observer ⟹ chain.
+- A timelike geodesic from {0, 0} to {6, 6}, drawn with the diamond it lies in.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   InfraSubstrateHighlight[g, {InfraCausalDiamond[{0, 0}, {6, 6}] -> StandardGreen, InfraWalk[a] -> StandardRed}]]
 ```
 
-- On the lattice every observer from corner to corner has twelve steps, so the 924 = (12 choose 6) observers are all worldlines. On the sprinkling only 21 of the 49 observers from the first to the last event are longest chains.
+- On the lattice every observer from corner to corner has twelve steps, so the 924 = (12 choose 6) observers are all timelike geodesics. On the sprinkling only 21 of the 49 observers from the first to the last event are longest chains.
 
 ```wl
 With[
   {lattice = CausalSubstrate["DiamondLatticeGraph", "Small"], sprinkling = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {{InfraMeasurement[lattice, InfraWorldline[{0, 0}, {6, 6}], "Cardinality"], InfraMeasurement[lattice, InfraObserver[{0, 0}, {6, 6}], "Cardinality"]},
-   {InfraMeasurement[sprinkling, InfraWorldline[1, 25], "Cardinality"], InfraMeasurement[sprinkling, InfraObserver[1, 25], "Cardinality"]}}]
+  {{InfraMeasurement[lattice, InfraTimelikeGeodesic[{0, 0}, {6, 6}], "Cardinality"], InfraMeasurement[lattice, InfraObserver[{0, 0}, {6, 6}], "Cardinality"]},
+   {InfraMeasurement[sprinkling, InfraTimelikeGeodesic[1, 25], "Cardinality"], InfraMeasurement[sprinkling, InfraObserver[1, 25], "Cardinality"]}}]
 ```
 
 - The diagonal {(*m*, *m*)} is a chain and no observer: each step (*m*, *m*) ≺ (*m* + 1, *m* + 1) has two events between. It will matter below, since the radar chart accepts any chain.
@@ -95,7 +95,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {diagonal = Table[{m, m}, {m, 0, 6}]},
-  {InfraChainQ[g, diagonal], InfraObserverQ[g, diagonal], InfraWorldlineQ[g, (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])]}]
+  {InfraChainQ[g, diagonal], InfraObserverQ[g, diagonal], InfraTimelikeGeodesicQ[g, (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])]}]
 ```
 
 ## Universal time
@@ -110,25 +110,25 @@ GraphicsRow @ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D"}}]
 ```
 
-- The ticks of a worldline from a source count universal time: the *m*-th tick of the worldline above lies on the slice *m* − 1.
+- The ticks of a timelike geodesic from a source count universal time: the *m*-th tick of the geodesic *a* above lies on the slice *m* − 1.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   UniversalTime[g] /@ a]
 ```
 
 ## Message functions
 
 - Two observers *a* and *b* exchange light. The **message relation** sends a tick *v* of *a* to the ticks *E*⁺(*v*) ∩ *b* of *b* on its light cone, and a **message function** is a single-valued selection of it that preserves the order of the ticks, the discrete form of the Ehlers–Pirani–Schild axiom D1. An **echo function** is a message function to *b* composed with one back to *a*.
-- The worldline *a* above (blue) and a longest chain *b* of the rest of the lattice (red), with the light rays that carry the messages from *a* to *b* (orange).
+- The geodesic *a* above (blue) and a longest chain *b* of the rest of the lattice (red), with the light rays that carry the messages from *a* to *b* (orange).
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]
 ```
 
@@ -137,8 +137,8 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   {InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"], InfraMeasurement[g, InfraMessageFunction[b, a], "Cardinality"],
    InfraMeasurement[g, InfraEchoFunction[a, b], "Cardinality"]}]
 ```
@@ -148,8 +148,8 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   {f = (SeedRandom[2]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b]])},
   InfraSubstrateHighlight[g, Join[KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> StandardOrange, f],
     {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]]
@@ -158,23 +158,23 @@ With[
 ## The radar chart
 
 - The radar chart of an observer *a* = (*a*1, …, *ak*) gives every event *e* of its radar domain [*a*1, *ak*] the emission tick *i*(*e*), the latest tick that can signal *e*, and the reception tick *j*(*e*), the earliest tick *e* can signal; its radar time is (*i* + *j*)/2 and its radar distance (*j* − *i*)/2. A tick is its own emission and reception.
-- The worldline on the lattice (left) and the radar domain redrawn at its chart positions, distance across and time up (right). The worldline becomes the vertical axis and the lattice unfolds to one side of it.
+- The observer *a* on the lattice (left) and the radar domain redrawn at its chart positions, distance across and time up (right). The observer becomes the vertical axis and the lattice unfolds to one side of it.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   GraphicsRow[{
     InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardRed}],
     InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[a], "Subgraph"], {InfraWalk[a] -> StandardRed}]}]]
 ```
 
-- The chart of this worldline is injective: the 49 events get 49 distinct coordinates. Radar time never decreases along an edge, and the ticks sit at {*m*, 0}.
+- The chart of this observer is injective: the 49 events get 49 distinct coordinates. Radar time never decreases along an edge, and the ticks sit at {*m*, 0}.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   {coordinates = InfraMeasurement[g, InfraRadarChart[a], "Coordinates"]},
   {Length[coordinates], Length @ Union @ Values[coordinates],
    AllTrue[EdgeList[g], e |-> First[coordinates[First @ e]] <= First[coordinates[Last @ e]]],
@@ -186,19 +186,19 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   InfraMeasurement[g, InfraRadarChart[a], "BaseGraph"]]
 ```
 
 ## The observer fibration
 
 - The **observer space** is the radar domain fibered over the chart: an [`InfraFibration`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibration) whose total graph is the undirected radar domain and whose projection is the chart. Its fibers are the coordinate cells, the events the observer cannot tell apart, and the bundle functions of InfraGeometry apply to it unchanged. A **section** picks one event in every fiber; it is continuous when it maps base edges to edges.
-- For the worldline every fiber is a single event: the fibration is a fiber bundle with a point as fiber, and it has exactly one continuous section, the inverse of the chart.
+- For the observer *a* every fiber is a single event: the fibration is a fiber bundle with a point as fiber, and it has exactly one continuous section, the inverse of the chart.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   {fib = InfraMeasurement[g, InfraRadarChart[a], "Fibration"]},
   {Union[VertexCount /@ Values @ InfraFibers[fib]], InfraFibrationQ[fib], InfraFiberBundleQ[fib], Length @ FindInfraSection[fib, All],
    InfraSectionQ[fib, (SeedRandom[1]; RandomInfraSection[fib])]}]
@@ -247,7 +247,7 @@ With[
 
 ### The cylinder loop
 
-- On the cylinder lattice light can go round the universe. The column {(0, *t*)} is a worldline; the light ray (0, 0) → (1, 1) → … → (5, 5) leaves it and returns to it at (0, 6), so the five events of the ray have emission tick 1 and reception tick 7 and share the cell {4, 3}. The column (red), its radar domain (green) and the loop (orange), beside the base graph.
+- On the cylinder lattice light can go round the universe. The column {(0, *t*)} is a timelike geodesic; the light ray (0, 0) → (1, 1) → … → (5, 5) leaves it and returns to it at (0, 6), so the five events of the ray have emission tick 1 and reception tick 7 and share the cell {4, 3}. The column (red), its radar domain (green) and the loop (orange), beside the base graph.
 
 ```wl
 With[
@@ -275,7 +275,7 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
   {fib = InfraMeasurement[g, InfraRadarChart[a], "Fibration"]},
   {Length @ InfraMeasurement[g, InfraRadarChart[a], "Domain"], Length @ InfraFibers[fib], InfraFibrationQ[fib]}]
 ```

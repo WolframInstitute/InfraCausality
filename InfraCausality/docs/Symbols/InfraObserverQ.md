@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraObserverQ
 Keywords: [observer, saturated chain, covering pair, Hasse diagram, clock, predicate, chain hierarchy]
-SeeAlso: [InfraObserver, RandomInfraObserver, InfraChainQ, InfraWorldlineQ, InfraLightRayQ, InfraMemberQ]
+SeeAlso: [InfraObserver, RandomInfraObserver, InfraChainQ, InfraTimelikeGeodesicQ, InfraLightRayQ, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -29,7 +29,7 @@ The chain predicates form a hierarchy, each condition stronger than the next:
 | Predicate | A chain *e*0 ≺ … ≺ *ek* such that |
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
-| [InfraWorldlineQ]() | *k* = τ(*e*0, *ek*) |
+| [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
 | [InfraObserverQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
@@ -85,7 +85,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     AllTrue[chains, chain |-> InfraObserverQ[g, chain] === InfraMemberQ[g, InfraObserver[p, q], chain]]]]
 ```
 
-Every worldline is an observer, and every observer is a chain.
+Every timelike geodesic is an observer, and every observer is a chain.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -93,5 +93,5 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
     {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
-    InfraObserverQ[g, RandomInfraWorldline[g, InfraWorldline[p, q], All]] && InfraChainQ[g, RandomInfraObserver[g, InfraObserver[p, q], All]]]]
+    InfraObserverQ[g, RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]] && InfraChainQ[g, RandomInfraObserver[g, InfraObserver[p, q], All]]]]
 ```

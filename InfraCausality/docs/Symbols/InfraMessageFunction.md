@@ -59,8 +59,8 @@ The messages from an observer *a* (blue) to an observer *b* (red), drawn as the 
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -71,8 +71,8 @@ The number of message functions for the same observers.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -82,8 +82,8 @@ The message relation on the sprinkling. The first tick reaches two ticks of *b*;
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal @ InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"]]
 ```
 
@@ -92,8 +92,8 @@ Its two message functions.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All]]
 ```
 
@@ -152,13 +152,13 @@ With[
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
 ```
 
-The defects of two random worldlines on the sprinkling: a light ray rarely meets a tick exactly, so half the ticks have no message.
+The defects of two random timelike geodesics on the sprinkling: a light ray rarely meets a tick exactly, so half the ticks have no message.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Table[InfraMeasurement[g, InfraMessageFunction[a, b], p],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
 ```
@@ -185,8 +185,8 @@ The images of a tick are the ticks of *b* on its future light cone.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     AllTrue[Normal @ InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], Apply[{v, images} |->
       Sort[images] === Intersection[b, Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]]]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -198,8 +198,8 @@ The cardinality is the number of members, and every member passes [InfraMessageF
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {members = RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All]},
     Length[members] == InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"] &&
       AllTrue[members, f |-> InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f]]],
@@ -212,8 +212,8 @@ Sending every tick to its earliest image is always a message function.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraMessageFunctionQ[g, InfraMessageFunction[a, b],
       First /@ DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -225,8 +225,8 @@ The experimental defects lie in the unit interval, and the injectivity defect is
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {defects = Table[InfraMeasurement[g, InfraMessageFunction[a, b], p], {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]},
     AllTrue[defects, 0 <= # <= 1 &] && defects[[3]] >= defects[[1]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]

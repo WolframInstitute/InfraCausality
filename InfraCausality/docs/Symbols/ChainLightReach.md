@@ -24,7 +24,7 @@ The light reach contains *c*, since every event lies on its own light cone, and 
 
 ## Basic Examples
 
-The light reach of a worldline from an event at height 1 to an event at height 5, on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
+The light reach of a timelike geodesic from an event at height 1 to an event at height 5, on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
 
 ```wl
 GraphicsRow @ Table[
@@ -32,7 +32,7 @@ GraphicsRow @ Table[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
     {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
-    {c = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
+    {c = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q]])},
     InfraSubstrateHighlight[g, {ChainLightReach[g, c], InfraWalk[c]}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```

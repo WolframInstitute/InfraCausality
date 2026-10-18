@@ -131,7 +131,7 @@ VerificationTest[
 
 VerificationTest[
   With[ { a = $column[ 0 ], b = $column[ 2 ] },
-    { InfraWorldlineQ[ $diamond, { a, b } ],
+    { InfraTimelikeGeodesicQ[ $diamond, { a, b } ],
       InfraMeasurement[ $diamond, InfraMessageFunction[ a, b ], "Cardinality" ],
       $monotoneSelections[ $diamond, a, b ] } ],
   { True, 1, { AssociationThread[ Table[ { 0, j }, { j, 0, 3 } ], Table[ { 2, j }, { j, 0, 3 } ] ] } },

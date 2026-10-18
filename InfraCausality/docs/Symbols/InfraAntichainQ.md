@@ -85,7 +85,7 @@ A chain and an antichain share at most one event.
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     AllTrue[UniversalFoliation[g], s |-> Length[Intersection[a, s]] <= 1]]]
 ```
 

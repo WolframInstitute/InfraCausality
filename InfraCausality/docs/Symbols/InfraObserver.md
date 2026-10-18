@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraObserver
 Keywords: [observer, saturated chain, clock, Hasse diagram, timelike curve, particle, symbolic object]
-SeeAlso: [RandomInfraObserver, InfraObserverQ, InfraWorldline, InfraChainQ, InfraMessageFunction, InfraRadarChart, InfraCausalDiamond]
+SeeAlso: [RandomInfraObserver, InfraObserverQ, InfraTimelikeGeodesic, InfraChainQ, InfraMessageFunction, InfraRadarChart, InfraCausalDiamond]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -20,7 +20,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Definition: an observer from *p* to *q* is a saturated chain *p* = *e*0 ≺ *e*1 ≺ … ≺ *ek* = *q*: each pair of consecutive events is a covering pair, an edge of the Hasse diagram, so no event lies strictly between them.
 
-An observer is the discrete analogue of a timelike curve with a clock: its events are the ticks, and their positions along the chain are the readings of the clock. A saturated chain skips no event it could have passed through, so the clock ticks at every event on the way. Observers between the same two events need not have the same number of ticks; the longest ones are the worldlines of [InfraWorldline](), the timelike geodesics.
+An observer is the discrete analogue of a timelike curve with a clock: its events are the ticks, and their positions along the chain are the readings of the clock. A saturated chain skips no event it could have passed through, so the clock ticks at every event on the way. Observers between the same two events need not have the same number of ticks; the longest ones are the timelike geodesics of [InfraTimelikeGeodesic]().
 
 The head holds its two events and computes nothing. Its graph, <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, *o*, "Graph"]</code>, is the Hasse diagram of the graph restricted to the diamond [*p*, *q*]. Its paths from *p* to *q* are exactly the saturated chains, each once, so `"Faithful"` is `True`, and every count is read off that graph by dynamic programming.
 
@@ -57,7 +57,7 @@ GraphicsRow @ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-The number of observers beside the number of worldlines between the same events. On the two lattices every saturated chain is longest; on the sprinkling it is not.
+The number of observers beside the number of timelike geodesics between the same events. On the two lattices every saturated chain is longest; on the sprinkling it is not.
 
 ```wl
 Table[
@@ -65,11 +65,11 @@ Table[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
     {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
-    {InfraMeasurement[g, InfraObserver[p, q], "Cardinality"], InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"]}],
+    {InfraMeasurement[g, InfraObserver[p, q], "Cardinality"], InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Cardinality"]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-On the sprinkling the observers between two events carry clocks of different lengths: the shortest observer beside a worldline.
+On the sprinkling the observers between two events carry clocks of different lengths: the shortest observer beside a timelike geodesic.
 
 ```wl
 With[
@@ -102,7 +102,7 @@ With[
 
 ## Properties and Relations
 
-Every member passes [InfraObserverQ](), the cardinality is the number of members, and every worldline is an observer.
+Every member passes [InfraObserverQ](), the cardinality is the number of members, and every timelike geodesic is an observer.
 
 ```wl
 Table[
@@ -113,7 +113,7 @@ Table[
     {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
     InfraObserverQ[g, members] &&
       Length[members] == InfraMeasurement[g, InfraObserver[p, q], "Cardinality"] &&
-      SubsetQ[members, RandomInfraWorldline[g, InfraWorldline[p, q], All]]],
+      SubsetQ[members, RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

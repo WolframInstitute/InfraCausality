@@ -52,8 +52,8 @@ The echoes of an observer *a* (blue) via an observer *b* (red), drawn as the out
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraSubstrateHighlight[g, {InfraEchoFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -64,8 +64,8 @@ The number of echo functions for the same observers.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraMeasurement[g, InfraEchoFunction[a, b], "Cardinality"]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -75,16 +75,16 @@ The echo relation on the sprinkling, and its echo functions.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"]]
 ```
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]]
 ```
 
@@ -93,8 +93,8 @@ The graph of the echo relation on the sprinkling, an arrow from each tick to its
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Graph[InfraMeasurement[g, InfraEchoFunction[a, b], "Graph"], VertexLabels -> Automatic]]
 ```
 
@@ -134,13 +134,13 @@ With[
     {p, 2}]]
 ```
 
-The echo defects of two random worldlines on the sprinkling, where few ticks get an echo.
+The echo defects of two random timelike geodesics on the sprinkling, where few ticks get an echo.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Table[InfraMeasurement[g, InfraEchoFunction[a, b], p],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
 ```
@@ -153,8 +153,8 @@ Every echo of a tick lies strictly after the tick on *a*.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     AllTrue[Normal @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"], Apply[{v, echoes} |->
       AllTrue[echoes, u |-> First[FirstPosition[a, u]] > First[FirstPosition[a, v]]]]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -166,8 +166,8 @@ The echo relation is the composition of the two message relations.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {there = InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], back = InfraMeasurement[g, InfraMessageFunction[b, a], "Relation"]},
     AllTrue[Normal @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"], Apply[{v, echoes} |->
       Sort[echoes] === Union @@ Prepend[back /@ there[v], {}]]]],
@@ -180,8 +180,8 @@ The cardinality is the number of members, every member passes [InfraEchoFunction
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {members = RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]},
     Length[members] == InfraMeasurement[g, InfraEchoFunction[a, b], "Cardinality"] &&
       AllTrue[members, f |-> InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f]] &&
@@ -201,7 +201,7 @@ With[
     Sort[KeySort /@ RandomInfraEchoFunction[g, InfraEchoFunction[b, a], All]]]
 ```
 
-On the diamond lattice, the staircase worldline and its shift by two steps exchange 81 message functions each way, and the shifted observer has 699 echo functions via the staircase while the staircase has 2584 via the shifted observer.
+On the diamond lattice, the staircase observer and its shift by two steps exchange 81 message functions each way, and the shifted observer has 699 echo functions via the staircase while the staircase has 2584 via the shifted observer.
 
 ```wl
 With[

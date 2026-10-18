@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalDiamond
 Keywords: [causal diamond, Alexandrov interval, causal interval, order interval, causal hull, convex set, interval volume, ordering fraction, Myrheim-Meyer dimension, midpoint scaling, interval abundances, Benincasa-Dowker action, discrete d'Alembertian, symbolic object]
-SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraWorldline, InfraObserver, InfraRadarChart]
+SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraTimelikeGeodesic, InfraObserver, InfraRadarChart]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -20,7 +20,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Definition: the causal diamond of two events *p* and *q* of a directed acyclic graph is [*p*, *q*] = *J*⁺(*p*) ∩ *J*⁻(*q*) = {*e* : *p* ≼ *e* ≼ *q*}, the Alexandrov interval of the causal order.
 
-It is empty unless *p* ≼ *q*, and it is the single event *p* when *p* = *q*. It is convex: with two of its events *u* ≼ *w* it contains every event between them. Every causal chain from *p* to *q* runs inside it, so it carries the worldlines and the observers between its tips, and it is the radar domain of an observer from *p* to *q*.
+It is empty unless *p* ≼ *q*, and it is the single event *p* when *p* = *q*. It is convex: with two of its events *u* ≼ *w* it contains every event between them. Every causal chain from *p* to *q* runs inside it, so it carries the timelike geodesics and the observers between its tips, and it is the radar domain of an observer from *p* to *q*.
 
 The causal hull of a set *S* is *J*⁺(*S*) ∩ *J*⁻(*S*), the smallest convex set containing *S*. The hull of a chain from *p* to *q* is the diamond [*p*, *q*].
 
@@ -196,14 +196,14 @@ With[
   AllTrue[Tuples[diamond, 2], Apply[{u, w} |-> SubsetQ[diamond, Keys @ InfraMeasurement[g, InfraCausalDiamond[u, w], "VertexDensity"]]]]]
 ```
 
-The causal hull of every worldline from *p* to *q* is the diamond of its tips.
+The causal hull of every timelike geodesic from *p* to *q* is the diamond of its tips.
 
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[0]])},
   {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
-  AllTrue[RandomInfraWorldline[g, InfraWorldline[p, q], All], chain |->
+  AllTrue[RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All], chain |->
     Keys @ InfraMeasurement[g, InfraCausalDiamond[chain], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"]]]
 ```
 

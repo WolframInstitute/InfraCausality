@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/UniversalTime
 Keywords: [universal time, height, time function, longest chain, rank, topological sort, proper time]
-SeeAlso: [UniversalFoliation, InfraSlice, InfraSliceQ, InfraWorldline, InfraRadarChart, FoliationViewer]
+SeeAlso: [UniversalFoliation, InfraSlice, InfraSliceQ, InfraTimelikeGeodesic, InfraRadarChart, FoliationViewer]
 RelatedGuides: [CausalTime]
 ---
 
@@ -107,7 +107,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {sum = Merge[{UniversalTime[g], UniversalTime[ReverseGraph[g]]}, Total], h = Max @ UniversalTime[g]},
-    Max[sum] == h && Sort[Keys @ Select[sum, EqualTo[h]]] === Union @@ RandomInfraWorldline[g, InfraWorldline[], All]]]
+    Max[sum] == h && Sort[Keys @ Select[sum, EqualTo[h]]] === Union @@ RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[], All]]]
 ```
 
 On the diamond lattice the universal time of (*i*, *j*) is *i* + *j*, and on the cylinder lattice it is the row.
@@ -119,12 +119,12 @@ With[
     UniversalTime[cylinder] === AssociationMap[Last, VertexList[cylinder]]]
 ```
 
-On a worldline from a source the universal time of the *m*-th tick is *m* − 1: the ticks of a geodesic observer from the beginning count universal time.
+On a timelike geodesic from a source the universal time of the *m*-th tick is *m* − 1: the ticks of a geodesic observer from the beginning count universal time.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     UniversalTime[g] /@ a === Range[0, Length[a] - 1]]]
 ```

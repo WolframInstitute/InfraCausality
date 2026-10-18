@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/ChainProjection
 Keywords: [Knuth kinematics, chain projection, influence, causal future, light cone, experimental]
-SeeAlso: [InfraKinematics, ChainLightReach, InfraCausalFuture, InfraFutureLightCone, RandomInfraWorldline, InfraMessageFunction]
+SeeAlso: [InfraKinematics, ChainLightReach, InfraCausalFuture, InfraFutureLightCone, RandomInfraTimelikeGeodesic, InfraMessageFunction]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -32,16 +32,16 @@ Knuth's projection counts events, an integer; this one divides by the length of 
 
 ## Basic Examples
 
-A longest chain *a* of the graph and a worldline *b* that ends halfway up, on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. The label is the projection of *a* onto *b*.
+A longest chain *a* of the graph and a timelike geodesic *b* that ends halfway up, on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. The label is the projection of *a* onto *b*.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
     {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[1]])},
     {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Floor[Max[UniversalTime[g]]/2] + 1]]])},
-    {b = (SeedRandom[2]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
+    {b = (SeedRandom[2]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q]])},
     Labeled[InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}], ChainProjection[g, a, b]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -60,7 +60,7 @@ A chain projects onto itself with value 1.
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
   {ChainProjection[g, a, a], ChainProjection[g, a, a, Method -> "LightRays"]}]
 ```
 

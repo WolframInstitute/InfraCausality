@@ -30,8 +30,8 @@ On the diamond lattice, a sprinkling into two-dimensional Minkowski space and th
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {f = (SeedRandom[1]; RandomChoice @ Select[RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All], e |-> e =!= <||>])},
     {InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f],
      InfraEchoFunctionQ[g, InfraEchoFunction[a, b], First /@ DeleteCases[InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"], {}]],
@@ -44,8 +44,8 @@ On the cylinder lattice the first two ticks of *a* reach *b* at ticks that answe
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]]
 ```
 
@@ -79,8 +79,8 @@ The echo functions are exactly the compositions of two message functions, enumer
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {compositions = DeleteDuplicates @ Catenate @ Outer[
       {s, t} |-> KeySort @ DeleteMissing[Lookup[t, Key[#]] & /@ s],
       RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All], RandomInfraMessageFunction[g, InfraMessageFunction[b, a], All], 1]},
@@ -94,8 +94,8 @@ Among the compositions of arbitrary single-valued selections, the predicate acce
 AllTrue[{"MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {selections = {x, y} |-> With[{relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[x, y], "Relation"], {}]},
       AssociationThread[Keys @ relation, #] & /@ Tuples[Values @ relation]]},
     {members = KeySort /@ RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]},
@@ -109,8 +109,8 @@ AllTrue[{"MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {sample = (SeedRandom[1]; RandomInfraEchoFunction[g, InfraEchoFunction[a, b], UpTo[8]])},
     AllTrue[Join[sample, Map[f |-> Append[f, First[Keys @ f] -> First[Keys @ f]], Select[sample, f |-> f =!= <||>]]], f |->
       InfraMemberQ[g, InfraEchoFunction[a, b], f] === InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f]]]]

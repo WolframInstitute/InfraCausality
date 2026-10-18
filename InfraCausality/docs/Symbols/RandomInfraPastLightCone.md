@@ -33,7 +33,7 @@ The default draw is uniform over the rays. The count contract is the one every `
 | `UpTo[n]` | a `List` of min(*n*, `"Cardinality"`) distinct rays |
 | `All` | every ray, enumerated without drawing |
 
-The option `"NextVertexFunction"` replaces the uniform descent as it does for [RandomInfraWorldline](): `Identity` enumerates the rays in sorted order, `RandomSample` in shuffled order, `RandomChoice` draws random walks (not combined with `All`), and a function *f* of the sorted next events sets or prunes the search.
+The option `"NextVertexFunction"` replaces the uniform descent as it does for [RandomInfraTimelikeGeodesic](): `Identity` enumerates the rays in sorted order, `RandomSample` in shuffled order, `RandomChoice` draws random walks (not combined with `All`), and a function *f* of the sorted next events sets or prunes the search.
 
 [InfraLightRayQ]() recognises a ray in either direction.
 
