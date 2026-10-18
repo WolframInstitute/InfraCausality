@@ -23,7 +23,7 @@ RandomInfraFutureLightCone::usage = "RandomInfraFutureLightCone[g, InfraFutureLi
 RandomInfraPastLightCone::usage = "RandomInfraPastLightCone[g, InfraPastLightCone[v], n] gives n distinct incoming light rays of v drawn uniformly as vertex lists ending at v; RandomInfraPastLightCone[g, v, n] is the shortcut.";
 InfraLightRayQ::usage = "InfraLightRayQ[g, chain] gives True if the vertex list chain is a saturated chain on g equal to the causal diamond of its first and last events.";
 
-ChainProjection::usage = "ChainProjection[g, a, b] gives the fraction of the events of the chain a whose causal future meets the chain b; \"Method\" -> \"LightRays\" uses their future light cones instead.";
+ChainProjection::usage = "ChainProjection[g, a, b] gives the fraction of the events of the chain a whose causal future meets the chain b; Method -> \"LightRays\" uses their future light cones instead.";
 ChainLightReach::usage = "ChainLightReach[g, c] gives the union of the vertex sets of the outgoing light rays of the events of the chain c.";
 InfraKinematics::usage = "InfraKinematics[g, ref, targets] gives the projections of the chain ref onto the target chains and, for every pair p, q of them, the Knuth energy, momentum, mass, interval and velocity.";
 

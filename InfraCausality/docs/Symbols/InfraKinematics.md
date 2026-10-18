@@ -33,7 +33,7 @@ The scalars satisfy the relations of special-relativistic kinematics in light-co
 
 | Option | Default | Values |
 |---|---|---|
-| `"Method"` | `"Cone"` | passed to [ChainProjection](): `"Cone"` or `"LightRays"` |
+| `Method` | `"Cone"` | passed to [ChainProjection](): `"Cone"` or `"LightRays"` |
 
 ## Basic Examples
 
@@ -79,8 +79,8 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]]), targets = (SeedRandom[2]; RandomInfraObserver[g, UpTo[5]])},
     AllTrue[{"Cone", "LightRays"}, method |->
-      With[{k = InfraKinematics[g, ref, targets, "Method" -> method]},
-        k["Projections"] == (ChainProjection[g, ref, #, "Method" -> method] & /@ targets) &&
+      With[{k = InfraKinematics[g, ref, targets, Method -> method]},
+        k["Projections"] == (ChainProjection[g, ref, #, Method -> method] & /@ targets) &&
           k["Energy"]^2 - k["Momentum"]^2 == k["Interval"] && k["Mass"]^2 == Abs[k["Interval"]] &&
           And @@ MapThread[{e, p, b} |-> e == 0 || b == p/e, {k["Energy"], k["Momentum"], k["Velocity"]}]]]]]
 ```

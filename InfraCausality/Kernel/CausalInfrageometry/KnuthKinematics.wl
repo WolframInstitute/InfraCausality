@@ -4,22 +4,21 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: CausalInfrageometry :: KnuthKinematics *)
 
-Options[ ChainProjection ] = { "Method" -> "Cone" };
+Options[ ChainProjection ] = { Method -> "Cone" }
 
-ChainProjection[ g_Graph, source_List, target_List, OptionsPattern[] ] :=
-  With[ { reach = Switch[ OptionValue[ "Method" ],
-            "LightRays", e |-> Keys @ InfraMeasurement[ g, InfraFutureLightCone[ e ], "VertexDensity" ],
-            _, e |-> Keys @ InfraMeasurement[ g, InfraCausalFuture[ e ], "VertexDensity" ] ] },
-    Length @ Select[ source, event |-> IntersectingQ[ reach[ event ], target ] ] / Length @ source
-  ]
+ChainProjection[ g_Graph, source_List, target_List, opts : OptionsPattern[] ] /;
+    MemberQ[ { "Cone", "LightRays" }, OptionValue[ ChainProjection, { opts }, Method ] ] :=
+  With[ { cone = Replace[ OptionValue[ ChainProjection, { opts }, Method ], { "Cone" -> InfraCausalFuture, "LightRays" -> InfraFutureLightCone } ] },
+    Length @ Select[ source, e |-> IntersectingQ[ Keys @ InfraMeasurement[ g, cone @ e, "VertexDensity" ], target ] ] / Length @ source ]
 
 ChainLightReach[ g_Graph, chain_List ] :=
   Union @@ ( Keys @ InfraMeasurement[ g, InfraFutureLightCone[ # ], "VertexDensity" ] & /@ chain )
 
-Options[ InfraKinematics ] = { "Method" -> "Cone" };
+Options[ InfraKinematics ] = { Method -> "Cone" }
 
-InfraKinematics[ g_Graph, referenceChain_List, targetChains_List, OptionsPattern[] ] :=
-  With[ { projections = Map[ target |-> ChainProjection[ g, referenceChain, target, "Method" -> OptionValue[ "Method" ] ], targetChains ] },
+InfraKinematics[ g_Graph, referenceChain_List, targetChains_List, opts : OptionsPattern[] ] /;
+    MemberQ[ { "Cone", "LightRays" }, OptionValue[ InfraKinematics, { opts }, Method ] ] :=
+  With[ { projections = Map[ target |-> ChainProjection[ g, referenceChain, target, Method -> OptionValue[ InfraKinematics, { opts }, Method ] ], targetChains ] },
     { pairs = Subsets[ projections, { 2 } ] },
     <|
       "Projections" -> projections,

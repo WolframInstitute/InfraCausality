@@ -20,7 +20,7 @@ Experimental: Knuth kinematics. The light reach is the set on which the `"LightR
 
 Definition: for a chain *c* = (*c*1, …, *cn*) of *g* the light reach is *E*⁺(*c*1) ∪ … ∪ *E*⁺(*cn*), the events reached from some event of *c* along a light ray, the vertex sets of the outgoing light rays of the events of *c*.
 
-The light reach contains *c*, since every event lies on its own light cone, and it lies in the causal future *J*⁺(*c*1) of the first event, since each light cone lies in the causal future of its apex and the futures shrink along the chain. A chain *b* meets the light reach of *a* exactly when <code>[ChainProjection]()[*g*, *a*, *b*, "Method" -> "LightRays"]</code> is positive.
+The light reach contains *c*, since every event lies on its own light cone, and it lies in the causal future *J*⁺(*c*1) of the first event, since each light cone lies in the causal future of its apex and the futures shrink along the chain. A chain *b* meets the light reach of *a* exactly when <code>[ChainProjection]()[*g*, *a*, *b*, Method -> "LightRays"]</code> is positive.
 
 ## Basic Examples
 
@@ -73,5 +73,5 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
-      IntersectingQ[ChainLightReach[g, a], b] === (ChainProjection[g, a, b, "Method" -> "LightRays"] > 0)]]]]
+      IntersectingQ[ChainLightReach[g, a], b] === (ChainProjection[g, a, b, Method -> "LightRays"] > 0)]]]]
 ```
