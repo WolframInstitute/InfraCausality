@@ -49,6 +49,12 @@ InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ a_List ], "Di
 InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "Domain" ] :=
   Keys @ InfraMeasurement[ graph, chart, "Coordinates" ]
 
+InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "VertexDensity" ] :=
+  AssociationThread[ InfraMeasurement[ graph, chart, "Domain" ], 1 ]
+
+InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "EdgeDensity" ] :=
+  AssociationThread[ EdgeList @ Subgraph[ graph, InfraMeasurement[ graph, chart, "Domain" ] ], 1 ]
+
 InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "Subgraph" ] :=
   With[ { coords = InfraMeasurement[ graph, chart, "Coordinates" ] },
     Subgraph[ graph, Keys @ coords, VertexCoordinates -> Normal[ radarPosition /@ coords ] ] ]
@@ -68,4 +74,8 @@ InfraRadarChart /: InfraMeasurement[ _Graph, _InfraRadarChart, "Faithful" ] :=
   True
 
 InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, All ] :=
-  InfraMeasurement[ graph, chart, { "Coordinates", "Time", "Distance", "Domain", "Subgraph", "BaseGraph", "Fibration", "Faithful" } ]
+  InfraMeasurement[ graph, chart,
+    { "Coordinates", "Time", "Distance", "Domain", "VertexDensity", "EdgeDensity", "Subgraph", "BaseGraph", "Fibration", "Faithful" } ]
+
+InfraRadarChart /: InfraMemberQ[ graph_Graph, chart_InfraRadarChart, e_ ] :=
+  MemberQ[ InfraMeasurement[ graph, chart, "Domain" ], e ]

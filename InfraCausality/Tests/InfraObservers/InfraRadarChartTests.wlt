@@ -233,8 +233,24 @@ VerificationTest[
 
 VerificationTest[
   Keys @ InfraMeasurement[ $cylinder, InfraRadarChart[ $spiral ], All ],
-  { "Coordinates", "Time", "Distance", "Domain", "Subgraph", "BaseGraph", "Fibration", "Faithful" },
+  { "Coordinates", "Time", "Distance", "Domain", "VertexDensity", "EdgeDensity", "Subgraph", "BaseGraph", "Fibration", "Faithful" },
   TestID -> "InfraRadarChart-cylinder-All-keys"
+]
+
+VerificationTest[
+  AllTrue[ $cases, Apply[ { g, a } |-> With[ { domain = $domain[ g, a ], chart = InfraRadarChart[ a ] },
+    Keys @ InfraMeasurement[ g, chart, "VertexDensity" ] === domain && Union @ Values @ InfraMeasurement[ g, chart, "VertexDensity" ] === { 1 } &&
+      Sort @ Keys @ InfraMeasurement[ g, chart, "EdgeDensity" ] === Sort @ EdgeList @ Subgraph[ g, domain ] &&
+      Sort @ VertexList @ InfraSubgraph[ g, chart ] === domain ] ] ],
+  True,
+  TestID -> "InfraRadarChart-all-densities-and-subgraph-are-the-domain"
+]
+
+VerificationTest[
+  AllTrue[ $cases, Apply[ { g, a } |-> With[ { domain = $domain[ g, a ] },
+    AllTrue[ VertexList @ g, e |-> InfraMemberQ[ g, InfraRadarChart[ a ], e ] === MemberQ[ domain, e ] ] ] ] ],
+  True,
+  TestID -> "InfraRadarChart-all-member-exactly-on-the-domain"
 ]
 
 VerificationTest[

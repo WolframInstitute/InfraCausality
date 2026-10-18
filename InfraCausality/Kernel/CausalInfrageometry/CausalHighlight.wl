@@ -22,7 +22,7 @@ rayGraph[ graph_Graph, pairs_List ] :=
       pairs ] },
     Graph[ DeleteDuplicates @ Catenate @ paths, DeleteDuplicates @ Catenate[ ( DirectedEdge @@@ Partition[ #, 2, 1 ] ) & /@ paths ] ] ]
 
-causalInk[ graph_Graph, head : _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice ] :=
+causalInk[ graph_Graph, head : _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice | _InfraRadarChart ] :=
   InfraMeasurement[ graph, head, "VertexDensity" ]
 
 causalInk[ graph_Graph, head : _InfraWorldline | _InfraObserver | _InfraFutureLightCone | _InfraPastLightCone ] :=
@@ -38,9 +38,6 @@ causalInk[ graph_Graph, InfraEchoFunction[ a_List, b_List ] ] :=
         pair |-> Lookup[ ba, Key @ Last @ pair, { } ] =!= { } ] },
     rayGraph[ graph, Join[ returning,
       Catenate @ Map[ w |-> ( { w, # } & /@ Lookup[ ba, Key @ w ] ), DeleteDuplicates[ Last /@ returning ] ] ] ] ]
-
-causalInk[ graph_Graph, chart_InfraRadarChart ] :=
-  AssociationThread[ InfraMeasurement[ graph, chart, "Domain" ], 1 ]
 
 InfraSubstrateHighlight[ graph_Graph, items_List, opts : OptionsPattern[ InfraSubstrateHighlight ] ] /;
     MatchQ[ Dimensions @ GraphEmbedding @ graph, { _, 3 } ] :=

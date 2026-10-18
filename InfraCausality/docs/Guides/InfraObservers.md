@@ -26,7 +26,7 @@ An observer is a saturated chain, its positions the ticks of a clock. Two observ
 
 ### Radar charts
 
-- `InfraRadarChart` the radar chart of one observer: radar time $(i + j)/2$ and radar distance $(j - i)/2$ of every event in the radar domain, with its time and distance marginals, its domain, the directed subgraph on the domain and the base graph on the coordinate cells
+- `InfraRadarChart` the radar chart of one observer: radar time $(i + j)/2$ and radar distance $(j - i)/2$ of every event in the radar domain, with its time and distance marginals, its domain (a set head, read by its vertex density), the directed subgraph on the domain and the base graph on the coordinate cells
 
 ### Experimental: selections
 
