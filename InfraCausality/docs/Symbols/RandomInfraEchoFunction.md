@@ -10,4 +10,4 @@ RelatedGuides: [InfraObservers]
 
 ## Usage
 
-`RandomInfraEchoFunction[g, InfraEchoFunction[a, b], n]` gives n distinct monotone echo maps of a via b, compositions of two message selections, as associations; All enumerates them.
+`RandomInfraEchoFunction[g, InfraEchoFunction[a, b], n]` gives n distinct echo functions of a via b, compositions of two message functions, as associations; All enumerates them.

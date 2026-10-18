@@ -38,16 +38,15 @@ $selections = { g, a, b } |-> With[ { relation = $domain[ g, a, b ] },
 
 $monotoneQ = { order, f } |-> LessEqual @@ Lookup[ AssociationThread[ order, Range @ Length @ order ], Key /@ Values @ f ];
 
-$compositions = { g, a, b } |-> Select[
-  DeleteDuplicates @ Catenate @ Outer[
-    { s, t } |-> Association @ KeyValueMap[ { v, w } |-> If[ MemberQ[ Keys @ t, w ], v -> Lookup[ t, Key @ w ], Nothing ], s ],
-    $selections[ g, a, b ], $selections[ g, b, a ], 1 ],
-  f |-> $monotoneQ[ a, f ] ];
+$monotoneSelections = { g, a, b } |-> Select[ $selections[ g, a, b ], f |-> $monotoneQ[ b, f ] ];
+
+$compositions = { g, a, b } |-> DeleteDuplicates @ Catenate @ Outer[
+  { s, t } |-> Association @ KeyValueMap[ { v, w } |-> If[ MemberQ[ Keys @ t, w ], v -> Lookup[ t, Key @ w ], Nothing ], s ],
+  $monotoneSelections[ g, a, b ], $monotoneSelections[ g, b, a ], 1 ];
 
 VerificationTest[
   AllTrue[ $cases, Apply[ { g, a, b } |->
-    Sort[ KeySort /@ RandomInfraMessageFunction[ g, InfraMessageFunction[ a, b ], All ] ] ===
-      Sort[ KeySort /@ Select[ $selections[ g, a, b ], f |-> $monotoneQ[ b, f ] ] ] ] ],
+    Sort[ KeySort /@ RandomInfraMessageFunction[ g, InfraMessageFunction[ a, b ], All ] ] === Sort[ KeySort /@ $monotoneSelections[ g, a, b ] ] ] ],
   True,
   TestID -> "RandomInfraMessageFunction-all-enumerates-monotone-selections"
 ]
@@ -70,7 +69,7 @@ VerificationTest[
   AllTrue[ $cases, Apply[ { g, a, b } |->
     Sort[ KeySort /@ RandomInfraEchoFunction[ g, InfraEchoFunction[ a, b ], All ] ] === Sort[ KeySort /@ $compositions[ g, a, b ] ] ] ],
   True,
-  TestID -> "RandomInfraEchoFunction-all-enumerates-monotone-compositions"
+  TestID -> "RandomInfraEchoFunction-all-enumerates-compositions-of-monotone-selections"
 ]
 
 VerificationTest[
@@ -136,7 +135,7 @@ VerificationTest[
       RandomInfraEchoFunction[ $diamond6, head, card + 1 ],
       Length @ RandomInfraEchoFunction[ $diamond6, head, UpTo[ card + 5 ] ],
       MemberQ[ RandomInfraEchoFunction[ $diamond6, head, All ], RandomInfraEchoFunction[ $diamond6, head ] ] } ],
-  { 4, { }, 32, True },
+  { 4, { }, 24, True },
   TestID -> "RandomInfraEchoFunction-diamond6-count-contract"
 ]
 

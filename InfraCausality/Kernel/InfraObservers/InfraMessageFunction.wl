@@ -8,6 +8,8 @@ PackageScope[ messageRelation ]
 
 PackageScope[ selectionDAG ]
 
+PackageScope[ monotoneSelections ]
+
 PackageScope[ echoCompositions ]
 
 messageRelation[ graph_Graph, a_List, b_List ] :=
@@ -15,6 +17,9 @@ messageRelation[ graph_Graph, a_List, b_List ] :=
     v |-> With[ { null = VertexList @ InfraMeasurement[ graph, InfraFutureLightCone[ v ], "Graph" ] },
       Select[ b, w |-> MemberQ[ null, w ] ] ],
     a ]
+
+messageDomain[ graph_Graph, a_List, b_List ] :=
+  Select[ messageRelation[ graph, a, b ], # =!= { } & ]
 
 selectionDAG[ relation_Association, b_List ] :=
   With[ { layers = Values @ Select[ relation, # =!= { } & ], position = AssociationThread[ b, Range @ Length @ b ] },
@@ -25,17 +30,14 @@ selectionDAG[ relation_Association, b_List ] :=
         { Most @ nodes, Rest @ nodes } ] ] },
     Subgraph[ dag, Intersection[ VertexOutComponent[ dag, { { 0 } } ], VertexInComponent[ dag, { { Length @ layers + 1 } } ] ] ] ]
 
+monotoneSelections[ relation_Association, b_List ] :=
+  With[ { dag = selectionDAG[ relation, b ] },
+    AssociationThread[ Keys @ relation, Last /@ Take[ #, { 2, -2 } ] ] & /@
+      FindPath[ dag, { 0 }, { Length @ relation + 1 }, Infinity, All ] ]
+
 echoCompositions[ graph_Graph, a_List, b_List ] :=
-  With[ { ab = Select[ messageRelation[ graph, a, b ], # =!= { } & ],
-          ba = Select[ messageRelation[ graph, b, a ], # =!= { } & ],
-          position = AssociationThread[ a, Range @ Length @ a ] },
-    Select[
-      DeleteDuplicates @ Catenate @ Map[
-        s |-> With[ { hits = Select[ DeleteDuplicates @ Values @ s, w |-> MemberQ[ Keys @ ba, w ] ] },
-          Map[ t |-> DeleteMissing @ Map[ w |-> Lookup[ t, Key @ w ], s ],
-            AssociationThread[ hits, # ] & /@ Tuples @ Lookup[ ba, Key /@ hits ] ] ],
-        AssociationThread[ Keys @ ab, # ] & /@ Tuples @ Values @ ab ],
-      e |-> LessEqual @@ Lookup[ position, Key /@ Values @ e ] ] ]
+  With[ { there = monotoneSelections[ messageDomain[ graph, a, b ], b ], back = monotoneSelections[ messageDomain[ graph, b, a ], a ] },
+    DeleteDuplicates @ Catenate @ Outer[ { s, t } |-> DeleteMissing[ Lookup[ t, Key @ # ] & /@ s ], there, back, 1 ] ]
 
 InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_List, b_List ], "Relation" ] :=
   messageRelation[ graph, a, b ]
@@ -50,7 +52,7 @@ InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_L
       { counts, ws } |-> AssociationMap[
         w |-> Total @ KeySelect[ counts, u |-> Lookup[ position, Key @ u, 0 ] <= Lookup[ position, Key @ w ] ], ws ],
       <| Missing[ "Start" ] -> 1 |>,
-      Values @ Select[ messageRelation[ graph, a, b ], # =!= { } & ] ] ]
+      Values @ messageDomain[ graph, a, b ] ] ]
 
 InfraMessageFunction /: InfraMeasurement[ _Graph, _InfraMessageFunction, "Faithful" ] :=
   True
@@ -78,18 +80,25 @@ InfraEchoFunction /: InfraMeasurement[ _Graph, _InfraEchoFunction, "Faithful" ] 
 InfraEchoFunction /: InfraMeasurement[ graph_Graph, echo_InfraEchoFunction, All ] :=
   InfraMeasurement[ graph, echo, { "Relation", "Graph", "Cardinality", "Faithful" } ]
 
-InfraEchoFunction /: InfraMemberQ[ graph_Graph, InfraEchoFunction[ a_List, b_List ], f_Association ] :=
-  MemberQ[ KeySort /@ echoCompositions[ graph, a, b ], KeySort @ f ]
+InfraEchoFunction /: InfraMemberQ[ graph_Graph, echo_InfraEchoFunction, f_Association ] :=
+  InfraEchoFunctionQ[ graph, echo, f ]
 
 InfraMessageFunctionQ[ graph_Graph, InfraMessageFunction[ a_List, b_List ], f_Association ] :=
-  With[ { relation = Select[ messageRelation[ graph, a, b ], # =!= { } & ], position = AssociationThread[ b, Range @ Length @ b ] },
+  With[ { relation = messageDomain[ graph, a, b ], position = AssociationThread[ b, Range @ Length @ b ] },
     Sort @ Keys @ f === Sort @ Keys @ relation &&
       AllTrue[ Keys @ relation, v |-> MemberQ[ Lookup[ relation, Key @ v ], Lookup[ f, Key @ v ] ] ] &&
       LessEqual @@ Lookup[ position, Key /@ Lookup[ f, Key /@ Keys @ relation ] ] ]
 
-InfraEchoFunctionQ[ graph_Graph, echo : InfraEchoFunction[ a_List, _List ], f_Association ] :=
-  With[ { relation = InfraMeasurement[ graph, echo, "Relation" ], position = AssociationThread[ a, Range @ Length @ a ] },
-    { ticks = Select[ a, v |-> MemberQ[ Keys @ f, v ] ] },
-    Length @ ticks == Length @ f &&
-      AllTrue[ ticks, v |-> MemberQ[ Lookup[ relation, Key @ v ], Lookup[ f, Key @ v ] ] ] &&
-      LessEqual @@ Lookup[ position, Key /@ Lookup[ f, Key /@ ticks ] ] ]
+InfraEchoFunctionQ[ graph_Graph, InfraEchoFunction[ a_List, b_List ], f_Association ] :=
+  With[ { there = messageDomain[ graph, a, b ], back = messageRelation[ graph, b, a ],
+          position = AssociationThread[ a, Range @ Length @ a ], order = AssociationThread[ b, Range @ Length @ b ] },
+    { ticks = Select[ Keys @ there, v |-> KeyExistsQ[ f, v ] ],
+      value = v |-> Lookup[ f, Key @ v, None ],
+      admissible = { v, w } |-> If[ KeyExistsQ[ f, v ], MemberQ[ Lookup[ back, Key @ w ], Lookup[ f, Key @ v ] ], Lookup[ back, Key @ w ] === { } ] },
+    { layers = KeyValueMap[ { v, ws } |-> { v, Select[ ws, w |-> admissible[ v, w ] ] }, there ] },
+    Length @ ticks == Length @ f && SubsetQ[ a, Values @ f ] &&
+      LessEqual @@ Lookup[ position, Key /@ Lookup[ f, Key /@ ticks ] ] &&
+      ( layers === { } || Last @ Fold[
+          { state, layer } |-> { First @ layer, Select[ Last @ layer, w |-> AnyTrue[ Last @ state, u |->
+            Lookup[ order, Key @ u ] < Lookup[ order, Key @ w ] || u === w && value @ First @ state === value @ First @ layer ] ] },
+          First @ layers, Rest @ layers ] =!= { } ) ]

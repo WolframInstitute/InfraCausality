@@ -45,13 +45,13 @@ MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the univ
 MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal future has the most vertices.";
 
 InfraMessageFunction::usage = "InfraMessageFunction[a, b] is the message relation from observer a to observer b, v -> the events of b in the future light cone of v; its members are the monotone single-valued selections.";
-InfraEchoFunction::usage = "InfraEchoFunction[a, b] is the echo relation of observer a via observer b, v -> the events of a lit from the message images of v; its members are the monotone compositions of two selections.";
+InfraEchoFunction::usage = "InfraEchoFunction[a, b] is the echo relation of observer a via observer b, v -> the events of a lit from the message images of v; its members are the compositions of two message functions, one from a to b and one back, on the ticks whose signal returns.";
 InfraMessageFunctionQ::usage = "InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f] gives True if the association f picks one message image on b for every tick of a that has one and preserves the order (EPS D1).";
-InfraEchoFunctionQ::usage = "InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f] gives True if the association f sends ticks of a to one of their echo images on a and preserves the order of a.";
+InfraEchoFunctionQ::usage = "InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f] gives True if the association f is the composition of two message functions, one from a to b and one back, decided by a path search in the selection DAG without enumerating them.";
 InfraRadarChart::usage = "InfraRadarChart[a] is the radar chart of the observer a, giving each event between its ticks the radar time (i + j)/2 and distance (j - i)/2 of its emission tick i and reception tick j; a list of observers joins charts.";
 
 RandomInfraMessageFunction::usage = "RandomInfraMessageFunction[g, InfraMessageFunction[a, b], n] gives n distinct monotone selections of the message relation as associations, drawn uniformly; All enumerates them.";
-RandomInfraEchoFunction::usage = "RandomInfraEchoFunction[g, InfraEchoFunction[a, b], n] gives n distinct monotone echo maps of a via b, compositions of two message selections, as associations; All enumerates them.";
+RandomInfraEchoFunction::usage = "RandomInfraEchoFunction[g, InfraEchoFunction[a, b], n] gives n distinct echo functions of a via b, compositions of two message functions, as associations; All enumerates them.";
 
 CausalSubstrate::usage = "CausalSubstrate[name, size] gives the named causal graph at size \"Small\", \"Medium\" or \"Large\", a transitively reduced DAG; CausalSubstrate[] lists the names by group.";
 CausalSubstrateStyle::usage = "CausalSubstrateStyle[size] gives the Graph options a causal substrate of size \"Small\", \"Medium\" or \"Large\" is drawn with; CausalSubstrateStyle[name, size] those of a named substrate.";

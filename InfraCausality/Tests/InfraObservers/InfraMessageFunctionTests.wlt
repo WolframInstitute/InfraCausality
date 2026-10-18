@@ -12,6 +12,8 @@ $diamond = $lattice[ 3 ];
 
 $diamond6 = $lattice[ 5 ];
 
+$diamond7 = $lattice[ 6 ];
+
 $cylinder = Graph[ Flatten @ Table[
   { { k, t } -> { k, t + 1 }, { k, t } -> { Mod[ k + 1, 3 ], t + 1 } },
   { k, 0, 2 }, { t, 0, 2 } ] ];
@@ -19,6 +21,10 @@ $cylinder = Graph[ Flatten @ Table[
 $stair = { { 0, 0 }, { 1, 0 }, { 1, 1 }, { 2, 1 }, { 2, 2 }, { 3, 2 }, { 3, 3 } };
 
 $stairShifted = { { 0, 2 }, { 1, 2 }, { 1, 3 }, { 2, 3 }, { 2, 4 }, { 3, 4 }, { 3, 5 } };
+
+$staircase = Catenate @ Table[ { { i, i }, { i + 1, i } }, { i, 0, 5 } ] ~Append~ { 6, 6 };
+
+$staircaseShifted = Select[ ( # + { 0, 2 } ) & /@ $staircase, Max @ # <= 6 & ];
 
 $column = k |-> Table[ { k, j }, { j, 0, 3 } ];
 
@@ -30,6 +36,8 @@ $cases = {
   { $diamond6, $stairShifted, $stair },
   { $cylinder, $column[ 0 ], $column[ 1 ] },
   { $cylinder, $column[ 1 ], $column[ 0 ] } };
+
+$echoCases = Join[ $cases, { { $diamond7, $staircase, $staircaseShifted }, { $diamond7, $staircaseShifted, $staircase } } ];
 
 $tau = { g, v, w } |-> Max[ Length /@ If[ v === w, { { v } }, FindPath[ g, v, w, Infinity, All ] ] ] - 1;
 
@@ -43,6 +51,16 @@ $monotoneSelections = { g, a, b } |-> With[ { relation = $domain[ g, a, b ], pos
 
 $allSelections = { g, a, b } |-> With[ { relation = $domain[ g, a, b ] },
   AssociationThread[ Keys @ relation, # ] & /@ Tuples @ Values @ relation ];
+
+$compose = { s, t } |-> DeleteMissing[ Lookup[ t, Key @ # ] & /@ s ];
+
+$compositions = { g, a, b } |-> Sort[ KeySort /@ DeleteDuplicates @ Catenate @ Outer[ $compose, $monotoneSelections[ g, a, b ], $monotoneSelections[ g, b, a ], 1 ] ];
+
+$randomMonotoneMap = { g, a, b } |-> With[ { relation = InfraMeasurement[ g, InfraEchoFunction[ a, b ], "Relation" ], position = AssociationThread[ a, Range @ Length @ a ] },
+  Last @ Fold[
+    { state, v } |-> With[ { choices = Select[ Lookup[ relation, Key @ v ], u |-> First @ state <= Lookup[ position, Key @ u ] ] },
+      If[ choices === { } || RandomReal[ ] < 1 / 3, state, With[ { u = RandomChoice @ choices }, { Lookup[ position, Key @ u ], Append[ Last @ state, v -> u ] } ] ] ],
+    { 0, <| |> }, a ] ];
 
 VerificationTest[
   AllTrue[ $cases, Apply[ { g, a, b } |-> With[ { relation = InfraMeasurement[ g, InfraMessageFunction[ a, b ], "Relation" ] },
@@ -197,10 +215,86 @@ VerificationTest[
 VerificationTest[
   { InfraEchoFunctionQ[ $eps, InfraEchoFunction[ { 1, 2, 3, 4 }, { 5, 6, 7, 8 } ], <| 1 -> 3, 2 -> 4 |> ],
     InfraEchoFunctionQ[ $eps, InfraEchoFunction[ { 1, 2, 3, 4 }, { 5, 6, 7, 8 } ], <| 1 -> 4 |> ],
-    InfraEchoFunctionQ[ $diamond6, InfraEchoFunction[ $stair, $stairShifted ], <| { 0, 0 } -> { 3, 2 }, { 1, 0 } -> { 2, 2 } |> ],
+    InfraEchoFunctionQ[ $diamond6, InfraEchoFunction[ $stair, $stairShifted ], <| { 0, 0 } -> { 3, 2 }, { 1, 0 } -> { 2, 2 }, { 1, 1 } -> { 3, 3 } |> ],
+    InfraEchoFunctionQ[ $diamond6, InfraEchoFunction[ $stair, $stairShifted ], <| { 0, 0 } -> { 2, 2 }, { 1, 0 } -> { 3, 2 }, { 1, 1 } -> { 3, 3 } |> ],
     InfraEchoFunctionQ[ $diamond6, InfraEchoFunction[ $stair, $stairShifted ], <| { 0, 0 } -> { 2, 2 }, { 1, 0 } -> { 3, 2 } |> ] },
-  { True, False, False, True },
-  TestID -> "InfraEchoFunctionQ-image-membership-and-order"
+  { True, False, False, True, False },
+  TestID -> "InfraEchoFunctionQ-image-membership-order-and-domain"
+]
+
+VerificationTest[
+  { InfraMeasurement[ $diamond7, InfraEchoFunction[ $staircaseShifted, $staircase ], "Cardinality" ],
+    InfraMeasurement[ $diamond7, InfraEchoFunction[ $staircase, $staircaseShifted ], "Cardinality" ],
+    InfraMeasurement[ $diamond7, InfraMessageFunction[ $staircase, $staircaseShifted ], "Cardinality" ],
+    InfraMeasurement[ $diamond7, InfraMessageFunction[ $staircaseShifted, $staircase ], "Cardinality" ] },
+  { 699, 2584, 81, 81 },
+  TestID -> "InfraEchoFunction-diamond7-staircase-cardinalities"
+]
+
+VerificationTest[
+  AllTrue[ $echoCases, Apply[ { g, a, b } |->
+    InfraMeasurement[ g, InfraEchoFunction[ a, b ], "Cardinality" ] <=
+      InfraMeasurement[ g, InfraMessageFunction[ a, b ], "Cardinality" ] InfraMeasurement[ g, InfraMessageFunction[ b, a ], "Cardinality" ] ] ],
+  True,
+  TestID -> "InfraEchoFunction-all-cardinality-at-most-product-of-message-cardinalities"
+]
+
+VerificationTest[
+  AllTrue[ $echoCases, Apply[ { g, a, b } |->
+    $compositions[ g, a, b ] === Sort[ KeySort /@ RandomInfraEchoFunction[ g, InfraEchoFunction[ a, b ], All ] ] ] ],
+  True,
+  TestID -> "InfraEchoFunction-all-members-compose-two-monotone-message-functions"
+]
+
+VerificationTest[
+  AllTrue[ $cases, Apply[ { g, a, b } |->
+    AllTrue[ RandomInfraEchoFunction[ g, InfraEchoFunction[ a, b ], All ], f |->
+      InfraEchoFunctionQ[ g, InfraEchoFunction[ a, b ], f ] && InfraMemberQ[ g, InfraEchoFunction[ a, b ], f ] ] ] ],
+  True,
+  TestID -> "InfraEchoFunctionQ-all-members-pass"
+]
+
+VerificationTest[
+  With[ { echo = InfraEchoFunction[ $staircaseShifted, $staircase ] },
+    With[ { members = RandomInfraEchoFunction[ $diamond7, echo, All ] },
+      Length @ members == 699 && AllTrue[ members, f |-> InfraEchoFunctionQ[ $diamond7, echo, f ] ] &&
+        AllTrue[ members[[ 1 ;; ;; 10 ]], f |-> InfraMemberQ[ $diamond7, echo, f ] ] ] ],
+  True,
+  TestID -> "InfraEchoFunctionQ-diamond7-all-699-members-pass"
+]
+
+VerificationTest[
+  With[ { a = $staircaseShifted, b = $staircase },
+    With[ { members = $compositions[ $diamond7, a, b ], maps = ( SeedRandom[ 5 ]; Table[ $randomMonotoneMap[ $diamond7, a, b ], 200 ] ) },
+      { Length @ members, AllTrue[ maps, f |-> InfraEchoFunctionQ[ $diamond7, InfraEchoFunction[ a, b ], f ] === MemberQ[ members, KeySort @ f ] ],
+        Count[ maps, f_ /; MemberQ[ members, KeySort @ f ] ] } ] ],
+  { 699, True, 10 },
+  TestID -> "InfraEchoFunctionQ-diamond7-agrees-with-brute-force-on-random-monotone-maps"
+]
+
+VerificationTest[
+  With[ { a = $staircaseShifted, b = $staircase,
+    f = <| { 0, 2 } -> { 2, 3 }, { 1, 2 } -> { 2, 3 }, { 1, 3 } -> { 3, 4 }, { 2, 3 } -> { 3, 4 }, { 2, 4 } -> { 4, 5 }, { 3, 4 } -> { 4, 5 }, { 4, 5 } -> { 5, 6 } |> },
+    With[ { relation = InfraMeasurement[ $diamond7, InfraEchoFunction[ a, b ], "Relation" ], position = AssociationThread[ a, Range @ Length @ a ] },
+      { AllTrue[ Keys @ f, v |-> MemberQ[ Lookup[ relation, Key @ v ], Lookup[ f, Key @ v ] ] ],
+        LessEqual @@ Lookup[ position, Key /@ Values @ f ],
+        MemberQ[ Sort[ KeySort /@ Select[ DeleteDuplicates @ Catenate @ Outer[ $compose, $allSelections[ $diamond7, a, b ], $allSelections[ $diamond7, b, a ], 1 ],
+          e |-> LessEqual @@ Lookup[ position, Key /@ Values @ e ] ] ], f ],
+        InfraEchoFunctionQ[ $diamond7, InfraEchoFunction[ a, b ], f ],
+        InfraMemberQ[ $diamond7, InfraEchoFunction[ a, b ], f ] } ] ],
+  { True, True, True, False, False },
+  TestID -> "InfraEchoFunctionQ-diamond7-rejects-composite-of-non-monotone-selection"
+]
+
+VerificationTest[
+  With[ { g = ( SeedRandom[ 3 ]; RandomCausalGraph[ { 25, 1 / 4 } ] ) },
+    With[ { observers = ( SeedRandom[ 3 ]; RandomInfraObserver[ g, InfraObserver[ ], 4 ] ) },
+      AllTrue[ Join[ $echoCases, Catenate[ Apply[ { a, b } |-> { { g, a, b }, { g, b, a } } ] /@ Subsets[ observers, { 2 } ] ] ], Apply[ { h, a, b } |->
+        With[ { relation = InfraMeasurement[ h, InfraMessageFunction[ a, b ], "Relation" ] },
+          AllTrue[ a, v |-> With[ { future = Select[ b, w |-> MemberQ[ VertexOutComponent[ h, { v } ], w ] ] },
+            Lookup[ relation, Key @ v ] === Take[ future, Length @ Lookup[ relation, Key @ v ] ] ] ] ] ] ] ] ],
+  True,
+  TestID -> "InfraMessageFunction-all-image-is-initial-segment-of-future-on-b"
 ]
 
 EndTestSection[]

@@ -10,4 +10,4 @@ RelatedGuides: [InfraObservers]
 
 ## Usage
 
-`InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f]` gives True if the association f sends ticks of a to one of their echo images on a and preserves the order of a.
+`InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f]` gives True if the association f is the composition of two message functions, one from a to b and one back, decided by a path search in the selection DAG without enumerating them.
