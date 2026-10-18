@@ -6,8 +6,8 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalInfrageometry
-Keywords: [causal structure, causal set, directed acyclic graph, causal future, causal past, causal diamond, Alexandrov interval, worldline, observer, light cone, light ray, chain, infrageometry]
-RelatedGuides: [CausalTime, InfraObservers, CausalSubstrates, BondiKCalculus, Experimental]
+Keywords: [causal structure, causal set, directed acyclic graph, causal future, causal past, causal diamond, Alexandrov interval, worldline, observer, light cone, light ray, chain, infrageometry, Knuth kinematics, polyline worldline, causal-set estimators, Myrheim-Meyer dimension, Benincasa-Dowker action]
+RelatedGuides: [CausalTime, InfraObservers, CausalSubstrates, BondiKCalculus]
 ---
 
 ## Abstract
@@ -63,6 +63,20 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 - `RandomCausalGraph` a random causal set: transitive percolation, a random acyclic orientation or a sprinkling
 - `InfraSubstrateHighlight` (InfraGeometry) the densities of a list of causal heads drawn on a causal graph, one palette colour each
 
+### Experimental: polyline worldlines
+
+- `InfraWorldline` through $p_1, \dots, p_k$, the piecewise geodesics, and from one event $p$, the longest chains starting at $p$
+
+### Experimental: causal-set estimators
+
+- `InfraMeasurement` (InfraGeometry) of a diamond: "OrderingFraction", "MyrheimMeyerDimension", "IntervalAbundances", "BenincasaDowkerAction", the causal-set observables of the interval
+
+### Experimental: Knuth kinematics
+
+- `ChainProjection` the fraction of a chain whose causal future, or whose light cone, meets a second chain
+- `ChainLightReach` the union of the future light cones of the events of a chain
+- `InfraKinematics` the projections of a reference chain onto target chains and the Knuth scalars $E = (p + q)/2$, $P = (p - q)/2$, $m = \sqrt{|pq|}$, $\beta = (p - q)/(p + q)$ of every target pair
+
 ### Experimental: viewers
 
-- `LightConeViewer`, `MessageFunctionViewer`, `FoliationViewer`, `BondiViewer` interactive viewers for light cones, message functions, the universal foliation and the Bondi constructions
+- `LightConeViewer`, `MessageFunctionViewer`, `FoliationViewer` interactive viewers for the cones and light cones of an event, the messages of a tick and the universal foliation

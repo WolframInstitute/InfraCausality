@@ -5,7 +5,7 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraMessageFunction
-RelatedGuides: [Experimental]
+RelatedGuides: [InfraObservers]
 ---
 
 ## Usage

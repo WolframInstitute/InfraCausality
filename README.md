@@ -32,8 +32,9 @@ The continuum anchor is Bondi's k-calculus drawn as Euclidean geometry: two stra
 | Causal Time | the universal time, its foliation, slices and antichains |
 | Infra Observers | message and echo relations (EPS), radar charts, the observer fibration |
 | Causal Substrates | named causal graphs (lattices, Minkowski sprinklings, spray graphs) and random causal graphs |
-| Bondi k-Calculus | the k-factor, rapidity, the Euclidean picture of worldlines and radar coordinates |
-| Experimental Functions | Knuth kinematics, extremal events, message and echo selections, the Bondi figures |
+| Bondi k-Calculus | the k-factor, rapidity, proper time in the Euclidean picture of worldlines, radar coordinates |
+
+Each guide lists its settled, elementary functions first; experimental material (Knuth kinematics, extremal events, message and echo selections, the Bondi figures, the viewers) sits at the bottom of the same guide, in sections titled "Experimental: <topic>".
 
 Version 2.0.0 is a breaking rewrite of 1.2.0. [CHANGELOG.md](CHANGELOG.md) maps every removed name to its replacement.
 

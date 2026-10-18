@@ -7,12 +7,12 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalSubstrates
 Keywords: [causal substrate, causal graph, causal set, lattice, sprinkling, Minkowski space, transitive percolation, spray graph, Wolfram model]
-RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, BondiKCalculus, Experimental]
+RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, BondiKCalculus]
 ---
 
 ## Abstract
 
-A causal substrate is the directed acyclic graph the observer lives in. The named substrates come at three sizes with the style they are drawn in and the code that builds them: the light-cone lattices (the $\mathbb{Z}^2$ product order cut to a diamond and the cylinder lattice of constant width), fixed-seed Poisson sprinklings into a Minkowski diamond, the spray graphs of InfraGeometry's Riemannian substrates, and the causal graphs of notable Wolfram model universes. Random causal graphs are drawn by transitive percolation, by an acyclic orientation of a random graph or by a sprinkling.
+A causal substrate is the directed acyclic graph the observer lives in. The named substrates come at three sizes with the style they are drawn in and the code that builds them: the light-cone lattices (the $\mathbb{Z}^2$ product order cut to a diamond, the cylinder lattice of constant width and the $\mathbb{Z}^3$ cube), fixed-seed Poisson sprinklings into a Minkowski diamond, the spray graphs of InfraGeometry's Riemannian substrates, and a fixed-seed percolation. Random causal graphs are drawn by transitive percolation, by an acyclic orientation of a random graph or by a sprinkling.
 
 ## Functions
 
@@ -31,3 +31,7 @@ A causal substrate is the directed acyclic graph the observer lives in. The name
 
 - `SprayGraph` (InfraGeometry) the rank DAG of an undirected substrate from a base point, $u \to v$ iff $d(c, v) = d(c, u) + 1$
 - `InfraSubstrate` (InfraGeometry) the named undirected substrates
+
+### Experimental: Wolfram model universes
+
+- `CausalSubstrate` with a name "wm3467", "wm1783", "wm7714", "wm1529", "wm3975" or "wm2216": the causal graph of a notable Wolfram model universe of the registry, from bundled data

@@ -6,8 +6,8 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalTime
-Keywords: [time function, universal time, height, longest chain, foliation, slice, antichain, simultaneity]
-RelatedGuides: [CausalInfrageometry, InfraObservers, CausalSubstrates, BondiKCalculus, Experimental]
+Keywords: [time function, universal time, height, longest chain, foliation, slice, antichain, simultaneity, extremal events]
+RelatedGuides: [CausalInfrageometry, InfraObservers, CausalSubstrates, BondiKCalculus]
 ---
 
 ## Abstract
@@ -28,3 +28,7 @@ A time function on a causal graph is a map to the integers that increases along 
 - `RandomInfraSlice` the support of a slice as a sorted vertex list
 
 - `InfraSliceQ`, `InfraAntichainQ`
+
+### Experimental: extremal events
+
+- `MaximalAbsorber`, `MaximalEmitter` per slice of the universal foliation, the events of largest causal past or causal future

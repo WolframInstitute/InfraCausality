@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     22710,        614]
-NotebookOptionsPosition[     17081,        504]
-NotebookOutlinePosition[     18107,        534]
-CellTagsIndexPosition[     18064,        531]
+NotebookDataLength[     28057,        749]
+NotebookOptionsPosition[     21137,        618]
+NotebookOutlinePosition[     22252,        649]
+CellTagsIndexPosition[     22209,        646]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -29,32 +29,41 @@ observers exchange light: the message relation sends a tick of ",
  Cell[BoxData[
   StyleBox["a", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "c69c08d5-75c2-4552-ad73-e3790ac29541"],
+  "a8cc2331-d35b-4a5b-a97d-8cf40feafaa5"],
  " to the ticks of ",
  Cell[BoxData[
   StyleBox["b", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "7a04976f-9643-40ce-86bd-e9f40f36b11b"],
+  "8b199b93-47e0-4485-bfa9-2e2fdec3e1ed"],
  " it reaches by a light ray, and the echo relation returns the message to ",
  Cell[BoxData[
   StyleBox["a", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "3155f59d-3264-492b-aa90-e25988a58fd5"],
+  "852beee1-5b21-46d3-b41a-b23afea02f06"],
  ". A single-valued selection of the relation that preserves the tick order \
 is a message function in the sense of Ehlers, Pirani and Schild (axiom D1); \
-the message and echo heads are read for their relation, their graph and the \
-number of such functions, and their random samplers draw one. The radar chart \
-of an observer assigns to every event in its radar domain the emission tick \
-",
+an echo function is the composition of a message function to ",
+ Cell[BoxData[
+  StyleBox["b", "TI"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "ca363a38-6f0e-4f72-b8dc-69b06199bbd3"],
+ " with a message function back to ",
+ Cell[BoxData[
+  StyleBox["a", "TI"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "45f625dc-fd29-4012-9617-0b7441c7cfdd"],
+ ". The message and echo heads are read for their relation, their graph and \
+the number of such functions. The radar chart of an observer assigns to every \
+event in its radar domain the emission tick ",
  Cell[BoxData[
   StyleBox["i", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "76774b31-a21d-42e7-b2e8-9b6e8a273f29"],
+  "e2b7a222-09d3-46f7-89d6-f03f495ba438"],
  " of the latest tick that can signal the event and the reception tick ",
  Cell[BoxData[
   StyleBox["j", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "09a224cc-9705-420e-8f15-3132aa2c9bbf"],
+  "0834a946-376c-4d31-998d-ff4b73f10f4d"],
  " of the earliest tick the event can signal, hence the radar time ",
  Cell[BoxData[
   RowBox[{
@@ -66,7 +75,7 @@ of an observer assigns to every event in its radar domain the emission tick \
    StyleBox[")",
     SpanMaxSize->1], "/", "2"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "760bf003-7cba-45d9-8d4b-31b7292086e5"],
+  "d35b7115-e298-4dba-875b-cfe9e2575587"],
  " and the radar distance ",
  Cell[BoxData[
   RowBox[{
@@ -78,16 +87,13 @@ of an observer assigns to every event in its radar domain the emission tick \
    StyleBox[")",
     SpanMaxSize->1], "/", "2"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "b6697174-9c91-4849-aa09-fc8a3c450efd"],
- "; a list of observers joins their charts. The observer space is the causal \
-graph fibered over the chart: the \"Fibration\" reading hands InfraGeometry \
-an ",
- Cell[BoxData["InfraFibration"], "InlineFormula",
+  "2f1e40ed-fdac-44ab-ac5f-2192e0e04b03"],
+ "; the distance is unsigned, so a single observer in ",
+ Cell[BoxData[
+  RowBox[{"1", "+", "1"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "93c18d3d-076b-4df0-9d5b-5d5bed96e3ae"],
- " whose fibers are the events an observer cannot tell apart, on which \
-sections, connections and holonomy are read with the Infra Fiber Bundles \
-guide."
+  "a5336210-e67b-4b83-8500-8cdd753d9aeb"],
+ " dimensions sees the two sides of its worldline folded onto each other."
 }], "GuideAbstract",
  CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
 }, Open  ]],
@@ -99,7 +105,7 @@ Cell["", "GuideFunctionsSection",
 
 Cell[CellGroupData[{
 
-Cell["Messages and echoes", "GuideFunctionsSubsection",ExpressionUUID->"83ce302a-5cf5-4f72-9655-907da3bccfe8"],
+Cell["Messages and echoes", "GuideFunctionsSubsection",ExpressionUUID->"af14eb50-1032-40bf-adfb-8ef23779cc71"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -111,18 +117,18 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "8c18cdd4-2733-4873-8dbc-80e5ad074bbf"],
+  "6f321b95-4a32-47cb-95d8-326babf43b70"],
  " \[LongDash] ",
  "the message relation from observer ",
  Cell[BoxData[
   StyleBox["a", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "722186fc-b9e4-4eda-824c-aca74304c9d7"],
+  "44403091-9156-473b-9515-5b2c4329db34"],
  " to observer ",
  Cell[BoxData[
   StyleBox["b", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "df72ef06-4989-40d8-b9ba-4171320b3768"],
+  "2524127c-a00e-4961-968d-d4fc80af40b5"],
  ", ",
  Cell[BoxData[
   RowBox[{
@@ -136,9 +142,9 @@ Cell[TextData[{
     SpanMaxSize->1], "\[Intersection]", 
    StyleBox["b", "TI"]}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "e4443caf-d470-4f87-a365-f174465fae1e"],
+  "206b8b48-4e44-4adc-b7ae-5de2fcf876e1"],
  ", whose members are its monotone single-valued selections"
-}], "GuideText",ExpressionUUID->"63bd6c95-db61-421e-a42a-f40bd812c879"],
+}], "GuideText",ExpressionUUID->"d97775bc-b683-4127-97b5-d6b7bfa8370f"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -150,30 +156,43 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "409e6f05-a0fa-44f1-8d5c-d0786183485d"],
+  "5934b38e-2074-4a8c-8493-77b822e03b3b"],
  " \[LongDash] ",
  "the echo relation of ",
  Cell[BoxData[
   StyleBox["a", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "d5a3d8c6-f6a3-48a6-88c1-2333a27c46af"],
+  "2cb96abb-109d-4feb-b3e6-6b14d871ff1b"],
  " via ",
  Cell[BoxData[
   StyleBox["b", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "532b1c24-fecd-4f65-b802-dfc3404d2f00"],
+  "b3de8d06-8d30-4a83-bfc8-381f27edf236"],
  ", a message to ",
  Cell[BoxData[
   StyleBox["b", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "992ac840-37e7-4ecc-95ab-d83f4b49b630"],
+  "df2f7cbc-1ba8-4637-9a98-6bf2fe57d552"],
  " returned to ",
  Cell[BoxData[
   StyleBox["a", "TI"]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "ce90a544-ce3f-475d-bc13-c4d72fadae7f"],
- ", whose members are the monotone compositions of two selections"
-}], "GuideText",ExpressionUUID->"cd634531-88ab-4907-8971-9f34365d2705"],
+  "339fffb2-866d-4ae9-a046-7ea3bff9f0ad"],
+ ", whose members are the compositions ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["f", "TI"], 
+    StyleBox[
+     RowBox[{"b", "a"}], "TI"]], "\[SmallCircle]", 
+   SubscriptBox[
+    StyleBox["f", "TI"], 
+    StyleBox[
+     RowBox[{"a", "b"}], "TI"]]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "c238ecce-a70d-44f0-8112-f528ed64a3ea"],
+ " of two message functions"
+}], "GuideText",ExpressionUUID->"8468428d-6d82-4fa8-a28a-012748b05a87"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -185,7 +204,7 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "3121781a-38c6-42ed-a66f-946813a5020e"],
+  "b786e511-136d-475f-afa3-ee8fd829ea9e"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
@@ -196,13 +215,13 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "4af4460e-f69f-4763-8d4d-d28508259b6d"]
-}], "GuideText",ExpressionUUID->"a91adc61-8f86-48cd-b89f-9011f2cf2375"]
+  "be528afa-d505-4b52-b27e-bfa52ffb1858"]
+}], "GuideText",ExpressionUUID->"99779dad-c7cb-4e56-97c7-d82688396d47"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Radar charts", "GuideFunctionsSubsection",ExpressionUUID->"bb26a374-1138-4d90-b15e-a335692885ff"],
+Cell["Radar charts", "GuideFunctionsSubsection",ExpressionUUID->"cb7e9323-82bf-42f2-af05-4397214e259a"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -214,9 +233,9 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "977fba65-3b53-483e-ae6c-6c6679a24d30"],
+  "e577f026-4dd4-4399-89a0-1e5e162c5f5e"],
  " \[LongDash] ",
- "the radar chart of one observer or of a list of observers: radar time ",
+ "the radar chart of one observer: radar time ",
  Cell[BoxData[
   RowBox[{
    StyleBox["(",
@@ -227,7 +246,7 @@ Cell[TextData[{
    StyleBox[")",
     SpanMaxSize->1], "/", "2"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "aa725daa-f47d-4631-a69a-1920e3ebfd8f"],
+  "4979c840-27aa-40b3-a813-709713e36259"],
  " and radar distance ",
  Cell[BoxData[
   RowBox[{
@@ -239,93 +258,16 @@ Cell[TextData[{
    StyleBox[")",
     SpanMaxSize->1], "/", "2"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "c69b0f7c-fb45-4ab5-83f3-f53c972b04e2"],
- " of every event in the radar domain"
-}], "GuideText",ExpressionUUID->"2286cd20-f419-4cd4-bd0c-d49a499de958"],
-
-Cell[TextData[{
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["InfraFibration"]], 
-    "paclet:WolframInstitute/InfraGeometry/ref/InfraFibration", 
-    "WolframInstitute/InfraGeometry Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "b47b1c8d-7d4e-4ab0-917a-83c62f894798"],
- " (InfraGeometry)",
- " \[LongDash] ",
- "the observer space, the radar domain fibered over the chart, from the \
-\"Fibration\" reading"
-}], "GuideText",ExpressionUUID->"c8842b7f-3b87-4c7b-bf38-18610c9a90bf"],
-
-Cell[TextData[{
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["InfraFibers"]], 
-    "paclet:WolframInstitute/InfraGeometry/ref/InfraFibers", 
-    "WolframInstitute/InfraGeometry Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "4bb0d2a9-fc7a-4020-8aee-89c43ab839d7"],
- " (InfraGeometry)",
- ", ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["InfraBaseGraph"]], 
-    "paclet:WolframInstitute/InfraGeometry/ref/InfraBaseGraph", 
-    "WolframInstitute/InfraGeometry Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "ca2931f5-46cd-426f-a72f-c1db0d235573"],
- " (InfraGeometry)",
- ", ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["InfraSection"]], 
-    "paclet:WolframInstitute/InfraGeometry/ref/InfraSection", 
-    "WolframInstitute/InfraGeometry Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "269922c0-95d7-419b-a4b0-9b6f1ab9724a"],
- " (InfraGeometry)",
- ", ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["InfraConnection"]], 
-    "paclet:WolframInstitute/InfraGeometry/ref/InfraConnection", 
-    "WolframInstitute/InfraGeometry Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "943b82ec-1ec4-4305-bfdb-7e9b88040784"],
- " (InfraGeometry)",
- ", ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["InfraHolonomy"]], 
-    "paclet:WolframInstitute/InfraGeometry/ref/InfraHolonomy", 
-    "WolframInstitute/InfraGeometry Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
-  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "d663d64d-f393-49a4-bfc3-8a5170d9f8a0"],
- " (InfraGeometry)"
-}], "GuideText",ExpressionUUID->"3ca7c021-9dcd-4166-ace2-ba45544cb783"]
+  "d1d810bd-4510-4b2f-99c5-a68d199c2535"],
+ " of every event in the radar domain, with its time and distance marginals, \
+its domain, the directed subgraph on the domain and the base graph on the \
+coordinate cells"
+}], "GuideText",ExpressionUUID->"ea8ae39f-504d-473e-96fb-3ed28f6faa0b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Experimental: selections", "GuideFunctionsSubsection",ExpressionUUID->"7ef8b6f2-a953-4a25-af9f-6e521be8cd08"],
+Cell["Experimental: selections", "GuideFunctionsSubsection",ExpressionUUID->"4e8f7c20-9330-483d-ba0c-fbc48268e223"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -337,7 +279,7 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "29096cbf-6395-4590-9724-aa66aa15c8fc"],
+  "2c788652-f0ad-406f-bb57-4c23f4e05cd1"],
  ", ",
  Cell[BoxData[
   TemplateBox[{
@@ -348,10 +290,179 @@ Cell[TextData[{
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineGuideFunction",
   TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
-  "6632bfbd-0ce4-4903-a51c-96be69415fc5"],
+  "b6764ca2-c11e-430a-8884-91ee4ee14daa"],
  " \[LongDash] ",
- "random monotone selections of a message or echo relation"
-}], "GuideText",ExpressionUUID->"41b38408-6bbf-4241-87d6-51ef0c3d7038"]
+ "random monotone selections of a message relation and random echo \
+compositions; All enumerates them"
+}], "GuideText",ExpressionUUID->"273adf3f-1a25-4f2d-b875-ccc7a42c0d6a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Experimental: joined charts", "GuideFunctionsSubsection",ExpressionUUID->"1f544efc-731e-4fef-bdde-b30e05fb82fa"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraRadarChart"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraRadarChart", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "41d1bc26-8d5e-4838-a279-d9897b838234"],
+ " \[LongDash] ",
+ "of a list of observers, the joined chart: the coordinates concatenated on \
+the common radar domain; a second observer unfolds the mirror of the first"
+}], "GuideText",ExpressionUUID->"24d11f15-7969-411d-9e68-29b1b7b89185"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Experimental: the observer space", "GuideFunctionsSubsection",ExpressionUUID->"536e4ceb-e5e9-40a3-9143-8afd6962bbb6"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMeasurement"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "875282ba-5ec8-4106-8082-ca3166d83046"],
+ " (InfraGeometry)",
+ " \[LongDash] ",
+ "of a chart: \"Fibration\", the observer space, the undirected radar domain \
+fibered over the chart, whose fibers are the events the observer cannot tell \
+apart"
+}], "GuideText",ExpressionUUID->"5b40380b-accb-4eee-80dd-d78be2d06b31"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraFibration"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraFibration", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "54d9088c-38e7-4902-a930-b260cb20e3c4"],
+ " (InfraGeometry)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraFibers"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraFibers", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "bbd7d0ed-e256-4705-8036-13ed29b484f3"],
+ " (InfraGeometry)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraBaseGraph"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraBaseGraph", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "7668b2c2-f689-4ae9-8562-fe961bed5bfa"],
+ " (InfraGeometry)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraSection"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraSection", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "a23413f8-9894-4332-a2d6-d19be8ce0090"],
+ " (InfraGeometry)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraConnection"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraConnection", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "77fd9cc8-698f-4a5b-87c8-52031c52f166"],
+ " (InfraGeometry)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraHolonomy"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraHolonomy", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3685f03b-5a10-4680-b303-8e15abcdcbfd"],
+ " (InfraGeometry)"
+}], "GuideText",ExpressionUUID->"3f284c37-2b45-45dc-a4d5-75b5c8f04339"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraFibrationQ"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraFibrationQ", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "9d318eec-5baa-46d0-905a-7a58da524815"],
+ " (InfraGeometry)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraFiberBundleQ"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraFiberBundleQ", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "5fb97e63-9fd6-4746-8b9a-717aa9b1375e"],
+ " (InfraGeometry)"
+}], "GuideText",ExpressionUUID->"ec0dbf68-a083-4eef-813b-5083fc110440"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Experimental: EPS defects", "GuideFunctionsSubsection",ExpressionUUID->"07cfe8f5-b96d-4f57-b669-5866132acfba"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMeasurement"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "461184a1-c3bb-4f2a-82f3-b45a4ca69896"],
+ " (InfraGeometry)",
+ " \[LongDash] ",
+ "of a message or echo relation: \"DomainDefect\", \"FunctionDefect\", \
+\"InjectivityDefect\", \"OrderDefect\", how far the relation is from a \
+monotone bijection, and \"KFactor\", the Bondi factor of two observers from \
+their tick ratios"
+}], "GuideText",ExpressionUUID->"4764cbcb-c80c-43e7-b4a2-190cbdfec6f9"]
 }, Open  ]]
 }, Open  ]],
 
@@ -372,7 +483,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"c5ac2a83-dd9b-4a51-9e69-d7ce9b272f5d"]], \
+"InlineFormula",ExpressionUUID->"118c0e31-6850-4961-9b16-0706f98e5897"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
 
@@ -384,7 +495,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"14cbd6c9-51a7-4a1c-a0f9-7a61a5be6cc3"]], \
+"InlineFormula",ExpressionUUID->"eceb91ce-289b-4a32-a991-6ae429f6f968"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
 
@@ -396,7 +507,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"3147296f-67d7-4081-a3e1-651864471af3"]], \
+"InlineFormula",ExpressionUUID->"446f932e-cc76-4bbc-927e-a442145e5883"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
 
@@ -408,19 +519,7 @@ Cell[TextData[Cell[BoxData[
   "RefLinkPlain",
   BaseStyle->{
    "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"c0d4f156-59f9-4a37-b104-d6af99423982"]], \
-"GuideMoreAbout",
- CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
-
-Cell[TextData[Cell[BoxData[
- TemplateBox[{
-   Cell[
-    TextData["Experimental"]], 
-   "paclet:WolframInstitute/InfraCausality/guide/Experimental"},
-  "RefLinkPlain",
-  BaseStyle->{
-   "InlineFormula"}]], \
-"InlineFormula",ExpressionUUID->"02e07b64-a80d-43b3-ab4a-71fee0339c30"]], \
+"InlineFormula",ExpressionUUID->"b6595b81-3919-488f-bff8-3213af6ac793"]], \
 "GuideMoreAbout",
  CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
 }, Open  ]],
@@ -465,7 +564,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
  CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
 
 Cell["WolframInstitute/InfraCausality/guide/InfraObservers", "Categorization",
- CellLabel->"URI",ExpressionUUID->"bb5932ae-5961-40d5-8fb5-6e85af64dd9a"]
+ CellLabel->"URI",ExpressionUUID->"20b43ce3-c99b-4014-b1a9-75e0ad510079"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -498,6 +597,21 @@ Cell["observer space", "Keywords",
  CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
 
 Cell["fibration", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["message selection", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["echo selection", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["joined chart", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["EPS defects", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["k-factor", "Keywords",
  CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
 }, Closed]]
 }, Open  ]]
@@ -511,7 +625,8 @@ TaggingRules->{
     "keywords" -> {
      "observer", "message function", "echo function", "Ehlers-Pirani-Schild", 
       "EPS axioms", "radar coordinates", "radar chart", "observer space", 
-      "fibration"}, "summary" -> "", "paclet" -> 
+      "fibration", "message selection", "echo selection", "joined chart", 
+      "EPS defects", "k-factor"}, "summary" -> "", "paclet" -> 
     "WolframInstitute/InfraCausality", "uri" -> 
     "WolframInstitute/InfraCausality/guide/InfraObservers", "type" -> "Guide",
      "index" -> True, "language" -> "en"}},
@@ -536,83 +651,103 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 112, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
  CellID->942062912],
-Cell[691, 25, 2669, 66, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
+Cell[691, 25, 2844, 72, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
  CellID->2001916300]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3397, 96, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+Cell[3572, 102, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
  CellID->1866139230],
 Cell[CellGroupData[{
-Cell[3531, 101, 110, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"83ce302a-5cf5-4f72-9655-907da3bccfe8"],
-Cell[3644, 103, 1270, 37, 70, "GuideText",ExpressionUUID->"63bd6c95-db61-421e-a42a-f40bd812c879"],
-Cell[4917, 142, 1194, 33, 70, "GuideText",ExpressionUUID->"cd634531-88ab-4907-8971-9f34365d2705"],
-Cell[6114, 177, 863, 22, 70, "GuideText",ExpressionUUID->"a91adc61-8f86-48cd-b89f-9011f2cf2375"]
+Cell[3706, 107, 110, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"af14eb50-1032-40bf-adfb-8ef23779cc71"],
+Cell[3819, 109, 1270, 37, 70, "GuideText",ExpressionUUID->"d97775bc-b683-4127-97b5-d6b7bfa8370f"],
+Cell[5092, 148, 1529, 46, 70, "GuideText",ExpressionUUID->"8468428d-6d82-4fa8-a28a-012748b05a87"],
+Cell[6624, 196, 863, 22, 70, "GuideText",ExpressionUUID->"99779dad-c7cb-4e56-97c7-d82688396d47"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7014, 204, 103, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"bb26a374-1138-4d90-b15e-a335692885ff"],
-Cell[7120, 206, 1200, 37, 70, "GuideText",ExpressionUUID->"2286cd20-f419-4cd4-bd0c-d49a499de958"],
-Cell[8323, 245, 595, 15, 70, "GuideText",ExpressionUUID->"c8842b7f-3b87-4c7b-bf38-18610c9a90bf"],
-Cell[8921, 262, 2069, 60, 70, "GuideText",ExpressionUUID->"3ca7c021-9dcd-4166-ace2-ba45544cb783"]
+Cell[7524, 223, 103, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"cb7e9323-82bf-42f2-af05-4397214e259a"],
+Cell[7630, 225, 1308, 39, 70, "GuideText",ExpressionUUID->"ea8ae39f-504d-473e-96fb-3ed28f6faa0b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11027, 327, 115, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"7ef8b6f2-a953-4a25-af9f-6e521be8cd08"],
-Cell[11145, 329, 962, 24, 70, "GuideText",ExpressionUUID->"41b38408-6bbf-4241-87d6-51ef0c3d7038"]
+Cell[8975, 269, 115, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"4e8f7c20-9330-483d-ba0c-fbc48268e223"],
+Cell[9093, 271, 1006, 25, 70, "GuideText",ExpressionUUID->"273adf3f-1a25-4f2d-b875-ccc7a42c0d6a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10136, 301, 118, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"1f544efc-731e-4fef-bdde-b30e05fb82fa"],
+Cell[10257, 303, 635, 14, 70, "GuideText",ExpressionUUID->"24d11f15-7969-411d-9e68-29b1b7b89185"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10929, 322, 123, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"536e4ceb-e5e9-40a3-9143-8afd6962bbb6"],
+Cell[11055, 324, 667, 16, 70, "GuideText",ExpressionUUID->"5b40380b-accb-4eee-80dd-d78be2d06b31"],
+Cell[11725, 342, 2469, 72, 70, "GuideText",ExpressionUUID->"3f284c37-2b45-45dc-a4d5-75b5c8f04339"],
+Cell[14197, 416, 887, 24, 70, "GuideText",ExpressionUUID->"ec0dbf68-a083-4eef-813b-5083fc110440"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15121, 445, 116, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"07cfe8f5-b96d-4f57-b669-5866132acfba"],
+Cell[15240, 447, 745, 17, 70, "GuideText",ExpressionUUID->"4764cbcb-c80c-43e7-b4a2-190cbdfec6f9"]
 }, Open  ]]
 }, Open  ]],
-Cell[12134, 357, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+Cell[16012, 468, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
  CellID->415694126],
 Cell[CellGroupData[{
-Cell[12277, 362, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+Cell[16155, 473, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
  CellID->23220180],
-Cell[12469, 366, 390, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[16347, 477, 390, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153],
-Cell[12862, 378, 372, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[16740, 489, 372, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153],
-Cell[13237, 390, 384, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[17115, 501, 384, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153],
-Cell[13624, 402, 380, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
- CellID->1567025153],
-Cell[14007, 414, 376, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+Cell[17502, 513, 380, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
  CellID->1567025153]
 }, Open  ]],
-Cell[14398, 427, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+Cell[17897, 526, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
  CellID->415694148],
 Cell[CellGroupData[{
-Cell[14547, 432, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+Cell[18046, 531, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
  CellID->311882160],
-Cell[14660, 435, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+Cell[18159, 534, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[15161, 451, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+Cell[18660, 550, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
  CellID->1122911449],
-Cell[15287, 454, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+Cell[18786, 553, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
  CellID->686433507],
-Cell[15423, 458, 159, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+Cell[18922, 557, 159, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
  CellID->605800465],
-Cell[15585, 462, 156, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+Cell[19084, 561, 156, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
  CellID->468444828],
-Cell[15744, 466, 152, 1, 70, "Categorization",ExpressionUUID->"bb5932ae-5961-40d5-8fb5-6e85af64dd9a"]
+Cell[19243, 565, 152, 1, 70, "Categorization",ExpressionUUID->"20b43ce3-c99b-4014-b1a9-75e0ad510079"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[15933, 472, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+Cell[19432, 571, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
  CellID->1427428552],
-Cell[16047, 475, 104, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[19546, 574, 104, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16154, 478, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[19653, 577, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16269, 481, 109, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[19768, 580, 109, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16381, 484, 116, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[19880, 583, 116, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16500, 487, 106, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[19999, 586, 106, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16609, 490, 113, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[20108, 589, 113, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16725, 493, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[20224, 592, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16835, 496, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[20334, 595, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827],
-Cell[16948, 499, 105, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+Cell[20447, 598, 105, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[20555, 601, 113, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[20671, 604, 110, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[20784, 607, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[20895, 610, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[21005, 613, 104, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
  CellID->1251852827]
 }, Closed]]
 }, Open  ]]
