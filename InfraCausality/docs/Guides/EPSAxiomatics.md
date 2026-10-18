@@ -25,12 +25,14 @@ An observer is a worldline, a saturated chain, whose positions are read as the t
 - `RandomInfraMessageFunction` random message functions, drawn uniformly by the path weights of the selection graph; All enumerates them
 - `RandomInfraEchoFunction` random echo functions, drawn uniformly from the distinct compositions; All enumerates them
 
-- `InfraMessageFunctionQ`, `InfraEchoFunctionQ`
+- `InfraMessageFunctionQ`, `InfraEchoFunctionQ`, `EPSMessageAxiomQ`
 
 ### Radar coordinates
 
 - `InfraRadarCoordinates` the radar coordinates of one observer: radar time $(i + j)/2$ and radar distance $(j - i)/2$ of every event in the radar domain, with its time and distance marginals, its domain (a set head, read by its vertex density), the directed subgraph on the domain and the base graph on the coordinate cells
 - `InfraRadarCoordinates` of a list of observers, the joined radar coordinates: the coordinates concatenated on the common radar domain; a second observer unfolds the mirror of the first
+
+- `EPSRadarAxiomQ`
 
 ### The observer space
 

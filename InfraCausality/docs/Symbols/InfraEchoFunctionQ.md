@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraEchoFunctionQ
 Keywords: [echo function, radar, composition, message function, EPS axioms, Ehlers-Pirani-Schild, predicate]
-SeeAlso: [InfraEchoFunction, RandomInfraEchoFunction, InfraMessageFunctionQ, InfraMessageFunction, InfraRadarCoordinates]
+SeeAlso: [InfraEchoFunction, RandomInfraEchoFunction, InfraMessageFunctionQ, EPSMessageAxiomQ, InfraMessageFunction, InfraRadarCoordinates]
 RelatedGuides: [EPSAxiomatics]
 ---
 
@@ -20,7 +20,7 @@ Statement: an association *f* from ticks of *a* to ticks of *a* is an echo funct
 
 The domain of an echo function depends on the message function chosen: a tick whose light reaches *b* both at a tick that answers and at one that does not lies in the domain of some echo functions and not of others. The empty association is an echo function when some message function to *b* sends every tick to a tick with no return.
 
-Being a monotone selection of the echo relation, the `"Relation"` of [InfraEchoFunction](), is necessary and not sufficient. The predicate decides the composition without enumerating the message functions: it walks the ticks of *a* through the layers of admissible images on *b*, keeping only images that move forward along *b*, or stay at a tick of *b* whose return is already fixed. [`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) on the head is this predicate.
+Being a monotone selection of the echo relation, the `"Relation"` of [InfraEchoFunction](), is necessary and not sufficient. The predicate decides the composition without enumerating the message functions: it walks the ticks of *a* through the layers of admissible images on *b*, keeping only images that move forward along *b*, or stay at a tick of *b* whose return is already fixed. [`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) on the head is this predicate. It tests a candidate map against the pair of observers; [EPSMessageAxiomQ]() of the echo head tests the pair itself, whether every tick has one echo and the echoes strictly increase.
 
 ## Basic Examples
 

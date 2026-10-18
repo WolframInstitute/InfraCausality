@@ -58,7 +58,9 @@ PackageExport[InfraMessageFunctionQ]
 PackageExport[InfraEchoFunctionQ]
 PackageExport[RandomInfraMessageFunction]
 PackageExport[RandomInfraEchoFunction]
+PackageExport[EPSMessageAxiomQ]
 PackageExport[InfraRadarCoordinates]
+PackageExport[EPSRadarAxiomQ]
 
 (* CausalSubstrates *)
 

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraMessageFunction
 Keywords: [message function, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, monotone selection, EPS defects, k-factor, Bondi factor, symbolic object]
-SeeAlso: [InfraMessageFunctionQ, InfraEchoFunction, RandomInfraMessageFunction, InfraFutureLightCone, InfraWorldline, InfraRadarCoordinates, MessageFunctionViewer]
+SeeAlso: [InfraMessageFunctionQ, EPSMessageAxiomQ, InfraEchoFunction, RandomInfraMessageFunction, InfraFutureLightCone, InfraWorldline, InfraRadarCoordinates, MessageFunctionViewer]
 RelatedGuides: [EPSAxiomatics]
 ---
 
@@ -42,7 +42,7 @@ The EPS defects measure how far the relation is from a monotone bijection of *a*
 | `"OrderDefect"` | the fraction of ordered tick pairs *v* before *w* in the window for which some image of *v* comes after some image of *w* on *b*; equal single images are no violation |
 | `"KFactor"` | the ratio of received to sent tick spans of the earliest-image selection: with *v*, *w* the first and last window ticks that have a message, (pos *f*(*w*) − pos *f*(*v*)) / (pos *w* − pos *v*), positions counted on *b* and on *a* |
 
-The four defects lie in [0, 1]; the injectivity defect is at least the domain defect, since a matching uses no tick without a message. The order defect compares image spans weakly, so a tie, two ticks with the same single image, is a defect of injectivity and not of order; strict monotonicity is the vanishing of both. All four vanish exactly when the relation is a single-valued map with strictly increasing images, axiom D1 on the window. The k-factor is the graph form of the Bondi factor: in Minkowski space an inertial observer receding at speed *v* receives the ticks of another at *k* = √((1 + *v*)/(1 − *v*)) proper seconds per second sent. On a graph the tick spans are chain lengths, so the reading is a clock-rate statement, and it is the Bondi factor only where ticks count proper time. On the diamond lattice the chain {(*m*, *m*)} at rest sends its ticks one to one to the chain {(2*m*, *m*)} of velocity 1/3, k-factor 1 instead of √2, because that chain's ticks are √2 times longer in proper time; the echo read on the resting clock alone recovers √2, see [InfraEchoFunction]().
+The four defects lie in [0, 1]; the injectivity defect is at least the domain defect, since a matching uses no tick without a message. The order defect compares image spans weakly, so a tie, two ticks with the same single image, is a defect of injectivity and not of order; strict monotonicity is the vanishing of both. All four vanish exactly when the relation is a single-valued map with strictly increasing images, axiom D1 on the window, which is what [EPSMessageAxiomQ]() tests. The k-factor is the graph form of the Bondi factor: in Minkowski space an inertial observer receding at speed *v* receives the ticks of another at *k* = √((1 + *v*)/(1 − *v*)) proper seconds per second sent. On a graph the tick spans are chain lengths, so the reading is a clock-rate statement, and it is the Bondi factor only where ticks count proper time. On the diamond lattice the chain {(*m*, *m*)} at rest sends its ticks one to one to the chain {(2*m*, *m*)} of velocity 1/3, k-factor 1 instead of √2, because that chain's ticks are √2 times longer in proper time; the echo read on the resting clock alone recovers √2, see [InfraEchoFunction]().
 
 Corresponding notions:
 

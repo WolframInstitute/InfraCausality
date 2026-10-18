@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraRadarCoordinates
 Keywords: [radar coordinates, radar time, radar distance, coordinatization, observer space, fibration, EPS axioms, Bondi k-calculus, symbolic object]
-SeeAlso: [InfraWorldline, InfraTimelikeGeodesic, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
+SeeAlso: [EPSRadarAxiomQ, InfraWorldline, InfraTimelikeGeodesic, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
 RelatedGuides: [EPSAxiomatics]
 ---
 
@@ -38,7 +38,7 @@ The head holds its observers and computes nothing. [`InfraMeasurement`](paclet:W
 
 The radar domain is the set the chart is defined on: <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)[*g*, [InfraRadarCoordinates]()[*a*], *e*]</code> is `True` exactly on its events, <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraRadarCoordinates]()[*a*]]</code> is the subgraph induced on it, and [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws it by its vertex density.
 
-The fibers of the observer space are the events the observers cannot tell apart; [`InfraFibers`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibers) lists them and the fiber-bundle functions of InfraGeometry read sections, connections and holonomy on them.
+The fibers of the observer space are the events the observers cannot tell apart; [`InfraFibers`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibers) lists them and the fiber-bundle functions of InfraGeometry read sections, connections and holonomy on them. The coordinates are a chart of the domain, axiom D2, exactly when every fiber is one event; [EPSRadarAxiomQ]() tests it for one observer or for a list.
 
 Corresponding notions:
 

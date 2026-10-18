@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraMessageFunctionQ
 Keywords: [message function, monotone selection, EPS axioms, Ehlers-Pirani-Schild, axiom D1, light signal, predicate]
-SeeAlso: [InfraMessageFunction, RandomInfraMessageFunction, InfraEchoFunctionQ, InfraFutureLightCone, InfraWorldlineQ]
+SeeAlso: [InfraMessageFunction, RandomInfraMessageFunction, InfraEchoFunctionQ, EPSMessageAxiomQ, InfraFutureLightCone, InfraWorldlineQ]
 RelatedGuides: [EPSAxiomatics]
 ---
 
@@ -22,7 +22,7 @@ Statement: with *M*(*v*) = *E*⁺(*v*) ∩ *b* the message relation of [InfraMes
 - *f*(*v*) ∈ *M*(*v*) for every key, and
 - the positions of *f*(*v*) on *b* do not decrease as *v* runs along *a*.
 
-This is the discrete form of the EPS axiom D1: a message function is single-valued on its domain and order-preserving. The order of the keys in *f* does not matter. A partial map, a map to a tick off the light cone and a multivalued map fail.
+This is the discrete form of the EPS axiom D1: a message function is single-valued on its domain and order-preserving. The order of the keys in *f* does not matter. A partial map, a map to a tick off the light cone and a multivalued map fail. The predicate tests a candidate map against the pair of observers; [EPSMessageAxiomQ]() tests the pair itself, whether the relation is already such a map on every tick.
 
 [`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) on the head is this predicate, and the members drawn by [RandomInfraMessageFunction]() all pass. When no tick of *a* reaches *b*, the empty association is the one message function.
 
