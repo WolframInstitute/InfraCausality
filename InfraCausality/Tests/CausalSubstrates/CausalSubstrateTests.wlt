@@ -109,6 +109,49 @@ VerificationTest[
 ]
 
 VerificationTest[
+  Keys @ CausalSubstrate[ ],
+  { "Lattice", "Sprinkling", "Spray", "Random", "WolframModel" },
+  TestID -> "CausalSubstrate-five-groups"
+]
+
+VerificationTest[
+  Map[ name |-> With[ { g = $small[ name ] },
+      { VertexCount @ g, EdgeCount @ g, AcyclicGraphQ @ g && EdgeCount @ g == EdgeCount @ TransitiveReductionGraph @ g && WeaklyConnectedGraphQ @ g } ],
+    CausalSubstrate[ ][ "WolframModel" ] ],
+  { { 100, 194, True }, { 130, 129, True }, { 130, 129, True }, { 100, 151, True }, { 100, 123, True }, { 100, 108, True } },
+  TestID -> "CausalSubstrate-WolframModel-small-hasse-diagrams-with-literal-counts"
+]
+
+VerificationTest[
+  AllTrue[ Transpose[ { CausalSubstrate[ ][ "WolframModel" ], { 100, 130, 130, 100, 100, 100 } } ], p |->
+    Abs[ VertexCount @ $small[ First @ p ] - Last @ p ] <= Last @ p / 20 ],
+  True,
+  TestID -> "CausalSubstrate-WolframModel-small-event-count-within-five-percent-of-the-budget"
+]
+
+VerificationTest[
+  Table[ With[ { g = CausalSubstrate[ name, size ] },
+      { VertexCount @ g, Sort @ VertexList @ g === Range @ VertexCount @ g && AllTrue[ EdgeList @ g, e |-> First @ e < Last @ e ] } ],
+    { name, { "wm3467", "wm1529" } }, { size, { "Medium", "Large" } } ],
+  { { { 300, True }, { 800, True } }, { { 300, True }, { 700, True } } },
+  TestID -> "CausalSubstrate-WolframModel-events-numbered-by-a-linear-extension"
+]
+
+VerificationTest[
+  Map[ name |-> Sort @ EdgeList @ $small[ name ] === Table[ DirectedEdge[ i, i + 1 ], { i, 129 } ], { "wm1783", "wm7714" } ],
+  { True, True },
+  TestID -> "CausalSubstrate-WolframModel-wm1783-wm7714-causal-orders-are-total"
+]
+
+VerificationTest[
+  With[ { h = ReleaseHold @ CausalSubstrateCode[ "wm3467", "Small" ],
+      entry = Import[ PacletObject[ "WolframInstitute/InfraCausality" ][ "AssetLocation", "WolframModelCausalGraphs" ] ][ "wm3467" ][ "Small" ] },
+    Sort @ EdgeList @ h === Sort @ entry && Sort @ VertexList @ h === Union @ Flatten[ List @@@ entry ] ],
+  True,
+  TestID -> "CausalSubstrate-wm3467-small-code-equals-the-bundled-entry"
+]
+
+VerificationTest[
   AllTrue[ { "Small", "Medium", "Large" }, size |-> With[ { style = CausalSubstrateStyle[ size ] },
     ListQ @ style && MatchQ[ style, { ( _Rule | _RuleDelayed ) .. } ] && SubsetQ[ Keys @ Options @ Graph, Keys @ style ] &&
       style === CausalSubstrateStyle[ "DiamondLatticeGraph", size ] ] ],

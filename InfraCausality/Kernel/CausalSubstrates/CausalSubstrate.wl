@@ -6,25 +6,19 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 PackageScope[ substrateCode ]
 
-PackageScope[ $wolframModelFile ]
-
 Options[ CausalSubstrate ] = { "KeepCoordinates" -> False }
 
 Options[ CausalSubstrateCode ] = Options[ CausalSubstrate ]
 
 $wolframModelNames = { "wm3467", "wm1783", "wm7714", "wm1529", "wm3975", "wm2216" }
 
-$wolframModelFile :=
-  FileNameJoin[ { PacletObject[ "WolframInstitute/InfraCausality" ][ "Location" ], "Resources", "WolframModelCausalGraphs.wxf" } ]
-
 CausalSubstrate[ ] :=
-  Join[
-    <|
-      "Lattice" -> { "DiamondLatticeGraph", "CylinderLatticeGraph", "CubicLatticeGraph" },
-      "Sprinkling" -> { "MinkowskiSprinkling2D", "MinkowskiSprinkling3D" },
-      "Spray" -> { "SquareTilingSprayGraph", "HexagonalTilingSprayGraph", "SquareMeshSprayGraph" },
-      "Random" -> { "PercolationGraph" } |>,
-    If[ FileExistsQ @ $wolframModelFile, <| "WolframModel" -> $wolframModelNames |>, <| |> ] ]
+  <|
+    "Lattice" -> { "DiamondLatticeGraph", "CylinderLatticeGraph", "CubicLatticeGraph" },
+    "Sprinkling" -> { "MinkowskiSprinkling2D", "MinkowskiSprinkling3D" },
+    "Spray" -> { "SquareTilingSprayGraph", "HexagonalTilingSprayGraph", "SquareMeshSprayGraph" },
+    "Random" -> { "PercolationGraph" },
+    "WolframModel" -> $wolframModelNames |>
 
 CausalSubstrate[ All ] :=
   Catenate @ Values @ CausalSubstrate[ ]
@@ -75,7 +69,7 @@ substrateCode[ "PercolationGraph", size_ ] :=
     HoldComplete @ BlockRandom[ SeedRandom[ 102 ]; RandomCausalGraph[ n ] ] ]
 
 substrateCode[ name_String /; MemberQ[ $wolframModelNames, name ], size_ ] :=
-  HoldComplete @ Graph[ Import[ $wolframModelFile ][ name ][ size ] ]
+  HoldComplete @ Graph[ Import[ PacletObject[ "WolframInstitute/InfraCausality" ][ "AssetLocation", "WolframModelCausalGraphs" ] ][ name ][ size ] ]
 
 CausalSubstrate[ name_String /; MemberQ[ CausalSubstrate[ All ], name ] ] :=
   CausalSubstrate[ name, "Medium" ]
