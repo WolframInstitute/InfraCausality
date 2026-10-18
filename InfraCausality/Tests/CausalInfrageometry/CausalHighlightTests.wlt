@@ -96,12 +96,12 @@ VerificationTest[
 VerificationTest[
   With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
     { a = ( SeedRandom[ 1 ]; RandomInfraTimelikeGeodesic[ g, InfraTimelikeGeodesic[ { 1, 0 }, { 5, 4 } ] ] ) },
-    { domain = Sort @ InfraMeasurement[ g, InfraRadarChart[ a ], "Domain" ],
-      list = InfraSubstrateHighlight[ g, { InfraRadarChart[ a ] -> StandardGreen, InfraWalk[ a ] } ],
-      single = InfraSubstrateHighlight[ g, InfraRadarChart[ a ] ] },
+    { domain = Sort @ InfraMeasurement[ g, InfraRadarCoordinates[ a ], "Domain" ],
+      list = InfraSubstrateHighlight[ g, { InfraRadarCoordinates[ a ] -> StandardGreen, InfraWalk[ a ] } ],
+      single = InfraSubstrateHighlight[ g, InfraRadarCoordinates[ a ] ] },
     { GraphQ @ list, GraphQ @ single, $inked @ list === domain, $inked @ single === domain, Length @ domain < VertexCount @ g, $MessageList } ],
   { True, True, True, True, True, { } },
-  TestID -> "CausalHighlight-DiamondLatticeGraph-radar-chart-inks-exactly-its-domain"
+  TestID -> "CausalHighlight-DiamondLatticeGraph-radar-coordinates-ink-exactly-its-domain"
 ]
 
 VerificationTest[

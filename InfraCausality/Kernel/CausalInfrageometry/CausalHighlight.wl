@@ -11,7 +11,7 @@ PackageScope[ rayGraph ]
 $causalHead =
   _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice |
   _InfraTimelikeGeodesic | _InfraWorldline | _InfraFutureLightCone | _InfraPastLightCone |
-  _InfraMessageFunction | _InfraEchoFunction | _InfraRadarChart
+  _InfraMessageFunction | _InfraEchoFunction | _InfraRadarCoordinates
 
 cabinet[ { x_, y_, t_ } ] :=
   { x + y / ( 2 Sqrt[ 2 ] ), t + y / ( 2 Sqrt[ 2 ] ) }
@@ -22,7 +22,7 @@ rayGraph[ graph_Graph, pairs_List ] :=
       pairs ] },
     Graph[ DeleteDuplicates @ Catenate @ paths, DeleteDuplicates @ Catenate[ ( DirectedEdge @@@ Partition[ #, 2, 1 ] ) & /@ paths ] ] ]
 
-causalInk[ graph_Graph, head : _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice | _InfraRadarChart ] :=
+causalInk[ graph_Graph, head : _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice | _InfraRadarCoordinates ] :=
   InfraMeasurement[ graph, head, "VertexDensity" ]
 
 causalInk[ graph_Graph, head : _InfraTimelikeGeodesic | _InfraWorldline | _InfraFutureLightCone | _InfraPastLightCone ] :=

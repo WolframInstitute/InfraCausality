@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraWorldline
 Keywords: [worldline, saturated chain, observer, clock, Hasse diagram, timelike curve, particle, symbolic object]
-SeeAlso: [RandomInfraWorldline, InfraWorldlineQ, InfraTimelikeGeodesic, InfraChainQ, InfraMessageFunction, InfraRadarChart, InfraCausalDiamond]
+SeeAlso: [RandomInfraWorldline, InfraWorldlineQ, InfraTimelikeGeodesic, InfraChainQ, InfraMessageFunction, InfraRadarCoordinates, InfraCausalDiamond]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -33,7 +33,7 @@ The head holds its two events and computes nothing. Its graph, <code>[`InfraMeas
 | `"EdgeDensity"` | for each edge, the number of worldlines through it |
 | `"Faithful"` | `True` |
 
-A member is a vertex list in causal order; [RandomInfraWorldline]() draws members uniformly, and [InfraWorldlineQ]() recognises one. As observers, worldlines are the clocks of the Infra Observers guide: [InfraMessageFunction]() and [InfraRadarChart]() take them as arguments.
+A member is a vertex list in causal order; [RandomInfraWorldline]() draws members uniformly, and [InfraWorldlineQ]() recognises one. As observers, worldlines are the clocks of the Infra Observers guide: [InfraMessageFunction]() and [InfraRadarCoordinates]() take them as arguments.
 
 Corresponding notions:
 

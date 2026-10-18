@@ -6,13 +6,13 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/tutorial/CausalInfrageometryTutorial
-Keywords: [causal graph, causal diamond, worldline, timelike geodesic, observer, universal time, message function, echo function, radar chart, radar coordinates, observer space, fibration, section, EPS axioms]
+Keywords: [causal graph, causal diamond, worldline, timelike geodesic, observer, universal time, message function, echo function, radar coordinates, radar domain, observer space, fibration, section, EPS axioms]
 RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrates]
 ---
 
 - A **causal graph** is a directed acyclic graph whose vertices are events and whose directed paths are the causal relation: *u* ≼ *v* when a path leads from *u* to *v*. Everything below is read off the graph alone.
-- The pipeline: causal graph → cones and diamonds → worldlines and timelike geodesics → universal time → message functions → radar chart → the observer space fibered over the chart.
-- Each construction is an inert head, such as `InfraCausalDiamond[p, q]` or `InfraRadarChart[a]`, that holds its data and computes nothing; `InfraMeasurement` reads it on a graph, a `RandomInfra…` sampler draws the members of a chain head and `InfraSubstrateHighlight` draws it.
+- The pipeline: causal graph → cones and diamonds → worldlines and timelike geodesics → universal time → message functions → radar coordinates → the observer space fibered over the chart.
+- Each construction is an inert head, such as `InfraCausalDiamond[p, q]` or `InfraRadarCoordinates[a]`, that holds its data and computes nothing; `InfraMeasurement` reads it on a graph, a `RandomInfra…` sampler draws the members of a chain head and `InfraSubstrateHighlight` draws it.
 - The running example is the diamond lattice at size "Small", the 7 × 7 light-cone lattice of 1 + 1 Minkowski space; a sprinkling and the cylinder lattice show where the lattice is special.
 
 ## Setup
@@ -89,7 +89,7 @@ With[
    {InfraMeasurement[sprinkling, InfraTimelikeGeodesic[1, 25], "Cardinality"], InfraMeasurement[sprinkling, InfraWorldline[1, 25], "Cardinality"]}}]
 ```
 
-- The diagonal {(*m*, *m*)} is a chain and no worldline: each step (*m*, *m*) ≺ (*m* + 1, *m* + 1) has two events between. It will matter below, since the radar chart accepts any chain.
+- The diagonal {(*m*, *m*)} is a chain and no worldline: each step (*m*, *m*) ≺ (*m* + 1, *m* + 1) has two events between. It will matter below, since the radar coordinates accept any chain.
 
 ```wl
 With[
@@ -155,9 +155,9 @@ With[
     {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]]
 ```
 
-## The radar chart
+## Radar coordinates
 
-- The radar chart of an observer *a* = (*a*1, …, *ak*) gives every event *e* of its radar domain [*a*1, *ak*] the emission tick *i*(*e*), the latest tick that can signal *e*, and the reception tick *j*(*e*), the earliest tick *e* can signal; its radar time is (*i* + *j*)/2 and its radar distance (*j* − *i*)/2. A tick is its own emission and reception.
+- The radar coordinates of an observer *a* = (*a*1, …, *ak*) give every event *e* of its radar domain [*a*1, *ak*] the emission tick *i*(*e*), the latest tick that can signal *e*, and the reception tick *j*(*e*), the earliest tick *e* can signal; its radar time is (*i* + *j*)/2 and its radar distance (*j* − *i*)/2. A tick is its own emission and reception.
 - The observer *a* on the lattice (left) and the radar domain redrawn at its chart positions, distance across and time up (right). The observer becomes the vertical axis and the lattice unfolds to one side of it.
 
 ```wl
@@ -166,7 +166,7 @@ With[
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   GraphicsRow[{
     InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardRed}],
-    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[a], "Subgraph"], {InfraWalk[a] -> StandardRed}]}]]
+    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarCoordinates[a], "Subgraph"], {InfraWalk[a] -> StandardRed}]}]]
 ```
 
 - The chart of this observer is injective: the 49 events get 49 distinct coordinates. Radar time never decreases along an edge, and the ticks sit at {*m*, 0}.
@@ -175,7 +175,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
-  {coordinates = InfraMeasurement[g, InfraRadarChart[a], "Coordinates"]},
+  {coordinates = InfraMeasurement[g, InfraRadarCoordinates[a], "Coordinates"]},
   {Length[coordinates], Length @ Union @ Values[coordinates],
    AllTrue[EdgeList[g], e |-> First[coordinates[First @ e]] <= First[coordinates[Last @ e]]],
    coordinates /@ a === Table[{m, 0}, {m, Length[a]}]}]
@@ -187,7 +187,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
-  InfraMeasurement[g, InfraRadarChart[a], "BaseGraph"]]
+  InfraMeasurement[g, InfraRadarCoordinates[a], "BaseGraph"]]
 ```
 
 ## The observer fibration
@@ -199,7 +199,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
-  {fib = InfraMeasurement[g, InfraRadarChart[a], "Fibration"]},
+  {fib = InfraMeasurement[g, InfraRadarCoordinates[a], "Fibration"]},
   {Union[VertexCount /@ Values @ InfraFibers[fib]], InfraFibrationQ[fib], InfraFiberBundleQ[fib], Length @ FindInfraSection[fib, All],
    InfraSectionQ[fib, (SeedRandom[1]; RandomInfraSection[fib])]}]
 ```
@@ -214,7 +214,7 @@ With[
   {diagonal = Table[{m, m}, {m, 0, 6}]},
   GraphicsRow[{
     InfraSubstrateHighlight[g, {Select[VertexList[g], v |-> First[v] < Last[v]] -> StandardBlue, InfraWalk[diagonal] -> StandardRed}],
-    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[diagonal], "Subgraph"], {InfraWalk[diagonal] -> StandardRed}]}]]
+    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarCoordinates[diagonal], "Subgraph"], {InfraWalk[diagonal] -> StandardRed}]}]]
 ```
 
 - The fibers are the mirror pairs {(*i*, *j*), (*j*, *i*)} and the single events of the diagonal. The fold is a fibration, every base edge lifts at every point, but no fiber bundle, since the fibers have two sizes. Its two continuous sections are the two sides of the diagonal.
@@ -222,18 +222,18 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {fib = InfraMeasurement[g, InfraRadarChart[Table[{m, m}, {m, 0, 6}]], "Fibration"]},
+  {fib = InfraMeasurement[g, InfraRadarCoordinates[Table[{m, m}, {m, 0, 6}]], "Fibration"]},
   {sides = Sort[Sort @ Values @ First @ #] & /@ FindInfraSection[fib, All]},
   {Union[VertexCount /@ Values @ InfraFibers[fib]], InfraFibrationQ[fib], InfraFiberBundleQ[fib],
    Sort[sides] === Sort[{Select[VertexList[g], v |-> First[v] >= Last[v]], Select[VertexList[g], v |-> First[v] <= Last[v]]}]}]
 ```
 
-- A second observer unfolds the mirror. The chain {(*m*, *m* + 1)} runs beside the diagonal; on the 36 events both observers chart, the joined chart, the two charts concatenated, is injective, and every fiber is a single event.
+- A second observer unfolds the mirror. The chain {(*m*, *m* + 1)} runs beside the diagonal; on the 36 events both observers chart, the joined radar coordinates, the two charts concatenated, are injective, and every fiber is a single event.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {chart = InfraRadarChart[{Table[{m, m}, {m, 0, 6}], Table[{m, m + 1}, {m, 0, 5}]}]},
+  {chart = InfraRadarCoordinates[{Table[{m, m}, {m, 0, 6}], Table[{m, m + 1}, {m, 0, 5}]}]},
   {coordinates = InfraMeasurement[g, chart, "Coordinates"]},
   {Length[coordinates], DuplicateFreeQ @ Values[coordinates], Union[VertexCount /@ Values @ InfraFibers @ InfraMeasurement[g, chart, "Fibration"]]}]
 ```
@@ -242,7 +242,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {diagonal = Table[{m, m}, {m, 0, 6}], beside = Table[{m, m + 1}, {m, 0, 5}]},
-  InfraSubstrateHighlight[g, {InfraRadarChart[{diagonal, beside}] -> StandardGreen, InfraWalk[diagonal] -> StandardRed, InfraWalk[beside] -> StandardBlue}]]
+  InfraSubstrateHighlight[g, {InfraRadarCoordinates[{diagonal, beside}] -> StandardGreen, InfraWalk[diagonal] -> StandardRed, InfraWalk[beside] -> StandardBlue}]]
 ```
 
 ### The cylinder loop
@@ -253,11 +253,11 @@ With[
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   {column = Table[{0, t}, {t, 0, 6}]},
-  {fib = InfraMeasurement[g, InfraRadarChart[column], "Fibration"]},
+  {fib = InfraMeasurement[g, InfraRadarCoordinates[column], "Fibration"]},
   GraphicsRow[{
-    InfraSubstrateHighlight[g, {InfraRadarChart[column] -> StandardGreen, InfraWalk[column] -> StandardRed,
+    InfraSubstrateHighlight[g, {InfraRadarCoordinates[column] -> StandardGreen, InfraWalk[column] -> StandardRed,
       Select[Values[VertexList /@ InfraFibers[fib]], f |-> Length[f] > 1] -> StandardOrange}],
-    InfraMeasurement[g, InfraRadarChart[column], "BaseGraph"]}]]
+    InfraMeasurement[g, InfraRadarCoordinates[column], "BaseGraph"]}]]
 ```
 
 - Here the observer space is not a fibration. The base edge from the cell {1, 0} of the first tick into the loop's cell {4, 3} lifts at (1, 1), the first event of the ray, and at no other event of the fiber: the loop's interior events are not adjacent to (0, 0).
@@ -265,7 +265,7 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {fib = InfraMeasurement[g, InfraRadarChart[Table[{0, t}, {t, 0, 6}]], "Fibration"]},
+  {fib = InfraMeasurement[g, InfraRadarCoordinates[Table[{0, t}, {t, 0, 6}]], "Fibration"]},
   {loop = VertexList @ InfraFibers[fib][{4, 3}]},
   {Sort[loop], InfraFibrationQ[fib], Select[loop, v |-> EdgeQ[InfraTotalGraph[fib], UndirectedEdge[{0, 0}, v]]]}]
 ```
@@ -276,11 +276,11 @@ With[
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
-  {fib = InfraMeasurement[g, InfraRadarChart[a], "Fibration"]},
-  {Length @ InfraMeasurement[g, InfraRadarChart[a], "Domain"], Length @ InfraFibers[fib], InfraFibrationQ[fib]}]
+  {fib = InfraMeasurement[g, InfraRadarCoordinates[a], "Fibration"]},
+  {Length @ InfraMeasurement[g, InfraRadarCoordinates[a], "Domain"], Length @ InfraFibers[fib], InfraFibrationQ[fib]}]
 ```
 
 ## Open questions
 
 - The observer space is handed to InfraGeometry as an undirected fibration, because its bundle functions test undirected edges; the causal direction survives only in the `"Subgraph"` and `"BaseGraph"` readings of the chart. Which bundle notions keep their meaning on the directed domain?
-- On the sprinkling a single longest chain identifies events and fails the lifting condition. How many observers does a joined chart need before the observer space of a sprinkling becomes a fibration, and how does that number grow with the density?
+- On the sprinkling a single longest chain identifies events and fails the lifting condition. How many observers do joined radar coordinates need before the observer space of a sprinkling becomes a fibration, and how does that number grow with the density?

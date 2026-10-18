@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/UniversalTime
 Keywords: [universal time, height, time function, longest chain, rank, topological sort, proper time]
-SeeAlso: [UniversalFoliation, InfraSlice, InfraSliceQ, InfraTimelikeGeodesic, InfraRadarChart, FoliationViewer]
+SeeAlso: [UniversalFoliation, InfraSlice, InfraSliceQ, InfraTimelikeGeodesic, InfraRadarCoordinates, FoliationViewer]
 RelatedGuides: [CausalTime]
 ---
 

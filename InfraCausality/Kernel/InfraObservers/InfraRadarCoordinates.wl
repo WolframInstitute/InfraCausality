@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: InfraObservers :: InfraRadarChart *)
+(* WolframInstitute`InfraCausality` :: InfraObservers :: InfraRadarCoordinates *)
 
 PackageScope[ radarTicks ]
 
@@ -26,40 +26,40 @@ observerListQ[ _Graph, _ ] :=
 radarPosition[ c_List ] :=
   c[[ { 2, 1 } ]]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ observers_ ], "Coordinates" ] /; observerListQ[ graph, observers ] :=
-  With[ { charts = InfraMeasurement[ graph, InfraRadarChart[ # ], "Coordinates" ] & /@ observers },
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, InfraRadarCoordinates[ observers_ ], "Coordinates" ] /; observerListQ[ graph, observers ] :=
+  With[ { charts = InfraMeasurement[ graph, InfraRadarCoordinates[ # ], "Coordinates" ] & /@ observers },
     { domain = Intersection @@ Keys /@ charts },
     KeySort @ AssociationMap[ e |-> Catenate[ #[ e ] & /@ charts ], domain ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ a_List ], "Coordinates" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, InfraRadarCoordinates[ a_List ], "Coordinates" ] :=
   Map[ Apply[ { i, j } |-> { ( i + j ) / 2, ( j - i ) / 2 } ], radarTicks[ graph, a ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ observers_ ], "Time" ] /; observerListQ[ graph, observers ] :=
-  Map[ #[[ 1 ;; ;; 2 ]] &, InfraMeasurement[ graph, InfraRadarChart[ observers ], "Coordinates" ] ]
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, InfraRadarCoordinates[ observers_ ], "Time" ] /; observerListQ[ graph, observers ] :=
+  Map[ #[[ 1 ;; ;; 2 ]] &, InfraMeasurement[ graph, InfraRadarCoordinates[ observers ], "Coordinates" ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ a_List ], "Time" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, InfraRadarCoordinates[ a_List ], "Time" ] :=
   Map[ Mean, radarTicks[ graph, a ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ observers_ ], "Distance" ] /; observerListQ[ graph, observers ] :=
-  Map[ #[[ 2 ;; ;; 2 ]] &, InfraMeasurement[ graph, InfraRadarChart[ observers ], "Coordinates" ] ]
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, InfraRadarCoordinates[ observers_ ], "Distance" ] /; observerListQ[ graph, observers ] :=
+  Map[ #[[ 2 ;; ;; 2 ]] &, InfraMeasurement[ graph, InfraRadarCoordinates[ observers ], "Coordinates" ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, InfraRadarChart[ a_List ], "Distance" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, InfraRadarCoordinates[ a_List ], "Distance" ] :=
   Map[ Apply[ { i, j } |-> ( j - i ) / 2 ], radarTicks[ graph, a ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "Domain" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "Domain" ] :=
   Keys @ InfraMeasurement[ graph, chart, "Coordinates" ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "VertexDensity" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "VertexDensity" ] :=
   AssociationThread[ InfraMeasurement[ graph, chart, "Domain" ], 1 ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "EdgeDensity" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "EdgeDensity" ] :=
   AssociationThread[ EdgeList @ Subgraph[ graph, InfraMeasurement[ graph, chart, "Domain" ] ], 1 ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "Subgraph" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "Subgraph" ] :=
   With[ { coords = InfraMeasurement[ graph, chart, "Coordinates" ] },
     Subgraph[ graph, Keys @ coords, VertexCoordinates -> Normal[ radarPosition /@ coords ] ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "BaseGraph" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "BaseGraph" ] :=
   With[ { coords = InfraMeasurement[ graph, chart, "Coordinates" ] },
     { cells = DeleteDuplicates @ Values @ coords },
     Graph[ cells,
@@ -67,15 +67,15 @@ InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "BaseGr
       VertexCoordinates -> ( # -> radarPosition @ # & /@ cells ),
       Sequence @@ FilterRules[ CausalSubstrateStyle[ "Small" ], { VertexStyle, EdgeStyle, VertexSize } ] ] ]
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "Fibration" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "Fibration" ] :=
   InfraFibration[ UndirectedGraph @ InfraMeasurement[ graph, chart, "Subgraph" ], InfraMeasurement[ graph, chart, "Coordinates" ] ]
 
-InfraRadarChart /: InfraMeasurement[ _Graph, _InfraRadarChart, "Faithful" ] :=
+InfraRadarCoordinates /: InfraMeasurement[ _Graph, _InfraRadarCoordinates, "Faithful" ] :=
   True
 
-InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, All ] :=
+InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, All ] :=
   InfraMeasurement[ graph, chart,
     { "Coordinates", "Time", "Distance", "Domain", "VertexDensity", "EdgeDensity", "Subgraph", "BaseGraph", "Fibration", "Faithful" } ]
 
-InfraRadarChart /: InfraMemberQ[ graph_Graph, chart_InfraRadarChart, e_ ] :=
+InfraRadarCoordinates /: InfraMemberQ[ graph_Graph, chart_InfraRadarCoordinates, e_ ] :=
   MemberQ[ InfraMeasurement[ graph, chart, "Domain" ], e ]

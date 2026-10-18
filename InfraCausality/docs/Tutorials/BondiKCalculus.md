@@ -185,7 +185,7 @@ With[{arcs = FullSimplify @ Lookup[Select[LightZigzag[3/5, 1, 8], #["Observer"] 
 
 ## From the plane to graphs
 
-- On a causal graph the same radar rule gives the radar chart of an observer chain, [InfraRadarChart](), whose time and distance are the half-sum and half-difference of the emission and reception ticks; the Causal Infrageometry tutorial builds it. The k-factor has a graph reading as well: on the diamond lattice the chain at rest echoed by a chain of velocity 1/(2*p* + 1) reads $\sqrt{(p + 1)/p}$, the Bondi factor of that velocity.
+- On a causal graph the same radar rule gives the radar coordinates of an observer chain, [InfraRadarCoordinates](), whose time and distance are the half-sum and half-difference of the emission and reception ticks; the Causal Infrageometry tutorial builds it. The k-factor has a graph reading as well: on the diamond lattice the chain at rest echoed by a chain of velocity 1/(2*p* + 1) reads $\sqrt{(p + 1)/p}$, the Bondi factor of that velocity.
 
 ```wl
 FullSimplify[KFactor[1/(2 p + 1)] == Sqrt[(p + 1)/p], p > 0]

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraWorldline
 Keywords: [worldline, saturated chain, observer, uniform sampling, sampler, count contract, NextVertexFunction]
-SeeAlso: [InfraWorldline, InfraWorldlineQ, RandomInfraTimelikeGeodesic, InfraMessageFunction, InfraRadarChart, InfraMeasurement, InfraMemberQ]
+SeeAlso: [InfraWorldline, InfraWorldlineQ, RandomInfraTimelikeGeodesic, InfraMessageFunction, InfraRadarCoordinates, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -43,7 +43,7 @@ The option `"NextVertexFunction"` replaces the uniform descent:
 | `RandomChoice` | independent random walks, each next event chosen with equal probability: distinct members, not uniform; not combined with `All` |
 | *f* | *f* is applied to the sorted list of next events; a list sets the order of the search, a single event prunes the search to it |
 
-The members are the observers that [InfraMessageFunction]() and [InfraRadarChart]() take as arguments, worldlines whose positions are read as clock ticks. [InfraWorldlineQ]() recognises one.
+The members are the observers that [InfraMessageFunction]() and [InfraRadarCoordinates]() take as arguments, worldlines whose positions are read as clock ticks. [InfraWorldlineQ]() recognises one.
 
 ## Basic Examples
 

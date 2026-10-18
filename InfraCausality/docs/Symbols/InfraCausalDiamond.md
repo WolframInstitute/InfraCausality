@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalDiamond
 Keywords: [causal diamond, Alexandrov interval, causal interval, order interval, causal hull, convex set, interval volume, ordering fraction, Myrheim-Meyer dimension, midpoint scaling, interval abundances, Benincasa-Dowker action, discrete d'Alembertian, symbolic object]
-SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraTimelikeGeodesic, InfraWorldline, InfraRadarChart]
+SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraTimelikeGeodesic, InfraWorldline, InfraRadarCoordinates]
 RelatedGuides: [CausalInfrageometry]
 ---
 
