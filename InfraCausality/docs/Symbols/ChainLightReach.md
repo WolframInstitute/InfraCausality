@@ -51,7 +51,7 @@ The light reach is the union of the vertex sets of the outgoing light rays of th
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[chains, c |-> ChainLightReach[g, c] === Union @@ Catenate[RandomInfraFutureLightCone[g, #, All] & /@ c]]]]
 ```
 
@@ -61,7 +61,7 @@ The light reach contains the chain and lies in the causal future of its first ev
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[chains, c |-> SubsetQ[ChainLightReach[g, c], c] && SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[First @ c], "VertexDensity"], ChainLightReach[g, c]]]]]
 ```
 
@@ -71,7 +71,7 @@ A chain meets the light reach of another exactly when the light-ray projection o
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
       IntersectingQ[ChainLightReach[g, a], b] === (ChainProjection[g, a, b, Method -> "LightRays"] > 0)]]]]
 ```

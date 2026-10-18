@@ -26,7 +26,7 @@ $polylineQ = { g, knots } |-> With[ { members = RandomInfraTimelikeGeodesic[ g, 
   InfraMeasurement[ g, InfraTimelikeGeodesic @@ knots, "Cardinality" ] == Length @ members ==
       Times @@ ( InfraMeasurement[ g, InfraTimelikeGeodesic @@ #, "Cardinality" ] & /@ Partition[ knots, 2, 1 ] ) &&
     InfraMeasurement[ g, InfraTimelikeGeodesic @@ knots, "Length" ] == Total[ InfraMeasurement[ g, InfraTimelikeGeodesic @@ #, "Length" ] & /@ Partition[ knots, 2, 1 ] ] &&
-    AllTrue[ members, m |-> m[[ cuts ]] === knots && InfraChainQ[ g, m ] && InfraObserverQ[ g, m ] &&
+    AllTrue[ members, m |-> m[[ cuts ]] === knots && InfraChainQ[ g, m ] && InfraWorldlineQ[ g, m ] &&
       AllTrue[ Range[ Length @ knots - 1 ], i |-> InfraTimelikeGeodesicQ[ g, Take[ m, { cuts[[ i ]], cuts[[ i + 1 ]] } ] ] ] ] ];
 
 $fromQ = { g, p } |-> With[ { members = RandomInfraTimelikeGeodesic[ g, InfraTimelikeGeodesic[ p ], All ], future = VertexOutComponent[ g, { p } ] },
@@ -66,7 +66,7 @@ $globalQ = g |-> With[ { height = Max @ UniversalTime @ g },
 
 $memberQ = g |-> AllTrue[ $comparablePairs @ g, pair |->
   With[ { geodesics = RandomInfraTimelikeGeodesic[ g, InfraTimelikeGeodesic @@ pair, All ] },
-    AllTrue[ RandomInfraObserver[ g, InfraObserver @@ pair, All ],
+    AllTrue[ RandomInfraWorldline[ g, InfraWorldline @@ pair, All ],
       path |-> InfraMemberQ[ g, InfraTimelikeGeodesic @@ pair, path ] === MemberQ[ geodesics, path ] ] ] ];
 
 VerificationTest[ $cardinalityQ[ $twoSource ], True, TestID -> "InfraTimelikeGeodesic-TwoSource-cardinality-counts-members" ]
@@ -113,7 +113,7 @@ VerificationTest[ $globalQ[ $cylinder ], True, TestID -> "InfraTimelikeGeodesic-
 VerificationTest[ $globalQ[ $shortcut ], True, TestID -> "InfraTimelikeGeodesic-Shortcut-global-longest-chains" ]
 
 VerificationTest[
-  { InfraObserverQ[ $shortcut, { 1, 5, 4 } ], InfraTimelikeGeodesicQ[ $shortcut, { 1, 5, 4 } ], InfraChainQ[ $twoSource, { 1, 2 } ], InfraChainQ[ $twoSource, { 3, 1 } ] },
+  { InfraWorldlineQ[ $shortcut, { 1, 5, 4 } ], InfraTimelikeGeodesicQ[ $shortcut, { 1, 5, 4 } ], InfraChainQ[ $twoSource, { 1, 2 } ], InfraChainQ[ $twoSource, { 3, 1 } ] },
   { True, False, False, False },
   TestID -> "InfraTimelikeGeodesicQ-Shortcut-rejects-short-observer"
 ]
@@ -157,7 +157,7 @@ VerificationTest[
 
 VerificationTest[
   With[ { members = RandomInfraTimelikeGeodesic[ $lattice, InfraTimelikeGeodesic @@ $knots, All ] },
-    AllTrue[ RandomInfraObserver[ $lattice, InfraObserver[ { 0, 0 }, { 4, 4 } ], All ],
+    AllTrue[ RandomInfraWorldline[ $lattice, InfraWorldline[ { 0, 0 }, { 4, 4 } ], All ],
       path |-> InfraMemberQ[ $lattice, InfraTimelikeGeodesic @@ $knots, path ] === MemberQ[ members, path ] ] ],
   True,
   TestID -> "InfraTimelikeGeodesic-Lattice-polyline-InfraMemberQ-agrees-with-sampler"

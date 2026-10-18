@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraTimelikeGeodesic
 Keywords: [timelike geodesic, longest chain, proper time, maximal chain, twin paradox, piecewise geodesic, polyline, symbolic object]
-SeeAlso: [RandomInfraTimelikeGeodesic, InfraTimelikeGeodesicQ, InfraObserver, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, InfraChainQ]
+SeeAlso: [RandomInfraTimelikeGeodesic, InfraTimelikeGeodesicQ, InfraWorldline, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, InfraChainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -39,7 +39,7 @@ The head holds its two events and computes nothing. Its graph, <code>[`InfraMeas
 
 <code>[InfraTimelikeGeodesic]()[]</code> is the same construction on the whole graph: the chains from a source to a sink whose length is the height of the graph, the maximum of [UniversalTime]().
 
-A member is a vertex list in causal order; [RandomInfraTimelikeGeodesic]() draws members uniformly, and [InfraTimelikeGeodesicQ]() recognises one. Every timelike geodesic is an observer, a saturated chain; see [InfraObserver]().
+A member is a vertex list in causal order; [RandomInfraTimelikeGeodesic]() draws members uniformly, and [InfraTimelikeGeodesicQ]() recognises one. Every timelike geodesic is a worldline, a saturated chain; see [InfraWorldline]().
 
 Experimental: the two further call forms are the same construction on other graphs. <code>[InfraTimelikeGeodesic]()[*p*1, …, *pk*]</code>, with *k* ≥ 3, is the polyline whose legs are the timelike geodesics from *p*<sub>*i*</sub> to *p*<sub>*i*+1</sub>; its `"Graph"` is the union of the legs' graphs, which meet only at the knots, so every path from *p*1 to *pk* passes every knot and is a member, `"Length"` is the sum τ(*p*1, *p*2) + … + τ(*p*<sub>*k*−1</sub>, *pk*) of the legs' proper times and `"Cardinality"` the product of their cardinalities. A member is a piecewise geodesic, the discrete twin who turns at the knots; between the same endpoints it is at most as long as a timelike geodesic. When some knot does not precede the next the family is empty. <code>[InfraTimelikeGeodesic]()[*p*]</code> is the family of longest chains that start at *p*: with *h* the largest proper time τ(*p*, *e*) over the causal future of *p*, its `"Graph"` keeps the events *v* of *J*⁺(*p*) with τ(*p*, *v*) + τ⁻(*v*) = *h*, where τ⁻(*v*) is the longest chain from *v* inside *J*⁺(*p*), and the edges along which τ(*p*, ·) rises by one; its `"Length"` is *h*. Both forms are sampled by [RandomInfraTimelikeGeodesic]() and recognised by <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)</code> like the two-event form.
 

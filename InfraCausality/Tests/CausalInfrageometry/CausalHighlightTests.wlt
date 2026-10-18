@@ -12,7 +12,7 @@ $column = { g, k } |-> Select[ VertexList @ g, v |-> First @ v == k ];
 
 $heads = { g, p, q, a, b } |-> {
   InfraCausalFuture[ p ], InfraCausalPast[ q ], InfraCausalDiamond[ p, q ], InfraSlice[ 1 ],
-  InfraTimelikeGeodesic[ p, q ], InfraObserver[ p, q ], InfraFutureLightCone[ p ], InfraPastLightCone[ q ],
+  InfraTimelikeGeodesic[ p, q ], InfraWorldline[ p, q ], InfraFutureLightCone[ p ], InfraPastLightCone[ q ],
   InfraMessageFunction[ a, b ], InfraEchoFunction[ a, b ] };
 
 $cases = {

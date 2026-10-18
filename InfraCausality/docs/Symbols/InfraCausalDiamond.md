@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalDiamond
 Keywords: [causal diamond, Alexandrov interval, causal interval, order interval, causal hull, convex set, interval volume, ordering fraction, Myrheim-Meyer dimension, midpoint scaling, interval abundances, Benincasa-Dowker action, discrete d'Alembertian, symbolic object]
-SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraTimelikeGeodesic, InfraObserver, InfraRadarChart]
+SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraTimelikeGeodesic, InfraWorldline, InfraRadarChart]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -20,7 +20,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Definition: the causal diamond of two events *p* and *q* of a directed acyclic graph is [*p*, *q*] = *J*⁺(*p*) ∩ *J*⁻(*q*) = {*e* : *p* ≼ *e* ≼ *q*}, the Alexandrov interval of the causal order.
 
-It is empty unless *p* ≼ *q*, and it is the single event *p* when *p* = *q*. It is convex: with two of its events *u* ≼ *w* it contains every event between them. Every causal chain from *p* to *q* runs inside it, so it carries the timelike geodesics and the observers between its tips, and it is the radar domain of an observer from *p* to *q*.
+It is empty unless *p* ≼ *q*, and it is the single event *p* when *p* = *q*. It is convex: with two of its events *u* ≼ *w* it contains every event between them. Every causal chain from *p* to *q* runs inside it, so it carries the worldlines and the timelike geodesics between its tips, and it is the radar domain of an observer from *p* to *q*.
 
 The causal hull of a set *S* is *J*⁺(*S*) ∩ *J*⁻(*S*), the smallest convex set containing *S*. The hull of a chain from *p* to *q* is the diamond [*p*, *q*].
 

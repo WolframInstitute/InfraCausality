@@ -10,7 +10,7 @@ $diamond = Graph[ Flatten @ Table[ { If[ i < 3, { i, j } -> { i + 1, j }, Nothin
 
 $fixtures = { $ladder, $twoSource, $diamond }
 
-$chains[ g_ ] := Take[ RandomInfraObserver[ g, All ], UpTo[ 6 ] ]
+$chains[ g_ ] := Take[ RandomInfraWorldline[ g, All ], UpTo[ 6 ] ]
 
 $futureOf[ g_, e_ ] := VertexOutComponent[ g, { e } ]
 
@@ -122,7 +122,7 @@ VerificationTest[
 VerificationTest[
   SeedRandom[ 17 ];
   With[ { g = RandomCausalGraph[ 20, Method -> { "Percolation", 0.2 } ] },
-    With[ { chains = RandomInfraObserver[ g, UpTo[ 4 ] ] },
+    With[ { chains = RandomInfraWorldline[ g, UpTo[ 4 ] ] },
       With[ { k = InfraKinematics[ g, First @ chains, Rest @ chains, Method -> "LightRays" ],
               c = InfraKinematics[ g, First @ chains, Rest @ chains ] },
         AllTrue[ Join[ k[ "Projections" ], c[ "Projections" ] ], 0 <= # <= 1 & ] &&

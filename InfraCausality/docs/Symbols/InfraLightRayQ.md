@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraLightRayQ
 Keywords: [light ray, null geodesic, null separation, light cone, predicate, chain hierarchy]
-SeeAlso: [InfraFutureLightCone, InfraPastLightCone, RandomInfraFutureLightCone, RandomInfraPastLightCone, InfraTimelikeGeodesicQ, InfraObserverQ, InfraChainQ]
+SeeAlso: [InfraFutureLightCone, InfraPastLightCone, RandomInfraFutureLightCone, RandomInfraPastLightCone, InfraTimelikeGeodesicQ, InfraWorldlineQ, InfraChainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 ## Details & Options
 
-Statement: a vertex list *e*0, …, *ek* is a light ray when it is a saturated chain of *g*, as [InfraObserverQ]() tests, and the diamond [*e*0, *ek*] has exactly *k* + 1 events: no event lies between *e*0 and *ek* off the chain, so the chain is the only route from *e*0 to *ek*.
+Statement: a vertex list *e*0, …, *ek* is a light ray when it is a saturated chain of *g*, as [InfraWorldlineQ]() tests, and the diamond [*e*0, *ek*] has exactly *k* + 1 events: no event lies between *e*0 and *ek* off the chain, so the chain is the only route from *e*0 to *ek*.
 
 This is the discrete analogue of null separation: there is no room beside the ray for a second path. Equivalently, the chain is saturated and *ek* lies on the future light cone *E*⁺(*e*0); then every event of the chain lies on *E*⁺(*e*0) and on the past light cone *E*⁻(*ek*). A light ray need not be inextendible: an initial segment of a member of [InfraFutureLightCone]() is a light ray too.
 
@@ -30,7 +30,7 @@ A light ray is the strongest condition of the chain hierarchy, each condition st
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
 | [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
-| [InfraObserverQ]() | each consecutive pair is a covering pair |
+| [InfraWorldlineQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
 ## Basic Examples

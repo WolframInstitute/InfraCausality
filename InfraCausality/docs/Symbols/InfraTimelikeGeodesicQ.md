@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraTimelikeGeodesicQ
 Keywords: [timelike geodesic, longest chain, proper time, predicate, chain hierarchy]
-SeeAlso: [InfraTimelikeGeodesic, RandomInfraTimelikeGeodesic, InfraObserverQ, InfraChainQ, InfraLightRayQ, InfraMemberQ]
+SeeAlso: [InfraTimelikeGeodesic, RandomInfraTimelikeGeodesic, InfraWorldlineQ, InfraChainQ, InfraLightRayQ, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 ## Details & Options
 
-Statement: a vertex list *e*0, …, *ek* is a timelike geodesic when it is a saturated chain of *g*, as [InfraObserverQ]() tests, and its number of edges *k* equals the proper time τ(*e*0, *ek*), the number of edges of a longest chain from *e*0 to *ek*. No chain between the same two events is longer.
+Statement: a vertex list *e*0, …, *ek* is a timelike geodesic when it is a saturated chain of *g*, as [InfraWorldlineQ]() tests, and its number of edges *k* equals the proper time τ(*e*0, *ek*), the number of edges of a longest chain from *e*0 to *ek*. No chain between the same two events is longer.
 
 The saturation condition is implied by the length: a chain that skipped an event between two of its consecutive events could be lengthened by inserting it. So a timelike geodesic is any chain, in the sense of [InfraChainQ](), of maximal length between its endpoints, and <code>[InfraTimelikeGeodesicQ]()[*g*, *c*]</code> is <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)[*g*, [InfraTimelikeGeodesic]()[First[*c*], Last[*c*]], *c*]</code>. A single event is a timelike geodesic, the only member of [InfraTimelikeGeodesic]()[*v*, *v*]; the empty list is not.
 
@@ -30,7 +30,7 @@ The chain predicates form a hierarchy, each condition stronger than the next:
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
 | [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
-| [InfraObserverQ]() | each consecutive pair is a covering pair |
+| [InfraWorldlineQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
 ## Basic Examples
@@ -48,16 +48,16 @@ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-On the sprinkling the observers between two events have clocks of different lengths. The shortest one is saturated but is not a timelike geodesic; the longest one is.
+On the sprinkling the worldlines between two events have different lengths. The shortest one is saturated but is not a timelike geodesic; the longest one is.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
   {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
-  {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
+  {members = RandomInfraWorldline[g, InfraWorldline[p, q], All]},
   GraphicsRow @ Table[
-    Labeled[InfraSubstrateHighlight[g, {InfraWalk[chain]}], {InfraObserverQ[g, chain], InfraTimelikeGeodesicQ[g, chain]}],
+    Labeled[InfraSubstrateHighlight[g, {InfraWalk[chain]}], {InfraWorldlineQ[g, chain], InfraTimelikeGeodesicQ[g, chain]}],
     {chain, {First @ MinimalBy[members, Length], First @ MaximalBy[members, Length]}}]]
 ```
 
@@ -71,7 +71,7 @@ With[
 
 ## Properties and Relations
 
-The predicate is membership in the timelike-geodesic family of the endpoints. Checked on every observer between two events of each substrate.
+The predicate is membership in the timelike-geodesic family of the endpoints. Checked on every worldline between two events of each substrate.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -79,12 +79,12 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
     {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
-    AllTrue[RandomInfraObserver[g, InfraObserver[p, q], All], chain |->
+    AllTrue[RandomInfraWorldline[g, InfraWorldline[p, q], All], chain |->
       InfraTimelikeGeodesicQ[g, chain] === InfraMemberQ[g, InfraTimelikeGeodesic[p, q], chain] ===
         (Length[chain] - 1 == InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Length"])]]]
 ```
 
-The hierarchy: every light ray is a timelike geodesic, every timelike geodesic an observer, every observer a chain. Checked on every path of the graph between two events of each substrate.
+The hierarchy: every light ray is a timelike geodesic, every timelike geodesic a worldline, every worldline a chain. Checked on every path of the graph between two events of each substrate.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -93,11 +93,11 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[2]])},
     {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
     AllTrue[FindPath[g, p, q, Infinity, All], chain |->
-      Implies[InfraLightRayQ[g, chain], InfraTimelikeGeodesicQ[g, chain]] && Implies[InfraTimelikeGeodesicQ[g, chain], InfraObserverQ[g, chain]] &&
-        Implies[InfraObserverQ[g, chain], InfraChainQ[g, chain]]]]]
+      Implies[InfraLightRayQ[g, chain], InfraTimelikeGeodesicQ[g, chain]] && Implies[InfraTimelikeGeodesicQ[g, chain], InfraWorldlineQ[g, chain]] &&
+        Implies[InfraWorldlineQ[g, chain], InfraChainQ[g, chain]]]]]
 ```
 
-On the two lattices every observer is a timelike geodesic; on the sprinkling there are observers that are not.
+On the two lattices every worldline is a timelike geodesic; on the sprinkling there are worldlines that are not.
 
 ```wl
 With[
@@ -106,7 +106,7 @@ With[
       {g = CausalSubstrate[name, "Small"]},
       {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
       {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
-      Count[RandomInfraObserver[g, InfraObserver[p, q], All], chain_ /; ! InfraTimelikeGeodesicQ[g, chain]]],
+      Count[RandomInfraWorldline[g, InfraWorldline[p, q], All], chain_ /; ! InfraTimelikeGeodesicQ[g, chain]]],
     {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]},
   First[counts] == Last[counts] == 0 < counts[[2]]]
 ```

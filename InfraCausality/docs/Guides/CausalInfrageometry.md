@@ -13,7 +13,7 @@ RelatedTutorials: [CausalInfrageometryTutorial]
 
 ## Abstract
 
-Causal infrageometry studies the causal structure of a finite directed acyclic graph the way Euclidean infrageometry studies the metric structure of an undirected one. Events are vertices and the causal order is reachability; the objects are the causal future and past of an event, the causal diamond between two events, the timelike geodesics between them (all longest chains at once), the observers (all saturated chains), and the light cones, whose members are the light rays: the chains $[v, e]$ that admit no second route. Every object is an inert head that takes no graph. `InfraMeasurement[g, obj, property]` of InfraGeometry reads it on a causal graph, a named `RandomInfra...` sampler draws the members of a chain head, an `Infra...Q` predicate recognises one, and `InfraSubstrateHighlight` draws it. The heads of two kinds follow the two InfraGeometry shapes: a cone, a diamond or a slice is a set, read by its vertex density; a timelike-geodesic family, an observer family or a light cone is a family of chains, read by the directed acyclic graph whose source-to-sink paths are exactly its members, so that cardinalities and densities come from one dynamic programme and never from enumeration.
+Causal infrageometry studies the causal structure of a finite directed acyclic graph the way Euclidean infrageometry studies the metric structure of an undirected one. Events are vertices and the causal order is reachability; the objects are the causal future and past of an event, the causal diamond between two events, the worldlines between them (all saturated chains at once), the timelike geodesics among them (the longest chains), and the light cones, whose members are the light rays: the chains $[v, e]$ that admit no second route. Every object is an inert head that takes no graph. `InfraMeasurement[g, obj, property]` of InfraGeometry reads it on a causal graph, a named `RandomInfra...` sampler draws the members of a chain head, an `Infra...Q` predicate recognises one, and `InfraSubstrateHighlight` draws it. The heads of two kinds follow the two InfraGeometry shapes: a cone, a diamond or a slice is a set, read by its vertex density; a worldline family, a timelike-geodesic family or a light cone is a family of chains, read by the directed acyclic graph whose source-to-sink paths are exactly its members, so that cardinalities and densities come from one dynamic programme and never from enumeration.
 
 ## Functions
 
@@ -31,15 +31,15 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 
 - `InfraCausalDiamondQ`
 
-### Timelike geodesics and observers
+### Worldlines and timelike geodesics
 
+- `InfraWorldline` the worldlines from $p$ to $q$, every saturated chain between them; with no arguments, every inextendible worldline
+- `RandomInfraWorldline` random worldlines as vertex lists; read as observers, their positions are the ticks of a clock
 - `InfraTimelikeGeodesic` the timelike geodesics from $p$ to $q$, every longest chain between them at once; with no arguments, the longest chains of the graph
 - `RandomInfraTimelikeGeodesic` random longest chains from $p$ to $q$ as vertex lists
-- `InfraObserver` the observers from $p$ to $q$, every saturated chain between them; with no arguments, every inextendible chain
-- `RandomInfraObserver` random saturated chains as vertex lists, their positions the ticks of a clock
 - `FindPath` (WL), `TopologicalSort` (WL)
 
-- `InfraTimelikeGeodesicQ`, `InfraObserverQ`
+- `InfraWorldlineQ`, `InfraTimelikeGeodesicQ`
 
 ### Light cones and light rays
 

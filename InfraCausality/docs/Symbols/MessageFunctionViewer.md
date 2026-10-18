@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/MessageFunctionViewer
 Keywords: [viewer, message function, EPS, light ray, observer, interactive, Manipulate, experimental]
-SeeAlso: [InfraMessageFunction, InfraEchoFunction, InfraFutureLightCone, RandomInfraObserver, LightConeViewer, FoliationViewer]
+SeeAlso: [InfraMessageFunction, InfraEchoFunction, InfraFutureLightCone, RandomInfraWorldline, LightConeViewer, FoliationViewer]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -20,7 +20,7 @@ Experimental: viewer. The interface of the viewers may change.
 
 Definition: the frame at the tick *v* = *a*<sub>*k*</sub> draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the observer *a* in blue, the observer *b* in red, the message images *M*<sub>*ab*</sub>(*v*) = *E*⁺(*v*) ∩ *b* of [InfraMessageFunction]() in green, the light rays from *v* to them in orange and *v* in magenta. The label names the tick and its images.
 
-The tick is chosen with the slider or by clicking near it; a click selects the tick of *a* nearest to the click, even far from *a*. The observers are vertex lists in causal order, such as the members [RandomInfraObserver]() and [RandomInfraTimelikeGeodesic]() draw. The result is a `Manipulate` with `SaveDefinitions -> True`; clicking needs the Wolfram notebook front end.
+The tick is chosen with the slider or by clicking near it; a click selects the tick of *a* nearest to the click, even far from *a*. The observers are vertex lists in causal order, such as the members [RandomInfraWorldline]() and [RandomInfraTimelikeGeodesic]() draw. The result is a `Manipulate` with `SaveDefinitions -> True`; clicking needs the Wolfram notebook front end.
 
 ## Basic Examples
 

@@ -55,12 +55,12 @@ $memberQ = g |-> AllTrue[ VertexList @ g, v |-> With[ { rays = RandomInfraFuture
 
 $hierarchyQ = g |-> AllTrue[ Select[ Tuples[ VertexList @ g, 2 ], pair |-> MemberQ[ VertexOutComponent[ g, { First @ pair } ], Last @ pair ] ],
   pair |-> AllTrue[ If[ SameQ @@ pair, { { First @ pair } }, FindPath[ g, First @ pair, Last @ pair, Infinity, All ] ],
-    path |-> Implies[ InfraLightRayQ[ g, path ], InfraTimelikeGeodesicQ[ g, path ] ] && Implies[ InfraTimelikeGeodesicQ[ g, path ], InfraObserverQ[ g, path ] ] &&
-      Implies[ InfraObserverQ[ g, path ], InfraChainQ[ g, path ] ] ] ];
+    path |-> Implies[ InfraLightRayQ[ g, path ], InfraTimelikeGeodesicQ[ g, path ] ] && Implies[ InfraTimelikeGeodesicQ[ g, path ], InfraWorldlineQ[ g, path ] ] &&
+      Implies[ InfraWorldlineQ[ g, path ], InfraChainQ[ g, path ] ] ] ];
 
 $sampledHierarchyQ = g |-> AllTrue[ VertexList @ g, v |->
   With[ { rays = Join[ RandomInfraFutureLightCone[ g, v, All ], RandomInfraPastLightCone[ g, v, All ] ] },
-    InfraLightRayQ[ g, rays ] && InfraTimelikeGeodesicQ[ g, rays ] && InfraObserverQ[ g, rays ] && InfraChainQ[ g, rays ] ] ];
+    InfraLightRayQ[ g, rays ] && InfraTimelikeGeodesicQ[ g, rays ] && InfraWorldlineQ[ g, rays ] && InfraChainQ[ g, rays ] ] ];
 
 VerificationTest[
   KeySort @ AssociationMap[ $cone[ $twoSource, # ] &, VertexList @ $twoSource ],

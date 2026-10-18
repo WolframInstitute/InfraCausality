@@ -72,7 +72,7 @@ The projection lies in [0, 1], the light-ray value is at most the cone value, an
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
       With[{cone = ChainProjection[g, a, b], rays = ChainProjection[g, a, b, Method -> "LightRays"]},
         0 <= rays <= cone <= 1 &&
@@ -86,7 +86,7 @@ The events of *a* that reach *b* form an initial segment of *a*.
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
       With[{reach = (IntersectingQ[Keys @ InfraMeasurement[g, InfraCausalFuture[#], "VertexDensity"], b] &) /@ a},
         reach === Join[ConstantArray[True, ChainProjection[g, a, b] Length[a]], ConstantArray[False, Length[a] - ChainProjection[g, a, b] Length[a]]]]]]]]
@@ -98,7 +98,7 @@ A chain projects with value 1 onto itself and onto every chain in the future of 
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[chains, a |->
       ChainProjection[g, a, a] == 1 &&
         AllTrue[Select[chains, b |-> SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[Last @ a], "VertexDensity"], b]], b |-> ChainProjection[g, a, b] == 1]]]]

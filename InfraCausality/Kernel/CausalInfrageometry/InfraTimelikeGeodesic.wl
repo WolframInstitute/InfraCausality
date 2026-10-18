@@ -127,5 +127,5 @@ InfraTimelikeGeodesicQ[ graph_Graph, chains : { __List } ] /; ! AllTrue[ chains,
   AllTrue[ chains, InfraTimelikeGeodesicQ[ graph, # ] & ]
 
 InfraTimelikeGeodesicQ[ graph_Graph, chain_List ] :=
-  InfraObserverQ[ graph, chain ] &&
+  InfraWorldlineQ[ graph, chain ] &&
     Length @ chain - 1 == InfraMeasurement[ graph, InfraTimelikeGeodesic[ First @ chain, Last @ chain ], "Length" ]

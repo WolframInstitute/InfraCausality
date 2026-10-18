@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraRadarChart
 Keywords: [radar coordinates, radar time, radar distance, coordinatization, observer space, fibration, EPS axioms, Bondi k-calculus, symbolic object]
-SeeAlso: [InfraObserver, InfraTimelikeGeodesic, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
+SeeAlso: [InfraWorldline, InfraTimelikeGeodesic, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
 RelatedGuides: [InfraObservers]
 ---
 

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraTimelikeGeodesic
 Keywords: [timelike geodesic, longest chain, uniform sampling, sampler, count contract, NextVertexFunction]
-SeeAlso: [InfraTimelikeGeodesic, InfraTimelikeGeodesicQ, RandomInfraObserver, RandomInfraFutureLightCone, InfraMeasurement, InfraMemberQ]
+SeeAlso: [InfraTimelikeGeodesic, InfraTimelikeGeodesicQ, RandomInfraWorldline, RandomInfraFutureLightCone, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 

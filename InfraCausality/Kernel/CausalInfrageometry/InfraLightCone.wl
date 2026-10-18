@@ -59,5 +59,5 @@ InfraLightRayQ[ graph_Graph, chains : { __List } ] /; ! AllTrue[ chains, VertexQ
   AllTrue[ chains, InfraLightRayQ[ graph, # ] & ]
 
 InfraLightRayQ[ graph_Graph, chain_List ] :=
-  InfraObserverQ[ graph, chain ] &&
+  InfraWorldlineQ[ graph, chain ] &&
     Length @ chain == Length @ Intersection[ VertexOutComponent[ graph, { First @ chain } ], VertexInComponent[ graph, { Last @ chain } ] ]

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraMessageFunctionQ
 Keywords: [message function, monotone selection, EPS axioms, Ehlers-Pirani-Schild, axiom D1, light signal, predicate]
-SeeAlso: [InfraMessageFunction, RandomInfraMessageFunction, InfraEchoFunctionQ, InfraFutureLightCone, InfraObserverQ]
+SeeAlso: [InfraMessageFunction, RandomInfraMessageFunction, InfraEchoFunctionQ, InfraFutureLightCone, InfraWorldlineQ]
 RelatedGuides: [InfraObservers]
 ---
 

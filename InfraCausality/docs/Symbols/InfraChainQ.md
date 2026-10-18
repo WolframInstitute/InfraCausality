@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraChainQ
 Keywords: [chain, totally ordered subset, causal order, predicate, chain hierarchy]
-SeeAlso: [InfraObserverQ, InfraTimelikeGeodesicQ, InfraLightRayQ, InfraCausalDiamond, RandomInfraObserver, InfraAntichainQ]
+SeeAlso: [InfraWorldlineQ, InfraTimelikeGeodesicQ, InfraLightRayQ, InfraCausalDiamond, RandomInfraWorldline, InfraAntichainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -28,7 +28,7 @@ The chain predicates form a hierarchy, each condition stronger than the next:
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
 | [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
-| [InfraObserverQ]() | each consecutive pair is a covering pair |
+| [InfraWorldlineQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
 [InfraAntichainQ]() is the opposite notion: a set of pairwise incomparable events. A chain and an antichain share at most one event.
@@ -47,13 +47,13 @@ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-A chain on the diamond lattice that steps diagonally: it skips events, so it is a chain but not an observer.
+A chain on the diamond lattice that steps diagonally: it skips events, so it is a chain but not a worldline.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {chain = Table[{i, i}, {i, 0, 6, 2}]},
-  Labeled[InfraSubstrateHighlight[g, {chain, InfraCausalDiamond[First @ chain, Last @ chain]}], {InfraChainQ[g, chain], InfraObserverQ[g, chain]}]]
+  Labeled[InfraSubstrateHighlight[g, {chain, InfraCausalDiamond[First @ chain, Last @ chain]}], {InfraChainQ[g, chain], InfraWorldlineQ[g, chain]}]]
 ```
 
 A list of chains is tested chain by chain; a single event is a chain.
@@ -61,7 +61,7 @@ A list of chains is tested chain by chain; a single event is a chain.
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {InfraChainQ[g, (SeedRandom[1]; RandomInfraObserver[g, {0, 0}, {2, 3}, 3])], InfraChainQ[g, {{2, 3}}], InfraChainQ[g, {}]}]
+  {InfraChainQ[g, (SeedRandom[1]; RandomInfraWorldline[g, {0, 0}, {2, 3}, 3])], InfraChainQ[g, {{2, 3}}], InfraChainQ[g, {}]}]
 ```
 
 ## Properties and Relations
@@ -83,7 +83,7 @@ The causal hull of a chain is the diamond of its first and last events.
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {members = (SeedRandom[1]; RandomInfraObserver[g, UpTo[10]])},
+    {members = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[10]])},
     AllTrue[members, chain |->
       InfraChainQ[g, chain] &&
         Keys @ InfraMeasurement[g, InfraCausalDiamond[chain], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ chain, Last @ chain], "VertexDensity"]]]]
@@ -95,7 +95,7 @@ A chain and an antichain share at most one event: every slice of the universal f
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {members = (SeedRandom[1]; RandomInfraObserver[g, UpTo[10]])},
+    {members = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[10]])},
     AllTrue[Tuples[{members, UniversalFoliation[g]}], Apply[{chain, slice} |->
       InfraChainQ[g, chain] && InfraAntichainQ[g, slice] && Length[Intersection[chain, slice]] <= 1]]]]
 ```
