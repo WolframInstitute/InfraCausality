@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: Experimental :: KnuthKinematics *)
+(* WolframInstitute`InfraCausality` :: CausalInfrageometry :: KnuthKinematics *)
 
 Options[ ChainProjection ] = { "Method" -> "Cone" };
 

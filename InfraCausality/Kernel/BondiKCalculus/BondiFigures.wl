@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: Experimental :: BondiConstructions *)
+(* WolframInstitute`InfraCausality` :: BondiKCalculus :: BondiFigures *)
 
 (* ========================= Worldline Geometry ========================= *)
 
@@ -17,12 +17,6 @@ WorldlinePoint[ velocity_, arcLength_, lightAngle_ : Pi/4 ] :=
 WorldlineNormal[ velocity_, lightAngle_ : Pi/4 ] :=
   With[ { alpha = WorldlineAngle[ velocity, lightAngle ] },
     { Cos[ alpha ], -Sin[ alpha ] }
-  ]
-
-ProperTimeScale[ velocity_, lightAngle_ : Pi/4 ] :=
-  With[ { k = KFactor[ velocity, lightAngle ],
-           kOut = OutgoingRatio[ velocity, lightAngle ] },
-    k / kOut
   ]
 
 WorldlinePointAtProperTime[ velocity_, properTime_, lightAngle_ : Pi/4 ] :=
@@ -514,4 +508,36 @@ LightClockConstruction[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
       Background -> $BondiColors[ "Background" ],
       PlotRangePadding -> Scaled[ 0.06 ]
     ]
+  ]
+
+
+BondiViewer[] :=
+  Manipulate[
+    Switch[ construction,
+      "Clock",
+        BondiClock[ velocity, bounces, "LightAngle" -> lightAngle, ImageSize -> 480 ],
+      "Doppler",
+        DopplerConstruction[ velocity, bounces, "LightAngle" -> lightAngle, ImageSize -> 480 ],
+      "Time Dilation",
+        TimeDilationConstruction[ velocity, "LightAngle" -> lightAngle, ImageSize -> 480 ],
+      "Simultaneity",
+        SimultaneityConstruction[ velocity, "LightAngle" -> lightAngle, ImageSize -> 480 ],
+      "Length Contraction",
+        LengthContractionConstruction[ velocity, "LightAngle" -> lightAngle, ImageSize -> 480 ],
+      "Velocity Addition",
+        VelocityAdditionConstruction[ velocity, v2, "LightAngle" -> lightAngle, ImageSize -> 480 ],
+      "Light Clock",
+        LightClockConstruction[ velocity, bounces, "LightAngle" -> lightAngle, ImageSize -> 480 ]
+    ],
+    { { construction, "Clock", "Construction" },
+      { "Clock", "Doppler", "Time Dilation", "Simultaneity",
+        "Length Contraction", "Velocity Addition", "Light Clock" } },
+    Delimiter,
+    { { velocity, 0.4, "\[Beta]" }, 0.05, 0.9 },
+    { { lightAngle, Pi/4, "\[Phi] (light angle)" }, 0.15, Pi/2 - 0.05 },
+    { { bounces, 8, "Bounces / Pulses" }, 3, 15, 1 },
+    Delimiter,
+    { { v2, 0.3, Subscript[ "\[Beta]", "2" ] }, 0.05, 0.85 },
+    ControlType -> { SetterBar, Delimiter, Slider, Slider, Slider, Delimiter, Slider },
+    TrackedSymbols :> { construction, velocity, lightAngle, bounces, v2 }
   ]

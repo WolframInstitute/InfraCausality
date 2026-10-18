@@ -28,10 +28,17 @@ PackageExport[RandomInfraFutureLightCone]
 PackageExport[RandomInfraPastLightCone]
 PackageExport[InfraLightRayQ]
 
+(* Experimental: Knuth kinematics *)
+
+PackageExport[ChainProjection]
+PackageExport[ChainLightReach]
+PackageExport[InfraKinematics]
+
+(* Experimental: viewers *)
+
 PackageExport[LightConeViewer]
 PackageExport[MessageFunctionViewer]
 PackageExport[FoliationViewer]
-PackageExport[BondiViewer]
 
 (* CausalTime *)
 
@@ -42,6 +49,11 @@ PackageExport[RandomInfraSlice]
 PackageExport[InfraSliceQ]
 PackageExport[InfraAntichainQ]
 
+(* Experimental: extremal events *)
+
+PackageExport[MaximalAbsorber]
+PackageExport[MaximalEmitter]
+
 (* InfraObservers *)
 
 PackageExport[InfraMessageFunction]
@@ -49,6 +61,11 @@ PackageExport[InfraEchoFunction]
 PackageExport[InfraMessageFunctionQ]
 PackageExport[InfraEchoFunctionQ]
 PackageExport[InfraRadarChart]
+
+(* Experimental: selections *)
+
+PackageExport[RandomInfraMessageFunction]
+PackageExport[RandomInfraEchoFunction]
 
 (* CausalSubstrates *)
 
@@ -67,20 +84,11 @@ PackageExport[RapidityFromK]
 PackageExport[WorldlineAngle]
 PackageExport[OutgoingRatio]
 PackageExport[IncomingRatio]
+PackageExport[ProperTimeScale]
 PackageExport[LightZigzag]
 PackageExport[BondiRadarCoordinates]
 
-(* Experimental *)
-
-PackageExport[ChainProjection]
-PackageExport[ChainLightReach]
-PackageExport[InfraKinematics]
-
-PackageExport[MaximalAbsorber]
-PackageExport[MaximalEmitter]
-
-PackageExport[RandomInfraMessageFunction]
-PackageExport[RandomInfraEchoFunction]
+(* Experimental: figures *)
 
 PackageExport[BondiClock]
 PackageExport[DopplerConstruction]
@@ -89,13 +97,19 @@ PackageExport[SimultaneityConstruction]
 PackageExport[LengthContractionConstruction]
 PackageExport[VelocityAdditionConstruction]
 PackageExport[LightClockConstruction]
+
+(* Experimental: drawing helpers *)
+
 PackageExport[WorldlineDirection]
 PackageExport[WorldlinePoint]
 PackageExport[WorldlineNormal]
 PackageExport[WorldlinePointAtProperTime]
-PackageExport[ProperTimeScale]
 PackageExport[LightDirection]
 PackageExport[SimultaneityLine]
+
+(* Experimental: viewers *)
+
+PackageExport[BondiViewer]
 
 
 ClearAll["WolframInstitute`InfraCausality`**`*", "WolframInstitute`InfraCausality`*"]

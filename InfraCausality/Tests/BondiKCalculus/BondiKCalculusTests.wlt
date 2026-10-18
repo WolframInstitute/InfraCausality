@@ -112,4 +112,29 @@ VerificationTest[
   TestID -> "LightZigzag-Exact-alternates-observers-at-their-arc-lengths"
 ]
 
+$radarInterval = { v, phi, s } |->
+  With[ { r = BondiRadarCoordinates[ s WorldlineDirection[ v, phi ], phi ] },
+    r[ "RadarTime" ]^2 - r[ "RadarDistance" ]^2 ]
+
+VerificationTest[
+  {
+    FullSimplify[ Sqrt[ $radarInterval[ 3/5, Pi/3, s ] ] == ProperTimeScale[ 3/5, Pi/3 ] s, s > 0 ],
+    Simplify[ TrigExpand[ $radarInterval[ v, phi, s ] == ProperTimeScale[ v, phi ]^2 s^2 ], $angles ]
+  },
+  { True, True },
+  TestID -> "ProperTimeScale-Symbolic-radar-proper-time-is-scale-times-arc-length"
+]
+
+VerificationTest[
+  FullSimplify[ ProperTimeScale[ 0, phi ] == 1, 0 < phi < Pi/2 ],
+  True,
+  TestID -> "ProperTimeScale-Symbolic-rest-worldline-arc-length-is-proper-time"
+]
+
+VerificationTest[
+  FullSimplify[ TrigExpand[ ProperTimeScale[ v, Pi/4 ] ] == Sqrt[ ( 1 - v^2 ) / ( 1 + v^2 ) ], $velocity ],
+  True,
+  TestID -> "ProperTimeScale-Symbolic-light-at-forty-five-degrees"
+]
+
 EndTestSection[]

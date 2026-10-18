@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: Experimental :: ExtremalEvents *)
+(* WolframInstitute`InfraCausality` :: CausalTime :: ExtremalEvents *)
 
 MaximalAbsorber[ graph_Graph ] :=
   extremalEvents[ graph, InfraCausalPast ]

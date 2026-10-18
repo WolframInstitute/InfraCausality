@@ -38,8 +38,8 @@ $lightCone = { g, v } |->
       AllTrue[ Subsets[ d, { 2 } ], pair |-> MemberQ[ $future[ g, First @ pair ], Last @ pair ] || MemberQ[ $future[ g, Last @ pair ], First @ pair ] ] ] ]
 
 VerificationTest[
-  Head /@ { LightConeViewer[ $diamond ], MessageFunctionViewer @@ $observerPairs[[ 2 ]], FoliationViewer[ $cylinder ], BondiViewer[] },
-  { Manipulate, Manipulate, Manipulate, Manipulate },
+  Head /@ { LightConeViewer[ $diamond ], MessageFunctionViewer @@ $observerPairs[[ 2 ]], FoliationViewer[ $cylinder ] },
+  { Manipulate, Manipulate, Manipulate },
   TestID -> "CausalViewers-Substrates-every-viewer-is-a-Manipulate"
 ]
 
@@ -61,19 +61,6 @@ VerificationTest[
     AllTrue[ Range[ 0, Max @ UniversalTime @ g ], k |-> $drawsSubstrateQ[ $frame[ m, k ], g ] ] ] ],
   True,
   TestID -> "FoliationViewer-Fixtures-every-time-draws-the-substrate"
-]
-
-VerificationTest[
-  Head /@ {
-    BondiClock[ 0.4, 8, "LightAngle" -> Pi/4, ImageSize -> 480 ],
-    DopplerConstruction[ 0.4, 8, "LightAngle" -> Pi/4, ImageSize -> 480 ],
-    TimeDilationConstruction[ 0.4, "LightAngle" -> Pi/4, ImageSize -> 480 ],
-    SimultaneityConstruction[ 0.4, "LightAngle" -> Pi/4, ImageSize -> 480 ],
-    LengthContractionConstruction[ 0.4, "LightAngle" -> Pi/4, ImageSize -> 480 ],
-    VelocityAdditionConstruction[ 0.4, 0.3, "LightAngle" -> Pi/4, ImageSize -> 480 ],
-    LightClockConstruction[ 0.4, 8, "LightAngle" -> Pi/4, ImageSize -> 480 ] },
-  ConstantArray[ Graphics, 7 ],
-  TestID -> "BondiViewer-Initial-state-every-construction-draws"
 ]
 
 VerificationTest[

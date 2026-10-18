@@ -39,6 +39,9 @@ IncomingRatio[ velocity_, lightAngle_ : Pi/4 ] :=
     Sin[ lightAngle + alpha ] / Sin[ lightAngle ]
   ]
 
+ProperTimeScale[ velocity_, lightAngle_ : Pi/4 ] :=
+  KFactor[ velocity, lightAngle ] / OutgoingRatio[ velocity, lightAngle ]
+
 LightZigzag[ velocity_, emitArcLength_, nBounces_, lightAngle_ : Pi/4 ] :=
   With[ { alpha = WorldlineAngle[ velocity, lightAngle ],
           kOut = OutgoingRatio[ velocity, lightAngle ],
