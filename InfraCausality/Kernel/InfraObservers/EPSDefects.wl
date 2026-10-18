@@ -10,10 +10,10 @@ PackageScope[ relationDefect ]
 
 PackageScope[ tickSpanRatio ]
 
-Options[ relationDefect ] = { "Boundary" -> 0 }
+Options[ relationDefect ] = { "Margin" -> 0 }
 
-tickWindow[ a_List, boundary_Integer ] :=
-  a[[ Range[ boundary + 1, Length @ a - boundary ] ]]
+tickWindow[ a_List, margin_Integer ] :=
+  a[[ Range[ margin + 1, Length @ a - margin ] ]]
 
 relationDefect[ relation_Association, order_List, "DomainDefect" ] :=
   Count[ relation, { } ] / Length @ relation
@@ -40,18 +40,18 @@ tickSpanRatio[ map_Association, source_List ] :=
 
 InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_List, b_List ],
     defect : "DomainDefect" | "FunctionDefect" | "InjectivityDefect" | "OrderDefect", opts : OptionsPattern[ relationDefect ] ] :=
-  With[ { window = tickWindow[ a, OptionValue[ relationDefect, { opts }, "Boundary" ] ] },
+  With[ { window = tickWindow[ a, OptionValue[ relationDefect, { opts }, "Margin" ] ] },
     relationDefect[ messageRelation[ graph, window, b ], b, defect ] /; window =!= { } ]
 
 InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_List, b_List ], "KFactor", opts : OptionsPattern[ relationDefect ] ] :=
-  With[ { map = earliestImage[ messageRelation[ graph, tickWindow[ a, OptionValue[ relationDefect, { opts }, "Boundary" ] ], b ], b ] },
+  With[ { map = earliestImage[ messageRelation[ graph, tickWindow[ a, OptionValue[ relationDefect, { opts }, "Margin" ] ], b ], b ] },
     tickSpanRatio[ map, a ] /; Count[ map, _Integer ] >= 2 ]
 
 InfraEchoFunction /: InfraMeasurement[ graph_Graph, echo : InfraEchoFunction[ a_List, _List ],
     defect : "DomainDefect" | "FunctionDefect" | "InjectivityDefect" | "OrderDefect", opts : OptionsPattern[ relationDefect ] ] :=
-  With[ { window = tickWindow[ a, OptionValue[ relationDefect, { opts }, "Boundary" ] ] },
+  With[ { window = tickWindow[ a, OptionValue[ relationDefect, { opts }, "Margin" ] ] },
     relationDefect[ KeyTake[ InfraMeasurement[ graph, echo, "Relation" ], window ], a, defect ] /; window =!= { } ]
 
 InfraEchoFunction /: InfraMeasurement[ graph_Graph, echo : InfraEchoFunction[ a_List, _List ], "KFactor", opts : OptionsPattern[ relationDefect ] ] :=
-  With[ { map = earliestImage[ KeyTake[ InfraMeasurement[ graph, echo, "Relation" ], tickWindow[ a, OptionValue[ relationDefect, { opts }, "Boundary" ] ] ], a ] },
+  With[ { map = earliestImage[ KeyTake[ InfraMeasurement[ graph, echo, "Relation" ], tickWindow[ a, OptionValue[ relationDefect, { opts }, "Margin" ] ] ], a ] },
     Sqrt @ tickSpanRatio[ map, a ] /; Count[ map, _Integer ] >= 2 ]

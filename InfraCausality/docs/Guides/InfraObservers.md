@@ -45,4 +45,4 @@ An observer is a saturated chain, its positions the ticks of a clock. Two observ
 
 ### Experimental: EPS defects
 
-- `InfraMeasurement` (InfraGeometry) of a message or echo relation: "DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", how far the relation is from a monotone bijection on the window left by the option "Boundary", and "KFactor", the Bondi factor of two observers from their tick-span ratios, exact on the lattice for the chains $\{((p+1)m, pm)\}$ of velocity $1/(2p+1)$
+- `InfraMeasurement` (InfraGeometry) of a message or echo relation: "DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", how far the relation is from a monotone bijection on the window left by the option "Margin", and "KFactor", the Bondi factor of two observers from their tick-span ratios, exact on the lattice for the chains $\{((p+1)m, pm)\}$ of velocity $1/(2p+1)$

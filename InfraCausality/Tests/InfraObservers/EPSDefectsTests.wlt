@@ -22,7 +22,7 @@ $defects = { "DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect
 
 $read = { g, head } |-> ( InfraMeasurement[ g, head, # ] & /@ $defects );
 
-$readInterior = { g, head, k } |-> ( InfraMeasurement[ g, head, #, "Boundary" -> k ] & /@ $defects );
+$readInterior = { g, head, k } |-> ( InfraMeasurement[ g, head, #, "Margin" -> k ] & /@ $defects );
 
 $orderDefect = { relation, order } |-> With[ { position = AssociationThread[ order, Range @ Length @ order ] },
   { images = Lookup[ position, Key /@ # ] & /@ Values @ relation },
@@ -59,7 +59,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  InfraMeasurement[ $g, #, "KFactor", "Boundary" -> 2 ] & /@
+  InfraMeasurement[ $g, #, "KFactor", "Margin" -> 2 ] & /@
     { InfraMessageFunction[ $diagonal, $parallel ], InfraMessageFunction[ $parallel, $diagonal ], InfraEchoFunction[ $diagonal, $parallel ], InfraEchoFunction[ $parallel, $diagonal ] },
   { 1, 1, 1, 1 },
   TestID -> "EPSDefects-diagonal-chains-k-factor-one-for-messages-both-ways-and-echoes"
@@ -69,15 +69,15 @@ VerificationTest[
   { $read[ $g, InfraMessageFunction[ $diagonal, $parallel ] ], $read[ $g, InfraMessageFunction[ $parallel, $diagonal ] ],
     $read[ $g, InfraEchoFunction[ $diagonal, $parallel ] ], $read[ $g, InfraEchoFunction[ $parallel, $diagonal ] ] },
   { { 1 / 5, 0, 1 / 5, 0 }, { 0, 0, 0, 0 }, { 1 / 5, 0, 1 / 5, 0 }, { 1 / 4, 0, 1 / 4, 0 } },
-  TestID -> "EPSDefects-diagonal-chains-without-boundary-only-the-rays-leaving-the-lattice-fail"
+  TestID -> "EPSDefects-diagonal-chains-without-margin-only-the-rays-leaving-the-lattice-fail"
 ]
 
 VerificationTest[
   AllTrue[ $defects, d |-> AllTrue[ Range[ 0, 4 ], k |->
-    InfraMeasurement[ $g, InfraMessageFunction[ $staircase, $staircaseShifted ], d, "Boundary" -> k ] ===
+    InfraMeasurement[ $g, InfraMessageFunction[ $staircase, $staircaseShifted ], d, "Margin" -> k ] ===
       InfraMeasurement[ $g, InfraMessageFunction[ $staircase[[ k + 1 ;; -k - 1 ]], $staircaseShifted ], d ] ] ],
   True,
-  TestID -> "EPSDefects-boundary-drops-ticks-at-both-ends-of-the-first-observer"
+  TestID -> "EPSDefects-margin-drops-ticks-at-both-ends-of-the-first-observer"
 ]
 
 VerificationTest[
@@ -108,7 +108,7 @@ VerificationTest[
 VerificationTest[
   With[ { relation = InfraMeasurement[ $g, InfraMessageFunction[ $staircase[[ 5 ;; -5 ]], $staircaseShifted ], "Relation" ],
           position = AssociationThread[ $staircaseShifted, Range @ Length @ $staircaseShifted ] },
-    InfraMeasurement[ $g, InfraMessageFunction[ $staircase, $staircaseShifted ], "KFactor", "Boundary" -> 4 ] ==
+    InfraMeasurement[ $g, InfraMessageFunction[ $staircase, $staircaseShifted ], "KFactor", "Margin" -> 4 ] ==
       ( position @ First @ Last @ relation - position @ First @ First @ relation ) / ( Length @ relation - 1 ) ],
   True,
   TestID -> "EPSDefects-k-factor-is-the-earliest-image-span-ratio-where-every-tick-has-a-message"

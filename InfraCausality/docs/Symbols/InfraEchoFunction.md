@@ -33,7 +33,7 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 
 A member is an association from ticks of *a* to ticks of *a*. [InfraEchoFunctionQ]() decides membership, and [InfraMemberQ](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) is the same test; the experimental [RandomInfraEchoFunction]() draws members or enumerates them. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the outgoing and returning light rays.
 
-Experimental: the EPS defects of the echo relation are the four defects of [InfraMessageFunction]() read on the relation *v* → Echo(*v*), on the window of *a* left by the option `"Boundary" -> b` (a fourth argument, default 0), with the echoes anywhere on *a*: `"DomainDefect"` the fraction of window ticks without an echo, `"FunctionDefect"` the mean of max(0, \|Echo(*v*)\| − 1) / max(1, \|Echo(*v*)\|), `"InjectivityDefect"` 1 − ν / *n* with ν a maximum matching of the relation, and `"OrderDefect"` the fraction of ordered window pairs *v* before *w* with an echo of *v* after an echo of *w*. In Minkowski space the echo of an inertial observer via another is a monotone injection of its clock into itself, and all four vanish.
+Experimental: the EPS defects of the echo relation are the four defects of [InfraMessageFunction]() read on the relation *v* → Echo(*v*), on the window of *a* left by the option `"Margin" -> b` (a fourth argument, default 0), with the echoes anywhere on *a*: `"DomainDefect"` the fraction of window ticks without an echo, `"FunctionDefect"` the mean of max(0, \|Echo(*v*)\| − 1) / max(1, \|Echo(*v*)\|), `"InjectivityDefect"` 1 − ν / *n* with ν a maximum matching of the relation, and `"OrderDefect"` the fraction of ordered window pairs *v* before *w* with an echo of *v* after an echo of *w*. In Minkowski space the echo of an inertial observer via another is a monotone injection of its clock into itself, and all four vanish.
 
 `"KFactor"` is the square root of the ratio of echo to tick spans of the earliest-echo selection: with *v*, *w* the first and last window ticks that have an echo, √((pos *e*(*w*) − pos *e*(*v*)) / (pos *w* − pos *v*)), positions counted on *a*. In Minkowski space an observer receding at speed *v* returns the radar signal of another after *k*² times the sending time, with *k* = √((1 + *v*)/(1 − *v*)) the Bondi factor, so the square root is the Bondi factor under reciprocity, *k*ab = *k*ba. The reading uses the clock of *a* alone: on the diamond lattice the resting chain {(*m*, *m*)} echoed by the chain {((*p* + 1)*m*, *pm*)} of velocity 1/(2*p* + 1) reads exactly √((*p* + 1)/*p*), the Bondi factor, although the moving chain's ticks are not its proper time. On sprinklings the longest chains between two events wander, so two observers with a given endpoint velocity share stretches of their worldlines and the reading scatters widely at a few hundred events.
 
@@ -117,7 +117,7 @@ The lattice observers at rest, {(*m*, *m*)} and {(*m*, *m* + 2)}, echo each othe
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
-  Table[InfraMeasurement[g, InfraEchoFunction[a, b], p, "Boundary" -> 2],
+  Table[InfraMeasurement[g, InfraEchoFunction[a, b], p, "Margin" -> 2],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", "KFactor"}}]]
 ```
 

@@ -32,7 +32,7 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 
 A member is an association from the ticks of *a* with a message to ticks of *b*. [InfraMessageFunctionQ]() recognises one, and the experimental [RandomInfraMessageFunction]() draws members uniformly or enumerates them, as paths of the `"SelectionGraph"`: the two graphs differ in that `"Graph"` is the relation itself, while `"SelectionGraph"` is the chain-head DAG through which `"Cardinality"` and the sampler read the members. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the light rays that carry its messages.
 
-Experimental: the EPS defects measure how far the relation is from a monotone bijection of *a* onto *b*, the message function of two inertial observers in Minkowski space. They are read on a window of *a*, the ticks that remain after the option `"Boundary" -> b` drops *b* ticks at each end (default 0), given as a fourth argument; the images stay in the whole of *b*. With *M*(*v*) the image of a window tick and *n* the window size:
+Experimental: the EPS defects measure how far the relation is from a monotone bijection of *a* onto *b*, the message function of two inertial observers in Minkowski space. They are read on a window of *a*, the ticks that remain after the option `"Margin" -> b` drops *b* ticks at each end (default 0), given as a fourth argument; the images stay in the whole of *b*. With *M*(*v*) the image of a window tick and *n* the window size:
 
 | Property | Value |
 |---|---|
@@ -117,11 +117,11 @@ The lattice observers at rest, the chain {(*m*, *m*)} and its parallel {(*m*, *m
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
-  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p, "Boundary" -> 2],
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p, "Margin" -> 2],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", "KFactor"}}]]
 ```
 
-Without the boundary the two top ticks of {(*m*, *m*)} send their light out of the lattice: domain and injectivity defects 2/7.
+Without the margin the two top ticks of {(*m*, *m*)} send their light out of the lattice: domain and injectivity defects 2/7.
 
 ```wl
 With[
@@ -138,7 +138,7 @@ With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = Append[Catenate @ Table[{{i, i}, {i + 1, i}}, {i, 0, 5}], {6, 6}]},
   {b = Select[(# + {0, 2}) & /@ a, Max[#] <= 6 &]},
-  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p, "Boundary" -> 4],
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p, "Margin" -> 4],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
 ```
 
@@ -165,15 +165,15 @@ With[
 
 ## Options
 
-### Boundary
+### Margin
 
-The window of `"Boundary" -> b` is *a* with *b* ticks removed at each end; the reading on the window equals the reading of the head whose first observer is the window.
+The window of `"Margin" -> b` is *a* with *b* ticks removed at each end; the reading on the window equals the reading of the head whose first observer is the window.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
-  InfraMeasurement[g, InfraMessageFunction[a, b], "DomainDefect", "Boundary" -> 1] ==
+  InfraMeasurement[g, InfraMessageFunction[a, b], "DomainDefect", "Margin" -> 1] ==
     InfraMeasurement[g, InfraMessageFunction[a[[2 ;; -2]], b], "DomainDefect"]]
 ```
 
