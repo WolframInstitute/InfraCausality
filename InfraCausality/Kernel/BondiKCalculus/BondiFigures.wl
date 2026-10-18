@@ -4,7 +4,25 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: BondiKCalculus :: BondiFigures *)
 
-(* ========================= Worldline Geometry ========================= *)
+PackageScope[ bondiColor ]
+
+PackageScope[ bondiGraphics ]
+
+PackageScope[ drawWorldline ]
+
+PackageScope[ drawLightRay ]
+
+PackageScope[ drawEvent ]
+
+PackageScope[ drawTicks ]
+
+PackageScope[ drawTickLabels ]
+
+PackageScope[ drawLabel ]
+
+PackageScope[ drawZigzag ]
+
+PackageScope[ drawEventLabels ]
 
 WorldlineDirection[ velocity_, lightAngle_ : Pi/4 ] :=
   With[ { alpha = WorldlineAngle[ velocity, lightAngle ] },
@@ -22,113 +40,102 @@ WorldlineNormal[ velocity_, lightAngle_ : Pi/4 ] :=
 WorldlinePointAtProperTime[ velocity_, properTime_, lightAngle_ : Pi/4 ] :=
   WorldlinePoint[ velocity, properTime / ProperTimeScale[ velocity, lightAngle ], lightAngle ]
 
-
-(* ========================= Light Ray Geometry ========================= *)
-
 LightDirection[ lightAngle_, rightgoing_ : True ] :=
   If[ rightgoing,
     { Sin[ lightAngle ], Cos[ lightAngle ] },
     { -Sin[ lightAngle ], Cos[ lightAngle ] }
   ]
 
-
-SimultaneityLine[ velocity_, radarArcLength_, lightAngle_ : Pi/4, extent_ : 1 ] :=
-  With[ { dir = WorldlineDirection[ velocity, lightAngle ],
-           lightOut = LightDirection[ lightAngle, True ],
-           lightIn = LightDirection[ lightAngle, False ] },
-    { basePoint = radarArcLength dir },
-    { basePoint + extent lightIn, basePoint, basePoint + extent lightOut }
+SimultaneityLine[ velocity_, arcLength_, lightAngle_ : Pi/4, extent_ : 1 ] :=
+  With[ { base = arcLength WorldlineDirection[ velocity, lightAngle ],
+          along = extent Normalize[ { Tan[ lightAngle ], velocity } ] },
+    { base - along, base, base + along }
   ]
 
-
-(* === Color Palette === *)
-
-$BondiColors := <|
-  "Alice" -> StandardBlue,
-  "Bob" -> StandardRed,
-  "Carol" -> StandardGreen,
-  "Light" -> StandardYellow,
-  "LightFaded" -> Lighter[ StandardYellow, 0.5 ],
-  "Event" -> StandardPurple,
-  "Simultaneity" -> StandardOrange,
-  "SimAlice" -> Lighter[ StandardBlue, 0.3 ],
-  "SimBob" -> Lighter[ StandardRed, 0.3 ],
-  "Tick" -> Darker[ StandardGray, 0.3 ],
-  "Label" -> Darker[ StandardGray, 0.6 ],
-  "Background" -> Lighter[ StandardGray, 0.95 ]
-|>;
-
-
-(* === Drawing Helpers === *)
-
-DrawWorldline[ velocity_, range_List, lightAngle_, color_ : Automatic ] :=
-  With[ { dir = WorldlineDirection[ velocity, lightAngle ],
-           col = If[ color === Automatic,
-             Switch[ True, velocity == 0, $BondiColors[ "Alice" ],
-                           velocity > 0, $BondiColors[ "Bob" ],
-                           True, $BondiColors[ "Carol" ] ],
-             color ] },
-    { AbsoluteThickness[ 2.5 ], col,
-      Line[ { range[[ 1 ]] dir, range[[ 2 ]] dir } ] }
+bondiColor[ name_String ] :=
+  Lookup[
+    <|
+      "Alice" -> StandardBlue,
+      "Bob" -> StandardRed,
+      "Carol" -> StandardGreen,
+      "Light" -> StandardYellow,
+      "LightFaded" -> Lighter[ StandardYellow, 0.5 ],
+      "Event" -> StandardPurple,
+      "Simultaneity" -> StandardOrange,
+      "SimAlice" -> Lighter[ StandardBlue, 0.3 ],
+      "SimBob" -> Lighter[ StandardRed, 0.3 ],
+      "Tick" -> Darker[ StandardGray, 0.3 ],
+      "Label" -> Darker[ StandardGray, 0.6 ],
+      "Background" -> Lighter[ StandardGray, 0.95 ]
+    |>,
+    name
   ]
 
-DrawLightRay[ from_List, to_List, color_ : Automatic ] :=
-  { If[ color === Automatic, $BondiColors[ "Light" ], color ],
-    AbsoluteThickness[ 1.2 ], Line[ { from, to } ] }
+bondiGraphics[ elements_List, size_, padding_ ] :=
+  Graphics[ elements,
+    AspectRatio -> Automatic,
+    ImageSize -> size,
+    Background -> bondiColor[ "Background" ],
+    PlotRangePadding -> Scaled[ padding ]
+  ]
 
-DrawEvent[ point_List, scale_ : 1 ] :=
-  { $BondiColors[ "Event" ], EdgeForm[ { Darker[ StandardGray, 0.4 ], AbsoluteThickness[ 0.8 ] } ],
-    Disk[ point, 0.01 scale ] }
+drawWorldline[ velocity_, range_List, lightAngle_ ] :=
+  drawWorldline[ velocity, range, lightAngle,
+    Which[ velocity == 0, bondiColor[ "Alice" ], velocity > 0, bondiColor[ "Bob" ], True, bondiColor[ "Carol" ] ] ]
 
-DrawTicks[ velocity_, tauRange_List, lightAngle_, scale_ : 1 ] :=
+drawWorldline[ velocity_, { from_, to_ }, lightAngle_, color_ ] :=
+  With[ { dir = WorldlineDirection[ velocity, lightAngle ] },
+    { AbsoluteThickness[ 2.5 ], color, Line[ { from dir, to dir } ] }
+  ]
+
+drawLightRay[ from_List, to_List ] :=
+  drawLightRay[ from, to, bondiColor[ "Light" ] ]
+
+drawLightRay[ from_List, to_List, color_ ] :=
+  { color, AbsoluteThickness[ 1.2 ], Line[ { from, to } ] }
+
+drawEvent[ point_List, scale_ ] :=
+  { bondiColor[ "Event" ], EdgeForm[ { Darker[ StandardGray, 0.4 ], AbsoluteThickness[ 0.8 ] } ], Disk[ point, 0.01 scale ] }
+
+drawTicks[ velocity_, { from_, to_ }, lightAngle_, scale_ ] :=
   With[ { pScale = ProperTimeScale[ velocity, lightAngle ],
-           dir = WorldlineDirection[ velocity, lightAngle ],
-           normal = WorldlineNormal[ velocity, lightAngle ],
-           tickLen = 0.02 scale },
-    { $BondiColors[ "Tick" ], AbsoluteThickness[ 1 ],
-      Table[
-        With[ { point = (tau / pScale) dir },
-          Line[ { point - tickLen normal, point + tickLen normal } ]
-        ],
-        { tau, tauRange[[ 1 ]], tauRange[[ 2 ]] }
-      ] }
+          dir = WorldlineDirection[ velocity, lightAngle ],
+          normal = WorldlineNormal[ velocity, lightAngle ] },
+    { bondiColor[ "Tick" ], AbsoluteThickness[ 1 ],
+      Map[
+        tau |-> With[ { point = ( tau / pScale ) dir },
+          Line[ { point - 0.02 scale normal, point + 0.02 scale normal } ] ],
+        Range[ from, to ] ] }
   ]
 
-DrawTickLabels[ velocity_, tauRange_List, lightAngle_, scale_ : 1, side_ : -1 ] :=
+drawTickLabels[ velocity_, { from_, to_ }, lightAngle_, scale_, side_ ] :=
   With[ { pScale = ProperTimeScale[ velocity, lightAngle ],
-           dir = WorldlineDirection[ velocity, lightAngle ],
-           normal = WorldlineNormal[ velocity, lightAngle ],
-           offset = 0.04 scale },
-    Table[
-      Text[ Style[ tau, 9, $BondiColors[ "Label" ] ],
-        (tau / pScale) dir + side offset normal ],
-      { tau, tauRange[[ 1 ]], tauRange[[ 2 ]] }
-    ]
+          dir = WorldlineDirection[ velocity, lightAngle ],
+          normal = WorldlineNormal[ velocity, lightAngle ] },
+    Map[
+      tau |-> Text[ Style[ tau, 9, bondiColor[ "Label" ] ], ( tau / pScale ) dir + side 0.04 scale normal ],
+      Range[ from, to ] ]
   ]
 
-DrawLabel[ text_, point_List, fontSize_ : 10 ] :=
-  Text[ Style[ text, fontSize, $BondiColors[ "Label" ] ], point ]
+drawLabel[ text_, point_List ] :=
+  drawLabel[ text, point, 10 ]
 
-DrawZigzag[ velocity_, emitArc_, nBounces_, lightAngle_, scale_ : 1 ] :=
-  With[ { events = LightZigzag[ velocity, emitArc, nBounces, lightAngle ] },
-    { { $BondiColors[ "Light" ], AbsoluteThickness[ 1.2 ],
-        Line[ #Point & /@ events ] },
-      DrawEvent[ #Point, scale ] & /@ events }
+drawLabel[ text_, point_List, fontSize_ ] :=
+  Text[ Style[ text, fontSize, bondiColor[ "Label" ] ], point ]
+
+drawZigzag[ velocity_, emitArc_, nBounces_, lightAngle_, scale_ ] :=
+  With[ { points = Lookup[ LightZigzag[ velocity, emitArc, nBounces, lightAngle ], "Point" ] },
+    { { bondiColor[ "Light" ], AbsoluteThickness[ 1.2 ], Line[ points ] },
+      Map[ point |-> drawEvent[ point, scale ], points ] }
   ]
 
-DrawEventLabels[ events_List, k_, startIndex_ : 0, offset_ : { -0.05, 0 } ] :=
-  MapIndexed[
-    With[ { n = startIndex + First[ #2 ] - 1, obsSign = If[ #1[ "Observer" ] === "Alice", -1, 1 ] },
-      Text[
-        Style[ Superscript[ "k", n ], 8, $BondiColors[ "Label" ] ],
-        #1[ "Point" ] + obsSign Abs[ offset ]
-      ]
-    ] &,
-    events
+drawEventLabels[ events_List, offset_ ] :=
+  MapThread[
+    { event, n } |-> Text[
+      Style[ Superscript[ "k", n ], 8, bondiColor[ "Label" ] ],
+      event[ "Point" ] + If[ event[ "Observer" ] === "Alice", -1, 1 ] { offset, 0 } ],
+    { events, Range[ 0, Length[ events ] - 1 ] }
   ]
-
-
-(* === SR Constructions === *)
 
 Options[ BondiClock ] = {
   "LightAngle" -> Pi/4,
@@ -137,379 +144,279 @@ Options[ BondiClock ] = {
   "ShowTickLabels" -> False,
   "ShowEventLabels" -> False,
   ImageSize -> 500
-};
-
+}
 
 BondiClock[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
-  Module[ { phi, k, alpha, emitArc, events, maxArc, scale, elements },
-    phi = OptionValue[ "LightAngle" ];
-    k = KFactor[ velocity, phi ] // N;
-    alpha = WorldlineAngle[ velocity, phi ];
-    emitArc = OptionValue[ "EmitArcLength" ] /. Automatic -> Max[ 0.05, 1.0 / k^(nBounces/2) ];
-    events = LightZigzag[ velocity, emitArc, nBounces, phi ];
-    maxArc = 1.1 Max[ #ArcLength & /@ events ];
-    scale = maxArc;
-    elements = {
-      DrawWorldline[ 0, { 0, maxArc }, phi ],
-      DrawWorldline[ velocity, { 0, maxArc }, phi ],
-      DrawZigzag[ velocity, emitArc, nBounces, phi, scale ]
-    };
-    If[ OptionValue[ "ShowTicks" ],
-      With[ { maxTauAlice = Floor[ maxArc ProperTimeScale[ 0, phi ] ],
-              maxTauBob = Floor[ maxArc ProperTimeScale[ velocity, phi ] ] },
-        If[ maxTauAlice >= 1,
-          AppendTo[ elements, DrawTicks[ 0, { 1, maxTauAlice }, phi, scale ] ] ];
-        If[ maxTauBob >= 1,
-          AppendTo[ elements, DrawTicks[ velocity, { 1, maxTauBob }, phi, scale ] ] ];
-        If[ OptionValue[ "ShowTickLabels" ],
-          If[ maxTauAlice >= 1,
-            AppendTo[ elements, DrawTickLabels[ 0, { 1, maxTauAlice }, phi, scale, -1 ] ] ];
-          If[ maxTauBob >= 1,
-            AppendTo[ elements, DrawTickLabels[ velocity, { 1, maxTauBob }, phi, scale, 1 ] ] ]
-        ]
-      ]
-    ];
-    If[ OptionValue[ "ShowEventLabels" ],
-      AppendTo[ elements,
-        DrawEventLabels[ events, k, 0, 0.05 scale { -1, 0 } ]
-      ]
-    ];
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.06 ]
+  With[ { phi = OptionValue[ "LightAngle" ],
+          ticks = TrueQ @ OptionValue[ "ShowTicks" ],
+          tickLabels = TrueQ @ OptionValue[ "ShowTickLabels" ] },
+    { k = N @ KFactor[ velocity, phi ] },
+    { emitArc = Replace[ OptionValue[ "EmitArcLength" ], Automatic -> Max[ 0.05, 1.0 / k^( nBounces / 2 ) ] ] },
+    { events = LightZigzag[ velocity, emitArc, nBounces, phi ] },
+    { maxArc = 1.1 Max[ Lookup[ events, "ArcLength" ] ] },
+    { maxTauAlice = Floor[ maxArc ProperTimeScale[ 0, phi ] ],
+      maxTauBob = Floor[ maxArc ProperTimeScale[ velocity, phi ] ] },
+    bondiGraphics[
+      {
+        drawWorldline[ 0, { 0, maxArc }, phi ],
+        drawWorldline[ velocity, { 0, maxArc }, phi ],
+        drawZigzag[ velocity, emitArc, nBounces, phi, maxArc ],
+        If[ ticks && maxTauAlice >= 1, drawTicks[ 0, { 1, maxTauAlice }, phi, maxArc ], Nothing ],
+        If[ ticks && maxTauBob >= 1, drawTicks[ velocity, { 1, maxTauBob }, phi, maxArc ], Nothing ],
+        If[ ticks && tickLabels && maxTauAlice >= 1, drawTickLabels[ 0, { 1, maxTauAlice }, phi, maxArc, -1 ], Nothing ],
+        If[ ticks && tickLabels && maxTauBob >= 1, drawTickLabels[ velocity, { 1, maxTauBob }, phi, maxArc, 1 ], Nothing ],
+        If[ TrueQ @ OptionValue[ "ShowEventLabels" ], drawEventLabels[ events, 0.05 maxArc ], Nothing ]
+      },
+      OptionValue[ ImageSize ],
+      0.06
     ]
   ]
-
 
 Options[ DopplerConstruction ] = {
   "LightAngle" -> Pi/4,
   "EmitStart" -> 0.15,
   "PulseSpacing" -> 0.12,
   ImageSize -> 500
-};
-
+}
 
 DopplerConstruction[ velocity_, nPulses_ : 6, opts : OptionsPattern[] ] :=
-  With[
-    { phi = OptionValue[ "LightAngle" ],
-      emitStart = OptionValue[ "EmitStart" ],
-      spacing = OptionValue[ "PulseSpacing" ] },
+  With[ { phi = OptionValue[ "LightAngle" ],
+          emitStart = OptionValue[ "EmitStart" ],
+          spacing = OptionValue[ "PulseSpacing" ] },
     { kOut = OutgoingRatio[ velocity, phi ],
       dir = WorldlineDirection[ velocity, phi ],
-      normal = WorldlineNormal[ velocity, phi ] },
-    { emitArcs = Table[ emitStart + n spacing, { n, 0, nPulses - 1 } ] },
+      normal = WorldlineNormal[ velocity, phi ],
+      emitArcs = Map[ n |-> emitStart + n spacing, Range[ 0, nPulses - 1 ] ] },
     { receiveArcs = kOut emitArcs },
     { maxArc = 1.15 Max[ receiveArcs ] },
-    { scale = maxArc },
-    { elements = {
-      DrawWorldline[ 0, { 0, maxArc }, phi ],
-      DrawWorldline[ velocity, { 0, maxArc }, phi ],
-      Table[
-        DrawLightRay[ { 0, emitArcs[[ i ]] }, receiveArcs[[ i ]] dir ],
-        { i, nPulses }
-      ],
-      DrawEvent[ { 0, # }, scale ] & /@ emitArcs,
-      DrawEvent[ # dir, scale ] & /@ receiveArcs,
-      { $BondiColors[ "Alice" ], AbsoluteThickness[ 2 ],
-        Line[ { { 0, emitArcs[[ 1 ]] }, { 0, emitArcs[[ 2 ]] } } ] },
-      { $BondiColors[ "Bob" ], AbsoluteThickness[ 2 ],
-        Line[ { receiveArcs[[ 1 ]] dir, receiveArcs[[ 2 ]] dir } ] },
-      DrawLabel[ "\[CapitalDelta]\[Tau]",
-        { -0.05 scale, (emitArcs[[ 1 ]] + emitArcs[[ 2 ]]) / 2 } ],
-      DrawLabel[ "k \[CapitalDelta]\[Tau]",
-        (receiveArcs[[ 1 ]] + receiveArcs[[ 2 ]]) / 2 dir + 0.06 scale normal ]
-    } },
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.06 ]
+    bondiGraphics[
+      {
+        drawWorldline[ 0, { 0, maxArc }, phi ],
+        drawWorldline[ velocity, { 0, maxArc }, phi ],
+        MapThread[ { emit, receive } |-> drawLightRay[ { 0, emit }, receive dir ], { emitArcs, receiveArcs } ],
+        Map[ emit |-> drawEvent[ { 0, emit }, maxArc ], emitArcs ],
+        Map[ receive |-> drawEvent[ receive dir, maxArc ], receiveArcs ],
+        { bondiColor[ "Alice" ], AbsoluteThickness[ 2 ],
+          Line[ { { 0, emitArcs[[ 1 ]] }, { 0, emitArcs[[ 2 ]] } } ] },
+        { bondiColor[ "Bob" ], AbsoluteThickness[ 2 ],
+          Line[ { receiveArcs[[ 1 ]] dir, receiveArcs[[ 2 ]] dir } ] },
+        drawLabel[ "\[CapitalDelta]\[Tau]",
+          { -0.05 maxArc, ( emitArcs[[ 1 ]] + emitArcs[[ 2 ]] ) / 2 } ],
+        drawLabel[ "k \[CapitalDelta]\[Tau]",
+          ( receiveArcs[[ 1 ]] + receiveArcs[[ 2 ]] ) / 2 dir + 0.06 maxArc normal ]
+      },
+      OptionValue[ ImageSize ],
+      0.06
     ]
   ]
-
 
 Options[ TimeDilationConstruction ] = {
   "LightAngle" -> Pi/4,
   "EventArcLength" -> 0.6,
   ImageSize -> 500
-};
-
+}
 
 TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
-  With[
-    { phi = OptionValue[ "LightAngle" ],
-      eventArc = OptionValue[ "EventArcLength" ] },
-    { k = KFactor[ velocity, phi ] // N,
-      kOut = OutgoingRatio[ velocity, phi ],
-      kIn = IncomingRatio[ velocity, phi ],
+  With[ { phi = OptionValue[ "LightAngle" ],
+          eventArc = OptionValue[ "EventArcLength" ] },
+    { k = N @ KFactor[ velocity, phi ],
       dir = WorldlineDirection[ velocity, phi ],
-      normal = WorldlineNormal[ velocity, phi ] },
-    { gamma = (k + 1/k) / 2,
-      bobPoint = eventArc dir,
-      emitArc = eventArc / kOut,
-      returnArc = eventArc kIn },
-    { radarArc = (emitArc + returnArc) / 2,
+      normal = WorldlineNormal[ velocity, phi ],
+      emitArc = eventArc / OutgoingRatio[ velocity, phi ],
+      returnArc = eventArc IncomingRatio[ velocity, phi ] },
+    { bobPoint = eventArc dir,
+      radarArc = ( emitArc + returnArc ) / 2,
       maxArc = 1.15 returnArc },
-    { scale = maxArc },
-    { simLine = SimultaneityLine[ 0, radarArc, phi, 0.3 scale ] },
-    { elements = {
-      DrawWorldline[ 0, { 0, maxArc }, phi ],
-      DrawWorldline[ velocity, { 0, maxArc }, phi ],
-      DrawLightRay[ { 0, emitArc }, bobPoint ],
-      DrawLightRay[ bobPoint, { 0, returnArc } ],
-      { Dashed, AbsoluteThickness[ 1.5 ], $BondiColors[ "Simultaneity" ],
-        Line[ simLine ] },
-      { AbsoluteThickness[ 2.5 ], $BondiColors[ "Simultaneity" ],
-        Line[ { { 0, radarArc }, { 0, radarArc } + 0.01 { 1, 0 } } ] },
-      DrawEvent[ { 0, emitArc }, scale ],
-      DrawEvent[ bobPoint, scale ],
-      DrawEvent[ { 0, returnArc }, scale ],
-      DrawEvent[ { 0, radarArc }, scale ],
-      DrawLabel[ Subscript[ "\[Tau]", "emit" ], { -0.06 scale, emitArc } ],
-      DrawLabel[ Subscript[ "\[Tau]", "B" ], bobPoint + 0.05 scale normal ],
-      DrawLabel[ Subscript[ "\[Tau]", "return" ], { -0.06 scale, returnArc } ],
-      DrawLabel[ Subscript[ "\[Tau]", "radar" ], { -0.06 scale, radarArc } ],
-      DrawLabel[
-        Row[ { "\[Gamma] = ", NumberForm[ gamma, { 3, 2 } ] } ],
-        { -0.1 scale, maxArc 0.95 }, 9 ],
-      DrawTicks[ 0, { 1, Floor[ maxArc ] }, phi, scale ],
-      DrawTicks[ velocity, { 1, Max[ 1, Floor[ maxArc ProperTimeScale[ velocity, phi ] ] ] }, phi, scale ]
-    } },
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.08 ]
+    bondiGraphics[
+      {
+        drawWorldline[ 0, { 0, maxArc }, phi ],
+        drawWorldline[ velocity, { 0, maxArc }, phi ],
+        drawLightRay[ { 0, emitArc }, bobPoint ],
+        drawLightRay[ bobPoint, { 0, returnArc } ],
+        { Dashed, AbsoluteThickness[ 1.5 ], bondiColor[ "Simultaneity" ],
+          Line[ SimultaneityLine[ 0, radarArc, phi, 0.3 maxArc ] ] },
+        { AbsoluteThickness[ 2.5 ], bondiColor[ "Simultaneity" ],
+          Line[ { { 0, radarArc }, { 0, radarArc } + 0.01 { 1, 0 } } ] },
+        drawEvent[ { 0, emitArc }, maxArc ],
+        drawEvent[ bobPoint, maxArc ],
+        drawEvent[ { 0, returnArc }, maxArc ],
+        drawEvent[ { 0, radarArc }, maxArc ],
+        drawLabel[ Subscript[ "\[Tau]", "emit" ], { -0.06 maxArc, emitArc } ],
+        drawLabel[ Subscript[ "\[Tau]", "B" ], bobPoint + 0.05 maxArc normal ],
+        drawLabel[ Subscript[ "\[Tau]", "return" ], { -0.06 maxArc, returnArc } ],
+        drawLabel[ Subscript[ "\[Tau]", "radar" ], { -0.06 maxArc, radarArc } ],
+        drawLabel[ Row[ { "\[Gamma] = ", NumberForm[ ( k + 1/k ) / 2, { 3, 2 } ] } ], { -0.1 maxArc, maxArc 0.95 }, 9 ],
+        drawTicks[ 0, { 1, Floor[ maxArc ] }, phi, maxArc ],
+        drawTicks[ velocity, { 1, Max[ 1, Floor[ maxArc ProperTimeScale[ velocity, phi ] ] ] }, phi, maxArc ]
+      },
+      OptionValue[ ImageSize ],
+      0.08
     ]
   ]
-
 
 Options[ SimultaneityConstruction ] = {
   "LightAngle" -> Pi/4,
   "ArcLength" -> 0.7,
   "Extent" -> 0.35,
   ImageSize -> 500
-};
-
+}
 
 SimultaneityConstruction[ velocity_, opts : OptionsPattern[] ] :=
-  With[
-    { phi = OptionValue[ "LightAngle" ],
-      arcLen = OptionValue[ "ArcLength" ],
-      extent = OptionValue[ "Extent" ] },
-    { dir = WorldlineDirection[ velocity, phi ],
-      maxArc = arcLen + extent + 0.3 },
-    { scale = maxArc,
+  With[ { phi = OptionValue[ "LightAngle" ],
+          arcLen = OptionValue[ "ArcLength" ],
+          extent = OptionValue[ "Extent" ] },
+    { maxArc = arcLen + extent + 0.3,
       aliceSim = SimultaneityLine[ 0, arcLen, phi, extent ],
       bobSim = SimultaneityLine[ velocity, arcLen, phi, extent ] },
-    { elements = {
-      DrawWorldline[ 0, { 0, maxArc }, phi ],
-      DrawWorldline[ velocity, { 0, maxArc }, phi ],
-      { AbsoluteThickness[ 2 ], Dashing[ { 0.015, 0.008 } ],
-        $BondiColors[ "SimAlice" ], Line[ aliceSim ] },
-      { AbsoluteThickness[ 2 ], Dashing[ { 0.015, 0.008 } ],
-        $BondiColors[ "SimBob" ], Line[ bobSim ] },
-      DrawEvent[ { 0, arcLen }, scale ],
-      DrawEvent[ arcLen dir, scale ],
-      DrawLabel[ "Alice's now", aliceSim[[ 3 ]] + { 0.04 scale, 0 }, 9 ],
-      DrawLabel[ "Bob's now", bobSim[[ 3 ]] + { 0.04 scale, 0 }, 9 ]
-    } },
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.08 ]
+    bondiGraphics[
+      {
+        drawWorldline[ 0, { 0, maxArc }, phi ],
+        drawWorldline[ velocity, { 0, maxArc }, phi ],
+        { AbsoluteThickness[ 2 ], Dashing[ { 0.015, 0.008 } ], bondiColor[ "SimAlice" ], Line[ aliceSim ] },
+        { AbsoluteThickness[ 2 ], Dashing[ { 0.015, 0.008 } ], bondiColor[ "SimBob" ], Line[ bobSim ] },
+        drawEvent[ { 0, arcLen }, maxArc ],
+        drawEvent[ arcLen WorldlineDirection[ velocity, phi ], maxArc ],
+        drawLabel[ "Alice's now", aliceSim[[ 3 ]] + { 0.04 maxArc, 0 }, 9 ],
+        drawLabel[ "Bob's now", bobSim[[ 3 ]] + { 0.04 maxArc, 0 }, 9 ]
+      },
+      OptionValue[ ImageSize ],
+      0.08
     ]
   ]
-
 
 Options[ LengthContractionConstruction ] = {
   "LightAngle" -> Pi/4,
   "RodRestLength" -> 0.15,
   "MeasureArcLength" -> 0.6,
   ImageSize -> 500
-};
-
+}
 
 LengthContractionConstruction[ velocity_, opts : OptionsPattern[] ] :=
-  With[
-    { phi = OptionValue[ "LightAngle" ],
-      rodLength = OptionValue[ "RodRestLength" ],
-      measureArc = OptionValue[ "MeasureArcLength" ] },
-    { k = KFactor[ velocity, phi ] // N,
-      kOut = OutgoingRatio[ velocity, phi ],
-      kIn = IncomingRatio[ velocity, phi ],
+  With[ { phi = OptionValue[ "LightAngle" ],
+          rodLength = OptionValue[ "RodRestLength" ],
+          measureArc = OptionValue[ "MeasureArcLength" ] },
+    { k = N @ KFactor[ velocity, phi ],
       dir = WorldlineDirection[ velocity, phi ],
-      normal = WorldlineNormal[ velocity, phi ] },
-    { gamma = (k + 1/k) / 2,
-      rodOffset = rodLength normal,
-      frontPoint = measureArc dir,
-      emitFront = measureArc / kOut,
-      returnFront = measureArc kIn },
-    { backPoint = frontPoint + rodOffset,
-      aliceFront = (emitFront + returnFront) / 2 },
+      rodOffset = rodLength WorldlineNormal[ velocity, phi ],
+      emitFront = measureArc / OutgoingRatio[ velocity, phi ],
+      returnFront = measureArc IncomingRatio[ velocity, phi ] },
+    { frontPoint = measureArc dir,
+      aliceFront = ( emitFront + returnFront ) / 2 },
+    { backPoint = frontPoint + rodOffset },
     { radarBack = BondiRadarCoordinates[ backPoint, phi ] },
     { aliceBack = radarBack[ "RadarTime" ],
       maxArc = 1.15 Max[ returnFront, radarBack[ "ReturnArcLength" ] ] },
-    { scale = maxArc },
-    { elements = {
-      DrawWorldline[ 0, { 0, maxArc }, phi ],
-      DrawWorldline[ velocity, { 0, maxArc }, phi ],
-      { AbsoluteThickness[ 1.5 ], $BondiColors[ "Bob" ], Opacity[ 0.5 ],
-        Dashing[ { 0.01, 0.006 } ],
-        Line[ { rodOffset, maxArc dir + rodOffset } ] },
-      { AbsoluteThickness[ 3 ], $BondiColors[ "Bob" ], Opacity[ 0.6 ],
-        Line[ { frontPoint, backPoint } ] },
-      DrawLightRay[ { 0, emitFront }, frontPoint, $BondiColors[ "LightFaded" ] ],
-      DrawLightRay[ frontPoint, { 0, returnFront }, $BondiColors[ "LightFaded" ] ],
-      DrawLightRay[ { 0, radarBack[ "EmitArcLength" ] }, backPoint, $BondiColors[ "LightFaded" ] ],
-      DrawLightRay[ backPoint, { 0, radarBack[ "ReturnArcLength" ] }, $BondiColors[ "LightFaded" ] ],
-      { AbsoluteThickness[ 3 ], $BondiColors[ "Simultaneity" ],
-        Line[ { { -0.01 scale, aliceFront }, { -0.01 scale, aliceBack } } ] },
-      DrawEvent[ frontPoint, scale ],
-      DrawEvent[ backPoint, scale ],
-      DrawEvent[ { 0, aliceFront }, scale ],
-      DrawEvent[ { 0, aliceBack }, scale ],
-      DrawLabel[ "L",
-        (frontPoint + backPoint) / 2 + 0.03 scale dir, 10 ],
-      DrawLabel[
-        Row[ { "L/\[Gamma] = ", NumberForm[ N[ rodLength / gamma ], { 3, 2 } ] } ],
-        { -0.08 scale, (aliceFront + aliceBack) / 2 }, 9 ]
-    } },
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.08 ]
+    bondiGraphics[
+      {
+        drawWorldline[ 0, { 0, maxArc }, phi ],
+        drawWorldline[ velocity, { 0, maxArc }, phi ],
+        { AbsoluteThickness[ 1.5 ], bondiColor[ "Bob" ], Opacity[ 0.5 ], Dashing[ { 0.01, 0.006 } ],
+          Line[ { rodOffset, maxArc dir + rodOffset } ] },
+        { AbsoluteThickness[ 3 ], bondiColor[ "Bob" ], Opacity[ 0.6 ],
+          Line[ { frontPoint, backPoint } ] },
+        drawLightRay[ { 0, emitFront }, frontPoint, bondiColor[ "LightFaded" ] ],
+        drawLightRay[ frontPoint, { 0, returnFront }, bondiColor[ "LightFaded" ] ],
+        drawLightRay[ { 0, radarBack[ "EmitArcLength" ] }, backPoint, bondiColor[ "LightFaded" ] ],
+        drawLightRay[ backPoint, { 0, radarBack[ "ReturnArcLength" ] }, bondiColor[ "LightFaded" ] ],
+        { AbsoluteThickness[ 3 ], bondiColor[ "Simultaneity" ],
+          Line[ { { -0.01 maxArc, aliceFront }, { -0.01 maxArc, aliceBack } } ] },
+        drawEvent[ frontPoint, maxArc ],
+        drawEvent[ backPoint, maxArc ],
+        drawEvent[ { 0, aliceFront }, maxArc ],
+        drawEvent[ { 0, aliceBack }, maxArc ],
+        drawLabel[ "L", ( frontPoint + backPoint ) / 2 + 0.03 maxArc dir, 10 ],
+        drawLabel[ Row[ { "L/\[Gamma] = ", NumberForm[ N[ rodLength / ( ( k + 1/k ) / 2 ) ], { 3, 2 } ] } ],
+          { -0.08 maxArc, ( aliceFront + aliceBack ) / 2 }, 9 ]
+      },
+      OptionValue[ ImageSize ],
+      0.08
     ]
   ]
-
 
 Options[ VelocityAdditionConstruction ] = {
   "LightAngle" -> Pi/4,
   "EmitArcLength" -> 0.2,
   ImageSize -> 550
-};
-
+}
 
 VelocityAdditionConstruction[ v1_, v2_, opts : OptionsPattern[] ] :=
-  With[
-    { phi = OptionValue[ "LightAngle" ],
-      emitArc = OptionValue[ "EmitArcLength" ] },
-    { k1 = KFactor[ v1, phi ] // N,
-      k2 = KFactor[ v2, phi ] // N },
-    { kTotal = k1 k2 },
-    { vTotal = VelocityFromK[ kTotal ] },
+  With[ { phi = OptionValue[ "LightAngle" ],
+          emitArc = OptionValue[ "EmitArcLength" ] },
+    { k1 = N @ KFactor[ v1, phi ],
+      k2 = N @ KFactor[ v2, phi ] },
+    { vTotal = VelocityFromK[ k1 k2 ] },
     { dir1 = WorldlineDirection[ v1, phi ],
       dirTotal = WorldlineDirection[ vTotal, phi ],
-      normal1 = WorldlineNormal[ v1, phi ],
-      normalTotal = WorldlineNormal[ vTotal, phi ],
-      kOut1 = OutgoingRatio[ v1, phi ],
-      kOutTotal = OutgoingRatio[ vTotal, phi ] },
-    { bobArc = emitArc kOut1,
-      carolArc = emitArc kOutTotal },
+      bobArc = emitArc OutgoingRatio[ v1, phi ],
+      carolArc = emitArc OutgoingRatio[ vTotal, phi ] },
     { bobPoint = bobArc dir1,
       carolPoint = carolArc dirTotal,
       maxArc = 1.2 Max[ bobArc, carolArc ] },
-    { scale = maxArc },
-    { elements = {
-      DrawWorldline[ 0, { 0, maxArc }, phi, $BondiColors[ "Alice" ] ],
-      DrawWorldline[ v1, { 0, maxArc }, phi, $BondiColors[ "Bob" ] ],
-      DrawWorldline[ vTotal, { 0, maxArc }, phi, $BondiColors[ "Carol" ] ],
-      DrawLightRay[ { 0, emitArc }, bobPoint ],
-      DrawLightRay[ bobPoint, carolPoint ],
-      DrawLightRay[ { 0, emitArc }, carolPoint, $BondiColors[ "LightFaded" ] ],
-      DrawEvent[ { 0, emitArc }, scale ],
-      DrawEvent[ bobPoint, scale ],
-      DrawEvent[ carolPoint, scale ],
-      DrawLabel[ "Alice", { -0.05 scale, maxArc 0.95 }, 10 ],
-      DrawLabel[ "Bob",
-        maxArc 0.95 dir1 + 0.04 scale normal1, 10 ],
-      DrawLabel[ "Carol",
-        maxArc 0.95 dirTotal + 0.04 scale normalTotal, 10 ],
-      DrawLabel[
-        Column[ {
-          Row[ { Subscript[ "k", "1" ], " = ", NumberForm[ k1, { 3, 2 } ] } ],
-          Row[ { Subscript[ "k", "2" ], " = ", NumberForm[ k2, { 3, 2 } ] } ],
-          Row[ { Subscript[ "k", "1" ], Subscript[ "k", "2" ], " = ", NumberForm[ kTotal, { 3, 2 } ] } ],
-          Row[ { Subscript[ "v", "\[CirclePlus]" ], " = ", NumberForm[ N[ vTotal ], { 3, 2 } ] } ]
-        }, Spacings -> 0.3 ],
-        { -0.12 scale, maxArc 0.5 }, 9 ]
-    } },
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.1 ]
+    bondiGraphics[
+      {
+        drawWorldline[ 0, { 0, maxArc }, phi, bondiColor[ "Alice" ] ],
+        drawWorldline[ v1, { 0, maxArc }, phi, bondiColor[ "Bob" ] ],
+        drawWorldline[ vTotal, { 0, maxArc }, phi, bondiColor[ "Carol" ] ],
+        drawLightRay[ { 0, emitArc }, bobPoint ],
+        drawLightRay[ bobPoint, carolPoint ],
+        drawLightRay[ { 0, emitArc }, carolPoint, bondiColor[ "LightFaded" ] ],
+        drawEvent[ { 0, emitArc }, maxArc ],
+        drawEvent[ bobPoint, maxArc ],
+        drawEvent[ carolPoint, maxArc ],
+        drawLabel[ "Alice", { -0.05 maxArc, maxArc 0.95 }, 10 ],
+        drawLabel[ "Bob", maxArc 0.95 dir1 + 0.04 maxArc WorldlineNormal[ v1, phi ], 10 ],
+        drawLabel[ "Carol", maxArc 0.95 dirTotal + 0.04 maxArc WorldlineNormal[ vTotal, phi ], 10 ],
+        drawLabel[
+          Column[ {
+            Row[ { Subscript[ "k", "1" ], " = ", NumberForm[ k1, { 3, 2 } ] } ],
+            Row[ { Subscript[ "k", "2" ], " = ", NumberForm[ k2, { 3, 2 } ] } ],
+            Row[ { Subscript[ "k", "1" ], Subscript[ "k", "2" ], " = ", NumberForm[ k1 k2, { 3, 2 } ] } ],
+            Row[ { Subscript[ "v", "\[CirclePlus]" ], " = ", NumberForm[ N[ vTotal ], { 3, 2 } ] } ]
+          }, Spacings -> 0.3 ],
+          { -0.12 maxArc, maxArc 0.5 }, 9 ]
+      },
+      OptionValue[ ImageSize ],
+      0.1
     ]
   ]
-
 
 Options[ LightClockConstruction ] = {
   "LightAngle" -> Pi/4,
   "ClockLength" -> 0.12,
   "StartArcLength" -> 0.1,
   ImageSize -> 550
-};
-
+}
 
 LightClockConstruction[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
-  Module[ { phi, alpha, dir, normal, clockLen, startArc,
-            mirrorOffset, lightOut, lightIn,
-            events, maxArc, scale, elements },
-    phi = OptionValue[ "LightAngle" ];
-    alpha = WorldlineAngle[ velocity, phi ];
-    dir = WorldlineDirection[ velocity, phi ];
-    normal = WorldlineNormal[ velocity, phi ];
-    clockLen = OptionValue[ "ClockLength" ];
-    startArc = OptionValue[ "StartArcLength" ];
-    mirrorOffset = clockLen normal;
-    lightOut = LightDirection[ phi, True ];
-    lightIn = LightDirection[ phi, False ];
-    events = NestList[
-      event |-> With[
-        { side = event[ "Side" ] },
-        { lightDir = If[ side === "observer", lightOut, lightIn ],
-          offset   = If[ side === "observer", mirrorOffset, -mirrorOffset ] },
-        { t = (offset[[ 2 ]] dir[[ 1 ]] - offset[[ 1 ]] dir[[ 2 ]]) /
-              (lightDir[[ 1 ]] dir[[ 2 ]] - lightDir[[ 2 ]] dir[[ 1 ]]) },
+  With[ { phi = OptionValue[ "LightAngle" ] },
+    { dir = WorldlineDirection[ velocity, phi ],
+      normal = WorldlineNormal[ velocity, phi ],
+      mirrorOffset = OptionValue[ "ClockLength" ] WorldlineNormal[ velocity, phi ] },
+    { bounce = event |-> With[
+        { lightDir = LightDirection[ phi, event[ "Side" ] === "observer" ],
+          offset = If[ event[ "Side" ] === "observer", mirrorOffset, -mirrorOffset ] },
+        { t = ( offset[[ 1 ]] dir[[ 2 ]] - offset[[ 2 ]] dir[[ 1 ]] ) / ( lightDir[[ 1 ]] dir[[ 2 ]] - lightDir[[ 2 ]] dir[[ 1 ]] ) },
         <| "Point" -> event[ "Point" ] + t lightDir,
-           "Side" -> If[ side === "observer", "mirror", "observer" ] |>
-      ],
-      <| "Point" -> startArc dir, "Side" -> "observer" |>,
-      nBounces
-    ];
-    maxArc = 1.1 Max[ Norm /@ (#Point & /@ events) ];
-    scale = maxArc;
-    elements = {
-      { AbsoluteThickness[ 2.5 ], $BondiColors[ "Bob" ],
-        Line[ { { 0, 0 }, maxArc dir } ] },
-      { AbsoluteThickness[ 1.5 ], $BondiColors[ "Bob" ], Opacity[ 0.4 ],
-        Line[ { mirrorOffset, maxArc dir + mirrorOffset } ] },
-      { $BondiColors[ "Light" ], AbsoluteThickness[ 1.2 ],
-        Line[ #Point & /@ events ] },
-      DrawEvent[ #Point, scale ] & /@ Select[ events, #Side === "observer" & ]
-    };
-    If[ velocity != 0,
-      PrependTo[ elements,
-        { AbsoluteThickness[ 1.5 ], $BondiColors[ "Alice" ], Opacity[ 0.3 ],
-          Line[ { { 0, 0 }, { 0, maxArc } } ] }
-      ];
-      AppendTo[ elements,
-        DrawLabel[ Row[ { "\[Beta] = ", NumberForm[ velocity // N, { 3, 2 } ] } ],
-          maxArc dir + 0.05 scale normal, 9 ]
-      ]
-    ];
-    Graphics[ elements,
-      AspectRatio -> Automatic,
-      ImageSize -> OptionValue[ ImageSize ],
-      Background -> $BondiColors[ "Background" ],
-      PlotRangePadding -> Scaled[ 0.06 ]
+           "Side" -> If[ event[ "Side" ] === "observer", "mirror", "observer" ] |> ] },
+    { events = NestList[ bounce, <| "Point" -> OptionValue[ "StartArcLength" ] dir, "Side" -> "observer" |>, nBounces ] },
+    { maxArc = 1.1 Max[ Map[ Norm, Lookup[ events, "Point" ] ] ] },
+    bondiGraphics[
+      {
+        If[ velocity != 0,
+          { AbsoluteThickness[ 1.5 ], bondiColor[ "Alice" ], Opacity[ 0.3 ], Line[ { { 0, 0 }, { 0, maxArc } } ] },
+          Nothing ],
+        { AbsoluteThickness[ 2.5 ], bondiColor[ "Bob" ], Line[ { { 0, 0 }, maxArc dir } ] },
+        { AbsoluteThickness[ 1.5 ], bondiColor[ "Bob" ], Opacity[ 0.4 ], Line[ { mirrorOffset, maxArc dir + mirrorOffset } ] },
+        { bondiColor[ "Light" ], AbsoluteThickness[ 1.2 ], Line[ Lookup[ events, "Point" ] ] },
+        Map[ point |-> drawEvent[ point, maxArc ], Lookup[ Select[ events, event |-> event[ "Side" ] === "observer" ], "Point" ] ],
+        If[ velocity != 0,
+          drawLabel[ Row[ { "\[Beta] = ", NumberForm[ N @ velocity, { 3, 2 } ] } ], maxArc dir + 0.05 maxArc normal, 9 ],
+          Nothing ]
+      },
+      OptionValue[ ImageSize ],
+      0.06
     ]
   ]
-
 
 BondiViewer[] :=
   Manipulate[
@@ -539,5 +446,6 @@ BondiViewer[] :=
     Delimiter,
     { { v2, 0.3, Subscript[ "\[Beta]", "2" ] }, 0.05, 0.85 },
     ControlType -> { SetterBar, Delimiter, Slider, Slider, Slider, Delimiter, Slider },
-    TrackedSymbols :> { construction, velocity, lightAngle, bounces, v2 }
+    TrackedSymbols :> { construction, velocity, lightAngle, bounces, v2 },
+    SaveDefinitions -> True
   ]

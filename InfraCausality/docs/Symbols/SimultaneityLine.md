@@ -10,4 +10,4 @@ RelatedGuides: [BondiKCalculus]
 
 ## Usage
 
-`SimultaneityLine[v, s, phi, extent]` gives the two light-ray ends and the base point of the simultaneity line of the worldline of velocity v at arc length s.
+`SimultaneityLine[v, s, phi, extent]` gives {left end, base point, right end} of the simultaneity line through the point at arc length s on the worldline of velocity v: the events whose radar midpoint on that worldline is the base point, along {Tan[phi], v} and extent to each side.

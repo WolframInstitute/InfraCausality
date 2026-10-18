@@ -83,6 +83,6 @@ WorldlinePoint::usage = "WorldlinePoint[v, s, phi] gives the point at Euclidean 
 WorldlineNormal::usage = "WorldlineNormal[v, phi] gives the unit normal {Cos[alpha], -Sin[alpha]} to the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
 WorldlinePointAtProperTime::usage = "WorldlinePointAtProperTime[v, tau, phi] gives the point at proper time tau on the worldline of velocity v.";
 LightDirection::usage = "LightDirection[phi, right] gives the unit direction of a light ray at angle phi to the time axis, pointing to positive x when right is True.";
-SimultaneityLine::usage = "SimultaneityLine[v, s, phi, extent] gives the two light-ray ends and the base point of the simultaneity line of the worldline of velocity v at arc length s.";
+SimultaneityLine::usage = "SimultaneityLine[v, s, phi, extent] gives {left end, base point, right end} of the simultaneity line through the point at arc length s on the worldline of velocity v: the events whose radar midpoint on that worldline is the base point, along {Tan[phi], v} and extent to each side.";
 
 BondiViewer::usage = "BondiViewer[] gives a Manipulate over the seven Bondi k-calculus constructions with sliders for velocity, light angle, bounces and a second velocity.";
