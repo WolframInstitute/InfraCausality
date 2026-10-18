@@ -121,7 +121,7 @@ VerificationTest[
 
 VerificationTest[
   SeedRandom[ 17 ];
-  With[ { g = RandomCausalGraph[ { 20, 0.2 } ] },
+  With[ { g = RandomCausalGraph[ 20, Method -> { "Percolation", 0.2 } ] },
     With[ { chains = RandomInfraObserver[ g, UpTo[ 4 ] ] },
       With[ { k = InfraKinematics[ g, First @ chains, Rest @ chains, Method -> "LightRays" ],
               c = InfraKinematics[ g, First @ chains, Rest @ chains ] },

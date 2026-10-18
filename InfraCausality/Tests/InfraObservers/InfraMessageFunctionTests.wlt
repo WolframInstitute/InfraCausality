@@ -296,7 +296,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  With[ { g = ( SeedRandom[ 3 ]; RandomCausalGraph[ { 25, 1 / 4 } ] ) },
+  With[ { g = ( SeedRandom[ 3 ]; RandomCausalGraph[ 25, Method -> { "Percolation", 1 / 4 } ] ) },
     With[ { observers = ( SeedRandom[ 3 ]; RandomInfraObserver[ g, InfraObserver[ ], 4 ] ) },
       AllTrue[ Join[ $echoCases, Catenate[ Apply[ { a, b } |-> { { g, a, b }, { g, b, a } } ] /@ Subsets[ observers, { 2 } ] ] ], Apply[ { h, a, b } |->
         With[ { relation = InfraMeasurement[ h, InfraMessageFunction[ a, b ], "Relation" ] },

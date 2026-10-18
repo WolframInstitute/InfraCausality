@@ -52,7 +52,7 @@ RandomInfraEchoFunction::usage = "RandomInfraEchoFunction[g, InfraEchoFunction[a
 CausalSubstrate::usage = "CausalSubstrate[name, size] gives the named causal graph at size \"Small\", \"Medium\" or \"Large\", a transitively reduced DAG; CausalSubstrate[] lists the names by group.";
 CausalSubstrateStyle::usage = "CausalSubstrateStyle[size] gives the Graph options a causal substrate of size \"Small\", \"Medium\" or \"Large\" is drawn with; CausalSubstrateStyle[name, size] those of a named substrate.";
 CausalSubstrateCode::usage = "CausalSubstrateCode[name, size] gives the held code that builds CausalSubstrate[name, size].";
-RandomCausalGraph::usage = "RandomCausalGraph[{n, p}] gives the Hasse diagram of a transitive percolation on events 1..n with link probability p; {n, m} orients a random connected graph, Method -> {\"Sprinkling\", d} sprinkles.";
+RandomCausalGraph::usage = "RandomCausalGraph[n] gives the Hasse diagram of a transitive percolation on the events 1..n with link probability Log[n]/n, Method -> {\"Percolation\", p} with link probability p and Method -> {\"Sprinkling\", d} that of n points sprinkled into the causal diamond of d-dimensional Minkowski space; RandomCausalGraph[{n, m}] orients a random connected graph with m edges.";
 
 KFactor::usage = "KFactor[v] gives the Bondi factor Sqrt[(1 + v)/(1 - v)], and KFactor[v, phi] its angular form Sqrt[Sin[phi + alpha]/Sin[phi - alpha]] with alpha = WorldlineAngle[v, phi].";
 VelocityFromK::usage = "VelocityFromK[k] gives the velocity (k^2 - 1)/(k^2 + 1) of the Bondi factor k.";

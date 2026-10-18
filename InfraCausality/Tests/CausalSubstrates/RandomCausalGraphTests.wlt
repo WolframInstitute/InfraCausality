@@ -12,19 +12,27 @@ $minkowskiQ = g |-> With[ { c = AssociationThread[ VertexList @ g, GraphEmbeddin
 
 VerificationTest[
   AllTrue[ { { 20, 0.1 }, { 20, 0.3 }, { 40, 0.05 } }, spec |-> AllTrue[ Range[ 3 ], seed |->
-    With[ { g = BlockRandom[ SeedRandom[ seed ]; RandomCausalGraph[ spec ] ] }, AcyclicGraphQ @ g && $orderedQ @ g && $reducedQ @ g ] ] ],
+    With[ { g = BlockRandom[ SeedRandom[ seed ]; RandomCausalGraph[ First @ spec, Method -> { "Percolation", Last @ spec } ] ] },
+      AcyclicGraphQ @ g && $orderedQ @ g && $reducedQ @ g ] ] ],
   True,
   TestID -> "RandomCausalGraph-percolation-acyclic-topological-labels-transitively-reduced"
 ]
 
 VerificationTest[
-  { EdgeList @ RandomCausalGraph[ { 6, 1 - 10^-12 } ], EdgeCount @ RandomCausalGraph[ { 6, 10.^-12 } ] },
+  { EdgeList @ RandomCausalGraph[ 6, Method -> { "Percolation", 1 } ], EdgeCount @ RandomCausalGraph[ 6, Method -> { "Percolation", 0 } ] },
   { DirectedEdge @@@ Partition[ Range[ 6 ], 2, 1 ], 0 },
   TestID -> "RandomCausalGraph-percolation-extremes-chain-and-antichain"
 ]
 
 VerificationTest[
-  BlockRandom[ SeedRandom[ 7 ]; With[ { gs = Table[ RandomCausalGraph[ { 5, 0.3 } ], 2000 ] },
+  With[ { g = BlockRandom[ SeedRandom[ 2 ]; RandomCausalGraph[ { 6, 1 } ] ] },
+    { EdgeCount @ g, TreeGraphQ @ UndirectedGraph @ g, EdgeList @ RandomCausalGraph[ 6, Method -> { "Percolation", 1. } ] } ],
+  { 5, True, DirectedEdge @@@ Partition[ Range[ 6 ], 2, 1 ] },
+  TestID -> "RandomCausalGraph-integer-second-entry-is-an-edge-count-never-a-probability"
+]
+
+VerificationTest[
+  BlockRandom[ SeedRandom[ 7 ]; With[ { gs = Table[ RandomCausalGraph[ 5, Method -> { "Percolation", 0.3 } ], 2000 ] },
     { Abs[ Mean[ Boole[ GraphDistance[ #, 1, 2 ] < Infinity ] & /@ gs ] - 0.3 ] < 0.04,
       Abs[ Mean[ Boole[ GraphDistance[ #, 1, 3 ] < Infinity ] & /@ gs ] - ( 1 - ( 1 - 0.3 ) ( 1 - 0.3^2 ) ) ] < 0.04 } ] ],
   { True, True },
@@ -44,6 +52,14 @@ VerificationTest[
     VertexCount @ g == 30 && AcyclicGraphQ @ g && $orderedQ @ g && $reducedQ @ g ] ],
   True,
   TestID -> "RandomCausalGraph-default-percolation-acyclic-topological-labels-transitively-reduced"
+]
+
+VerificationTest[
+  { ( SeedRandom[ 4 ]; EdgeList @ RandomCausalGraph[ 30, Method -> "Percolation" ] ) === ( SeedRandom[ 4 ]; EdgeList @ RandomCausalGraph[ 30 ] ) ===
+      ( SeedRandom[ 4 ]; EdgeList @ RandomCausalGraph[ 30, Method -> { "Percolation", N[ Log[ 30 ] / 30 ] } ] ),
+    ( SeedRandom[ 4 ]; EdgeList @ RandomCausalGraph[ 30, Method -> "Sprinkling" ] ) === ( SeedRandom[ 4 ]; EdgeList @ RandomCausalGraph[ 30, Method -> { "Sprinkling", 2 } ] ) },
+  { True, True },
+  TestID -> "RandomCausalGraph-method-defaults-are-p-log-n-over-n-and-d-2"
 ]
 
 VerificationTest[

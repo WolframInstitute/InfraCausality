@@ -24,7 +24,7 @@ A causal substrate is the directed acyclic graph the observer lives in. The name
 
 ### Random causal graphs
 
-- `RandomCausalGraph` a random causal set of $n$ events: the Hasse diagram of a transitive percolation with link probability $p$, of a random acyclic orientation with $m$ edges, or of a sprinkling into $d$-dimensional Minkowski space
+- `RandomCausalGraph` a random causal set of $n$ events: the Hasse diagram of a transitive percolation with link probability $p$ (`Method -> {"Percolation", p}`), of a random acyclic orientation with $m$ edges (`{n, m}`), or of a sprinkling into $d$-dimensional Minkowski space (`Method -> {"Sprinkling", d}`)
 - `RandomGraph` (WL), `DirectedGraph` (WL)
 
 ### Causal graphs from Riemannian substrates

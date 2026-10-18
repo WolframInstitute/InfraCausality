@@ -58,10 +58,12 @@ Other changes:
 - **Changed: `ChainProjection`.** It is the fraction of the events of the first chain whose causal future meets the second chain (with `Method -> "LightRays"`, whose future light cone meets it), so it lies in $[0, 1]$. In 1.2.0 it was $|J^+(a) \cap b| / |a|$, which could exceed 1. The option is the System symbol `Method`, as in `RandomCausalGraph`, with the allow-list `"Cone" | "LightRays"`; under any other value the call stays unevaluated (1.2.0 returned `Null`). `InfraKinematics` returns `"Projections"` and the five Knuth scalars, without `"GeometricMass"`, and gives a `"Velocity"` of `Indeterminate` when $p = q = 0$.
 - **Changed: `MaximalAbsorber`, `MaximalEmitter`.** They are Experimental and give `<|k -> events|>`, with the events of each slice as a sorted vertex list.
 - **Changed: `RandomCausalGraph`.** It gives the Hasse diagram of a random order on the events `1, ..., n`, labelled in a topological order. The forms are:
-  - `RandomCausalGraph[{n, p}]` is transitive percolation;
-  - `RandomCausalGraph[n]` is transitive percolation with $p = \log n / n$;
-  - `RandomCausalGraph[{n, m}]` orients a random connected graph with `m` edges, as before, but is now transitively reduced;
-  - `Method -> {"Sprinkling", d}` sprinkles `n` points into the unit causal diamond of $d$-dimensional Minkowski space.
+  - `RandomCausalGraph[n]` is transitive percolation with $p = \log n / n$, also `Method -> "Percolation"`;
+  - `RandomCausalGraph[n, Method -> {"Percolation", p}]` is transitive percolation with link probability `p`;
+  - `RandomCausalGraph[{n, m}]` orients a random connected graph with `m` edges, as `RandomGraph[{n, m}]`, and is now transitively reduced;
+  - `RandomCausalGraph[n, Method -> {"Sprinkling", d}]` sprinkles `n` points into the unit causal diamond of $d$-dimensional Minkowski space, `Method -> "Sprinkling"` with $d = 2$.
+
+  The second entry of the pair is always an edge count, as in `RandomGraph`, so `{10, 1}` and `{10, 1.}` no longer name different models; an earlier 2.0.0 draft read a non-integer `{n, p}` as a percolation.
 - **New: `CausalSubstrate`.** It is the catalogue of named causal graphs at sizes `"Small"`, `"Medium"` and `"Large"`, with `CausalSubstrateStyle` and `CausalSubstrateCode`, mirroring `InfraSubstrate`. The groups are:
   - `"Lattice"`: `"DiamondLatticeGraph"`, `"CylinderLatticeGraph"`, `"CubicLatticeGraph"`;
   - `"Sprinkling"`: `"MinkowskiSprinkling2D"`, `"MinkowskiSprinkling3D"`;

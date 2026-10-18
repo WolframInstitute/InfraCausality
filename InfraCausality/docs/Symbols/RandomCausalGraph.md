@@ -14,21 +14,21 @@ RelatedGuides: [CausalSubstrates]
 
 <code>[RandomCausalGraph]()[*n*]</code> gives the Hasse diagram of a transitive percolation on the events 1, …, *n* with link probability log *n* / *n*.
 
-<code>[RandomCausalGraph]()[{*n*, *p*}]</code> gives the Hasse diagram of a transitive percolation with link probability *p*, 0 < *p* < 1.
+<code>[RandomCausalGraph]()[{*n*, *m*}]</code> gives the Hasse diagram of an acyclic orientation of a random connected graph with *n* vertices and *m* edges, as `RandomGraph[{n, m}]`.
 
-<code>[RandomCausalGraph]()[{*n*, *m*}]</code>, with *m* an integer, gives the Hasse diagram of an acyclic orientation of a random connected graph with *m* edges.
+<code>[RandomCausalGraph]()[*n*, Method -> {"Percolation", *p*}]</code> gives the Hasse diagram of a transitive percolation with link probability *p*.
 
 <code>[RandomCausalGraph]()[*n*, Method -> {"Sprinkling", *d*}]</code> gives the Hasse diagram of *n* points sprinkled into the unit causal diamond of *d*-dimensional Minkowski space.
 
 ## Details & Options
 
-Every form returns a random finite order as its Hasse diagram, a transitively reduced directed acyclic graph on the events 1, …, *n*, numbered in a linear extension of the order, so every edge *i* → *j* has *i* < *j*. The graph has the [CausalSubstrateStyle]() of its size. Randomness comes from the ambient generator: `SeedRandom` before the call fixes the graph. `Graph` options pass through.
+Every form returns a random finite order as its Hasse diagram, a transitively reduced directed acyclic graph on the events 1, …, *n*, numbered in a linear extension of the order, so every edge *i* → *j* has *i* < *j*. The graph has the [CausalSubstrateStyle]() of its size. Randomness comes from the ambient generator: `SeedRandom` before the call fixes the graph. `Graph` options pass through. The second entry of the pair form is always an edge count, as in `RandomGraph`: a probability is given through `Method`, so `{n, 1}` is a tree and `Method -> {"Percolation", 1}` a chain. An unknown `Method` leaves the call unevaluated.
 
 | Form | Order |
 |---|---|
 | *n* | transitive percolation (Rideout–Sorkin) with *p* = log *n* / *n*; the same as `Method -> "Percolation"` |
-| {*n*, *p*} | each pair *i* < *j* is linked independently with probability *p*, and the order is the transitive closure of the links |
-| {*n*, *m*} | a random connected graph with *n* vertices and *m* edges (clipped to [*n* − 1, *n*(*n* − 1)/2]), oriented acyclically; the Hasse diagram keeps fewer than *m* edges when some are implied |
+| *n*, `Method -> {"Percolation", p}` | each pair *i* < *j* is linked independently with probability *p*, 0 ≤ *p* ≤ 1, and the order is the transitive closure of the links |
+| {*n*, *m*} | a random connected graph with *n* vertices and *m* edges (clipped to [*n* − 1, *n*(*n* − 1)/2]), oriented acyclically, the Wolfram form `RandomGraph[{n, m}]`; the Hasse diagram keeps fewer than *m* edges when some are implied |
 | *n*, `Method -> {"Sprinkling", d}` | *n* points uniform in the diamond {(*x*, *t*) : \|*x*\| < min(*t*, 1 − *t*)} of *d*-dimensional Minkowski space, *x* ∈ ℝ^(*d*−1), with *u* ≺ *v* iff *t*(*v*) − *t*(*u*) > \|*x*(*v*) − *x*(*u*)\|; `Method -> "Sprinkling"` is *d* = 2 |
 
 In a transitive percolation the probability that 1 ≺ 2 is *p*, since only a direct link can relate them, and the probability that 1 ≺ 3 is 1 − (1 − *p*)(1 − *p*²), a direct link or a path through 2. A sprinkling has `VertexCoordinates` the sprinkled point {*x*1, …, *x*(*d* − 1), *t*} for *d* ≤ 3, and {*x*1, *t*} beyond; a sprinkling is the standard model of a causal set that is faithfully embedded in Minkowski space.
@@ -42,7 +42,7 @@ The four forms on 25 events: the default percolation, a percolation with *p* = 0
 ```wl
 GraphicsRow[{
   (SeedRandom[1]; RandomCausalGraph[25]),
-  (SeedRandom[1]; RandomCausalGraph[{25, 0.2}]),
+  (SeedRandom[1]; RandomCausalGraph[25, Method -> {"Percolation", 0.2}]),
   (SeedRandom[1]; RandomCausalGraph[{25, 40}]),
   (SeedRandom[1]; RandomCausalGraph[25, Method -> {"Sprinkling", 2}])}]
 ```
@@ -59,7 +59,7 @@ The universal foliation of a percolation of 60 events with *p* = 0.08.
 
 ```wl
 With[
-  {g = (SeedRandom[3]; RandomCausalGraph[{60, 0.08}])},
+  {g = (SeedRandom[3]; RandomCausalGraph[60, Method -> {"Percolation", 0.08}])},
   InfraSubstrateHighlight[g, UniversalFoliation[g]]]
 ```
 
@@ -77,10 +77,11 @@ Table[
 
 ### Method
 
-`Method -> "Percolation"` is the default form, and `"Sprinkling"` is the two-dimensional sprinkling.
+`Method -> "Percolation"` is the default form, `{"Percolation", p}` sets the link probability, and `"Sprinkling"` is the two-dimensional sprinkling.
 
 ```wl
-{(SeedRandom[4]; EdgeList @ RandomCausalGraph[30, Method -> "Percolation"]) === (SeedRandom[4]; EdgeList @ RandomCausalGraph[30]),
+{(SeedRandom[4]; EdgeList @ RandomCausalGraph[30, Method -> "Percolation"]) === (SeedRandom[4]; EdgeList @ RandomCausalGraph[30]) ===
+   (SeedRandom[4]; EdgeList @ RandomCausalGraph[30, Method -> {"Percolation", N[Log[30]/30]}]),
  (SeedRandom[4]; EdgeList @ RandomCausalGraph[30, Method -> "Sprinkling"]) === (SeedRandom[4]; EdgeList @ RandomCausalGraph[30, Method -> {"Sprinkling", 2}])}
 ```
 
@@ -91,7 +92,7 @@ Every form gives a transitively reduced acyclic graph on 1, …, *n* with every 
 ```wl
 AllTrue[Range[3], seed |->
   AllTrue[{
-      (SeedRandom[seed]; RandomCausalGraph[30]), (SeedRandom[seed]; RandomCausalGraph[{30, 0.15}]),
+      (SeedRandom[seed]; RandomCausalGraph[30]), (SeedRandom[seed]; RandomCausalGraph[30, Method -> {"Percolation", 0.15}]),
       (SeedRandom[seed]; RandomCausalGraph[{30, 50}]), (SeedRandom[seed]; RandomCausalGraph[30, Method -> {"Sprinkling", 3}])},
     g |-> VertexList[g] === Range[30] && AcyclicGraphQ[g] && EdgeCount[g] == EdgeCount @ TransitiveReductionGraph[g] &&
       AllTrue[EdgeList[g], e |-> First[e] < Last[e]]]]
@@ -102,15 +103,16 @@ The percolation probabilities: over 2000 percolations of 5 events with *p* = 0.3
 ```wl
 With[
   {p = 0.3},
-  {gs = (SeedRandom[7]; Table[RandomCausalGraph[{5, p}], 2000])},
+  {gs = (SeedRandom[7]; Table[RandomCausalGraph[5, Method -> {"Percolation", p}], 2000])},
   Abs[Mean[Boole[GraphDistance[#, 1, 2] < Infinity] & /@ gs] - p] < 0.04 &&
     Abs[Mean[Boole[GraphDistance[#, 1, 3] < Infinity] & /@ gs] - (1 - (1 - p) (1 - p^2))] < 0.04]
 ```
 
-The extremes of the percolation: *p* near 1 gives a chain, *p* near 0 an antichain.
+The extremes of the percolation: *p* = 1 gives a chain, *p* = 0 an antichain; the pair {6, 1} is a tree with one edge count, not a percolation.
 
 ```wl
-EdgeList[RandomCausalGraph[{6, 1 - 10^-12}]] === DirectedEdge @@@ Partition[Range[6], 2, 1] && EdgeCount[RandomCausalGraph[{6, 10.^-12}]] == 0
+{EdgeList[RandomCausalGraph[6, Method -> {"Percolation", 1}]] === DirectedEdge @@@ Partition[Range[6], 2, 1], EdgeCount[RandomCausalGraph[6, Method -> {"Percolation", 0}]],
+ EdgeCount[RandomCausalGraph[{6, 1}]]}
 ```
 
 The sprinkled order is the light-cone order of the sprinkled points, in two and in three dimensions.
