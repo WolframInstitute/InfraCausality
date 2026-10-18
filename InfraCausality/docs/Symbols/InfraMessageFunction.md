@@ -25,11 +25,12 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 | Property | Value |
 |---|---|
 | `"Relation"` | the association *v* → *M*(*v*) over every tick of *a*, images in the order of *b* |
-| `"Graph"` | the directed graph *v* → *w* of the relation |
-| `"Cardinality"` | the number of message functions, by dynamic programming over the ticks of *a* |
-| `"Faithful"` | `True` |
+| `"Graph"` | the graph of the relation: the directed edges *v* → *w* with *w* ∈ *M*(*v*), on the ticks of *a* and *b* |
+| `"SelectionGraph"` | the selection graph: the directed acyclic graph whose paths from its source {0} to its sink are exactly the members, one layer of nodes {*i*, *w*} per tick *i* of *a* with a message and one edge between consecutive layers for each pair of images that does not reverse the order of *b* |
+| `"Cardinality"` | the number of message functions: the number of source-to-sink paths of the selection graph, counted by dynamic programming over the ticks of *a* |
+| `"Faithful"` | `True`: the correspondence between members and source-to-sink paths of the selection graph is exact |
 
-A member is an association from the ticks of *a* with a message to ticks of *b*. [InfraMessageFunctionQ]() recognises one, and the experimental [RandomInfraMessageFunction]() draws members uniformly or enumerates them. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the light rays that carry its messages.
+A member is an association from the ticks of *a* with a message to ticks of *b*. [InfraMessageFunctionQ]() recognises one, and the experimental [RandomInfraMessageFunction]() draws members uniformly or enumerates them, as paths of the `"SelectionGraph"`: the two graphs differ in that `"Graph"` is the relation itself, while `"SelectionGraph"` is the chain-head DAG through which `"Cardinality"` and the sampler read the members. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the light rays that carry its messages.
 
 Experimental: the EPS defects measure how far the relation is from a monotone bijection of *a* onto *b*, the message function of two inertial observers in Minkowski space. They are read on a window of *a*, the ticks that remain after the option `"Boundary" -> b` drops *b* ticks at each end (default 0), given as a fourth argument; the images stay in the whole of *b*. With *M*(*v*) the image of a window tick and *n* the window size:
 

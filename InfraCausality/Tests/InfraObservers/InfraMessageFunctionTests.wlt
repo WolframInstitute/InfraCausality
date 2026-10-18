@@ -158,8 +158,17 @@ VerificationTest[
   { Keys @ InfraMeasurement[ $eps, InfraMessageFunction[ { 1, 2, 3, 4 }, { 5, 6, 7, 8 } ], All ],
     InfraMeasurement[ $eps, InfraMessageFunction[ { 1, 2, 3, 4 }, { 5, 6, 7, 8 } ], "Faithful" ],
     InfraMeasurement[ $eps, InfraEchoFunction[ { 1, 2, 3, 4 }, { 5, 6, 7, 8 } ], "Faithful" ] },
-  { { "Relation", "Graph", "Cardinality", "Faithful" }, True, True },
+  { { "Relation", "Graph", "SelectionGraph", "Cardinality", "Faithful" }, True, True },
   TestID -> "InfraMessageFunction-EPS-all-keys"
+]
+
+VerificationTest[
+  AllTrue[ $cases, Apply[ { g, a, b } |-> With[ { dag = InfraMeasurement[ g, InfraMessageFunction[ a, b ], "SelectionGraph" ] },
+    { source = First @ Pick[ VertexList @ dag, VertexInDegree @ dag, 0 ], sink = First @ Pick[ VertexList @ dag, VertexOutDegree @ dag, 0 ] },
+    AcyclicGraphQ @ dag && Count[ VertexInDegree @ dag, 0 ] == 1 && Count[ VertexOutDegree @ dag, 0 ] == 1 &&
+      Length @ FindPath[ dag, source, sink, Infinity, All ] == InfraMeasurement[ g, InfraMessageFunction[ a, b ], "Cardinality" ] ] ] ],
+  True,
+  TestID -> "InfraMessageFunction-all-selection-graph-paths-count-the-members"
 ]
 
 VerificationTest[

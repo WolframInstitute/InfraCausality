@@ -46,6 +46,9 @@ InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_L
   Graph[ DeleteDuplicates @ Join[ a, b ],
     Catenate @ KeyValueMap[ { v, ws } |-> ( DirectedEdge[ v, # ] & /@ ws ), messageRelation[ graph, a, b ] ] ]
 
+InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_List, b_List ], "SelectionGraph" ] :=
+  selectionDAG[ messageDomain[ graph, a, b ], b ]
+
 InfraMessageFunction /: InfraMeasurement[ graph_Graph, InfraMessageFunction[ a_List, b_List ], "Cardinality" ] :=
   With[ { position = AssociationThread[ b, Range @ Length @ b ] },
     Total @ Fold[
@@ -58,7 +61,7 @@ InfraMessageFunction /: InfraMeasurement[ _Graph, _InfraMessageFunction, "Faithf
   True
 
 InfraMessageFunction /: InfraMeasurement[ graph_Graph, message_InfraMessageFunction, All ] :=
-  InfraMeasurement[ graph, message, { "Relation", "Graph", "Cardinality", "Faithful" } ]
+  InfraMeasurement[ graph, message, { "Relation", "Graph", "SelectionGraph", "Cardinality", "Faithful" } ]
 
 InfraMessageFunction /: InfraMemberQ[ graph_Graph, message_InfraMessageFunction, f_Association ] :=
   InfraMessageFunctionQ[ graph, message, f ]
