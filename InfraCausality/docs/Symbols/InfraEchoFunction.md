@@ -5,7 +5,7 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraEchoFunction
-Keywords: [echo function, radar, round trip, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, symbolic object]
+Keywords: [echo function, radar, round trip, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, EPS defects, k-factor, Bondi factor, symbolic object]
 SeeAlso: [InfraEchoFunctionQ, InfraMessageFunction, RandomInfraEchoFunction, InfraRadarChart, InfraFutureLightCone, InfraObserver]
 RelatedGuides: [InfraObservers]
 ---
@@ -32,6 +32,10 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 | `"Faithful"` | `True` |
 
 A member is an association from ticks of *a* to ticks of *a*. [InfraEchoFunctionQ]() decides membership, and [InfraMemberQ](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) is the same test; the experimental [RandomInfraEchoFunction]() draws members or enumerates them. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the outgoing and returning light rays.
+
+Experimental: the EPS defects of the echo relation are the four defects of [InfraMessageFunction]() read on the relation *v* → Echo(*v*), on the window of *a* left by the option `"Boundary" -> b` (a fourth argument, default 0), with the echoes anywhere on *a*: `"DomainDefect"` the fraction of window ticks without an echo, `"FunctionDefect"` the mean of max(0, \|Echo(*v*)\| − 1) / max(1, \|Echo(*v*)\|), `"InjectivityDefect"` 1 − ν / *n* with ν a maximum matching of the relation, and `"OrderDefect"` the fraction of ordered window pairs *v* before *w* with an echo of *v* after an echo of *w*. In Minkowski space the echo of an inertial observer via another is a monotone injection of its clock into itself, and all four vanish.
+
+`"KFactor"` is the square root of the ratio of echo to tick spans of the earliest-echo selection: with *v*, *w* the first and last window ticks that have an echo, √((pos *e*(*w*) − pos *e*(*v*)) / (pos *w* − pos *v*)), positions counted on *a*. In Minkowski space an observer receding at speed *v* returns the radar signal of another after *k*² times the sending time, with *k* = √((1 + *v*)/(1 − *v*)) the Bondi factor, so the square root is the Bondi factor under reciprocity, *k*ab = *k*ba. The reading uses the clock of *a* alone: on the diamond lattice the resting chain {(*m*, *m*)} echoed by the chain {((*p* + 1)*m*, *pm*)} of velocity 1/(2*p* + 1) reads exactly √((*p* + 1)/*p*), the Bondi factor, although the moving chain's ticks are not its proper time. On sprinklings the longest chains between two events wander, so two observers with a given endpoint velocity share stretches of their worldlines and the reading scatters widely at a few hundred events.
 
 Corresponding notions:
 
@@ -101,6 +105,44 @@ With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = Table[{0, j}, {j, 0, 6}], b = Table[{2, j}, {j, 0, 6}]},
   Union @ Values @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"]]
+```
+
+## Scope
+
+### Experimental readings
+
+The lattice observers at rest, {(*m*, *m*)} and {(*m*, *m* + 2)}, echo each other tick for tick: the four echo defects vanish on the interior window and the k-factor is 1.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
+  Table[InfraMeasurement[g, InfraEchoFunction[a, b], p, "Boundary" -> 2],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", "KFactor"}}]]
+```
+
+The Lorentz check on the lattice: the resting chain echoed by the chain {(2*m*, *m*)} of velocity 1/3 reads the Bondi factor √2, by {(3*m*, 2*m*)} of velocity 1/5 the factor √(3/2).
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 0, 6}]},
+  Table[
+    With[
+      {b = Table[{(p + 1) m, p m}, {m, 1, Floor[6/(p + 1)]}], v = 1/(2 p + 1)},
+      {InfraMeasurement[g, InfraEchoFunction[a, b], "KFactor"], Sqrt[(1 + v)/(1 - v)]}],
+    {p, 2}]]
+```
+
+The echo defects of two random worldlines on the sprinkling, where few ticks get an echo.
+
+```wl
+With[
+  {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
+  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  Table[InfraMeasurement[g, InfraEchoFunction[a, b], p],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
 ```
 
 ## Properties and Relations

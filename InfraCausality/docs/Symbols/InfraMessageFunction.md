@@ -5,7 +5,7 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraMessageFunction
-Keywords: [message function, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, monotone selection, symbolic object]
+Keywords: [message function, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, monotone selection, EPS defects, k-factor, Bondi factor, symbolic object]
 SeeAlso: [InfraMessageFunctionQ, InfraEchoFunction, RandomInfraMessageFunction, InfraFutureLightCone, InfraObserver, InfraRadarChart, MessageFunctionViewer]
 RelatedGuides: [InfraObservers]
 ---
@@ -30,6 +30,18 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 | `"Faithful"` | `True` |
 
 A member is an association from the ticks of *a* with a message to ticks of *b*. [InfraMessageFunctionQ]() recognises one, and the experimental [RandomInfraMessageFunction]() draws members uniformly or enumerates them. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the light rays that carry its messages.
+
+Experimental: the EPS defects measure how far the relation is from a monotone bijection of *a* onto *b*, the message function of two inertial observers in Minkowski space. They are read on a window of *a*, the ticks that remain after the option `"Boundary" -> b` drops *b* ticks at each end (default 0), given as a fourth argument; the images stay in the whole of *b*. With *M*(*v*) the image of a window tick and *n* the window size:
+
+| Property | Value |
+|---|---|
+| `"DomainDefect"` | #{*v* : *M*(*v*) = ∅} / *n*, the fraction of ticks without a message |
+| `"FunctionDefect"` | the mean over the window of max(0, \|*M*(*v*)\| − 1) / max(1, \|*M*(*v*)\|), zero exactly when every image has at most one tick |
+| `"InjectivityDefect"` | 1 − ν / *n*, with ν the size of a maximum matching of the bipartite graph of the relation |
+| `"OrderDefect"` | the fraction of ordered tick pairs *v* before *w* in the window for which some image of *v* comes after some image of *w* on *b* |
+| `"KFactor"` | the ratio of received to sent tick spans of the earliest-image selection: with *v*, *w* the first and last window ticks that have a message, (pos *f*(*w*) − pos *f*(*v*)) / (pos *w* − pos *v*), positions counted on *b* and on *a* |
+
+The four defects lie in [0, 1]; the injectivity defect is at least the domain defect, since a matching uses no tick without a message. The k-factor is the graph form of the Bondi factor: in Minkowski space an inertial observer receding at speed *v* receives the ticks of another at *k* = √((1 + *v*)/(1 − *v*)) proper seconds per second sent. On a graph the tick spans are chain lengths, so the reading is a clock-rate statement, and it is the Bondi factor only where ticks count proper time. On the diamond lattice the chain {(*m*, *m*)} at rest sends its ticks one to one to the chain {(2*m*, *m*)} of velocity 1/3, k-factor 1 instead of √2, because that chain's ticks are √2 times longer in proper time; the echo read on the resting clock alone recovers √2, see [InfraEchoFunction]().
 
 Corresponding notions:
 
@@ -94,6 +106,76 @@ With[
    Normal @ First @ RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All]}]
 ```
 
+## Scope
+
+### Experimental readings
+
+The lattice observers at rest, the chain {(*m*, *m*)} and its parallel {(*m*, *m* + 2)}, exchange their ticks one to one: on the interior window the four defects vanish and the k-factor is 1.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p, "Boundary" -> 2],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", "KFactor"}}]]
+```
+
+Without the boundary the two top ticks of {(*m*, *m*)} send their light out of the lattice: domain and injectivity defects 2/7.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
+```
+
+Each light ray from the staircase meets the shifted staircase in two consecutive ticks, so the function defect of the interior window is exactly 1/2; the two pairs of consecutive ticks with the same two images make the order defect 2/10 on a window of five ticks.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Append[Catenate @ Table[{{i, i}, {i + 1, i}}, {i, 0, 5}], {6, 6}]},
+  {b = Select[(# + {0, 2}) & /@ a, Max[#] <= 6 &]},
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p, "Boundary" -> 4],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
+```
+
+A chain against a chain in its past has no messages at all: domain and injectivity defects 1.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 4, 6}], b = Table[{m, m}, {m, 0, 3}]},
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
+```
+
+The defects of two random worldlines on the sprinkling: a light ray rarely meets a tick exactly, so half the ticks have no message.
+
+```wl
+With[
+  {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
+  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  Table[InfraMeasurement[g, InfraMessageFunction[a, b], p],
+    {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
+```
+
+## Options
+
+### Boundary
+
+The window of `"Boundary" -> b` is *a* with *b* ticks removed at each end; the reading on the window equals the reading of the head whose first observer is the window.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
+  InfraMeasurement[g, InfraMessageFunction[a, b], "DomainDefect", "Boundary" -> 1] ==
+    InfraMeasurement[g, InfraMessageFunction[a[[2 ;; -2]], b], "DomainDefect"]]
+```
+
 ## Properties and Relations
 
 The images of a tick are the ticks of *b* on its future light cone.
@@ -134,4 +216,31 @@ Table[
     InfraMessageFunctionQ[g, InfraMessageFunction[a, b],
       First /@ DeleteCases[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], {}]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
+```
+
+The experimental defects lie in the unit interval, and the injectivity defect is at least the domain defect.
+
+```wl
+Table[
+  With[
+    {g = CausalSubstrate[name, "Small"]},
+    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
+    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {defects = Table[InfraMeasurement[g, InfraMessageFunction[a, b], p], {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]},
+    AllTrue[defects, 0 <= # <= 1 &] && defects[[3]] >= defects[[1]]],
+  {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
+```
+
+On the lattice the message k-factors of the resting chain {(*m*, *m*)} and the chain {((*p* + 1)*m*, *pm*)} of velocity 1/(2*p* + 1) are 1/*p* and *p* + 1, the ratios of their tick rates; their product (*p* + 1)/*p* is the square of the Bondi factor, which the echo reads directly.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = Table[{m, m}, {m, 0, 6}]},
+  Table[
+    With[
+      {b = Table[{(p + 1) m, p m}, {m, 1, Floor[6/(p + 1)]}], v = 1/(2 p + 1)},
+      {InfraMeasurement[g, InfraMessageFunction[a, b], "KFactor"], InfraMeasurement[g, InfraMessageFunction[b, a], "KFactor"],
+        InfraMeasurement[g, InfraMessageFunction[a, b], "KFactor"] InfraMeasurement[g, InfraMessageFunction[b, a], "KFactor"] == (1 + v)/(1 - v)}],
+    {p, 2}]]
 ```
