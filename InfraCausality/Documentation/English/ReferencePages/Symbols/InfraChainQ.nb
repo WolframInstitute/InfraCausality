@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    107150,       2593]
-NotebookOptionsPosition[     99294,       2443]
-NotebookOutlinePosition[    100467,       2478]
-CellTagsIndexPosition[    100386,       2473]
+NotebookDataLength[    107480,       2598]
+NotebookOptionsPosition[     99624,       2448]
+NotebookOutlinePosition[    100797,       2483]
+CellTagsIndexPosition[    100716,       2478]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,7 @@ Cell["InfraChainQ", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"208620bd-831a-4765-958c-06e226dbc52a"],
+ Cell["   ", "ModInfo",ExpressionUUID->"1ae8cbd8-1c43-4edd-b809-703c9aa3ea93"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -38,19 +38,19 @@ Cell[TextData[{
     StyleBox["g", "TI"], ",", " ", 
     StyleBox["list", "TI"]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "feb5e796-63a8-4b0a-8ecf-e246adf3690a"],
+  "b8836da9-1083-4875-9f7d-33a577f50869"],
  "\[LineSeparator]",
  "gives ",
  Cell[BoxData["True"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "d92ec2eb-c74f-49cb-9c7e-53a1d178ea43"],
+  "90f3c6e5-0385-4eb1-a3d9-9ce17702d51e"],
  " if the vertex list ",
  StyleBox["list", "TI"],
  " is a chain of ",
  StyleBox["g", "TI"],
  ": duplicate-free, with each event preceding the next in the causal order.",
  "\n",
- Cell["   ", "ModInfo",ExpressionUUID->"29be8239-4b50-4063-b742-b88140d7226a"],
+ Cell["   ", "ModInfo",ExpressionUUID->"49fd6847-91dc-4c35-94ee-7bb3c91c319a"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -68,10 +68,10 @@ Cell[TextData[{
       StyleBox["list2", "TI"], ",", " ", "\[Ellipsis]"}], "}"}]}], "]"}]], 
   "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "1150f495-aa77-43e9-bff8-9537114a2283"],
+  "1fe3cf34-91f5-453c-ad77-510418d8aa82"],
  "\[LineSeparator]",
  "tests every list."
-}], "Usage",ExpressionUUID->"61a6eadd-25c6-4ec9-a958-91e5a75bceeb"],
+}], "Usage",ExpressionUUID->"59f8e819-7f4b-4309-9c46-70b2b87c3c9d"],
 
 Cell[TextData[{
  "Statement: a vertex list ",
@@ -85,20 +85,20 @@ Cell[TextData[{
  Cell[BoxData[
   SubscriptBox["", 
    RowBox[{"*", "i", "*"}]]], "InlineFormula",ExpressionUUID->
-  "799cc45d-4248-4c8f-93fb-cdc09e323681"],
+  "d3c1d6ea-383e-43a6-9889-a456983a3273"],
  " \[Precedes] ",
  StyleBox["e", "TI"],
  Cell[BoxData[
   SubscriptBox["", 
    RowBox[{"*", "i", "*", 
     RowBox[{"+", "1"}]}]]], "InlineFormula",ExpressionUUID->
-  "5f74888d-e274-4165-aa4a-6e540c1e21d2"],
+  "ab495db6-a76a-4d75-8e28-e3982532ff5f"],
  " for every ",
  StyleBox["i", "TI"],
  ": a directed path of ",
  StyleBox["g", "TI"],
  " leads from each event to the next."
-}], "Notes",ExpressionUUID->"ba4d0c41-c2c2-4366-9c3f-452b9e139d23"],
+}], "Notes",ExpressionUUID->"f50e9ea7-1621-426b-a1f1-5c0122ba7621"],
 
 Cell["\<\
 Since the causal order is transitive, a chain is a totally ordered set of \
@@ -106,17 +106,17 @@ events listed in causal order: any two of its events are comparable, and the \
 earlier one comes first. The consecutive events need not be adjacent, so a \
 chain may skip events that lie between them; the chain predicates above it in \
 the hierarchy forbid that. A single event is a chain; the empty list is not.\
-\>", "Notes",ExpressionUUID->"77cab4f3-6583-43f0-afe1-a456044cdc9c"],
+\>", "Notes",ExpressionUUID->"0aacb6cb-452d-4a22-b8e4-17320a8916aa"],
 
 Cell["\<\
 The chain predicates form a hierarchy, each condition stronger than the next:\
 \
-\>", "Notes",ExpressionUUID->"87d35ef2-8889-4753-8cc6-cc51920cd694"],
+\>", "Notes",ExpressionUUID->"1803f40f-2c08-417c-b6cd-5ddf728f22e0"],
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "74a60891-6c3c-403e-ad1b-51d01af63587"], Cell["Predicate", "TableText",
-     FontWeight->Bold,ExpressionUUID->"7c4dbd1a-aff8-4d03-babe-53396f4348e7"],
+     "74a2a5ff-aba3-42f1-a754-1c37f20e3264"], Cell["Predicate", "TableText",
+     FontWeight->Bold,ExpressionUUID->"8c302099-53f7-476e-932c-1a3d37a17ed6"],
      Cell[TextData[{
      "A chain ",
      StyleBox["e", "TI"],
@@ -124,9 +124,9 @@ Cell[BoxData[GridBox[{
      StyleBox["ek", "TI"],
      " such that"
     }], "TableText",
-     FontWeight->Bold,ExpressionUUID->"bc443cd1-6355-4a26-9dd8-aa9949b0d075"]},
+     FontWeight->Bold,ExpressionUUID->"00618341-c4c0-49ee-9c14-5f4d9d0a958a"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "cff16858-56d0-45a8-a24f-1ce3078f8601"], Cell[TextData[Cell[BoxData[
+     "5990b534-eb67-4f92-9385-8e804245c0b2"], Cell[TextData[Cell[BoxData[
      TemplateBox[{
        Cell[
         TextData["InfraLightRayQ"]], 
@@ -134,16 +134,34 @@ Cell[BoxData[GridBox[{
        "WolframInstitute/InfraCausality Package Symbol"},
       "PackageLink",
       BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-     "b9ca9a5b-d22b-4fd0-93cb-78c24f500ecd"]], "TableText",ExpressionUUID->
-     "e262aac7-aa54-4c4b-a49b-b362ea3a0580"], Cell[TextData[{
+     "f018acbb-4fcc-4be7-81cc-f0d2f92943e4"]], "TableText",ExpressionUUID->
+     "fed593be-9e66-4bf7-8ac4-688330599649"], Cell[TextData[{
      "the diamond [",
      StyleBox["e", "TI"],
      "0, ",
      StyleBox["ek", "TI"],
      "] is the chain itself"
-    }], "TableText",ExpressionUUID->"c8726339-14f2-482a-9dc3-579151fae323"]},
+    }], "TableText",ExpressionUUID->"45d6b113-97af-4237-82eb-b50007ff7ec4"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "30857d1a-3208-47ad-948e-fd023771c413"], Cell[TextData[Cell[BoxData[
+     "2375e964-cc96-405c-8f57-91a3d078fcea"], Cell[TextData[Cell[BoxData[
+     TemplateBox[{
+       Cell[
+        TextData["InfraTimelikeGeodesicQ"]], 
+       "paclet:WolframInstitute/InfraCausality/ref/InfraTimelikeGeodesicQ", 
+       "WolframInstitute/InfraCausality Package Symbol"},
+      "PackageLink",
+      BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+     "238ebc1d-1669-4a0b-95a1-104ceafc5212"]], "TableText",ExpressionUUID->
+     "00d27dbd-1b5c-4c58-b539-c5acefef9a18"], Cell[TextData[{
+     StyleBox["k", "TI"],
+     " = \[Tau](",
+     StyleBox["e", "TI"],
+     "0, ",
+     StyleBox["ek", "TI"],
+     ")"
+    }], "TableText",ExpressionUUID->"6308d054-382c-47e8-acdc-d5274c40f1e4"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "277db6f2-b03f-4dc7-a8c9-ac549302fe5a"], Cell[TextData[Cell[BoxData[
      TemplateBox[{
        Cell[
         TextData["InfraWorldlineQ"]], 
@@ -151,30 +169,12 @@ Cell[BoxData[GridBox[{
        "WolframInstitute/InfraCausality Package Symbol"},
       "PackageLink",
       BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-     "afd59ae6-ee72-418d-b8c6-b29f60844a17"]], "TableText",ExpressionUUID->
-     "854296b3-d22a-438e-9c27-22766a109068"], Cell[TextData[{
-     StyleBox["k", "TI"],
-     " = \[Tau](",
-     StyleBox["e", "TI"],
-     "0, ",
-     StyleBox["ek", "TI"],
-     ")"
-    }], "TableText",ExpressionUUID->"1dbb6a1c-a4de-4099-b388-0b5ef1b613e6"]},
-   {Cell["      ", "ModInfo",ExpressionUUID->
-     "ae72114d-8838-4799-aa90-8108d42377a6"], Cell[TextData[Cell[BoxData[
-     TemplateBox[{
-       Cell[
-        TextData["InfraObserverQ"]], 
-       "paclet:WolframInstitute/InfraCausality/ref/InfraObserverQ", 
-       "WolframInstitute/InfraCausality Package Symbol"},
-      "PackageLink",
-      BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-     "ed0e3c19-8f64-4500-bc54-9bc27ab69f75"]], "TableText",ExpressionUUID->
-     "ba92b643-f272-40ba-bb55-1e2c9ac7078d"], Cell[
+     "995e8d42-c5d6-4a4e-8591-aeef71eac24d"]], "TableText",ExpressionUUID->
+     "0368f413-f3b9-4291-a902-4ce356d6c804"], Cell[
     "each consecutive pair is a covering pair", "TableText",ExpressionUUID->
-     "285c4714-3d11-4d90-8326-d9fbc43fdfe6"]},
+     "4cfa1995-0a73-4b78-8be2-62f844358ab8"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "0499bb5b-32ba-4523-81f7-64ab3b3cf121"], Cell[TextData[Cell[BoxData[
+     "03c43a73-e031-4506-8c31-4be19702d15e"], Cell[TextData[Cell[BoxData[
      TemplateBox[{
        Cell[
         TextData["InfraChainQ"]], 
@@ -182,12 +182,12 @@ Cell[BoxData[GridBox[{
        "WolframInstitute/InfraCausality Package Symbol"},
       "PackageLink",
       BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-     "c2b4d506-2bc1-4e2f-b8ee-2a5880ac1497"]], "TableText",ExpressionUUID->
-     "f6ce7d42-6833-453e-86c6-9ac0f0831ec6"], Cell[
+     "962f0aa3-b9d5-4e3b-b651-4587132a4fc0"]], "TableText",ExpressionUUID->
+     "d45ec66a-914d-4e0c-b058-1dcd7e39a272"], Cell[
     "each event precedes the next", "TableText",ExpressionUUID->
-     "d3b07898-c4a7-42d3-a112-0f5adce89154"]}
-  }]], "2ColumnTableMod",ExpressionUUID->"55e0daa7-d8e7-4cee-b070-\
-21f742f81f9d"],
+     "3f2c7ba5-1397-4d1b-8ca6-8a7b4c3bc8ec"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"fb1ad123-9542-472c-9f7f-\
+639432027c85"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -198,10 +198,10 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "d4023f4e-6ea3-45c9-84ba-2fd68b8dd050"],
+  "1d35d874-be39-434a-89be-c65335ea18ac"],
  " is the opposite notion: a set of pairwise incomparable events. A chain and \
 an antichain share at most one event."
-}], "Notes",ExpressionUUID->"f17371ea-f2fa-4eb5-b1ae-4a83363caaee"]
+}], "Notes",ExpressionUUID->"ec089299-bb6b-4f1b-8c92-280d8658919b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -225,22 +225,22 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["InfraObserverQ"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/InfraObserverQ", 
-    "WolframInstitute/InfraCausality Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "d64831f2-e8c9-4f13-b652-7b60b1c2cd53"],
- " \[FilledVerySmallSquare] ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
      TextData["InfraWorldlineQ"]], 
     "paclet:WolframInstitute/InfraCausality/ref/InfraWorldlineQ", 
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "d10b19a1-aebf-4f24-93ec-e6285723420b"],
+  "81763997-32a5-41c9-a5b5-402fb0900ceb"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraTimelikeGeodesicQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraTimelikeGeodesicQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "c390feb6-75f9-4de1-afd2-96dd3379abf2"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -250,7 +250,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "bfc09ac4-a2ec-462e-a96d-2484f69b88c0"],
+  "63b28f10-adbc-45a7-9e82-bcb03d4b91f0"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -260,17 +260,17 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "46d48b47-cec7-407b-9eab-1f89d20da0ca"],
+  "c80a9a03-f0a6-4f1b-ac3f-350a1b96ac71"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["RandomInfraObserver"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/RandomInfraObserver", 
+     TextData["RandomInfraWorldline"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/RandomInfraWorldline", 
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "8eea8ca7-e268-4ddb-be0e-896d62da9050"],
+  "70beac50-ae3a-4bfc-a681-02083fe756e3"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -280,8 +280,8 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "35230f38-03b3-46fe-a984-ba4e2b58a6ba"]
-}], "SeeAlso",ExpressionUUID->"52adcee1-b77a-449e-8f78-f40d5d4d1768"]
+  "839cf230-b63b-4b4a-a319-655271ea8303"]
+}], "SeeAlso",ExpressionUUID->"5f5e5b0f-be85-45e2-b814-82ff5ba60598"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -308,8 +308,8 @@ Cell[TextData[Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:WolframInstitute/InfraCausality/guide/CausalInfrageometry"]], \
-"InlineFormula",ExpressionUUID->"01fcb3fb-7fc5-47da-868a-f747e880d691"]], \
-"MoreAbout",ExpressionUUID->"feaab744-1c19-4a62-a9cf-234dbb4ac159"]
+"InlineFormula",ExpressionUUID->"b1baca93-24cb-47b7-9798-fdd06609508a"]], \
+"MoreAbout",ExpressionUUID->"951232ed-c9ac-4740-8c6a-ed56865ae8ec"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -372,7 +372,7 @@ Cell["\<\
 On each substrate: every second event of a longest chain of the graph, the \
 same events in reverse order, and the same events with the last one repeated.\
 \
-\>", "ExampleText",ExpressionUUID->"6f165c49-627d-4ad2-9700-8afcc376bb44"],
+\>", "ExampleText",ExpressionUUID->"85619c19-3a63-4214-8c69-912affab59cc"],
 
 Cell[CellGroupData[{
 
@@ -391,10 +391,10 @@ Cell[BoxData[
        RowBox[{"(", 
         RowBox[{
          RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
-         RowBox[{"RandomInfraWorldline", "[", 
+         RowBox[{"RandomInfraTimelikeGeodesic", "[", 
           RowBox[{"g", ",", " ", 
-           RowBox[{"InfraWorldline", "[", "]"}]}], "]"}]}], ")"}]}], "}"}], ",",
-      "\n", "    ", 
+           RowBox[{"InfraTimelikeGeodesic", "[", "]"}]}], "]"}]}], ")"}]}], 
+      "}"}], ",", "\n", "    ", 
      RowBox[{"{", 
       RowBox[{"chain", " ", "=", " ", 
        RowBox[{"member", "[", 
@@ -422,7 +422,7 @@ Cell[BoxData[
        " ", "\"\<MinkowskiSprinkling2D\>\"", ",", 
        " ", "\"\<CylinderLatticeGraph\>\""}], "}"}]}], "}"}]}], 
   "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"a112bdde-a1f4-4d0e-96dc-efb54a80ced9"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"004475b9-9c32-46ea-b0b2-870000924b27"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -433,13 +433,13 @@ Cell[BoxData[
     RowBox[{"True", ",", "False", ",", "False"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"True", ",", "False", ",", "False"}], "}"}]}], "}"}]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"efecd488-0399-4de6-9743-e8649678235a"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"89234546-4aef-4e62-ac03-95b385287247"]
 }, Open  ]],
 
 Cell["\<\
 A chain on the diamond lattice that steps diagonally: it skips events, so it \
-is a chain but not an observer.\
-\>", "ExampleText",ExpressionUUID->"9c33d13c-c5e7-4f56-9a53-7fa61574b315"],
+is a chain but not a worldline.\
+\>", "ExampleText",ExpressionUUID->"70eab3a6-058b-48a5-8350-602c68d04429"],
 
 Cell[CellGroupData[{
 
@@ -475,10 +475,10 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"InfraChainQ", "[", 
         RowBox[{"g", ",", " ", "chain"}], "]"}], ",", " ", 
-       RowBox[{"InfraObserverQ", "[", 
+       RowBox[{"InfraWorldlineQ", "[", 
         RowBox[{"g", ",", " ", "chain"}], "]"}]}], "}"}]}], "]"}]}], 
   "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"547aa631-4378-49e5-8bde-4f870f84a4c0"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"31a4ca3d-920a-4449-9a26-aa5319da88ae"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -2060,12 +2060,12 @@ Cell[BoxData[
   InterpretationFunction->(RowBox[{"Labeled", "[", 
      RowBox[{#, ",", #2, ",", 
        RowBox[{"{", "}"}]}], "]"}]& )]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"cd8c0d7e-c9a6-4476-a2d2-cfe09f51874e"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"7ec9e9b2-199e-4075-8d4c-f777d972cdff"]
 }, Open  ]],
 
 Cell["\<\
 A list of chains is tested chain by chain; a single event is a chain.\
-\>", "ExampleText",ExpressionUUID->"2335e79d-d51b-4203-9454-741ff40435b5"],
+\>", "ExampleText",ExpressionUUID->"e46abf61-571f-4329-97ad-36a3c9123fc5"],
 
 Cell[CellGroupData[{
 
@@ -2084,7 +2084,7 @@ Cell[BoxData[
        RowBox[{"(", 
         RowBox[{
          RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
-         RowBox[{"RandomInfraObserver", "[", 
+         RowBox[{"RandomInfraWorldline", "[", 
           RowBox[{"g", ",", " ", 
            RowBox[{"{", 
             RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
@@ -2099,12 +2099,12 @@ Cell[BoxData[
      RowBox[{"InfraChainQ", "[", 
       RowBox[{"g", ",", " ", 
        RowBox[{"{", "}"}]}], "]"}]}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"524d2844-25ff-4d6b-b933-98d952c2c497"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"8f487844-eb35-4056-93c5-35916e79182a"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"True", ",", "True", ",", "False"}], "}"}]], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"97c2cc49-187a-45f5-bacf-c3c4d08c4757"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"76d2d521-537e-439b-a859-a69ad8753b05"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2165,8 +2165,8 @@ Cell[BoxData[
 Cell["\<\
 A list is a chain exactly when its events are pairwise comparable and listed \
 in causal order, so every sublist of a chain is a chain. Checked on every \
-subset of a worldline of each substrate.\
-\>", "ExampleText",ExpressionUUID->"81327657-dab9-4c08-ae1f-0b1f367f4512"],
+subset of a timelike geodesic of each substrate.\
+\>", "ExampleText",ExpressionUUID->"3b05741c-504c-4fc4-a1a4-b715bd5cc471"],
 
 Cell[CellGroupData[{
 
@@ -2190,10 +2190,10 @@ Cell[BoxData[
         RowBox[{"(", 
          RowBox[{
           RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
-          RowBox[{"RandomInfraWorldline", "[", 
+          RowBox[{"RandomInfraTimelikeGeodesic", "[", 
            RowBox[{"g", ",", " ", 
-            RowBox[{"InfraWorldline", "[", "]"}]}], "]"}]}], ")"}]}], "}"}], ",",
-       "\n", "    ", 
+            RowBox[{"InfraTimelikeGeodesic", "[", "]"}]}], "]"}]}], ")"}]}], 
+       "}"}], ",", "\n", "    ", 
       RowBox[{
        RowBox[{"AllTrue", "[", 
         RowBox[{
@@ -2222,15 +2222,15 @@ Cell[BoxData[
             RowBox[{"g", ",", " ", 
              RowBox[{"Reverse", " ", "@", " ", "pair"}]}], "]"}]}]}]}], 
         "]"}]}]}], "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"0269a64e-c1a7-42f9-ba8a-14177cfaec53"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"d9e02ae5-3197-46ac-99e7-e035e088ddd7"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"79bcd496-53ec-4e69-bc00-b67a16984e8e"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"81630da9-ca84-420e-82d6-894dadde8852"]
 }, Open  ]],
 
 Cell["\<\
 The causal hull of a chain is the diamond of its first and last events.\
-\>", "ExampleText",ExpressionUUID->"0035fccb-8466-45d6-9441-223b78034783"],
+\>", "ExampleText",ExpressionUUID->"05fe5476-a3e3-46c8-8410-558bdd18995c"],
 
 Cell[CellGroupData[{
 
@@ -2254,7 +2254,7 @@ Cell[BoxData[
         RowBox[{"(", 
          RowBox[{
           RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
-          RowBox[{"RandomInfraObserver", "[", 
+          RowBox[{"RandomInfraWorldline", "[", 
            RowBox[{"g", ",", " ", 
             RowBox[{"UpTo", "[", "10", "]"}]}], "]"}]}], ")"}]}], "}"}], ",", 
       "\n", "    ", 
@@ -2266,25 +2266,30 @@ Cell[BoxData[
            RowBox[{"g", ",", " ", "chain"}], "]"}], " ", "&&", "\n", 
           "        ", 
           RowBox[{
-           RowBox[{"RandomInfraCausalDiamond", "[", 
-            RowBox[{"g", ",", " ", 
-             RowBox[{"InfraCausalDiamond", "[", "chain", "]"}]}], "]"}], " ", 
-           "===", " ", 
-           RowBox[{"RandomInfraCausalDiamond", "[", 
-            RowBox[{"g", ",", " ", 
-             RowBox[{"First", " ", "@", " ", "chain"}], ",", " ", 
-             RowBox[{"Last", " ", "@", " ", "chain"}]}], "]"}]}]}]}]}], 
-       "]"}]}], "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"fc1739d0-45e4-4379-adab-aef13a923364"],
+           RowBox[{"Keys", " ", "@", " ", 
+            RowBox[{"InfraMeasurement", "[", 
+             RowBox[{"g", ",", " ", 
+              RowBox[{"InfraCausalDiamond", "[", "chain", "]"}], ",", 
+              " ", "\"\<VertexDensity\>\""}], "]"}]}], " ", "===", " ", 
+           RowBox[{"Keys", " ", "@", " ", 
+            RowBox[{"InfraMeasurement", "[", 
+             RowBox[{"g", ",", " ", 
+              RowBox[{"InfraCausalDiamond", "[", 
+               RowBox[{
+                RowBox[{"First", " ", "@", " ", "chain"}], ",", " ", 
+                RowBox[{"Last", " ", "@", " ", "chain"}]}], "]"}], ",", 
+              " ", "\"\<VertexDensity\>\""}], "]"}]}]}]}]}]}], "]"}]}], 
+     "]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"3e0c6b75-86ec-4d72-81f8-a8a923beaf6b"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"51967101-3b7f-4c64-be93-e1b9476bbd79"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"52575320-3598-4f93-b2cc-8faf9b2337a9"]
 }, Open  ]],
 
 Cell["\<\
-A chain and an antichain share at most one event: every slice of the \
-universal foliation meets a chain at most once.\
-\>", "ExampleText",ExpressionUUID->"ff482c23-11ee-447d-ab53-a2d2ae7c9803"],
+A chain and an antichain share at most one event: every slice of the height \
+foliation meets a chain at most once.\
+\>", "ExampleText",ExpressionUUID->"cdfb04d3-1725-4d73-95aa-2a216d63f6fb"],
 
 Cell[CellGroupData[{
 
@@ -2308,7 +2313,7 @@ Cell[BoxData[
         RowBox[{"(", 
          RowBox[{
           RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
-          RowBox[{"RandomInfraObserver", "[", 
+          RowBox[{"RandomInfraWorldline", "[", 
            RowBox[{"g", ",", " ", 
             RowBox[{"UpTo", "[", "10", "]"}]}], "]"}]}], ")"}]}], "}"}], ",", 
       "\n", "    ", 
@@ -2317,7 +2322,7 @@ Cell[BoxData[
         RowBox[{"Tuples", "[", 
          RowBox[{"{", 
           RowBox[{"members", ",", " ", 
-           RowBox[{"UniversalFoliation", "[", "g", "]"}]}], "}"}], "]"}], ",",
+           RowBox[{"CausalHeightFoliation", "[", "g", "]"}]}], "}"}], "]"}], ",",
          " ", 
         RowBox[{"Apply", "[", 
          RowBox[{
@@ -2334,10 +2339,10 @@ Cell[BoxData[
              RowBox[{"Intersection", "[", 
               RowBox[{"chain", ",", " ", "slice"}], "]"}], "]"}], " ", "<=", 
             " ", "1"}]}]}], "]"}]}], "]"}]}], "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"98fcf9b8-6e95-45bf-a304-ec2acdff5970"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"0e3e1ec1-38b7-4474-a4f3-50cf3e1d0f68"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"3f506541-4d9c-46ac-8795-47c1634c72a0"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"f1bb624d-f08e-4c34-93df-3e5ff77c0963"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2412,7 +2417,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
  CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
 
 Cell["WolframInstitute/InfraCausality/ref/InfraChainQ", "Categorization",
- CellLabel->"URI",ExpressionUUID->"35221c5b-65c2-4840-9c22-bc0006bd376a"]
+ CellLabel->"URI",ExpressionUUID->"27f8be8c-5b48-48b5-a7a5-2dc34c739d2f"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -2465,14 +2470,14 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[87448, 2112, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[87499, 2112, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 100191, 2466}
+ {"ExtendedExamples", 100521, 2471}
  }
 *)
 (*NotebookFileOutline
@@ -2480,118 +2485,118 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 109, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[688, 25, 1642, 48, 70, "Usage",ExpressionUUID->"61a6eadd-25c6-4ec9-a958-91e5a75bceeb"],
-Cell[2333, 75, 780, 25, 70, "Notes",ExpressionUUID->"ba4d0c41-c2c2-4366-9c3f-452b9e139d23"],
-Cell[3116, 102, 468, 6, 70, "Notes",ExpressionUUID->"77cab4f3-6583-43f0-afe1-a456044cdc9c"],
-Cell[3587, 110, 159, 3, 70, "Notes",ExpressionUUID->"87d35ef2-8889-4753-8cc6-cc51920cd694"],
-Cell[3749, 115, 3346, 74, 70, "2ColumnTableMod",ExpressionUUID->"55e0daa7-d8e7-4cee-b070-21f742f81f9d"],
-Cell[7098, 191, 528, 12, 70, "Notes",ExpressionUUID->"f17371ea-f2fa-4eb5-b1ae-4a83363caaee"]
+Cell[688, 25, 1642, 48, 70, "Usage",ExpressionUUID->"59f8e819-7f4b-4309-9c46-70b2b87c3c9d"],
+Cell[2333, 75, 780, 25, 70, "Notes",ExpressionUUID->"f50e9ea7-1621-426b-a1f1-5c0122ba7621"],
+Cell[3116, 102, 468, 6, 70, "Notes",ExpressionUUID->"0aacb6cb-452d-4a22-b8e4-17320a8916aa"],
+Cell[3587, 110, 159, 3, 70, "Notes",ExpressionUUID->"1803f40f-2c08-417c-b6cd-5ddf728f22e0"],
+Cell[3749, 115, 3362, 74, 70, "2ColumnTableMod",ExpressionUUID->"fb1ad123-9542-472c-9f7f-639432027c85"],
+Cell[7114, 191, 528, 12, 70, "Notes",ExpressionUUID->"ec089299-bb6b-4f1b-8c92-280d8658919b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7663, 208, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+Cell[7679, 208, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[8125, 223, 2205, 60, 70, "SeeAlso",ExpressionUUID->"52adcee1-b77a-449e-8f78-f40d5d4d1768"]
+Cell[8141, 223, 2223, 60, 70, "SeeAlso",ExpressionUUID->"5f5e5b0f-be85-45e2-b814-82ff5ba60598"]
 }, Open  ]],
-Cell[10345, 286, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+Cell[10379, 286, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
-Cell[10805, 302, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+Cell[10839, 302, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[10924, 305, 316, 6, 70, "MoreAbout",ExpressionUUID->"feaab744-1c19-4a62-a9cf-234dbb4ac159"]
+Cell[10958, 305, 316, 6, 70, "MoreAbout",ExpressionUUID->"951232ed-c9ac-4740-8c6a-ed56865ae8ec"]
 }, Open  ]],
-Cell[11255, 314, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+Cell[11289, 314, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
 Cell[CellGroupData[{
-Cell[11751, 331, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+Cell[11785, 331, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
  CellID->1718580883],
-Cell[12285, 347, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+Cell[12319, 347, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
  CellID->1969679695]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12596, 356, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+Cell[12630, 356, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
  CellID->880084151],
-Cell[13041, 370, 242, 4, 70, "ExampleText",ExpressionUUID->"6f165c49-627d-4ad2-9700-8afcc376bb44"],
+Cell[13075, 370, 242, 4, 70, "ExampleText",ExpressionUUID->"85619c19-3a63-4214-8c69-912affab59cc"],
 Cell[CellGroupData[{
-Cell[13308, 378, 1749, 46, 70, "Input",ExpressionUUID->"a112bdde-a1f4-4d0e-96dc-efb54a80ced9"],
-Cell[15060, 426, 372, 9, 70, "Output",ExpressionUUID->"efecd488-0399-4de6-9743-e8649678235a"]
+Cell[13342, 378, 1764, 46, 70, "Input",ExpressionUUID->"004475b9-9c32-46ea-b0b2-870000924b27"],
+Cell[15109, 426, 372, 9, 70, "Output",ExpressionUUID->"89234546-4aef-4e62-ac03-95b385287247"]
 }, Open  ]],
-Cell[15447, 438, 196, 3, 70, "ExampleText",ExpressionUUID->"9c33d13c-c5e7-4f56-9a53-7fa61574b315"],
+Cell[15496, 438, 196, 3, 70, "ExampleText",ExpressionUUID->"70eab3a6-058b-48a5-8350-602c68d04429"],
 Cell[CellGroupData[{
-Cell[15668, 445, 1313, 35, 70, "Input",ExpressionUUID->"547aa631-4378-49e5-8bde-4f870f84a4c0"],
-Cell[16984, 482, 68903, 1580, 70, "Output",ExpressionUUID->"cd8c0d7e-c9a6-4476-a2d2-cfe09f51874e"]
+Cell[15717, 445, 1314, 35, 70, "Input",ExpressionUUID->"31a4ca3d-920a-4449-9a26-aa5319da88ae"],
+Cell[17034, 482, 68903, 1580, 70, "Output",ExpressionUUID->"7ec9e9b2-199e-4075-8d4c-f777d972cdff"]
 }, Open  ]],
-Cell[85902, 2065, 155, 2, 70, "ExampleText",ExpressionUUID->"2335e79d-d51b-4203-9454-741ff40435b5"],
+Cell[85952, 2065, 155, 2, 70, "ExampleText",ExpressionUUID->"e46abf61-571f-4329-97ad-36a3c9123fc5"],
 Cell[CellGroupData[{
-Cell[86082, 2071, 1142, 30, 70, "Input",ExpressionUUID->"524d2844-25ff-4d6b-b933-98d952c2c497"],
-Cell[87227, 2103, 172, 3, 70, "Output",ExpressionUUID->"97c2cc49-187a-45f5-bacf-c3c4d08c4757"]
+Cell[86132, 2071, 1143, 30, 70, "Input",ExpressionUUID->"8f487844-eb35-4056-93c5-35916e79182a"],
+Cell[87278, 2103, 172, 3, 70, "Output",ExpressionUUID->"76d2d521-537e-439b-a859-a69ad8753b05"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[87448, 2112, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[87499, 2112, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
-Cell[87938, 2127, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[87989, 2127, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[88183, 2134, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[88234, 2134, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
-Cell[88451, 2141, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[88502, 2141, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
-Cell[88698, 2148, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[88749, 2148, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
 Cell[CellGroupData[{
-Cell[88971, 2157, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[89022, 2157, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[89233, 2164, 281, 4, 70, "ExampleText",ExpressionUUID->"81327657-dab9-4c08-ae1f-0b1f367f4512"],
+Cell[89284, 2164, 289, 4, 70, "ExampleText",ExpressionUUID->"3b05741c-504c-4fc4-a1a4-b715bd5cc471"],
 Cell[CellGroupData[{
-Cell[89539, 2172, 2032, 52, 70, "Input",ExpressionUUID->"0269a64e-c1a7-42f9-ba8a-14177cfaec53"],
-Cell[91574, 2226, 110, 1, 70, "Output",ExpressionUUID->"79bcd496-53ec-4e69-bc00-b67a16984e8e"]
+Cell[89598, 2172, 2047, 52, 70, "Input",ExpressionUUID->"d9e02ae5-3197-46ac-99e7-e035e088ddd7"],
+Cell[91648, 2226, 110, 1, 70, "Output",ExpressionUUID->"81630da9-ca84-420e-82d6-894dadde8852"]
 }, Open  ]],
-Cell[91699, 2230, 157, 2, 70, "ExampleText",ExpressionUUID->"0035fccb-8466-45d6-9441-223b78034783"],
+Cell[91773, 2230, 157, 2, 70, "ExampleText",ExpressionUUID->"05fe5476-a3e3-46c8-8410-558bdd18995c"],
 Cell[CellGroupData[{
-Cell[91881, 2236, 1698, 41, 70, "Input",ExpressionUUID->"fc1739d0-45e4-4379-adab-aef13a923364"],
-Cell[93582, 2279, 110, 1, 70, "Output",ExpressionUUID->"51967101-3b7f-4c64-be93-e1b9476bbd79"]
+Cell[91955, 2236, 1953, 46, 70, "Input",ExpressionUUID->"3e0c6b75-86ec-4d72-81f8-a8a923beaf6b"],
+Cell[93911, 2284, 110, 1, 70, "Output",ExpressionUUID->"52575320-3598-4f93-b2cc-8faf9b2337a9"]
 }, Open  ]],
-Cell[93707, 2283, 204, 3, 70, "ExampleText",ExpressionUUID->"ff482c23-11ee-447d-ab53-a2d2ae7c9803"],
+Cell[94036, 2288, 201, 3, 70, "ExampleText",ExpressionUUID->"cdfb04d3-1725-4d73-95aa-2a216d63f6fb"],
 Cell[CellGroupData[{
-Cell[93936, 2290, 1841, 46, 70, "Input",ExpressionUUID->"98fcf9b8-6e95-45bf-a304-ec2acdff5970"],
-Cell[95780, 2338, 110, 1, 70, "Output",ExpressionUUID->"3f506541-4d9c-46ac-8795-47c1634c72a0"]
+Cell[94262, 2295, 1845, 46, 70, "Input",ExpressionUUID->"0e3e1ec1-38b7-4474-a4f3-50cf3e1d0f68"],
+Cell[96110, 2343, 110, 1, 70, "Output",ExpressionUUID->"f1bb624d-f08e-4c34-93df-3e5ff77c0963"]
 }, Open  ]]
 }, Open  ]],
-Cell[95917, 2343, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[96247, 2348, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[96172, 2350, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[96502, 2355, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[96432, 2357, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[96762, 2362, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[96718, 2367, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[97048, 2372, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[96831, 2370, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[97161, 2375, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[97332, 2386, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[97662, 2391, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[97820, 2401, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[98150, 2406, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[97957, 2405, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[98287, 2410, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[98119, 2409, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[98449, 2414, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[98278, 2413, 147, 1, 70, "Categorization",ExpressionUUID->"35221c5b-65c2-4840-9c22-bc0006bd376a"]
+Cell[98608, 2418, 147, 1, 70, "Categorization",ExpressionUUID->"27f8be8c-5b48-48b5-a7a5-2dc34c739d2f"]
 }, Closed]],
-Cell[98440, 2417, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[98770, 2422, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[98575, 2422, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[98905, 2427, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[98698, 2425, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[99028, 2430, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[98850, 2429, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[99180, 2434, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[98990, 2433, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[99320, 2438, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[99129, 2437, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[99459, 2442, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[   1230759,      26859]
-NotebookOptionsPosition[   1223282,      26715]
-NotebookOutlinePosition[   1224498,      26751]
-CellTagsIndexPosition[   1224415,      26746]
+NotebookDataLength[   1241126,      27148]
+NotebookOptionsPosition[   1233652,      27004]
+NotebookOutlinePosition[   1234867,      27040]
+CellTagsIndexPosition[   1234784,      27035]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,7 @@ Cell["FoliationViewer", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"6f553920-1cf1-4f39-91ac-77471e878216"],
+ Cell["   ", "ModInfo",ExpressionUUID->"1b5eb32d-f14f-47cf-a2d4-86b0c95b497a"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -36,13 +36,13 @@ Cell[TextData[{
     BaseStyle->"InlineFormula"], "[", 
    StyleBox["g", "TI"], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "26a33e88-b541-4493-ab11-f37c1d1a9315"],
+  "8d26297d-cf10-4db9-8a82-72f56c06f434"],
  "\[LineSeparator]",
  "gives a ",
  Cell[BoxData["Manipulate"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "768ad9ec-ce69-4001-bf17-90930dc62f8c"],
- " with a slider over the universal time ",
+  "ebbf3afa-8a58-444f-9b37-e42e67c61ea7"],
+ " with a slider over the causal height ",
  StyleBox["k", "TI"],
  " drawing the slice ",
  Cell[BoxData[
@@ -56,7 +56,7 @@ Cell[TextData[{
     BaseStyle->"InlineFormula"], "[", 
    StyleBox["k", "TI"], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "37e04277-b5ff-4384-b30d-878a969bbd06"],
+  "088dc8d2-bdd7-4dd7-9651-6b351ed0f733"],
  " over the earlier band ",
  Cell[BoxData[
   RowBox[{
@@ -73,14 +73,14 @@ Cell[TextData[{
       StyleBox["k", "TI"], " ", "\[Minus]", " ", "1"}]}], "}"}], "]"}]], 
   "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "1c455a8c-0353-4e61-bf68-ae634273710d"],
+  "c222a9a0-0f4d-4157-80da-e817a2c6b668"],
  ".",
  "\n"
-}], "Usage",ExpressionUUID->"b9617ffc-e1cf-4e2a-8e93-2680c3f5ae43"],
+}], "Usage",ExpressionUUID->"c33612cc-c12f-4663-bbf1-ffa1f46512c3"],
 
 Cell["\<\
 Experimental: viewer. The interface of the viewers may change.\
-\>", "Notes",ExpressionUUID->"1d5909d6-d83f-4842-9e4c-a41780750ff9"],
+\>", "Notes",ExpressionUUID->"d68260b4-9042-42d0-9876-2d05afdc3f7f"],
 
 Cell[TextData[{
  "Definition: the frame at time ",
@@ -88,7 +88,7 @@ Cell[TextData[{
  " draws, with ",
  Cell[BoxData["InfraSubstrateHighlight"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "2dc40373-2514-4058-8a9f-dddd9c113da1"],
+  "82dab0ee-db0e-4580-9af2-7f3e7cea49e5"],
  ", the slice {",
  StyleBox["v", "TI"],
  " : ",
@@ -101,12 +101,12 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["UniversalTime"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/UniversalTime", 
+     TextData["CausalHeight"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalHeight", 
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "3111bc91-cdf5-4a46-bf51-592653e15673"],
+  "f64a7d81-cf75-4928-a5dd-2bd171263f36"],
  " ",
  StyleBox["t", "TI"],
  " in orange over the band {",
@@ -122,11 +122,11 @@ Cell[TextData[{
  " and the sizes of the slice and of the band. The slider runs from 0 to the \
 height of ",
  StyleBox["g", "TI"],
- ", the largest universal time."
-}], "Notes",ExpressionUUID->"66dea5ea-42de-4302-85a9-4285cb73ff71"],
+ ", the largest causal height."
+}], "Notes",ExpressionUUID->"1bca8491-c647-4197-9027-16fbfdada9f0"],
 
 Cell[TextData[{
- "The universal time ",
+ "The causal height ",
  StyleBox["t", "TI"],
  "(",
  StyleBox["v", "TI"],
@@ -136,23 +136,23 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["UniversalFoliation"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/UniversalFoliation", 
+     TextData["CausalHeightFoliation"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalHeightFoliation", 
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "06656770-fb8b-4a3f-ac12-79a0a7124449"],
+  "b9ec3d6d-b6c7-4d0c-a9f5-aa2122dd1931"],
  ". The result is a ",
  Cell[BoxData["Manipulate"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "db61b3f1-570d-413a-8f34-4e2f1a361de3"],
+  "c1bde8af-9ebb-4751-9a1a-c4b3a20b6bde"],
  " with ",
  Cell[BoxData[
   RowBox[{"SaveDefinitions", " ", "->", " ", "True"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "b6419ab5-1309-45e5-917b-1dd38d75e9c4"],
+  "2397e3d2-efb1-4131-b8e7-041ed5ca9f5b"],
  "; it needs the Wolfram notebook front end to move the slider."
-}], "Notes",ExpressionUUID->"0381db41-ec49-4e73-ab52-bbe0a912aa3b"]
+}], "Notes",ExpressionUUID->"5de58085-b26c-41cc-a853-c6165d818549"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -176,22 +176,22 @@ Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["UniversalTime"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/UniversalTime", 
+     TextData["CausalHeight"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalHeight", 
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "5b7b64c0-c6f1-4893-a822-ddfb82021444"],
+  "72a11916-c3f1-4e92-ae13-e4aff5646371"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
     Cell[
-     TextData["UniversalFoliation"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/UniversalFoliation", 
+     TextData["CausalHeightFoliation"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalHeightFoliation", 
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "302da2b3-abba-4c8f-9e3a-fdcde682ce0b"],
+  "3a8ce642-7444-4fbd-b99c-a48dc1dc3674"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -201,17 +201,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "84c1967d-b8d0-4f14-a95b-fbff573c32fb"],
- " \[FilledVerySmallSquare] ",
- Cell[BoxData[
-  TemplateBox[{
-    Cell[
-     TextData["RandomInfraSlice"]], 
-    "paclet:WolframInstitute/InfraCausality/ref/RandomInfraSlice", 
-    "WolframInstitute/InfraCausality Package Symbol"},
-   "PackageLink",
-   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "1b8a6538-a44c-413e-a7f5-480fb35b6233"],
+  "f1bf15d3-a55c-4a25-9077-80d75c996e42"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -221,7 +211,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "c3c3ea2e-fc29-444b-ade0-bdf29b9fa987"],
+  "e91e51e8-41a4-4105-813d-b2226edfa680"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -231,8 +221,8 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9d01c692-c447-4927-b3cf-215718c6fe97"]
-}], "SeeAlso",ExpressionUUID->"326c317a-abed-405a-82e7-0cc8b07bcbe4"]
+  "08a06cf8-e4bc-4f93-b6bb-1c2abc5b56a5"]
+}], "SeeAlso",ExpressionUUID->"f2c0e48b-21c7-4c56-850e-2ec6efc34e83"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -259,8 +249,8 @@ Cell[TextData[Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:WolframInstitute/InfraCausality/guide/CausalInfrageometry"]], \
-"InlineFormula",ExpressionUUID->"c3c72fb6-d4d8-48cd-b07e-64f53b48d03a"]], \
-"MoreAbout",ExpressionUUID->"31eddb48-7314-4e8b-bca3-0dbb0a3cb332"]
+"InlineFormula",ExpressionUUID->"c0a6c89d-26c4-4893-884d-48a286ff21f0"]], \
+"MoreAbout",ExpressionUUID->"874c7dc6-882f-45b7-b972-27efcda42f9e"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -320,8 +310,8 @@ Cell[BoxData[
  CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
 
 Cell["\<\
-The universal foliation of the cylinder lattice, one slice at a time.\
-\>", "ExampleText",ExpressionUUID->"d012d812-7369-461a-a1d2-cbd0e99a950f"],
+The height foliation of the cylinder lattice, one slice at a time.\
+\>", "ExampleText",ExpressionUUID->"eb2c13c8-9081-4f75-87f1-4f7b4b75399c"],
 
 Cell[CellGroupData[{
 
@@ -330,7 +320,7 @@ Cell[BoxData[
   RowBox[{"CausalSubstrate", "[", 
    RowBox[{"\"\<CylinderLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], "]"}],
    "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"7aa9983a-3e8d-4b2f-9349-7e6864ca7313"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"faa78735-f44b-4f3c-9983-dd78f81f4c0e"],
 
 Cell[BoxData[
  TagBox[
@@ -8232,7 +8222,7 @@ vertices adjacent (revisits allowed)."],
          Sort[
           Keys[
            Select[
-            WolframInstitute`InfraCausality`UniversalTime[
+            WolframInstitute`InfraCausality`CausalHeight[
             WolframInstitute`InfraCausality`InfraSlice`PackagePrivate`graph], 
             
             Function[
@@ -8301,54 +8291,52 @@ vertices adjacent (revisits allowed)."],
            "VertexDensity"]]], 
        TagSet[WolframInstitute`InfraCausality`InfraSlice, 
         MessageName[WolframInstitute`InfraCausality`InfraSlice, "usage"], 
-        "InfraSlice[k] is the slice of the universal time at height k, the \
-events t(v) = k; InfraSlice[{k1, k2}] is the band of events with k1 <= t(v) \
-<= k2."], WolframInstitute`InfraCausality`UniversalTime[
+        "InfraSlice[k] is the slice at height k, the events t(v) = k; \
+InfraSlice[{k1, k2}] is the band of events with k1 <= t(v) <= k2."], 
+       WolframInstitute`InfraCausality`CausalHeight[
          Pattern[
-         WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`graph, 
           Blank[Graph]]] := 
-       With[{WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`\
+       With[{WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`\
 predecessors = GroupBy[
             EdgeList[
-            WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`\
-graph], Function[
-             WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`e, 
+            WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`graph]\
+, Function[WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`e, 
               Part[
-              WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`e, 
+              WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`e, 
                2]] -> Function[
-             WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`e, 
+             WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`e, 
               Part[
-              WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`e, 
+              WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`e, 
                1]]]}, 
          KeyTake[
           Fold[
-           
            Function[{
-            WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`time,
-              WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`v}, 
+            WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`time, 
+             WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`v}, 
             Append[
-            WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`time,
-              WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`v -> 
+            WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`time, 
+             WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`v -> 
              Max[0, 1 + 
-               Lookup[WolframInstitute`InfraCausality`UniversalTime`\
+               Lookup[WolframInstitute`InfraCausality`CausalHeight`\
 PackagePrivate`time, 
                  Lookup[
-                 WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`\
+                 WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`\
 predecessors, 
                   Key[
-                  WolframInstitute`InfraCausality`UniversalTime`\
-PackagePrivate`v], {}]]]]], <||>, 
+                  WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`\
+v], {}]]]]], <||>, 
            TopologicalSort[
-           WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`graph]\
-], 
+           WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`graph]]\
+, 
           VertexList[
-          WolframInstitute`InfraCausality`UniversalTime`PackagePrivate`graph]]\
-], 
-       TagSet[WolframInstitute`InfraCausality`UniversalTime, 
-        MessageName[WolframInstitute`InfraCausality`UniversalTime, "usage"], 
-        "UniversalTime[g] gives the height of every event, the number of \
-edges of a longest chain from a source to it, zero exactly on the sources."], 
-       WolframInstitute`InfraGeometry`InfraMemberQ[
+          WolframInstitute`InfraCausality`CausalHeight`PackagePrivate`graph]]]\
+, 
+       TagSet[WolframInstitute`InfraCausality`CausalHeight, 
+        MessageName[WolframInstitute`InfraCausality`CausalHeight, "usage"], 
+        "CausalHeight[g] gives the causal height of every event, the number \
+of edges of a longest chain from a source to it, zero exactly on the \
+sources."], WolframInstitute`InfraGeometry`InfraMemberQ[
          Pattern[WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`graph, 
           Blank[Graph]], 
          Pattern[WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`obj, 
@@ -8811,9 +8799,9 @@ cuts, WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`i +
             WolframInstitute`InfraGeometry`InfraTube`PackagePrivate`profile (
              WolframInstitute`InfraGeometry`InfraTube`PackagePrivate`i - 1)], 
            WolframInstitute`InfraGeometry`InfraTube`PackagePrivate`profile], 
-          Method -> Lookup[{
-            WolframInstitute`InfraGeometry`InfraTube`PackagePrivate`opts}, 
-            Method, "Sliced"]], 
+          Method -> 
+          Lookup[{WolframInstitute`InfraGeometry`InfraTube`PackagePrivate`\
+opts}, Method, "Sliced"]], 
          WolframInstitute`InfraGeometry`InfraTube`PackagePrivate`vs], 
        Condition[
          WolframInstitute`InfraGeometry`InfraMemberQ[
@@ -8981,6 +8969,49 @@ PackagePrivate`items,
 PackagePrivate`opts, 
           OptionsPattern[]]] := 
        With[{WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`dimension = Length[
+            First[
+             GraphEmbedding[
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`graph], {0, 0}]]}, {
+         WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`disk = 
+          If[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`dimension === 3, 
+            
+            Function[{
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`point, 
+              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`radius}, 
+             Sphere[
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`point, 
+              Max[
+               
+               Flatten[{
+                WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`radius}]]]], Disk], 
+          WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`circle = 
+          If[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`dimension === 3, 
+            
+            Function[{
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`point, 
+              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`radius}, {
+              Opacity[0.25], 
+              Sphere[
+              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`point, 
+               Max[
+                
+                Flatten[{
+                 WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`radius}]]]}], Circle], 
+          WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`ranges = <|
            "OpacityRange" -> OptionValue["OpacityRange"], "ThicknessRange" -> 
             OptionValue["ThicknessRange"], "PointSizeRange" -> 
@@ -9283,7 +9314,13 @@ PackagePrivate`idx] - 1,
 PackagePrivate`palette]]]], "Record" -> 
                Join[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`record, <|
-                 "ThicknessRange" -> 
+                  If[
+                   And[
+                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`dimension === 3, 
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`record["Arrowheads"] === True], "Arrowheads" -> 
+                   Arrowheads[0.035], Nothing], "ThicknessRange" -> 
                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`span[
                     
@@ -9380,6 +9417,7 @@ PackagePrivate`e["Record"]}& ,
 PackagePrivate`e["Verts"]]], 
              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`entries], Identity], 
+          
           WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`eMasses = Merge[
             Map[
@@ -9725,13 +9763,15 @@ PackagePrivate`sign > 0, Append[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`body, 
                     
-                    Disk[#, 
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`disk[#, 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`scale #3]]& , Append[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`ring, 
                     
-                    Circle[#, 
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`circle[#, 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`scale #3]]& ])|>], 
                     Or[
@@ -9789,11 +9829,14 @@ PackagePrivate`body,
 PackagePrivate`radius === None, Append[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`ring, 
-                    Circle[#, #3]]& , True, Append[
+                    
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`circle[#, #3]]& , True, Append[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`ring, 
                     
-                    Circle[#, 
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`circle[#, 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`radius]]& ])|>], 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
@@ -9803,7 +9846,9 @@ PackagePrivate`sign < 0, <|
 PackagePrivate`v -> (Append[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`ring, 
-                    Circle[#, #3]]& )), "VSize" -> 
+                    
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`circle[#, #3]]& )), "VSize" -> 
                     If[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`rec["VertexSize"] === None, Nothing, 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
@@ -9938,22 +9983,22 @@ PackagePrivate`position}, {
                     Sort[#]]& , 
                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`steps], 
-                  Map[
+                  Lookup[
                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`coords, 
-                   Prepend[
+                   Map[Key, 
+                    Prepend[
                     Map[
                     Last, WolframInstitute`InfraGeometry`\
 InfraSceneVisualization`PackagePrivate`steps], 
                     First[
                     First[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`steps]]]], 
+PackagePrivate`steps]]]]], 
                   First[WolframInstitute`InfraGeometry`\
 InfraSceneVisualization`PackagePrivate`position] === 
-                  Length[
-                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`runs], 
+                  Length[WolframInstitute`InfraGeometry`\
+InfraSceneVisualization`PackagePrivate`runs], 
                   
                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`e["Record"]["Arrowheads"]}], 
@@ -9985,12 +10030,13 @@ PackagePrivate`e["Walk"]] >= 2]] :> (Last[
 PackagePrivate`e["Walk"]] -> 
               With[{WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`tip = 
-                 WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`coords[
-                   Last[
+                 Lookup[WolframInstitute`InfraGeometry`\
+InfraSceneVisualization`PackagePrivate`coords, 
+                   Key[
+                    Last[
                     
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`e["Walk"]]], 
+PackagePrivate`e["Walk"]]]], 
                  WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`style = 
                  Lookup[WolframInstitute`InfraGeometry`\
@@ -10009,13 +10055,14 @@ PackagePrivate`e["Color"]]]}, {
 PackagePrivate`u = 
                  Normalize[
                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`tip - 
+PackagePrivate`tip - Lookup[
                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`coords[
+PackagePrivate`coords, 
+                    Key[
                     Part[
                     
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`e["Walk"], -2]]], 
+PackagePrivate`e["Walk"], -2]]]], 
                  WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`size = 5 + 2 First[
                     Cases[
@@ -10199,7 +10246,9 @@ PackagePrivate`shape = Lookup[
 PackagePrivate`vertexShapes, 
                     Key[
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`v], Disk[#, #3]& ], 
+PackagePrivate`v], 
+                    WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`disk[#, #3]& ], 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`hs = 
                     WolframInstitute`InfraGeometry`InfraSceneVisualization`\
@@ -10328,13 +10377,13 @@ causalHead = Alternatives[
          Blank[WolframInstitute`InfraCausality`InfraCausalPast], 
          Blank[WolframInstitute`InfraCausality`InfraCausalDiamond], 
          Blank[WolframInstitute`InfraCausality`InfraSlice], 
+         Blank[WolframInstitute`InfraCausality`InfraTimelikeGeodesic], 
          Blank[WolframInstitute`InfraCausality`InfraWorldline], 
-         Blank[WolframInstitute`InfraCausality`InfraObserver], 
          Blank[WolframInstitute`InfraCausality`InfraFutureLightCone], 
          Blank[WolframInstitute`InfraCausality`InfraPastLightCone], 
          Blank[WolframInstitute`InfraCausality`InfraMessageFunction], 
          Blank[WolframInstitute`InfraCausality`InfraEchoFunction], 
-         Blank[WolframInstitute`InfraCausality`InfraRadarChart]], 
+         Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
        TagSetDelayed[WolframInstitute`InfraCausality`InfraCausalFuture, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
@@ -10389,7 +10438,7 @@ PackagePrivate`anchor]]]]},
           Sort[
            Keys[
             Select[
-             WolframInstitute`InfraCausality`UniversalTime[
+             WolframInstitute`InfraCausality`CausalHeight[
              WolframInstitute`InfraCausality`InfraCausalFuture`PackagePrivate`\
 future], 
              LessEqualThan[
@@ -11121,6 +11170,341 @@ PackagePrivate`between, {2}]]]],
 benincasaDowkerCoefficients[2] = {4, (-1)/2, {1, -2, 1}}, 
        WolframInstitute`InfraCausality`PackageScope`\
 benincasaDowkerCoefficients[4] = {2 Sqrt[2/3], -1, {1, -9, 16, -8}}, 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`q, 
+           Blank[]]], "Graph"], 
+        With[{
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+interval = Subgraph[
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+            Intersection[
+             VertexOutComponent[
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, {
+              WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p}], 
+             VertexInComponent[
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, {
+              WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`q}]]]}, {
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+up = WolframInstitute`InfraCausality`CausalHeight[
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`interval], 
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`down = WolframInstitute`InfraCausality`CausalHeight[
+            ReverseGraph[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`interval]]}, {
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+carriers = Select[
+            VertexList[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`interval], 
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[#] + 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`down[#] == 
+            Lookup[WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up, 
+              Key[
+              WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`q]]& ]}, 
+         Graph[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+carriers, 
+          Select[
+           EdgeList[
+            Subgraph[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`interval, 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`carriers]], 
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[
+             Last[#]] == 
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[
+              First[#]] + 1& ]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[], "Graph"], 
+        With[{
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+up = WolframInstitute`InfraCausality`CausalHeight[
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph], 
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`down = WolframInstitute`InfraCausality`CausalHeight[
+            ReverseGraph[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph]]}, {
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+carriers = Select[
+            VertexList[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph], 
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[#] + 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`down[#] == Max[0, 
+              Values[
+              WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up]]& ]}, 
+         Graph[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+carriers, 
+          Select[
+           EdgeList[
+            Subgraph[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`carriers]], 
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[
+             Last[#]] == 
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[
+              First[#]] + 1& ]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p, 
+           Blank[]], 
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`q, 
+           Blank[]]], "Length"], 
+        Lookup[
+         WolframInstitute`InfraCausality`CausalHeight[
+          Subgraph[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+           Intersection[
+            VertexOutComponent[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, {
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p}], 
+            VertexInComponent[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, {
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`q}]]]], 
+         Key[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+q], -Infinity]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[], "Length"], 
+        Max[0, 
+         Values[
+          WolframInstitute`InfraCausality`CausalHeight[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p, 
+           Blank[]]], "Graph"], 
+        With[{
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+future = Subgraph[
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+            VertexOutComponent[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, {
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p}]]}, {
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+up = WolframInstitute`InfraCausality`CausalHeight[
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`future], 
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`down = WolframInstitute`InfraCausality`CausalHeight[
+            ReverseGraph[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`future]]}, {
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+carriers = Select[
+            VertexList[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`future], 
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[#] + 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`down[#] == Max[
+              Values[
+              WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up]]& ]}, 
+         Graph[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+carriers, 
+          Select[
+           EdgeList[
+            Subgraph[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`future, 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`carriers]], 
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[
+             Last[#]] == 
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`up[
+              First[#]] + 1& ]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p, 
+           Blank[]]], "Length"], 
+        Max[
+         Values[
+          WolframInstitute`InfraCausality`CausalHeight[
+           Subgraph[
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+            VertexOutComponent[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, {
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`p}]]]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`knots, 
+           Repeated[
+            Blank[], {3, Infinity}]]], "Graph"], 
+        With[{
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+legs = Map[
+           WolframInstitute`InfraGeometry`InfraMeasurement[
+            WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+             Apply[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, #], 
+             "Graph"]& , 
+            
+            Partition[{
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`knots}, 2, 1]]}, 
+         If[
+          AnyTrue[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`legs, VertexCount[#] == 0& ], 
+          Graph[{}, {}], 
+          Graph[
+           DeleteDuplicates[
+            Catenate[
+             Map[
+             VertexList, 
+              WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`legs]]], 
+           Catenate[
+            Map[
+            EdgeList, 
+             WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`legs]]]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`knots, 
+           Repeated[
+            Blank[], {3, Infinity}]]], "Length"], 
+        Total[
+         Map[
+         WolframInstitute`InfraGeometry`InfraMeasurement[
+          WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`graph, 
+           Apply[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, #], 
+           "Length"]& , 
+          
+          Partition[{
+           WolframInstitute`InfraCausality`InfraTimelikeGeodesic`\
+PackagePrivate`knots}, 2, 1]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Blank[Graph], 
+         Blank[WolframInstitute`InfraCausality`InfraTimelikeGeodesic], 
+         "Faithful"], True], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         Pattern[
+         WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+geodesic, 
+          Blank[WolframInstitute`InfraCausality`InfraTimelikeGeodesic]], All], 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+        WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraTimelikeGeodesic`PackagePrivate`\
+geodesic, {
+         "Graph", "Faithful", "Cardinality", "Length", "VertexDensity", 
+          "EdgeDensity", "Subgraph", "CountingMeasure", 
+          "RiemannianMeasure"}]], 
+       TagSet[WolframInstitute`InfraCausality`InfraTimelikeGeodesic, 
+        MessageName[
+        WolframInstitute`InfraCausality`InfraTimelikeGeodesic, "usage"], 
+        "InfraTimelikeGeodesic[p, q] is the set of timelike geodesics from p \
+to q, every longest chain between them; InfraTimelikeGeodesic[p1, ..., pk] is \
+the set of piecewise geodesics through the knots p1, ..., pk; \
+InfraTimelikeGeodesic[p] is the set of longest chains starting at p; \
+InfraTimelikeGeodesic[] is the set of longest chains of the graph."], 
        TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
@@ -11134,51 +11518,17 @@ benincasaDowkerCoefficients[4] = {2 Sqrt[2/3], -1, {1, -9, 16, -8}},
           Pattern[
           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q, 
            Blank[]]], "Graph"], 
-        With[{
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-interval = Subgraph[
+        TransitiveReductionGraph[
+         Subgraph[
+         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
+          
+          Intersection[
+           VertexOutComponent[
            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, 
-            Intersection[
-             VertexOutComponent[
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
 graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p}], 
-             VertexInComponent[
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q}]]]}, \
-{WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up = 
-          WolframInstitute`InfraCausality`UniversalTime[
+           VertexInComponent[
            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-interval], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`down = 
-          WolframInstitute`InfraCausality`UniversalTime[
-            ReverseGraph[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-interval]]}, {
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers = Select[
-            VertexList[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-interval], 
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[#\
-] + WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`down[#] == 
-            Lookup[WolframInstitute`InfraCausality`InfraWorldline`\
-PackagePrivate`up, 
-              Key[
-              WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q]\
-]& ]}, 
-         Graph[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers, 
-          Select[
-           EdgeList[
-            Subgraph[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-interval, 
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers]], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
-             Last[#]] == 
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
-              First[#]] + 1& ]]]], 
+graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q}]]]]], 
        TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
@@ -11186,206 +11536,23 @@ carriers]], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
           
           Blank[Graph]], 
          WolframInstitute`InfraCausality`InfraWorldline[], "Graph"], 
-        With[{
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up = 
-          WolframInstitute`InfraCausality`UniversalTime[
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`down = 
-          WolframInstitute`InfraCausality`UniversalTime[
-            ReverseGraph[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph]]}, {
+        TransitiveReductionGraph[
+        WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
+          
+          Blank[Graph]], 
+         Pattern[
          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers = Select[
-            VertexList[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[#] + 
-             
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-down[#] == Max[0, 
-              Values[
-              WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-up]]& ]}, 
-         Graph[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers, 
-          Select[
-           EdgeList[
-            Subgraph[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`carriers]\
-], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
-             Last[#]] == 
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
-              First[#]] + 1& ]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraWorldline[
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p, 
-           Blank[]], 
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q, 
-           Blank[]]], "Length"], 
-        Lookup[
-         WolframInstitute`InfraCausality`UniversalTime[
-          Subgraph[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-           Intersection[
-            VertexOutComponent[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p}], 
-            VertexInComponent[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q}]]]], 
-         
-         Key[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q], -
-         Infinity]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraWorldline[], "Length"], 
-        Max[0, 
-         Values[
-          WolframInstitute`InfraCausality`UniversalTime[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph]\
-]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraWorldline[
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p, 
-           Blank[]]], "Graph"], 
-        With[{
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`future = 
-          Subgraph[
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, 
-            VertexOutComponent[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p}]]}, {
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up = 
-          WolframInstitute`InfraCausality`UniversalTime[
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-future], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`down = 
-          WolframInstitute`InfraCausality`UniversalTime[
-            ReverseGraph[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-future]]}, {
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers = Select[
-            VertexList[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-future], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[#] + 
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-down[#] == Max[
-              Values[
-              WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-up]]& ]}, 
-         Graph[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers, 
-          Select[
-           EdgeList[
-            Subgraph[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-future, WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-carriers]], WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
-             Last[#]] == 
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`up[
-              First[#]] + 1& ]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraWorldline[
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p, 
-           Blank[]]], "Length"], 
-        Max[
-         Values[
-          WolframInstitute`InfraCausality`UniversalTime[
-           Subgraph[
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, 
-            VertexOutComponent[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p}]]]]]]\
-, 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraWorldline[
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`knots, 
-           Repeated[
-            Blank[], {3, Infinity}]]], "Graph"], 
-        With[{
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`legs = 
-          Map[WolframInstitute`InfraGeometry`InfraMeasurement[
-            WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, 
-             Apply[WolframInstitute`InfraCausality`InfraWorldline, #], 
-             "Graph"]& , 
-            
-            Partition[{
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-knots}, 2, 1]]}, 
-         If[
-          AnyTrue[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`legs, 
-           VertexCount[#] == 0& ], 
-          Graph[{}, {}], 
-          Graph[
-           DeleteDuplicates[
-            Catenate[
-             Map[
-             VertexList, 
-              WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-legs]]], 
-           Catenate[
-            Map[
-            EdgeList, 
-             WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-legs]]]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraWorldline[
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`knots, 
-           Repeated[
-            Blank[], {3, Infinity}]]], "Length"], 
-        Total[
-         Map[
+worldline, 
+          Blank[WolframInstitute`InfraCausality`InfraWorldline]], "Length"], 
+        WolframInstitute`InfraCausality`PackageScope`chainLengths[
          WolframInstitute`InfraGeometry`InfraMeasurement[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-           Apply[WolframInstitute`InfraCausality`InfraWorldline, #], 
-           "Length"]& , 
-          
-          Partition[{
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-knots}, 2, 1]]]], 
+         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
+          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
+worldline, "Graph"]]], 
        TagSetDelayed[WolframInstitute`InfraCausality`InfraWorldline, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Blank[Graph], 
@@ -11410,86 +11577,9 @@ worldline, {
           "RiemannianMeasure"}]], 
        TagSet[WolframInstitute`InfraCausality`InfraWorldline, 
         MessageName[WolframInstitute`InfraCausality`InfraWorldline, "usage"], 
-        "InfraWorldline[p, q] is the set of timelike geodesics from p to q, \
-every longest chain between them; InfraWorldline[p1, ..., pk] is the set of \
-piecewise geodesics through the knots p1, ..., pk; InfraWorldline[p] is the \
-set of longest chains starting at p; InfraWorldline[] is the set of longest \
-chains of the graph."], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraObserver, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraObserver[
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p, 
-           Blank[]], 
-          Pattern[
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q, 
-           Blank[]]], "Graph"], 
-        TransitiveReductionGraph[
-         Subgraph[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Intersection[
-           VertexOutComponent[
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`p}], 
-           VertexInComponent[
-           WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-graph, {WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`q}]]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraObserver, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraObserver[], "Graph"], 
-        TransitiveReductionGraph[
-        WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraObserver, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-observer, 
-          Blank[WolframInstitute`InfraCausality`InfraObserver]], "Length"], 
-        WolframInstitute`InfraCausality`PackageScope`chainLengths[
-         WolframInstitute`InfraGeometry`InfraMeasurement[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-observer, "Graph"]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraObserver, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Blank[Graph], 
-         Blank[WolframInstitute`InfraCausality`InfraObserver], "Faithful"], 
-        True], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraObserver, 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-          
-          Blank[Graph]], 
-         Pattern[
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-observer, 
-          Blank[WolframInstitute`InfraCausality`InfraObserver]], All], 
-        WolframInstitute`InfraGeometry`InfraMeasurement[
-        WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`graph, 
-         WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`\
-observer, {
-         "Graph", "Faithful", "Cardinality", "Length", "VertexDensity", 
-          "EdgeDensity", "Subgraph", "CountingMeasure", 
-          "RiemannianMeasure"}]], 
-       TagSet[WolframInstitute`InfraCausality`InfraObserver, 
-        MessageName[WolframInstitute`InfraCausality`InfraObserver, "usage"], 
-        "InfraObserver[p, q] is the set of observers from p to q, every \
-saturated chain between them; InfraObserver[] is the set of inextendible \
-saturated chains, source to sink."], 
+        "InfraWorldline[p, q] is the set of worldlines from p to q, every \
+saturated chain between them; InfraWorldline[] is the set of inextendible \
+worldlines, source to sink."], 
        WolframInstitute`InfraCausality`PackageScope`chainLengths[
          Pattern[
          WolframInstitute`InfraCausality`InfraWorldline`PackagePrivate`dag, 
@@ -11565,7 +11655,7 @@ graph,
             WolframInstitute`InfraCausality`InfraLightCone`PackagePrivate`\
 graph, {WolframInstitute`InfraCausality`InfraLightCone`PackagePrivate`v}]]}, {
          WolframInstitute`InfraCausality`InfraLightCone`PackagePrivate`tau = 
-          WolframInstitute`InfraCausality`UniversalTime[
+          WolframInstitute`InfraCausality`CausalHeight[
            WolframInstitute`InfraCausality`InfraLightCone`PackagePrivate`\
 future]}, {
          WolframInstitute`InfraCausality`InfraLightCone`PackagePrivate`null = 
@@ -11683,7 +11773,7 @@ rays, the maximal chains of the cone into v."],
             OptionValue[
             WolframInstitute`InfraCausality`PackageScope`relationDefect, {
              WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`opts}, 
-             "Boundary"]]}, 
+             "Margin"]]}, 
          Condition[
           WolframInstitute`InfraCausality`PackageScope`relationDefect[
            WolframInstitute`InfraCausality`PackageScope`messageRelation[
@@ -11719,7 +11809,7 @@ earliestImage[
               OptionValue[
               WolframInstitute`InfraCausality`PackageScope`relationDefect, {
                WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`opts}\
-, "Boundary"]], WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`b], 
+, "Margin"]], WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`b], 
             WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`b]}, 
          Condition[
           WolframInstitute`InfraCausality`PackageScope`tickSpanRatio[
@@ -11802,6 +11892,27 @@ a,
           Pattern[
           WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
 b, 
+           Blank[List]]], "SelectionGraph"], 
+        WolframInstitute`InfraCausality`PackageScope`selectionDAG[
+         WolframInstitute`InfraCausality`PackageScope`messageDomain[
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`a, 
+          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+b], WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`b]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraMessageFunction, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         WolframInstitute`InfraCausality`InfraMessageFunction[
+          Pattern[
+          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+a, 
+           Blank[List]], 
+          Pattern[
+          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+b, 
            Blank[List]]], "Cardinality"], 
         With[{
          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
@@ -11844,9 +11955,7 @@ PackagePrivate`w]]]]]],
              WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`ws]], <|Missing["Start"] -> 1|>, 
            Values[
-            
-            WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`messageDomain[
+            WolframInstitute`InfraCausality`PackageScope`messageDomain[
             WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`graph, 
              WolframInstitute`InfraCausality`InfraMessageFunction`\
@@ -11872,7 +11981,7 @@ message,
         WolframInstitute`InfraGeometry`InfraMeasurement[
         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
 graph, WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-message, {"Relation", "Graph", "Cardinality", "Faithful"}]], 
+message, {"Relation", "Graph", "SelectionGraph", "Cardinality", "Faithful"}]], 
        TagSetDelayed[WolframInstitute`InfraCausality`InfraMessageFunction, 
         WolframInstitute`InfraGeometry`InfraMemberQ[
          Pattern[
@@ -11989,21 +12098,20 @@ relation]]}, Count[
            WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`spans], 
            2]]], Options[
         WolframInstitute`InfraCausality`PackageScope`relationDefect] = {
-        "Boundary" -> 0}, 
+        "Margin" -> 0}, 
        WolframInstitute`InfraCausality`PackageScope`tickWindow[
          Pattern[
          WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`a, 
           Blank[List]], 
          Pattern[
-         WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`boundary, 
+         WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`margin, 
           Blank[Integer]]] := 
        Part[WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`a, 
          Range[
-         WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`boundary + 
-          1, Length[
-           WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`a] - 
-          WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`boundary]]\
-, WolframInstitute`InfraCausality`PackageScope`messageRelation[
+         WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`margin + 1,
+           Length[WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`a]\
+ - WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`margin]], 
+       WolframInstitute`InfraCausality`PackageScope`messageRelation[
          Pattern[
          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
 graph, 
@@ -12094,8 +12202,111 @@ ws,
          WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`position[
           First[
           WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`sent]])], 
-       WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-messageDomain[
+       WolframInstitute`InfraCausality`PackageScope`selectionDAG[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+relation, 
+          Blank[Association]], 
+         Pattern[
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+b, 
+          Blank[List]]] := 
+       With[{WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`layers = Values[
+            Select[
+            WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`relation, # =!= {}& ]], 
+          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+position = AssociationThread[
+           WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`b, 
+            Range[
+             Length[
+             WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`b]]]}, {
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+nodes = Join[{{{0}}}, 
+            MapIndexed[
+             
+             Function[{
+              WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`ws, 
+               WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`k}, 
+              Map[{
+                First[
+                WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`k], #}& , 
+               WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`ws]], 
+             WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`layers], {{{
+              Length[WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`layers] + 1}}}]}, {
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+dag = Graph[
+            Catenate[
+            WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`nodes], 
+            Catenate[
+             MapThread[
+              
+              Function[{
+               WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`lower, 
+                WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`upper}, 
+               MapApply[DirectedEdge, 
+                Select[
+                 
+                 Tuples[{
+                  WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`lower, 
+                   WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`upper}], 
+                 Apply[
+                  
+                  Function[{
+                   WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`m, 
+                    WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`n}, 
+                   Or[
+                   Length[WolframInstitute`InfraCausality`\
+InfraMessageFunction`PackagePrivate`m] == 1, 
+                    Length[WolframInstitute`InfraCausality`\
+InfraMessageFunction`PackagePrivate`n] == 1, 
+                    Lookup[WolframInstitute`InfraCausality`\
+InfraMessageFunction`PackagePrivate`position, 
+                    Key[
+                    Last[
+                    WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`m]]] <= 
+                    Lookup[WolframInstitute`InfraCausality`\
+InfraMessageFunction`PackagePrivate`position, 
+                    Key[
+                    Last[
+                    WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`n]]]]]]]]], {
+               Most[
+               WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`nodes], 
+               Rest[
+               WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`nodes]}]]]}, 
+         Subgraph[
+         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
+dag, 
+          Intersection[
+           VertexOutComponent[
+           WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`dag, {{0}}], 
+           VertexInComponent[
+           WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`dag, {{
+             Length[WolframInstitute`InfraCausality`InfraMessageFunction`\
+PackagePrivate`layers] + 1}}]]]], 
+       WolframInstitute`InfraCausality`PackageScope`messageDomain[
          Pattern[
          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
 graph, 
@@ -12132,8 +12343,7 @@ f,
           Blank[Association]]] := 
        With[{WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`relation = 
-          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-messageDomain[
+          WolframInstitute`InfraCausality`PackageScope`messageDomain[
            WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`graph, 
             WolframInstitute`InfraCausality`InfraMessageFunction`\
@@ -12221,7 +12431,7 @@ has one and preserves the order (EPS D1)."],
             OptionValue[
             WolframInstitute`InfraCausality`PackageScope`relationDefect, {
              WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`opts}, 
-             "Boundary"]]}, 
+             "Margin"]]}, 
          Condition[
           WolframInstitute`InfraCausality`PackageScope`relationDefect[
            KeyTake[
@@ -12264,8 +12474,8 @@ earliestImage[
               OptionValue[
               WolframInstitute`InfraCausality`PackageScope`relationDefect, {
                WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`opts}\
-, "Boundary"]]], 
-            WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`a]}, 
+, "Margin"]]], WolframInstitute`InfraCausality`EPSDefects`PackagePrivate`a]}, 
+         
          Condition[
           Sqrt[
            WolframInstitute`InfraCausality`PackageScope`tickSpanRatio[
@@ -12452,9 +12662,7 @@ b,
        With[{WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`there = 
           WolframInstitute`InfraCausality`PackageScope`monotoneSelections[
-            
-            WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`messageDomain[
+            WolframInstitute`InfraCausality`PackageScope`messageDomain[
             WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`graph, 
              WolframInstitute`InfraCausality`InfraMessageFunction`\
@@ -12465,9 +12673,7 @@ PackagePrivate`b],
 PackagePrivate`b], 
           WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
 back = WolframInstitute`InfraCausality`PackageScope`monotoneSelections[
-            
-            WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`messageDomain[
+            WolframInstitute`InfraCausality`PackageScope`messageDomain[
             WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`graph, 
              WolframInstitute`InfraCausality`InfraMessageFunction`\
@@ -12523,110 +12729,6 @@ PackagePrivate`relation],
 dag, {0}, {
            Length[WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`relation] + 1}, Infinity, All]]], 
-       WolframInstitute`InfraCausality`PackageScope`selectionDAG[
-         Pattern[
-         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-relation, 
-          Blank[Association]], 
-         Pattern[
-         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-b, 
-          Blank[List]]] := 
-       With[{WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`layers = Values[
-            Select[
-            WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`relation, # =!= {}& ]], 
-          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-position = AssociationThread[
-           WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`b, 
-            Range[
-             Length[
-             WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`b]]]}, {
-         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-nodes = Join[{{{0}}}, 
-            MapIndexed[
-             
-             Function[{
-              WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`ws, 
-               WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`k}, 
-              Map[{
-                First[
-                WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`k], #}& , 
-               WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`ws]], 
-             WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`layers], {{{
-              Length[WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`layers] + 1}}}]}, {
-         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-dag = Graph[
-            Catenate[
-            WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`nodes], 
-            Catenate[
-             MapThread[
-              
-              Function[{
-               WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`lower, 
-                WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`upper}, 
-               MapApply[DirectedEdge, 
-                Select[
-                 
-                 Tuples[{
-                  WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`lower, 
-                   WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`upper}], 
-                 Apply[
-                  
-                  Function[{
-                   WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`m, 
-                    WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`n}, 
-                   Or[
-                   Length[WolframInstitute`InfraCausality`\
-InfraMessageFunction`PackagePrivate`m] == 1, 
-                    Length[WolframInstitute`InfraCausality`\
-InfraMessageFunction`PackagePrivate`n] == 1, 
-                    Lookup[WolframInstitute`InfraCausality`\
-InfraMessageFunction`PackagePrivate`position, 
-                    Key[
-                    Last[
-                    WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`m]]] <= 
-                    Lookup[WolframInstitute`InfraCausality`\
-InfraMessageFunction`PackagePrivate`position, 
-                    Key[
-                    Last[
-                    WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`n]]]]]]]]], {
-               Most[
-               WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`nodes], 
-               Rest[
-               WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`nodes]}]]]}, 
-         Subgraph[
-         WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-dag, 
-          Intersection[
-           VertexOutComponent[
-           WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`dag, {{0}}], 
-           VertexInComponent[
-           WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`dag, {{
-             Length[WolframInstitute`InfraCausality`InfraMessageFunction`\
-PackagePrivate`layers] + 1}}]]]], 
        WolframInstitute`InfraCausality`InfraEchoFunctionQ[
          Pattern[
          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
@@ -12647,8 +12749,7 @@ f,
           Blank[Association]]] := 
        With[{WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`there = 
-          WolframInstitute`InfraCausality`InfraMessageFunction`PackagePrivate`\
-messageDomain[
+          WolframInstitute`InfraCausality`PackageScope`messageDomain[
            WolframInstitute`InfraCausality`InfraMessageFunction`\
 PackagePrivate`graph, 
             WolframInstitute`InfraCausality`InfraMessageFunction`\
@@ -12846,358 +12947,460 @@ PackagePrivate`layers]]] =!= {}]]],
 association f is the composition of two message functions, one from a to b \
 and one back, decided by a path search in the selection DAG without \
 enumerating them."], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         Condition[
          WolframInstitute`InfraGeometry`InfraMeasurement[
           Pattern[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
            Blank[Graph]], 
-          WolframInstitute`InfraCausality`InfraRadarChart[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates[
            Pattern[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-observers, 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`observers, 
             Blank[]]], "Coordinates"], 
          WolframInstitute`InfraCausality`PackageScope`observerListQ[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 observers]], 
         With[{
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 charts = Map[
            WolframInstitute`InfraGeometry`InfraMeasurement[
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, 
-             WolframInstitute`InfraCausality`InfraRadarChart[#], 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
+             WolframInstitute`InfraCausality`InfraRadarCoordinates[#], 
              "Coordinates"]& , 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-observers]}, {
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`observers]}, {
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 domain = Apply[Intersection, 
             Map[
-            Keys, WolframInstitute`InfraCausality`InfraRadarChart`\
+            Keys, WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`charts]]}, 
          KeySort[
           AssociationMap[
            Function[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`e, 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`e, 
             Catenate[
              
-             Map[#[WolframInstitute`InfraCausality`InfraRadarChart`\
+             Map[#[WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`e]& , 
-              WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-charts]]], 
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-domain]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+              WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`charts]]], 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`domain]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraRadarChart[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates[
           Pattern[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`a, 
            Blank[List]]], "Coordinates"], 
         Map[
          Apply[
           
           Function[{
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`i, 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`j},\
- {(WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`i + 
-             WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`j)\
-/2, (WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`j - 
-             WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`i)\
-/2}]], 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`i, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`j}, {(
+             WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`i + 
+             WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`j)/
+            2, (WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`j - 
+             WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`i)/2}]], 
          WolframInstitute`InfraCausality`PackageScope`radarTicks[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a]]]\
-, 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`a]\
+]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         Condition[
          WolframInstitute`InfraGeometry`InfraMeasurement[
           Pattern[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
            Blank[Graph]], 
-          WolframInstitute`InfraCausality`InfraRadarChart[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates[
            Pattern[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-observers, 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`observers, 
             Blank[]]], "Time"], 
          WolframInstitute`InfraCausality`PackageScope`observerListQ[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 observers]], 
         Map[Part[#, 
           Span[1, All, 2]]& , 
          WolframInstitute`InfraGeometry`InfraMeasurement[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
-          WolframInstitute`InfraCausality`InfraRadarChart[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-observers], "Coordinates"]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`observers], "Coordinates"]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraRadarChart[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates[
           Pattern[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`a, 
            Blank[List]]], "Time"], 
         Map[Mean, 
          WolframInstitute`InfraCausality`PackageScope`radarTicks[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a]]]\
-, 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`a]\
+]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         Condition[
          WolframInstitute`InfraGeometry`InfraMeasurement[
           Pattern[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
            Blank[Graph]], 
-          WolframInstitute`InfraCausality`InfraRadarChart[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates[
            Pattern[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-observers, 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`observers, 
             Blank[]]], "Distance"], 
          WolframInstitute`InfraCausality`PackageScope`observerListQ[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 observers]], 
         Map[Part[#, 
           Span[2, All, 2]]& , 
          WolframInstitute`InfraGeometry`InfraMeasurement[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
-          WolframInstitute`InfraCausality`InfraRadarChart[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-observers], "Coordinates"]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`observers], "Coordinates"]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
-         WolframInstitute`InfraCausality`InfraRadarChart[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates[
           Pattern[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a, 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`a, 
            Blank[List]]], "Distance"], 
         Map[
          Apply[
           
           Function[{
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`i, 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`j},\
- (WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`j - 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`i)/
-           2]], 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`i, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`j}, (
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`j - 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`i)/2]], 
          WolframInstitute`InfraCausality`PackageScope`radarTicks[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a]]]\
-, 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`a]\
+]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-          Blank[WolframInstitute`InfraCausality`InfraRadarChart]], "Domain"], 
-        
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
+         "Domain"], 
         Keys[
          WolframInstitute`InfraGeometry`InfraMeasurement[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 chart, "Coordinates"]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-          Blank[WolframInstitute`InfraCausality`InfraRadarChart]], 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
+         "VertexDensity"], 
+        AssociationThread[
+         WolframInstitute`InfraGeometry`InfraMeasurement[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, "Domain"], 1]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
+         "EdgeDensity"], 
+        AssociationThread[
+         EdgeList[
+          Subgraph[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
+           WolframInstitute`InfraGeometry`InfraMeasurement[
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`chart, "Domain"]]], 1]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
+        WolframInstitute`InfraGeometry`InfraMeasurement[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
          "Subgraph"], 
         With[{
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 coords = WolframInstitute`InfraGeometry`InfraMeasurement[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-            "Coordinates"]}, 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`chart, "Coordinates"]}, 
          Subgraph[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Keys[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-coords], VertexCoordinates -> Normal[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`coords], VertexCoordinates -> Normal[
             Map[
             WolframInstitute`InfraCausality`PackageScope`radarPosition, 
-             WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-coords]]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+             WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`coords]]]]], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-          Blank[WolframInstitute`InfraCausality`InfraRadarChart]], 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
          "BaseGraph"], 
         With[{
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 coords = WolframInstitute`InfraGeometry`InfraMeasurement[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-            "Coordinates"]}, {
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`cells = 
-          DeleteDuplicates[
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`chart, "Coordinates"]}, {
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+cells = DeleteDuplicates[
             Values[
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-coords]]}, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`coords]]}, 
          Graph[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`cells, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+cells, 
           DeleteDuplicates[
            Select[
             Map[Apply[DirectedEdge, 
               Map[
-              WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-coords, 
+              WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`coords, 
                Apply[List, #]]]& , 
              EdgeList[
               Subgraph[
-              WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, 
+              WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
                Keys[
-               WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-coords]]]], 
+               WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`coords]]]], 
             Apply[UnsameQ]]], VertexCoordinates -> 
           Map[# -> 
             WolframInstitute`InfraCausality`PackageScope`radarPosition[#]& , 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-cells], 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`cells], 
           Apply[Sequence, 
            FilterRules[
             WolframInstitute`InfraCausality`CausalSubstrateStyle["Small"], {
             VertexStyle, EdgeStyle, VertexSize}]]]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-          Blank[WolframInstitute`InfraCausality`InfraRadarChart]], 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
          "Fibration"], 
         WolframInstitute`InfraGeometry`InfraFibration[
          UndirectedGraph[
           WolframInstitute`InfraGeometry`InfraMeasurement[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-           "Subgraph"]], 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, 
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`chart, "Subgraph"]], 
          WolframInstitute`InfraGeometry`InfraMeasurement[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 chart, "Coordinates"]]], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Blank[Graph], 
-         Blank[WolframInstitute`InfraCausality`InfraRadarChart], "Faithful"], 
-        True], 
-       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarChart, 
+         Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates], 
+         "Faithful"], True], 
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
         WolframInstitute`InfraGeometry`InfraMeasurement[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart, 
-          Blank[WolframInstitute`InfraCausality`InfraRadarChart]], All], 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], All], 
         WolframInstitute`InfraGeometry`InfraMeasurement[
-        WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`chart,\
- {"Coordinates", "Time", "Distance", "Domain", "Subgraph", "BaseGraph", 
-          "Fibration", "Faithful"}]], 
-       TagSet[WolframInstitute`InfraCausality`InfraRadarChart, 
-        MessageName[WolframInstitute`InfraCausality`InfraRadarChart, "usage"],
-         "InfraRadarChart[a] is the radar chart of the observer a, giving \
-each event between its ticks the radar time (i + j)/2 and distance (j - i)/2 \
-of its emission tick i and reception tick j; a list of observers joins \
-charts."], WolframInstitute`InfraCausality`PackageScope`observerListQ[
+        WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, {"Coordinates", "Time", "Distance", "Domain", "VertexDensity", 
+          "EdgeDensity", "Subgraph", "BaseGraph", "Fibration", "Faithful"}]], 
+       
+       TagSetDelayed[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
+        WolframInstitute`InfraGeometry`InfraMemberQ[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, 
+          Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]], 
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+e, 
+          Blank[]]], 
+        MemberQ[
+         WolframInstitute`InfraGeometry`InfraMeasurement[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+chart, "Domain"], 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+e]], 
+       TagSet[WolframInstitute`InfraCausality`InfraRadarCoordinates, 
+        MessageName[
+        WolframInstitute`InfraCausality`InfraRadarCoordinates, "usage"], 
+        "InfraRadarCoordinates[a] gives the radar coordinates of the observer \
+a, each event between its ticks getting the radar time (i + j)/2 and distance \
+(j - i)/2 of its emission tick i and reception tick j; a list of observers \
+joins their coordinates."], 
+       WolframInstitute`InfraCausality`PackageScope`observerListQ[
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
+          Blank[Graph]], 
+         Pattern[
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 observers, {
            BlankSequence[List]}]] := Not[
          AllTrue[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
 observers, VertexQ[
-          WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, #]& ]], WolframInstitute`InfraCausality`PackageScope`observerListQ[
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, #]& ]], 
+       WolframInstitute`InfraCausality`PackageScope`observerListQ[
          Blank[Graph], 
          Blank[]] := False, 
        WolframInstitute`InfraCausality`PackageScope`radarTicks[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`graph, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+graph, 
           Blank[Graph]], 
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+a, 
           Blank[List]]] := 
-       With[{WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-futures = Map[
-           VertexOutComponent[
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, {#}]& , 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a],
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-pasts = Map[
-           VertexInComponent[
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-graph, {#}]& , 
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`a]}\
-, {WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`domain = 
-          Intersection[
+       With[{WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`futures = 
+          Map[VertexOutComponent[
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, {#}]& , 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`a], 
+          WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`pasts = 
+          Map[VertexInComponent[
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`graph, {#}]& , 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`a]}, {
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+domain = Intersection[
             First[
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-futures], 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`futures], 
             Last[
-            WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-pasts]]}, 
+            WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`pasts]]}, 
          KeySort[
           AssociationMap[
            Function[
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`e, {
-            
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`e, {
              Max[
               Pick[
                Range[
                 Length[
-                WolframInstitute`InfraCausality`InfraRadarChart`\
+                WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`a]], 
                Map[
                MemberQ[#, 
-                 WolframInstitute`InfraCausality`InfraRadarChart`\
+                 WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`e]& , 
-                WolframInstitute`InfraCausality`InfraRadarChart`\
+                WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`futures]]], 
              Min[
               Pick[
                Range[
                 Length[
-                WolframInstitute`InfraCausality`InfraRadarChart`\
+                WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`a]], 
                Map[
                MemberQ[#, 
-                 WolframInstitute`InfraCausality`InfraRadarChart`\
+                 WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`e]& , 
-                WolframInstitute`InfraCausality`InfraRadarChart`\
+                WolframInstitute`InfraCausality`InfraRadarCoordinates`\
 PackagePrivate`pasts]]]}], 
-           WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`\
-domain]]], WolframInstitute`InfraCausality`PackageScope`radarPosition[
+           WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`domain]]], 
+       WolframInstitute`InfraCausality`PackageScope`radarPosition[
          Pattern[
-         WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`c, 
+         WolframInstitute`InfraCausality`InfraRadarCoordinates`PackagePrivate`\
+c, 
           Blank[List]]] := 
-       Part[WolframInstitute`InfraCausality`InfraRadarChart`PackagePrivate`c, \
-{2, 1}], WolframInstitute`InfraCausality`CausalSubstrateStyle["Large"] = {
+       Part[WolframInstitute`InfraCausality`InfraRadarCoordinates`\
+PackagePrivate`c, {2, 1}], 
+       WolframInstitute`InfraCausality`CausalSubstrateStyle["Large"] = {
         EdgeStyle -> Directive[
            GrayLevel[0.62], 
            Opacity[0.3], 
@@ -13249,23 +13452,30 @@ CausalSubstrateStyle[name, size] those of a named substrate."],
          Pattern[
          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`fib, 
           Alternatives[
-           Blank[WolframInstitute`InfraGeometry`InfraTangentBundle], 
-           Blank[WolframInstitute`InfraGeometry`InfraCotangentBundle], 
-           Blank[WolframInstitute`InfraGeometry`InfraDisplacementBundle]]]] := 
+           WolframInstitute`InfraGeometry`InfraTangentBundle[
+            Blank[Graph], 
+            PatternTest[
+             Blank[Integer], Positive]], 
+           WolframInstitute`InfraGeometry`InfraCotangentBundle[
+            Blank[Graph], 
+            PatternTest[
+             Blank[Integer], Positive]], 
+           WolframInstitute`InfraGeometry`InfraDisplacementBundle[
+            Blank[Graph], 
+            PatternTest[
+             Blank[Integer], Positive]]]]] := 
        WolframInstitute`InfraGeometry`InfraFibration[
-         WolframInstitute`InfraGeometry`InfraTotalGraph[
+         WolframInstitute`InfraGeometry`InfraTotalSpace[
          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`fib]\
 , 
-         WolframInstitute`InfraGeometry`InfraFibrationAssociation[
+         WolframInstitute`InfraGeometry`InfraProjection[
          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`fib]\
 ], 
        TagSet[WolframInstitute`InfraGeometry`InfraFibration, 
         MessageName[WolframInstitute`InfraGeometry`InfraFibration, "usage"], 
-        "InfraFibration[total, proj] is a fibration of graphs: the total \
-graph with its projection to the base, an association or a function on the \
-vertices of total.\nInfraFibration[fib] gives the construction fib, such as \
-InfraTangentBundle[g, r], as a literal InfraFibration, computing its total \
-graph once."], 
+        "InfraFibration[total, projection] is the inert legacy spelling of \
+InfraFiberedGraph. InfraFibration[model] materializes an experimental \
+construction."], 
        TagSet[WolframInstitute`InfraGeometry`InfraTangentBundle, 
         MessageName[
         WolframInstitute`InfraGeometry`InfraTangentBundle, "usage"], 
@@ -13284,15 +13494,7 @@ vertex, with the adjacency of InfraTangentBundle."],
         "InfraDisplacementBundle[g, r] is the displacement bundle of g at \
 scale r: the total vertices are the pairs {p, v} with d(p, v) = r, projected \
 to p, two pairs adjacent iff their base points and their endpoints are equal \
-or adjacent."], WolframInstitute`InfraGeometry`InfraTotalGraph[
-         WolframInstitute`InfraGeometry`InfraFibration[
-          Pattern[
-          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total, 
-           
-           Blank[Graph]], 
-          Blank[]]] := 
-       WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total, 
-       WolframInstitute`InfraGeometry`InfraTotalGraph[
+or adjacent."], WolframInstitute`InfraGeometry`InfraTotalSpace[
          WolframInstitute`InfraGeometry`InfraTangentBundle[
           Pattern[
           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13310,85 +13512,48 @@ rays = Catenate[
 g, #, WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r]& , 
              VertexList[
              WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g]]], WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`close = 
-          AdjacencyMatrix[
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g] + IdentityMatrix[
-             VertexCount[
-             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g], SparseArray]}, {
+g]]]}, 
+         If[
          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-indices = Map[
-           VertexIndex[
+rays === {}, 
+          Graph[{}, {}], 
+          
+          With[{WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`close = 
+            AdjacencyMatrix[
+              WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`g] + IdentityMatrix[
+               VertexCount[
+               WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`g], SparseArray], 
             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g, #]& , WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-rays, {2}], 
-          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-coordinates = 
-          GraphEmbedding[
-           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g]\
-}, {WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+indices = Map[
+             VertexIndex[
+              WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`g, #]& , 
+              WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`rays, {2}]}, {
+           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
 adjacency = UpperTriangularize[
-            Apply[Times, 
+              Apply[Times, 
+               Map[
+               Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`close, #, #]& , 
+                Transpose[
+                WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`indices]]], 1]}, 
+           Graph[
+           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+rays, 
+            MapApply[UndirectedEdge, 
              Map[
              Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`close, #, #]& , 
-              Transpose[
-              WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices]]], 1]}, {
-         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-offsets = Map[
-            Function[
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-ray, 
-             Dot[
-             2^Range[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`r], 
-              
-              Map[# - First[
-               WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`ray]& , 
-               Rest[
-               WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`ray]]]], 
-            Map[
-            Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`coordinates, #]& , 
-             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-indices]]}, {
-         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-scale = Min[
-             Map[Apply[EuclideanDistance, 
-               Part[
-               WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`coordinates, 
-                Apply[List, #]]]& , 
-              EdgeList[
-               IndexGraph[
-               WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`g]]]]/3}, 
-         Graph[
-         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-rays, 
-          MapApply[UndirectedEdge, 
-           Map[
-           Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
 PackagePrivate`rays, #]& , 
-            Sort[
-             
-             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-adjacency["NonzeroPositions"]], {2}]], VertexCoordinates -> 
-          Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`coordinates, 
-             Map[
-             First, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices]] + 
-           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-scale (WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-offsets/Max[
-              Map[
-              Norm, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`offsets]])]], WolframInstitute`InfraGeometry`InfraTotalGraph[
+              Sort[
+               
+               WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`adjacency["NonzeroPositions"]], {2}]]]]]], 
+       WolframInstitute`InfraGeometry`InfraTotalSpace[
          WolframInstitute`InfraGeometry`InfraCotangentBundle[
           Pattern[
           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13399,7 +13564,7 @@ PackagePrivate`offsets]])]], WolframInstitute`InfraGeometry`InfraTotalGraph[
            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r, 
             Blank[Integer]], Positive]]] := 
        With[{WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-tangent = WolframInstitute`InfraGeometry`InfraTotalGraph[
+tangent = WolframInstitute`InfraGeometry`InfraTotalSpace[
             WolframInstitute`InfraGeometry`InfraTangentBundle[
             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
 g, WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r]]}, 
@@ -13411,10 +13576,7 @@ tangent]],
           Map[Reverse, 
            EdgeList[
            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-tangent], {2}], VertexCoordinates -> 
-          GraphEmbedding[
-           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-tangent]]], WolframInstitute`InfraGeometry`InfraTotalGraph[
+tangent], {2}]]], WolframInstitute`InfraGeometry`InfraTotalSpace[
          WolframInstitute`InfraGeometry`InfraDisplacementBundle[
           Pattern[
           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13425,93 +13587,93 @@ tangent]]], WolframInstitute`InfraGeometry`InfraTotalGraph[
            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r, 
             Blank[Integer]], Positive]]] := 
        With[{WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-indices = Position[
-            GraphDistanceMatrix[
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g], WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r, {2}], 
-          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-close = AdjacencyMatrix[
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g] + IdentityMatrix[
-             VertexCount[
+indices = If[
+           VertexCount[
              WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g], SparseArray]}, {
+g] === 0, {}, 
+            Position[
+             GraphDistanceMatrix[
+             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+g], WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r, {
+             2}]]}, 
+         If[
          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+indices === {}, 
+          Graph[{}, {}], 
+          
+          With[{WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`close = 
+            AdjacencyMatrix[
+              WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`g] + IdentityMatrix[
+               VertexCount[
+               WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`g], SparseArray], 
+            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
 pairs = Map[Part[
-             VertexList[
-             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g], #]& , 
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-indices], 
-          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-coordinates = 
-          GraphEmbedding[
-           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g]\
-}, {WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-adjacency = 
-          UpperTriangularize[
-           Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`close, 
-              Map[
-              First, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices], 
-              Map[
-              First, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices]] 
-            Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`close, 
-              Map[
-              Last, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices], 
-              Map[
-              Last, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices]], 1]}, {
-         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-offsets = Map[
-           Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`coordinates, 
-              Last[#]] - Part[
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-coordinates, 
-             First[#]]& , 
-            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-indices]}, {
-         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-scale = Min[
-             Map[Apply[EuclideanDistance, 
-               Part[
+               VertexList[
                WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`coordinates, 
-                Apply[List, #]]]& , 
-              EdgeList[
-               IndexGraph[
-               WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`g]]]]/3}, 
-         Graph[
-         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-pairs, 
-          MapApply[UndirectedEdge, 
-           Map[
-           Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`pairs, #]& , 
-            Sort[
-             
-             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-adjacency["NonzeroPositions"]], {2}]], VertexCoordinates -> 
-          Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`coordinates, 
-             Map[
-             First, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`indices]] + 
+PackagePrivate`g], #]& , 
+              WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`indices]}, {
            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-scale (WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-offsets/Max[
-              Map[
-              Norm, WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`offsets]])]], 
-       TagSet[WolframInstitute`InfraGeometry`InfraTotalGraph, 
-        MessageName[WolframInstitute`InfraGeometry`InfraTotalGraph, "usage"], 
-        "InfraTotalGraph[fib] gives the total graph of the fibration fib."], 
+adjacency = UpperTriangularize[
+             Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`close, 
+                Map[
+                First, WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`indices], 
+                Map[
+                First, WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`indices]] 
+              Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`close, 
+                Map[
+                Last, WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`indices], 
+                Map[
+                Last, WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`indices]], 1]}, 
+           Graph[
+           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+pairs, 
+            MapApply[UndirectedEdge, 
+             Map[
+             Part[WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`pairs, #]& , 
+              Sort[
+               
+               WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`adjacency["NonzeroPositions"]], {2}]]]]]], Condition[
+         WolframInstitute`InfraGeometry`InfraTotalSpace[
+          Pattern[
+          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`head, 
+           Blank[]][
+           Pattern[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total, 
+            Blank[Graph]], 
+           Blank[]]], 
+         And[
+          
+          MemberQ[{
+           WolframInstitute`InfraGeometry`InfraFiberedGraph, 
+            WolframInstitute`InfraGeometry`InfraFibration}, 
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`head], 
+          SimpleGraphQ[
+          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total], 
+          UndirectedGraphQ[
+          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total], 
+          Not[
+           WeightedGraphQ[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total]\
+], 
+          Not[
+           EdgeTaggedGraphQ[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total]\
+]]] := WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total, 
+       TagSet[WolframInstitute`InfraGeometry`InfraTotalSpace, 
+        MessageName[WolframInstitute`InfraGeometry`InfraTotalSpace, "usage"], 
+        "InfraTotalSpace[fib] gives the total graph of a fibered graph."], 
        WolframInstitute`InfraGeometry`InfraRays[
          Pattern[
          WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13551,8 +13713,9 @@ PackagePrivate`g,
                  Last[
                  WolframInstitute`InfraGeometry`InfraTangentBundle`\
 PackagePrivate`w]], 
-                WolframInstitute`InfraGeometry`InfraTangentBundle`\
-PackagePrivate`dist[#] == 
+                Lookup[WolframInstitute`InfraGeometry`InfraTangentBundle`\
+PackagePrivate`dist, 
+                  Key[#]] == 
                 Length[WolframInstitute`InfraGeometry`InfraTangentBundle`\
 PackagePrivate`w]& ]]], 
              WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
@@ -13563,20 +13726,35 @@ rays]]], {{
         MessageName[WolframInstitute`InfraGeometry`InfraRays, "usage"], 
         "InfraRays[g, p, r] gives the rays of length r from p: the walks {p, \
 u1, ..., ur} with d(p, ui) = i."], 
-       WolframInstitute`InfraGeometry`InfraFibrationAssociation[
-         WolframInstitute`InfraGeometry`InfraFibration[
-          Pattern[
-          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total, 
-           
-           Blank[Graph]], 
-          Pattern[
-          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`proj, 
-           Blank[]]]] := 
-       AssociationMap[
-        WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`proj, 
-         VertexList[
-         WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total]],
-        WolframInstitute`InfraGeometry`InfraFibrationAssociation[
+       WolframInstitute`InfraGeometry`InfraFiberedGraph[
+         Pattern[
+         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`fib, 
+          Alternatives[
+           WolframInstitute`InfraGeometry`InfraTangentBundle[
+            Blank[Graph], 
+            PatternTest[
+             Blank[Integer], Positive]], 
+           WolframInstitute`InfraGeometry`InfraCotangentBundle[
+            Blank[Graph], 
+            PatternTest[
+             Blank[Integer], Positive]], 
+           WolframInstitute`InfraGeometry`InfraDisplacementBundle[
+            Blank[Graph], 
+            PatternTest[
+             Blank[Integer], Positive]]]]] := 
+       WolframInstitute`InfraGeometry`InfraFiberedGraph[
+         WolframInstitute`InfraGeometry`InfraTotalSpace[
+         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`fib]\
+, 
+         WolframInstitute`InfraGeometry`InfraProjection[
+         WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`fib]\
+], 
+       TagSet[WolframInstitute`InfraGeometry`InfraFiberedGraph, 
+        MessageName[
+        WolframInstitute`InfraGeometry`InfraFiberedGraph, "usage"], 
+        "InfraFiberedGraph[total, projection] represents a graph with its \
+vertex projection. InfraFiberedGraph[model] evaluates an experimental \
+construction."], WolframInstitute`InfraGeometry`InfraProjection[
          WolframInstitute`InfraGeometry`InfraTangentBundle[
           Pattern[
           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13593,7 +13771,7 @@ u1, ..., ur} with d(p, ui) = i."],
  #, WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r]& , 
            VertexList[
            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g]\
-]]], WolframInstitute`InfraGeometry`InfraFibrationAssociation[
+]]], WolframInstitute`InfraGeometry`InfraProjection[
          WolframInstitute`InfraGeometry`InfraCotangentBundle[
           Pattern[
           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13611,7 +13789,7 @@ u1, ..., ur} with d(p, ui) = i."],
 g, #, WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r]& , 
             VertexList[
             WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
-g]]]]], WolframInstitute`InfraGeometry`InfraFibrationAssociation[
+g]]]]], WolframInstitute`InfraGeometry`InfraProjection[
          WolframInstitute`InfraGeometry`InfraDisplacementBundle[
           Pattern[
           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g, 
@@ -13625,16 +13803,80 @@ g]]]]], WolframInstitute`InfraGeometry`InfraFibrationAssociation[
            VertexList[
            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g]\
 , #]& , 
-          Position[
-           GraphDistanceMatrix[
-           WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`g]\
-, WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r, {2}]]], 
-       
-       TagSet[WolframInstitute`InfraGeometry`InfraFibrationAssociation, 
-        MessageName[
-        WolframInstitute`InfraGeometry`InfraFibrationAssociation, "usage"], 
-        "InfraFibrationAssociation[fib] gives the projection of fib as an \
-association <|x -> p, ...|> from total vertices to base vertices."], 
+          If[
+          VertexCount[
+            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+g] === 0, {}, 
+           Position[
+            GraphDistanceMatrix[
+            WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`\
+g], WolframInstitute`InfraGeometry`InfraTangentBundle`PackagePrivate`r, {
+            2}]]]], Condition[
+         WolframInstitute`InfraGeometry`InfraProjection[
+          Pattern[
+          WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`fib, 
+           Pattern[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`head, 
+            
+            Blank[]][
+            Pattern[
+            WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+total, 
+             Blank[Graph]], 
+            Pattern[
+            WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+projection, 
+             Blank[]]]]], 
+         And[
+          
+          MemberQ[{
+           WolframInstitute`InfraGeometry`InfraFiberedGraph, 
+            WolframInstitute`InfraGeometry`InfraFibration}, 
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`head], 
+          GraphQ[
+           WolframInstitute`InfraGeometry`InfraTotalSpace[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`fib]], 
+          Or[
+           Not[
+            AssociationQ[
+            WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+projection]], 
+           And[
+           Length[WolframInstitute`InfraGeometry`InfraFibration`\
+PackagePrivate`projection] == 
+            VertexCount[
+             WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+total], 
+            AllTrue[
+             VertexList[
+             WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+total], KeyExistsQ[
+             WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+projection, #]& ]]]]] := AssociationMap[
+         Function[
+         WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`vertex, 
+          
+          If[
+           AssociationQ[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+projection], 
+           Lookup[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+projection, 
+            Key[
+            WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+vertex]], 
+           
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+projection[
+           WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`\
+vertex]]], 
+         VertexList[
+         WolframInstitute`InfraGeometry`InfraFibration`PackagePrivate`total]], 
+       TagSet[WolframInstitute`InfraGeometry`InfraProjection, 
+        MessageName[WolframInstitute`InfraGeometry`InfraProjection, "usage"], 
+        "InfraProjection[fib] gives the association mapping every total \
+vertex to its base vertex."], 
        WolframInstitute`InfraCausality`PackageScope`causalInk[
          Pattern[
          WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`graph, 
@@ -13646,7 +13888,8 @@ association <|x -> p, ...|> from total vertices to base vertices."],
            Blank[WolframInstitute`InfraCausality`InfraCausalFuture], 
            Blank[WolframInstitute`InfraCausality`InfraCausalPast], 
            Blank[WolframInstitute`InfraCausality`InfraCausalDiamond], 
-           Blank[WolframInstitute`InfraCausality`InfraSlice]]]] := 
+           Blank[WolframInstitute`InfraCausality`InfraSlice], 
+           Blank[WolframInstitute`InfraCausality`InfraRadarCoordinates]]]] := 
        WolframInstitute`InfraGeometry`InfraMeasurement[
         WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`graph, 
          WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`head, 
@@ -13659,8 +13902,8 @@ association <|x -> p, ...|> from total vertices to base vertices."],
          WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`head, 
           
           Alternatives[
+           Blank[WolframInstitute`InfraCausality`InfraTimelikeGeodesic], 
            Blank[WolframInstitute`InfraCausality`InfraWorldline], 
-           Blank[WolframInstitute`InfraCausality`InfraObserver], 
            Blank[WolframInstitute`InfraCausality`InfraFutureLightCone], 
            Blank[WolframInstitute`InfraCausality`InfraPastLightCone]]]] := 
        WolframInstitute`InfraGeometry`InfraMeasurement[
@@ -13758,18 +14001,7 @@ PackagePrivate`w]]]],
               Map[
               Last, WolframInstitute`InfraCausality`CausalHighlight`\
 PackagePrivate`returning]]]]]]], 
-       WolframInstitute`InfraCausality`PackageScope`causalInk[
-         Pattern[
-         WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`graph, 
-          Blank[Graph]], 
-         Pattern[
-         WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`chart, 
-          Blank[WolframInstitute`InfraCausality`InfraRadarChart]]] := 
-       AssociationThread[
-         WolframInstitute`InfraGeometry`InfraMeasurement[
-         WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`graph,
-           WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`\
-chart, "Domain"], 1], WolframInstitute`InfraCausality`PackageScope`rayGraph[
+       WolframInstitute`InfraCausality`PackageScope`rayGraph[
          Pattern[
          WolframInstitute`InfraCausality`CausalHighlight`PackagePrivate`graph, 
           Blank[Graph]], 
@@ -13881,15 +14113,22 @@ PackagePrivate`x], "EdgeDensity" -> <||>, "Walk" -> None, "Knots" -> {}|>,
           MatchQ[
           WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`x, 
-           WolframInstitute`InfraGeometry`InfraWalk[
-            Blank[List]]], 
-          Not[
-           VertexQ[
-           WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+           Blank[UndirectedEdge]], 
+          EdgeQ[
+          WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`graph, 
-            First[
-            WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`x]]]], 
+           WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x]], <|
+         "VertexDensity" -> <||>, "EdgeDensity" -> <|Apply[UndirectedEdge, 
+              Sort[
+               Apply[
+               List, WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x]]] -> 1|>, "Walk" -> None, "Knots" -> {}|>, 
+         MatchQ[
+         WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x, 
+          WolframInstitute`InfraGeometry`InfraWalk[
+           Blank[List]]], 
          With[{
           WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`walk = 
@@ -14190,7 +14429,6 @@ PackagePrivate`token, All],
 PackagePrivate`token, 
                   Blank[WolframInstitute`InfraGeometry`InfraIntersection]] :> 
                 WolframInstitute`InfraGeometry`RandomInfraIntersection[
-                 
                  WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`graph, 
                   WolframInstitute`InfraGeometry`InfraSceneVisualization`\
@@ -14306,7 +14544,20 @@ PackagePrivate`member], "Knots" -> {}|>],
 PackagePrivate`x], 
          With[{
           WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`walk = Which[
+PackagePrivate`literal = And[
+             UndirectedGraphQ[
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x], 
+             AllTrue[
+              VertexList[
+              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x], VertexQ[
+              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`graph, #]& ]]}, {
+          WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`walk = 
+           Which[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`literal, None, 
              WolframInstitute`InfraGeometry`PackageScope`closedWalkQ[
              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`x], 
@@ -14325,13 +14576,38 @@ PackagePrivate`x]],
              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`x], True, None]}, <|
           "VertexDensity" -> 
-           WolframInstitute`InfraGeometry`InfraDensity[
-            WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`graph, 
-             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`x], "EdgeDensity" -> 
            If[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`walk === None, 
+PackagePrivate`literal, 
+             KeySort[
+              Counts[
+               VertexList[
+               WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x]]], 
+             WolframInstitute`InfraGeometry`InfraDensity[
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`graph, 
+              WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x]], "EdgeDensity" -> 
+           Which[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`walk =!= None, 
+             KeySort[
+              Counts[
+               Map[Apply[UndirectedEdge, 
+                 Sort[#]]& , 
+                Partition[
+                WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`walk, 2, 1]]]], 
+             UndirectedGraphQ[
+             WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x], 
+             KeySort[
+              Counts[
+               Map[Apply[UndirectedEdge, 
+                 Sort[
+                  Apply[List, #]]]& , 
+                EdgeList[
+                WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+PackagePrivate`x]]]], True, 
              KeySort[
               GroupBy[
                
@@ -14428,14 +14704,7 @@ InfraSceneVisualization`PackagePrivate`beta,
 PackagePrivate`x]]], (Apply[UndirectedEdge, 
                  Sort[
                   Apply[List, 
-                   First[#]]]]& ) -> Last, Total]], 
-             KeySort[
-              Counts[
-               Map[Apply[UndirectedEdge, 
-                 Sort[#]]& , 
-                Partition[
-                WolframInstitute`InfraGeometry`InfraSceneVisualization`\
-PackagePrivate`walk, 2, 1]]]]], "Walk" -> 
+                   First[#]]]]& ) -> Last, Total]]], "Walk" -> 
            WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`walk, "Knots" -> {}|>], 
          And[
@@ -14767,6 +15036,7 @@ graph],
                   VertexCount[
                   WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`\
 graph]]], WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`pool]}, {
+             
              WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`\
 poolMatrix = Part[
                 GraphDistanceMatrix[
@@ -15009,8 +15279,8 @@ opts}]],
             WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`opts}, 
             "NextVertexFunction"]}, {
          WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`ordered = 
-          Sort[
-           WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`members]}, 
+          Sort[WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`\
+members]}, 
          Which[
          WolframInstitute`InfraGeometry`InfraPoint`PackagePrivate`count === 
           Automatic, 
@@ -15379,6 +15649,7 @@ arc]]]]],
 sides]]]]], {} :> First[
            WolframInstitute`InfraGeometry`RandomInfraSegment[
            WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`graph, 
+            
             WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`\
 segment, 
             UpTo[1], "NextVertexFunction" -> Identity], {}]], Condition[
@@ -15578,6 +15849,7 @@ cardinality,
 count, 
                 Blank[UpTo]]]], {}, 
              2 WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`cap >= 
+             
              WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`\
 cardinality, 
              RandomSample[
@@ -15784,6 +16056,7 @@ dag]], First -> Last]}, {
                Fold[
                  
                  Function[{
+                  
                   WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`\
 a, WolframInstitute`InfraGeometry`InfraSegment`PackagePrivate`w}, 
                   Append[
@@ -16513,8 +16786,8 @@ beta,
 sources]] -> WolframInstitute`InfraGeometry`InfraRay`PackagePrivate`sources]}, 
              Function[
              WolframInstitute`InfraGeometry`InfraRay`PackagePrivate`path, 
-              Lookup[WolframInstitute`InfraGeometry`InfraRay`PackagePrivate`\
-out, 
+              Lookup[
+               WolframInstitute`InfraGeometry`InfraRay`PackagePrivate`out, 
                 Key[
                  Last[
                  WolframInstitute`InfraGeometry`InfraRay`PackagePrivate`path]]\
@@ -17034,7 +17307,6 @@ candidates, WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`nextFn ===
 candidates], True, 
              Replace[
               WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`nextFn[
-              
               WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`\
 candidates], Condition[
                 Pattern[
@@ -17619,8 +17891,9 @@ state, {
                     First[
                     WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`\
 state], WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`member], 
-                   Last[WolframInstitute`InfraGeometry`InfraLine`\
-PackagePrivate`state] + 1}]]], {{}, 0}, Last[#] < If[
+                   Last[
+                    WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`\
+state] + 1}]]], {{}, 0}, Last[#] < If[
                  MatchQ[
                  WolframInstitute`InfraGeometry`InfraLine`PackagePrivate`\
 count, 
@@ -18222,6 +18495,7 @@ opts}]],
 , WolframInstitute`InfraGeometry`InfraCircle`PackagePrivate`rmax = Last[
             
             Flatten[{
+             
              WolframInstitute`InfraGeometry`InfraCircle`PackagePrivate`rs}]]},\
  {WolframInstitute`InfraGeometry`InfraCircle`PackagePrivate`local = 
           Subgraph[
@@ -19061,9 +19335,8 @@ samplerOpts}, "NextVertexFunction"] =!= RandomChoice,
            WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`count =!= 
            All]]] := With[{
          WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`cap = 
-          Replace[
-           WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`count, {
-            All -> Infinity, Automatic -> 1, UpTo[
+          Replace[WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`\
+count, {All -> Infinity, Automatic -> 1, UpTo[
                Pattern[
                WolframInstitute`InfraGeometry`InfraArc`PackagePrivate`n, 
                 Blank[]]] :> 
@@ -19219,10 +19492,10 @@ gives its complete pool. Option NextVertexFunction."], Condition[
             WolframInstitute`InfraGeometry`RandomInfraRegularPolygon]], 
            Map[
            First, {WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`\
-opts}]], 1 <= 
-          Length[WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`\
-As] <= Floor[WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`n/2], 
-          OptionValue[
+opts}]], 1 <= Length[
+           WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`As] <= 
+          Floor[WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`n/
+            2], OptionValue[
            WolframInstitute`InfraGeometry`RandomInfraRegularPolygon, {
             WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`opts}, 
             Properties] === {}, 
@@ -19511,6 +19784,7 @@ As, #], WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`cyc]& \
                
                Function[{
                 WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`a, 
+                 
                  WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`b}\
 , 
                 PathGraph[
@@ -19611,6 +19885,7 @@ samplerOpts, WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`opts},
           WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`As, 
           WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`n, 
           WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`count, 
+          
           WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`\
 samplerOpts, 
           WolframInstitute`InfraGeometry`InfraPolygon`PackagePrivate`opts], {
@@ -20180,6 +20455,7 @@ T},
 state]] >= WolframInstitute`InfraGeometry`InfraPlane`PackagePrivate`cap, 
                     KeyExistsQ[
                     Last[
+                    
                     WolframInstitute`InfraGeometry`InfraPlane`PackagePrivate`\
 state], WolframInstitute`InfraGeometry`InfraPlane`PackagePrivate`T]], 
                     WolframInstitute`InfraGeometry`InfraPlane`PackagePrivate`\
@@ -21375,8 +21651,7 @@ members}},
           Automatic, 
           WolframInstitute`InfraGeometry`InfraConvexHull`PackagePrivate`\
 members, WolframInstitute`InfraGeometry`InfraConvexHull`PackagePrivate`count === 
-          All, 
-          WolframInstitute`InfraGeometry`InfraConvexHull`PackagePrivate`\
+          All, WolframInstitute`InfraGeometry`InfraConvexHull`PackagePrivate`\
 ordered, WolframInstitute`InfraGeometry`InfraConvexHull`PackagePrivate`nextFn === 
           Identity, 
           If[
@@ -22369,8 +22644,7 @@ scored] === {}, {},
  #]& ]], {}, 
               
               With[{WolframInstitute`InfraGeometry`InfraWalk`PackagePrivate`\
-absSpec = 
-                Replace[
+absSpec = Replace[
                  WolframInstitute`InfraGeometry`InfraWalk`PackagePrivate`\
 kspec, {{
                     Pattern[
@@ -22565,7 +22839,6 @@ rules, And[
                     Blank[], 0}], 
                     Not[
                     WolframInstitute`InfraGeometry`InfraGeodesicQ[
-                    
                     WolframInstitute`InfraGeometry`InfraWalk`PackagePrivate`\
 graph, WolframInstitute`InfraGeometry`InfraWalk`PackagePrivate`walk0, 
                     Part[#, 2]]]]& ]], {}, 
@@ -23215,7 +23488,6 @@ count, {All -> Infinity, Automatic -> 1, UpTo[
                  Blank[]]] :> 
               WolframInstitute`InfraGeometry`InfraEllipse`PackagePrivate`n}]},\
  {WolframInstitute`InfraGeometry`InfraEllipse`PackagePrivate`results = Apply[
-             
              Function[{
               WolframInstitute`InfraGeometry`InfraEllipse`PackagePrivate`\
 foci0, WolframInstitute`InfraGeometry`InfraEllipse`PackagePrivate`c0}, 
@@ -23798,6 +24070,7 @@ supports = Map[
              Which[
               VertexQ[
               WolframInstitute`InfraGeometry`InfraScene`PackagePrivate`graph, 
+               
                WolframInstitute`InfraGeometry`InfraScene`PackagePrivate`\
 object], {WolframInstitute`InfraGeometry`InfraScene`PackagePrivate`object}, 
               MatchQ[
@@ -24103,8 +24376,7 @@ PackagePrivate`v,
 PackagePrivate`rec, "EdgeStyle" -> 
                WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`v], (EdgeShapeFunction -> 
-              Pattern[
-               WolframInstitute`InfraGeometry`InfraSceneVisualization`\
+              Pattern[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
 PackagePrivate`v, 
                 Blank[]]) :> 
              Append[WolframInstitute`InfraGeometry`InfraSceneVisualization`\
@@ -24296,13 +24568,13 @@ PackagePrivate`anyOpacity, "OpacityRange" -> None, Nothing]|>]]],
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"e774b357-8fb8-4089-ac98-08ba5597b063"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"07ac9d51-4103-4987-9fe0-67d6cc8015af"]
 }, Open  ]],
 
 Cell["\<\
 The frame at time 3, drawn without the viewer, on the diamond lattice, a \
 sprinkling into two-dimensional Minkowski space and the cylinder lattice.\
-\>", "ExampleText",ExpressionUUID->"e67bb521-7b75-43e7-b3b9-9f55b796912e"],
+\>", "ExampleText",ExpressionUUID->"d0d58853-5e9a-4362-9f70-cc4e5482ba25"],
 
 Cell[CellGroupData[{
 
@@ -24337,7 +24609,7 @@ Cell[BoxData[
         " ", "\"\<MinkowskiSprinkling2D\>\"", ",", 
         " ", "\"\<CylinderLatticeGraph\>\""}], "}"}]}], "}"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"48ada564-d98a-4512-93d9-6061247df405"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"91804fd6-e9e2-45f8-84d1-d9583a78aae5"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -26363,7 +26635,7 @@ Cell[BoxData[
   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
   PlotRange->{{0, 645.}, {-289.05333957994384`, 0}},
   PlotRangePadding->Automatic]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"e63294f5-8c71-4e3f-bf51-7e614562e700"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"7c918354-e496-4020-a81b-19427b77917d"]
 }, Open  ]]
 }, Open  ]],
 
@@ -26426,7 +26698,7 @@ Cell[TextData[{
 the band up to ",
  StyleBox["k", "TI"],
  ", and the slices of all times exhaust the events."
-}], "ExampleText",ExpressionUUID->"2c3d333f-406b-4f4c-807b-41a77991bd5b"],
+}], "ExampleText",ExpressionUUID->"e36186a8-ba33-4e14-b07f-17d25a063365"],
 
 Cell[CellGroupData[{
 
@@ -26448,7 +26720,7 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"height", " ", "=", " ", 
         RowBox[{"Max", " ", "@", " ", 
-         RowBox[{"UniversalTime", " ", "@", " ", "g"}]}]}], "}"}], ",", "\n", 
+         RowBox[{"CausalHeight", " ", "@", " ", "g"}]}]}], "}"}], ",", "\n", 
       "    ", 
       RowBox[{
        RowBox[{"AllTrue", "[", 
@@ -26461,9 +26733,11 @@ Cell[BoxData[
             RowBox[{"{", 
              RowBox[{
               RowBox[{"slice", " ", "=", " ", 
-               RowBox[{"RandomInfraSlice", "[", 
-                RowBox[{"g", ",", " ", 
-                 RowBox[{"InfraSlice", "[", "k", "]"}]}], "]"}]}], ",", " ", 
+               RowBox[{"Keys", " ", "@", " ", 
+                RowBox[{"InfraMeasurement", "[", 
+                 RowBox[{"g", ",", " ", 
+                  RowBox[{"InfraSlice", "[", "k", "]"}], ",", 
+                  " ", "\"\<VertexDensity\>\""}], "]"}]}]}], ",", " ", 
               RowBox[{"earlier", " ", "=", " ", 
                RowBox[{"Keys", " ", "@", " ", 
                 RowBox[{"InfraMeasurement", "[", 
@@ -26482,31 +26756,35 @@ Cell[BoxData[
              RowBox[{
               RowBox[{"Union", "[", 
                RowBox[{"slice", ",", " ", "earlier"}], "]"}], " ", "===", " ", 
-              RowBox[{"RandomInfraSlice", "[", 
-               RowBox[{"g", ",", " ", 
-                RowBox[{"InfraSlice", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"0", ",", " ", "k"}], "}"}], "]"}]}], "]"}]}]}]}], 
-           "]"}]}]}], "]"}], " ", "&&", "\n", "      ", 
+              RowBox[{"Keys", " ", "@", " ", 
+               RowBox[{"InfraMeasurement", "[", 
+                RowBox[{"g", ",", " ", 
+                 RowBox[{"InfraSlice", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", " ", "k"}], "}"}], "]"}], ",", 
+                 " ", "\"\<VertexDensity\>\""}], "]"}]}]}]}]}], "]"}]}]}], 
+        "]"}], " ", "&&", "\n", "      ", 
        RowBox[{
         RowBox[{"Sort", "[", 
          RowBox[{"Catenate", "[", 
           RowBox[{
            RowBox[{
-            RowBox[{"RandomInfraSlice", "[", 
-             RowBox[{"g", ",", " ", 
-              RowBox[{"InfraSlice", "[", "#", "]"}]}], "]"}], " ", "&"}], " ",
-            "/@", " ", 
+            RowBox[{"Keys", " ", "@", " ", 
+             RowBox[{"InfraMeasurement", "[", 
+              RowBox[{"g", ",", " ", 
+               RowBox[{"InfraSlice", "[", "#", "]"}], ",", 
+               " ", "\"\<VertexDensity\>\""}], "]"}]}], " ", "&"}], " ", "/@",
+            " ", 
            RowBox[{"Range", "[", 
             RowBox[{"0", ",", " ", "height"}], "]"}]}], "]"}], "]"}], " ", "===",
          " ", 
         RowBox[{"Sort", "[", 
          RowBox[{"VertexList", "[", "g", "]"}], "]"}]}]}]}], "]"}]}]}], 
   "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"0ab9733d-217b-40ab-9448-ba805dac50a8"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"6231098c-3163-460a-b89c-8ffa89cde3f9"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"0e2b6fd3-e262-49af-ad6e-f37224549078"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"81fffc7d-d7e8-49c7-a98a-342dc443b93c"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -26515,7 +26793,7 @@ Cell[TextData[{
  " > 0 has an in-neighbour in slice ",
  StyleBox["k", "TI"],
  " \[Minus] 1 and its whole strict past in the earlier band."
-}], "ExampleText",ExpressionUUID->"06267e33-cb56-4438-b361-b8ee6e3d19ea"],
+}], "ExampleText",ExpressionUUID->"fb31eee3-9dc9-4c13-9621-1e5025952292"],
 
 Cell[CellGroupData[{
 
@@ -26539,23 +26817,28 @@ Cell[BoxData[
         RowBox[{"Range", "[", 
          RowBox[{"0", ",", " ", 
           RowBox[{"Max", " ", "@", " ", 
-           RowBox[{"UniversalTime", " ", "@", " ", "g"}]}]}], "]"}], ",", " ", 
+           RowBox[{"CausalHeight", " ", "@", " ", "g"}]}]}], "]"}], ",", " ", 
+        
         RowBox[{"k", " ", "|->", "\n", "      ", 
          RowBox[{
           RowBox[{"InfraAntichainQ", "[", 
            RowBox[{"g", ",", " ", 
-            RowBox[{"RandomInfraSlice", "[", 
-             RowBox[{"g", ",", " ", 
-              RowBox[{"InfraSlice", "[", "k", "]"}]}], "]"}]}], "]"}], " ", "&&",
-           "\n", "        ", 
+            RowBox[{"Keys", " ", "@", " ", 
+             RowBox[{"InfraMeasurement", "[", 
+              RowBox[{"g", ",", " ", 
+               RowBox[{"InfraSlice", "[", "k", "]"}], ",", 
+               " ", "\"\<VertexDensity\>\""}], "]"}]}]}], "]"}], " ", "&&", 
+          "\n", "        ", 
           RowBox[{"(", 
            RowBox[{
             RowBox[{"k", " ", "==", " ", "0"}], " ", "||", " ", 
             RowBox[{"AllTrue", "[", 
              RowBox[{
-              RowBox[{"RandomInfraSlice", "[", 
-               RowBox[{"g", ",", " ", 
-                RowBox[{"InfraSlice", "[", "k", "]"}]}], "]"}], ",", " ", 
+              RowBox[{"Keys", " ", "@", " ", 
+               RowBox[{"InfraMeasurement", "[", 
+                RowBox[{"g", ",", " ", 
+                 RowBox[{"InfraSlice", "[", "k", "]"}], ",", 
+                 " ", "\"\<VertexDensity\>\""}], "]"}]}], ",", " ", 
               RowBox[{"v", " ", "|->", "\n", "          ", 
                RowBox[{
                 RowBox[{"IntersectingQ", "[", 
@@ -26563,39 +26846,45 @@ Cell[BoxData[
                   RowBox[{"VertexInComponent", "[", 
                    RowBox[{"g", ",", " ", "v", ",", " ", 
                     RowBox[{"{", "1", "}"}]}], "]"}], ",", " ", 
-                  RowBox[{"RandomInfraSlice", "[", 
-                   RowBox[{"g", ",", " ", 
+                  RowBox[{"Keys", " ", "@", " ", 
+                   RowBox[{"InfraMeasurement", "[", 
+                    RowBox[{"g", ",", " ", 
                     RowBox[{"InfraSlice", "[", 
-                    RowBox[{"k", " ", "-", " ", "1"}], "]"}]}], "]"}]}], 
-                 "]"}], " ", "&&", "\n", "            ", 
+                    RowBox[{"k", " ", "-", " ", "1"}], "]"}], ",", 
+                    " ", "\"\<VertexDensity\>\""}], "]"}]}]}], "]"}], " ", "&&",
+                 "\n", "            ", 
                 RowBox[{"SubsetQ", "[", 
                  RowBox[{
-                  RowBox[{"RandomInfraSlice", "[", 
-                   RowBox[{"g", ",", " ", 
+                  RowBox[{"Keys", " ", "@", " ", 
+                   RowBox[{"InfraMeasurement", "[", 
+                    RowBox[{"g", ",", " ", 
                     RowBox[{"InfraSlice", "[", 
                     RowBox[{"{", 
                     RowBox[{"0", ",", " ", 
-                    RowBox[{"k", " ", "-", " ", "1"}]}], "}"}], "]"}]}], 
-                   "]"}], ",", " ", 
+                    RowBox[{"k", " ", "-", " ", "1"}]}], "}"}], "]"}], ",", 
+                    " ", "\"\<VertexDensity\>\""}], "]"}]}], ",", " ", 
                   RowBox[{"DeleteCases", "[", 
                    RowBox[{
-                    RowBox[{"RandomInfraCausalPast", "[", 
-                    RowBox[{"g", ",", " ", "v"}], "]"}], ",", " ", "v"}], 
+                    RowBox[{"Keys", " ", "@", " ", 
+                    RowBox[{"InfraMeasurement", "[", 
+                    RowBox[{"g", ",", " ", 
+                    RowBox[{"InfraCausalPast", "[", "v", "]"}], ",", 
+                    " ", "\"\<VertexDensity\>\""}], "]"}]}], ",", " ", "v"}], 
                    "]"}]}], "]"}]}]}]}], "]"}]}], ")"}]}]}]}], "]"}]}], 
      "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"46e2de8f-c078-444d-a13d-a778ffa6be50"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"ea8cdfec-e378-4591-a1d1-ba9fd3512d73"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"61710dda-2c22-47e2-87df-84d226f1ee10"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"20f8fe04-4a4f-44d5-a605-e7ad816cb5f5"]
 }, Open  ]],
 
 Cell[TextData[{
  "The viewer is a ",
  Cell[BoxData["Manipulate"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "7f738fbe-700a-4b78-bf53-cc8c2443ce5e"],
+  "8cbfca8c-eb43-417d-999f-2295609149cc"],
  "."
-}], "ExampleText",ExpressionUUID->"cdbbdb63-1da9-44c8-923c-d71766ab4fd2"],
+}], "ExampleText",ExpressionUUID->"058029b4-be19-4ac0-9fb4-a6776aea06b3"],
 
 Cell[CellGroupData[{
 
@@ -26606,10 +26895,10 @@ Cell[BoxData[
     RowBox[{"CausalSubstrate", "[", 
      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
      "]"}], "]"}]}], " ", "===", " ", "Manipulate"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"815c3489-b0e2-4558-83e3-2ee04e98d559"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"d5061293-933e-4f57-85bb-c1387523bfd1"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"31300a17-291a-4a12-ba3d-b3b002104d85"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"eeda7e29-7837-4f19-a5ac-0e9f2d2a203e"]
 }, Open  ]]
 }, Open  ]],
 
@@ -26684,7 +26973,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
  CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
 
 Cell["WolframInstitute/InfraCausality/ref/FoliationViewer", "Categorization",
- CellLabel->"URI",ExpressionUUID->"8304cb3a-fe36-4385-a1a3-560d17ec9228"]
+ CellLabel->"URI",ExpressionUUID->"d7983da4-9ef8-402e-a8e0-1e763aa345b1"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -26720,7 +27009,7 @@ TaggingRules->{
    "title" -> "FoliationViewer", "context" -> 
     "WolframInstitute`InfraCausality`", 
     "keywords" -> {
-     "viewer", "universal time", "foliation", "slice", "antichain", 
+     "viewer", "causal height", "foliation", "slice", "antichain", 
       "interactive", "Manipulate", "experimental"}, "summary" -> "", "paclet" -> 
     "WolframInstitute/InfraCausality", "uri" -> 
     "WolframInstitute/InfraCausality/ref/FoliationViewer", "type" -> "Symbol",
@@ -26738,14 +27027,14 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[1210650, 26371, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[1220136, 26643, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 1224217, 26739}
+ {"ExtendedExamples", 1234586, 27028}
  }
 *)
 (*NotebookFileOutline
@@ -26753,111 +27042,111 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 113, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[692, 25, 1766, 53, 70, "Usage",ExpressionUUID->"b9617ffc-e1cf-4e2a-8e93-2680c3f5ae43"],
-Cell[2461, 80, 142, 2, 70, "Notes",ExpressionUUID->"1d5909d6-d83f-4842-9e4c-a41780750ff9"],
-Cell[2606, 84, 1145, 41, 70, "Notes",ExpressionUUID->"66dea5ea-42de-4302-85a9-4285cb73ff71"],
-Cell[3754, 127, 1010, 27, 70, "Notes",ExpressionUUID->"0381db41-ec49-4e73-ab52-bbe0a912aa3b"]
+Cell[692, 25, 1765, 53, 70, "Usage",ExpressionUUID->"c33612cc-c12f-4663-bbf1-ffa1f46512c3"],
+Cell[2460, 80, 142, 2, 70, "Notes",ExpressionUUID->"d68260b4-9042-42d0-9876-2d05afdc3f7f"],
+Cell[2605, 84, 1142, 41, 70, "Notes",ExpressionUUID->"1bca8491-c647-4197-9027-16fbfdada9f0"],
+Cell[3750, 127, 1015, 27, 70, "Notes",ExpressionUUID->"5de58085-b26c-41cc-a853-c6165d818549"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4801, 159, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+Cell[4802, 159, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[5263, 174, 2201, 60, 70, "SeeAlso",ExpressionUUID->"326c317a-abed-405a-82e7-0cc8b07bcbe4"]
+Cell[5264, 174, 1846, 50, 70, "SeeAlso",ExpressionUUID->"f2c0e48b-21c7-4c56-850e-2ec6efc34e83"]
 }, Open  ]],
-Cell[7479, 237, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+Cell[7125, 227, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
-Cell[7939, 253, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+Cell[7585, 243, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[8058, 256, 316, 6, 70, "MoreAbout",ExpressionUUID->"31eddb48-7314-4e8b-bca3-0dbb0a3cb332"]
+Cell[7704, 246, 316, 6, 70, "MoreAbout",ExpressionUUID->"874c7dc6-882f-45b7-b972-27efcda42f9e"]
 }, Open  ]],
-Cell[8389, 265, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+Cell[8035, 255, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
 Cell[CellGroupData[{
-Cell[8885, 282, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+Cell[8531, 272, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
  CellID->1718580883],
-Cell[9419, 298, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+Cell[9065, 288, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
  CellID->1969679695]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9730, 307, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+Cell[9376, 297, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
  CellID->880084151],
-Cell[10175, 321, 155, 2, 70, "ExampleText",ExpressionUUID->"d012d812-7369-461a-a1d2-cbd0e99a950f"],
+Cell[9821, 311, 152, 2, 70, "ExampleText",ExpressionUUID->"eb2c13c8-9081-4f75-87f1-4f7b4b75399c"],
 Cell[CellGroupData[{
-Cell[10355, 327, 260, 5, 70, "Input",ExpressionUUID->"7aa9983a-3e8d-4b2f-9349-7e6864ca7313"],
-Cell[10618, 334, 1099535, 23964, 70, "Output",ExpressionUUID->"e774b357-8fb8-4089-ac98-08ba5597b063"]
+Cell[9998, 317, 260, 5, 70, "Input",ExpressionUUID->"faa78735-f44b-4f3c-9983-dd78f81f4c0e"],
+Cell[10261, 324, 1109378, 24246, 70, "Output",ExpressionUUID->"07ac9d51-4103-4987-9fe0-67d6cc8015af"]
 }, Open  ]],
-Cell[1110168, 24301, 234, 3, 70, "ExampleText",ExpressionUUID->"e67bb521-7b75-43e7-b3b9-9f55b796912e"],
+Cell[1119654, 24573, 234, 3, 70, "ExampleText",ExpressionUUID->"d0d58853-5e9a-4362-9f70-cc4e5482ba25"],
 Cell[CellGroupData[{
-Cell[1110427, 24308, 1240, 31, 70, "Input",ExpressionUUID->"48ada564-d98a-4512-93d9-6061247df405"],
-Cell[1111670, 24341, 98931, 2024, 70, "Output",ExpressionUUID->"e63294f5-8c71-4e3f-bf51-7e614562e700"]
+Cell[1119913, 24580, 1240, 31, 70, "Input",ExpressionUUID->"91804fd6-e9e2-45f8-84d1-d9583a78aae5"],
+Cell[1121156, 24613, 98931, 2024, 70, "Output",ExpressionUUID->"7c918354-e496-4020-a81b-19427b77917d"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1210650, 26371, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[1220136, 26643, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
-Cell[1211140, 26386, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[1220626, 26658, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[1211385, 26393, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[1220871, 26665, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
-Cell[1211653, 26400, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[1221139, 26672, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
-Cell[1211900, 26407, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[1221386, 26679, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
 Cell[CellGroupData[{
-Cell[1212173, 26416, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[1221659, 26688, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[1212435, 26423, 260, 5, 70, "ExampleText",ExpressionUUID->"2c3d333f-406b-4f4c-807b-41a77991bd5b"],
+Cell[1221921, 26695, 260, 5, 70, "ExampleText",ExpressionUUID->"e36186a8-ba33-4e14-b07f-17d25a063365"],
 Cell[CellGroupData[{
-Cell[1212720, 26432, 3025, 73, 70, "Input",ExpressionUUID->"0ab9733d-217b-40ab-9448-ba805dac50a8"],
-Cell[1215748, 26507, 110, 1, 70, "Output",ExpressionUUID->"0e2b6fd3-e262-49af-ad6e-f37224549078"]
+Cell[1222206, 26704, 3333, 79, 70, "Input",ExpressionUUID->"6231098c-3163-460a-b89c-8ffa89cde3f9"],
+Cell[1225542, 26785, 110, 1, 70, "Output",ExpressionUUID->"81fffc7d-d7e8-49c7-a98a-342dc443b93c"]
 }, Open  ]],
-Cell[1215873, 26511, 293, 6, 70, "ExampleText",ExpressionUUID->"06267e33-cb56-4438-b361-b8ee6e3d19ea"],
+Cell[1225667, 26789, 293, 6, 70, "ExampleText",ExpressionUUID->"fb31eee3-9dc9-4c13-9621-1e5025952292"],
 Cell[CellGroupData[{
-Cell[1216191, 26521, 2823, 64, 70, "Input",ExpressionUUID->"46e2de8f-c078-444d-a13d-a778ffa6be50"],
-Cell[1219017, 26587, 110, 1, 70, "Output",ExpressionUUID->"61710dda-2c22-47e2-87df-84d226f1ee10"]
+Cell[1225985, 26799, 3399, 75, 70, "Input",ExpressionUUID->"ea8cdfec-e378-4591-a1d1-ba9fd3512d73"],
+Cell[1229387, 26876, 110, 1, 70, "Output",ExpressionUUID->"20f8fe04-4a4f-44d5-a605-e7ad816cb5f5"]
 }, Open  ]],
-Cell[1219142, 26591, 247, 6, 70, "ExampleText",ExpressionUUID->"cdbbdb63-1da9-44c8-923c-d71766ab4fd2"],
+Cell[1229512, 26880, 247, 6, 70, "ExampleText",ExpressionUUID->"058029b4-be19-4ac0-9fb4-a6776aea06b3"],
 Cell[CellGroupData[{
-Cell[1219414, 26601, 347, 7, 70, "Input",ExpressionUUID->"815c3489-b0e2-4558-83e3-2ee04e98d559"],
-Cell[1219764, 26610, 110, 1, 70, "Output",ExpressionUUID->"31300a17-291a-4a12-ba3d-b3b002104d85"]
+Cell[1229784, 26890, 347, 7, 70, "Input",ExpressionUUID->"d5061293-933e-4f57-85bb-c1387523bfd1"],
+Cell[1230134, 26899, 110, 1, 70, "Output",ExpressionUUID->"eeda7e29-7837-4f19-a5ac-0e9f2d2a203e"]
 }, Open  ]]
 }, Open  ]],
-Cell[1219901, 26615, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[1230271, 26904, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[1220156, 26622, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[1230526, 26911, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[1220416, 26629, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[1230786, 26918, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1220702, 26639, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[1231072, 26928, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[1220815, 26642, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[1231185, 26931, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[1221316, 26658, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[1231686, 26947, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[1221804, 26673, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[1232174, 26962, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[1221941, 26677, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[1232311, 26966, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[1222103, 26681, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[1232473, 26970, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[1222262, 26685, 151, 1, 70, "Categorization",ExpressionUUID->"8304cb3a-fe36-4385-a1a3-560d17ec9228"]
+Cell[1232632, 26974, 151, 1, 70, "Categorization",ExpressionUUID->"d7983da4-9ef8-402e-a8e0-1e763aa345b1"]
 }, Closed]],
-Cell[1222428, 26689, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[1232798, 26978, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[1222563, 26694, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[1232933, 26983, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[1222686, 26697, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[1233056, 26986, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[1222838, 26701, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[1233208, 26990, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[1222978, 26705, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[1233348, 26994, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[1223117, 26709, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[1233487, 26998, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]

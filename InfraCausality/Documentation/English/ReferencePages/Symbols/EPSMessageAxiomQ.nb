@@ -1,0 +1,1392 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     50670,       1383]
+NotebookOptionsPosition[     41835,       1216]
+NotebookOutlinePosition[     43074,       1252]
+CellTagsIndexPosition[     42994,       1247]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["EPSMessageAxiomQ", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"f4178bbc-32d0-4158-b9dd-710e336cc5e7"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["EPSMessageAxiomQ"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/EPSMessageAxiomQ", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["g", "TI"], ",", " ", 
+    RowBox[{"InfraMessageFunction", "[", 
+     RowBox[{
+      StyleBox["a", "TI"], ",", " ", 
+      StyleBox["b", "TI"]}], "]"}]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "7ec41864-c5d7-4b57-be54-3df915426843"],
+ "\[LineSeparator]",
+ "gives ",
+ Cell[BoxData["True"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "e6330abf-e893-41c6-9b4f-4dd9b2b8488d"],
+ " if axiom D1 holds exactly on ",
+ StyleBox["g", "TI"],
+ ": every tick of ",
+ StyleBox["a", "TI"],
+ " has one message image on ",
+ StyleBox["b", "TI"],
+ ", and the images strictly increase along ",
+ StyleBox["a", "TI"],
+ ".",
+ "\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"1c0a20d3-5608-439f-a837-0d44aeba0005"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["EPSMessageAxiomQ"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/EPSMessageAxiomQ", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["g", "TI"], ",", " ", 
+    RowBox[{"InfraEchoFunction", "[", 
+     RowBox[{
+      StyleBox["a", "TI"], ",", " ", 
+      StyleBox["b", "TI"]}], "]"}]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "7a143d40-9746-46ef-a068-cfc17d1460bb"],
+ "\[LineSeparator]",
+ "gives ",
+ Cell[BoxData["True"], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "b636330e-78f6-45ce-bd92-79f5b3b88838"],
+ " if every tick of ",
+ StyleBox["a", "TI"],
+ " has one echo via ",
+ StyleBox["b", "TI"],
+ ", and the echoes strictly increase along ",
+ StyleBox["a", "TI"],
+ "."
+}], "Usage",ExpressionUUID->"662f3400-85a6-434a-b66e-03e71c809777"],
+
+Cell[TextData[{
+ "Statement: with ",
+ StyleBox["M", "TI"],
+ "(",
+ StyleBox["v", "TI"],
+ ") = ",
+ StyleBox["E", "TI"],
+ "\:207a(",
+ StyleBox["v", "TI"],
+ ") \:2229 ",
+ StyleBox["b", "TI"],
+ " the message relation of ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMessageFunction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraMessageFunction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "6b346f7b-17d0-49a6-8472-37f5af5c65c4"],
+ ", the pair of observers satisfies axiom D1 on the window ",
+ StyleBox["a'", "TI"],
+ " of ",
+ StyleBox["a", "TI"],
+ " when ",
+ "|",
+ StyleBox["M", "TI"],
+ "(",
+ StyleBox["v", "TI"],
+ ")",
+ "|",
+ " = 1 for every ",
+ StyleBox["v", "TI"],
+ " in ",
+ StyleBox["a'", "TI"],
+ " and the position of the image on ",
+ StyleBox["b", "TI"],
+ " strictly increases along ",
+ StyleBox["a'", "TI"],
+ "; the relation is then a monotone injection of the window into ",
+ StyleBox["b", "TI"],
+ ", the message function of two inertial observers in Minkowski space. For ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraEchoFunction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraEchoFunction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "bea241e1-f02b-497e-8d31-dd0488b7ac49"],
+ " the relation is ",
+ StyleBox["v", "TI"],
+ " \[RightArrow] Echo(",
+ StyleBox["v", "TI"],
+ "), with the echoes anywhere on ",
+ StyleBox["a", "TI"],
+ "."
+}], "Notes",ExpressionUUID->"83eb5704-b3a0-462f-a8e6-d59dd9058f0e"],
+
+Cell[TextData[{
+ "The predicate tests the pair of observers; ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMessageFunctionQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraMessageFunctionQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "5a84f685-2ca5-41ab-8098-05c660903952"],
+ " and ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraEchoFunctionQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraEchoFunctionQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "6d4509c5-0267-46df-ba5c-25b95ed01a19"],
+ " test a candidate map against the pair. When the axiom holds the relation \
+has one member, the map itself, and the two tests agree on it."
+}], "Notes",ExpressionUUID->"33404e28-a07c-4ebe-97bb-d871fd515cf1"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "cec7843e-7476-4c59-b40a-6de6d7ac83c7"], Cell["Option", "TableText",
+     FontWeight->Bold,ExpressionUUID->"6640f4df-760c-4c5b-b0b3-aa85d200695f"],
+     Cell["Default", "TableText",
+     FontWeight->Bold,ExpressionUUID->"7e23f2ec-de32-4af5-a108-9bab1e5ed8be"],
+     Cell["Effect", "TableText",
+     FontWeight->Bold,ExpressionUUID->"d8e86b48-f005-4bad-9fa6-365326a4a775"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "9c21c1ac-6013-458c-8ad9-68f8ba00beb9"], Cell[TextData[Cell[
+    BoxData["\"\<Margin\>\""], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "f65364fe-9f1a-4fa6-bb47-38ea4633e13b"]], "TableText",ExpressionUUID->
+     "6e3e2fc8-e4fc-4a3c-8bbd-fae149f86e82"], Cell[
+    "0", "TableText",ExpressionUUID->"d610039f-fd42-47d3-a3df-bd579454efd8"], 
+    Cell[TextData[{
+     "the window is ",
+     StyleBox["a", "TI"],
+     " with that many ticks dropped at each end; the images stay in the whole \
+of ",
+     StyleBox["b", "TI"]
+    }], "TableText",ExpressionUUID->"7d4fbe58-68d2-4797-9ae6-0d6b84603d52"]}
+  }]], "3ColumnTableMod",ExpressionUUID->"a551bf84-5f57-4b48-8cb8-\
+75a08f36822c"],
+
+Cell[TextData[{
+ "The predicate is the vanishing of the four defects of the head read with \
+the same ",
+ Cell[BoxData["\"\<Margin\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "56784058-d5ef-424d-9e9a-9ac64d6b9e86"],
+ ": ",
+ Cell[BoxData["\"\<DomainDefect\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "606cd0aa-35cf-417b-b41a-c0df8edbe865"],
+ " 0 is every window tick with an image, ",
+ Cell[BoxData["\"\<FunctionDefect\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "b870551b-269f-4a6c-9549-c3523fd17924"],
+ " 0 is at most one image each, ",
+ Cell[BoxData["\"\<InjectivityDefect\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "834ebd58-b4e1-43c4-923f-5b5697ed05c5"],
+ " 0 with these is distinct images, and ",
+ Cell[BoxData["\"\<OrderDefect\>\""], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "b20639bb-9e01-4098-97af-745afc6c58a6"],
+ " 0 with these is images in weakly increasing order, which with distinctness \
+is strictly increasing. On an empty window the axiom holds vacuously."
+}], "Notes",ExpressionUUID->"7d761be4-6ca8-4a70-8fea-b46dcc76a045"],
+
+Cell["Corresponding notions:", "Notes",ExpressionUUID->"80b87bed-4051-4913-8dc2-906a22c07da8"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "f3b5f5d6-d06c-456b-9400-eaaf2dedb784"], Cell["System", "TableText",
+     FontWeight->Bold,ExpressionUUID->"b82790a5-bee5-4ed0-ab89-6875cef47c37"],
+     Cell["Name", "TableText",
+     FontWeight->Bold,ExpressionUUID->"6d8f6cd0-d27d-4513-b2b0-67c29cb11503"],
+     Cell["Statement", "TableText",
+     FontWeight->Bold,ExpressionUUID->"f5548657-e61a-4ee0-9837-dec05d89ecca"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "50842586-c0b7-43ba-b46e-0c9d50a6a52b"], Cell[
+    "EPS", "TableText",ExpressionUUID->
+     "5e1d64a3-1c7d-4080-a068-4f133d8a5739"], Cell[
+    "Axiom D1", "TableText",ExpressionUUID->
+     "2858a9c9-bc31-445b-9d56-542f49e16ccf"], Cell[TextData[{
+     "The message from a particle ",
+     StyleBox["P", "TI"],
+     " to a particle ",
+     StyleBox["Q", "TI"],
+     " is a smooth monotone map of the clock of ",
+     StyleBox["P", "TI"],
+     " into the clock of ",
+     StyleBox["Q", "TI"],
+     "; so is the echo, its composition with the message back."
+    }], "TableText",ExpressionUUID->"623831d1-2c86-42bc-9820-a7cdfa72419d"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "cff1be76-52d0-46e0-aea4-b70799074294"], Cell[
+    "Minkowski space", "TableText",ExpressionUUID->
+     "433cf9f3-a0b9-4bc6-807d-41fcbcb7e62c"], Cell[
+    "Light signal", "TableText",ExpressionUUID->
+     "0bdc1111-4f3e-44a2-beb5-3a00e5de6730"], Cell["\<\
+A light ray from an inertial worldline meets a second inertial worldline at \
+exactly one event, later on its clock for a later emission.\
+\>", "TableText",ExpressionUUID->"d5510d9b-5fae-4df9-8112-e511745b2d9a"]}
+  }]], "3ColumnTableMod",ExpressionUUID->"acedb051-6461-4e18-9bb7-\
+5fdf9d2f01df"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "See Also",
+ Cell[BoxData[
+  TemplateBox[{"SeeAlso", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related reference (function) pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b7caa910-e086-4d39-871e-e78bfb02a4b9"]
+}], "SeeAlsoSection",
+ CellID->1559318232,ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMessageFunction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraMessageFunction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "d11c9136-6c20-4b5c-8975-93efe6eee86a"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraEchoFunction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraEchoFunction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "8af67d90-4b11-41b8-b009-5573514a4114"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMessageFunctionQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraMessageFunctionQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "1fb307a4-6e98-40ae-a003-83137cdba3f9"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraEchoFunctionQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraEchoFunctionQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "8a1deeba-4bbf-4da7-bec6-9be6388a04a2"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["EPSRadarAxiomQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/EPSRadarAxiomQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "d8d6350c-ccb3-45e9-81d2-c170826aa8c1"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RandomInfraMessageFunction"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/RandomInfraMessageFunction", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "1af7d278-71a4-4233-b68a-c6f55c2d0af8"]
+}], "SeeAlso",ExpressionUUID->"893a5052-99f9-417c-8261-9812bc539d79"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Tech Notes",
+ Cell[BoxData[
+  TemplateBox[{"TechNotes", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Insert links to related tech notes.", "MoreInfoText"], BaseStyle -> 
+       "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "a0027a76-2f69-4270-bf06-cff364aa09d7"]
+}], "TechNotesSection",
+ CellID->792424486,ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74"],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5"],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["EPSAxiomatics",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:WolframInstitute/InfraCausality/guide/EPSAxiomatics"]], \
+"InlineFormula",ExpressionUUID->"4ac1cb38-4cce-44fb-83d1-6808db63e5d6"]], \
+"MoreAbout",ExpressionUUID->"428f3bb3-0f37-4596-b661-d9b35db5535b"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Related Links",
+ Cell[BoxData[
+  TemplateBox[{"RelatedLinks", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related page, including web pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "88f916ad-99d1-4784-a15f-dfa2faf44f02"]
+}], "RelatedLinksSection",
+ CellID->47113304,ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Examples Initialization",
+ Cell[BoxData[
+  TemplateBox[{"ExamplesInitialization", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Input that is to be evaluated before any examples are run, e.g. \
+Needs[\[Ellipsis]].", "MoreInfoText"], BaseStyle -> "IFrameBox"]], 
+     "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "1ca4d14a-308f-4a68-bbf6-e6901ce2ab4c"]
+}], "ExamplesInitializationSection",
+ CellID->1718580883,ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5"],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraCausality`\>\"", "]"}], "\n", 
+ RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraGeometry`\>\"", 
+  "]"}]}], "ExampleInitialization",
+ CellID->1969679695,ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox[
+      RowBox[{"Basic", " ", "Examples"}], "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
+
+Cell[TextData[{
+ "The lattice observers at rest, {(",
+ StyleBox["m", "TI"],
+ ", ",
+ StyleBox["m", "TI"],
+ ")} and {(",
+ StyleBox["m", "TI"],
+ ", ",
+ StyleBox["m", "TI"],
+ " + 2)}, exchange their ticks one to one on the interior window, both ways \
+and in the echo."
+}], "ExampleText",ExpressionUUID->"48f8bc18-1c57-4f94-871e-040830777b07"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "m"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}]}], ",", 
+     " ", 
+     RowBox[{"b", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", 
+          RowBox[{"m", " ", "+", " ", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "4"}], "}"}]}], "]"}]}]}], 
+    "}"}], ",", "\n", "  ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"EPSMessageAxiomQ", "[", 
+      RowBox[{"g", ",", " ", "#", ",", " ", 
+       RowBox[{"\"\<Margin\>\"", " ", "->", " ", "2"}]}], "]"}], " ", "&"}], 
+    " ", "/@", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"InfraMessageFunction", "[", 
+       RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+      RowBox[{"InfraMessageFunction", "[", 
+       RowBox[{"b", ",", " ", "a"}], "]"}], ",", " ", 
+      RowBox[{"InfraEchoFunction", "[", 
+       RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+      RowBox[{"InfraEchoFunction", "[", 
+       RowBox[{"b", ",", " ", "a"}], "]"}]}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"410467fd-fc52-4d3f-adcd-ecd8891d1f3c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"True", ",", "True", ",", "True", ",", "True"}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"102a8576-c49b-48a0-b960-063d310b219e"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Without the margin the two top ticks of {(",
+ StyleBox["m", "TI"],
+ ", ",
+ StyleBox["m", "TI"],
+ ")} send their light out of the lattice, so the axiom fails from that chain \
+and holds towards it."
+}], "ExampleText",ExpressionUUID->"bded676e-133f-4daa-8f47-ac21e15d14df"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "m"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}]}], ",", 
+     " ", 
+     RowBox[{"b", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", 
+          RowBox[{"m", " ", "+", " ", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "4"}], "}"}]}], "]"}]}]}], 
+    "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"EPSMessageAxiomQ", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"InfraMessageFunction", "[", 
+        RowBox[{"a", ",", " ", "b"}], "]"}]}], "]"}], ",", " ", 
+     RowBox[{"EPSMessageAxiomQ", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"InfraMessageFunction", "[", 
+        RowBox[{"b", ",", " ", "a"}], "]"}]}], "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"30c42761-8cea-482e-86ec-62d6085e7458"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"False", ",", "True"}], "}"}]], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"1ddfe241-7b63-4ce2-9bb4-d3a6e364974c"]
+}, Open  ]],
+
+Cell["\<\
+Each light ray from the staircase meets the shifted staircase in two \
+consecutive ticks, so the axiom fails on every window.\
+\>", "ExampleText",ExpressionUUID->"353a3917-984a-4296-8eb7-45725e998a6c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{"a", " ", "=", " ", 
+     RowBox[{"Append", "[", 
+      RowBox[{
+       RowBox[{"Catenate", " ", "@", " ", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"i", ",", " ", "i"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"i", " ", "+", " ", "1"}], ",", " ", "i"}], "}"}]}], 
+           "}"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", " ", "0", ",", " ", "5"}], "}"}]}], "]"}]}], ",",
+        " ", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", " ", "6"}], "}"}]}], "]"}]}], "}"}], ",", "\n", 
+   "  ", 
+   RowBox[{"{", 
+    RowBox[{"b", " ", "=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"#", " ", "+", " ", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", " ", "2"}], "}"}]}], ")"}], " ", "&"}], " ", "/@",
+         " ", "a"}], ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Max", "[", "#", "]"}], " ", "<=", " ", "6"}], " ", "&"}]}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"EPSMessageAxiomQ", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"InfraMessageFunction", "[", 
+        RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+       RowBox[{"\"\<Margin\>\"", " ", "->", " ", "k"}]}], "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", " ", "0", ",", " ", "4"}], "}"}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[3]:= ",ExpressionUUID->"a782618f-e918-4a37-87c3-9dd16cf74db5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"False", ",", "False", ",", "False", ",", "False", ",", "False"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[3]= ",ExpressionUUID->"d1f503e6-33c3-4007-b383-70f70eb7064c"]
+}, Open  ]],
+
+Cell["\<\
+Two random timelike geodesics on each substrate: a light ray from a tick \
+rarely meets the other observer in exactly one tick, and the axiom fails for \
+messages and echoes on all three.\
+\>", "ExampleText",ExpressionUUID->"272ebcd5-dcb4-4d0b-b606-2e237f7d91a2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"With", "[", "\n", "    ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"g", " ", "=", " ", 
+       RowBox[{"CausalSubstrate", "[", 
+        RowBox[{"name", ",", " ", "\"\<Small\>\""}], "]"}]}], "}"}], ",", 
+     "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{"a", " ", "=", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
+         RowBox[{"RandomInfraTimelikeGeodesic", "[", "g", "]"}]}], ")"}]}], 
+      "}"}], ",", "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{"b", " ", "=", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"SeedRandom", "[", "1", "]"}], ";", " ", 
+         RowBox[{"RandomInfraTimelikeGeodesic", "[", 
+          RowBox[{"VertexDelete", "[", 
+           RowBox[{"g", ",", " ", "a"}], "]"}], "]"}]}], ")"}]}], "}"}], ",", 
+     "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"EPSMessageAxiomQ", "[", 
+        RowBox[{"g", ",", " ", 
+         RowBox[{"InfraMessageFunction", "[", 
+          RowBox[{"a", ",", " ", "b"}], "]"}]}], "]"}], ",", " ", 
+       RowBox[{"EPSMessageAxiomQ", "[", 
+        RowBox[{"g", ",", " ", 
+         RowBox[{"InfraEchoFunction", "[", 
+          RowBox[{"a", ",", " ", "b"}], "]"}]}], "]"}]}], "}"}]}], "]"}], ",",
+    "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{"name", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", 
+       " ", "\"\<MinkowskiSprinkling2D\>\"", ",", 
+       " ", "\"\<CylinderLatticeGraph\>\""}], "}"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[4]:= ",ExpressionUUID->"ac8a6df6-1410-4ebb-8d66-37c2ed5eb256"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"False", ",", "False"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"False", ",", "False"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"False", ",", "False"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[4]= ",ExpressionUUID->"cbd07c19-cb35-40f1-b303-511d23cededc"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "More Examples",
+ Cell[BoxData[
+  TemplateBox[{"MoreExamples", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Extended examples in standardized sections.", "MoreInfoText"], 
+       BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "352b6acf-a93b-4224-8779-658881cdabd0"]
+}], "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->533848431,ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "32e79d70-f7af-47ff-bb41-513374ef55db"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "a148ce84-caec-4483-aa99-5b7bd6d55bf1"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "b26b6366-7922-4236-a426-38c0f5de13f0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0"],
+
+Cell[CellGroupData[{
+
+Cell["Margin", "ExampleSubsection",ExpressionUUID->"8d94e0cd-c223-488f-8ccc-cc30c06dc353"],
+
+Cell[TextData[{
+ "The window of ",
+ Cell[BoxData[
+  RowBox[{"\"\<Margin\>\"", " ", "->", " ", "k"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "723074e3-dbf9-4f21-8e05-9bb0ed0c5d31"],
+ " is ",
+ StyleBox["a", "TI"],
+ " with ",
+ StyleBox["k", "TI"],
+ " ticks removed at each end; for a message head the answer equals the answer \
+for the head whose first observer is the window."
+}], "ExampleText",ExpressionUUID->"b61e3c9b-79b0-4420-87d0-a11a4e1de097"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "m"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}]}], ",", 
+     " ", 
+     RowBox[{"b", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", 
+          RowBox[{"m", " ", "+", " ", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "4"}], "}"}]}], "]"}]}]}], 
+    "}"}], ",", "\n", "  ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"EPSMessageAxiomQ", "[", 
+       RowBox[{"g", ",", " ", 
+        RowBox[{"InfraMessageFunction", "[", 
+         RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+        RowBox[{"\"\<Margin\>\"", " ", "->", " ", "k"}]}], "]"}], " ", "===", 
+      " ", 
+      RowBox[{"EPSMessageAxiomQ", "[", 
+       RowBox[{"g", ",", " ", 
+        RowBox[{"InfraMessageFunction", "[", 
+         RowBox[{
+          RowBox[{"a", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{"k", " ", "+", " ", "1"}], " ", ";;", " ", 
+             RowBox[{
+              RowBox[{"-", "k"}], " ", "-", " ", "1"}]}], "]"}], "]"}], ",", 
+          " ", "b"}], "]"}]}], "]"}]}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", " ", "0", ",", " ", "2"}], "}"}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"15663c6a-f98f-4f95-80a2-574413a6db67"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"True", ",", "True", ",", "True"}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"5b816d82-ea26-4215-b4fb-13d158a79109"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "d5715ee2-1cae-4f33-89b2-0e99ea9caa6e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell["\<\
+The predicate is the vanishing of the four defects read with the same margin.\
+\
+\>", "ExampleText",ExpressionUUID->"ba45dabd-82db-4841-af94-a8390fd1b823"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "m"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}]}], ",", 
+     " ", 
+     RowBox[{"b", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", 
+          RowBox[{"m", " ", "+", " ", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "4"}], "}"}]}], "]"}]}], ",", 
+     " ", 
+     RowBox[{"s", " ", "=", " ", 
+      RowBox[{"Append", "[", 
+       RowBox[{
+        RowBox[{"Catenate", " ", "@", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"i", ",", " ", "i"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"i", " ", "+", " ", "1"}], ",", " ", "i"}], "}"}]}], 
+            "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", " ", "0", ",", " ", "5"}], "}"}]}], "]"}]}], ",",
+         " ", 
+        RowBox[{"{", 
+         RowBox[{"6", ",", " ", "6"}], "}"}]}], "]"}]}]}], "}"}], ",", "\n", 
+   "  ", 
+   RowBox[{"{", 
+    RowBox[{"t", " ", "=", " ", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"#", " ", "+", " ", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", " ", "2"}], "}"}]}], ")"}], " ", "&"}], " ", "/@",
+         " ", "s"}], ",", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Max", "[", "#", "]"}], " ", "<=", " ", "6"}], " ", "&"}]}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"AllTrue", "[", 
+    RowBox[{
+     RowBox[{"Catenate", " ", "@", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"head", ",", " ", "k"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"head", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"InfraMessageFunction", "[", 
+             RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+            RowBox[{"InfraMessageFunction", "[", 
+             RowBox[{"b", ",", " ", "a"}], "]"}], ",", " ", 
+            RowBox[{"InfraEchoFunction", "[", 
+             RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+            RowBox[{"InfraMessageFunction", "[", 
+             RowBox[{"s", ",", " ", "t"}], "]"}], ",", " ", 
+            RowBox[{"InfraEchoFunction", "[", 
+             RowBox[{"t", ",", " ", "s"}], "]"}]}], "}"}]}], "}"}], ",", " ", 
+        
+        RowBox[{"{", 
+         RowBox[{"k", ",", " ", "0", ",", " ", "2"}], "}"}]}], "]"}]}], ",", 
+     "\n", "    ", 
+     RowBox[{"Apply", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"head", ",", " ", "k"}], "}"}], " ", "|->", " ", 
+       RowBox[{
+        RowBox[{"EPSMessageAxiomQ", "[", 
+         RowBox[{"g", ",", " ", "head", ",", " ", 
+          RowBox[{"\"\<Margin\>\"", " ", "->", " ", "k"}]}], "]"}], " ", "===",
+         "\n", "      ", 
+        RowBox[{"AllTrue", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           
+           RowBox[{"\"\<DomainDefect\>\"", ",", " ", "\"\<FunctionDefect\>\"",
+             ",", " ", "\"\<InjectivityDefect\>\"", ",", 
+            " ", "\"\<OrderDefect\>\""}], "}"}], ",", " ", 
+          RowBox[{"d", " ", "|->", " ", 
+           RowBox[{
+            RowBox[{"InfraMeasurement", "[", 
+             RowBox[{"g", ",", " ", "head", ",", " ", "d", ",", " ", 
+              RowBox[{"\"\<Margin\>\"", " ", "->", " ", "k"}]}], "]"}], " ", "==",
+             " ", "0"}]}]}], "]"}]}]}], "]"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"c1809b57-66be-49a5-9b94-1dac53f07be7"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"72cb178d-11d7-4e40-a861-f3f55fd717d2"]
+}, Open  ]],
+
+Cell[TextData[{
+ "When the axiom holds, the relation has exactly one member, and ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraMessageFunctionQ"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/InfraMessageFunctionQ", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "59e4e214-e01b-4d7f-806a-f97b920b18d2"],
+ " accepts it."
+}], "ExampleText",ExpressionUUID->"adbe3873-af55-4065-9a27-67331bf17df8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "m"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}]}], ",", 
+     " ", 
+     RowBox[{"b", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", 
+          RowBox[{"m", " ", "+", " ", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"m", ",", " ", "0", ",", " ", "4"}], "}"}]}], "]"}]}]}], 
+    "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"EPSMessageAxiomQ", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"InfraMessageFunction", "[", 
+        RowBox[{"b", ",", " ", "a"}], "]"}]}], "]"}], ",", " ", 
+     RowBox[{"InfraMeasurement", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"InfraMessageFunction", "[", 
+        RowBox[{"b", ",", " ", "a"}], "]"}], ",", 
+       " ", "\"\<Cardinality\>\""}], "]"}], ",", "\n", "   ", 
+     RowBox[{"InfraMessageFunctionQ", "[", 
+      RowBox[{"g", ",", " ", 
+       RowBox[{"InfraMessageFunction", "[", 
+        RowBox[{"b", ",", " ", "a"}], "]"}], ",", " ", 
+       RowBox[{"First", " ", "/@", " ", 
+        RowBox[{"InfraMeasurement", "[", 
+         RowBox[{"g", ",", " ", 
+          RowBox[{"InfraMessageFunction", "[", 
+           RowBox[{"b", ",", " ", "a"}], "]"}], ",", 
+          " ", "\"\<Relation\>\""}], "]"}]}]}], "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"7f4bf32b-09fb-4f56-a11e-4cd216c84d1b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"True", ",", "1", ",", "True"}], "}"}]], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"3c086ea2-abbd-4b6b-9d66-80a19d8440a1"]
+}, Open  ]],
+
+Cell[TextData[{
+ "On the lattice the chain {((",
+ StyleBox["p", "TI"],
+ " + 1)",
+ StyleBox["m", "TI"],
+ ", ",
+ StyleBox["pm", "TI"],
+ ")} of velocity 1/(2",
+ StyleBox["p", "TI"],
+ " + 1) signals the resting chain {(",
+ StyleBox["m", "TI"],
+ ", ",
+ StyleBox["m", "TI"],
+ ")} tick for tick, while the resting chain reaches only every ",
+ StyleBox["p", "TI"],
+ "-th tick of it."
+}], "ExampleText",ExpressionUUID->"e2e361da-8043-4f2d-9f9f-b07ff224f57c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"g", " ", "=", " ", 
+     RowBox[{"CausalSubstrate", "[", 
+      RowBox[{"\"\<DiamondLatticeGraph\>\"", ",", " ", "\"\<Small\>\""}], 
+      "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"{", 
+    RowBox[{"a", " ", "=", " ", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"m", ",", " ", "m"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", " ", "0", ",", " ", "6"}], "}"}]}], "]"}]}], "}"}], 
+   ",", "\n", "  ", 
+   RowBox[{"Table", "[", "\n", "    ", 
+    RowBox[{
+     RowBox[{"With", "[", "\n", "      ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"b", " ", "=", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"p", " ", "+", " ", "1"}], ")"}], " ", "m"}], ",", " ", 
+             RowBox[{"p", " ", "m"}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"m", ",", " ", "1", ",", " ", 
+             RowBox[{"Floor", "[", 
+              RowBox[{"6", "/", 
+               RowBox[{"(", 
+                RowBox[{"p", " ", "+", " ", "1"}], ")"}]}], "]"}]}], "}"}]}], 
+          "]"}]}], "}"}], ",", "\n", "      ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EPSMessageAxiomQ", "[", 
+          RowBox[{"g", ",", " ", 
+           RowBox[{"InfraMessageFunction", "[", 
+            RowBox[{"b", ",", " ", "a"}], "]"}]}], "]"}], ",", " ", 
+         RowBox[{"EPSMessageAxiomQ", "[", 
+          RowBox[{"g", ",", " ", 
+           RowBox[{"InfraMessageFunction", "[", 
+            RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", 
+           RowBox[{"\"\<Margin\>\"", " ", "->", " ", "1"}]}], "]"}], ",", 
+         "\n", "       ", 
+         RowBox[{"InfraMeasurement", "[", 
+          RowBox[{"g", ",", " ", 
+           RowBox[{"InfraMessageFunction", "[", 
+            RowBox[{"a", ",", " ", "b"}], "]"}], ",", 
+           " ", "\"\<DomainDefect\>\"", ",", " ", 
+           RowBox[{"\"\<Margin\>\"", " ", "->", " ", "1"}]}], "]"}]}], 
+        "}"}]}], "]"}], ",", "\n", "    ", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", " ", "2"}], "}"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:= ",ExpressionUUID->"59e85ac8-9a66-4f83-b948-12f2dbff9e35"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"True", ",", "False", ",", 
+     FractionBox["2", "5"]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"True", ",", "False", ",", 
+     FractionBox["3", "5"]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]= ",ExpressionUUID->"fa989f6a-f489-4d1f-890a-2254a3ce83bf"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "dda06a82-eb41-4b48-8510-6cb821647761"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "e1fe5ce4-66df-44f8-b96d-14ea9265eaf2"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "898193c6-0d9f-4097-90dd-7bc455972e43"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"c83e5b59-d200-4539-afdc-500ed06d3c87"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"d4e38c0c-d937-44f2-85a5-7c0e8fc755ab"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "4c68d818-8923-4121-80f8-cf0eabb4c0de"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Categorization",
+ Cell[BoxData[
+  TemplateBox[{"Metadata", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Metadata such as page URI, context, and type of documentation page.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "4b3d4122-3cd4-481f-a8ff-5aefbb03e00d"]
+}], "CategorizationSection",
+ CellID->1755438392,ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
+
+Cell["WolframInstitute/InfraCausality/ref/EPSMessageAxiomQ", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"e7d04a0b-3aa9-4a16-b8a9-f52eeffbec4c"]
+}, Closed]],
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6"],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{5, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "EPSMessageAxiomQ", "context" -> 
+    "WolframInstitute`InfraCausality`", 
+    "keywords" -> {
+     "EPS axioms", "Ehlers-Pirani-Schild", "axiom D1", "message function", 
+      "echo function", "EPS defects", "observer", "clock", "predicate"}, 
+    "summary" -> "", "paclet" -> "WolframInstitute/InfraCausality", "uri" -> 
+    "WolframInstitute/InfraCausality/ref/EPSMessageAxiomQ", "type" -> 
+    "Symbol", "index" -> True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[23804, 693, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+   CellTags->"ExtendedExamples",
+   CellID->533848431]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 42800, 1240}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 114, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
+ CellID->1224892054],
+Cell[693, 25, 2085, 64, 70, "Usage",ExpressionUUID->"662f3400-85a6-434a-b66e-03e71c809777"],
+Cell[2781, 91, 1657, 59, 70, "Notes",ExpressionUUID->"83eb5704-b3a0-462f-a8e6-d59dd9058f0e"],
+Cell[4441, 152, 953, 23, 70, "Notes",ExpressionUUID->"33404e28-a07c-4ebe-97bb-d871fd515cf1"],
+Cell[5397, 177, 1200, 23, 70, "3ColumnTableMod",ExpressionUUID->"a551bf84-5f57-4b48-8cb8-75a08f36822c"],
+Cell[6600, 202, 1162, 24, 70, "Notes",ExpressionUUID->"7d761be4-6ca8-4a70-8fea-b46dcc76a045"],
+Cell[7765, 228, 94, 0, 70, "Notes",ExpressionUUID->"80b87bed-4051-4913-8dc2-906a22c07da8"],
+Cell[7862, 230, 1733, 34, 70, "3ColumnTableMod",ExpressionUUID->"acedb051-6461-4e18-9bb7-5fdf9d2f01df"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9632, 269, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+ CellID->1559318232],
+Cell[10094, 284, 2247, 60, 70, "SeeAlso",ExpressionUUID->"893a5052-99f9-417c-8261-9812bc539d79"]
+}, Open  ]],
+Cell[12356, 347, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+ CellID->792424486],
+Cell[CellGroupData[{
+Cell[12816, 363, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+ CellID->38303248],
+Cell[12935, 366, 304, 6, 70, "MoreAbout",ExpressionUUID->"428f3bb3-0f37-4596-b661-d9b35db5535b"]
+}, Open  ]],
+Cell[13254, 375, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+ CellID->47113304],
+Cell[CellGroupData[{
+Cell[13750, 392, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+ CellID->1718580883],
+Cell[14284, 408, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+ CellID->1969679695]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14595, 417, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+ CellID->880084151],
+Cell[15040, 431, 339, 11, 70, "ExampleText",ExpressionUUID->"48f8bc18-1c57-4f94-871e-040830777b07"],
+Cell[CellGroupData[{
+Cell[15404, 446, 1614, 43, 70, "Input",ExpressionUUID->"410467fd-fc52-4d3f-adcd-ecd8891d1f3c"],
+Cell[17021, 491, 184, 3, 70, "Output",ExpressionUUID->"102a8576-c49b-48a0-b960-063d310b219e"]
+}, Open  ]],
+Cell[17220, 497, 289, 7, 70, "ExampleText",ExpressionUUID->"bded676e-133f-4daa-8f47-ac21e15d14df"],
+Cell[CellGroupData[{
+Cell[17534, 508, 1373, 38, 70, "Input",ExpressionUUID->"30c42761-8cea-482e-86ec-62d6085e7458"],
+Cell[18910, 548, 159, 3, 70, "Output",ExpressionUUID->"1ddfe241-7b63-4ce2-9bb4-d3a6e364974c"]
+}, Open  ]],
+Cell[19084, 554, 211, 3, 70, "ExampleText",ExpressionUUID->"353a3917-984a-4296-8eb7-45725e998a6c"],
+Cell[CellGroupData[{
+Cell[19320, 561, 1906, 54, 70, "Input",ExpressionUUID->"a782618f-e918-4a37-87c3-9dd16cf74db5"],
+Cell[21229, 617, 205, 4, 70, "Output",ExpressionUUID->"d1f503e6-33c3-4007-b383-70f70eb7064c"]
+}, Open  ]],
+Cell[21449, 624, 273, 4, 70, "ExampleText",ExpressionUUID->"272ebcd5-dcb4-4d0b-b606-2e237f7d91a2"],
+Cell[CellGroupData[{
+Cell[21747, 632, 1672, 44, 70, "Input",ExpressionUUID->"ac8a6df6-1410-4ebb-8d66-37c2ed5eb256"],
+Cell[23422, 678, 333, 9, 70, "Output",ExpressionUUID->"cbd07c19-cb35-40f1-b303-511d23cededc"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23804, 693, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+ CellTags->"ExtendedExamples",
+ CellID->533848431],
+Cell[24294, 708, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+ CellID->1293636265],
+Cell[24539, 715, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[24829, 724, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+ CellID->2061341341],
+Cell[CellGroupData[{
+Cell[25098, 733, 90, 0, 70, "ExampleSubsection",ExpressionUUID->"8d94e0cd-c223-488f-8ccc-cc30c06dc353"],
+Cell[25191, 735, 472, 12, 70, "ExampleText",ExpressionUUID->"b61e3c9b-79b0-4420-87d0-a11a4e1de097"],
+Cell[CellGroupData[{
+Cell[25688, 751, 1817, 50, 70, "Input",ExpressionUUID->"15663c6a-f98f-4f95-80a2-574413a6db67"],
+Cell[27508, 803, 171, 3, 70, "Output",ExpressionUUID->"5b816d82-ea26-4215-b4fb-13d158a79109"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[27718, 811, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+ CellID->258228157],
+Cell[CellGroupData[{
+Cell[27991, 820, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+ CellID->2123667759],
+Cell[28253, 827, 165, 3, 70, "ExampleText",ExpressionUUID->"ba45dabd-82db-4841-af94-a8390fd1b823"],
+Cell[CellGroupData[{
+Cell[28443, 834, 4097, 109, 70, "Input",ExpressionUUID->"c1809b57-66be-49a5-9b94-1dac53f07be7"],
+Cell[32543, 945, 110, 1, 70, "Output",ExpressionUUID->"72cb178d-11d7-4e40-a861-f3f55fd717d2"]
+}, Open  ]],
+Cell[32668, 949, 511, 12, 70, "ExampleText",ExpressionUUID->"adbe3873-af55-4065-9a27-67331bf17df8"],
+Cell[CellGroupData[{
+Cell[33204, 965, 1881, 49, 70, "Input",ExpressionUUID->"7f4bf32b-09fb-4f56-a11e-4cd216c84d1b"],
+Cell[35088, 1016, 168, 3, 70, "Output",ExpressionUUID->"3c086ea2-abbd-4b6b-9d66-80a19d8440a1"]
+}, Open  ]],
+Cell[35271, 1022, 449, 16, 70, "ExampleText",ExpressionUUID->"e2e361da-8043-4f2d-9f9f-b07ff224f57c"],
+Cell[CellGroupData[{
+Cell[35745, 1042, 2346, 59, 70, "Input",ExpressionUUID->"59e85ac8-9a66-4f83-b948-12f2dbff9e35"],
+Cell[38094, 1103, 332, 9, 70, "Output",ExpressionUUID->"fa989f6a-f489-4d1f-890a-2254a3ce83bf"]
+}, Open  ]]
+}, Open  ]],
+Cell[38453, 1116, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+ CellID->1305812373],
+Cell[38708, 1123, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+ CellID->1653164318],
+Cell[38968, 1130, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+ CellID->589267740]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39254, 1140, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+ CellID->311882160],
+Cell[39367, 1143, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[39868, 1159, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+ CellID->1755438392],
+Cell[40356, 1174, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+ CellID->686433507],
+Cell[40493, 1178, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+ CellID->605800465],
+Cell[40655, 1182, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+ CellID->468444828],
+Cell[40814, 1186, 152, 1, 70, "Categorization",ExpressionUUID->"e7d04a0b-3aa9-4a16-b8a9-f52eeffbec4c"]
+}, Closed]],
+Cell[40981, 1190, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+ CellID->477174294],
+Cell[CellGroupData[{
+Cell[41116, 1195, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+ CellID->1872225408],
+Cell[41239, 1198, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+ CellID->1562036412],
+Cell[41391, 1202, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+ CellID->158391909],
+Cell[41531, 1206, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+ CellID->1360575930],
+Cell[41670, 1210, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+ CellID->793782254]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
