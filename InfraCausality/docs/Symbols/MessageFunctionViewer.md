@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Experimental: viewer. The interface of the viewers may change.
 
-Definition: the frame at the tick *v* = *a*<sub>*k*</sub> draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the observer *a* in blue, the observer *b* in red, the message images *M*<sub>*ab*</sub>(*v*) = *E*⁺(*v*) ∩ *b* of [InfraMessageFunction]() in green, the light rays from *v* to them in orange and *v* in magenta. The label names the tick and its images.
+Definition: the frame at the tick *v* = *a*<sub>*k*</sub> draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the observer *a* in blue, the observer *b* in green, the message images *M*<sub>*ab*</sub>(*v*) = *E*⁺(*v*) ∩ *b* of [InfraMessageFunction]() in purple, the light rays from *v* to them in orange and *v* in magenta. The label names the tick and its images.
 
 The tick is chosen with the slider or by clicking near it; a click selects the tick of *a* nearest to the click, even far from *a*. The observers are vertex lists in causal order, such as the members [RandomInfraObserver]() and [RandomInfraWorldline]() draw. The result is a `Manipulate` with `SaveDefinitions -> True`; clicking needs the Wolfram notebook front end.
 
@@ -40,9 +40,9 @@ GraphicsRow @ Table[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]]), b = (SeedRandom[4]; RandomInfraWorldline[g, InfraWorldline[]])},
     {images = Lookup[InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], Key @ a[[4]]]},
-    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed,
-      Map[w |-> InfraWalk[First @ RandomInfraWorldline[g, a[[4]], w, All]], images] -> StandardOrange,
-      images -> StandardGreen, {a[[4]]} -> StandardMagenta}]],
+    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen,
+      Map[w |-> InfraWalk[First @ RandomInfraWorldline[g, a[[4]], w, All]], images] -> Red,
+      images -> StandardPurple, {a[[4]]} -> StandardMagenta}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

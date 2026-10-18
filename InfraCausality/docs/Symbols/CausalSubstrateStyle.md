@@ -18,9 +18,11 @@ RelatedGuides: [CausalSubstrates]
 
 ## Details & Options
 
-The style is a list of `Graph` option rules: `EdgeStyle` and `VertexStyle` in `StandardGray` with arrowheads, a `VertexSize` that shrinks with the size so that larger graphs stay legible, and `GraphLayout -> {"LayeredDigraphEmbedding", "Orientation" -> Bottom}`, which draws a directed acyclic graph in layers with time upward. It is the analogue of InfraGeometry's [`InfraSubstrateStyle`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateStyle).
+The style is a list of `Graph` option rules: `VertexStyle` and `EdgeStyle` in the causal-graph colours of the Wolfram Physics Project (events `Hue[0.11, 1, 0.97]`, causal edges `Hue[0, 1, 0.56]`, the values of SetReplace's `"CausalGraph"` style and of the causal graphs of the Technical Introduction) with arrowheads, a `VertexSize` that shrinks with the size so that larger graphs stay legible, and `GraphLayout -> {"LayeredDigraphEmbedding", "Orientation" -> Bottom}`, which draws a directed acyclic graph in layers with time upward. It is the analogue of InfraGeometry's [`InfraSubstrateStyle`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateStyle).
 
-The style depends on the size alone: every named substrate of one size has the same style. [CausalSubstrate]() applies it, and so does [RandomCausalGraph](), with the size chosen by the number of events (`"Small"` up to 250, `"Medium"` up to 800, `"Large"` beyond). A layout given by `VertexCoordinates`, as under `"KeepCoordinates" -> True`, takes precedence over the layered embedding.
+The style depends on the size alone: every named substrate of one size has the same colours, and the edge opacity and the arrowheads shrink with the size. [CausalSubstrate]() applies it, and so does [RandomCausalGraph](), with the size chosen by the number of events (`"Small"` up to 250, `"Medium"` up to 800, `"Large"` beyond). A layout given by `VertexCoordinates`, as under `"KeepCoordinates" -> True`, takes precedence over the layered embedding.
+
+Highlights read best in the same palette: light cones, light rays and the current slice of a foliation in `Red`, the colour of the causal cones and foliations of the Technical Introduction; the past in the Project's blue `RGBColor[0.259, 0.576, 1]`; worldlines and observers in `StandardBlue` and `StandardGreen`.
 
 ## Basic Examples
 
@@ -42,6 +44,12 @@ The vertex sizes of the three sizes.
 
 ```wl
 Table[VertexSize /. CausalSubstrateStyle[size], {size, {"Small", "Medium", "Large"}}]
+```
+
+The event and the causal-edge colours are those of the Wolfram Physics Project.
+
+```wl
+{First @ Cases[VertexStyle /. CausalSubstrateStyle["Small"], _Hue, Infinity], First @ Cases[EdgeStyle /. CausalSubstrateStyle["Small"], _Hue, Infinity]}
 ```
 
 ## Properties and Relations

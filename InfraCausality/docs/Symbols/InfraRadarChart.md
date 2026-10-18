@@ -46,14 +46,14 @@ Corresponding notions:
 
 ## Basic Examples
 
-A random worldline of the substrate (blue) and its radar chart (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws a chart by its radar domain, the events it charts.
+A random worldline of the substrate (blue) and its radar chart (purple), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws a chart by its radar domain, the events it charts.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardOrange, InfraWalk[a] -> StandardBlue}]],
+    InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardPurple, InfraWalk[a] -> StandardBlue}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -63,7 +63,7 @@ A worldline between two inner events of the diamond lattice charts only their ca
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{1, 0}, {5, 4}]])},
-  InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardGreen, InfraWalk[a] -> StandardRed}]]
+  InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardGreen, InfraWalk[a] -> StandardBlue}]]
 ```
 
 The base graph of the chart, the order on its coordinate cells, drawn at distance across and time up.

@@ -42,7 +42,7 @@ GraphicsRow @ Table[
     {p = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
     {q = (SeedRandom[2]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Floor[Max[UniversalTime[g]]/2] + 1]]])},
     {b = (SeedRandom[2]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
-    Labeled[InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}], ChainProjection[g, a, b]]],
+    Labeled[InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}], ChainProjection[g, a, b]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

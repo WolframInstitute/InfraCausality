@@ -172,4 +172,22 @@ VerificationTest[
   TestID -> "CausalSubstrateStyle-all-sizes-graph-option-rules"
 ]
 
+VerificationTest[
+  Map[ size |-> With[ { style = CausalSubstrateStyle[ size ] },
+      { First @ Cases[ VertexStyle /. style, _Hue | _RGBColor, Infinity ],
+        First @ Cases[ EdgeStyle /. style, _Hue | _RGBColor, Infinity ],
+        First @ Cases[ VertexStyle /. style, EdgeForm[ spec_ ] :> First @ Cases[ spec, _Hue | _RGBColor, Infinity ], Infinity ] } ],
+    { "Small", "Medium", "Large" } ],
+  Table[ { Hue[ 0.11, 1, 0.97 ], Hue[ 0, 1, 0.56 ], Hue[ 0.11, 1, 0.97 ] }, 3 ],
+  TestID -> "CausalSubstrateStyle-wolfram-physics-project-causal-graph-colours"
+]
+
+VerificationTest[
+  Map[ g |-> { First @ Cases[ VertexStyle /. Options[ g, VertexStyle ], _Hue, Infinity ], First @ Cases[ EdgeStyle /. Options[ g, EdgeStyle ], _Hue, Infinity ] },
+    { CausalSubstrate[ "DiamondLatticeGraph", "Small" ], BlockRandom[ SeedRandom[ 7 ]; RandomCausalGraph[ 12 ] ],
+      InfraMeasurement[ CausalSubstrate[ "DiamondLatticeGraph", "Small" ], InfraRadarChart[ Table[ { 0, j }, { j, 0, 6 } ] ], "BaseGraph" ] } ],
+  Table[ { Hue[ 0.11, 1, 0.97 ], Hue[ 0, 1, 0.56 ] }, 3 ],
+  TestID -> "CausalSubstrate-RandomCausalGraph-radar-base-graph-carry-the-causal-graph-colours"
+]
+
 EndTestSection[]

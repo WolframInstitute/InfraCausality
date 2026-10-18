@@ -42,14 +42,14 @@ With[
 ## Cones and diamonds
 
 - The **causal future** *J*⁺(*p*) is the set of events *p* can influence, the **causal past** *J*⁻(*q*) the set that can influence *q*, and the **causal diamond** [*p*, *q*] = *J*⁺(*p*) ∩ *J*⁻(*q*) the events between them. The **future light cone** *E*⁺(*p*) keeps the events reached from *p* by a light ray, a chain that cannot be lengthened between its ends.
-- On the lattice: the future of {1, 0} (orange), the past of {5, 4} (blue), their diamond (green), and the light cone of {1, 0} (red), its two null lines.
+- On the lattice: the future of {1, 0} (red), the past of {5, 4} (blue), their diamond (green), and the light cone of {1, 0} (red), its two null lines.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   GraphicsRow[{
-    InfraSubstrateHighlight[g, {InfraCausalFuture[{1, 0}] -> StandardOrange, InfraCausalPast[{5, 4}] -> StandardBlue}],
-    InfraSubstrateHighlight[g, {InfraCausalDiamond[{1, 0}, {5, 4}] -> StandardGreen, InfraFutureLightCone[{1, 0}] -> StandardRed}]}]]
+    InfraSubstrateHighlight[g, {InfraCausalFuture[{1, 0}] -> Red, InfraCausalPast[{5, 4}] -> StandardBlue}],
+    InfraSubstrateHighlight[g, {InfraCausalDiamond[{1, 0}, {5, 4}] -> StandardGreen, InfraFutureLightCone[{1, 0}] -> Red}]}]]
 ```
 
 - The diamond of {1, 0} and {5, 4} is a 5 × 5 square of the lattice: [(*i*, *j*), (*k*, *l*)] has (*k* − *i* + 1)(*l* − *j* + 1) events.
@@ -65,7 +65,7 @@ With[
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  InfraSubstrateHighlight[g, {InfraCausalFuture[2] -> StandardOrange, InfraFutureLightCone[2] -> StandardRed, 2}]]
+  InfraSubstrateHighlight[g, {InfraCausalFuture[2] -> Lighter[Red, 0.6], InfraFutureLightCone[2] -> Red, 2}]]
 ```
 
 ## Worldlines and observers
@@ -77,7 +77,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
-  InfraSubstrateHighlight[g, {InfraCausalDiamond[{0, 0}, {6, 6}] -> StandardGreen, InfraWalk[a] -> StandardRed}]]
+  InfraSubstrateHighlight[g, {InfraCausalDiamond[{0, 0}, {6, 6}] -> StandardGreen, InfraWalk[a] -> StandardBlue}]]
 ```
 
 - On the lattice every observer from corner to corner has twelve steps, so the 924 = (12 choose 6) observers are all worldlines. On the sprinkling only 21 of the 49 observers from the first to the last event are longest chains.
@@ -122,14 +122,14 @@ With[
 ## Message functions
 
 - Two observers *a* and *b* exchange light. The **message relation** sends a tick *v* of *a* to the ticks *E*⁺(*v*) ∩ *b* of *b* on its light cone, and a **message function** is a single-valued selection of it that preserves the order of the ticks, the discrete form of the Ehlers–Pirani–Schild axiom D1. An **echo function** is a message function to *b* composed with one back to *a*.
-- The worldline *a* above (blue) and a longest chain *b* of the rest of the lattice (red), with the light rays that carry the messages from *a* to *b* (orange).
+- The worldline *a* above (blue) and a longest chain *b* of the rest of the lattice (green), with the light rays that carry the messages from *a* to *b* (red).
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
   {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
-  InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]
+  InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> Red, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]]
 ```
 
 - A light cone meets the other observer in several ticks or none, so there are many message functions: 36 from *a* to *b*, 24 back, and 168 distinct echo functions of *a* via *b*.
@@ -151,8 +151,8 @@ With[
   {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
   {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
   {f = (SeedRandom[2]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b]])},
-  InfraSubstrateHighlight[g, Join[KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> StandardOrange, f],
-    {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]]
+  InfraSubstrateHighlight[g, Join[KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> Red, f],
+    {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]]]
 ```
 
 ## The radar chart
@@ -165,8 +165,8 @@ With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{0, 0}, {6, 6}]])},
   GraphicsRow[{
-    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardRed}],
-    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[a], "Subgraph"], {InfraWalk[a] -> StandardRed}]}]]
+    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue}],
+    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[a], "Subgraph"], {InfraWalk[a] -> StandardBlue}]}]]
 ```
 
 - The chart of this worldline is injective: the 49 events get 49 distinct coordinates. Radar time never decreases along an edge, and the ticks sit at {*m*, 0}.
@@ -206,15 +206,15 @@ With[
 
 ### The diagonal fold
 
-- The diagonal {(*m*, *m*)} is a chain at rest in the middle of the lattice. Radar distance is unsigned, so its chart cannot tell left from right: the events (*i*, *j*) and (*j*, *i*) get the same coordinates. The lattice with the diagonal (red) and the events left of it (blue), beside the domain at its chart positions, where the two halves lie on top of each other.
+- The diagonal {(*m*, *m*)} is a chain at rest in the middle of the lattice. Radar distance is unsigned, so its chart cannot tell left from right: the events (*i*, *j*) and (*j*, *i*) get the same coordinates. The lattice with the diagonal (green) and the events left of it (blue), beside the domain at its chart positions, where the two halves lie on top of each other.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {diagonal = Table[{m, m}, {m, 0, 6}]},
   GraphicsRow[{
-    InfraSubstrateHighlight[g, {Select[VertexList[g], v |-> First[v] < Last[v]] -> StandardBlue, InfraWalk[diagonal] -> StandardRed}],
-    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[diagonal], "Subgraph"], {InfraWalk[diagonal] -> StandardRed}]}]]
+    InfraSubstrateHighlight[g, {Select[VertexList[g], v |-> First[v] < Last[v]] -> StandardBlue, InfraWalk[diagonal] -> StandardGreen}],
+    InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarChart[diagonal], "Subgraph"], {InfraWalk[diagonal] -> StandardGreen}]}]]
 ```
 
 - The fibers are the mirror pairs {(*i*, *j*), (*j*, *i*)} and the single events of the diagonal. The fold is a fibration, every base edge lifts at every point, but no fiber bundle, since the fibers have two sizes. Its two continuous sections are the two sides of the diagonal.
@@ -242,12 +242,12 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {diagonal = Table[{m, m}, {m, 0, 6}], beside = Table[{m, m + 1}, {m, 0, 5}]},
-  InfraSubstrateHighlight[g, {InfraRadarChart[{diagonal, beside}] -> StandardGreen, InfraWalk[diagonal] -> StandardRed, InfraWalk[beside] -> StandardBlue}]]
+  InfraSubstrateHighlight[g, {InfraRadarChart[{diagonal, beside}] -> StandardPurple, InfraWalk[diagonal] -> StandardGreen, InfraWalk[beside] -> StandardBlue}]]
 ```
 
 ### The cylinder loop
 
-- On the cylinder lattice light can go round the universe. The column {(0, *t*)} is a worldline; the light ray (0, 0) → (1, 1) → … → (5, 5) leaves it and returns to it at (0, 6), so the five events of the ray have emission tick 1 and reception tick 7 and share the cell {4, 3}. The column (red), its radar domain (green) and the loop (orange), beside the base graph.
+- On the cylinder lattice light can go round the universe. The column {(0, *t*)} is a worldline; the light ray (0, 0) → (1, 1) → … → (5, 5) leaves it and returns to it at (0, 6), so the five events of the ray have emission tick 1 and reception tick 7 and share the cell {4, 3}. The column (blue), its radar domain (purple) and the loop (green), beside the base graph.
 
 ```wl
 With[
@@ -255,8 +255,8 @@ With[
   {column = Table[{0, t}, {t, 0, 6}]},
   {fib = InfraMeasurement[g, InfraRadarChart[column], "Fibration"]},
   GraphicsRow[{
-    InfraSubstrateHighlight[g, {InfraRadarChart[column] -> StandardGreen, InfraWalk[column] -> StandardRed,
-      Select[Values[VertexList /@ InfraFibers[fib]], f |-> Length[f] > 1] -> StandardOrange}],
+    InfraSubstrateHighlight[g, {InfraRadarChart[column] -> StandardPurple, InfraWalk[column] -> StandardBlue,
+      Select[Values[VertexList /@ InfraFibers[fib]], f |-> Length[f] > 1] -> StandardGreen}],
     InfraMeasurement[g, InfraRadarChart[column], "BaseGraph"]}]]
 ```
 

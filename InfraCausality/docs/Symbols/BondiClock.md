@@ -21,7 +21,7 @@ RelatedTutorials: [BondiKCalculus]
 
 Experimental: figure. The figure's layout and options may change.
 
-Definition: the figure draws the [LightZigzag]() of velocity *v* from the emission arc length `"EmitArcLength"`: the rest worldline ("Alice", blue), the worldline of velocity *v* ("Bob", red), the light (yellow) and its reflection events (purple). The proper times of the successive events are $s_0, k s_0, k^2 s_0, \dots$, each reception *k* times the emission before it; on Alice's worldline, where proper time is arc length, the reflections are spaced by the factor $k^2$, so the number of bounces is logarithmic in the drawn length. The ticks mark the integer proper times on each worldline, at arc lengths *τ* / <code>[ProperTimeScale]()[*v*, *φ*]</code>, so they are evenly spaced on each worldline and farther apart on the moving one.
+Definition: the figure draws the [LightZigzag]() of velocity *v* from the emission arc length `"EmitArcLength"`: the rest worldline ("Alice", blue), the worldline of velocity *v* ("Bob", red), the light (yellow) and its reflection events (magenta). The proper times of the successive events are $s_0, k s_0, k^2 s_0, \dots$, each reception *k* times the emission before it; on Alice's worldline, where proper time is arc length, the reflections are spaced by the factor $k^2$, so the number of bounces is logarithmic in the drawn length. The ticks mark the integer proper times on each worldline, at arc lengths *τ* / <code>[ProperTimeScale]()[*v*, *φ*]</code>, so they are evenly spaced on each worldline and farther apart on the moving one.
 
 | Option | Default | |
 |---|---|---|

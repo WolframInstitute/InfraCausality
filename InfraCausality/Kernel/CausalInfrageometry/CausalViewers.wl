@@ -47,11 +47,11 @@ LightConeViewer[ g_Graph ] :=
         Labeled[
           EventHandler[
             InfraSubstrateHighlight[ g, {
-              InfraCausalFuture[ v ] -> Lighter[ StandardOrange, 0.6 ],
-              InfraCausalPast[ v ] -> Lighter[ StandardBlue, 0.6 ],
-              InfraFutureLightCone[ v ] -> StandardOrange,
-              InfraPastLightCone[ v ] -> StandardBlue,
-              { v } -> StandardRed } ],
+              InfraCausalFuture[ v ] -> $causalColors[ "Future" ],
+              InfraCausalPast[ v ] -> $causalColors[ "Past" ],
+              InfraFutureLightCone[ v ] -> $causalColors[ "Light" ],
+              InfraPastLightCone[ v ] -> $causalColors[ "PastLight" ],
+              { v } -> $causalColors[ "Marker" ] } ],
             { "MouseClicked" :> With[ { mp = MousePosition[ "Graphics" ] },
               If[ mp =!= None, v = First @ nearest[ mp ] ] ] },
             PassEventsDown -> True ],
@@ -73,11 +73,11 @@ MessageFunctionViewer[ g_Graph, a_List, b_List ] :=
         Labeled[
           EventHandler[
             InfraSubstrateHighlight[ g, {
-              InfraWalk[ a ] -> StandardBlue,
-              InfraWalk[ b ] -> StandardRed,
-              rayGraph[ g, Map[ w |-> { a[[ k ]], w }, reading[ "Images" ] ] ] -> StandardOrange,
-              reading[ "Images" ] -> StandardGreen,
-              { a[[ k ]] } -> StandardMagenta } ],
+              InfraWalk[ a ] -> $causalColors[ "Worldline" ],
+              InfraWalk[ b ] -> $causalColors[ "Observer" ],
+              rayGraph[ g, Map[ w |-> { a[[ k ]], w }, reading[ "Images" ] ] ] -> $causalColors[ "Light" ],
+              reading[ "Images" ] -> $causalColors[ "Image" ],
+              { a[[ k ]] } -> $causalColors[ "Marker" ] } ],
             { "MouseClicked" :> With[ { mp = MousePosition[ "Graphics" ] },
               If[ mp =!= None, k = First @ nearest[ mp ] ] ] },
             PassEventsDown -> True ],
@@ -95,8 +95,8 @@ FoliationViewer[ g_Graph ] :=
       With[ { reading = foliationReading[ g, k ] },
         Labeled[
           InfraSubstrateHighlight[ g, {
-            InfraSlice[ { 0, k - 1 } ] -> Lighter[ StandardBlue, 0.5 ],
-            InfraSlice[ k ] -> StandardOrange } ],
+            InfraSlice[ { 0, k - 1 } ] -> $causalColors[ "Earlier" ],
+            InfraSlice[ k ] -> $causalColors[ "Slice" ] } ],
           Row[ { "t = ", k, ",  slice ", Length @ reading[ "Slice" ], " events,  earlier ", Length @ reading[ "Earlier" ], " events" } ],
           Top ] ],
       { { k, 0, "Time" }, 0, height, 1, Appearance -> "Labeled" },

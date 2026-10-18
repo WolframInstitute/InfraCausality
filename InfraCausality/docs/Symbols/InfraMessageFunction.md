@@ -52,7 +52,7 @@ Corresponding notions:
 
 ## Basic Examples
 
-The messages from an observer *a* (blue) to an observer *b* (red), drawn as the light rays that carry them (orange). The observer *a* is a random longest chain of the substrate and *b* a random longest chain of the rest of it. On the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice:
+The messages from an observer *a* (blue) to an observer *b* (green), drawn as the light rays that carry them (red). The observer *a* is a random longest chain of the substrate and *b* a random longest chain of the rest of it. On the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice:
 
 ```wl
 GraphicsRow @ Table[
@@ -60,7 +60,7 @@ GraphicsRow @ Table[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraWorldline[g])},
     {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
-    InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]],
+    InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> Red, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

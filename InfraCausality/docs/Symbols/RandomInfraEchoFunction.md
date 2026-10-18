@@ -35,7 +35,7 @@ The enumeration grows with the product of the message cardinalities; on the stai
 
 ## Basic Examples
 
-A random echo function of an observer *a* (blue) via an observer *b* (red): the ticks of *a* that send (orange) and the ticks they receive the echo at (purple), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
+A random echo function of an observer *a* (blue) via an observer *b* (green): the ticks of *a* that send (red) and the ticks they receive the echo at (purple), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
 
 ```wl
 GraphicsRow @ Table[
@@ -44,7 +44,7 @@ GraphicsRow @ Table[
     {a = (SeedRandom[1]; RandomInfraWorldline[g])},
     {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
     {f = (SeedRandom[1]; RandomChoice @ Select[RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All], e |-> e =!= <||>])},
-    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed, Keys[f] -> StandardOrange, Values[f] -> StandardPurple}]],
+    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen, Keys[f] -> Red, Values[f] -> StandardPurple}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

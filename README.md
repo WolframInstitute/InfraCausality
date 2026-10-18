@@ -55,8 +55,10 @@ Load InfraGeometry as well, because the readers `InfraMeasurement`, `InfraMember
 
 ```wolfram
 With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
-  InfraSubstrateHighlight[ g, { InfraCausalFuture[ { 2, 1 } ] -> StandardOrange, InfraFutureLightCone[ { 2, 1 } ] -> StandardRed } ] ]
+  InfraSubstrateHighlight[ g, { InfraCausalFuture[ { 2, 1 } ] -> Lighter[ Red, 0.6 ], InfraFutureLightCone[ { 2, 1 } ] -> Red } ] ]
 ```
+
+Causal substrates are drawn in the causal-graph style of the [Wolfram Physics Project](https://www.wolframphysics.org/technical-introduction/): events in `Hue[0.11, 1, 0.97]`, causal edges in `Hue[0, 1, 0.56]`, light cones and foliation slices highlighted in red.
 
 ## 📓 Research Notebooks — "Math from code"
 

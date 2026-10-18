@@ -30,7 +30,7 @@ The three conditions are independent: the order condition can fail with every im
 
 ## Basic Examples
 
-The messages from an observer *a* (blue) to an observer *b* (red) on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. On each: the earliest images, the latest images, and the earliest images without the first tick.
+The messages from an observer *a* (blue) to an observer *b* (green) on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. On each: the earliest images, the latest images, and the earliest images without the first tick.
 
 ```wl
 Table[
@@ -45,7 +45,7 @@ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-A message function of the lattice observers drawn as the light rays from each tick to its image (orange).
+A message function of the lattice observers drawn as the light rays from each tick to its image (red).
 
 ```wl
 With[
@@ -55,8 +55,8 @@ With[
   {f = (SeedRandom[2]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b]])},
   Labeled[
     InfraSubstrateHighlight[g, Join[
-      KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> StandardOrange, f],
-      {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]],
+      KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> Red, f],
+      {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]],
     InfraMessageFunctionQ[g, InfraMessageFunction[a, b], f]]]
 ```
 

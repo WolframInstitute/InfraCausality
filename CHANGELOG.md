@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 (2026-10-18)
+
+- Drawing follows the Wolfram Physics Project causal-graph style. `CausalSubstrateStyle` now draws events in `Hue[0.11, 1, 0.97]` and causal edges in `Hue[0, 1, 0.56]`, the values of SetReplace's `"CausalGraph"` style and of the causal graphs of the Technical Introduction; `CausalSubstrate`, `RandomCausalGraph` and the `"BaseGraph"` reading of `InfraRadarChart` carry it. The edge opacity (0.7, 0.5, 0.35) and the arrowheads still shrink with the size, and the layout is still layered with time upward. Highlights follow the Project's conventions where it has them: light cones, light rays and the current slice of a foliation in `Red`, the past in the Project's blue `RGBColor[0.259, 0.576, 1]`; the viewers and the documentation examples use them, with worldlines in `StandardBlue`, second observers in `StandardGreen`, images in `StandardPurple` and the selected event in `StandardMagenta`. The Bondi figures keep their palette, with the reflection events now in `StandardMagenta`.
+
 ## 2.0.0 (2026-10-18)
 
 A breaking release that rebuilds the paclet on the principles of `WolframInstitute/InfraGeometry` 2.7.2, which is now a declared dependency (`"WolframInstitute/InfraGeometry" -> "2.7.2+"`). The 69 exports of 1.2.0 become 71, in five categories with one guide each. The main guide is **Causal Infrageometry**; the others are Causal Time, Infra Observers, Causal Substrates and Bondi k-Calculus. No alias is kept for a removed name; the table below gives the replacement of each one.
