@@ -119,9 +119,9 @@ With[
   CausalHeight[g] /@ a]
 ```
 
-## Message functions
+## Axiom D1: message and echo functions
 
-- Two observers *a* and *b* exchange light. The **message relation** sends a tick *v* of *a* to the ticks *E*⁺(*v*) ∩ *b* of *b* on its light cone, and a **message function** is a single-valued selection of it that preserves the order of the ticks, the discrete form of the Ehlers–Pirani–Schild axiom D1. An **echo function** is a message function to *b* composed with one back to *a*.
+- Two observers *a* and *b* exchange light. The **message relation** sends a tick *v* of *a* to the ticks *E*⁺(*v*) ∩ *b* of *b* on its light cone, and a **message function** is a single-valued selection of it that preserves the order of the ticks, the discrete form of the EPS axiom D1. An **echo function** is a message function to *b* composed with one back to *a*.
 - The geodesic *a* above (blue) and a longest chain *b* of the rest of the lattice (red), with the light rays that carry the messages from *a* to *b* (orange).
 
 ```wl
@@ -132,14 +132,15 @@ With[
   InfraSubstrateHighlight[g, {InfraMessageFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]
 ```
 
-- A light cone meets the other observer in several ticks or none, so there are many message functions: 36 from *a* to *b*, 24 back, and 168 distinct echo functions of *a* via *b*.
+- A light cone meets the other observer in several ticks or none, so the axiom fails for this pair and there are many message functions: 36 from *a* to *b*, 24 back, and 168 distinct echo functions of *a* via *b*.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
-  {InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"], InfraMeasurement[g, InfraMessageFunction[b, a], "Cardinality"],
+  {EPSMessageAxiomQ[g, InfraMessageFunction[a, b]],
+   InfraMeasurement[g, InfraMessageFunction[a, b], "Cardinality"], InfraMeasurement[g, InfraMessageFunction[b, a], "Cardinality"],
    InfraMeasurement[g, InfraEchoFunction[a, b], "Cardinality"]}]
 ```
 
@@ -155,7 +156,7 @@ With[
     {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]]
 ```
 
-## Radar coordinates
+## Axiom D2: radar coordinates
 
 - The radar coordinates of an observer *a* = (*a*1, …, *ak*) give every event *e* of its radar domain [*a*1, *ak*] the emission tick *i*(*e*), the latest tick that can signal *e*, and the reception tick *j*(*e*), the earliest tick *e* can signal; its radar time is (*i* + *j*)/2 and its radar distance (*j* − *i*)/2. A tick is its own emission and reception.
 - The observer *a* on the lattice (left) and the radar domain redrawn at its chart positions, distance across and time up (right). The observer becomes the vertical axis and the lattice unfolds to one side of it.
@@ -169,14 +170,14 @@ With[
     InfraSubstrateHighlight[InfraMeasurement[g, InfraRadarCoordinates[a], "Subgraph"], {InfraWalk[a] -> StandardRed}]}]]
 ```
 
-- The chart of this observer is injective: the 49 events get 49 distinct coordinates. Radar time never decreases along an edge, and the ticks sit at {*m*, 0}.
+- The chart of this observer is injective, axiom D2: the 49 events get 49 distinct coordinates. Radar time never decreases along an edge, and the ticks sit at {*m*, 0}.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   {coordinates = InfraMeasurement[g, InfraRadarCoordinates[a], "Coordinates"]},
-  {Length[coordinates], Length @ Union @ Values[coordinates],
+  {EPSRadarAxiomQ[g, InfraRadarCoordinates[a]], Length[coordinates], Length @ Union @ Values[coordinates],
    AllTrue[EdgeList[g], e |-> First[coordinates[First @ e]] <= First[coordinates[Last @ e]]],
    coordinates /@ a === Table[{m, 0}, {m, Length[a]}]}]
 ```
@@ -190,7 +191,7 @@ With[
   InfraMeasurement[g, InfraRadarCoordinates[a], "BaseGraph"]]
 ```
 
-## The observer fibration
+## The observer space
 
 - The **observer space** is the radar domain fibered over the chart: an [`InfraFibration`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibration) whose total graph is the undirected radar domain and whose projection is the chart. Its fibers are the coordinate cells, the events the observer cannot tell apart, and the bundle functions of InfraGeometry apply to it unchanged. A **section** picks one event in every fiber; it is continuous when it maps base edges to edges.
 - For the observer *a* every fiber is a single event: the fibration is a fiber bundle with a point as fiber, and it has exactly one continuous section, the inverse of the chart.

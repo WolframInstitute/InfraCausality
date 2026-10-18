@@ -16,7 +16,7 @@ SourceControlURL: https://github.com/WolframInstitute/InfraCausality
 
 ## Basic Description
 
-Causal infrageometry is the causal structure of a finite directed acyclic graph, studied the way infrageometry studies the metric structure of an undirected one. Events are vertices and the causal order is reachability. The basic objects are the causal future and past of an event, the causal diamond between two events, the worldlines (all saturated chains between two events), the timelike geodesics among them (the longest chains) and the light cones, whose members are the light rays. Observers exchange light, and the message, echo and radar constructions of Ehlers, Pirani and Schild turn the graph into an observer space fibered over radar coordinates.
+Causal infrageometry is the causal structure of a finite directed acyclic graph, studied the way infrageometry studies the metric structure of an undirected one. Events are vertices and the causal order is reachability. The basic objects are the causal future and past of an event, the causal diamond between two events, the worldlines (all saturated chains between two events), the timelike geodesics among them (the longest chains) and the light cones, whose members are the light rays. Observers exchange light, and the message, echo and radar constructions of the EPS axioms turn the graph into an observer space fibered over radar coordinates.
 
 ## Details & Options
 
