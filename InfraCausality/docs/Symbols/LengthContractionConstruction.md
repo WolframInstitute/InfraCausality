@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/LengthContractionConstruction
 Keywords: [length contraction, Lorentz factor, radar measurement, rod, figure, Bondi k-calculus, experimental]
-SeeAlso: [LorentzGamma, BondiRadarCoordinates, SimultaneityLine, WorldlineNormal, TimeDilationConstruction, BondiViewer]
+SeeAlso: [LorentzGamma, BondiRadarCoordinates, SimultaneityLine, WorldlineDirection, TimeDilationConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -17,16 +17,14 @@ RelatedTutorials: [BondiKCalculus]
 
 ## Details & Options
 
-Experimental: figure. The figure's layout and options may change, and its printed value is not yet a reading of the drawing (below).
+Experimental: figure. The figure's layout and options may change.
 
-Definition: the rod's front end moves on the worldline of velocity *v* ("Bob", red) and its back end on the parallel worldline (dashed) at the Euclidean distance `"RodRestLength"` *L* along <code>[WorldlineNormal]()[*v*, *φ*]</code>. At the front event at arc length `"MeasureArcLength"` the rod is drawn as a thick segment to the back end; the rest observer ("Alice", blue) radar-locates both ends (four faded light rays), and the orange bar on her worldline spans the radar times of the two ends. The label prints $L/\gamma$ with γ = <code>[LorentzGamma]()[*v*]</code>.
-
-Length contraction holds for the drawn rod: Alice's length of it, the difference of the radar distances of its two worldlines at one radar time, is its rest length (the Minkowski length across the two worldlines along Bob's [SimultaneityLine]()) divided by γ. But the Euclidean normal is not Bob's line of simultaneity, so the drawn rod's rest length is $\gamma L v / \sin\alpha$ (*α* = [WorldlineAngle]()), not *L*, and Alice's length of it is $L v / \sin\alpha$; at *φ* = π/4 that is $L\sqrt{1 + v^2}$. The printed $L/\gamma$ is the contraction of a rod of rest length *L*, not a measurement read off the drawing, and the orange bar is a difference of radar times, not a length.
+Definition: the rod's front end moves on the worldline of velocity *v* ("Bob", red) and its back end on the parallel worldline (dashed) at the Minkowski distance `"RodRestLength"` *L* along Bob's line of simultaneity, the direction $(\tan\varphi, v)$ of [SimultaneityLine](): the Euclidean offset is $\gamma L\,(\tan\varphi, v)$ with γ = <code>[LorentzGamma]()[*v*]</code>. At the front event *F* at arc length `"MeasureArcLength"` the rod is drawn as a thick red segment from *F* to its back end, of rest length *L*. The rest observer ("Alice", blue) measures the rod at one radar time, the radar time $\tau_{radar}$ of *F*: the orange bar is her line of simultaneity through *F* (horizontal) to the back end's worldline, and the four faded light rays are her radar rays to the two ends of the bar. In her radar coordinates the two worldlines are $X = v\,T$ and $X = v\,T + L/\gamma$, so the bar has length $L/\gamma$, which the label prints.
 
 | Option | Default | |
 |---|---|---|
 | `"LightAngle"` | π/4 | the angle *φ* of light to the time axis |
-| `"RodRestLength"` | 0.15 | the Euclidean offset *L* of the back end |
+| `"RodRestLength"` | 0.15 | the rest length *L* of the rod |
 | `"MeasureArcLength"` | 0.6 | the arc length of the front event |
 | `ImageSize` | 500 | |
 
@@ -46,25 +44,24 @@ LengthContractionConstruction[0.7, "LightAngle" -> 1.0]
 
 ## Properties and Relations
 
-The faded light rays are the radar rays of the two ends: they leave and return to Alice's worldline at the emission and return arc lengths of the ends.
+The two ends of the orange bar have the same radar time, and the faded light rays are their radar rays: they leave and return to Alice's worldline at the emission and return arc lengths of the ends.
 
 ```wl
 AllTrue[Tuples[{{0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
-  With[{g = LengthContractionConstruction[v, "LightAngle" -> phi]},
-    {ends = Select[Cases[g, Disk[c_, _] :> c, Infinity], c |-> c[[1]] > 0],
-     axis = Union @ Select[Flatten[Cases[g, Line[pts_] :> pts, Infinity], 1], c |-> c[[1]] == 0 && c[[2]] != 0]},
-    AllTrue[ends, e |-> With[{r = BondiRadarCoordinates[e, phi]},
+  With[{lines = Cases[LengthContractionConstruction[v, "LightAngle" -> phi], Line[pq : {_, _}] :> pq, Infinity]},
+    {bar = First @ Select[lines, pq |-> Abs[pq[[2, 2]] - pq[[1, 2]]] < 10^-9],
+     axis = Union @ Select[Flatten[lines, 1], c |-> c[[1]] == 0 && c[[2]] != 0]},
+    AllTrue[bar, e |-> With[{r = BondiRadarCoordinates[e, phi]},
       Min[Abs[axis[[All, 2]] - r["EmitArcLength"]]] < 10^-9 && Min[Abs[axis[[All, 2]] - r["ReturnArcLength"]]] < 10^-9]]]]]
 ```
 
-Length contraction on the drawn rod: Alice's length, the difference of the radar distances of the two end worldlines at one radar time, is the rest length along Bob's line of simultaneity divided by γ; the rest length is $\gamma L v / \sin\alpha$.
+Read off the drawing, with the Minkowski length of a spacelike Euclidean vector $(x, y)$ being $\sqrt{(x/\tan\varphi)^2 - y^2}$: the rod, the segment along $(\tan\varphi, v)$, has rest length *L*, and the orange bar, the horizontal segment, has length $L/\gamma$, and both start at the front event.
 
 ```wl
 AllTrue[Tuples[{{1/5, 3/5, 4/5}, {Pi/6, Pi/4, Pi/3}}], Apply[{v, phi} |->
-  With[{len = 3/20, d = WorldlineDirection[v, phi], u = {Tan[phi], v}},
-    {n = len WorldlineNormal[v, phi], radar = p |-> Values @ KeyTake[BondiRadarCoordinates[p, phi], {"RadarTime", "RadarDistance"}]},
-    {alice = radar[n][[2]] - v radar[n][[1]],
-     across = radar[First @ LinearSolve[Transpose[{u, -d}], n] u]},
-    {rest = Sqrt[across[[2]]^2 - across[[1]]^2]},
-    FullSimplify[{alice == rest/LorentzGamma[v], rest == LorentzGamma[v] len v/Sin[WorldlineAngle[v, phi]]}] === {True, True}]]]
+  With[{len = 3/20, length = pq |-> Sqrt[((pq[[2, 1]] - pq[[1, 1]])/Tan[phi])^2 - (pq[[2, 2]] - pq[[1, 2]])^2]},
+    {lines = Cases[LengthContractionConstruction[v, "LightAngle" -> phi, "RodRestLength" -> len, "MeasureArcLength" -> 3/5], Line[pq : {_, _}] :> pq, Infinity]},
+    {rod = First @ Select[lines, pq |-> Abs[N @ Det[{pq[[2]] - pq[[1]], {Tan[phi], v}}]] < 10^-9],
+     bar = First @ Select[lines, pq |-> Abs[N[pq[[2, 2]] - pq[[1, 2]]]] < 10^-9]},
+    rod[[1]] == bar[[1]] && FullSimplify[{length[rod] == len, length[bar] == len/LorentzGamma[v]}] === {True, True}]]]
 ```

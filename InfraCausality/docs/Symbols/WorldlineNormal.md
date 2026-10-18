@@ -21,9 +21,9 @@ RelatedTutorials: [BondiKCalculus]
 
 Experimental: drawing helper. The helpers behind the Bondi figures may change.
 
-Definition: the Euclidean unit vector perpendicular to <code>[WorldlineDirection]()[*v*, *φ*]</code>, pointing to the right. The figures use it to place ticks and labels, the mirror of [LightClockConstruction]() and the rod of [LengthContractionConstruction]().
+Definition: the Euclidean unit vector perpendicular to <code>[WorldlineDirection]()[*v*, *φ*]</code>, pointing to the right. The figures use it to place ticks and labels and the mirror of [LightClockConstruction]().
 
-The Euclidean normal is a property of the drawing, not of the Minkowski plane: the observer's line of simultaneity is <code>[SimultaneityLine]()</code>, along $(\tan\varphi, v)$, and the two agree only at rest.
+The Euclidean normal is a property of the drawing, not of the Minkowski plane: the observer's line of simultaneity is <code>[SimultaneityLine]()</code>, along $(\tan\varphi, v)$, and the two agree only at rest. A length at rest for the moving observer, such as the rod of [LengthContractionConstruction](), is laid along the line of simultaneity, not along the normal.
 
 ## Basic Examples
 

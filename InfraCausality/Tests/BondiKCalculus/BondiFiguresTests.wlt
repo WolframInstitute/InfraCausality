@@ -135,6 +135,40 @@ VerificationTest[
   TestID -> "SimultaneityConstruction-lines-pass-through-radar-midpoint-of-event"
 ]
 
+$exactGrid = Tuples[ { { 1/5, 1/2, 3/5, 4/5, 9/10 }, { Pi/6, Pi/4, Pi/3 } } ]
+
+$exact = { x, y } |-> Max[ Abs[ N[ x, 30 ] - N[ y, 30 ] ] ] < 10^-20
+
+$spacelikeLength = { pq, phi } |-> With[ { d = pq[[ 2 ]] - pq[[ 1 ]] }, Sqrt[ ( d[[ 1 ]] / Tan[ phi ] )^2 - d[[ 2 ]]^2 ] ]
+
+$parallel = { d, e } |-> Abs[ N[ Det[ { d, e } ] ] ] < 10^-9
+
+$rodAndBar = { v, phi } |-> With[
+  { lines = Cases[ LengthContractionConstruction[ v, "LightAngle" -> phi, "RodRestLength" -> 3/20, "MeasureArcLength" -> 3/5 ], Line[ pq : { _, _ } ] :> pq, Infinity ] },
+  { Select[ lines, pq |-> $parallel[ pq[[ 2 ]] - pq[[ 1 ]], { Tan[ phi ], v } ] ],
+    Select[ lines, pq |-> Abs[ N[ pq[[ 2, 2 ]] - pq[[ 1, 2 ]] ] ] < 10^-9 ] } ]
+
+VerificationTest[
+  AllTrue[ $exactGrid, vp |-> With[
+    { v = vp[[ 1 ]], phi = vp[[ 2 ]] },
+    { rods = First @ $rodAndBar[ v, phi ] },
+    Length[ rods ] == 1 && $onWorldline[ rods[[ 1, 1 ]], v, phi ] && $exact[ $spacelikeLength[ First @ rods, phi ], 3/20 ] ] ],
+  True,
+  TestID -> "LengthContractionConstruction-rod-along-simultaneity-line-has-rest-length-L"
+]
+
+VerificationTest[
+  AllTrue[ $exactGrid, vp |-> With[
+    { v = vp[[ 1 ]], phi = vp[[ 2 ]] },
+    { rodAndBar = $rodAndBar[ v, phi ] },
+    { rod = rodAndBar[[ 1, 1 ]], bars = Last @ rodAndBar },
+    Length[ bars ] == 1 && $exact[ bars[[ 1, 1 ]], rod[[ 1 ]] ] &&
+      $exact[ $spacelikeLength[ First @ bars, phi ], 3 / ( 20 LorentzGamma[ v ] ) ] &&
+      $parallel[ bars[[ 1, 2 ]] - rod[[ 2 ]], WorldlineDirection[ v, phi ] ] ] ],
+  True,
+  TestID -> "LengthContractionConstruction-measured-at-one-radar-time-has-length-L-over-gamma"
+]
+
 VerificationTest[
   AllTrue[ $grid, vp |-> With[
     { phi = vp[[ 2 ]] },

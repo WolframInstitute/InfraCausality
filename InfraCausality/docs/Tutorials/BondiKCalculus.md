@@ -125,7 +125,7 @@ With[{v = 3/5, phi = Pi/4},
   FullSimplify[{radar[n][[2]] - v radar[n][[1]], 1/LorentzGamma[v]}]]
 ```
 
-- [LengthContractionConstruction]() draws a rod at *v* = 0.6 and its radar measurement by Alice. Its back end is offset along the Euclidean normal of Bob's worldline rather than his line of simultaneity, so the drawn rod is longer than the printed *L*: its printed *L*/γ is the contraction of a rod of rest length *L*, not a reading of the drawing (see its reference page).
+- [LengthContractionConstruction]() draws this at *v* = 0.6: the rod (thick red) of rest length *L* = 0.15 along Bob's line of simultaneity through its front event, and Alice's measurement of it (orange) along her own line of simultaneity through that event, at one radar time, with her four radar rays. The orange bar is the rod of length *L*/γ = 0.12 that she measures; its reference page reads both lengths off the drawing.
 
 ```wl
 LengthContractionConstruction[0.6]
