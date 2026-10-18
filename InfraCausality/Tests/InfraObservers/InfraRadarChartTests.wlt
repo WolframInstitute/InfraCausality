@@ -203,6 +203,17 @@ VerificationTest[
 ]
 
 VerificationTest[
+  AllTrue[ $cases, Apply[ { g, a } |->
+    With[ { base = InfraMeasurement[ g, InfraRadarChart[ a ], "BaseGraph" ], coords = $coordinates[ g, a ] },
+      { cells = DeleteDuplicates @ Values @ coords },
+      { plain = Graph[ cells, DeleteDuplicates @ Select[ DirectedEdge[ coords[ First @ # ], coords[ Last @ # ] ] & /@ EdgeList @ Subgraph[ g, Keys @ coords ], Apply[ UnsameQ ] ] ] },
+      VertexList @ base === VertexList @ plain && EdgeList @ base === EdgeList @ plain &&
+        GraphEmbedding @ base == N[ Reverse /@ VertexList @ base ] ] ] ],
+  True,
+  TestID -> "InfraRadarChart-all-styled-base-graph-keeps-cells-order-and-xt-positions"
+]
+
+VerificationTest[
   With[ { joined = $coordinates[ $diamond, { $diagonal, $shifted } ], ca = $coordinates[ $diamond, $diagonal ], cb = $coordinates[ $diamond, $shifted ] },
     { Keys @ joined === Intersection[ Keys @ ca, Keys @ cb ], Union[ Length /@ Values @ joined ],
       joined === AssociationMap[ e |-> Join[ ca[ e ], cb[ e ] ], Keys @ joined ],

@@ -58,7 +58,8 @@ InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "BaseGr
     { cells = DeleteDuplicates @ Values @ coords },
     Graph[ cells,
       DeleteDuplicates @ Select[ DirectedEdge @@ ( coords /@ List @@ # ) & /@ EdgeList @ Subgraph[ graph, Keys @ coords ], Apply[ UnsameQ ] ],
-      VertexCoordinates -> ( # -> radarPosition @ # & /@ cells ) ] ]
+      VertexCoordinates -> ( # -> radarPosition @ # & /@ cells ),
+      Sequence @@ FilterRules[ CausalSubstrateStyle[ "Small" ], { VertexStyle, EdgeStyle, VertexSize } ] ] ]
 
 InfraRadarChart /: InfraMeasurement[ graph_Graph, chart_InfraRadarChart, "Fibration" ] :=
   InfraFibration[ UndirectedGraph @ InfraMeasurement[ graph, chart, "Subgraph" ], InfraMeasurement[ graph, chart, "Coordinates" ] ]

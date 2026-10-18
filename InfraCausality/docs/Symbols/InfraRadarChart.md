@@ -30,7 +30,7 @@ The head holds its observers and computes nothing. [`InfraMeasurement`](paclet:W
 | `"Time"`, `"Distance"` | the two marginals |
 | `"Domain"` | the radar domain, a sorted vertex list; for a list of observers the intersection of their domains |
 | `"Subgraph"` | the directed subgraph on the domain, laid out at {distance, time} |
-| `"BaseGraph"` | the directed graph on the coordinate cells, *c* → *c'* when an edge of the domain joins them |
+| `"BaseGraph"` | the directed graph on the coordinate cells, *c* → *c'* when an edge of the domain joins them, laid out at {distance, time} in the style of a "Small" substrate |
 | `"Fibration"` | the observer space: an [`InfraFibration`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibration) of the undirected domain over the cells |
 | `"Faithful"` | `True` |
 
@@ -46,15 +46,33 @@ Corresponding notions:
 
 ## Basic Examples
 
-A random worldline of the substrate (blue) and its radar domain (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
+A random worldline of the substrate (blue) and its radar chart (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws a chart by its radar domain, the events it charts.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraMeasurement[g, InfraRadarChart[a], "Domain"] -> StandardOrange}]],
+    InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardOrange, InfraWalk[a] -> StandardBlue}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
+```
+
+A worldline between two inner events of the diamond lattice charts only their causal diamond; the rest of the lattice stays grey.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{1, 0}, {5, 4}]])},
+  InfraSubstrateHighlight[g, {InfraRadarChart[a] -> StandardGreen, InfraWalk[a] -> StandardRed}]]
+```
+
+The base graph of the chart, the order on its coordinate cells, drawn at distance across and time up.
+
+```wl
+With[
+  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[{1, 0}, {5, 4}]])},
+  InfraMeasurement[g, InfraRadarChart[a], "BaseGraph"]]
 ```
 
 The radar domains of the two lattices redrawn in their radar coordinates, distance across and time up. The observer is the vertical axis.

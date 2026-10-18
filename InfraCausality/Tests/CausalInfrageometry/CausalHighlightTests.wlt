@@ -24,6 +24,21 @@ $rays = WolframInstitute`InfraCausality`PackageScope`causalInk;
 
 $reachQ = { g, u, v } |-> GraphDistance[ g, u, v ] < Infinity;
 
+$inked = r |-> Sort @ Union[
+  Keys @ Replace[ Lookup[ Options[ r, VertexShapeFunction ], VertexShapeFunction ], Automatic -> { } ],
+  Select[ Lookup[ Options[ r, GraphHighlight ], GraphHighlight ], VertexQ[ r, # ] & ] ];
+
+$cabinet = Apply[ { x, y, t } |-> { x + y / ( 2 Sqrt[ 2 ] ), t + y / ( 2 Sqrt[ 2 ] ) } ];
+
+$spatial = name |-> With[ { g = CausalSubstrate[ name, "Small", "KeepCoordinates" -> True ] },
+  { p = First @ Pick[ VertexList @ g, VertexInDegree @ g, 0 ] },
+  { q = Last @ TopologicalSort @ Subgraph[ g, VertexOutComponent[ g, p ] ] },
+  { a = ( SeedRandom[ 1 ]; RandomInfraWorldline[ g, InfraWorldline[ p, q ] ] ) },
+  { r = InfraSubstrateHighlight[ g, { InfraCausalFuture[ p ] -> StandardOrange, InfraWalk[ a ] -> StandardGreen } ] },
+  { Dimensions @ GraphEmbedding @ g, GraphQ @ r, Length @ a > 1,
+    Max @ Abs[ GraphEmbedding @ r - $cabinet /@ GraphEmbedding @ g ] < 10^-12,
+    VertexList @ r === VertexList @ g, EdgeList @ r === EdgeList @ g, $MessageList } ];
+
 VerificationTest[
   With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
     { r = InfraSubstrateHighlight[ g, { InfraCausalFuture[ { 1, 1 } ] -> StandardOrange, InfraWorldline[ { 0, 0 }, { 6, 6 } ], InfraSlice[ 1 ] } ] },
@@ -76,6 +91,32 @@ VerificationTest[
       AllTrue[ Last @ rule, u |-> $reachQ[ ink, First @ rule, u ] ] ] ] ] ],
   True,
   TestID -> "CausalHighlight-all-echo-pairs-joined-in-the-drawing"
+]
+
+VerificationTest[
+  With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
+    { a = ( SeedRandom[ 1 ]; RandomInfraWorldline[ g, InfraWorldline[ { 1, 0 }, { 5, 4 } ] ] ) },
+    { domain = Sort @ InfraMeasurement[ g, InfraRadarChart[ a ], "Domain" ],
+      list = InfraSubstrateHighlight[ g, { InfraRadarChart[ a ] -> StandardGreen, InfraWalk[ a ] } ],
+      single = InfraSubstrateHighlight[ g, InfraRadarChart[ a ] ] },
+    { GraphQ @ list, GraphQ @ single, $inked @ list === domain, $inked @ single === domain, Length @ domain < VertexCount @ g, $MessageList } ],
+  { True, True, True, True, True, { } },
+  TestID -> "CausalHighlight-DiamondLatticeGraph-radar-chart-inks-exactly-its-domain"
+]
+
+VerificationTest[
+  $spatial /@ { "CubicLatticeGraph", "MinkowskiSprinkling3D" },
+  { { { 64, 3 }, True, True, True, True, True, { } }, { { 25, 3 }, True, True, True, True, True, { } } },
+  TestID -> "CausalHighlight-3D-substrates-drawn-by-the-cabinet-projection"
+]
+
+VerificationTest[
+  With[ { lhs = First /@ DownValues @ InfraSubstrateHighlight },
+    { conditional = Flatten @ Position[ lhs, Verbatim[ HoldPattern ][ Verbatim[ Condition ][ _InfraSubstrateHighlight, _ ] ], { 1 }, Heads -> False ],
+      generic = Flatten @ Position[ lhs, Verbatim[ HoldPattern ][ InfraSubstrateHighlight[ _, Verbatim[ Pattern ][ _, Verbatim[ _List ] ], ___ ] ], { 1 }, Heads -> False ] },
+    { Length @ conditional, Length @ generic, Max @ conditional < First @ generic } ],
+  { 2, 1, True },
+  TestID -> "CausalHighlight-conditional-clauses-precede-the-generic-list-clause"
 ]
 
 EndTestSection[]

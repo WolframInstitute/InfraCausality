@@ -11,7 +11,10 @@ PackageScope[ rayGraph ]
 $causalHead =
   _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice |
   _InfraWorldline | _InfraObserver | _InfraFutureLightCone | _InfraPastLightCone |
-  _InfraMessageFunction | _InfraEchoFunction
+  _InfraMessageFunction | _InfraEchoFunction | _InfraRadarChart
+
+cabinet[ { x_, y_, t_ } ] :=
+  { x + y / ( 2 Sqrt[ 2 ] ), t + y / ( 2 Sqrt[ 2 ] ) }
 
 rayGraph[ graph_Graph, pairs_List ] :=
   With[ { paths = Map[
@@ -35,6 +38,13 @@ causalInk[ graph_Graph, InfraEchoFunction[ a_List, b_List ] ] :=
         pair |-> Lookup[ ba, Key @ Last @ pair, { } ] =!= { } ] },
     rayGraph[ graph, Join[ returning,
       Catenate @ Map[ w |-> ( { w, # } & /@ Lookup[ ba, Key @ w ] ), DeleteDuplicates[ Last /@ returning ] ] ] ] ]
+
+causalInk[ graph_Graph, chart_InfraRadarChart ] :=
+  AssociationThread[ InfraMeasurement[ graph, chart, "Domain" ], 1 ]
+
+InfraSubstrateHighlight[ graph_Graph, items_List, opts : OptionsPattern[ InfraSubstrateHighlight ] ] /;
+    MatchQ[ Dimensions @ GraphEmbedding @ graph, { _, 3 } ] :=
+  InfraSubstrateHighlight[ Graph[ graph, VertexCoordinates -> cabinet /@ GraphEmbedding @ graph ], items, opts ]
 
 InfraSubstrateHighlight[ graph_Graph, items_List, opts : OptionsPattern[ InfraSubstrateHighlight ] ] /;
     MemberQ[ items, $causalHead | ( $causalHead -> _ ) | Style[ $causalHead, ___ ] ] :=
