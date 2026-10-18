@@ -24,7 +24,7 @@ Cell["RandomInfraEchoFunction", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"db9deb1a-3cef-4821-a084-65aa0017a73e"],
+ Cell["   ", "ModInfo",ExpressionUUID->"3cead118-ac64-4a1f-9072-908f3489db63"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -41,7 +41,7 @@ Cell[TextData[{
       StyleBox["a", "TI"], ",", " ", 
       StyleBox["b", "TI"]}], "]"}]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "51641cf3-b1f3-444a-b737-6d9fa48a8d0f"],
+  "e6a78ff8-daec-4c26-88c1-0370fec06673"],
  "\[LineSeparator]",
  "gives a random echo function of ",
  StyleBox["a", "TI"],
@@ -49,7 +49,7 @@ Cell[TextData[{
  StyleBox["b", "TI"],
  ", an association, drawn uniformly from the distinct echo functions.",
  "\n",
- Cell["   ", "ModInfo",ExpressionUUID->"c90fbf0f-3b1a-4938-b7a9-f9dc20aa89c0"],
+ Cell["   ", "ModInfo",ExpressionUUID->"f0242c49-8e10-49d1-8907-da8cc5463122"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -67,34 +67,34 @@ Cell[TextData[{
       StyleBox["b", "TI"]}], "]"}], ",", " ", 
     StyleBox["n", "TI"]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "0b65cd88-d771-4fb9-8db4-b3579f8330d0"],
+  "99ab3807-3541-4999-9600-a500449ede18"],
  "\[LineSeparator]",
  "gives a ",
  Cell[BoxData["List"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "1d26b042-4012-46d6-bbc6-ac71bc216d26"],
+  "f4a6bc4a-7583-441b-83d7-3ff9356a3c14"],
  " of ",
  StyleBox["n", "TI"],
  " distinct echo functions, or ",
  Cell[BoxData[
   RowBox[{"{", "}"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "58d0524d-59b5-43ee-9ed5-152d02efc746"],
+  "7308d043-9909-4bff-9858-86286542fe39"],
  " when there are fewer; ",
  Cell[BoxData[
   RowBox[{"UpTo", "[", "n", "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "3a6abbb2-c259-49d1-b190-07c204f034a1"],
+  "fe18c13d-8b71-4a68-9f3c-2714f989a4a2"],
  " gives at most ",
  StyleBox["n", "TI"],
  "; ",
  Cell[BoxData["All"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "98a372ff-bd2d-46fc-bd18-92fa39ab0339"],
+  "1a2f524e-250e-42eb-bda2-ea53959c9194"],
  " gives every one."
-}], "Usage",ExpressionUUID->"52a6a45b-4b09-402f-8550-e1d4d8728847"],
+}], "Usage",ExpressionUUID->"0016a8be-38df-46fd-9271-d11b56965daf"],
 
-Cell["Experimental: selections.", "Notes",ExpressionUUID->"d97acc26-cf4d-4193-ae9f-eb9b92033b7b"],
+Cell["Experimental: selections.", "Notes",ExpressionUUID->"68a759f8-bbdd-4be2-b8c7-e01d76f8bc61"],
 
 Cell[TextData[{
  "Definition: the members of ",
@@ -111,19 +111,19 @@ Cell[TextData[{
     StyleBox["a", "TI"], ",", " ", 
     StyleBox["b", "TI"]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "5c0abf91-516b-4f3d-8865-d96d8f26959f"],
+  "958f2e8d-0797-4aa0-b5fe-7ad72d33ca7b"],
  " are the distinct compositions ",
  StyleBox["f", "TI"],
  Cell[BoxData[
   SubscriptBox["", 
    RowBox[{"*", "ba", "*"}]]], "InlineFormula",ExpressionUUID->
-  "7783017c-55b5-461f-9677-6347168b5bdb"],
+  "da1411b8-409c-47a3-b89e-c2aafd819672"],
  " \[SmallCircle] ",
  StyleBox["f", "TI"],
  Cell[BoxData[
   SubscriptBox["", 
    RowBox[{"*", "ab", "*"}]]], "InlineFormula",ExpressionUUID->
-  "36a0171b-d5dc-4f50-8448-e6cd29832f91"],
+  "5034aaad-95f5-4598-b37a-d2252eb2b45f"],
  " of a message function from ",
  StyleBox["a", "TI"],
  " to ",
@@ -141,75 +141,75 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "9392c3ba-a181-4a5c-a487-e9433072b8ab"],
+  "42cd874a-e88f-4b75-8e4a-3b4af93b0ba1"],
  "). Different pairs of message functions can compose to the same echo \
 function, so the members are counted after removing duplicates; the ",
  Cell[BoxData["\"\<Cardinality\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "c9e508e9-5562-4e36-8797-ac7605849e05"],
+  "10cb31ef-8611-49a2-a57a-47b6b4e06ddf"],
  " of the head is their number, at most the product of the numbers of message \
 functions each way."
-}], "Notes",ExpressionUUID->"926260e3-7529-4d94-8065-5638c39f9ff9"],
+}], "Notes",ExpressionUUID->"9264010a-46c2-41ef-a705-39041b77e514"],
 
 Cell["\<\
 The sampler enumerates the compositions and draws from the distinct ones \
 uniformly:\
-\>", "Notes",ExpressionUUID->"0600d85d-fb6a-4eef-826d-02e551e7c363"],
+\>", "Notes",ExpressionUUID->"21b8e5b3-5a8a-4ca3-9f7d-2f266fbbc00d"],
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "49c56322-dde3-46ad-8ceb-0db36b051ef7"], Cell["Count", "TableText",
-     FontWeight->Bold,ExpressionUUID->"24ce0f5c-dd8a-4ee6-87ad-07cfa0259630"],
+     "335efeb0-5166-46de-8845-64d634be482d"], Cell["Count", "TableText",
+     FontWeight->Bold,ExpressionUUID->"ff53b306-c304-49ba-ac18-38957130f51b"],
      Cell["Result", "TableText",
-     FontWeight->Bold,ExpressionUUID->"c23daa9b-1c4e-458f-804b-05884f9996e8"]},
+     FontWeight->Bold,ExpressionUUID->"fff7b9d1-7134-436e-bf9f-45374f410044"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "421f288b-2b18-4ab0-a660-953a40a1d7e3"], Cell[TextData[{
+     "188d9209-267b-4d67-a259-70180e91b2be"], Cell[TextData[{
      "omitted or ",
      Cell[BoxData["Automatic"], "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "b800f11c-e9f3-4ab5-b482-b546480de916"]
-    }], "TableText",ExpressionUUID->"f2bc075b-0606-426d-8e46-2c4f69d826b7"], 
+      "acf82e2a-aa42-424f-915b-54f78d1f263a"]
+    }], "TableText",ExpressionUUID->"ba47e02c-3e99-4afa-a524-4488670e56f3"], 
     Cell[TextData[{
      "one member, an association; ",
      Cell[BoxData[
       RowBox[{"{", "}"}]], "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "d97062cf-53a4-449f-87f5-6ebc8ea42a35"],
+      "9afa25c7-4d59-4a7f-889c-4e0c488a8395"],
      " when there is none"
-    }], "TableText",ExpressionUUID->"5d83a1f1-0e5f-4eca-b763-c1a385e0a05e"]},
+    }], "TableText",ExpressionUUID->"864b34c4-a73a-4de6-8260-0193d7f1a69b"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "28ecc467-76e9-42f5-8d7c-9a120b602f01"], Cell[TextData[Cell[BoxData[
+     "4eea36c8-8aa9-4d53-9fdb-d746eb213c2f"], Cell[TextData[Cell[BoxData[
     "All"], "InlineFormula",
      FontSize->0.9 Inherited,ExpressionUUID->
-     "7e312992-80da-4fe5-b334-e2a0abda811a"]], "TableText",ExpressionUUID->
-     "63242c0e-bd37-4024-b5b4-7fd560fcd9df"], Cell[
+     "4417762a-02f5-4b92-8710-4c7a56121c95"]], "TableText",ExpressionUUID->
+     "9e1118b9-76ae-4167-adcf-6c86aabb627c"], Cell[
     "every member", "TableText",ExpressionUUID->
-     "2f219a31-33d4-4fb9-9cf1-bebe1ce9bc6e"]},
+     "b8286d3b-d8ee-4357-b8c1-a6cf0945288f"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "27ac4cc0-bf99-4340-990f-b80b448c36d7"], Cell[TextData[StyleBox[
+     "2801d36c-a72c-4250-8b13-6b5a5da88c54"], Cell[TextData[StyleBox[
     "n", "TI"]], "TableText",ExpressionUUID->
-     "6456983a-1b45-4bcd-bb4e-d19b134157d5"], Cell[TextData[{
+     "9fd86681-1c51-4cde-8a1d-bc9d6812e776"], Cell[TextData[{
      StyleBox["n", "TI"],
      " distinct members, or ",
      Cell[BoxData[
       RowBox[{"{", "}"}]], "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "e43afa83-97b7-4964-ad8a-bffb02fa30ca"],
+      "11fb31f4-5a3b-48e6-86b9-4aedfb739f7a"],
      " when there are fewer than ",
      StyleBox["n", "TI"]
-    }], "TableText",ExpressionUUID->"8932dc5d-391b-4127-b66e-3aa520724926"]},
+    }], "TableText",ExpressionUUID->"41baecb0-81bc-4b3e-a461-ab53c825613c"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "11238cc4-80b4-4e09-bb39-5f4d047b74b9"], Cell[TextData[Cell[BoxData[
+     "26e9d1bf-475d-4f17-98ca-6a43d0b0297d"], Cell[TextData[Cell[BoxData[
      RowBox[{"UpTo", "[", "n", "]"}]], "InlineFormula",
      FontSize->0.9 Inherited,ExpressionUUID->
-     "265d2f92-ea26-4d77-ae89-f6e1b947848a"]], "TableText",ExpressionUUID->
-     "37b4c930-6b60-4046-9467-424bba8d28bf"], Cell[TextData[{
+     "066f45d1-f7fb-48f9-bf41-ea92b194fc0e"]], "TableText",ExpressionUUID->
+     "6b999bad-51d7-4153-8187-da51fd882637"], Cell[TextData[{
      "min(",
      StyleBox["n", "TI"],
      ", number of members) distinct members"
-    }], "TableText",ExpressionUUID->"dc1eb2ac-7de8-406c-a2b9-f66d410e910b"]}
-  }]], "2ColumnTableMod",ExpressionUUID->"ec456677-45b9-4735-a37c-\
-e96c3d6c31dc"],
+    }], "TableText",ExpressionUUID->"b83bdecb-01aa-4ef7-86c8-9b6b91eb6392"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"5a94fee4-24aa-4e76-8eec-\
+ce793a1e4c7e"],
 
 Cell[TextData[{
  "The enumeration grows with the product of the message cardinalities; on the \
@@ -217,9 +217,9 @@ staircases of the Small diamond lattice it gives 699 members out of 81 \
 \[Times] 81 pairs. The sampler takes no ",
  Cell[BoxData["\"\<NextVertexFunction\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "916ce4b4-c667-41c3-b9f5-94ce571ac878"],
+  "73c91f51-9d55-4c06-9ed8-efdb56e0bed8"],
  "."
-}], "Notes",ExpressionUUID->"d6a066d9-80ca-44ad-ab9e-7bde768ecc09"]
+}], "Notes",ExpressionUUID->"9f10dab4-26e4-48e1-9bcd-d84699ead2a2"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -248,7 +248,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "214eac50-4c20-4202-ac7c-b458983ee90e"],
+  "ffabb7e2-2d5f-4986-85a4-4338ac374c27"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -258,7 +258,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "97f1b64e-f438-4f45-b24a-48fb3b496ae6"],
+  "ba2b37a3-d4cc-470e-a09d-4807312c6a33"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -268,7 +268,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "e1d0b31e-e09f-4864-8f21-6018337e7fed"],
+  "92d6db56-2568-498b-9f9f-a9227ed70129"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -278,7 +278,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "f741f3cb-4514-4a05-a261-728997c70a21"],
+  "d22cadf9-4dc5-4a71-bd96-c21908681848"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -288,8 +288,8 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "bbc7bf94-2a3b-47c5-bd55-c05d433c04e2"]
-}], "SeeAlso",ExpressionUUID->"5252558b-2cb4-42f5-8514-3d2b154e4a24"]
+  "d3849ac0-3750-41b0-a1d9-bb937ca85eb5"]
+}], "SeeAlso",ExpressionUUID->"0a446611-5899-455c-9998-96c72e227b8f"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -316,8 +316,8 @@ Cell[TextData[Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:WolframInstitute/InfraCausality/guide/InfraObservers"]], \
-"InlineFormula",ExpressionUUID->"2e985e3f-1a86-457b-8436-db7481a52018"]], \
-"MoreAbout",ExpressionUUID->"1219417b-0c24-4182-9bbe-3f4c998818e7"]
+"InlineFormula",ExpressionUUID->"fd471476-49a0-4a95-8ea2-7480acdf5e1a"]], \
+"MoreAbout",ExpressionUUID->"1f3d3c4b-23ad-4df5-85a2-0e059d4f7bc2"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -386,7 +386,7 @@ Cell[TextData[{
  " that send (orange) and the ticks they receive the echo at (purple), on the \
 diamond lattice, a sprinkling into two-dimensional Minkowski space and the \
 cylinder lattice."
-}], "ExampleText",ExpressionUUID->"e1f28487-4f92-49a6-9e62-d705aa240665"],
+}], "ExampleText",ExpressionUUID->"2c20726c-0aa2-4d15-b9a9-f93100755d7d"],
 
 Cell[CellGroupData[{
 
@@ -457,7 +457,7 @@ Cell[BoxData[
         " ", "\"\<MinkowskiSprinkling2D\>\"", ",", 
         " ", "\"\<CylinderLatticeGraph\>\""}], "}"}]}], "}"}]}], 
    "]"}]}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"980dcc0c-3fd1-4506-9c4b-489ef09ff36e"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"4646ddd8-7e77-4485-8244-2161f51077d6"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -3025,10 +3025,10 @@ Cell[BoxData[
   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
   PlotRange->{{0, 645.}, {-289.7416395007517, 0}},
   PlotRangePadding->Automatic]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"c18b43ad-ed5f-41e9-b21b-774c55541182"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"6f1f7f95-db38-4514-8183-ca5cbaf241ba"]
 }, Open  ]],
 
-Cell["Every echo function of the sprinkling observers.", "ExampleText",ExpressionUUID->"08aa2367-c620-4be5-8045-55fbba41396b"],
+Cell["Every echo function of the sprinkling observers.", "ExampleText",ExpressionUUID->"51dcd278-7f98-42aa-ac24-c9c6d4c97270"],
 
 Cell[CellGroupData[{
 
@@ -3062,7 +3062,7 @@ Cell[BoxData[
       RowBox[{"InfraEchoFunction", "[", 
        RowBox[{"a", ",", " ", "b"}], "]"}], ",", " ", "All"}], "]"}]}]}], 
   "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"a2a7a8e8-4e81-4913-8d21-61baffaefb51"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"583b2510-b202-4f44-bb16-421844c47006"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -3082,13 +3082,13 @@ Cell[BoxData[
      RowBox[{"2", "\[Rule]", "19"}], ",", 
      RowBox[{"10", "\[Rule]", "19"}], ",", 
      RowBox[{"12", "\[Rule]", "22"}]}], "}"}]}], "}"}]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"b61cc060-6a1a-4e50-8fed-11348ed7f11d"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"1010450d-64ad-4d04-870f-3da6e09c1ec8"]
 }, Open  ]],
 
 Cell["\<\
 The number of echo functions on each substrate beside the numbers of message \
 functions there and back.\
-\>", "ExampleText",ExpressionUUID->"ea31d449-347f-4221-a188-77e975ffa733"],
+\>", "ExampleText",ExpressionUUID->"f93e95b2-99ac-4deb-a310-b0ad2f1dec00"],
 
 Cell[CellGroupData[{
 
@@ -3144,7 +3144,7 @@ Cell[BoxData[
        " ", "\"\<MinkowskiSprinkling2D\>\"", ",", 
        " ", "\"\<CylinderLatticeGraph\>\""}], "}"}]}], "}"}]}], 
   "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"a7b31788-bf4f-42fb-a41c-4822576f81a1"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"0d9ce993-da86-4344-96bd-7d7a224d776d"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -3155,7 +3155,7 @@ Cell[BoxData[
     RowBox[{"3", ",", "2", ",", "3"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"9", ",", "10", ",", "6"}], "}"}]}], "}"}]], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"0cf344f1-661b-472d-b65b-4818e78d5ebe"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"7a8906f0-eccb-45cf-b922-6a42d8ad1a06"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -3164,7 +3164,7 @@ Cell[TextData[{
  ": for each tick, the positions on ",
  StyleBox["a", "TI"],
  " at which its echoes return over all echo functions."
-}], "ExampleText",ExpressionUUID->"372052a4-b1db-4c17-960e-4bc98e0f4fab"],
+}], "ExampleText",ExpressionUUID->"96bcc688-d3d1-4207-baaf-5a832f8d5b4c"],
 
 Cell[CellGroupData[{
 
@@ -3213,7 +3213,7 @@ Cell[BoxData[
            " ", 
           RowBox[{"{", "2", "}"}]}], "]"}], ",", " ", "Identity"}], "]"}]}]}],
      "]"}]}], "]"}]], "Input",
- CellLabel->"In[4]:= ",ExpressionUUID->"f4adf7f4-948e-4ed2-bc21-277cdef76cfe"],
+ CellLabel->"In[4]:= ",ExpressionUUID->"1434dca3-af31-4efb-940a-24229d427510"],
 
 Cell[BoxData[
  RowBox[{"\[LeftAssociation]", 
@@ -3244,7 +3244,7 @@ Cell[BoxData[
     RowBox[{"{", "13", "}"}]}], ",", 
    RowBox[{"10", "\[Rule]", 
     RowBox[{"{", "13", "}"}]}]}], "\[RightAssociation]"}]], "Output",
- CellLabel->"Out[4]= ",ExpressionUUID->"02086e38-a79c-4a2d-84e3-9e17350bcd65"]
+ CellLabel->"Out[4]= ",ExpressionUUID->"22065e83-9652-4e69-bb66-bc2c0223ae4b"]
 }, Open  ]]
 }, Open  ]],
 
@@ -3305,12 +3305,12 @@ Cell[BoxData[
 Cell[TextData[{
  Cell[BoxData["All"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "c24cc707-2171-41bc-94f6-27c9425ed982"],
+  "f80d3ba9-a9b5-4a14-9b7a-b8d61d45ae00"],
  " gives the distinct compositions of two message functions, as many as the \
 ",
  Cell[BoxData["\"\<Cardinality\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "158aeec4-8178-482f-bb11-751276ceb1de"],
+  "7ef0b5d5-9713-4023-97e3-c410fd88ca4b"],
  " of the head; ",
  Cell[BoxData[
   TemplateBox[{
@@ -3320,9 +3320,9 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "75314012-634c-411e-98ae-624b68b27b03"],
+  "81f6c032-b6dd-4fe7-a19a-ee85a5240fa9"],
  " recognises each of them."
-}], "ExampleText",ExpressionUUID->"621771cf-d972-44d6-99d0-22c5ce0f5344"],
+}], "ExampleText",ExpressionUUID->"c463ff83-ca60-49e2-bf55-0cc7719404bf"],
 
 Cell[CellGroupData[{
 
@@ -3406,10 +3406,10 @@ Cell[BoxData[
         " ", 
         RowBox[{"Sort", "[", "compositions", "]"}]}]}]}], "]"}]}]}], 
   "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"55eaf8b4-ef38-4775-aecd-d65013dee01b"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"eceb1dac-209e-4e39-885a-f793f28a2737"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"4614f95c-a4d3-44d8-97bc-698d8913e24e"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"f6d55be9-7deb-4583-a8b5-c0517f543fc9"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -3417,7 +3417,7 @@ Cell[TextData[{
 echo always returns strictly later on ",
  StyleBox["a", "TI"],
  ", to a tick of the echo relation."
-}], "ExampleText",ExpressionUUID->"3f64f71e-6a3f-414e-9397-55c0a60b6b76"],
+}], "ExampleText",ExpressionUUID->"2867e1f0-4f2e-440e-a07f-6eaa83ec6a41"],
 
 Cell[CellGroupData[{
 
@@ -3506,10 +3506,10 @@ Cell[BoxData[
                 RowBox[{"f", "[", "v", "]"}], "]"}], " ", ">", " ", 
                RowBox[{"position", "[", "v", "]"}]}]}]}]}], "]"}]}]}], 
         "]"}]}]}], "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"4539f4ae-0ab5-4aab-808a-9186582bf028"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"c415d12e-d1fb-44e6-b059-48fcdac3f1e5"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"39c23ac2-7f9e-486a-bad7-056f66df5b1c"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"f9dee9b0-4bc6-4828-8918-6dc7a7c298fb"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -3517,13 +3517,13 @@ Cell[TextData[{
  Cell[BoxData[
   RowBox[{"{", "}"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "330453c4-e948-48d1-aed2-f000ff50810b"],
+  "5026aadf-2ba4-4232-af42-2294548e17d3"],
  ", ",
  Cell[BoxData["UpTo"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "3217aa40-c4b3-47ac-b391-01b6d705e36b"],
+  "fa207d33-2227-4e06-b4e2-536fb44eb2dd"],
  " caps at the cardinality, and a single draw is a member."
-}], "ExampleText",ExpressionUUID->"8b328dcb-7046-4e7f-99ee-cd48a4c32f29"],
+}], "ExampleText",ExpressionUUID->"5d48df1d-4eac-43f0-a060-b17eb4185462"],
 
 Cell[CellGroupData[{
 
@@ -3590,10 +3590,10 @@ Cell[BoxData[
            RowBox[{"RandomInfraEchoFunction", "[", 
             RowBox[{"g", ",", " ", "head"}], "]"}]}], ")"}]}], "]"}]}]}], 
      "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"ccfdf230-73f8-4899-af1a-bb725ec7e496"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"6190a4b6-bfed-4284-a34a-745a4b87f2cf"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"0d2dfd5e-b269-437c-9c8a-6943d2c6e950"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"0381d166-4861-4b22-81a9-0e0bdea480d5"]
 }, Open  ]]
 }, Open  ]],
 
@@ -3669,7 +3669,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
 
 Cell["WolframInstitute/InfraCausality/ref/RandomInfraEchoFunction", \
 "Categorization",
- CellLabel->"URI",ExpressionUUID->"463f12f1-a20a-4f6b-b2ac-143fda9e3ad9"]
+ CellLabel->"URI",ExpressionUUID->"96ebed02-0a4f-4af6-92f4-67103aa0f847"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -3738,24 +3738,24 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 121, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[700, 25, 2367, 69, 70, "Usage",ExpressionUUID->"52a6a45b-4b09-402f-8550-e1d4d8728847"],
-Cell[3070, 96, 97, 0, 70, "Notes",ExpressionUUID->"d97acc26-cf4d-4193-ae9f-eb9b92033b7b"],
-Cell[3170, 98, 1862, 53, 70, "Notes",ExpressionUUID->"926260e3-7529-4d94-8065-5638c39f9ff9"],
-Cell[5035, 153, 165, 3, 70, "Notes",ExpressionUUID->"0600d85d-fb6a-4eef-826d-02e551e7c363"],
-Cell[5203, 158, 2600, 53, 70, "2ColumnTableMod",ExpressionUUID->"ec456677-45b9-4735-a37c-e96c3d6c31dc"],
-Cell[7806, 213, 432, 8, 70, "Notes",ExpressionUUID->"d6a066d9-80ca-44ad-ab9e-7bde768ecc09"]
+Cell[700, 25, 2367, 69, 70, "Usage",ExpressionUUID->"0016a8be-38df-46fd-9271-d11b56965daf"],
+Cell[3070, 96, 97, 0, 70, "Notes",ExpressionUUID->"68a759f8-bbdd-4be2-b8c7-e01d76f8bc61"],
+Cell[3170, 98, 1862, 53, 70, "Notes",ExpressionUUID->"9264010a-46c2-41ef-a705-39041b77e514"],
+Cell[5035, 153, 165, 3, 70, "Notes",ExpressionUUID->"21b8e5b3-5a8a-4ca3-9f7d-2f266fbbc00d"],
+Cell[5203, 158, 2600, 53, 70, "2ColumnTableMod",ExpressionUUID->"5a94fee4-24aa-4e76-8eec-ce793a1e4c7e"],
+Cell[7806, 213, 432, 8, 70, "Notes",ExpressionUUID->"9f10dab4-26e4-48e1-9bcd-d84699ead2a2"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[8275, 226, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[8737, 241, 1880, 50, 70, "SeeAlso",ExpressionUUID->"5252558b-2cb4-42f5-8514-3d2b154e4a24"]
+Cell[8737, 241, 1880, 50, 70, "SeeAlso",ExpressionUUID->"0a446611-5899-455c-9998-96c72e227b8f"]
 }, Open  ]],
 Cell[10632, 294, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
 Cell[11092, 310, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[11211, 313, 306, 6, 70, "MoreAbout",ExpressionUUID->"1219417b-0c24-4182-9bbe-3f4c998818e7"]
+Cell[11211, 313, 306, 6, 70, "MoreAbout",ExpressionUUID->"1f3d3c4b-23ad-4df5-85a2-0e059d4f7bc2"]
 }, Open  ]],
 Cell[11532, 322, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
@@ -3768,25 +3768,25 @@ Cell[12562, 355, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-5
 Cell[CellGroupData[{
 Cell[12873, 364, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
  CellID->880084151],
-Cell[13318, 378, 429, 10, 70, "ExampleText",ExpressionUUID->"e1f28487-4f92-49a6-9e62-d705aa240665"],
+Cell[13318, 378, 429, 10, 70, "ExampleText",ExpressionUUID->"2c20726c-0aa2-4d15-b9a9-f93100755d7d"],
 Cell[CellGroupData[{
-Cell[13772, 392, 2638, 67, 70, "Input",ExpressionUUID->"980dcc0c-3fd1-4506-9c4b-489ef09ff36e"],
-Cell[16413, 461, 128712, 2566, 70, "Output",ExpressionUUID->"c18b43ad-ed5f-41e9-b21b-774c55541182"]
+Cell[13772, 392, 2638, 67, 70, "Input",ExpressionUUID->"4646ddd8-7e77-4485-8244-2161f51077d6"],
+Cell[16413, 461, 128712, 2566, 70, "Output",ExpressionUUID->"6f1f7f95-db38-4514-8183-ca5cbaf241ba"]
 }, Open  ]],
-Cell[145140, 3030, 126, 0, 70, "ExampleText",ExpressionUUID->"08aa2367-c620-4be5-8045-55fbba41396b"],
+Cell[145140, 3030, 126, 0, 70, "ExampleText",ExpressionUUID->"51dcd278-7f98-42aa-ac24-c9c6d4c97270"],
 Cell[CellGroupData[{
-Cell[145291, 3034, 1144, 30, 70, "Input",ExpressionUUID->"a2a7a8e8-4e81-4913-8d21-61baffaefb51"],
-Cell[146438, 3066, 642, 18, 70, "Output",ExpressionUUID->"b61cc060-6a1a-4e50-8fed-11348ed7f11d"]
+Cell[145291, 3034, 1144, 30, 70, "Input",ExpressionUUID->"583b2510-b202-4f44-bb16-421844c47006"],
+Cell[146438, 3066, 642, 18, 70, "Output",ExpressionUUID->"1010450d-64ad-4d04-870f-3da6e09c1ec8"]
 }, Open  ]],
-Cell[147095, 3087, 190, 3, 70, "ExampleText",ExpressionUUID->"ea31d449-347f-4221-a188-77e975ffa733"],
+Cell[147095, 3087, 190, 3, 70, "ExampleText",ExpressionUUID->"f93e95b2-99ac-4deb-a310-b0ad2f1dec00"],
 Cell[CellGroupData[{
-Cell[147310, 3094, 2019, 52, 70, "Input",ExpressionUUID->"a7b31788-bf4f-42fb-a41c-4822576f81a1"],
-Cell[149332, 3148, 344, 9, 70, "Output",ExpressionUUID->"0cf344f1-661b-472d-b65b-4818e78d5ebe"]
+Cell[147310, 3094, 2019, 52, 70, "Input",ExpressionUUID->"0d9ce993-da86-4344-96bd-7d7a224d776d"],
+Cell[149332, 3148, 344, 9, 70, "Output",ExpressionUUID->"7a8906f0-eccb-45cf-b922-6a42d8ad1a06"]
 }, Open  ]],
-Cell[149691, 3160, 272, 6, 70, "ExampleText",ExpressionUUID->"372052a4-b1db-4c17-960e-4bc98e0f4fab"],
+Cell[149691, 3160, 272, 6, 70, "ExampleText",ExpressionUUID->"96bcc688-d3d1-4207-baaf-5a832f8d5b4c"],
 Cell[CellGroupData[{
-Cell[149988, 3170, 1703, 45, 70, "Input",ExpressionUUID->"f4adf7f4-948e-4ed2-bc21-277cdef76cfe"],
-Cell[151694, 3217, 1047, 29, 70, "Output",ExpressionUUID->"02086e38-a79c-4a2d-84e3-9e17350bcd65"]
+Cell[149988, 3170, 1703, 45, 70, "Input",ExpressionUUID->"1434dca3-af31-4efb-940a-24229d427510"],
+Cell[151694, 3217, 1047, 29, 70, "Output",ExpressionUUID->"22065e83-9652-4e69-bb66-bc2c0223ae4b"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -3804,20 +3804,20 @@ Cell[154040, 3288, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-4
 Cell[CellGroupData[{
 Cell[154313, 3297, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[154575, 3304, 816, 20, 70, "ExampleText",ExpressionUUID->"621771cf-d972-44d6-99d0-22c5ce0f5344"],
+Cell[154575, 3304, 816, 20, 70, "ExampleText",ExpressionUUID->"c463ff83-ca60-49e2-bf55-0cc7719404bf"],
 Cell[CellGroupData[{
-Cell[155416, 3328, 3411, 80, 70, "Input",ExpressionUUID->"55eaf8b4-ef38-4775-aecd-d65013dee01b"],
-Cell[158830, 3410, 110, 1, 70, "Output",ExpressionUUID->"4614f95c-a4d3-44d8-97bc-698d8913e24e"]
+Cell[155416, 3328, 3411, 80, 70, "Input",ExpressionUUID->"eceb1dac-209e-4e39-885a-f793f28a2737"],
+Cell[158830, 3410, 110, 1, 70, "Output",ExpressionUUID->"f6d55be9-7deb-4583-a8b5-c0517f543fc9"]
 }, Open  ]],
-Cell[158955, 3414, 269, 5, 70, "ExampleText",ExpressionUUID->"3f64f71e-6a3f-414e-9397-55c0a60b6b76"],
+Cell[158955, 3414, 269, 5, 70, "ExampleText",ExpressionUUID->"2867e1f0-4f2e-440e-a07f-6eaa83ec6a41"],
 Cell[CellGroupData[{
-Cell[159249, 3423, 3530, 85, 70, "Input",ExpressionUUID->"4539f4ae-0ab5-4aab-808a-9186582bf028"],
-Cell[162782, 3510, 110, 1, 70, "Output",ExpressionUUID->"39c23ac2-7f9e-486a-bad7-056f66df5b1c"]
+Cell[159249, 3423, 3530, 85, 70, "Input",ExpressionUUID->"c415d12e-d1fb-44e6-b059-48fcdac3f1e5"],
+Cell[162782, 3510, 110, 1, 70, "Output",ExpressionUUID->"f9dee9b0-4bc6-4828-8918-6dc7a7c298fb"]
 }, Open  ]],
-Cell[162907, 3514, 491, 11, 70, "ExampleText",ExpressionUUID->"8b328dcb-7046-4e7f-99ee-cd48a4c32f29"],
+Cell[162907, 3514, 491, 11, 70, "ExampleText",ExpressionUUID->"5d48df1d-4eac-43f0-a060-b17eb4185462"],
 Cell[CellGroupData[{
-Cell[163423, 3529, 2615, 63, 70, "Input",ExpressionUUID->"ccfdf230-73f8-4899-af1a-bb725ec7e496"],
-Cell[166041, 3594, 110, 1, 70, "Output",ExpressionUUID->"0d2dfd5e-b269-437c-9c8a-6943d2c6e950"]
+Cell[163423, 3529, 2615, 63, 70, "Input",ExpressionUUID->"6190a4b6-bfed-4284-a34a-745a4b87f2cf"],
+Cell[166041, 3594, 110, 1, 70, "Output",ExpressionUUID->"0381d166-4861-4b22-81a9-0e0bdea480d5"]
 }, Open  ]]
 }, Open  ]],
 Cell[166178, 3599, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
@@ -3841,7 +3841,7 @@ Cell[168218, 3661, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4
  CellID->605800465],
 Cell[168380, 3665, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[168539, 3669, 161, 2, 70, "Categorization",ExpressionUUID->"463f12f1-a20a-4f6b-b2ac-143fda9e3ad9"]
+Cell[168539, 3669, 161, 2, 70, "Categorization",ExpressionUUID->"96ebed02-0a4f-4af6-92f4-67103aa0f847"]
 }, Closed]],
 Cell[168715, 3674, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
