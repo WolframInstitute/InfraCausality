@@ -49,6 +49,8 @@ Needs["WolframInstitute`InfraGeometry`"]
 Needs["WolframInstitute`InfraCausality`"]
 ```
 
+Explore the [research documentation](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/WolframInstitute/InfraCausality).
+
 Load InfraGeometry as well, because the readers `InfraMeasurement`, `InfraMemberQ` and `InfraSubstrateHighlight` live in its context.
 
 ```wolfram
