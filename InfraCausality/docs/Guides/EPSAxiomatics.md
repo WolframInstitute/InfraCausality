@@ -1,12 +1,12 @@
 ---
 Template: Guide
-Name: InfraObservers
-Title: Infra Observers
+Name: EPSAxiomatics
+Title: EPS Axiomatics
 Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
-URI: WolframInstitute/InfraCausality/guide/InfraObservers
-Keywords: [observer, message function, echo function, Ehlers-Pirani-Schild, EPS axioms, radar coordinates, radar domain, observer space, fibration, message selection, echo selection, joined radar coordinates, EPS defects, k-factor]
+URI: WolframInstitute/InfraCausality/guide/EPSAxiomatics
+Keywords: [EPS axioms, Ehlers-Pirani-Schild, observer, clock, message function, echo function, axiom D1, radar coordinates, axiom D2, radar domain, observer space, fibration, message selection, echo selection, joined radar coordinates, EPS defects, k-factor]
 RelatedGuides: [CausalInfrageometry, CausalTime, CausalSubstrates, BondiKCalculus]
 RelatedTutorials: [CausalInfrageometryTutorial]
 ---

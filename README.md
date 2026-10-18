@@ -30,7 +30,7 @@ The continuum anchor is Bondi's k-calculus drawn as Euclidean geometry: two stra
 |---|---|
 | **Causal Infrageometry** (main) | cones, diamonds, worldlines, timelike geodesics, light cones and light rays; reading and drawing them |
 | Causal Time | the causal height, its foliation, slices and antichains |
-| Infra Observers | message and echo relations (EPS), radar coordinates |
+| EPS Axiomatics | the EPS axioms on a graph: message and echo functions (D1), radar coordinates (D2), the observer space, the defects and the graph k-factor |
 | Causal Substrates | named causal graphs (lattices, Minkowski sprinklings, spray graphs, Wolfram model universes) and random causal graphs |
 | Bondi k-Calculus | the k-factor, rapidity, proper time in the Euclidean picture of worldlines, radar coordinates |
 

@@ -7,7 +7,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalSubstrates
 Keywords: [causal substrate, causal graph, causal set, lattice, sprinkling, Minkowski space, transitive percolation, spray graph, Wolfram model]
-RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, BondiKCalculus]
+RelatedGuides: [CausalInfrageometry, CausalTime, EPSAxiomatics, BondiKCalculus]
 ---
 
 ## Abstract

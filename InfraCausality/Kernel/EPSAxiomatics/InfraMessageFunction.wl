@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: InfraObservers :: InfraMessageFunction *)
+(* WolframInstitute`InfraCausality` :: EPSAxiomatics :: InfraMessageFunction *)
 
 PackageScope[ messageRelation ]
 

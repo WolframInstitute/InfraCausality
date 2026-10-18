@@ -7,7 +7,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraEchoFunctionQ
 Keywords: [echo function, radar, composition, message function, EPS axioms, Ehlers-Pirani-Schild, predicate]
 SeeAlso: [InfraEchoFunction, RandomInfraEchoFunction, InfraMessageFunctionQ, InfraMessageFunction, InfraRadarCoordinates]
-RelatedGuides: [InfraObservers]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage

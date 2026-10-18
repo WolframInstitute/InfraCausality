@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: InfraObservers :: InfraRadarCoordinates *)
+(* WolframInstitute`InfraCausality` :: EPSAxiomatics :: InfraRadarCoordinates *)
 
 PackageScope[ radarTicks ]
 

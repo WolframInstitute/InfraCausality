@@ -7,7 +7,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraMessageFunction
 Keywords: [message function, monotone selection, sampler, uniform, count contract, EPS axioms, experimental]
 SeeAlso: [InfraMessageFunction, InfraMessageFunctionQ, RandomInfraEchoFunction, InfraEchoFunction, MessageFunctionViewer]
-RelatedGuides: [InfraObservers]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage

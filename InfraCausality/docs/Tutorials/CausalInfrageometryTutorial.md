@@ -7,7 +7,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/tutorial/CausalInfrageometryTutorial
 Keywords: [causal graph, causal diamond, worldline, timelike geodesic, observer, causal height, message function, echo function, radar coordinates, radar domain, observer space, fibration, section, EPS axioms]
-RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrates]
+RelatedGuides: [CausalInfrageometry, CausalTime, EPSAxiomatics, CausalSubstrates]
 ---
 
 - A **causal graph** is a directed acyclic graph whose vertices are events and whose directed paths are the causal relation: *u* ≼ *v* when a path leads from *u* to *v*. Everything below is read off the graph alone.

@@ -50,7 +50,7 @@ PackageExport[InfraAntichainQ]
 PackageExport[MaximalAbsorber]
 PackageExport[MaximalEmitter]
 
-(* InfraObservers *)
+(* EPSAxiomatics *)
 
 PackageExport[InfraMessageFunction]
 PackageExport[InfraEchoFunction]

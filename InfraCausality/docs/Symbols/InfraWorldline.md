@@ -20,7 +20,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Definition: a worldline from *p* to *q* is a saturated chain *p* = *e*0 ≺ *e*1 ≺ … ≺ *ek* = *q*: each pair of consecutive events is a covering pair, an edge of the Hasse diagram, so no event lies strictly between them.
 
-A worldline is the discrete analogue of a future-directed timelike curve: a saturated chain skips no event it could have passed through. An *observer* is a worldline whose positions are read as the ticks of a clock, the role a worldline plays in the Infra Observers guide. Worldlines between the same two events need not have the same number of events; the longest ones are the timelike geodesics of [InfraTimelikeGeodesic]().
+A worldline is the discrete analogue of a future-directed timelike curve: a saturated chain skips no event it could have passed through. An *observer* is a worldline whose positions are read as the ticks of a clock, the role a worldline plays in the EPS Axiomatics guide. Worldlines between the same two events need not have the same number of events; the longest ones are the timelike geodesics of [InfraTimelikeGeodesic]().
 
 The head holds its two events and computes nothing. Its graph, <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, *w*, "Graph"]</code>, is the Hasse diagram of the graph restricted to the diamond [*p*, *q*]. Its paths from *p* to *q* are exactly the saturated chains, each once, so `"Faithful"` is `True`, and every count is read off that graph by dynamic programming.
 
@@ -33,7 +33,7 @@ The head holds its two events and computes nothing. Its graph, <code>[`InfraMeas
 | `"EdgeDensity"` | for each edge, the number of worldlines through it |
 | `"Faithful"` | `True` |
 
-A member is a vertex list in causal order; [RandomInfraWorldline]() draws members uniformly, and [InfraWorldlineQ]() recognises one. As observers, worldlines are the clocks of the Infra Observers guide: [InfraMessageFunction]() and [InfraRadarCoordinates]() take them as arguments.
+A member is a vertex list in causal order; [RandomInfraWorldline]() draws members uniformly, and [InfraWorldlineQ]() recognises one. As observers, worldlines are the clocks of the EPS Axiomatics guide: [InfraMessageFunction]() and [InfraRadarCoordinates]() take them as arguments.
 
 Corresponding notions:
 

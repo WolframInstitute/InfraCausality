@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: InfraObservers :: EPSSelections *)
+(* WolframInstitute`InfraCausality` :: EPSAxiomatics :: EPSSelections *)
 
 Options[ RandomInfraMessageFunction ] = { "NextVertexFunction" -> Automatic }
 

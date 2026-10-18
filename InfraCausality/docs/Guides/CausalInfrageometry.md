@@ -7,7 +7,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalInfrageometry
 Keywords: [causal structure, causal set, directed acyclic graph, causal future, causal past, causal diamond, Alexandrov interval, worldline, observer, light cone, light ray, chain, timelike geodesic, infrageometry, Knuth kinematics, piecewise geodesic, causal-set estimators, Myrheim-Meyer dimension, Benincasa-Dowker action]
-RelatedGuides: [CausalTime, InfraObservers, CausalSubstrates, BondiKCalculus]
+RelatedGuides: [CausalTime, EPSAxiomatics, CausalSubstrates, BondiKCalculus]
 RelatedTutorials: [CausalInfrageometryTutorial]
 ---
 

@@ -2,7 +2,7 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: InfraObservers :: EPSDefects *)
+(* WolframInstitute`InfraCausality` :: EPSAxiomatics :: EPSDefects *)
 
 PackageScope[ tickWindow ]
 

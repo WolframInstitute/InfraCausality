@@ -7,7 +7,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/tutorial/BondiKCalculus
 Keywords: [Bondi k-calculus, k-factor, radar time, radar distance, time dilation, Doppler effect, velocity addition, simultaneity, length contraction, light clock, light zigzag, proper time]
-RelatedGuides: [BondiKCalculus, InfraObservers]
+RelatedGuides: [BondiKCalculus, EPSAxiomatics]
 RelatedTutorials: [CausalInfrageometryTutorial]
 ---
 

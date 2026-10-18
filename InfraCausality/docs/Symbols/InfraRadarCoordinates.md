@@ -7,7 +7,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraRadarCoordinates
 Keywords: [radar coordinates, radar time, radar distance, coordinatization, observer space, fibration, EPS axioms, Bondi k-calculus, symbolic object]
 SeeAlso: [InfraWorldline, InfraTimelikeGeodesic, InfraEchoFunction, InfraMessageFunction, InfraCausalDiamond, BondiRadarCoordinates]
-RelatedGuides: [InfraObservers]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage

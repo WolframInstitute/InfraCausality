@@ -7,7 +7,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraEchoFunction
 Keywords: [echo function, radar, round trip, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, EPS defects, k-factor, Bondi factor, symbolic object]
 SeeAlso: [InfraEchoFunctionQ, InfraMessageFunction, RandomInfraEchoFunction, InfraRadarCoordinates, InfraFutureLightCone, InfraWorldline]
-RelatedGuides: [InfraObservers]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage

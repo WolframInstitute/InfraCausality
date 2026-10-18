@@ -30,7 +30,7 @@ The result is an association:
 | `"EmitArcLength"` | *e* |
 | `"ReturnArcLength"` | *r* |
 
-A negative *x* gives a negative radar distance, the event on the left. The graph counterpart is <code>[InfraRadarCoordinates]()</code> of the Infra Observers guide, which reads the same two numbers off the emission and reception ticks of an observer chain.
+A negative *x* gives a negative radar distance, the event on the left. The graph counterpart is <code>[InfraRadarCoordinates]()</code> of the EPS Axiomatics guide, which reads the same two numbers off the emission and reception ticks of an observer chain.
 
 ## Basic Examples
 

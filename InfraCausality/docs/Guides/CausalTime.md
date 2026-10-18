@@ -7,7 +7,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalTime
 Keywords: [time function, causal height, height, longest chain, foliation, slice, antichain, simultaneity, extremal events]
-RelatedGuides: [CausalInfrageometry, InfraObservers, CausalSubstrates, BondiKCalculus]
+RelatedGuides: [CausalInfrageometry, EPSAxiomatics, CausalSubstrates, BondiKCalculus]
 ---
 
 ## Abstract

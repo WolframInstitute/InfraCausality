@@ -7,7 +7,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraMessageFunction
 Keywords: [message function, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, monotone selection, EPS defects, k-factor, Bondi factor, symbolic object]
 SeeAlso: [InfraMessageFunctionQ, InfraEchoFunction, RandomInfraMessageFunction, InfraFutureLightCone, InfraWorldline, InfraRadarCoordinates, MessageFunctionViewer]
-RelatedGuides: [InfraObservers]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage

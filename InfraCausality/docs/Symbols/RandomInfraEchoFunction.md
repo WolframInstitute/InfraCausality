@@ -7,7 +7,7 @@ Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraEchoFunction
 Keywords: [echo function, radar, composition, message function, sampler, count contract, EPS axioms, experimental]
 SeeAlso: [InfraEchoFunction, InfraEchoFunctionQ, RandomInfraMessageFunction, InfraMessageFunction, InfraRadarCoordinates]
-RelatedGuides: [InfraObservers]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage
