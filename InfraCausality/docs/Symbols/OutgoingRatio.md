@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/OutgoingRatio
 Keywords: [arc-length ratio, outgoing light, Euclidean picture, Bondi k-calculus, sine rule, light zigzag]
-SeeAlso: [IncomingRatio, ProperTimeScale, KFactor, WorldlineAngle, LightZigzag, DopplerConstruction]
+SeeAlso: [IncomingRatio, ProperTimeScale, BondiKFactor, WorldlineAngle, LightZigzag, DopplerConstruction]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -51,11 +51,11 @@ AllTrue[Tuples[{{1/5, 3/5, 4/5}, {Pi/6, Pi/4, Pi/3}}], Apply[{v, phi} |->
 The ratio of proper times is the k-factor at every light angle.
 
 ```wl
-Simplify[TrigExpand[(OutgoingRatio[v, phi] ProperTimeScale[v, phi])^2 == KFactor[v]^2], 0 < v < 1 && 0 < phi < Pi/2]
+Simplify[TrigExpand[(OutgoingRatio[v, phi] ProperTimeScale[v, phi])^2 == BondiKFactor[v]^2], 0 < v < 1 && 0 < phi < Pi/2]
 ```
 
 The outgoing and incoming ratios multiply to *k*², the round-trip factor.
 
 ```wl
-FullSimplify[OutgoingRatio[v] IncomingRatio[v] == KFactor[v]^2, 0 < v < 1]
+FullSimplify[OutgoingRatio[v] IncomingRatio[v] == BondiKFactor[v]^2, 0 < v < 1]
 ```

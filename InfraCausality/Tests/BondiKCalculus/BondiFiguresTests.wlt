@@ -73,7 +73,7 @@ VerificationTest[
     { v = vp[[ 1 ]], phi = vp[[ 2 ]] },
     { bob = Select[ $disks @ BondiClock[ v, 8, "LightAngle" -> phi ], c |-> N[ c[[ 1 ]] ] > 0 ] },
     Length[ bob ] == 4 && AllTrue[ bob, c |-> $onWorldline[ c, v, phi ] ] &&
-      $near[ Ratios[ Map[ Norm, bob ] ], ConstantArray[ KFactor[ v, phi ]^2, 3 ] ] ] ],
+      $near[ Ratios[ Map[ Norm, bob ] ], ConstantArray[ BondiKFactor[ v, phi ]^2, 3 ] ] ] ],
   True,
   TestID -> "BondiClock-reflections-on-moving-worldline-grow-by-k-squared"
 ]
@@ -85,7 +85,7 @@ VerificationTest[
     { alice = Select[ disks, c |-> N[ c[[ 1 ]] ] == 0 ],
       bob = Select[ disks, c |-> N[ c[[ 1 ]] ] > 0 ] },
     Length[ bob ] == 6 && AllTrue[ bob, c |-> $onWorldline[ c, v, phi ] ] &&
-      $near[ Differences[ ProperTimeScale[ v, phi ] Map[ Norm, bob ] ], KFactor[ v, phi ] Differences[ alice[[ All, 2 ]] ] ] ] ],
+      $near[ Differences[ ProperTimeScale[ v, phi ] Map[ Norm, bob ] ], BondiKFactor[ v, phi ] Differences[ alice[[ All, 2 ]] ] ] ] ],
   True,
   TestID -> "DopplerConstruction-receptions-on-moving-worldline-spaced-by-k"
 ]
@@ -163,7 +163,7 @@ VerificationTest[
     { rodAndBar = $rodAndBar[ v, phi ] },
     { rod = rodAndBar[[ 1, 1 ]], bars = Last @ rodAndBar },
     Length[ bars ] == 1 && $exact[ bars[[ 1, 1 ]], rod[[ 1 ]] ] &&
-      $exact[ $spacelikeLength[ First @ bars, phi ], 3 / ( 20 LorentzGamma[ v ] ) ] &&
+      $exact[ $spacelikeLength[ First @ bars, phi ], 3 / ( 20 LorentzFactor[ v ] ) ] &&
       $parallel[ bars[[ 1, 2 ]] - rod[[ 2 ]], Through[ { Sin, Cos }[ WorldlineAngle[ v, phi ] ] ] ] ] ],
   True,
   TestID -> "LengthContractionConstruction-measured-at-one-radar-time-has-length-L-over-gamma"

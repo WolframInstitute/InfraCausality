@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/BondiRadarCoordinates
 Keywords: [radar coordinates, radar time, radar distance, Bondi k-calculus, Einstein synchronisation, Euclidean picture]
-SeeAlso: [ProperTimeScale, WorldlineAngle, LightZigzag, KFactor, InfraRadarCoordinates]
+SeeAlso: [ProperTimeScale, WorldlineAngle, LightZigzag, BondiKFactor, InfraRadarCoordinates]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/LightClockConstruction
 Keywords: [light clock, time dilation, mirror, Lorentz factor, figure, Bondi k-calculus, experimental]
-SeeAlso: [ProperTimeScale, LorentzGamma, TimeDilationConstruction, BondiViewer]
+SeeAlso: [ProperTimeScale, LorentzFactor, TimeDilationConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -61,5 +61,5 @@ AllTrue[Tuples[{{0.3, 0.7}, {Pi/4, 1.1}}], Apply[{v, phi} |->
   With[{ticks = First[Cases[LightClockConstruction[v, 8, "LightAngle" -> phi], Line[pts_ /; Length[pts] > 3] :> pts, Infinity]][[1 ;; -1 ;; 2]]},
     {steps = Differences[ProperTimeScale[v, phi] Map[Norm, ticks]]},
     Max[Abs[ticks - Map[Norm, ticks] Table[Through[{Sin, Cos}[WorldlineAngle[v, phi]]], Length[ticks]]]] < 10^-9 &&
-      Max[Abs[steps - First[steps]]] < 10^-9 && Max[Abs[Differences[ticks[[All, 2]]]/steps - LorentzGamma[v]]] < 10^-9]]]
+      Max[Abs[steps - First[steps]]] < 10^-9 && Max[Abs[Differences[ticks[[All, 2]]]/steps - LorentzFactor[v]]] < 10^-9]]]
 ```

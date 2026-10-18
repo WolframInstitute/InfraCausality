@@ -39,11 +39,11 @@ GraphicsRow @ Table[
 
 ## The k-factor and the Doppler effect
 
-- Alice emits pulses at equal intervals of her proper time; Bob receives them at equal intervals of his, *k* times longer. By symmetry the same *k* relates Bob's emissions to Alice's receptions. Radar gives $k = \sqrt{(1 + v)/(1 - v)}$ ([KFactor]()), the relativistic Doppler factor: the velocity 3/5 has *k* = 2.
+- Alice emits pulses at equal intervals of her proper time; Bob receives them at equal intervals of his, *k* times longer. By symmetry the same *k* relates Bob's emissions to Alice's receptions. Radar gives $k = \sqrt{(1 + v)/(1 - v)}$ ([BondiKFactor]()), the relativistic Doppler factor: the velocity 3/5 has *k* = 2.
 - In the picture, light emitted at arc length *s* on Alice's worldline reaches Bob at arc length $k_{out} s$ ([OutgoingRatio]()), and light from Bob at *s* reaches Alice at $k_{in} s$ ([IncomingRatio]()). These are Euclidean ratios and depend on *φ*; the k-factor $\sqrt{k_{out} k_{in}}$ does not.
 
 ```wl
-{KFactor[3/5], FullSimplify @ Table[KFactor[3/5, phi], {phi, {Pi/6, Pi/4, Pi/3}}]}
+{BondiKFactor[3/5], FullSimplify @ Table[BondiKFactor[3/5, phi], {phi, {Pi/6, Pi/4, Pi/3}}]}
 ```
 
 - [DopplerConstruction]() draws six pulses from Alice to Bob at *v* = 0.6. The first emission interval Δτ and its reception interval *k*Δτ are marked.
@@ -71,10 +71,10 @@ Simplify[TrigExpand[With[{r = BondiRadarCoordinates[s Through[{Sin, Cos}[Worldli
 ## Radar time and radar distance
 
 - Alice locates an event by radar: she sends light at her proper time $T_1$, it is echoed at the event and returns at $T_2$. The event's radar time is $(T_1 + T_2)/2$ and its radar distance $(T_2 - T_1)/2$ ([BondiRadarCoordinates]()).
-- Apply it to Bob. Alice sends at *T*; Bob receives at *kT* on his clock and echoes at once; Alice receives at $k \cdot kT = k^2 T$. So Bob's reflection has radar time $(k^2 + 1)T/2$ and radar distance $(k^2 - 1)T/2$, and Bob's velocity is their ratio $(k^2 - 1)/(k^2 + 1)$, the inverse of [KFactor](). With *k* = 2 and *T* = 1:
+- Apply it to Bob. Alice sends at *T*; Bob receives at *kT* on his clock and echoes at once; Alice receives at $k \cdot kT = k^2 T$. So Bob's reflection has radar time $(k^2 + 1)T/2$ and radar distance $(k^2 - 1)T/2$, and Bob's velocity is their ratio $(k^2 - 1)/(k^2 + 1)$, the inverse of [BondiKFactor](). With *k* = 2 and *T* = 1:
 
 ```wl
-With[{k = 2, T = 1}, {(k^2 + 1) T/2, (k^2 - 1) T/2, (k^2 - 1)/(k^2 + 1), KFactor[(k^2 - 1)/(k^2 + 1)]}]
+With[{k = 2, T = 1}, {(k^2 + 1) T/2, (k^2 - 1) T/2, (k^2 - 1)/(k^2 + 1), BondiKFactor[(k^2 - 1)/(k^2 + 1)]}]
 ```
 
 - The same numbers from the picture: the first reflection of a light zigzag ([LightZigzag]()) from Alice's arc length 1 to Bob at velocity 3/5 has radar time 5/2 and radar distance 3/2, and Bob's clock reads *kT* = 2 there.
@@ -87,10 +87,10 @@ With[{bounce = LightZigzag[3/5, 1, 1][[2]]},
 
 ## Time dilation
 
-- In the computation above Bob's clock read *kT* at the reflection, while Alice's radar time of it is $(k^2 + 1)T/2$. Their ratio is the Lorentz factor $\gamma = (k + 1/k)/2 = 1/\sqrt{1 - v^2}$ ([LorentzGamma]()): Alice assigns every event on Bob's worldline γ times Bob's own reading. At *v* = 3/5, γ = (2 + 1/2)/2 = 5/4.
+- In the computation above Bob's clock read *kT* at the reflection, while Alice's radar time of it is $(k^2 + 1)T/2$. Their ratio is the Lorentz factor $\gamma = (k + 1/k)/2 = 1/\sqrt{1 - v^2}$ ([LorentzFactor]()): Alice assigns every event on Bob's worldline γ times Bob's own reading. At *v* = 3/5, γ = (2 + 1/2)/2 = 5/4.
 
 ```wl
-{LorentzGamma[3/5], FullSimplify[BondiRadarCoordinates[tau/ProperTimeScale[3/5, Pi/3] Through[{Sin, Cos}[WorldlineAngle[3/5, Pi/3]]], Pi/3]["RadarTime"] == 5/4 tau, tau > 0]}
+{LorentzFactor[3/5], FullSimplify[BondiRadarCoordinates[tau/ProperTimeScale[3/5, Pi/3] Through[{Sin, Cos}[WorldlineAngle[3/5, Pi/3]]], Pi/3]["RadarTime"] == 5/4 tau, tau > 0]}
 ```
 
 - [TimeDilationConstruction]() draws the radar measurement of one event *B* of Bob's. Both worldlines carry ticks at equal proper-time steps, a quarter of Bob's reading at *B*; Alice's ticks reach her radar time of *B* after γ times as many steps, and the dashed line is her simultaneity line through *B*.
@@ -122,7 +122,7 @@ With[{midpoint = {p, v, phi} |-> Mean[Map[right |-> First @ LinearSolve[Transpos
 With[{v = 3/5, phi = Pi/4},
   {radar = p |-> Values @ KeyTake[BondiRadarCoordinates[p, phi], {"RadarTime", "RadarDistance"}], u = {Tan[phi], v}},
   {n = u/Sqrt[radar[u][[2]]^2 - radar[u][[1]]^2]},
-  FullSimplify[{radar[n][[2]] - v radar[n][[1]], 1/LorentzGamma[v]}]]
+  FullSimplify[{radar[n][[2]] - v radar[n][[1]], 1/LorentzFactor[v]}]]
 ```
 
 - [LengthContractionConstruction]() draws this at *v* = 0.6: the rod (thick red) of rest length *L* = 0.15 along Bob's line of simultaneity through its front event, and Alice's measurement of it (orange) along her own line of simultaneity through that event, at one radar time, with her four radar rays. The orange bar is the rod of length *L*/γ = 0.12 that she measures; its reference page reads both lengths off the drawing.
@@ -136,7 +136,7 @@ LengthContractionConstruction[0.6]
 - Carol moves at $v_2$ relative to Bob, who moves at $v_1$ relative to Alice. A signal from Alice to Carol passing Bob is received by Bob at $k_1$ times its emission and by Carol at $k_2$ times Bob's reception, so the k-factor of Carol relative to Alice is $k_1 k_2$: k-factors multiply, and the composed velocity is $((k_1 k_2)^2 - 1)/((k_1 k_2)^2 + 1) = (v_1 + v_2)/(1 + v_1 v_2)$. The rapidities $\log k$ add ([Rapidity]()).
 
 ```wl
-FullSimplify[With[{k = KFactor[v1] KFactor[v2]}, (k^2 - 1)/(k^2 + 1)] == (v1 + v2)/(1 + v1 v2) && Rapidity[(v1 + v2)/(1 + v1 v2)] == Rapidity[v1] + Rapidity[v2],
+FullSimplify[With[{k = BondiKFactor[v1] BondiKFactor[v2]}, (k^2 - 1)/(k^2 + 1)] == (v1 + v2)/(1 + v1 v2) && Rapidity[(v1 + v2)/(1 + v1 v2)] == Rapidity[v1] + Rapidity[v2],
   0 < v1 < 1 && 0 < v2 < 1]
 ```
 
@@ -150,7 +150,7 @@ VelocityAdditionConstruction[0.4, 0.3]
 
 ```wl
 With[{d = Cases[VelocityAdditionConstruction[0.4, 0.3], Disk[c_, _] :> c, Infinity]},
-  {ProperTimeScale[0.625] Norm[d[[3]]]/d[[1, 2]], KFactor[0.4] KFactor[0.3]}]
+  {ProperTimeScale[0.625] Norm[d[[3]]]/d[[1, 2]], BondiKFactor[0.4] BondiKFactor[0.3]}]
 ```
 
 ## The light clock
@@ -180,7 +180,7 @@ BondiClock[0.6, 8, "ShowEventLabels" -> True]
 
 ```wl
 With[{arcs = FullSimplify @ Lookup[Select[LightZigzag[3/5, 1, 8], #["Observer"] === "Alice" &], "ArcLength"]},
-  {arcs, Log[arcs]/Log[KFactor[3/5]^2] // FullSimplify}]
+  {arcs, Log[arcs]/Log[BondiKFactor[3/5]^2] // FullSimplify}]
 ```
 
 ## From the plane to graphs
@@ -188,5 +188,5 @@ With[{arcs = FullSimplify @ Lookup[Select[LightZigzag[3/5, 1, 8], #["Observer"] 
 - On a causal graph the same radar rule gives the radar coordinates of an observer chain, [InfraRadarCoordinates](), whose time and distance are the half-sum and half-difference of the emission and reception ticks; the Causal Infrageometry tutorial builds it. The k-factor has a graph reading as well: on the diamond lattice the chain at rest echoed by a chain of velocity 1/(2*p* + 1) reads $\sqrt{(p + 1)/p}$, the Bondi factor of that velocity.
 
 ```wl
-FullSimplify[KFactor[1/(2 p + 1)] == Sqrt[(p + 1)/p], p > 0]
+FullSimplify[BondiKFactor[1/(2 p + 1)] == Sqrt[(p + 1)/p], p > 0]
 ```

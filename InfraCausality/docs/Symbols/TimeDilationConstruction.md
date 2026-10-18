@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/TimeDilationConstruction
 Keywords: [time dilation, Lorentz factor, radar time, proper time, figure, Bondi k-calculus, experimental]
-SeeAlso: [LorentzGamma, BondiRadarCoordinates, ProperTimeScale, LightClockConstruction, BondiViewer]
+SeeAlso: [LorentzFactor, BondiRadarCoordinates, ProperTimeScale, LightClockConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -19,7 +19,7 @@ RelatedTutorials: [BondiKCalculus]
 
 Experimental: figure. The figure's layout and options may change.
 
-Definition: the event $B$ at arc length `"EventArcLength"` on the worldline of velocity *v* ("Bob", red) is radar-located by the rest observer ("Alice", blue): she sends light at $\tau_{emit}$, it reaches $B$ and returns at $\tau_{return}$, and her radar time of $B$ is $\tau_{radar} = (\tau_{emit} + \tau_{return})/2$. The dashed orange line is Alice's line of simultaneity from $\tau_{radar}$ through $B$. Bob's own clock reads $\tau_B$ = <code>[ProperTimeScale]()[*v*, *φ*]</code> times the arc length at $B$, and $\tau_{radar} = \gamma\,\tau_B$ with γ = <code>[LorentzGamma]()[*v*]</code>, printed in the corner.
+Definition: the event $B$ at arc length `"EventArcLength"` on the worldline of velocity *v* ("Bob", red) is radar-located by the rest observer ("Alice", blue): she sends light at $\tau_{emit}$, it reaches $B$ and returns at $\tau_{return}$, and her radar time of $B$ is $\tau_{radar} = (\tau_{emit} + \tau_{return})/2$. The dashed orange line is Alice's line of simultaneity from $\tau_{radar}$ through $B$. Bob's own clock reads $\tau_B$ = <code>[ProperTimeScale]()[*v*, *φ*]</code> times the arc length at $B$, and $\tau_{radar} = \gamma\,\tau_B$ with γ = <code>[LorentzFactor]()[*v*]</code>, printed in the corner.
 
 Both worldlines carry proper-time ticks at equal steps; by default the step is a quarter of $\tau_B$, so $B$ is Bob's fourth tick, and Alice's ticks run γ times as many steps to $\tau_{radar}$. The worldlines are drawn past $B$ and past the return, and every tick lies on them.
 
@@ -53,7 +53,7 @@ AllTrue[Tuples[{{0.2, 0.4, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{disks = Cases[TimeDilationConstruction[v, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity]},
     {b = First @ Select[disks, c |-> c[[1]] > 0]},
     {r = BondiRadarCoordinates[b, phi]},
-    Abs[b[[2]]/(ProperTimeScale[v, phi] Norm[b]) - LorentzGamma[v]] < 10^-9 &&
+    Abs[b[[2]]/(ProperTimeScale[v, phi] Norm[b]) - LorentzFactor[v]] < 10^-9 &&
       Max[Abs[Sort[Select[disks, c |-> c[[1]] == 0][[All, 2]]] - Sort[{r["EmitArcLength"], r["RadarTime"], r["ReturnArcLength"]}]]] < 10^-9]]]
 ```
 

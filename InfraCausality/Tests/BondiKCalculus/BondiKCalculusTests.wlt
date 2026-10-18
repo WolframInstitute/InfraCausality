@@ -5,51 +5,51 @@ $velocity = 0 < v < 1
 $angles = 0 < v < 1 && 0 < phi < Pi/2
 
 VerificationTest[
-  Simplify[ TrigExpand[ KFactor[ v, phi ]^2 ] == KFactor[ v ]^2, $angles ],
+  Simplify[ TrigExpand[ BondiKFactor[ v, phi ]^2 ] == BondiKFactor[ v ]^2, $angles ],
   True,
-  TestID -> "KFactor-Symbolic-angular-radicand-independent-of-light-angle"
+  TestID -> "BondiKFactor-Symbolic-angular-radicand-independent-of-light-angle"
 ]
 
 VerificationTest[
-  Table[ KFactor[ v, phi ] - KFactor[ v ], { v, { 1/5, 3/5 } }, { phi, { Pi/6, Pi/4, Pi/3 } } ] // FullSimplify,
+  Table[ BondiKFactor[ v, phi ] - BondiKFactor[ v ], { v, { 1/5, 3/5 } }, { phi, { Pi/6, Pi/4, Pi/3 } } ] // FullSimplify,
   ConstantArray[ 0, { 2, 3 } ],
-  TestID -> "KFactor-Exact-angular-form-equals-KFactor"
+  TestID -> "BondiKFactor-Exact-angular-form-equals-BondiKFactor"
 ]
 
 VerificationTest[
-  FullSimplify[ OutgoingRatio[ v ] IncomingRatio[ v ] == KFactor[ v ]^2, $velocity ],
+  FullSimplify[ OutgoingRatio[ v ] IncomingRatio[ v ] == BondiKFactor[ v ]^2, $velocity ],
   True,
   TestID -> "OutgoingRatio-Symbolic-product-with-incoming-is-k-squared"
 ]
 
 VerificationTest[
-  Simplify[ TrigExpand[ OutgoingRatio[ v, phi ] IncomingRatio[ v, phi ] ] == KFactor[ v ]^2, $angles ],
+  Simplify[ TrigExpand[ OutgoingRatio[ v, phi ] IncomingRatio[ v, phi ] ] == BondiKFactor[ v ]^2, $angles ],
   True,
   TestID -> "IncomingRatio-Symbolic-product-is-k-squared-at-every-light-angle"
 ]
 
 VerificationTest[
-  FullSimplify[ LorentzGamma[ v ] == 1 / Sqrt[ 1 - v^2 ], $velocity ],
+  FullSimplify[ LorentzFactor[ v ] == 1 / Sqrt[ 1 - v^2 ], $velocity ],
   True,
-  TestID -> "LorentzGamma-Symbolic-equals-inverse-root"
+  TestID -> "LorentzFactor-Symbolic-equals-inverse-root"
 ]
 
 VerificationTest[
-  FullSimplify[ ( KFactor[ v ]^2 - 1 ) / ( KFactor[ v ]^2 + 1 ) == v && KFactor[ ( k^2 - 1 ) / ( k^2 + 1 ) ] == k, $velocity && k > 0 ],
+  FullSimplify[ ( BondiKFactor[ v ]^2 - 1 ) / ( BondiKFactor[ v ]^2 + 1 ) == v && BondiKFactor[ ( k^2 - 1 ) / ( k^2 + 1 ) ] == k, $velocity && k > 0 ],
   True,
-  TestID -> "KFactor-Symbolic-inverts-the-velocity-of-k"
+  TestID -> "BondiKFactor-Symbolic-inverts-the-velocity-of-k"
 ]
 
 VerificationTest[
-  FullSimplify[ Log @ KFactor @ v == Rapidity[ v ], $velocity ],
+  FullSimplify[ Log @ BondiKFactor @ v == Rapidity[ v ], $velocity ],
   True,
-  TestID -> "KFactor-Symbolic-log-k-is-rapidity"
+  TestID -> "BondiKFactor-Symbolic-log-k-is-rapidity"
 ]
 
 VerificationTest[
-  FullSimplify[ KFactor[ v1 ] KFactor[ v2 ] == KFactor[ ( v1 + v2 ) / ( 1 + v1 v2 ) ], 0 < v1 < 1 && 0 < v2 < 1 ],
+  FullSimplify[ BondiKFactor[ v1 ] BondiKFactor[ v2 ] == BondiKFactor[ ( v1 + v2 ) / ( 1 + v1 v2 ) ], 0 < v1 < 1 && 0 < v2 < 1 ],
   True,
-  TestID -> "KFactor-Symbolic-velocity-addition-multiplies-k"
+  TestID -> "BondiKFactor-Symbolic-velocity-addition-multiplies-k"
 ]
 
 VerificationTest[
@@ -89,7 +89,7 @@ VerificationTest[
 VerificationTest[
   Table[
     With[ { arcs = #[ "ArcLength" ] & /@ Select[ LightZigzag[ v, 1, 8, phi ], #[ "Observer" ] === "Alice" & ] },
-      FullSimplify[ Ratios @ arcs - KFactor[ v ]^2 ] ],
+      FullSimplify[ Ratios @ arcs - BondiKFactor[ v ]^2 ] ],
     { v, { 1/5, 3/5, 4/5 } }, { phi, { Pi/6, Pi/4, Pi/3 } } ],
   ConstantArray[ 0, { 3, 3, 4 } ],
   TestID -> "LightZigzag-Exact-emission-arc-lengths-grow-by-k-squared"

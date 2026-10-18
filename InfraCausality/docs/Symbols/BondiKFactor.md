@@ -1,21 +1,21 @@
 ---
 Template: Symbol
-Name: KFactor
+Name: BondiKFactor
 Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
-URI: WolframInstitute/InfraCausality/ref/KFactor
+URI: WolframInstitute/InfraCausality/ref/BondiKFactor
 Keywords: [Bondi k-calculus, k-factor, Doppler factor, special relativity, velocity addition, light angle]
-SeeAlso: [LorentzGamma, OutgoingRatio, IncomingRatio, ProperTimeScale, DopplerConstruction]
+SeeAlso: [LorentzFactor, OutgoingRatio, IncomingRatio, ProperTimeScale, DopplerConstruction]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
 
 ## Usage
 
-<code>[KFactor]()[*v*]</code> gives the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$ of the velocity *v*.
+<code>[BondiKFactor]()[*v*]</code> gives the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$ of the velocity *v*.
 
-<code>[KFactor]()[*v*, *φ*]</code> gives its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$ in the Euclidean picture with light at angle *φ*, where *α* = <code>[WorldlineAngle]()[*v*, *φ*]</code>.
+<code>[BondiKFactor]()[*v*, *φ*]</code> gives its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$ in the Euclidean picture with light at angle *φ*, where *α* = <code>[WorldlineAngle]()[*v*, *φ*]</code>.
 
 ## Details & Options
 
@@ -30,19 +30,19 @@ In the Euclidean picture of the guide the observer at rest is the time axis, lig
 The k-factor of the velocity 3/5 is 2.
 
 ```wl
-KFactor[3/5]
+BondiKFactor[3/5]
 ```
 
 The angular form gives the same value at the light angle π/3.
 
 ```wl
-FullSimplify @ KFactor[3/5, Pi/3]
+FullSimplify @ BondiKFactor[3/5, Pi/3]
 ```
 
 The k-factor over the velocity, on a logarithmic scale, where *k*(−*v*) = 1/*k*(*v*) is a reflection.
 
 ```wl
-LogPlot[KFactor[v], {v, -0.95, 0.95}, AxesLabel -> {"v", "k"}, PlotStyle -> StandardBlue]
+LogPlot[BondiKFactor[v], {v, -0.95, 0.95}, AxesLabel -> {"v", "k"}, PlotStyle -> StandardBlue]
 ```
 
 ## Properties and Relations
@@ -50,29 +50,29 @@ LogPlot[KFactor[v], {v, -0.95, 0.95}, AxesLabel -> {"v", "k"}, PlotStyle -> Stan
 The angular form does not depend on the light angle.
 
 ```wl
-Simplify[TrigExpand[KFactor[v, phi]^2] == KFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
+Simplify[TrigExpand[BondiKFactor[v, phi]^2] == BondiKFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
 ```
 
 Reversing the velocity inverts the k-factor.
 
 ```wl
-FullSimplify[KFactor[-v] == 1/KFactor[v], -1 < v < 1]
+FullSimplify[BondiKFactor[-v] == 1/BondiKFactor[v], -1 < v < 1]
 ```
 
 The k-factors of two velocities multiply to the k-factor of their relativistic sum.
 
 ```wl
-FullSimplify[KFactor[v1] KFactor[v2] == KFactor[(v1 + v2)/(1 + v1 v2)], 0 < v1 < 1 && 0 < v2 < 1]
+FullSimplify[BondiKFactor[v1] BondiKFactor[v2] == BondiKFactor[(v1 + v2)/(1 + v1 v2)], 0 < v1 < 1 && 0 < v2 < 1]
 ```
 
 The arc-length ratios of the outgoing and the incoming light multiply to *k*².
 
 ```wl
-Simplify[TrigExpand[OutgoingRatio[v, phi] IncomingRatio[v, phi]] == KFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
+Simplify[TrigExpand[OutgoingRatio[v, phi] IncomingRatio[v, phi]] == BondiKFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
 ```
 
 The k-factor inverts the velocity $v = (k^2 - 1)/(k^2 + 1)$ and is the exponential of the rapidity.
 
 ```wl
-FullSimplify[KFactor[(k^2 - 1)/(k^2 + 1)] == k && (KFactor[v]^2 - 1)/(KFactor[v]^2 + 1) == v && KFactor[v] == Exp[Rapidity[v]], k > 0 && -1 < v < 1]
+FullSimplify[BondiKFactor[(k^2 - 1)/(k^2 + 1)] == k && (BondiKFactor[v]^2 - 1)/(BondiKFactor[v]^2 + 1) == v && BondiKFactor[v] == Exp[Rapidity[v]], k > 0 && -1 < v < 1]
 ```

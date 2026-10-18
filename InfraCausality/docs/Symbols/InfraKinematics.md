@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraKinematics
 Keywords: [Knuth kinematics, energy, momentum, mass, interval, velocity, chain projection, light-cone coordinates, experimental]
-SeeAlso: [ChainProjection, ChainLightReach, RandomInfraTimelikeGeodesic, RandomInfraWorldline, KFactor]
+SeeAlso: [ChainProjection, ChainLightReach, RandomInfraTimelikeGeodesic, RandomInfraWorldline, BondiKFactor]
 RelatedGuides: [CausalInfrageometry]
 ---
 

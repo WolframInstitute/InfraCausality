@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/LengthContractionConstruction
 Keywords: [length contraction, Lorentz factor, radar measurement, rod, figure, Bondi k-calculus, experimental]
-SeeAlso: [LorentzGamma, BondiRadarCoordinates, TimeDilationConstruction, BondiViewer]
+SeeAlso: [LorentzFactor, BondiRadarCoordinates, TimeDilationConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -19,7 +19,7 @@ RelatedTutorials: [BondiKCalculus]
 
 Experimental: figure. The figure's layout and options may change.
 
-Definition: the rod's front end moves on the worldline of velocity *v* ("Bob", red) and its back end on the parallel worldline (dashed) at the Minkowski distance `"RodRestLength"` *L* along Bob's line of simultaneity, the direction $(\tan\varphi, v)$ of his line of simultaneity: the Euclidean offset is $\gamma L\,(\tan\varphi, v)$ with γ = <code>[LorentzGamma]()[*v*]</code>. At the front event *F* at arc length `"MeasureArcLength"` the rod is drawn as a thick red segment from *F* to its back end, of rest length *L*. The rest observer ("Alice", blue) measures the rod at one radar time, the radar time $\tau_{radar}$ of *F*: the orange bar is her line of simultaneity through *F* (horizontal) to the back end's worldline, and the four faded light rays are her radar rays to the two ends of the bar. In her radar coordinates the two worldlines are $X = v\,T$ and $X = v\,T + L/\gamma$, so the bar has length $L/\gamma$, which the label prints.
+Definition: the rod's front end moves on the worldline of velocity *v* ("Bob", red) and its back end on the parallel worldline (dashed) at the Minkowski distance `"RodRestLength"` *L* along Bob's line of simultaneity, the direction $(\tan\varphi, v)$ of his line of simultaneity: the Euclidean offset is $\gamma L\,(\tan\varphi, v)$ with γ = <code>[LorentzFactor]()[*v*]</code>. At the front event *F* at arc length `"MeasureArcLength"` the rod is drawn as a thick red segment from *F* to its back end, of rest length *L*. The rest observer ("Alice", blue) measures the rod at one radar time, the radar time $\tau_{radar}$ of *F*: the orange bar is her line of simultaneity through *F* (horizontal) to the back end's worldline, and the four faded light rays are her radar rays to the two ends of the bar. In her radar coordinates the two worldlines are $X = v\,T$ and $X = v\,T + L/\gamma$, so the bar has length $L/\gamma$, which the label prints.
 
 | Option | Default | |
 |---|---|---|
@@ -63,5 +63,5 @@ AllTrue[Tuples[{{1/5, 3/5, 4/5}, {Pi/6, Pi/4, Pi/3}}], Apply[{v, phi} |->
     {lines = Cases[LengthContractionConstruction[v, "LightAngle" -> phi, "RodRestLength" -> len, "MeasureArcLength" -> 3/5], Line[pq : {_, _}] :> pq, Infinity]},
     {rod = First @ Select[lines, pq |-> Abs[N @ Det[{pq[[2]] - pq[[1]], {Tan[phi], v}}]] < 10^-9],
      bar = First @ Select[lines, pq |-> Abs[N[pq[[2, 2]] - pq[[1, 2]]]] < 10^-9]},
-    rod[[1]] == bar[[1]] && FullSimplify[{length[rod] == len, length[bar] == len/LorentzGamma[v]}] === {True, True}]]]
+    rod[[1]] == bar[[1]] && FullSimplify[{length[rod] == len, length[bar] == len/LorentzFactor[v]}] === {True, True}]]]
 ```

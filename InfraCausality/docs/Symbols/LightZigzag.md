@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/LightZigzag
 Keywords: [light zigzag, light signal, reflection, radar, Bondi clock, k-factor, geometric growth, bounce count]
-SeeAlso: [OutgoingRatio, IncomingRatio, KFactor, BondiRadarCoordinates, BondiClock]
+SeeAlso: [OutgoingRatio, IncomingRatio, BondiKFactor, BondiRadarCoordinates, BondiClock]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -53,7 +53,7 @@ Alice's arc lengths grow by exactly $k^2$ per round trip, at every light angle.
 ```wl
 AllTrue[Tuples[{{1/5, 3/5, 4/5}, {Pi/6, Pi/4, Pi/3}}], Apply[{v, phi} |->
   With[{arcs = Lookup[Select[LightZigzag[v, 1, 8, phi], #["Observer"] === "Alice" &], "ArcLength"]},
-    FullSimplify[Ratios[arcs] - KFactor[v]^2] === ConstantArray[0, 4]]]]
+    FullSimplify[Ratios[arcs] - BondiKFactor[v]^2] === ConstantArray[0, 4]]]]
 ```
 
 The events alternate between the observers and lie at their arc lengths from the origin.

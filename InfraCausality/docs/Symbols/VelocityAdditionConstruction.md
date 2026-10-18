@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/VelocityAdditionConstruction
 Keywords: [velocity addition, k-factor, composition, rapidity, figure, Bondi k-calculus, experimental]
-SeeAlso: [KFactor, Rapidity, OutgoingRatio, ProperTimeScale, BondiViewer]
+SeeAlso: [BondiKFactor, Rapidity, OutgoingRatio, ProperTimeScale, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -49,8 +49,8 @@ In proper times, Bob's reception is *k*1 times Alice's emission and Carol's is *
 AllTrue[Tuples[{{0.4, 0.7}, {0.3, 0.5}, {Pi/4, 1.1}}], Apply[{v1, v2, phi} |->
   With[{d = Cases[VelocityAdditionConstruction[v1, v2, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity],
       vsum = (v1 + v2)/(1 + v1 v2)},
-    Abs[ProperTimeScale[v1, phi] Norm[d[[2]]]/d[[1, 2]] - KFactor[v1]] < 10^-9 &&
-      Abs[ProperTimeScale[vsum, phi] Norm[d[[3]]]/(ProperTimeScale[v1, phi] Norm[d[[2]]]) - KFactor[v2]] < 10^-9]]]
+    Abs[ProperTimeScale[v1, phi] Norm[d[[2]]]/d[[1, 2]] - BondiKFactor[v1]] < 10^-9 &&
+      Abs[ProperTimeScale[vsum, phi] Norm[d[[3]]]/(ProperTimeScale[v1, phi] Norm[d[[2]]]) - BondiKFactor[v2]] < 10^-9]]]
 ```
 
 The signal is one light ray: Alice's emission, Bob's reception and Carol's reception are collinear along the rightgoing light direction.
@@ -64,5 +64,5 @@ AllTrue[Tuples[{{0.4, 0.7}, {0.3, 0.5}, {Pi/4, 1.1}}], Apply[{v1, v2, phi} |->
 The k-factors multiply, so the rapidities add.
 
 ```wl
-FullSimplify[With[{k = KFactor[v1] KFactor[v2]}, Rapidity[(k^2 - 1)/(k^2 + 1)]] == Rapidity[v1] + Rapidity[v2], 0 < v1 < 1 && 0 < v2 < 1]
+FullSimplify[With[{k = BondiKFactor[v1] BondiKFactor[v2]}, Rapidity[(k^2 - 1)/(k^2 + 1)]] == Rapidity[v1] + Rapidity[v2], 0 < v1 < 1 && 0 < v2 < 1]
 ```

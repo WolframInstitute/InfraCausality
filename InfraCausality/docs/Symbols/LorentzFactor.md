@@ -1,19 +1,19 @@
 ---
 Template: Symbol
-Name: LorentzGamma
+Name: LorentzFactor
 Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
-URI: WolframInstitute/InfraCausality/ref/LorentzGamma
+URI: WolframInstitute/InfraCausality/ref/LorentzFactor
 Keywords: [Lorentz factor, time dilation, length contraction, Bondi k-calculus, k-factor, rapidity]
-SeeAlso: [KFactor, Rapidity, ProperTimeScale, BondiRadarCoordinates, TimeDilationConstruction, LightClockConstruction]
+SeeAlso: [BondiKFactor, Rapidity, ProperTimeScale, BondiRadarCoordinates, TimeDilationConstruction, LightClockConstruction]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
 
 ## Usage
 
-<code>[LorentzGamma]()[*v*]</code> gives the Lorentz factor $\gamma = (k + 1/k)/2$ of the velocity *v*, with *k* = <code>[KFactor]()[*v*]</code>.
+<code>[LorentzFactor]()[*v*]</code> gives the Lorentz factor $\gamma = (k + 1/k)/2$ of the velocity *v*, with *k* = <code>[BondiKFactor]()[*v*]</code>.
 
 ## Details & Options
 
@@ -26,13 +26,13 @@ The Lorentz factor is the hyperbolic cosine of the [Rapidity](), and it is even 
 The Lorentz factors of the velocities 3/5 and 4/5, whose k-factors are 2 and 3.
 
 ```wl
-{LorentzGamma[3/5], LorentzGamma[4/5]}
+{LorentzFactor[3/5], LorentzFactor[4/5]}
 ```
 
 The Lorentz factor over the velocity.
 
 ```wl
-Plot[LorentzGamma[v], {v, -0.95, 0.95}, AxesLabel -> {"v", "\[Gamma]"}, PlotStyle -> StandardBlue]
+Plot[LorentzFactor[v], {v, -0.95, 0.95}, AxesLabel -> {"v", "\[Gamma]"}, PlotStyle -> StandardBlue]
 ```
 
 ## Properties and Relations
@@ -40,18 +40,18 @@ Plot[LorentzGamma[v], {v, -0.95, 0.95}, AxesLabel -> {"v", "\[Gamma]"}, PlotStyl
 The k-factor form equals the familiar one.
 
 ```wl
-FullSimplify[LorentzGamma[v] == 1/Sqrt[1 - v^2], 0 < v < 1]
+FullSimplify[LorentzFactor[v] == 1/Sqrt[1 - v^2], 0 < v < 1]
 ```
 
 The Lorentz factor is the hyperbolic cosine of the rapidity.
 
 ```wl
-FullSimplify[LorentzGamma[v] == Cosh[Rapidity[v]], -1 < v < 1]
+FullSimplify[LorentzFactor[v] == Cosh[Rapidity[v]], -1 < v < 1]
 ```
 
 On the worldline of velocity *v*, drawn with light at any angle *φ*, the radar time of the event at arc length *s* is γ times its proper time <code>[ProperTimeScale]()[*v*, *φ*] *s*</code>.
 
 ```wl
 Simplify[TrigExpand[With[{r = BondiRadarCoordinates[s Through[{Sin, Cos}[WorldlineAngle[v, phi]]], phi]},
-  (r["RadarTime"]/(ProperTimeScale[v, phi] s))^2 == LorentzGamma[v]^2]], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
+  (r["RadarTime"]/(ProperTimeScale[v, phi] s))^2 == LorentzFactor[v]^2]], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
 ```

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/ProperTimeScale
 Keywords: [proper time, arc length, Euclidean picture, Bondi k-calculus, Minkowski interval, radar coordinates]
-SeeAlso: [OutgoingRatio, IncomingRatio, KFactor, BondiRadarCoordinates, LorentzGamma, TimeDilationConstruction]
+SeeAlso: [OutgoingRatio, IncomingRatio, BondiKFactor, BondiRadarCoordinates, LorentzFactor, TimeDilationConstruction]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -19,7 +19,7 @@ RelatedTutorials: [BondiKCalculus]
 
 ## Details & Options
 
-Definition: <code>[KFactor]()[*v*, *φ*] / [OutgoingRatio]()[*v*, *φ*]</code>. Proper time is the Minkowski length $\sqrt{t^2 - x^2}$ of the radar coordinates ([BondiRadarCoordinates]()), and on a straight worldline through the origin it is linear in Euclidean arc length: the event at arc length *s* on the worldline of velocity *v* has proper time `ProperTimeScale[v, phi]` *s* exactly.
+Definition: <code>[BondiKFactor]()[*v*, *φ*] / [OutgoingRatio]()[*v*, *φ*]</code>. Proper time is the Minkowski length $\sqrt{t^2 - x^2}$ of the radar coordinates ([BondiRadarCoordinates]()), and on a straight worldline through the origin it is linear in Euclidean arc length: the event at arc length *s* on the worldline of velocity *v* has proper time `ProperTimeScale[v, phi]` *s* exactly.
 
 So proper-time ticks are evenly spaced along each worldline; the rest worldline has scale 1, and the scale of a moving worldline is $\sqrt{1 - \sin^2\alpha / \sin^2\varphi} < 1$, equal to $\sqrt{(1 - v^2)/(1 + v^2)}$ at *φ* = π/4. What grows logarithmically with arc length is the bounce count of a [LightZigzag](), not the proper time.
 
@@ -64,6 +64,6 @@ FullSimplify[TrigExpand[ProperTimeScale[v, Pi/4]] == Sqrt[(1 - v^2)/(1 + v^2)], 
 The scale converts both arc-length ratios to the k-factor: $k_{out} \cdot$ scale $= k$ and $k_{in} = k \cdot$ scale.
 
 ```wl
-Simplify[TrigExpand[{(OutgoingRatio[v, phi] ProperTimeScale[v, phi])^2 == KFactor[v]^2,
-  IncomingRatio[v, phi]^2 == (KFactor[v] ProperTimeScale[v, phi])^2}], 0 < v < 1 && 0 < phi < Pi/2] === {True, True}
+Simplify[TrigExpand[{(OutgoingRatio[v, phi] ProperTimeScale[v, phi])^2 == BondiKFactor[v]^2,
+  IncomingRatio[v, phi]^2 == (BondiKFactor[v] ProperTimeScale[v, phi])^2}], 0 < v < 1 && 0 < phi < Pi/2] === {True, True}
 ```

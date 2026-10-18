@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/BondiClock
 Keywords: [Bondi clock, light zigzag, k-factor, proper time, figure, Bondi k-calculus, experimental]
-SeeAlso: [LightZigzag, KFactor, ProperTimeScale, OutgoingRatio, IncomingRatio, DopplerConstruction, BondiViewer]
+SeeAlso: [LightZigzag, BondiKFactor, ProperTimeScale, OutgoingRatio, IncomingRatio, DopplerConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -54,7 +54,7 @@ The reflections lie on the moving worldline, and their arc lengths grow by $k^2$
 AllTrue[Tuples[{{0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{bob = Select[Cases[BondiClock[v, 8, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity], c |-> c[[1]] > 0]},
     Length[bob] == 4 && Max[Abs[bob - Map[Norm, bob] Table[Through[{Sin, Cos}[WorldlineAngle[v, phi]]], 4]]] < 10^-9 &&
-      Max[Abs[Ratios[Map[Norm, bob]] - KFactor[v, phi]^2]] < 10^-9]]]
+      Max[Abs[Ratios[Map[Norm, bob]] - BondiKFactor[v, phi]^2]] < 10^-9]]]
 ```
 
 Read in proper time, every event of the zigzag is *k* times the one before, the labels $k^m$.
@@ -63,12 +63,12 @@ Read in proper time, every event of the zigzag is *k* times the one before, the 
 AllTrue[Tuples[{{0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{taus = Sort @ Map[c |-> If[c[[1]] == 0, c[[2]], ProperTimeScale[v, phi] Norm[c]],
       Cases[BondiClock[v, 8, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity]]},
-    Max[Abs[Ratios[taus] - KFactor[v]]] < 10^-9]]]
+    Max[Abs[Ratios[taus] - BondiKFactor[v]]] < 10^-9]]]
 ```
 
 The figure draws the events of [LightZigzag]().
 
 ```wl
 With[{g = BondiClock[0.4, 8]},
-  Max[Abs[Sort[Cases[g, Disk[c_, _] :> c, Infinity]] - Sort[Lookup[LightZigzag[0.4, Max[0.05, KFactor[0.4]^-4], 8], "Point"]]]] < 10^-9]
+  Max[Abs[Sort[Cases[g, Disk[c_, _] :> c, Infinity]] - Sort[Lookup[LightZigzag[0.4, Max[0.05, BondiKFactor[0.4]^-4], 8], "Point"]]]] < 10^-9]
 ```

@@ -72,8 +72,8 @@ PackageExport[RandomCausalGraph]
 
 (* BondiKCalculus *)
 
-PackageExport[KFactor]
-PackageExport[LorentzGamma]
+PackageExport[BondiKFactor]
+PackageExport[LorentzFactor]
 PackageExport[Rapidity]
 PackageExport[WorldlineAngle]
 PackageExport[OutgoingRatio]

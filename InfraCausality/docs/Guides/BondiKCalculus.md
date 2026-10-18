@@ -19,8 +19,8 @@ Bondi's k-calculus derives special relativity from the ratio $k$ between the per
 
 ### The k-factor
 
-- `KFactor` the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$, or its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$
-- `LorentzGamma` the Lorentz factor $(k + 1/k)/2$
+- `BondiKFactor` the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$, or its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$
+- `LorentzFactor` the Lorentz factor $(k + 1/k)/2$
 - `Rapidity` the rapidity $\operatorname{artanh} v = \log k$
 - `ArcTanh` (WL)
 

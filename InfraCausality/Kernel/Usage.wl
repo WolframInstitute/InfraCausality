@@ -54,13 +54,13 @@ CausalSubstrateStyle::usage = "CausalSubstrateStyle[size] gives the Graph option
 CausalSubstrateCode::usage = "CausalSubstrateCode[name, size] gives the held code that builds CausalSubstrate[name, size].";
 RandomCausalGraph::usage = "RandomCausalGraph[n] gives the Hasse diagram of a transitive percolation on the events 1..n with link probability Log[n]/n, Method -> {\"Percolation\", p} with link probability p and Method -> {\"Sprinkling\", d} that of n points sprinkled into the causal diamond of d-dimensional Minkowski space; RandomCausalGraph[{n, m}] orients a random connected graph with m edges.";
 
-KFactor::usage = "KFactor[v] gives the Bondi factor Sqrt[(1 + v)/(1 - v)], and KFactor[v, phi] its angular form Sqrt[Sin[phi + alpha]/Sin[phi - alpha]] with alpha = WorldlineAngle[v, phi].";
-LorentzGamma::usage = "LorentzGamma[v] gives the Lorentz factor (k + 1/k)/2 with k = KFactor[v].";
+BondiKFactor::usage = "BondiKFactor[v] gives the Bondi k-factor Sqrt[(1 + v)/(1 - v)], and BondiKFactor[v, phi] its angular form Sqrt[Sin[phi + alpha]/Sin[phi - alpha]] with alpha = WorldlineAngle[v, phi].";
+LorentzFactor::usage = "LorentzFactor[v] gives the Lorentz factor (k + 1/k)/2 with k = BondiKFactor[v].";
 Rapidity::usage = "Rapidity[v] gives the rapidity ArcTanh[v] of the velocity v.";
 WorldlineAngle::usage = "WorldlineAngle[v, phi] gives the Euclidean angle ArcTan[v Tan[phi]] between the worldline of velocity v and the time axis, for light at angle phi.";
 OutgoingRatio::usage = "OutgoingRatio[v, phi] gives the arc-length ratio Sin[phi]/Sin[phi - alpha] from an emission on the rest worldline to its reception on the worldline of velocity v.";
 IncomingRatio::usage = "IncomingRatio[v, phi] gives the arc-length ratio Sin[phi + alpha]/Sin[phi] from an emission on the worldline of velocity v to its reception on the rest worldline.";
-ProperTimeScale::usage = "ProperTimeScale[v, phi] gives the ratio of proper time to Euclidean arc length on the worldline of velocity v for light at angle phi, KFactor[v, phi]/OutgoingRatio[v, phi].";
+ProperTimeScale::usage = "ProperTimeScale[v, phi] gives the ratio of proper time to Euclidean arc length on the worldline of velocity v for light at angle phi, BondiKFactor[v, phi]/OutgoingRatio[v, phi].";
 LightZigzag::usage = "LightZigzag[v, s0, n, phi] gives the n + 1 reflection events of light bouncing between the rest worldline and the worldline of velocity v from arc length s0, as associations.";
 BondiRadarCoordinates::usage = "BondiRadarCoordinates[{x, y}, phi] gives the radar time, the radar distance and the emission and return arc lengths of the plane event {x, y} for the observer at rest.";
 

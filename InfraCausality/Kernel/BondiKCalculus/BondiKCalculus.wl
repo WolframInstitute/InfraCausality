@@ -4,10 +4,10 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: BondiKCalculus :: BondiKCalculus *)
 
-KFactor[ velocity_ ] :=
+BondiKFactor[ velocity_ ] :=
   Sqrt[ ( 1 + velocity ) / ( 1 - velocity ) ]
 
-KFactor[ velocity_, lightAngle_ ] :=
+BondiKFactor[ velocity_, lightAngle_ ] :=
   With[ { alpha = WorldlineAngle[ velocity, lightAngle ] },
     Sqrt[ Sin[ lightAngle + alpha ] / Sin[ lightAngle - alpha ] ]
   ]
@@ -18,8 +18,8 @@ WorldlineAngle[ velocity_, lightAngle_ : Pi/4 ] :=
 Rapidity[ velocity_ ] :=
   ArcTanh[ velocity ]
 
-LorentzGamma[ velocity_ ] :=
-  With[ { k = KFactor[ velocity ] },
+LorentzFactor[ velocity_ ] :=
+  With[ { k = BondiKFactor[ velocity ] },
     ( k + 1/k ) / 2
   ]
 
@@ -34,7 +34,7 @@ IncomingRatio[ velocity_, lightAngle_ : Pi/4 ] :=
   ]
 
 ProperTimeScale[ velocity_, lightAngle_ : Pi/4 ] :=
-  KFactor[ velocity, lightAngle ] / OutgoingRatio[ velocity, lightAngle ]
+  BondiKFactor[ velocity, lightAngle ] / OutgoingRatio[ velocity, lightAngle ]
 
 LightZigzag[ velocity_, emitArcLength_, nBounces_, lightAngle_ : Pi/4 ] :=
   With[ { alpha = WorldlineAngle[ velocity, lightAngle ],
