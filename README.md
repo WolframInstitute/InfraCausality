@@ -20,7 +20,7 @@ Every object is an inert head that takes no graph. A graph evaluates it through 
 - an `Infra...Q` predicate recognises one;
 - `InfraSubstrateHighlight` draws it.
 
-From observers the paclet builds the discrete Ehlers–Pirani–Schild construction. The message and echo relations between two observers come first. Next are the radar coordinates of an observer, which give every event between its ticks a radar time and a radar distance. Last is the observer space, the causal graph fibered over the chart and handed to InfraGeometry's fiber-bundle machinery.
+From observers, worldlines read as clocks, the paclet builds the EPS axioms on a graph. The message and echo relations between two observers come first, with their monotone selections and the predicate of axiom D1. Next are the radar coordinates of an observer, which give every event between its ticks a radar time and a radar distance, with the predicate of axiom D2, their injectivity. Last is the observer space, the causal graph fibered over the chart and handed to InfraGeometry's fiber-bundle machinery, and the defects and graph k-factor that measure the distance of a pair of observers from the axioms.
 
 The continuum anchor is Bondi's k-calculus drawn as Euclidean geometry: two straight worldlines from a common origin, with light zigzagging between them at a fixed angle.
 
@@ -34,9 +34,9 @@ The continuum anchor is Bondi's k-calculus drawn as Euclidean geometry: two stra
 | Causal Substrates | named causal graphs (lattices, Minkowski sprinklings, spray graphs, Wolfram model universes) and random causal graphs |
 | Bondi k-Calculus | the k-factor, rapidity, proper time in the Euclidean picture of worldlines, radar coordinates |
 
-Each guide lists its settled, elementary functions first; experimental material (piecewise geodesics, causal-set estimators, Knuth kinematics, extremal events, message and echo selections, joined radar coordinates, the observer space, EPS defects and the graph k-factor, the Wolfram model universes, the Bondi figures, the viewers) sits at the bottom of the same guide, in sections titled "Experimental: <topic>".
+Each guide lists its settled, elementary functions first; experimental material (piecewise geodesics, causal-set estimators, Knuth kinematics, extremal events, the Wolfram model universes, the Bondi figures, the viewers) sits at the bottom of the same guide, in sections titled "Experimental: <topic>". The EPS Axiomatics guide has no experimental section.
 
-Version 2.0.0 is a breaking rewrite of 1.2.0. [CHANGELOG.md](CHANGELOG.md) maps every removed name to its replacement.
+Version 2.0.0 is a breaking rewrite of 1.2.0, and 2.1.0 an API review with 61 exports. [CHANGELOG.md](CHANGELOG.md) maps every removed name to its replacement.
 
 ## ✨ Usage
 
