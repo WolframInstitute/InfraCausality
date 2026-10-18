@@ -98,12 +98,15 @@ drawEvent[ point_List, scale_ ] :=
   { bondiColor[ "Event" ], EdgeForm[ { Darker[ StandardGray, 0.4 ], AbsoluteThickness[ 0.8 ] } ], Disk[ point, 0.01 scale ] }
 
 drawTicks[ velocity_, { from_, to_ }, lightAngle_, scale_ ] :=
+  drawTicks[ velocity, { from, to }, lightAngle, scale, 1 ]
+
+drawTicks[ velocity_, { from_, to_ }, lightAngle_, scale_, spacing_ ] :=
   With[ { pScale = ProperTimeScale[ velocity, lightAngle ],
           dir = WorldlineDirection[ velocity, lightAngle ],
           normal = WorldlineNormal[ velocity, lightAngle ] },
     { bondiColor[ "Tick" ], AbsoluteThickness[ 1 ],
       Map[
-        tau |-> With[ { point = ( tau / pScale ) dir },
+        n |-> With[ { point = ( n spacing / pScale ) dir },
           Line[ { point - 0.02 scale normal, point + 0.02 scale normal } ] ],
         Range[ from, to ] ] }
   ]
@@ -213,6 +216,7 @@ DopplerConstruction[ velocity_, nPulses_ : 6, opts : OptionsPattern[] ] :=
 Options[ TimeDilationConstruction ] = {
   "LightAngle" -> Pi/4,
   "EventArcLength" -> 0.6,
+  "TickSpacing" -> Automatic,
   ImageSize -> 500
 }
 
@@ -220,13 +224,15 @@ TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
   With[ { phi = OptionValue[ "LightAngle" ],
           eventArc = OptionValue[ "EventArcLength" ] },
     { k = N @ KFactor[ velocity, phi ],
+      pScale = ProperTimeScale[ velocity, phi ],
       dir = WorldlineDirection[ velocity, phi ],
       normal = WorldlineNormal[ velocity, phi ],
       emitArc = eventArc / OutgoingRatio[ velocity, phi ],
       returnArc = eventArc IncomingRatio[ velocity, phi ] },
     { bobPoint = eventArc dir,
       radarArc = ( emitArc + returnArc ) / 2,
-      maxArc = 1.15 returnArc },
+      maxArc = 1.15 Max[ returnArc, eventArc ],
+      spacing = Replace[ OptionValue[ "TickSpacing" ], Automatic -> eventArc pScale / 4 ] },
     bondiGraphics[
       {
         drawWorldline[ 0, { 0, maxArc }, phi ],
@@ -234,7 +240,7 @@ TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
         drawLightRay[ { 0, emitArc }, bobPoint ],
         drawLightRay[ bobPoint, { 0, returnArc } ],
         { Dashed, AbsoluteThickness[ 1.5 ], bondiColor[ "Simultaneity" ],
-          Line[ SimultaneityLine[ 0, radarArc, phi, 0.3 maxArc ] ] },
+          Line[ Rest @ SimultaneityLine[ 0, radarArc, phi, First[ bobPoint ] + 0.1 maxArc ] ] },
         { AbsoluteThickness[ 2.5 ], bondiColor[ "Simultaneity" ],
           Line[ { { 0, radarArc }, { 0, radarArc } + 0.01 { 1, 0 } } ] },
         drawEvent[ { 0, emitArc }, maxArc ],
@@ -246,8 +252,8 @@ TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
         drawLabel[ Subscript[ "\[Tau]", "return" ], { -0.06 maxArc, returnArc } ],
         drawLabel[ Subscript[ "\[Tau]", "radar" ], { -0.06 maxArc, radarArc } ],
         drawLabel[ Row[ { "\[Gamma] = ", NumberForm[ ( k + 1/k ) / 2, { 3, 2 } ] } ], { -0.1 maxArc, maxArc 0.95 }, 9 ],
-        drawTicks[ 0, { 1, Floor[ maxArc ] }, phi, maxArc ],
-        drawTicks[ velocity, { 1, Max[ 1, Floor[ maxArc ProperTimeScale[ velocity, phi ] ] ] }, phi, maxArc ]
+        drawTicks[ 0, { 1, Floor[ maxArc / spacing ] }, phi, maxArc, spacing ],
+        drawTicks[ velocity, { 1, Floor[ maxArc pScale / spacing ] }, phi, maxArc, spacing ]
       },
       OptionValue[ ImageSize ],
       0.08

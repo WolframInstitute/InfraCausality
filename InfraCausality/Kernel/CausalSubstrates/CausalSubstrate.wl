@@ -35,7 +35,7 @@ substrateCode[ "DiamondLatticeGraph", size_ ] :=
       VertexCoordinates -> Catenate @ Table[ { ( j - i ) / 2, ( i + j ) / 2 }, { i, 0, n }, { j, 0, n } ] ] ]
 
 substrateCode[ "CylinderLatticeGraph", size_ ] :=
-  With[ { dims = size /. { "Small" -> { 6, 6 }, "Medium" -> { 10, 10 }, "Large" -> { 16, 16 } } },
+  With[ { dims = Replace[ size /. { "Small" -> 6, "Medium" -> 10, "Large" -> 16 }, n_Integer :> { n, n } ] },
     { w = First @ dims, h = Last @ dims },
     HoldComplete @ Graph[
       Catenate @ Table[ { k, t }, { t, 0, h }, { k, 0, w - 1 } ],

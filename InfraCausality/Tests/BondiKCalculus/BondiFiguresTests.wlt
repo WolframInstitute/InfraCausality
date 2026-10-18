@@ -90,16 +90,39 @@ VerificationTest[
   TestID -> "DopplerConstruction-receptions-on-moving-worldline-spaced-by-k"
 ]
 
+$ticks = { g, v, phi } |-> Sort @ Map[ Norm, Select[
+  Map[ pq |-> Mean[ pq ], Select[ Cases[ g, Line[ pq : { _, _ } ] :> pq, Infinity ],
+    pq |-> Abs[ N[ ( pq[[ 2 ]] - pq[[ 1 ]] ) . WorldlineDirection[ v, phi ] ] ] < 10^-9 ] ],
+  mid |-> If[ v == 0, Abs[ N @ First @ mid ] < 10^-9 && N[ Last @ mid ] > 0, $onWorldline[ mid, v, phi ] ] ] ]
+
+$drawnLength = { g, v, phi } |-> Max @ Map[ Norm, Select[ Cases[ g, Line[ { { 0 | 0., 0 | 0. }, q_ } ] :> q, Infinity ],
+  q |-> If[ v == 0, Abs[ N @ First @ q ] < 10^-9, $onWorldline[ q, v, phi ] ] ] ]
+
+$wideGrid = Join[ $movingGrid, { { 0.9, 1.3 }, { 0.95, Pi/4 } } ]
+
 VerificationTest[
   AllTrue[ $movingGrid, vp |-> With[
     { v = vp[[ 1 ]], phi = vp[[ 2 ]] },
-    { ticks = Select[
-        Map[ pq |-> Mean[ pq ], Select[ Cases[ TimeDilationConstruction[ v, "LightAngle" -> phi ], Line[ pq : { _, _ } ] :> pq, Infinity ],
-          pq |-> Abs[ N[ ( pq[[ 2 ]] - pq[[ 1 ]] ) . WorldlineDirection[ v, phi ] ] ] < 10^-9 ] ],
-        mid |-> $onWorldline[ mid, v, phi ] ] },
-    Length[ ticks ] >= 1 && $near[ Sort[ ProperTimeScale[ v, phi ] Map[ Norm, ticks ] ], Range @ Length @ ticks ] ] ],
+    { taus = ProperTimeScale[ v, phi ] $ticks[ TimeDilationConstruction[ v, "LightAngle" -> phi ], v, phi ] },
+    Length[ taus ] >= 4 && $near[ taus / First[ taus ], Range @ Length @ taus ] &&
+      $near[ taus[[ 4 ]], ProperTimeScale[ v, phi ] 0.6 ] ] ],
   True,
-  TestID -> "TimeDilationConstruction-ticks-at-proper-time-arc-lengths"
+  TestID -> "TimeDilationConstruction-ticks-at-equal-proper-time-steps-event-at-the-fourth"
+]
+
+VerificationTest[
+  AllTrue[ $wideGrid, vp |-> With[
+    { v = vp[[ 1 ]], phi = vp[[ 2 ]] },
+    { g = TimeDilationConstruction[ v, "LightAngle" -> phi ] },
+    { event = First @ Select[ $disks @ g, c |-> N[ c[[ 1 ]] ] > 0 ],
+      now = First @ Cases[ g, { Dashed, ___, Line[ pts_ ] } :> pts, Infinity ] },
+    Max[ $ticks[ g, v, phi ] ] <= $drawnLength[ g, v, phi ] &&
+      Max[ $ticks[ g, 0, phi ] ] <= $drawnLength[ g, 0, phi ] &&
+      Norm[ event ] <= $drawnLength[ g, v, phi ] &&
+      $near[ First @ now, { 0, Last @ event } ] &&
+      N[ First @ Last @ now ] > N[ First @ event ] && $near[ Last @ Last @ now, Last @ event ] ] ],
+  True,
+  TestID -> "TimeDilationConstruction-ticks-on-the-drawn-worldlines-and-now-line-reaches-the-event"
 ]
 
 VerificationTest[

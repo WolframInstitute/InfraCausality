@@ -81,6 +81,15 @@ VerificationTest[
 ]
 
 VerificationTest[
+  AllTrue[ { 2, 3, 4, 6 }, n |-> With[ { g = CausalSubstrate[ "CylinderLatticeGraph", n ], h = CausalSubstrate[ "CylinderLatticeGraph", { n, n } ] },
+      VertexCount @ g == n ( n + 1 ) && EdgeCount @ g == 2 n^2 && VertexList @ g === VertexList @ h && EdgeList @ g === EdgeList @ h &&
+        UniversalTime[ g ] === AssociationMap[ Last, VertexList @ g ] ] ] &&
+    EdgeList @ CausalSubstrate[ "CylinderLatticeGraph", 6 ] === EdgeList @ $small[ "CylinderLatticeGraph" ],
+  True,
+  TestID -> "CausalSubstrate-CylinderLatticeGraph-integer-size-n-is-the-n-by-n-cylinder"
+]
+
+VerificationTest[
   With[ { g = $small[ "CubicLatticeGraph" ] },
     { VertexCount @ g, AllTrue[ VertexList @ g, v |-> $future[ g, v ] === Sort @ Select[ VertexList @ g, w |-> And @@ Thread[ v <= w ] ] ] } ],
   { 64, True },
