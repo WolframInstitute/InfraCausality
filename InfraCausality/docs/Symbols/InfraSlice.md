@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraSlice
 Keywords: [slice, universal time, foliation, antichain, simultaneity, Cauchy surface, band, symbolic object]
-SeeAlso: [RandomInfraSlice, InfraSliceQ, UniversalTime, UniversalFoliation, InfraAntichainQ, FoliationViewer, InfraCausalPast]
+SeeAlso: [InfraSliceQ, UniversalTime, UniversalFoliation, InfraAntichainQ, FoliationViewer, InfraCausalPast]
 RelatedGuides: [CausalTime]
 ---
 
@@ -33,7 +33,7 @@ The head holds its height and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the slice is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-[RandomInfraSlice]() returns the support as a sorted vertex list, and [InfraSliceQ]() recognises a nonempty level set of the universal time.
+A set head has one member, its support, so no sampler draws it. The three readings of the slice on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraSlice]()[*k*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraSlice]()[*k*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraSliceQ]() recognises a nonempty level set of the universal time.
 
 Corresponding notions:
 
@@ -86,7 +86,7 @@ The slices are antichains that partition the events, and they are the leaves of 
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {slices = Table[RandomInfraSlice[g, InfraSlice[k]], {k, 0, Max @ UniversalTime @ g}]},
+    {slices = Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, 0, Max @ UniversalTime @ g}]},
     slices === UniversalFoliation[g] && AllTrue[slices, s |-> InfraAntichainQ[g, s] && InfraSliceQ[g, s]] &&
       Sort[Join @@ slices] === Sort[VertexList[g]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -98,7 +98,7 @@ A band is the union of its slices.
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   AllTrue[Subsets[Range[0, Max @ UniversalTime @ g], {2}], Apply[{k1, k2} |->
-    RandomInfraSlice[g, InfraSlice[{k1, k2}]] === Union @@ Table[RandomInfraSlice[g, InfraSlice[k]], {k, k1, k2}]]]]
+    Keys @ InfraMeasurement[g, InfraSlice[{k1, k2}], "VertexDensity"] === Union @@ Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, k1, k2}]]]]
 ```
 
 On the diamond lattice the slice at height *k* is the antidiagonal *i* + *j* = *k*, and on the cylinder lattice it is the row *k*.
@@ -106,9 +106,9 @@ On the diamond lattice the slice at height *k* is the antidiagonal *i* + *j* = *
 ```wl
 {
   With[{g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-    AllTrue[Range[0, 12], k |-> RandomInfraSlice[g, InfraSlice[k]] === Sort @ Select[VertexList[g], v |-> Total[v] == k]]],
+    AllTrue[Range[0, 12], k |-> Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"] === Sort @ Select[VertexList[g], v |-> Total[v] == k]]],
   With[{g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-    AllTrue[Range[0, 6], k |-> RandomInfraSlice[g, InfraSlice[k]] === Sort @ Select[VertexList[g], v |-> Last[v] == k]]]}
+    AllTrue[Range[0, 6], k |-> Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"] === Sort @ Select[VertexList[g], v |-> Last[v] == k]]]}
 ```
 
 A slice spans no edge.

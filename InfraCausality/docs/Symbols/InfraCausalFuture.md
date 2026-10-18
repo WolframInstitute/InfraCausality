@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalFuture
 Keywords: [causal future, future cone, J+, up-set, causal volume, proper time, symbolic object]
-SeeAlso: [InfraCausalPast, RandomInfraCausalFuture, InfraCausalFutureQ, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, CausalSubstrate]
+SeeAlso: [InfraCausalPast, InfraCausalFutureQ, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, CausalSubstrate]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -37,7 +37,7 @@ The head holds its anchor and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the causal future is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-[RandomInfraCausalFuture]() returns the support as a sorted vertex list, and [InfraCausalFutureQ]() recognises a vertex set that is the causal future of one of its events.
+A set head has one member, its support, so no sampler draws it. The three readings of the causal future on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraCausalFuture]()[*v*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalFuture]()[*v*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalFuture]()[*v*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalFutureQ]() recognises a vertex set that is the causal future of one of its events.
 
 Corresponding notions:
 
@@ -54,7 +54,7 @@ The causal future of an event at height 3, on the diamond lattice, a sprinkling 
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[3]])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[3]])},
     InfraSubstrateHighlight[g, {InfraCausalFuture[v], v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -64,7 +64,7 @@ The proper-time cuts of the causal future of one event of the diamond lattice, a
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[3]])},
+  {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[3]])},
   GraphicsRow @ Table[InfraSubstrateHighlight[g, {InfraCausalFuture[v, t], v}], {t, {2, 4, 6}}]]
 ```
 
@@ -73,7 +73,7 @@ The causal future of two events of the sprinkling is the union of their causal f
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {s = (SeedRandom[2]; RandomSample[RandomInfraSlice[g, InfraSlice[2]], 2])},
+  {s = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[2], 2])},
   InfraSubstrateHighlight[g, {InfraCausalFuture[s], InfraWalk[{First @ s}], InfraWalk[{Last @ s}]}]]
 ```
 
@@ -82,7 +82,7 @@ The causal volume of the future of every event of the bottom row of the cylinder
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  Normal @ AssociationMap[v |-> InfraMeasurement[g, InfraCausalFuture[v], "CountingMeasure"], RandomInfraSlice[g, InfraSlice[0]]]]
+  Normal @ AssociationMap[v |-> InfraMeasurement[g, InfraCausalFuture[v], "CountingMeasure"], Keys @ InfraMeasurement[g, InfraSlice[0], "VertexDensity"]]]
 ```
 
 ## Properties and Relations
@@ -94,7 +94,7 @@ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
-      With[{future = RandomInfraCausalFuture[g, InfraCausalFuture[v]]},
+      With[{future = Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"]},
         MemberQ[future, v] && SubsetQ[future, Union @@ (VertexOutComponent[g, #, {1}] & /@ future)]]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -113,7 +113,7 @@ The causal future on a graph is the causal past on the reversed graph.
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   AllTrue[VertexList[g], v |->
-    RandomInfraCausalFuture[g, InfraCausalFuture[v]] === RandomInfraCausalPast[ReverseGraph[g], InfraCausalPast[v]]]]
+    Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"] === Keys @ InfraMeasurement[ReverseGraph[g], InfraCausalPast[v], "VertexDensity"]]]
 ```
 
 Every event of the proper-time cut lies at universal time at most *t* in the subgraph of the causal future, and the cut grows to the whole causal future.
@@ -121,9 +121,9 @@ Every event of the proper-time cut lies at universal time at most *t* in the sub
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {v = (SeedRandom[3]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+  {v = (SeedRandom[3]; RandomInfraPoint[g, InfraSlice[1]])},
   {time = UniversalTime @ InfraMeasurement[g, InfraCausalFuture[v], "Subgraph"]},
   And @@ Table[
-    AllTrue[RandomInfraCausalFuture[g, InfraCausalFuture[v, t]], e |-> time[e] <= t],
-    {t, 0, Max @ time}] && RandomInfraCausalFuture[g, InfraCausalFuture[v, Max @ time]] === RandomInfraCausalFuture[g, InfraCausalFuture[v]]]
+    AllTrue[Keys @ InfraMeasurement[g, InfraCausalFuture[v, t], "VertexDensity"], e |-> time[e] <= t],
+    {t, 0, Max @ time}] && Keys @ InfraMeasurement[g, InfraCausalFuture[v, Max @ time], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"]]
 ```

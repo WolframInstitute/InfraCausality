@@ -16,25 +16,25 @@ $fixtures = <| "TwoSource" -> $twoSource, "Diamond" -> $diamond, "Cylinder" -> $
 
 $heights = g |-> Range[ 0, Max @ UniversalTime @ g ];
 
-$bandIsPastQ = { g, k } |-> RandomInfraSlice[ g, { 0, k } ] === RandomInfraCausalPast[ g, RandomInfraSlice[ g, k ] ];
+$bandIsPastQ = { g, k } |-> Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ] === Keys @ InfraMeasurement[ g, InfraCausalPast[ Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ] ], "VertexDensity" ];
 
-$everyEventBelowSliceQ = { g, k } |-> With[ { slice = RandomInfraSlice[ g, k ] },
-  AllTrue[ RandomInfraSlice[ g, { 0, k } ], e |-> IntersectingQ[ VertexOutComponent[ g, { e } ], slice ] ] ];
+$everyEventBelowSliceQ = { g, k } |-> With[ { slice = Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ] },
+  AllTrue[ Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ], e |-> IntersectingQ[ VertexOutComponent[ g, { e } ], slice ] ] ];
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> UniversalFoliation @ g === ( RandomInfraSlice[ g, InfraSlice[ # ] ] & /@ $heights @ g ) ],
+  AllTrue[ $fixtures, g |-> UniversalFoliation @ g === ( Keys @ InfraMeasurement[ g, InfraSlice[ # ], "VertexDensity" ] & /@ $heights @ g ) ],
   True,
   TestID -> "InfraSlice-All-slices-are-the-foliation"
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> With[ { slice = RandomInfraSlice[ g, k ] }, InfraAntichainQ[ g, slice ] && InfraSliceQ[ g, slice ] ] ] ],
+  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> With[ { slice = Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ] }, InfraAntichainQ[ g, slice ] && InfraSliceQ[ g, slice ] ] ] ],
   True,
   TestID -> "InfraSlice-All-slices-are-antichains-and-level-sets"
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> InfraSliceQ[ g, RandomInfraSlice[ g, InfraSlice[ # ] ] & /@ $heights @ g ] ],
+  AllTrue[ $fixtures, g |-> InfraSliceQ[ g, Keys @ InfraMeasurement[ g, InfraSlice[ # ], "VertexDensity" ] & /@ $heights @ g ] ],
   True,
   TestID -> "InfraSliceQ-All-accepts-the-list-of-slices"
 ]
@@ -52,7 +52,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> RandomInfraSlice[ g, { 0, k } ] === Sort @ Catenate[ RandomInfraSlice[ g, # ] & /@ Range[ 0, k ] ] ] ],
+  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ] === Sort @ Catenate[ Keys @ InfraMeasurement[ g, InfraSlice[ # ], "VertexDensity" ] & /@ Range[ 0, k ] ] ] ],
   True,
   TestID -> "InfraSlice-All-band-is-union-of-slices"
 ]
@@ -76,19 +76,19 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> SubsetQ[ RandomInfraSlice[ g, { 0, k } ], RandomInfraCausalPast[ g, RandomInfraSlice[ g, k ] ] ] ] ],
+  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> SubsetQ[ Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ], Keys @ InfraMeasurement[ g, InfraCausalPast[ Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ] ], "VertexDensity" ] ] ] ],
   True,
   TestID -> "InfraSlice-All-past-of-slice-lies-in-band"
 ]
 
 VerificationTest[
-  Length @ RandomInfraSlice[ $diamond, # ] & /@ Range[ 0, 6 ],
+  Length @ Keys @ InfraMeasurement[ $diamond, InfraSlice[ # ], "VertexDensity" ] & /@ Range[ 0, 6 ],
   { 1, 2, 3, 4, 3, 2, 1 },
   TestID -> "InfraSlice-Diamond-antidiagonal-sizes"
 ]
 
 VerificationTest[
-  AllTrue[ $heights @ $cylinder, k |-> RandomInfraSlice[ $cylinder, k ] === Sort @ Table[ { i, k }, { i, 0, 2 } ] ],
+  AllTrue[ $heights @ $cylinder, k |-> Keys @ InfraMeasurement[ $cylinder, InfraSlice[ k ], "VertexDensity" ] === Sort @ Table[ { i, k }, { i, 0, 2 } ] ],
   True,
   TestID -> "InfraSlice-Cylinder-slices-are-rows"
 ]
@@ -107,7 +107,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> IsomorphicGraphQ[ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "Subgraph" ], Subgraph[ g, RandomInfraSlice[ g, { 0, k } ] ] ] ] ],
+  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> IsomorphicGraphQ[ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "Subgraph" ], Subgraph[ g, Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ] ] ] ] ],
   True,
   TestID -> "InfraSlice-All-subgraph-is-induced-band"
 ]
@@ -120,17 +120,24 @@ VerificationTest[
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> With[ { slice = InfraSlice[ k ] },
-    InfraMemberQ[ g, slice, Reverse @ RandomInfraSlice[ g, slice ] ] &&
-      RandomInfraSlice[ g, slice, All ] === { RandomInfraSlice[ g, slice ] } &&
+    InfraMemberQ[ g, slice, Reverse @ Keys @ InfraMeasurement[ g, slice, "VertexDensity" ] ] &&
       InfraMeasurement[ g, slice, "Cardinality" ] == 1 ] ] ],
   True,
   TestID -> "InfraSlice-All-single-member-is-the-support"
 ]
 
 VerificationTest[
-  { RandomInfraSlice[ $twoSource, 7 ], RandomInfraSlice[ $twoSource, InfraSlice[ 0 ], 2 ], RandomInfraSlice[ $twoSource, InfraSlice[ 0 ], UpTo[ 3 ] ] },
-  { { }, { }, { { 1, 2 } } },
-  TestID -> "InfraSlice-TwoSource-count-contract"
+  AllTrue[ $fixtures, g |-> AllTrue[ $heights @ g, k |-> With[ { support = Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ] },
+    { points = RandomInfraPoint[ g, InfraSlice[ k ], Min[ 2, Length @ support ] ] },
+    Length @ points == Min[ 2, Length @ support ] && DuplicateFreeQ @ points && SubsetQ[ support, points ] ] ] ],
+  True,
+  TestID -> "InfraSlice-All-random-points-are-distinct-events-of-the-support"
+]
+
+VerificationTest[
+  Keys @ InfraMeasurement[ $twoSource, InfraSlice[ 7 ], "VertexDensity" ],
+  { },
+  TestID -> "InfraSlice-TwoSource-slice-above-the-height-is-empty"
 ]
 
 EndTestSection[]

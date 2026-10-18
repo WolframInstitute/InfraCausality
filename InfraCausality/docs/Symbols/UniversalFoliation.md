@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/UniversalFoliation
 Keywords: [foliation, universal time, slice, antichain, level set, simultaneity, Cauchy surface, layering]
-SeeAlso: [UniversalTime, InfraSlice, RandomInfraSlice, InfraSliceQ, InfraAntichainQ, FoliationViewer]
+SeeAlso: [UniversalTime, InfraSlice, InfraSliceQ, InfraAntichainQ, FoliationViewer]
 RelatedGuides: [CausalTime]
 ---
 
@@ -20,7 +20,7 @@ Definition: the universal foliation of a directed acyclic graph is the list of s
 
 Every slice is an antichain: an edge raises the universal time by at least one, so two events of one slice are never comparable. The slices partition the events, and no slice is empty, since a longest chain passes every height. Every event of *S*(*k*), *k* ≥ 1, has a direct predecessor in *S*(*k* − 1). The foliation is the layering of the graph by longest paths, the canonical discrete analogue of a foliation by simultaneity surfaces; it depends on no observer.
 
-The list is the list of supports of the slice heads: part *k* + 1 is <code>[RandomInfraSlice]()[*g*, [InfraSlice]()[*k*]]</code>. [FoliationViewer]() steps through it.
+The list is the list of supports of the slice heads: part *k* + 1 is <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "VertexDensity"]</code>. [FoliationViewer]() steps through it.
 
 ## Basic Examples
 
@@ -78,7 +78,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {slices = UniversalFoliation[g]},
     Length[slices] == Length[(SeedRandom[1]; RandomInfraWorldline[g])] &&
-      slices === Table[RandomInfraSlice[g, InfraSlice[k]], {k, 0, Length[slices] - 1}]]]
+      slices === Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, 0, Length[slices] - 1}]]]
 ```
 
 Every event above the bottom slice has a direct predecessor in the slice below it.

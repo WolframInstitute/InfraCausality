@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/FoliationViewer
 Keywords: [viewer, universal time, foliation, slice, antichain, interactive, Manipulate, experimental]
-SeeAlso: [UniversalTime, UniversalFoliation, InfraSlice, RandomInfraSlice, LightConeViewer, MessageFunctionViewer]
+SeeAlso: [UniversalTime, UniversalFoliation, InfraSlice, LightConeViewer, MessageFunctionViewer]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -50,9 +50,9 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {height = Max @ UniversalTime @ g},
     AllTrue[Range[0, height], k |->
-      With[{slice = RandomInfraSlice[g, InfraSlice[k]], earlier = Keys @ InfraMeasurement[g, InfraSlice[{0, k - 1}], "VertexDensity"]},
-        Intersection[slice, earlier] === {} && Union[slice, earlier] === RandomInfraSlice[g, InfraSlice[{0, k}]]]] &&
-      Sort[Catenate[RandomInfraSlice[g, InfraSlice[#]] & /@ Range[0, height]]] === Sort[VertexList[g]]]]
+      With[{slice = Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], earlier = Keys @ InfraMeasurement[g, InfraSlice[{0, k - 1}], "VertexDensity"]},
+        Intersection[slice, earlier] === {} && Union[slice, earlier] === Keys @ InfraMeasurement[g, InfraSlice[{0, k}], "VertexDensity"]]] &&
+      Sort[Catenate[Keys @ InfraMeasurement[g, InfraSlice[#], "VertexDensity"] & /@ Range[0, height]]] === Sort[VertexList[g]]]]
 ```
 
 Every slice is an antichain, and every event of slice *k* > 0 has an in-neighbour in slice *k* − 1 and its whole strict past in the earlier band.
@@ -62,10 +62,10 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[Range[0, Max @ UniversalTime @ g], k |->
-      InfraAntichainQ[g, RandomInfraSlice[g, InfraSlice[k]]] &&
-        (k == 0 || AllTrue[RandomInfraSlice[g, InfraSlice[k]], v |->
-          IntersectingQ[VertexInComponent[g, v, {1}], RandomInfraSlice[g, InfraSlice[k - 1]]] &&
-            SubsetQ[RandomInfraSlice[g, InfraSlice[{0, k - 1}]], DeleteCases[RandomInfraCausalPast[g, v], v]]])]]]
+      InfraAntichainQ[g, Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]] &&
+        (k == 0 || AllTrue[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], v |->
+          IntersectingQ[VertexInComponent[g, v, {1}], Keys @ InfraMeasurement[g, InfraSlice[k - 1], "VertexDensity"]] &&
+            SubsetQ[Keys @ InfraMeasurement[g, InfraSlice[{0, k - 1}], "VertexDensity"], DeleteCases[Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"], v]]])]]]
 ```
 
 The viewer is a `Manipulate`.

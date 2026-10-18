@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraAntichainQ
 Keywords: [antichain, incomparable, spacelike, achronal, width, Dilworth, predicate]
-SeeAlso: [InfraSliceQ, InfraChainQ, UniversalFoliation, RandomInfraSlice, InfraCausalFutureQ]
+SeeAlso: [InfraSliceQ, InfraChainQ, UniversalFoliation, InfraCausalFutureQ]
 RelatedGuides: [CausalTime]
 ---
 
@@ -35,7 +35,7 @@ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {e = First @ EdgeList[g]},
-    {InfraAntichainQ[g, RandomInfraSlice[g, 3]], InfraAntichainQ[g, List @@ e], InfraAntichainQ[g, {}]}],
+    {InfraAntichainQ[g, Keys @ InfraMeasurement[g, InfraSlice[3], "VertexDensity"]], InfraAntichainQ[g, List @@ e], InfraAntichainQ[g, {}]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -44,7 +44,7 @@ An antichain need not lie in one slice: two events of the sprinkling at heights 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {pair = (SeedRandom[3]; RandomChoice @ Select[Tuples[{RandomInfraSlice[g, 1], RandomInfraSlice[g, 3]}], p |-> InfraAntichainQ[g, p]])},
+  {pair = (SeedRandom[3]; RandomChoice @ Select[Tuples[{Keys @ InfraMeasurement[g, InfraSlice[1], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[3], "VertexDensity"]}], p |-> InfraAntichainQ[g, p]])},
   Labeled[
     InfraSubstrateHighlight[g, {InfraCausalFuture[First @ pair] -> StandardOrange, InfraCausalFuture[Last @ pair] -> StandardBlue, pair -> StandardRed}],
     InfraAntichainQ[g, pair]]]

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalDiamond
 Keywords: [causal diamond, Alexandrov interval, causal interval, order interval, causal hull, convex set, interval volume, ordering fraction, Myrheim-Meyer dimension, midpoint scaling, interval abundances, Benincasa-Dowker action, discrete d'Alembertian, symbolic object]
-SeeAlso: [RandomInfraCausalDiamond, InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraWorldline, InfraObserver, InfraRadarChart]
+SeeAlso: [InfraCausalDiamondQ, InfraCausalFuture, InfraCausalPast, InfraWorldline, InfraObserver, InfraRadarChart]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -37,7 +37,7 @@ The head holds its tips and computes nothing. [`InfraMeasurement`](paclet:Wolfra
 
 The interval volume is the quantity causal-set theory reads proper time and dimension from: in a sprinkling of density ρ into *d*-dimensional Minkowski space the expected number of events of [*p*, *q*] is ρ times the spacetime volume of the diamond, which is proportional to the *d*-th power of the proper time between the tips.
 
-[RandomInfraCausalDiamond]() returns the support as a sorted vertex list, and [InfraCausalDiamondQ]() recognises a vertex set that is the diamond of its least and greatest events.
+A set head has one member, its support, so no sampler draws it. The three readings of the diamond on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraCausalDiamond]()[*p*, *q*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalDiamond]()[*p*, *q*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalDiamond]()[*p*, *q*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalDiamondQ]() recognises a vertex set that is the diamond of its least and greatest events.
 
 Experimental: the causal-set estimators are further readings of the diamond, on its *N* events with the order restricted to them. *R* is the number of related pairs *x* ≺ *y* of the diamond and *N*<sub>*k*</sub> the number of related pairs with exactly *k* events strictly between them, so *N*<sub>0</sub> counts the links.
 
@@ -69,8 +69,8 @@ The causal diamond between an event at height 1 and an event of its future one s
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     InfraSubstrateHighlight[g, {InfraCausalDiamond[p, q], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -80,8 +80,8 @@ The diamond is the overlap of the causal future of its lower tip and the causal 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
   GraphicsRow[{
     InfraSubstrateHighlight[g, {InfraCausalFuture[p], InfraCausalPast[q]}],
     InfraSubstrateHighlight[g, {InfraCausalDiamond[p, q], p, q}]}]]
@@ -101,7 +101,7 @@ The interval volume of the diamonds from the bottom event of the diamond lattice
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  Table[InfraMeasurement[g, InfraCausalDiamond[{0, 0}, q], "CountingMeasure"], {q, RandomInfraSlice[g, InfraSlice[6]]}]]
+  Table[InfraMeasurement[g, InfraCausalDiamond[{0, 0}, q], "CountingMeasure"], {q, Keys @ InfraMeasurement[g, InfraSlice[6], "VertexDensity"]}]]
 ```
 
 ## Scope
@@ -172,7 +172,7 @@ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[Tuples[VertexList[g], 2], Apply[{p, q} |->
-      RandomInfraCausalDiamond[g, p, q] === Intersection[RandomInfraCausalFuture[g, p], RandomInfraCausalPast[g, q]]]]],
+      Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"] === Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[p], "VertexDensity"], Keys @ InfraMeasurement[g, InfraCausalPast[q], "VertexDensity"]]]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -190,10 +190,10 @@ The diamond is convex: an event between two of its events is one of its events.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
-  {diamond = RandomInfraCausalDiamond[g, p, q]},
-  AllTrue[Tuples[diamond, 2], Apply[{u, w} |-> SubsetQ[diamond, RandomInfraCausalDiamond[g, u, w]]]]]
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
+  {diamond = Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"]},
+  AllTrue[Tuples[diamond, 2], Apply[{u, w} |-> SubsetQ[diamond, Keys @ InfraMeasurement[g, InfraCausalDiamond[u, w], "VertexDensity"]]]]]
 ```
 
 The causal hull of every worldline from *p* to *q* is the diamond of its tips.
@@ -201,10 +201,10 @@ The causal hull of every worldline from *p* to *q* is the diamond of its tips.
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {p = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[0]])},
-  {q = (SeedRandom[2]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
+  {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[0]])},
+  {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
   AllTrue[RandomInfraWorldline[g, InfraWorldline[p, q], All], chain |->
-    RandomInfraCausalDiamond[g, InfraCausalDiamond[chain]] === RandomInfraCausalDiamond[g, p, q]]]
+    Keys @ InfraMeasurement[g, InfraCausalDiamond[chain], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"]]]
 ```
 
 The discrete curvature is the operator applied to the constant field −2, and the action is half its total, in both dimensions.

@@ -4,8 +4,6 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: CausalTime :: InfraSlice *)
 
-Options[ RandomInfraSlice ] = { "NextVertexFunction" -> Automatic }
-
 InfraSlice /: InfraMeasurement[ graph_Graph, InfraSlice[ k_Integer ], "VertexDensity" ] :=
   InfraMeasurement[ graph, InfraSlice[ { k, k } ], "VertexDensity" ]
 
@@ -27,18 +25,6 @@ InfraSlice /: InfraMeasurement[ graph_Graph, slice_InfraSlice, All ] :=
 
 InfraSlice /: InfraMemberQ[ graph_Graph, slice_InfraSlice, set_List ] :=
   Sort @ set === Keys @ InfraMeasurement[ graph, slice, "VertexDensity" ]
-
-RandomInfraSlice[ graph_Graph, slice_InfraSlice,
-    count : ( _Integer?( n |-> n >= 0 ) | UpTo[ _Integer?( n |-> n >= 0 ) ] | All | Automatic ) : Automatic, opts : OptionsPattern[] ] /;
-    SubsetQ[ First /@ Options[ RandomInfraSlice ], First /@ { opts } ] &&
-    ( OptionValue[ RandomInfraSlice, { opts }, "NextVertexFunction" ] =!= RandomChoice || count =!= All ) :=
-  setSample[ Keys @ InfraMeasurement[ graph, slice, "VertexDensity" ], count,
-    OptionValue[ RandomInfraSlice, { opts }, "NextVertexFunction" ] ]
-
-RandomInfraSlice[ graph_Graph, k : ( _Integer | { _Integer, _Integer } ),
-    count : ( _Integer?( n |-> n >= 0 ) | UpTo[ _Integer?( n |-> n >= 0 ) ] | All | Automatic ) : Automatic, opts : OptionsPattern[] ] /;
-    SubsetQ[ First /@ Options[ RandomInfraSlice ], First /@ { opts } ] :=
-  RandomInfraSlice[ graph, InfraSlice[ k ], count, opts ]
 
 InfraSliceQ[ graph_Graph, family_Association ] :=
   InfraSliceQ[ graph, Keys @ family ]

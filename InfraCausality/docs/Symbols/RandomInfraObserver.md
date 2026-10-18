@@ -53,8 +53,8 @@ One observer from an event at height 1 to an event of its future one slice below
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraObserver[g, InfraObserver[p, q]])},
     InfraSubstrateHighlight[g, {InfraWalk[member], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -65,8 +65,8 @@ Five observers between two events of the sprinkling, and their numbers of ticks.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
   {members = (SeedRandom[1]; RandomInfraObserver[g, InfraObserver[p, q], 5])},
   {members, Length /@ members}]
 ```
@@ -96,8 +96,8 @@ With[
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraObserver[p, q], "Cardinality"] &&
       InfraObserverQ[g, members] && SubsetQ[members, RandomInfraWorldline[g, InfraWorldline[p, q], All]]]]
@@ -109,8 +109,8 @@ The distinct numbers of edges of the members are the `"Length"` reading of the h
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
     Replace[Union[Length /@ RandomInfraObserver[g, InfraObserver[p, q], All] - 1], {one_} :> one] ===
       InfraMeasurement[g, InfraObserver[p, q], "Length"]]]
 ```

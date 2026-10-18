@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalPastQ
 Keywords: [causal past, down-set, greatest element, predicate]
-SeeAlso: [InfraCausalPast, RandomInfraCausalPast, InfraCausalFutureQ, InfraCausalDiamondQ, InfraChainQ, InfraMemberQ]
+SeeAlso: [InfraCausalPast, InfraCausalFutureQ, InfraCausalDiamondQ, InfraChainQ, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -36,10 +36,10 @@ On each substrate: the causal past of an event, the causal past of two incompara
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {s = (SeedRandom[1]; RandomSample[RandomInfraSlice[g, InfraSlice[4]], 2])},
-    {InfraCausalPastQ[g, RandomInfraCausalPast[g, First @ s]],
-     InfraCausalPastQ[g, RandomInfraCausalPast[g, InfraCausalPast[s]]],
-     InfraCausalPastQ[g, RandomInfraCausalPast[g, InfraCausalPast[First @ s, 1]]]}],
+    {s = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[4], 2])},
+    {InfraCausalPastQ[g, Keys @ InfraMeasurement[g, InfraCausalPast[First @ s], "VertexDensity"]],
+     InfraCausalPastQ[g, Keys @ InfraMeasurement[g, InfraCausalPast[s], "VertexDensity"]],
+     InfraCausalPastQ[g, Keys @ InfraMeasurement[g, InfraCausalPast[First @ s, 1], "VertexDensity"]]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -48,10 +48,10 @@ The causal past of two events of the cylinder lattice has two maximal events and
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {s = (SeedRandom[1]; RandomSample[RandomInfraSlice[g, InfraSlice[4]], 2])},
+  {s = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[4], 2])},
   GraphicsRow @ Table[
     Labeled[InfraSubstrateHighlight[g, {set}], InfraCausalPastQ[g, set]],
-    {set, {RandomInfraCausalPast[g, First @ s], RandomInfraCausalPast[g, Last @ s], RandomInfraCausalPast[g, InfraCausalPast[s]]}}]]
+    {set, {Keys @ InfraMeasurement[g, InfraCausalPast[First @ s], "VertexDensity"], Keys @ InfraMeasurement[g, InfraCausalPast[Last @ s], "VertexDensity"], Keys @ InfraMeasurement[g, InfraCausalPast[s], "VertexDensity"]}}]]
 ```
 
 ## Properties and Relations
@@ -63,7 +63,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
-      With[{past = RandomInfraCausalPast[g, v]},
+      With[{past = Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"]},
         InfraCausalPastQ[g, past] &&
           Select[past, e |-> SubsetQ[VertexInComponent[g, {e}], past]] === {v}]]]]
 ```
@@ -74,7 +74,7 @@ The predicate on a graph is the future predicate on the reversed graph.
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {sets = Join[RandomInfraCausalFuture[g, #] & /@ VertexList[g], RandomInfraCausalPast[g, #] & /@ VertexList[g]]},
+    {sets = Join[Keys @ InfraMeasurement[g, InfraCausalFuture[#], "VertexDensity"] & /@ VertexList[g], Keys @ InfraMeasurement[g, InfraCausalPast[#], "VertexDensity"] & /@ VertexList[g]]},
     AllTrue[sets, set |-> InfraCausalPastQ[g, set] === InfraCausalFutureQ[ReverseGraph[g], set]]]]
 ```
 
@@ -84,7 +84,7 @@ A set that passes is a down-set: every in-neighbour of one of its events is one 
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {sets = Join[RandomInfraCausalFuture[g, #] & /@ VertexList[g], RandomInfraCausalPast[g, #] & /@ VertexList[g]]},
+    {sets = Join[Keys @ InfraMeasurement[g, InfraCausalFuture[#], "VertexDensity"] & /@ VertexList[g], Keys @ InfraMeasurement[g, InfraCausalPast[#], "VertexDensity"] & /@ VertexList[g]]},
     AllTrue[Select[sets, InfraCausalPastQ[g, #] &], set |->
       SubsetQ[set, Union @@ (VertexInComponent[g, #, {1}] & /@ set)]]]]
 ```

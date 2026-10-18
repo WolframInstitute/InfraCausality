@@ -62,7 +62,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {size = v |-> Length @ VertexOutComponent[g, {v}]},
     Keys[MaximalEmitter[g]] === Range[0, Max @ UniversalTime[g]] &&
       AllTrue[Normal @ MaximalEmitter[g], Apply[{k, vs} |->
-        With[{slice = RandomInfraSlice[g, k]}, vs =!= {} && vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
+        With[{slice = Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]}, vs =!= {} && vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
 ```
 
 The size of the causal future read by [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement) of [InfraCausalFuture]() is the same count.

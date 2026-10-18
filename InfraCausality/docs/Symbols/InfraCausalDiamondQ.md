@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalDiamondQ
 Keywords: [causal diamond, Alexandrov interval, convex, least element, greatest element, predicate]
-SeeAlso: [InfraCausalDiamond, RandomInfraCausalDiamond, InfraCausalFutureQ, InfraCausalPastQ, InfraChainQ, InfraLightRayQ]
+SeeAlso: [InfraCausalDiamond, InfraCausalFutureQ, InfraCausalPastQ, InfraChainQ, InfraLightRayQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -36,11 +36,11 @@ On each substrate: a causal diamond, the pair of its corners alone, and the unio
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
-    {s = (SeedRandom[1]; RandomSample[RandomInfraSlice[g, InfraSlice[2]], 2])},
-    {InfraCausalDiamondQ[g, RandomInfraCausalDiamond[g, p, q]], InfraCausalDiamondQ[g, {p, q}],
-     InfraCausalDiamondQ[g, RandomInfraCausalFuture[g, InfraCausalFuture[s]]]}],
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
+    {s = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[2], 2])},
+    {InfraCausalDiamondQ[g, Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"]], InfraCausalDiamondQ[g, {p, q}],
+     InfraCausalDiamondQ[g, Keys @ InfraMeasurement[g, InfraCausalFuture[s], "VertexDensity"]]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -49,12 +49,12 @@ The same three sets on the sprinkling, labelled with the answer.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
-  {s = (SeedRandom[1]; RandomSample[RandomInfraSlice[g, InfraSlice[2]], 2])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
+  {s = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[2], 2])},
   GraphicsRow @ Table[
     Labeled[InfraSubstrateHighlight[g, {set}], InfraCausalDiamondQ[g, set]],
-    {set, {RandomInfraCausalDiamond[g, p, q], {p, q}, RandomInfraCausalFuture[g, InfraCausalFuture[s]]}}]]
+    {set, {Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"], {p, q}, Keys @ InfraMeasurement[g, InfraCausalFuture[s], "VertexDensity"]}}]]
 ```
 
 ## Properties and Relations
@@ -65,9 +65,9 @@ Every nonempty diamond passes, and its least and greatest events are the corners
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    AllTrue[RandomInfraCausalFuture[g, p], q |->
-      With[{diamond = RandomInfraCausalDiamond[g, p, q]},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    AllTrue[Keys @ InfraMeasurement[g, InfraCausalFuture[p], "VertexDensity"], q |->
+      With[{diamond = Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"]},
         InfraCausalDiamondQ[g, diamond] &&
           Select[diamond, e |-> SubsetQ[VertexOutComponent[g, {e}], diamond]] === {p} &&
           Select[diamond, e |-> SubsetQ[VertexInComponent[g, {e}], diamond]] === {q}]]]]
@@ -80,7 +80,7 @@ With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   AllTrue[Subsets[VertexList[g], {1, 3}], set |->
     InfraCausalDiamondQ[g, set] ===
-      (RandomInfraCausalDiamond[g, InfraCausalDiamond[set]] === Sort[set] &&
+      (Keys @ InfraMeasurement[g, InfraCausalDiamond[set], "VertexDensity"] === Sort[set] &&
         AnyTrue[set, e |-> SubsetQ[VertexOutComponent[g, {e}], set]] && AnyTrue[set, e |-> SubsetQ[VertexInComponent[g, {e}], set]])]]
 ```
 
@@ -90,7 +90,7 @@ A set that is both a causal future and a causal past is a diamond, and so is eve
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {sets = Join[RandomInfraCausalFuture[g, #] & /@ VertexList[g], RandomInfraCausalPast[g, #] & /@ VertexList[g]]},
+    {sets = Join[Keys @ InfraMeasurement[g, InfraCausalFuture[#], "VertexDensity"] & /@ VertexList[g], Keys @ InfraMeasurement[g, InfraCausalPast[#], "VertexDensity"] & /@ VertexList[g]]},
     AllTrue[Select[sets, InfraCausalFutureQ[g, #] && InfraCausalPastQ[g, #] &], InfraCausalDiamondQ[g, #] &] &&
       AllTrue[VertexList[g], v |-> InfraCausalDiamondQ[g, RandomInfraFutureLightCone[g, v, All]]]]]
 ```

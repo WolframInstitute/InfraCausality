@@ -45,7 +45,7 @@ One outgoing light ray of an event at height 1, on the diamond lattice, a sprink
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
     {ray = (SeedRandom[5]; RandomInfraFutureLightCone[g, InfraFutureLightCone[v]])},
     InfraSubstrateHighlight[g, {InfraWalk[ray], v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -62,7 +62,7 @@ Every outgoing light ray of the first event of the sprinkling. Most of them are 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = First @ RandomInfraSlice[g, InfraSlice[0]]},
+  {v = First @ Keys @ InfraMeasurement[g, InfraSlice[0], "VertexDensity"]},
   RandomInfraFutureLightCone[g, v, All]]
 ```
 

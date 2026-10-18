@@ -39,8 +39,8 @@ GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
-    {p = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[2]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Floor[Max[UniversalTime[g]]/2] + 1]]])},
+    {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Floor[Max[UniversalTime[g]]/2] + 1]]])},
     {b = (SeedRandom[2]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
     Labeled[InfraSubstrateHighlight[g, {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}], ChainProjection[g, a, b]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -76,7 +76,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
       With[{cone = ChainProjection[g, a, b], rays = ChainProjection[g, a, b, "Method" -> "LightRays"]},
         0 <= rays <= cone <= 1 &&
-          cone == Count[a, e_ /; IntersectingQ[RandomInfraCausalFuture[g, e], b]]/Length[a] &&
+          cone == Count[a, e_ /; IntersectingQ[Keys @ InfraMeasurement[g, InfraCausalFuture[e], "VertexDensity"], b]]/Length[a] &&
           rays == Count[a, e_ /; IntersectingQ[Keys @ InfraMeasurement[g, InfraFutureLightCone[e], "VertexDensity"], b]]/Length[a]]]]]]
 ```
 
@@ -88,7 +88,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
-      With[{reach = (IntersectingQ[RandomInfraCausalFuture[g, #], b] &) /@ a},
+      With[{reach = (IntersectingQ[Keys @ InfraMeasurement[g, InfraCausalFuture[#], "VertexDensity"], b] &) /@ a},
         reach === Join[ConstantArray[True, ChainProjection[g, a, b] Length[a]], ConstantArray[False, Length[a] - ChainProjection[g, a, b] Length[a]]]]]]]]
 ```
 
@@ -101,5 +101,5 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
     AllTrue[chains, a |->
       ChainProjection[g, a, a] == 1 &&
-        AllTrue[Select[chains, b |-> SubsetQ[RandomInfraCausalFuture[g, Last @ a], b]], b |-> ChainProjection[g, a, b] == 1]]]]
+        AllTrue[Select[chains, b |-> SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[Last @ a], "VertexDensity"], b]], b |-> ChainProjection[g, a, b] == 1]]]]
 ```

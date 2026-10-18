@@ -51,8 +51,8 @@ The observers from an event at height 1 to an event of its future one slice belo
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     InfraSubstrateHighlight[g, {InfraObserver[p, q], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -63,8 +63,8 @@ The number of observers beside the number of worldlines between the same events.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {InfraMeasurement[g, InfraObserver[p, q], "Cardinality"], InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -74,8 +74,8 @@ On the sprinkling the observers between two events carry clocks of different len
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
   {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
   GraphicsRow[{
     InfraSubstrateHighlight[g, {InfraWalk[First @ MinimalBy[members, Length]]}],
@@ -87,8 +87,8 @@ The distinct numbers of ticks of the observers on the sprinkling.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
   InfraMeasurement[g, InfraObserver[p, q], "Length"]]
 ```
 
@@ -108,8 +108,8 @@ Every member passes [InfraObserverQ](), the cardinality is the number of members
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
     InfraObserverQ[g, members] &&
       Length[members] == InfraMeasurement[g, InfraObserver[p, q], "Cardinality"] &&
@@ -131,7 +131,7 @@ The observers between two events all run inside their causal diamond.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
-  SubsetQ[RandomInfraCausalDiamond[g, p, q], Union @@ RandomInfraObserver[g, InfraObserver[p, q], All]]]
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
+  SubsetQ[Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"], Union @@ RandomInfraObserver[g, InfraObserver[p, q], All]]]
 ```

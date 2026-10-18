@@ -6,12 +6,9 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 InfraCausalFuture::usage = "InfraCausalFuture[v] is the causal future J+(v) of the event or event set v, the events reached from it; InfraCausalFuture[v, t] keeps those whose longest chain from v has at most t edges.";
 InfraCausalPast::usage = "InfraCausalPast[v] is the causal past J-(v) of the event or event set v, the events reaching it; InfraCausalPast[v, t] keeps those whose longest chain to v has at most t edges.";
-RandomInfraCausalFuture::usage = "RandomInfraCausalFuture[g, InfraCausalFuture[v], n] gives the support of the causal future on g as a sorted vertex list, its only member; RandomInfraCausalFuture[g, v] is the shortcut.";
-RandomInfraCausalPast::usage = "RandomInfraCausalPast[g, InfraCausalPast[v], n] gives the support of the causal past on g as a sorted vertex list, its only member; RandomInfraCausalPast[g, v] is the shortcut.";
 InfraCausalFutureQ::usage = "InfraCausalFutureQ[g, set] gives True if the vertex list set is the causal future J+(v) on g of one of its elements v.";
 InfraCausalPastQ::usage = "InfraCausalPastQ[g, set] gives True if the vertex list set is the causal past J-(v) on g of one of its elements v.";
 InfraCausalDiamond::usage = "InfraCausalDiamond[p, q] is the causal diamond, J+(p) intersected with J-(q); InfraCausalDiamond[s] is the causal hull of the event set s, J+(s) intersected with J-(s).";
-RandomInfraCausalDiamond::usage = "RandomInfraCausalDiamond[g, InfraCausalDiamond[p, q], n] gives the support of the diamond on g as a sorted vertex list, its only member; RandomInfraCausalDiamond[g, p, q] is the shortcut.";
 InfraCausalDiamondQ::usage = "InfraCausalDiamondQ[g, set] gives True if the vertex list set has a least element p and a greatest element q on g and equals the causal diamond of p and q.";
 InfraWorldline::usage = "InfraWorldline[p, q] is the set of timelike geodesics from p to q, every longest chain between them; InfraWorldline[p1, ..., pk] is the set of piecewise geodesics through the knots p1, ..., pk; InfraWorldline[p] is the set of longest chains starting at p; InfraWorldline[] is the set of longest chains of the graph.";
 RandomInfraWorldline::usage = "RandomInfraWorldline[g, InfraWorldline[p, q], n] gives n distinct longest chains from p to q drawn uniformly as vertex lists; RandomInfraWorldline[g, p, q, n] and RandomInfraWorldline[g, n] are shortcuts.";
@@ -37,7 +34,6 @@ FoliationViewer::usage = "FoliationViewer[g] gives a Manipulate with a slider ov
 UniversalTime::usage = "UniversalTime[g] gives the height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources.";
 UniversalFoliation::usage = "UniversalFoliation[g] gives the level sets of UniversalTime[g] as sorted vertex lists, slice k holding the events whose longest chain from a source has k edges.";
 InfraSlice::usage = "InfraSlice[k] is the slice of the universal time at height k, the events t(v) = k; InfraSlice[{k1, k2}] is the band of events with k1 <= t(v) <= k2.";
-RandomInfraSlice::usage = "RandomInfraSlice[g, InfraSlice[k], n] gives the support of the slice or band on g as a sorted vertex list, its only member; RandomInfraSlice[g, k] is the shortcut.";
 InfraSliceQ::usage = "InfraSliceQ[g, set] gives True if the vertex list set is a nonempty level set of UniversalTime[g].";
 InfraAntichainQ::usage = "InfraAntichainQ[g, set] gives True if the vertex list set is duplicate-free and no two of its elements are comparable in the causal order of g.";
 

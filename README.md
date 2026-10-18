@@ -16,7 +16,7 @@ Causal infrageometry studies the causal structure of a finite DAG the way Euclid
 Every object is an inert head that takes no graph. A graph evaluates it through the protocol of [InfraGeometry](https://github.com/WolframInstitute/InfraGeometry), on which this paclet depends:
 
 - `InfraMeasurement[g, obj, property]` reads it;
-- a named `RandomInfra...` sampler draws its members;
+- a named `RandomInfra...` sampler draws the members of a chain head; a set head has one member, its support, `Keys @ InfraMeasurement[g, obj, "VertexDensity"]`;
 - an `Infra...Q` predicate recognises one;
 - `InfraSubstrateHighlight` draws it.
 

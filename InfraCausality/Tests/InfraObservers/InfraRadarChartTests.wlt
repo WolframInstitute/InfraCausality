@@ -62,7 +62,7 @@ VerificationTest[
 
 VerificationTest[
   AllTrue[ $cases, Apply[ { g, a } |->
-    InfraMeasurement[ g, InfraRadarChart[ a ], "Domain" ] === RandomInfraCausalDiamond[ g, First @ a, Last @ a ] ] ],
+    InfraMeasurement[ g, InfraRadarChart[ a ], "Domain" ] === Keys @ InfraMeasurement[ g, InfraCausalDiamond[ First @ a, Last @ a ], "VertexDensity" ] ] ],
   True,
   TestID -> "InfraRadarChart-all-domain-is-the-diamond-of-first-and-last-tick"
 ]

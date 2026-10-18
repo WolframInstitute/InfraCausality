@@ -41,11 +41,11 @@ On each substrate: an outgoing light ray passes, and a worldline from the same e
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {w = First @ MaximalBy[Intersection[RandomInfraCausalFuture[g, v], RandomInfraSlice[g, InfraSlice[5]]], e |-> Length @ RandomInfraCausalDiamond[g, v, e]]},
+    {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
+    {w = First @ MaximalBy[Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[5], "VertexDensity"]], e |-> Length @ Keys @ InfraMeasurement[g, InfraCausalDiamond[v, e], "VertexDensity"]]},
     {ray = (SeedRandom[5]; RandomInfraFutureLightCone[g, v])},
     {member = (SeedRandom[5]; RandomInfraWorldline[g, v, w])},
-    {InfraLightRayQ[g, ray], InfraLightRayQ[g, member], Length[RandomInfraCausalDiamond[g, v, w]] == Length[member]}],
+    {InfraLightRayQ[g, ray], InfraLightRayQ[g, member], Length[Keys @ InfraMeasurement[g, InfraCausalDiamond[v, w], "VertexDensity"]] == Length[member]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -78,8 +78,8 @@ A saturated chain is a light ray exactly when its last event lies on the future 
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    AllTrue[RandomInfraSlice[g, InfraSlice[1]], v |->
-      AllTrue[Intersection[RandomInfraCausalFuture[g, v], RandomInfraSlice[g, InfraSlice[4]]], w |->
+    AllTrue[Keys @ InfraMeasurement[g, InfraSlice[1], "VertexDensity"], v |->
+      AllTrue[Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[4], "VertexDensity"]], w |->
         AllTrue[FindPath[g, v, w, Infinity, All], chain |->
           InfraLightRayQ[g, chain] === MemberQ[Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"], w]]]]]]
 ```
@@ -103,5 +103,5 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
       AllTrue[Join[RandomInfraFutureLightCone[g, v, All], RandomInfraPastLightCone[g, v, All]], ray |->
-        RandomInfraCausalDiamond[g, First @ ray, Last @ ray] === Sort[ray] && InfraCausalDiamondQ[g, ray]]]]]
+        Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ ray, Last @ ray], "VertexDensity"] === Sort[ray] && InfraCausalDiamondQ[g, ray]]]]]
 ```

@@ -59,8 +59,8 @@ The worldlines from an event at height 1 to an event of its future one slice bel
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     InfraSubstrateHighlight[g, {InfraWorldline[p, q], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -71,8 +71,8 @@ The proper time and the number of worldlines between the same events.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     Values @ InfraMeasurement[g, InfraWorldline[p, q], {"Length", "Cardinality"}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -82,8 +82,8 @@ The graph of the worldlines on the sprinkling. Every longest chain is a path thr
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
   Graph[InfraMeasurement[g, InfraWorldline[p, q], "Graph"], VertexLabels -> Automatic]]
 ```
 
@@ -138,9 +138,9 @@ A polyline on the sprinkling, through an event of the first slice, an event of i
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[4]]])},
-  {r = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, q], RandomInfraSlice[g, InfraSlice[7]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[4]]])},
+  {r = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[q], InfraSlice[7]]])},
   InfraSubstrateHighlight[g, {InfraWorldline[p, q, r], p, q, r}]]
 ```
 
@@ -157,7 +157,7 @@ The longest chains starting at an event of the sprinkling, and their proper time
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
   {InfraSubstrateHighlight[g, {InfraWorldline[p], p}], InfraMeasurement[g, InfraWorldline[p], "Length"]}]
 ```
 
@@ -169,8 +169,8 @@ The cardinality is the number of members, and every member is a chain of τ(*p*,
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {members = RandomInfraWorldline[g, InfraWorldline[p, q], All]},
     Length[members] == InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"] &&
       Union[Length /@ members] == {InfraMeasurement[g, InfraWorldline[p, q], "Length"] + 1} &&
@@ -192,7 +192,7 @@ The proper time is the universal time of *q* in the diamond [*p*, *q*], whose on
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  AllTrue[Select[Tuples[VertexList[g], 2], Apply[{p, q} |-> MemberQ[RandomInfraCausalFuture[g, p], q]]], Apply[{p, q} |->
+  AllTrue[Select[Tuples[VertexList[g], 2], Apply[{p, q} |-> MemberQ[Keys @ InfraMeasurement[g, InfraCausalFuture[p], "VertexDensity"], q]]], Apply[{p, q} |->
     InfraMeasurement[g, InfraWorldline[p, q], "Length"] == UniversalTime[InfraMeasurement[g, InfraCausalDiamond[p, q], "Subgraph"]][q]]]]
 ```
 
@@ -202,9 +202,9 @@ The members of a polyline are the concatenations of one worldline per leg: the c
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[3]]])},
-    {r = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, q], RandomInfraSlice[g, InfraSlice[5]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[3]]])},
+    {r = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[q], InfraSlice[5]]])},
     {members = RandomInfraWorldline[g, InfraWorldline[p, q, r], All],
      cuts = Accumulate @ {1, InfraMeasurement[g, InfraWorldline[p, q], "Length"], InfraMeasurement[g, InfraWorldline[q, r], "Length"]}},
     Length[members] == InfraMeasurement[g, InfraWorldline[p, q, r], "Cardinality"] ==
@@ -220,9 +220,9 @@ The longest chains starting at *p* are worldlines from *p* to events of its futu
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
     {members = RandomInfraWorldline[g, InfraWorldline[p], All],
-     height = Max[InfraMeasurement[g, InfraWorldline[p, #], "Length"] & /@ RandomInfraCausalFuture[g, p]]},
+     height = Max[InfraMeasurement[g, InfraWorldline[p, #], "Length"] & /@ Keys @ InfraMeasurement[g, InfraCausalFuture[p], "VertexDensity"]]},
     InfraMeasurement[g, InfraWorldline[p], "Length"] == height &&
       Union[Length /@ members] == {height + 1} && InfraWorldlineQ[g, members] &&
       AllTrue[members, InfraMemberQ[g, InfraWorldline[p], #] &]],

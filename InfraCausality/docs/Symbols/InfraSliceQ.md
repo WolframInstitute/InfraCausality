@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraSliceQ
 Keywords: [slice, level set, universal time, antichain, maximal antichain, predicate]
-SeeAlso: [InfraSlice, RandomInfraSlice, InfraAntichainQ, UniversalTime, UniversalFoliation]
+SeeAlso: [InfraSlice, InfraAntichainQ, UniversalTime, UniversalFoliation]
 RelatedGuides: [CausalTime]
 ---
 
@@ -34,8 +34,8 @@ On each substrate: the slice at height 2, the same slice without its first event
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {s = RandomInfraSlice[g, 2]},
-    {InfraSliceQ[g, s], InfraSliceQ[g, Rest[s]], InfraSliceQ[g, Append[s, First @ RandomInfraSlice[g, 3]]]}],
+    {s = Keys @ InfraMeasurement[g, InfraSlice[2], "VertexDensity"]},
+    {InfraSliceQ[g, s], InfraSliceQ[g, Rest[s]], InfraSliceQ[g, Append[s, First @ Keys @ InfraMeasurement[g, InfraSlice[3], "VertexDensity"]]]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -47,7 +47,7 @@ With[
   {set = {{0, 6}, {1, 4}, {2, 3}, {3, 2}, {4, 1}, {5, 0}}},
   GraphicsRow[{
     Labeled[InfraSubstrateHighlight[g, {set -> StandardRed}], {InfraAntichainQ[g, set], InfraSliceQ[g, set]}],
-    Labeled[InfraSubstrateHighlight[g, {InfraSlice[6]}], InfraSliceQ[g, RandomInfraSlice[g, 6]]]}]]
+    Labeled[InfraSubstrateHighlight[g, {InfraSlice[6]}], InfraSliceQ[g, Keys @ InfraMeasurement[g, InfraSlice[6], "VertexDensity"]]]}]]
 ```
 
 The list form tests the whole universal foliation at once.
@@ -68,7 +68,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {t = UniversalTime[g]},
     AllTrue[UniversalFoliation[g], s |-> InfraSliceQ[g, s] && InfraSliceQ[g, Reverse[s]]] && ! InfraSliceQ[g, {}] &&
-      AllTrue[Subsets[VertexList[g], {1, 2}], set |-> InfraSliceQ[g, set] === (Sort[set] === RandomInfraSlice[g, t[First @ set]])]]]
+      AllTrue[Subsets[VertexList[g], {1, 2}], set |-> InfraSliceQ[g, set] === (Sort[set] === Keys @ InfraMeasurement[g, InfraSlice[t[First @ set]], "VertexDensity"])]]]
 ```
 
 A slice is an antichain; a proper nonempty part of a slice of more than one event is an antichain and no slice.

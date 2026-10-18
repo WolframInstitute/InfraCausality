@@ -36,7 +36,7 @@ The frame at an event at height 3, drawn without the viewer, on the diamond latt
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[3]])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[3]])},
     InfraSubstrateHighlight[g, {
       InfraCausalFuture[v] -> Lighter[StandardOrange, 0.6], InfraCausalPast[v] -> Lighter[StandardBlue, 0.6],
       InfraFutureLightCone[v] -> StandardOrange, InfraPastLightCone[v] -> StandardBlue, {v} -> StandardRed}]],
@@ -52,9 +52,9 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
-      SubsetQ[RandomInfraCausalFuture[g, v], Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] &&
-        SubsetQ[RandomInfraCausalPast[g, v], Keys @ InfraMeasurement[g, InfraPastLightCone[v], "VertexDensity"]] &&
-        Intersection[RandomInfraCausalFuture[g, v], RandomInfraCausalPast[g, v]] === {v}]]]
+      SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] &&
+        SubsetQ[Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraPastLightCone[v], "VertexDensity"]] &&
+        Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"]] === {v}]]]
 ```
 
 The ray counts in the label are the numbers of extremal events of the light cones: the leaves of the future tree and of the past tree.

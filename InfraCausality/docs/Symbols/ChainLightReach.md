@@ -30,8 +30,8 @@ The light reach of a worldline from an event at height 1 to an event at height 5
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
     {c = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
     InfraSubstrateHighlight[g, {ChainLightReach[g, c], InfraWalk[c]}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -62,7 +62,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
-    AllTrue[chains, c |-> SubsetQ[ChainLightReach[g, c], c] && SubsetQ[RandomInfraCausalFuture[g, First @ c], ChainLightReach[g, c]]]]]
+    AllTrue[chains, c |-> SubsetQ[ChainLightReach[g, c], c] && SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[First @ c], "VertexDensity"], ChainLightReach[g, c]]]]]
 ```
 
 A chain meets the light reach of another exactly when the light-ray projection onto it is positive.

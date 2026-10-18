@@ -48,7 +48,7 @@ The future light cone of an event at height 1, on the diamond lattice, a sprinkl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
     InfraSubstrateHighlight[g, {InfraFutureLightCone[v], v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -59,7 +59,7 @@ The number of light rays and their lengths for the same events.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
     Values @ InfraMeasurement[g, InfraFutureLightCone[v], {"Cardinality", "Length"}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -69,7 +69,7 @@ The light cone of the sprinkled event as a tree, beside its causal future.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+  {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
   GraphicsRow[{
     InfraMeasurement[g, InfraFutureLightCone[v], "Graph"],
     InfraSubstrateHighlight[g, {InfraCausalFuture[v], InfraFutureLightCone[v], v}]}]]
@@ -80,7 +80,7 @@ The members are the light rays, vertex lists from *v*.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+  {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
   RandomInfraFutureLightCone[g, InfraFutureLightCone[v], All]]
 ```
 
@@ -94,8 +94,8 @@ Table[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
       Keys[InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] ===
-        Select[RandomInfraCausalFuture[g, v], e |->
-          Length[RandomInfraCausalDiamond[g, v, e]] == InfraMeasurement[g, InfraWorldline[v, e], "Length"] + 1]]],
+        Select[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], e |->
+          Length[Keys @ InfraMeasurement[g, InfraCausalDiamond[v, e], "VertexDensity"]] == InfraMeasurement[g, InfraWorldline[v, e], "Length"] + 1]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -118,5 +118,5 @@ With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   AllTrue[VertexList[g], v |->
     Keys[InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] ===
-      Select[RandomInfraCausalFuture[g, v], e |-> First[e] == First[v] || Last[e] == Last[v]]]]
+      Select[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], e |-> First[e] == First[v] || Last[e] == Last[v]]]]
 ```

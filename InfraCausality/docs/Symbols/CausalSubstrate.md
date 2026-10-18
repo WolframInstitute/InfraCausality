@@ -61,7 +61,7 @@ The three doc substrates in their construction coordinates, with the causal futu
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small", "KeepCoordinates" -> True]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, 5])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[5]])},
     InfraSubstrateHighlight[g, {InfraCausalFuture[v] -> StandardOrange, InfraCausalPast[v] -> StandardBlue, v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```

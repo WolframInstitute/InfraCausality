@@ -12,7 +12,7 @@ RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrate
 
 - A **causal graph** is a directed acyclic graph whose vertices are events and whose directed paths are the causal relation: *u* ≼ *v* when a path leads from *u* to *v*. Everything below is read off the graph alone.
 - The pipeline: causal graph → cones and diamonds → worldlines and observers → universal time → message functions → radar chart → the observer space fibered over the chart.
-- Each construction is an inert head, such as `InfraCausalDiamond[p, q]` or `InfraRadarChart[a]`, that holds its data and computes nothing; `InfraMeasurement` reads it on a graph, a `RandomInfra…` sampler draws its members and `InfraSubstrateHighlight` draws it.
+- Each construction is an inert head, such as `InfraCausalDiamond[p, q]` or `InfraRadarChart[a]`, that holds its data and computes nothing; `InfraMeasurement` reads it on a graph, a `RandomInfra…` sampler draws the members of a chain head and `InfraSubstrateHighlight` draws it.
 - The running example is the diamond lattice at size "Small", the 7 × 7 light-cone lattice of 1 + 1 Minkowski space; a sprinkling and the cylinder lattice show where the lattice is special.
 
 ## Setup

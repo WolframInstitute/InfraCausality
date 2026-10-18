@@ -41,8 +41,8 @@ On each substrate: an observer passes, the same observer with an inner tick remo
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraObserver[g, InfraObserver[p, q]])},
     {InfraObserverQ[g, member], InfraObserverQ[g, Delete[member, 2]], InfraObserverQ[g, Reverse @ member]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -67,9 +67,9 @@ On a substrate the covering pairs are the edges, so a list is an observer exactl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[2]])},
-    {q = (SeedRandom[2]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
-    {chains = Select[Subsets[RandomInfraCausalDiamond[g, p, q], {2, 5}], InfraChainQ[g, #] &]},
+    {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[2]])},
+    {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
+    {chains = Select[Subsets[Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"], {2, 5}], InfraChainQ[g, #] &]},
     AllTrue[chains, chain |-> InfraObserverQ[g, chain] === AllTrue[Partition[chain, 2, 1], EdgeQ[g, DirectedEdge @@ #] &]]]]
 ```
 
@@ -79,9 +79,9 @@ The predicate is membership in the observer family of the endpoints.
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[2]])},
-    {q = (SeedRandom[2]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
-    {chains = Select[Subsets[RandomInfraCausalDiamond[g, p, q], {2, 5}], InfraChainQ[g, #] && First[#] === p && Last[#] === q &]},
+    {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[2]])},
+    {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
+    {chains = Select[Subsets[Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"], {2, 5}], InfraChainQ[g, #] && First[#] === p && Last[#] === q &]},
     AllTrue[chains, chain |-> InfraObserverQ[g, chain] === InfraMemberQ[g, InfraObserver[p, q], chain]]]]
 ```
 
@@ -91,7 +91,7 @@ Every worldline is an observer, and every observer is a chain.
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
     InfraObserverQ[g, RandomInfraWorldline[g, InfraWorldline[p, q], All]] && InfraChainQ[g, RandomInfraObserver[g, InfraObserver[p, q], All]]]]
 ```

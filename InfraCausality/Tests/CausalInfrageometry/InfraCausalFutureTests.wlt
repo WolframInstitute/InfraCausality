@@ -17,11 +17,11 @@ $fixtures = <| "TwoSource" -> $twoSource, "Diamond" -> $diamond, "Cylinder" -> $
 $tau = { g, v, e } |-> Max[ Length /@ FindPath[ g, v, e, Infinity, All ] ] - 1;
 
 $upSetQ = g |-> AllTrue[ VertexList @ g, v |->
-  With[ { cone = RandomInfraCausalFuture[ g, v ] },
+  With[ { cone = Keys @ InfraMeasurement[ g, InfraCausalFuture[ v ], "VertexDensity" ] },
     MemberQ[ cone, v ] && SubsetQ[ cone, Catenate[ VertexOutComponent[ g, { # }, 1 ] & /@ cone ] ] ] ];
 
 $downSetQ = g |-> AllTrue[ VertexList @ g, v |->
-  With[ { cone = RandomInfraCausalPast[ g, v ] },
+  With[ { cone = Keys @ InfraMeasurement[ g, InfraCausalPast[ v ], "VertexDensity" ] },
     MemberQ[ cone, v ] && SubsetQ[ cone, Catenate[ VertexInComponent[ g, { # }, 1 ] & /@ cone ] ] ] ];
 
 $futureCutQ = g |-> AllTrue[ VertexList @ g, v |->
@@ -40,10 +40,10 @@ $subgraphQ = g |-> AllTrue[ VertexList @ g, v |->
   IsomorphicGraphQ[ InfraMeasurement[ g, InfraCausalFuture[ v ], "Subgraph" ], VertexOutComponentGraph[ g, { v } ] ] &&
     InfraMeasurement[ g, InfraCausalFuture[ v ], "CountingMeasure" ] == VertexCount @ VertexOutComponentGraph[ g, { v } ] ];
 
-$singleMemberQ = g |-> AllTrue[ VertexList @ g, v |->
-  RandomInfraCausalFuture[ g, InfraCausalFuture[ v ], All ] === { RandomInfraCausalFuture[ g, v ] } &&
-    Length @ RandomInfraCausalFuture[ g, InfraCausalFuture[ v ], All ] == InfraMeasurement[ g, InfraCausalFuture[ v ], "Cardinality" ] &&
-    RandomInfraCausalPast[ g, InfraCausalPast[ v ], All ] === { RandomInfraCausalPast[ g, v ] } ];
+$randomPointsQ = { g, head } |-> With[ { support = Keys @ InfraMeasurement[ g, head, "VertexDensity" ] },
+  { points = RandomInfraPoint[ g, head, Min[ 3, Length @ support ] ] },
+  Length @ points == Min[ 3, Length @ support ] && DuplicateFreeQ @ points && SubsetQ[ support, points ] &&
+    InfraMeasurement[ g, head, "Cardinality" ] == 1 ];
 
 VerificationTest[ $upSetQ[ $twoSource ], True, TestID -> "InfraCausalFuture-TwoSource-up-set-containing-v" ]
 
@@ -58,13 +58,13 @@ VerificationTest[ $downSetQ[ $diamond ], True, TestID -> "InfraCausalPast-Diamon
 VerificationTest[ $downSetQ[ $cylinder ], True, TestID -> "InfraCausalPast-Cylinder-down-set-containing-v" ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |-> InfraCausalFutureQ[ g, RandomInfraCausalFuture[ g, v ] ] ] ],
+  AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |-> InfraCausalFutureQ[ g, Keys @ InfraMeasurement[ g, InfraCausalFuture[ v ], "VertexDensity" ] ] ] ],
   True,
   TestID -> "InfraCausalFutureQ-All-accepts-sampled-futures"
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |-> InfraCausalPastQ[ g, RandomInfraCausalPast[ g, v ] ] ] ],
+  AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |-> InfraCausalPastQ[ g, Keys @ InfraMeasurement[ g, InfraCausalPast[ v ], "VertexDensity" ] ] ] ],
   True,
   TestID -> "InfraCausalPastQ-All-accepts-sampled-pasts"
 ]
@@ -74,7 +74,7 @@ VerificationTest[ InfraCausalFutureQ[ $twoSource, { 1, 2 } ], False, TestID -> "
 VerificationTest[ InfraCausalPastQ[ $twoSource, { 1, 2 } ], False, TestID -> "InfraCausalPastQ-TwoSource-two-sources-rejected" ]
 
 VerificationTest[
-  RandomInfraCausalFuture[ $twoSource, { 1, 2 } ] === Union[ VertexOutComponent[ $twoSource, { 1 } ], VertexOutComponent[ $twoSource, { 2 } ] ],
+  Keys @ InfraMeasurement[ $twoSource, InfraCausalFuture[ { 1, 2 } ], "VertexDensity" ] === Union[ VertexOutComponent[ $twoSource, { 1 } ], VertexOutComponent[ $twoSource, { 2 } ] ],
   True,
   TestID -> "InfraCausalFuture-TwoSource-set-anchor-is-union"
 ]
@@ -97,7 +97,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ Tuples[ { Range[ 0, 3 ], Range[ 0, 3 ] } ], v |-> Length @ RandomInfraCausalFuture[ $diamond, v ] == ( 4 - First @ v ) ( 4 - Last @ v ) ],
+  AllTrue[ Tuples[ { Range[ 0, 3 ], Range[ 0, 3 ] } ], v |-> Length @ Keys @ InfraMeasurement[ $diamond, InfraCausalFuture[ v ], "VertexDensity" ] == ( 4 - First @ v ) ( 4 - Last @ v ) ],
   True,
   TestID -> "InfraCausalFuture-Diamond-volume-is-rectangle"
 ]
@@ -110,13 +110,23 @@ VerificationTest[ $subgraphQ[ $cylinder ], True, TestID -> "InfraCausalFuture-Cy
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |->
-    InfraMemberQ[ g, InfraCausalFuture[ v ], Reverse @ RandomInfraCausalFuture[ g, v ] ] &&
-      ! InfraMemberQ[ g, InfraCausalFuture[ v ], Most @ RandomInfraCausalFuture[ g, v ] ] ] ],
+    InfraMemberQ[ g, InfraCausalFuture[ v ], Reverse @ Keys @ InfraMeasurement[ g, InfraCausalFuture[ v ], "VertexDensity" ] ] &&
+      ! InfraMemberQ[ g, InfraCausalFuture[ v ], Most @ Keys @ InfraMeasurement[ g, InfraCausalFuture[ v ], "VertexDensity" ] ] ] ],
   True,
   TestID -> "InfraCausalFuture-All-member-is-the-support"
 ]
 
-VerificationTest[ AllTrue[ $fixtures, $singleMemberQ ], True, TestID -> "RandomInfraCausalFuture-All-single-member" ]
+VerificationTest[
+  AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |-> $randomPointsQ[ g, InfraCausalFuture[ v ] ] ] ],
+  True,
+  TestID -> "InfraCausalFuture-All-random-points-are-distinct-events-of-the-support"
+]
+
+VerificationTest[
+  AllTrue[ $fixtures, g |-> AllTrue[ VertexList @ g, v |-> $randomPointsQ[ g, InfraCausalPast[ v ] ] ] ],
+  True,
+  TestID -> "InfraCausalPast-All-random-points-are-distinct-events-of-the-support"
+]
 
 VerificationTest[
   AllTrue[ VertexList @ $diamond, v |->

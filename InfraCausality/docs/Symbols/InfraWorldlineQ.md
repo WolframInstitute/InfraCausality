@@ -41,8 +41,8 @@ On each substrate, a worldline passes, and the same worldline with one inner eve
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
     {InfraWorldlineQ[g, member], InfraWorldlineQ[g, Delete[member, 2]], InfraChainQ[g, Delete[member, 2]]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -53,8 +53,8 @@ On the sprinkling the observers between two events have clocks of different leng
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-  {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
   {members = RandomInfraObserver[g, InfraObserver[p, q], All]},
   GraphicsRow @ Table[
     Labeled[InfraSubstrateHighlight[g, {InfraWalk[chain]}], {InfraObserverQ[g, chain], InfraWorldlineQ[g, chain]}],
@@ -77,8 +77,8 @@ The predicate is membership in the worldline family of the endpoints. Checked on
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
     AllTrue[RandomInfraObserver[g, InfraObserver[p, q], All], chain |->
       InfraWorldlineQ[g, chain] === InfraMemberQ[g, InfraWorldline[p, q], chain] ===
         (Length[chain] - 1 == InfraMeasurement[g, InfraWorldline[p, q], "Length"])]]]
@@ -90,8 +90,8 @@ The hierarchy: every light ray is a worldline, every worldline an observer, ever
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[2]])},
-    {q = (SeedRandom[2]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
+    {p = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[2]])},
+    {q = (SeedRandom[2]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
     AllTrue[FindPath[g, p, q, Infinity, All], chain |->
       Implies[InfraLightRayQ[g, chain], InfraWorldlineQ[g, chain]] && Implies[InfraWorldlineQ[g, chain], InfraObserverQ[g, chain]] &&
         Implies[InfraObserverQ[g, chain], InfraChainQ[g, chain]]]]]
@@ -104,8 +104,8 @@ With[
   {counts = Table[
     With[
       {g = CausalSubstrate[name, "Small"]},
-      {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-      {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[6]]])},
+      {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+      {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
       Count[RandomInfraObserver[g, InfraObserver[p, q], All], chain_ /; ! InfraWorldlineQ[g, chain]]],
     {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]},
   First[counts] == Last[counts] == 0 < counts[[2]]]

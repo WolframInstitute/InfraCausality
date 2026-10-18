@@ -154,7 +154,7 @@ Table[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraWorldline[g])},
     {domain = InfraMeasurement[g, InfraRadarChart[a], "Domain"]},
-    domain === RandomInfraCausalDiamond[g, First @ a, Last @ a] &&
+    domain === Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ a, Last @ a], "VertexDensity"] &&
       Sort[Join @@ Values[VertexList /@ InfraFibers @ InfraMeasurement[g, InfraRadarChart[a], "Fibration"]]] === domain],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```

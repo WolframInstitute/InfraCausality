@@ -18,10 +18,10 @@ $fixtures = <| "Mech" -> $mechGraph, "TwoSource" -> $twoSource, "Diamond" -> $di
 
 $heightsQ = { g, f } |-> Keys @ f @ g === Range[ 0, Max @ UniversalTime @ g ];
 
-$inSlicesQ = { g, f } |-> AllTrue[ Normal @ f @ g, rule |-> Last @ rule =!= { } && SubsetQ[ RandomInfraSlice[ g, First @ rule ], Last @ rule ] ];
+$inSlicesQ = { g, f } |-> AllTrue[ Normal @ f @ g, rule |-> Last @ rule =!= { } && SubsetQ[ Keys @ InfraMeasurement[ g, InfraSlice[ First @ rule ], "VertexDensity" ], Last @ rule ] ];
 
 $largestQ = { g, f, component } |-> AllTrue[ Normal @ f @ g,
-  rule |-> With[ { slice = RandomInfraSlice[ g, First @ rule ], volume = v |-> Length @ component[ g, { v } ] },
+  rule |-> With[ { slice = Keys @ InfraMeasurement[ g, InfraSlice[ First @ rule ], "VertexDensity" ], volume = v |-> Length @ component[ g, { v } ] },
     Last @ rule === Sort @ Select[ slice, v |-> volume[ v ] == Max[ volume /@ slice ] ] ] ];
 
 VerificationTest[ AllTrue[ $fixtures, g |-> $heightsQ[ g, MaximalAbsorber ] && $heightsQ[ g, MaximalEmitter ] ], True, TestID -> "MaximalAbsorber-All-keys-are-heights" ]

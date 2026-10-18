@@ -43,7 +43,7 @@ A longest chain of the diamond lattice, three worldlines from the bottom that en
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
-  {targets = Table[(SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[RandomChoice @ RandomInfraSlice[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
+  {targets = Table[(SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[RandomInfraPoint[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
   InfraKinematics[g, ref, targets]]
 ```
 
@@ -53,7 +53,7 @@ The same reference chain and targets drawn on the lattice.
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
-  {targets = Table[(SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[RandomChoice @ RandomInfraSlice[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
+  {targets = Table[(SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[RandomInfraPoint[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
   InfraSubstrateHighlight[g, Prepend[MapThread[InfraWalk[#1] -> #2 &, {targets, {StandardRed, StandardGreen, StandardOrange}}], InfraWalk[ref] -> StandardBlue]]]
 ```
 

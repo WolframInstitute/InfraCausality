@@ -48,7 +48,7 @@ The past light cone of an event one slice below the top, on the diamond lattice,
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[Max[UniversalTime[g]] - 1]])},
     InfraSubstrateHighlight[g, {InfraPastLightCone[v], v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -59,7 +59,7 @@ The number of incoming light rays and their lengths for the same events.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[Max[UniversalTime[g]] - 1]])},
     Values @ InfraMeasurement[g, InfraPastLightCone[v], {"Cardinality", "Length"}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -69,7 +69,7 @@ The incoming light rays of the sprinkled event, each a vertex list ending at the
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[6]])},
+  {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[6]])},
   RandomInfraPastLightCone[g, InfraPastLightCone[v], All]]
 ```
 

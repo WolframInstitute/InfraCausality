@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalPast
 Keywords: [causal past, past cone, J-, down-set, causal volume, proper time, symbolic object]
-SeeAlso: [InfraCausalFuture, RandomInfraCausalPast, InfraCausalPastQ, InfraCausalDiamond, InfraPastLightCone, UniversalTime, CausalSubstrate]
+SeeAlso: [InfraCausalFuture, InfraCausalPastQ, InfraCausalDiamond, InfraPastLightCone, UniversalTime, CausalSubstrate]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -37,7 +37,7 @@ The head holds its anchor and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the causal past is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-[RandomInfraCausalPast]() returns the support as a sorted vertex list, and [InfraCausalPastQ]() recognises a vertex set that is the causal past of one of its events.
+A set head has one member, its support, so no sampler draws it. The three readings of the causal past on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraCausalPast]()[*v*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalPast]()[*v*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalPast]()[*v*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalPastQ]() recognises a vertex set that is the causal past of one of its events.
 
 Corresponding notions:
 
@@ -54,7 +54,7 @@ The causal past of an event at height 5, on the diamond lattice, a sprinkling in
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[5]])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[5]])},
     InfraSubstrateHighlight[g, {InfraCausalPast[v], v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -64,7 +64,7 @@ The causal past and the causal future of the same event of the sprinkling meet o
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[3]])},
+  {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[3]])},
   InfraSubstrateHighlight[g, {InfraCausalFuture[v], InfraCausalPast[v], v}]]
 ```
 
@@ -73,7 +73,7 @@ On the cylinder lattice the causal past of an event of the top row widens downwa
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {v = (SeedRandom[2]; RandomChoice @ RandomInfraSlice[g, InfraSlice[6]])},
+  {v = (SeedRandom[2]; RandomInfraPoint[g, InfraSlice[6]])},
   GraphicsRow @ Table[InfraSubstrateHighlight[g, {InfraCausalPast[v, t], v}], {t, {1, 3, 6}}]]
 ```
 
@@ -86,7 +86,7 @@ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
-      With[{past = RandomInfraCausalPast[g, InfraCausalPast[v]]},
+      With[{past = Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"]},
         MemberQ[past, v] && SubsetQ[past, Union @@ (VertexInComponent[g, #, {1}] & /@ past)]]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -97,7 +97,7 @@ Table[
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   AllTrue[Tuples[VertexList[g], 2], Apply[{u, v} |->
-    MemberQ[RandomInfraCausalPast[g, v], u] === MemberQ[RandomInfraCausalFuture[g, u], v]]]]
+    MemberQ[Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"], u] === MemberQ[Keys @ InfraMeasurement[g, InfraCausalFuture[u], "VertexDensity"], v]]]]
 ```
 
 On the diamond lattice the causal past of {*i*, *j*} is a rectangle of (*i* + 1)(*j* + 1) events.

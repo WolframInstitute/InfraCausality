@@ -4,10 +4,6 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: CausalInfrageometry :: InfraCausalFuture *)
 
-Options[ RandomInfraCausalFuture ] = { "NextVertexFunction" -> Automatic }
-
-Options[ RandomInfraCausalPast ] = { "NextVertexFunction" -> Automatic }
-
 InfraCausalFuture /: InfraMeasurement[ graph_Graph, InfraCausalFuture[ anchor_ ], "VertexDensity" ] :=
   AssociationThread[ Sort @ VertexOutComponent[ graph, Keys @ InfraDensity[ graph, anchor ] ], 1 ]
 
@@ -52,41 +48,6 @@ InfraCausalPast /: InfraMeasurement[ graph_Graph, cone_InfraCausalPast, All ] :=
 
 InfraCausalPast /: InfraMemberQ[ graph_Graph, cone_InfraCausalPast, set_List ] :=
   Sort @ set === Keys @ InfraMeasurement[ graph, cone, "VertexDensity" ]
-
-PackageScope[ setSample ]
-
-setSample[ members_List, count_, nextFn_ ] :=
-  With[ { ordered = { members } },
-    Which[
-      count === Automatic, members,
-      count === All,       ordered,
-      nextFn === Identity, If[ IntegerQ @ count && Length @ ordered < count, { }, Take[ ordered, count ] ],
-      IntegerQ @ count && Length @ ordered < count, { },
-      True, RandomSample[ ordered, count ] ] ]
-
-RandomInfraCausalFuture[ graph_Graph, cone_InfraCausalFuture,
-    count : ( _Integer?( n |-> n >= 0 ) | UpTo[ _Integer?( n |-> n >= 0 ) ] | All | Automatic ) : Automatic, opts : OptionsPattern[] ] /;
-    SubsetQ[ First /@ Options[ RandomInfraCausalFuture ], First /@ { opts } ] &&
-    ( OptionValue[ RandomInfraCausalFuture, { opts }, "NextVertexFunction" ] =!= RandomChoice || count =!= All ) :=
-  setSample[ Keys @ InfraMeasurement[ graph, cone, "VertexDensity" ], count,
-    OptionValue[ RandomInfraCausalFuture, { opts }, "NextVertexFunction" ] ]
-
-RandomInfraCausalFuture[ graph_Graph, anchor : Except[ _InfraCausalFuture | _Rule | _RuleDelayed ],
-    count : ( _Integer?( n |-> n >= 0 ) | UpTo[ _Integer?( n |-> n >= 0 ) ] | All | Automatic ) : Automatic, opts : OptionsPattern[] ] /;
-    SubsetQ[ First /@ Options[ RandomInfraCausalFuture ], First /@ { opts } ] :=
-  RandomInfraCausalFuture[ graph, InfraCausalFuture[ anchor ], count, opts ]
-
-RandomInfraCausalPast[ graph_Graph, cone_InfraCausalPast,
-    count : ( _Integer?( n |-> n >= 0 ) | UpTo[ _Integer?( n |-> n >= 0 ) ] | All | Automatic ) : Automatic, opts : OptionsPattern[] ] /;
-    SubsetQ[ First /@ Options[ RandomInfraCausalPast ], First /@ { opts } ] &&
-    ( OptionValue[ RandomInfraCausalPast, { opts }, "NextVertexFunction" ] =!= RandomChoice || count =!= All ) :=
-  setSample[ Keys @ InfraMeasurement[ graph, cone, "VertexDensity" ], count,
-    OptionValue[ RandomInfraCausalPast, { opts }, "NextVertexFunction" ] ]
-
-RandomInfraCausalPast[ graph_Graph, anchor : Except[ _InfraCausalPast | _Rule | _RuleDelayed ],
-    count : ( _Integer?( n |-> n >= 0 ) | UpTo[ _Integer?( n |-> n >= 0 ) ] | All | Automatic ) : Automatic, opts : OptionsPattern[] ] /;
-    SubsetQ[ First /@ Options[ RandomInfraCausalPast ], First /@ { opts } ] :=
-  RandomInfraCausalPast[ graph, InfraCausalPast[ anchor ], count, opts ]
 
 InfraCausalFutureQ[ graph_Graph, family_Association ] :=
   InfraCausalFutureQ[ graph, Keys @ family ]

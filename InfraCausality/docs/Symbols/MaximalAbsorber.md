@@ -61,7 +61,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {absorbers = MaximalAbsorber[g]},
     Keys[absorbers] === Range[0, Max @ UniversalTime[g]] &&
-      AllTrue[Normal @ absorbers, Apply[{k, vs} |-> vs =!= {} && SubsetQ[RandomInfraSlice[g, k], vs]]]]]
+      AllTrue[Normal @ absorbers, Apply[{k, vs} |-> vs =!= {} && SubsetQ[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], vs]]]]]
 ```
 
 The values are exactly the events of the slice with the largest causal past, by brute force.
@@ -72,7 +72,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {size = v |-> Length @ VertexInComponent[g, {v}]},
     AllTrue[Normal @ MaximalAbsorber[g], Apply[{k, vs} |->
-      With[{slice = RandomInfraSlice[g, k]}, vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
+      With[{slice = Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]}, vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
 ```
 
 On the diamond lattice the absorbers of slice *k* are the events (*i*, *j*) of the antidiagonal nearest the diagonal, |*i* − *j*| = 0 for even *k* and 1 for odd *k*, and on the cylinder lattice they are the whole rows.
@@ -80,7 +80,7 @@ On the diamond lattice the absorbers of slice *k* are the events (*i*, *j*) of t
 ```wl
 With[
   {diamond = CausalSubstrate["DiamondLatticeGraph", "Small"], cylinder = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  AllTrue[Normal @ MaximalAbsorber[diamond], Apply[{k, vs} |-> vs === Sort @ Select[RandomInfraSlice[diamond, k], v |-> Abs[First[v] - Last[v]] == Mod[k, 2]]]] &&
+  AllTrue[Normal @ MaximalAbsorber[diamond], Apply[{k, vs} |-> vs === Sort @ Select[Keys @ InfraMeasurement[diamond, InfraSlice[k], "VertexDensity"], v |-> Abs[First[v] - Last[v]] == Mod[k, 2]]]] &&
     Values[MaximalAbsorber[cylinder]] === UniversalFoliation[cylinder]]
 ```
 

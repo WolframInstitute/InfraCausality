@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraWorldline
 Keywords: [worldline, longest chain, timelike geodesic, uniform sampling, sampler, count contract, NextVertexFunction]
-SeeAlso: [InfraWorldline, InfraWorldlineQ, RandomInfraObserver, RandomInfraFutureLightCone, RandomInfraCausalDiamond, InfraMeasurement, InfraMemberQ]
+SeeAlso: [InfraWorldline, InfraWorldlineQ, RandomInfraObserver, RandomInfraFutureLightCone, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -53,8 +53,8 @@ One worldline from an event at height 1 to an event of its future one slice belo
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
     InfraSubstrateHighlight[g, {InfraWalk[member], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -99,8 +99,8 @@ With[
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {members = RandomInfraWorldline[g, InfraWorldline[p, q], All]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"] &&
       Union[Length /@ members] == {InfraMeasurement[g, InfraWorldline[p, q], "Length"] + 1} &&
@@ -123,8 +123,8 @@ With[
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
     {n = Min[3, InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"]]},
     RandomInfraWorldline[g, InfraWorldline[p, q], n, "NextVertexFunction" -> Identity] === Take[Sort @ RandomInfraWorldline[g, InfraWorldline[p, q], All], n] &&
       (SeedRandom[7]; RandomInfraWorldline[g, InfraWorldline[p, q], n]) === (SeedRandom[7]; RandomInfraWorldline[g, InfraWorldline[p, q], n])]]
@@ -138,6 +138,6 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {members = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[20]])},
     AllTrue[members, member |->
-      SubsetQ[RandomInfraCausalDiamond[g, First @ member, Last @ member], member] &&
+      SubsetQ[Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ member, Last @ member], "VertexDensity"], member] &&
         VertexInDegree[g, First @ member] == 0 && VertexOutDegree[g, Last @ member] == 0]]]
 ```

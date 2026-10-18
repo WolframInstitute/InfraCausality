@@ -86,7 +86,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {members = (SeedRandom[1]; RandomInfraObserver[g, UpTo[10]])},
     AllTrue[members, chain |->
       InfraChainQ[g, chain] &&
-        RandomInfraCausalDiamond[g, InfraCausalDiamond[chain]] === RandomInfraCausalDiamond[g, First @ chain, Last @ chain]]]]
+        Keys @ InfraMeasurement[g, InfraCausalDiamond[chain], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ chain, Last @ chain], "VertexDensity"]]]]
 ```
 
 A chain and an antichain share at most one event: every slice of the universal foliation meets a chain at most once.
