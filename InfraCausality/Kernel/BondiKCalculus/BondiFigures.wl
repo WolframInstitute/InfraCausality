@@ -444,14 +444,14 @@ BondiViewer[] :=
     ],
     { { construction, "Clock", "Construction" },
       { "Clock", "Doppler", "Time Dilation", "Simultaneity",
-        "Length Contraction", "Velocity Addition", "Light Clock" } },
+        "Length Contraction", "Velocity Addition", "Light Clock" },
+      ControlType -> SetterBar },
     Delimiter,
     { { velocity, 0.4, "\[Beta]" }, 0.05, 0.9 },
     { { lightAngle, Pi/4, "\[Phi] (light angle)" }, 0.15, Pi/2 - 0.05 },
     { { bounces, 8, "Bounces / Pulses" }, 3, 15, 1 },
     Delimiter,
     { { v2, 0.3, Subscript[ "\[Beta]", "2" ] }, 0.05, 0.85 },
-    ControlType -> { SetterBar, Delimiter, Slider, Slider, Slider, Delimiter, Slider },
     TrackedSymbols :> { construction, velocity, lightAngle, bounces, v2 },
     SaveDefinitions -> True
   ]
