@@ -11,6 +11,8 @@ $minkowskiQ = { g, closed } |-> With[ { c = AssociationThread[ VertexList @ g, G
   AllTrue[ Permutations[ VertexList @ g, { 2 } ], p |-> With[ { dt = Last @ c[ Last @ p ] - Last @ c[ First @ p ], dx = Norm[ Most @ c[ Last @ p ] - Most @ c[ First @ p ] ] },
     ( d[[ index[ First @ p ], index[ Last @ p ] ]] < Infinity ) == If[ closed, dt >= dx, dt > dx ] ] ] ];
 
+$width = g |-> VertexCount @ g - Length @ FindIndependentEdgeSet @ Graph[ UndirectedEdge[ { 1, First @ # }, { 2, Last @ # } ] & /@ EdgeList @ TransitiveClosureGraph @ g ];
+
 VerificationTest[
   AllTrue[ $small, g |-> DirectedGraphQ @ g && AcyclicGraphQ @ g ],
   True,
@@ -118,12 +120,12 @@ VerificationTest[
   Map[ name |-> With[ { g = $small[ name ] },
       { VertexCount @ g, EdgeCount @ g, AcyclicGraphQ @ g && EdgeCount @ g == EdgeCount @ TransitiveReductionGraph @ g && WeaklyConnectedGraphQ @ g } ],
     CausalSubstrate[ ][ "WolframModel" ] ],
-  { { 100, 194, True }, { 130, 129, True }, { 130, 129, True }, { 100, 151, True }, { 100, 123, True }, { 100, 108, True } },
+  { { 100, 194, True }, { 100, 183, True }, { 100, 193, True }, { 100, 151, True }, { 100, 123, True }, { 100, 108, True } },
   TestID -> "CausalSubstrate-WolframModel-small-hasse-diagrams-with-literal-counts"
 ]
 
 VerificationTest[
-  AllTrue[ Transpose[ { CausalSubstrate[ ][ "WolframModel" ], { 100, 130, 130, 100, 100, 100 } } ], p |->
+  AllTrue[ Transpose[ { CausalSubstrate[ ][ "WolframModel" ], { 100, 100, 100, 100, 100, 100 } } ], p |->
     Abs[ VertexCount @ $small[ First @ p ] - Last @ p ] <= Last @ p / 20 ],
   True,
   TestID -> "CausalSubstrate-WolframModel-small-event-count-within-five-percent-of-the-budget"
@@ -138,9 +140,11 @@ VerificationTest[
 ]
 
 VerificationTest[
-  Map[ name |-> Sort @ EdgeList @ $small[ name ] === Table[ DirectedEdge[ i, i + 1 ], { i, 129 } ], { "wm1783", "wm7714" } ],
-  { True, True },
-  TestID -> "CausalSubstrate-WolframModel-wm1783-wm7714-causal-orders-are-total"
+  Map[ name |-> With[ { w = $width /@ ( CausalSubstrate[ name, # ] & /@ { "Small", "Medium", "Large" } ) },
+      { First @ w >= 3, Less @@ w, First @ w >= Max[ Length /@ UniversalFoliation @ $small[ name ] ] } ],
+    { "wm7978", "wm4735" } ],
+  { { True, True, True }, { True, True, True } },
+  TestID -> "CausalSubstrate-WolframModel-wm7978-wm4735-antichain-width-at-least-three-and-growing"
 ]
 
 VerificationTest[

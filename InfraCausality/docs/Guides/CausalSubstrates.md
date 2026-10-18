@@ -34,4 +34,4 @@ A causal substrate is the directed acyclic graph the observer lives in. The name
 
 ### Experimental: Wolfram model universes
 
-- `CausalSubstrate` with a name "wm3467", "wm1783", "wm7714", "wm1529", "wm3975" or "wm2216": the causal graph of a notable Wolfram model universe of the registry, from bundled data
+- `CausalSubstrate` with a name "wm3467", "wm7978", "wm4735", "wm1529", "wm3975" or "wm2216": the causal graph of a notable Wolfram model universe of the registry, from bundled data

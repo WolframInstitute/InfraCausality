@@ -10,7 +10,7 @@ Options[ CausalSubstrate ] = { "KeepCoordinates" -> False }
 
 Options[ CausalSubstrateCode ] = Options[ CausalSubstrate ]
 
-$wolframModelNames = { "wm3467", "wm1783", "wm7714", "wm1529", "wm3975", "wm2216" }
+$wolframModelNames = { "wm3467", "wm7978", "wm4735","wm1529", "wm3975", "wm2216" }
 
 CausalSubstrate[ ] :=
   <|
