@@ -123,8 +123,8 @@ VerificationTest[
 VerificationTest[
   With[ { time = InfraMeasurement[ $diamond, InfraRadarCoordinates[ $diagonal ], "Time" ] },
     Sort /@ Values @ KeySort @ GroupBy[ Normal @ time, Last -> First ] ],
-  UniversalFoliation @ $diamond,
-  TestID -> "InfraRadarCoordinates-diamond-diagonal-time-level-sets-are-universal-slices"
+  CausalHeightFoliation @ $diamond,
+  TestID -> "InfraRadarCoordinates-diamond-diagonal-time-level-sets-are-height-slices"
 ]
 
 VerificationTest[

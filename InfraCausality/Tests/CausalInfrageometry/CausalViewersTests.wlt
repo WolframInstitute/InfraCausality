@@ -58,7 +58,7 @@ VerificationTest[
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> With[ { m = FoliationViewer[ g ] },
-    AllTrue[ Range[ 0, Max @ UniversalTime @ g ], k |-> $drawsSubstrateQ[ $frame[ m, k ], g ] ] ] ],
+    AllTrue[ Range[ 0, Max @ CausalHeight @ g ], k |-> $drawsSubstrateQ[ $frame[ m, k ], g ] ] ] ],
   True,
   TestID -> "FoliationViewer-Fixtures-every-time-draws-the-substrate"
 ]
@@ -69,7 +69,7 @@ VerificationTest[
       Sort @ r[ "Future" ] === Sort @ VertexOutComponent[ g, { v } ] &&
       Sort @ r[ "Past" ] === Sort @ VertexInComponent[ g, { v } ] &&
       Intersection[ r[ "Future" ], r[ "Past" ] ] === { v } &&
-      r[ "Time" ] === UniversalTime[ g ][ v ] ] ] ],
+      r[ "Time" ] === CausalHeight[ g ][ v ] ] ] ],
   True,
   TestID -> "LightConeViewer-Fixtures-reading-cones-meet-only-at-the-event"
 ]
@@ -125,7 +125,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> With[ { t = UniversalTime @ g }, AllTrue[ Range[ 0, Max @ t ], k |->
+  AllTrue[ $fixtures, g |-> With[ { t = CausalHeight @ g }, AllTrue[ Range[ 0, Max @ t ], k |->
     With[ { r = $foliationReading[ g, k ] },
       Sort @ Join[ r[ "Slice" ], r[ "Earlier" ] ] === Sort @ Keys @ Select[ t, # <= k & ] &&
       ! IntersectingQ[ r[ "Slice" ], r[ "Earlier" ] ] &&
@@ -135,7 +135,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> With[ { t = UniversalTime @ g }, AllTrue[ Range[ 1, Max @ t ], k |->
+  AllTrue[ $fixtures, g |-> With[ { t = CausalHeight @ g }, AllTrue[ Range[ 1, Max @ t ], k |->
     With[ { r = $foliationReading[ g, k ] },
       AllTrue[ r[ "Slice" ], w |-> AnyTrue[ VertexInComponent[ g, { w }, 1 ], u |-> t[ u ] == k - 1 ] &&
         SubsetQ[ r[ "Earlier" ], DeleteCases[ VertexInComponent[ g, { w } ], w ] ] ] ] ] ] ],
@@ -144,7 +144,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> Total[ Length[ $foliationReading[ g, # ][ "Slice" ] ] & /@ Range[ 0, Max @ UniversalTime @ g ] ] == VertexCount @ g ],
+  AllTrue[ $fixtures, g |-> Total[ Length[ $foliationReading[ g, # ][ "Slice" ] ] & /@ Range[ 0, Max @ CausalHeight @ g ] ] == VertexCount @ g ],
   True,
   TestID -> "FoliationViewer-Fixtures-reading-slices-exhaust-the-events"
 ]

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalFuture
 Keywords: [causal future, future cone, J+, up-set, causal volume, proper time, symbolic object]
-SeeAlso: [InfraCausalPast, InfraCausalFutureQ, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, CausalSubstrate]
+SeeAlso: [InfraCausalPast, InfraCausalFutureQ, InfraCausalDiamond, InfraFutureLightCone, CausalHeight, CausalSubstrate]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -116,13 +116,13 @@ With[
     Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"] === Keys @ InfraMeasurement[ReverseGraph[g], InfraCausalPast[v], "VertexDensity"]]]
 ```
 
-Every event of the proper-time cut lies at universal time at most *t* in the subgraph of the causal future, and the cut grows to the whole causal future.
+Every event of the proper-time cut lies at causal height at most *t* in the subgraph of the causal future, and the cut grows to the whole causal future.
 
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   {v = (SeedRandom[3]; RandomInfraPoint[g, InfraSlice[1]])},
-  {time = UniversalTime @ InfraMeasurement[g, InfraCausalFuture[v], "Subgraph"]},
+  {time = CausalHeight @ InfraMeasurement[g, InfraCausalFuture[v], "Subgraph"]},
   And @@ Table[
     AllTrue[Keys @ InfraMeasurement[g, InfraCausalFuture[v, t], "VertexDensity"], e |-> time[e] <= t],
     {t, 0, Max @ time}] && Keys @ InfraMeasurement[g, InfraCausalFuture[v, Max @ time], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"]]

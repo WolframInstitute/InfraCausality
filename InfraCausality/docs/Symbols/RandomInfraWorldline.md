@@ -54,7 +54,7 @@ GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
     InfraSubstrateHighlight[g, {InfraWalk[member], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -97,7 +97,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {members = RandomInfraWorldline[g, InfraWorldline[p, q], All]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"] &&
       InfraWorldlineQ[g, members] && SubsetQ[members, RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]]]]

@@ -89,13 +89,13 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
         Keys @ InfraMeasurement[g, InfraCausalDiamond[chain], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ chain, Last @ chain], "VertexDensity"]]]]
 ```
 
-A chain and an antichain share at most one event: every slice of the universal foliation meets a chain at most once.
+A chain and an antichain share at most one event: every slice of the height foliation meets a chain at most once.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
     {members = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[10]])},
-    AllTrue[Tuples[{members, UniversalFoliation[g]}], Apply[{chain, slice} |->
+    AllTrue[Tuples[{members, CausalHeightFoliation[g]}], Apply[{chain, slice} |->
       InfraChainQ[g, chain] && InfraAntichainQ[g, slice] && Length[Intersection[chain, slice]] <= 1]]]]
 ```

@@ -59,30 +59,30 @@ chainSample[ dag_Graph, count_, nextFn_ ] :=
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ p_, q_ ], "Graph" ] :=
   With[ { interval = Subgraph[ graph, Intersection[ VertexOutComponent[ graph, { p } ], VertexInComponent[ graph, { q } ] ] ] },
-    { up = UniversalTime @ interval, down = UniversalTime @ ReverseGraph @ interval },
+    { up = CausalHeight @ interval, down = CausalHeight @ ReverseGraph @ interval },
     { carriers = Select[ VertexList @ interval, up[ # ] + down[ # ] == Lookup[ up, Key @ q ] & ] },
     Graph[ carriers, Select[ EdgeList @ Subgraph[ interval, carriers ], up[ Last @ # ] == up[ First @ # ] + 1 & ] ] ]
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ ], "Graph" ] :=
-  With[ { up = UniversalTime @ graph, down = UniversalTime @ ReverseGraph @ graph },
+  With[ { up = CausalHeight @ graph, down = CausalHeight @ ReverseGraph @ graph },
     { carriers = Select[ VertexList @ graph, up[ # ] + down[ # ] == Max[ 0, Values @ up ] & ] },
     Graph[ carriers, Select[ EdgeList @ Subgraph[ graph, carriers ], up[ Last @ # ] == up[ First @ # ] + 1 & ] ] ]
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ p_, q_ ], "Length" ] :=
-  Lookup[ UniversalTime @ Subgraph[ graph, Intersection[ VertexOutComponent[ graph, { p } ], VertexInComponent[ graph, { q } ] ] ],
+  Lookup[ CausalHeight @ Subgraph[ graph, Intersection[ VertexOutComponent[ graph, { p } ], VertexInComponent[ graph, { q } ] ] ],
     Key @ q, - Infinity ]
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ ], "Length" ] :=
-  Max[ 0, Values @ UniversalTime @ graph ]
+  Max[ 0, Values @ CausalHeight @ graph ]
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ p_ ], "Graph" ] :=
   With[ { future = Subgraph[ graph, VertexOutComponent[ graph, { p } ] ] },
-    { up = UniversalTime @ future, down = UniversalTime @ ReverseGraph @ future },
+    { up = CausalHeight @ future, down = CausalHeight @ ReverseGraph @ future },
     { carriers = Select[ VertexList @ future, up[ # ] + down[ # ] == Max @ Values @ up & ] },
     Graph[ carriers, Select[ EdgeList @ Subgraph[ future, carriers ], up[ Last @ # ] == up[ First @ # ] + 1 & ] ] ]
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ p_ ], "Length" ] :=
-  Max @ Values @ UniversalTime @ Subgraph[ graph, VertexOutComponent[ graph, { p } ] ]
+  Max @ Values @ CausalHeight @ Subgraph[ graph, VertexOutComponent[ graph, { p } ] ]
 
 InfraTimelikeGeodesic /: InfraMeasurement[ graph_Graph, InfraTimelikeGeodesic[ knots : Repeated[ _, { 3, Infinity } ] ], "Graph" ] :=
   With[ { legs = InfraMeasurement[ graph, InfraTimelikeGeodesic @@ #, "Graph" ] & /@ Partition[ { knots }, 2, 1 ] },

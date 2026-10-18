@@ -2,9 +2,9 @@ Package[ "WolframInstitute`InfraCausality`" ]
 
 PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* WolframInstitute`InfraCausality` :: CausalTime :: UniversalTime *)
+(* WolframInstitute`InfraCausality` :: CausalTime :: CausalHeight *)
 
-UniversalTime[ graph_Graph ] :=
+CausalHeight[ graph_Graph ] :=
   With[ { predecessors = GroupBy[ EdgeList @ graph, ( e |-> e[[ 2 ]] ) -> ( e |-> e[[ 1 ]] ) ] },
     KeyTake[
       Fold[
@@ -13,8 +13,8 @@ UniversalTime[ graph_Graph ] :=
         TopologicalSort @ graph ],
       VertexList @ graph ] ]
 
-UniversalFoliation[ graph_Graph ] :=
-  Values @ KeySort @ GroupBy[ Normal @ UniversalTime @ graph, Last -> First, Sort ]
+CausalHeightFoliation[ graph_Graph ] :=
+  Values @ KeySort @ GroupBy[ Normal @ CausalHeight @ graph, Last -> First, Sort ]
 
 InfraAntichainQ[ graph_Graph, family_Association ] :=
   InfraAntichainQ[ graph, Keys @ family ]

@@ -91,9 +91,9 @@ VerificationTest[
   AllTrue[ VertexList @ $diamond, v |->
     AllTrue[ Range[ 0, 6 ], t |->
       AllTrue[ Keys @ InfraMeasurement[ $diamond, InfraCausalFuture[ v, t ], "VertexDensity" ],
-        e |-> UniversalTime[ InfraMeasurement[ $diamond, InfraCausalFuture[ v ], "Subgraph" ] ][ e ] <= t ] ] ],
+        e |-> CausalHeight[ InfraMeasurement[ $diamond, InfraCausalFuture[ v ], "Subgraph" ] ][ e ] <= t ] ] ],
   True,
-  TestID -> "InfraCausalFuture-Diamond-cut-universal-time-bounded"
+  TestID -> "InfraCausalFuture-Diamond-cut-causal-height-bounded"
 ]
 
 VerificationTest[

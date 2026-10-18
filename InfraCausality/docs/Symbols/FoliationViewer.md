@@ -5,26 +5,26 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/FoliationViewer
-Keywords: [viewer, universal time, foliation, slice, antichain, interactive, Manipulate, experimental]
-SeeAlso: [UniversalTime, UniversalFoliation, InfraSlice, LightConeViewer, MessageFunctionViewer]
+Keywords: [viewer, causal height, foliation, slice, antichain, interactive, Manipulate, experimental]
+SeeAlso: [CausalHeight, CausalHeightFoliation, InfraSlice, LightConeViewer, MessageFunctionViewer]
 RelatedGuides: [CausalInfrageometry]
 ---
 
 ## Usage
 
-<code>[FoliationViewer]()[*g*]</code> gives a `Manipulate` with a slider over the universal time *k* drawing the slice <code>[InfraSlice]()[*k*]</code> over the earlier band <code>[InfraSlice]()[{0, *k* − 1}]</code>.
+<code>[FoliationViewer]()[*g*]</code> gives a `Manipulate` with a slider over the causal height *k* drawing the slice <code>[InfraSlice]()[*k*]</code> over the earlier band <code>[InfraSlice]()[{0, *k* − 1}]</code>.
 
 ## Details & Options
 
 Experimental: viewer. The interface of the viewers may change.
 
-Definition: the frame at time *k* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the slice {*v* : *t*(*v*) = *k*} of the [UniversalTime]() *t* in orange over the band {*v* : *t*(*v*) < *k*} in light blue. The label gives *k* and the sizes of the slice and of the band. The slider runs from 0 to the height of *g*, the largest universal time.
+Definition: the frame at time *k* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the slice {*v* : *t*(*v*) = *k*} of the [CausalHeight]() *t* in orange over the band {*v* : *t*(*v*) < *k*} in light blue. The label gives *k* and the sizes of the slice and of the band. The slider runs from 0 to the height of *g*, the largest causal height.
 
-The universal time *t*(*v*) is the length of a longest chain ending at *v*, and its level sets are the slices of [UniversalFoliation](). The result is a `Manipulate` with `SaveDefinitions -> True`; it needs the Wolfram notebook front end to move the slider.
+The causal height *t*(*v*) is the length of a longest chain ending at *v*, and its level sets are the slices of [CausalHeightFoliation](). The result is a `Manipulate` with `SaveDefinitions -> True`; it needs the Wolfram notebook front end to move the slider.
 
 ## Basic Examples
 
-The universal foliation of the cylinder lattice, one slice at a time.
+The height foliation of the cylinder lattice, one slice at a time.
 
 ```wl
 FoliationViewer[CausalSubstrate["CylinderLatticeGraph", "Small"]]
@@ -48,7 +48,7 @@ At every time the slice and the earlier band are disjoint, their union is the ba
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {height = Max @ UniversalTime @ g},
+    {height = Max @ CausalHeight @ g},
     AllTrue[Range[0, height], k |->
       With[{slice = Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], earlier = Keys @ InfraMeasurement[g, InfraSlice[{0, k - 1}], "VertexDensity"]},
         Intersection[slice, earlier] === {} && Union[slice, earlier] === Keys @ InfraMeasurement[g, InfraSlice[{0, k}], "VertexDensity"]]] &&
@@ -61,7 +61,7 @@ Every slice is an antichain, and every event of slice *k* > 0 has an in-neighbou
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    AllTrue[Range[0, Max @ UniversalTime @ g], k |->
+    AllTrue[Range[0, Max @ CausalHeight @ g], k |->
       InfraAntichainQ[g, Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]] &&
         (k == 0 || AllTrue[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], v |->
           IntersectingQ[VertexInComponent[g, v, {1}], Keys @ InfraMeasurement[g, InfraSlice[k - 1], "VertexDensity"]] &&

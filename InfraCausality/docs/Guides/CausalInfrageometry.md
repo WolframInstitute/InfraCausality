@@ -80,4 +80,4 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 
 ### Experimental: viewers
 
-- `LightConeViewer`, `MessageFunctionViewer`, `FoliationViewer` interactive viewers for the cones and light cones of an event, the messages of a tick and the universal foliation
+- `LightConeViewer`, `MessageFunctionViewer`, `FoliationViewer` interactive viewers for the cones and light cones of an event, the messages of a tick and the height foliation

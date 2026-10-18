@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraTimelikeGeodesic
 Keywords: [timelike geodesic, longest chain, proper time, maximal chain, twin paradox, piecewise geodesic, polyline, symbolic object]
-SeeAlso: [RandomInfraTimelikeGeodesic, InfraTimelikeGeodesicQ, InfraWorldline, InfraCausalDiamond, InfraFutureLightCone, UniversalTime, InfraChainQ]
+SeeAlso: [RandomInfraTimelikeGeodesic, InfraTimelikeGeodesicQ, InfraWorldline, InfraCausalDiamond, InfraFutureLightCone, CausalHeight, InfraChainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -37,7 +37,7 @@ The head holds its two events and computes nothing. Its graph, <code>[`InfraMeas
 | `"EdgeDensity"` | for each edge, the number of longest chains through it |
 | `"Faithful"` | `True` |
 
-<code>[InfraTimelikeGeodesic]()[]</code> is the same construction on the whole graph: the chains from a source to a sink whose length is the height of the graph, the maximum of [UniversalTime]().
+<code>[InfraTimelikeGeodesic]()[]</code> is the same construction on the whole graph: the chains from a source to a sink whose length is the height of the graph, the maximum of [CausalHeight]().
 
 A member is a vertex list in causal order; [RandomInfraTimelikeGeodesic]() draws members uniformly, and [InfraTimelikeGeodesicQ]() recognises one. Every timelike geodesic is a worldline, a saturated chain; see [InfraWorldline]().
 
@@ -60,7 +60,7 @@ GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     InfraSubstrateHighlight[g, {InfraTimelikeGeodesic[p, q], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -72,7 +72,7 @@ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     Values @ InfraMeasurement[g, InfraTimelikeGeodesic[p, q], {"Length", "Cardinality"}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -96,7 +96,7 @@ With[
   GraphicsRow @ Table[InfraSubstrateHighlight[g, {InfraWalk[member]}], {member, members}]]
 ```
 
-The longest chains of the whole sprinkling run from a source to a sink through every slice of the universal foliation.
+The longest chains of the whole sprinkling run from a source to a sink through every slice of the height foliation.
 
 ```wl
 With[
@@ -170,7 +170,7 @@ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {members = RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]},
     Length[members] == InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Cardinality"] &&
       Union[Length /@ members] == {InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Length"] + 1} &&
@@ -187,13 +187,13 @@ With[
     InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Cardinality"] == Binomial[Total[q - p], First[q - p]]]]]
 ```
 
-The proper time is the universal time of *q* in the diamond [*p*, *q*], whose only source is *p*.
+The proper time is the causal height of *q* in the diamond [*p*, *q*], whose only source is *p*.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   AllTrue[Select[Tuples[VertexList[g], 2], Apply[{p, q} |-> MemberQ[Keys @ InfraMeasurement[g, InfraCausalFuture[p], "VertexDensity"], q]]], Apply[{p, q} |->
-    InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Length"] == UniversalTime[InfraMeasurement[g, InfraCausalDiamond[p, q], "Subgraph"]][q]]]]
+    InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Length"] == CausalHeight[InfraMeasurement[g, InfraCausalDiamond[p, q], "Subgraph"]][q]]]]
 ```
 
 The members of a polyline are the concatenations of one timelike geodesic per leg: the cardinality is the product of the legs' cardinalities, the proper time their sum, and splitting a member at the knots gives a timelike geodesic on each leg.

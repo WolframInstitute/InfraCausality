@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraCausalPast
 Keywords: [causal past, past cone, J-, down-set, causal volume, proper time, symbolic object]
-SeeAlso: [InfraCausalFuture, InfraCausalPastQ, InfraCausalDiamond, InfraPastLightCone, UniversalTime, CausalSubstrate]
+SeeAlso: [InfraCausalFuture, InfraCausalPastQ, InfraCausalDiamond, InfraPastLightCone, CausalHeight, CausalSubstrate]
 RelatedGuides: [CausalInfrageometry]
 ---
 

@@ -75,7 +75,7 @@ VerificationTest[
   With[ { g = $small[ "CylinderLatticeGraph" ] },
     { Union[ VertexInDegree[ g, # ] & /@ Select[ VertexList @ g, v |-> Last @ v > 0 ] ],
       Union[ VertexInDegree[ g, # ] & /@ Select[ VertexList @ g, v |-> Last @ v == 0 ] ],
-      UniversalTime[ g ] === AssociationMap[ Last, VertexList @ g ] } ],
+      CausalHeight[ g ] === AssociationMap[ Last, VertexList @ g ] } ],
   { { 2 }, { 0 }, True },
   TestID -> "CausalSubstrate-CylinderLatticeGraph-in-degree-two-off-the-bottom-row-and-rows-are-slices"
 ]
@@ -83,7 +83,7 @@ VerificationTest[
 VerificationTest[
   AllTrue[ { 2, 3, 4, 6 }, n |-> With[ { g = CausalSubstrate[ "CylinderLatticeGraph", n ], h = CausalSubstrate[ "CylinderLatticeGraph", { n, n } ] },
       VertexCount @ g == n ( n + 1 ) && EdgeCount @ g == 2 n^2 && VertexList @ g === VertexList @ h && EdgeList @ g === EdgeList @ h &&
-        UniversalTime[ g ] === AssociationMap[ Last, VertexList @ g ] ] ] &&
+        CausalHeight[ g ] === AssociationMap[ Last, VertexList @ g ] ] ] &&
     EdgeList @ CausalSubstrate[ "CylinderLatticeGraph", 6 ] === EdgeList @ $small[ "CylinderLatticeGraph" ],
   True,
   TestID -> "CausalSubstrate-CylinderLatticeGraph-integer-size-n-is-the-n-by-n-cylinder"
@@ -114,9 +114,9 @@ VerificationTest[
   AllTrue[ { "SquareTilingSprayGraph", "HexagonalTilingSprayGraph", "SquareMeshSprayGraph" }, name |->
     With[ { s = InfraSubstrate[ StringReplace[ name, "SprayGraph" -> "Graph" ], "Small" ], g = $small[ name ] },
       { c = First @ GraphCenter @ s },
-      UniversalTime[ g ] === AssociationMap[ v |-> GraphDistance[ s, c, v ], VertexList @ g ] ] ],
+      CausalHeight[ g ] === AssociationMap[ v |-> GraphDistance[ s, c, v ], VertexList @ g ] ] ],
   True,
-  TestID -> "CausalSubstrate-Spray-universal-time-is-the-distance-from-the-centre"
+  TestID -> "CausalSubstrate-Spray-causal-height-is-the-distance-from-the-centre"
 ]
 
 VerificationTest[
@@ -150,7 +150,7 @@ VerificationTest[
 
 VerificationTest[
   Map[ name |-> With[ { w = $width /@ ( CausalSubstrate[ name, # ] & /@ { "Small", "Medium", "Large" } ) },
-      { First @ w >= 3, Less @@ w, First @ w >= Max[ Length /@ UniversalFoliation @ $small[ name ] ] } ],
+      { First @ w >= 3, Less @@ w, First @ w >= Max[ Length /@ CausalHeightFoliation @ $small[ name ] ] } ],
     { "wm7978", "wm4735" } ],
   { { True, True, True }, { True, True, True } },
   TestID -> "CausalSubstrate-WolframModel-wm7978-wm4735-antichain-width-at-least-three-and-growing"

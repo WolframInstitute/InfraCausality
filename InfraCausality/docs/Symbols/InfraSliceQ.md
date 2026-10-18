@@ -5,14 +5,14 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraSliceQ
-Keywords: [slice, level set, universal time, antichain, maximal antichain, predicate]
-SeeAlso: [InfraSlice, InfraAntichainQ, UniversalTime, UniversalFoliation]
+Keywords: [slice, level set, causal height, antichain, maximal antichain, predicate]
+SeeAlso: [InfraSlice, InfraAntichainQ, CausalHeight, CausalHeightFoliation]
 RelatedGuides: [CausalTime]
 ---
 
 ## Usage
 
-<code>[InfraSliceQ]()[*g*, *set*]</code> gives `True` if the vertex list *set* is a nonempty level set of <code>[UniversalTime]()[*g*]</code>.
+<code>[InfraSliceQ]()[*g*, *set*]</code> gives `True` if the vertex list *set* is a nonempty level set of <code>[CausalHeight]()[*g*]</code>.
 
 <code>[InfraSliceQ]()[*g*, {*set1*, *set2*, …}]</code> tests every set in the list.
 
@@ -20,9 +20,9 @@ RelatedGuides: [CausalTime]
 
 ## Details & Options
 
-Statement: a vertex list *S* is a slice when it is nonempty, its elements are events of *g*, and *S* = {*v* : *t*(*v*) = *t*(*s*)} for one, hence every, *s* in *S*, where *t* is the universal time. Order does not matter; a repeated event makes the list fail.
+Statement: a vertex list *S* is a slice when it is nonempty, its elements are events of *g*, and *S* = {*v* : *t*(*v*) = *t*(*s*)} for one, hence every, *s* in *S*, where *t* is the causal height. Order does not matter; a repeated event makes the list fail.
 
-A slice is an antichain, so the predicate implies [InfraAntichainQ](). The converse fails twice over: a part of a slice is an antichain and no slice, and an antichain can mix heights. Even a maximal antichain, one no event can be added to, need not be a slice: on the diamond lattice {(0, 6), (1, 4), (2, 3), (3, 2), (4, 1), (5, 0)} is maximal and its events have heights 6 and 5. The slices are the antichains that the universal time singles out.
+A slice is an antichain, so the predicate implies [InfraAntichainQ](). The converse fails twice over: a part of a slice is an antichain and no slice, and an antichain can mix heights. Even a maximal antichain, one no event can be added to, need not be a slice: on the diamond lattice {(0, 6), (1, 4), (2, 3), (3, 2), (4, 1), (5, 0)} is maximal and its events have heights 6 and 5. The slices are the antichains that the causal height singles out.
 
 The predicate takes a set, never an object; <code>[InfraSliceQ]()[*g*, [InfraSlice]()[*k*]]</code> stays unevaluated.
 
@@ -50,11 +50,11 @@ With[
     Labeled[InfraSubstrateHighlight[g, {InfraSlice[6]}], InfraSliceQ[g, Keys @ InfraMeasurement[g, InfraSlice[6], "VertexDensity"]]]}]]
 ```
 
-The list form tests the whole universal foliation at once.
+The list form tests the whole height foliation at once.
 
 ```wl
 Table[
-  With[{g = CausalSubstrate[name, "Small"]}, InfraSliceQ[g, UniversalFoliation[g]]],
+  With[{g = CausalSubstrate[name, "Small"]}, InfraSliceQ[g, CausalHeightFoliation[g]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -66,8 +66,8 @@ Every slice passes, the empty list fails, and a set passes exactly when it equal
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {t = UniversalTime[g]},
-    AllTrue[UniversalFoliation[g], s |-> InfraSliceQ[g, s] && InfraSliceQ[g, Reverse[s]]] && ! InfraSliceQ[g, {}] &&
+    {t = CausalHeight[g]},
+    AllTrue[CausalHeightFoliation[g], s |-> InfraSliceQ[g, s] && InfraSliceQ[g, Reverse[s]]] && ! InfraSliceQ[g, {}] &&
       AllTrue[Subsets[VertexList[g], {1, 2}], set |-> InfraSliceQ[g, set] === (Sort[set] === Keys @ InfraMeasurement[g, InfraSlice[t[First @ set]], "VertexDensity"])]]]
 ```
 
@@ -77,7 +77,7 @@ A slice is an antichain; a proper nonempty part of a slice of more than one even
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    AllTrue[Select[UniversalFoliation[g], s |-> Length[s] > 1], s |->
+    AllTrue[Select[CausalHeightFoliation[g], s |-> Length[s] > 1], s |->
       InfraAntichainQ[g, s] && InfraAntichainQ[g, Rest[s]] && ! InfraSliceQ[g, Rest[s]]]]]
 ```
 
@@ -87,6 +87,6 @@ On the two lattices every slice is a maximal antichain: every event off it is co
 With[
   {maximalQ = {g, s} |-> InfraAntichainQ[g, s] && AllTrue[Complement[VertexList[g], s], v |-> ! InfraAntichainQ[g, Append[s, v]]]},
   {diamond = CausalSubstrate["DiamondLatticeGraph", "Small"], cylinder = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  AllTrue[UniversalFoliation[diamond], s |-> maximalQ[diamond, s]] && AllTrue[UniversalFoliation[cylinder], s |-> maximalQ[cylinder, s]] &&
+  AllTrue[CausalHeightFoliation[diamond], s |-> maximalQ[diamond, s]] && AllTrue[CausalHeightFoliation[cylinder], s |-> maximalQ[cylinder, s]] &&
     maximalQ[diamond, {{0, 6}, {1, 4}, {2, 3}, {3, 2}, {4, 1}, {5, 0}}] && ! InfraSliceQ[diamond, {{0, 6}, {1, 4}, {2, 3}, {3, 2}, {4, 1}, {5, 0}}]]
 ```

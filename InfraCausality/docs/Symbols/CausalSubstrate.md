@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/CausalSubstrate
 Keywords: [causal substrate, causal graph, causal set, light-cone lattice, cylinder, sprinkling, Minkowski space, spray graph, percolation, Wolfram model, catalogue]
-SeeAlso: [CausalSubstrateStyle, CausalSubstrateCode, RandomCausalGraph, UniversalTime, InfraCausalFuture]
+SeeAlso: [CausalSubstrateStyle, CausalSubstrateCode, RandomCausalGraph, CausalHeight, InfraCausalFuture]
 RelatedGuides: [CausalSubstrates]
 ---
 
@@ -122,23 +122,23 @@ With[
     MemberQ[VertexOutComponent[g, {u}], v] === (Last[c[v]] - Last[c[u]] > Abs[First[c[v]] - First[c[u]]])]]]
 ```
 
-On the cylinder lattice every event above the bottom row has two direct predecessors, and the rows are the slices of the universal time.
+On the cylinder lattice every event above the bottom row has two direct predecessors, and the rows are the slices of the causal height.
 
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   AllTrue[Select[VertexList[g], v |-> Last[v] > 0], v |-> VertexInDegree[g, v] == 2] &&
-    UniversalTime[g] === AssociationMap[Last, VertexList[g]]]
+    CausalHeight[g] === AssociationMap[Last, VertexList[g]]]
 ```
 
-On a spray graph the universal time is the graph distance from the centre of the undirected substrate.
+On a spray graph the causal height is the graph distance from the centre of the undirected substrate.
 
 ```wl
 AllTrue[{"SquareTilingSprayGraph", "HexagonalTilingSprayGraph", "SquareMeshSprayGraph"}, name |->
   With[
     {s = InfraSubstrate[StringReplace[name, "SprayGraph" -> "Graph"], "Small"], g = CausalSubstrate[name, "Small"]},
     {c = First @ GraphCenter[s]},
-    UniversalTime[g] === AssociationMap[v |-> GraphDistance[s, c, v], VertexList[g]]]]
+    CausalHeight[g] === AssociationMap[v |-> GraphDistance[s, c, v], VertexList[g]]]]
 ```
 
 The held code builds the entry.

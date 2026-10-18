@@ -29,16 +29,16 @@ InfraKinematics::usage = "InfraKinematics[g, ref, targets] gives the projections
 
 LightConeViewer::usage = "LightConeViewer[g] gives a Manipulate drawing g in which clicking an event v highlights its causal future and past and its future and past light cones.";
 MessageFunctionViewer::usage = "MessageFunctionViewer[g, a, b] gives a Manipulate drawing the observers a and b on g in which choosing a tick of a highlights its message images on b and the light rays carrying them.";
-FoliationViewer::usage = "FoliationViewer[g] gives a Manipulate with a slider over the universal time k drawing the slice InfraSlice[k] over the earlier band InfraSlice[{0, k - 1}].";
+FoliationViewer::usage = "FoliationViewer[g] gives a Manipulate with a slider over the causal height k drawing the slice InfraSlice[k] over the earlier band InfraSlice[{0, k - 1}].";
 
-UniversalTime::usage = "UniversalTime[g] gives the height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources.";
-UniversalFoliation::usage = "UniversalFoliation[g] gives the level sets of UniversalTime[g] as sorted vertex lists, slice k holding the events whose longest chain from a source has k edges.";
-InfraSlice::usage = "InfraSlice[k] is the slice of the universal time at height k, the events t(v) = k; InfraSlice[{k1, k2}] is the band of events with k1 <= t(v) <= k2.";
-InfraSliceQ::usage = "InfraSliceQ[g, set] gives True if the vertex list set is a nonempty level set of UniversalTime[g].";
+CausalHeight::usage = "CausalHeight[g] gives the causal height of every event, the number of edges of a longest chain from a source to it, zero exactly on the sources.";
+CausalHeightFoliation::usage = "CausalHeightFoliation[g] gives the level sets of CausalHeight[g] as sorted vertex lists, slice k holding the events whose longest chain from a source has k edges.";
+InfraSlice::usage = "InfraSlice[k] is the slice at height k, the events t(v) = k; InfraSlice[{k1, k2}] is the band of events with k1 <= t(v) <= k2.";
+InfraSliceQ::usage = "InfraSliceQ[g, set] gives True if the vertex list set is a nonempty level set of CausalHeight[g].";
 InfraAntichainQ::usage = "InfraAntichainQ[g, set] gives True if the vertex list set is duplicate-free and no two of its elements are comparable in the causal order of g.";
 
-MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal past has the most vertices.";
-MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the universal foliation, the sorted events of the slice whose causal future has the most vertices.";
+MaximalAbsorber::usage = "MaximalAbsorber[g] gives, for each slice k of the height foliation, the sorted events of the slice whose causal past has the most vertices.";
+MaximalEmitter::usage = "MaximalEmitter[g] gives, for each slice k of the height foliation, the sorted events of the slice whose causal future has the most vertices.";
 
 InfraMessageFunction::usage = "InfraMessageFunction[a, b] is the message relation from observer a to observer b, v -> the events of b in the future light cone of v; its members are the monotone single-valued selections.";
 InfraEchoFunction::usage = "InfraEchoFunction[a, b] is the echo relation of observer a via observer b, v -> the events of a lit from the message images of v; its members are the compositions of two message functions, one from a to b and one back, on the ticks whose signal returns.";

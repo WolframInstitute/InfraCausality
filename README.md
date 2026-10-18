@@ -11,7 +11,7 @@ Causal infrageometry studies the causal structure of a finite DAG the way Euclid
 - the worldlines between two events, every saturated chain at once;
 - the timelike geodesics, every longest chain at once;
 - the light cones, whose members are the light rays;
-- the slices of the universal time.
+- the slices of the causal height.
 
 Every object is an inert head that takes no graph. A graph evaluates it through the protocol of [InfraGeometry](https://github.com/WolframInstitute/InfraGeometry), on which this paclet depends:
 
@@ -29,7 +29,7 @@ The continuum anchor is Bondi's k-calculus drawn as Euclidean geometry: two stra
 | Guide | Contents |
 |---|---|
 | **Causal Infrageometry** (main) | cones, diamonds, worldlines, timelike geodesics, light cones and light rays; reading and drawing them |
-| Causal Time | the universal time, its foliation, slices and antichains |
+| Causal Time | the causal height, its foliation, slices and antichains |
 | Infra Observers | message and echo relations (EPS), radar coordinates |
 | Causal Substrates | named causal graphs (lattices, Minkowski sprinklings, spray graphs, Wolfram model universes) and random causal graphs |
 | Bondi k-Calculus | the k-factor, rapidity, proper time in the Euclidean picture of worldlines, radar coordinates |

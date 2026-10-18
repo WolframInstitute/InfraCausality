@@ -5,22 +5,22 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraSlice
-Keywords: [slice, universal time, foliation, antichain, simultaneity, Cauchy surface, band, symbolic object]
-SeeAlso: [InfraSliceQ, UniversalTime, UniversalFoliation, InfraAntichainQ, FoliationViewer, InfraCausalPast]
+Keywords: [slice, causal height, foliation, antichain, simultaneity, Cauchy surface, band, symbolic object]
+SeeAlso: [InfraSliceQ, CausalHeight, CausalHeightFoliation, InfraAntichainQ, FoliationViewer, InfraCausalPast]
 RelatedGuides: [CausalTime]
 ---
 
 ## Usage
 
-<code>[InfraSlice]()[*k*]</code> is the slice of the universal time at height *k*: the events whose longest chain from a source has *k* edges.
+<code>[InfraSlice]()[*k*]</code> is the slice at height *k*: the events whose longest chain from a source has *k* edges.
 
 <code>[InfraSlice]()[{*k1*, *k2*}]</code> is the band of the slices from height *k1* to height *k2*.
 
 ## Details & Options
 
-Definition: the slice at height *k* of a directed acyclic graph is {*v* : *t*(*v*) = *k*}, where *t* = [UniversalTime]() is the height, the number of edges of a longest chain from a source to *v*. The band {*k1*, *k2*} is {*v* : *k1* ≤ *t*(*v*) ≤ *k2*}.
+Definition: the slice at height *k* of a directed acyclic graph is {*v* : *t*(*v*) = *k*}, where *t* = [CausalHeight]() is the height, the number of edges of a longest chain from a source to *v*. The band {*k1*, *k2*} is {*v* : *k1* ≤ *t*(*v*) ≤ *k2*}.
 
-The height increases by at least one along every edge, so no two events of a slice are comparable: every slice is an antichain, the discrete analogue of a spacelike hypersurface, and the slices of all heights partition the events. They are the leaves of the universal foliation, [UniversalFoliation](). A slice is the set of events an observer who counts the longest chains from the beginning would call simultaneous.
+The height increases by at least one along every edge, so no two events of a slice are comparable: every slice is an antichain, the discrete analogue of a spacelike hypersurface, and the slices of all heights partition the events. They are the leaves of the height foliation, [CausalHeightFoliation](). A slice is the set of events an observer who counts the longest chains from the beginning would call simultaneous.
 
 The head holds its height and computes nothing. [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement) reads it on a graph:
 
@@ -33,7 +33,7 @@ The head holds its height and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the slice is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-A set head has one member, its support, so no sampler draws it. The three readings of the slice on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraSlice]()[*k*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraSlice]()[*k*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraSliceQ]() recognises a nonempty level set of the universal time.
+A set head has one member, its support, so no sampler draws it. The three readings of the slice on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraSlice]()[*k*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraSlice]()[*k*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraSliceQ]() recognises a nonempty level set of the causal height.
 
 Corresponding notions:
 
@@ -54,12 +54,12 @@ GraphicsRow @ Table[
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-The universal foliation of the sprinkling, every slice in its own colour.
+The height foliation of the sprinkling, every slice in its own colour.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  InfraSubstrateHighlight[g, Table[InfraSlice[k], {k, 0, Max @ UniversalTime @ g}]]]
+  InfraSubstrateHighlight[g, Table[InfraSlice[k], {k, 0, Max @ CausalHeight @ g}]]]
 ```
 
 The band of the slices from height 2 to height 4 on the cylinder lattice, beside the slice at height 3.
@@ -75,19 +75,19 @@ The number of events of every slice of the diamond lattice.
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  Table[InfraMeasurement[g, InfraSlice[k], "CountingMeasure"], {k, 0, Max @ UniversalTime @ g}]]
+  Table[InfraMeasurement[g, InfraSlice[k], "CountingMeasure"], {k, 0, Max @ CausalHeight @ g}]]
 ```
 
 ## Properties and Relations
 
-The slices are antichains that partition the events, and they are the leaves of the universal foliation.
+The slices are antichains that partition the events, and they are the leaves of the height foliation.
 
 ```wl
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {slices = Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, 0, Max @ UniversalTime @ g}]},
-    slices === UniversalFoliation[g] && AllTrue[slices, s |-> InfraAntichainQ[g, s] && InfraSliceQ[g, s]] &&
+    {slices = Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, 0, Max @ CausalHeight @ g}]},
+    slices === CausalHeightFoliation[g] && AllTrue[slices, s |-> InfraAntichainQ[g, s] && InfraSliceQ[g, s]] &&
       Sort[Join @@ slices] === Sort[VertexList[g]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -97,7 +97,7 @@ A band is the union of its slices.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  AllTrue[Subsets[Range[0, Max @ UniversalTime @ g], {2}], Apply[{k1, k2} |->
+  AllTrue[Subsets[Range[0, Max @ CausalHeight @ g], {2}], Apply[{k1, k2} |->
     Keys @ InfraMeasurement[g, InfraSlice[{k1, k2}], "VertexDensity"] === Union @@ Table[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], {k, k1, k2}]]]]
 ```
 
@@ -117,6 +117,6 @@ A slice spans no edge.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    AllTrue[Range[0, Max @ UniversalTime @ g], k |-> InfraMeasurement[g, InfraSlice[k], "EdgeDensity"] === <||>]],
+    AllTrue[Range[0, Max @ CausalHeight @ g], k |-> InfraMeasurement[g, InfraSlice[k], "EdgeDensity"] === <||>]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```

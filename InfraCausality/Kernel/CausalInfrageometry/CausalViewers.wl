@@ -13,7 +13,7 @@ PackageScope[ foliationReading ]
 lightConeReading[ g_Graph, v_ ] :=
   <|
     "Event" -> v,
-    "Time" -> UniversalTime[ g ][ v ],
+    "Time" -> CausalHeight[ g ][ v ],
     "Future" -> Keys @ InfraMeasurement[ g, InfraCausalFuture[ v ], "VertexDensity" ],
     "Past" -> Keys @ InfraMeasurement[ g, InfraCausalPast[ v ], "VertexDensity" ],
     "FutureLightCone" -> Keys @ InfraMeasurement[ g, InfraFutureLightCone[ v ], "VertexDensity" ],
@@ -90,7 +90,7 @@ MessageFunctionViewer[ g_Graph, a_List, b_List ] :=
   ]
 
 FoliationViewer[ g_Graph ] :=
-  With[ { height = Max @ UniversalTime @ g },
+  With[ { height = Max @ CausalHeight @ g },
     Manipulate[
       With[ { reading = foliationReading[ g, k ] },
         Labeled[

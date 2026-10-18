@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomCausalGraph
 Keywords: [random causal set, transitive percolation, Rideout-Sorkin, sprinkling, Poisson sprinkling, Minkowski space, acyclic orientation, Hasse diagram, Myrheim-Meyer, ordering fraction]
-SeeAlso: [CausalSubstrate, CausalSubstrateStyle, UniversalTime, InfraCausalDiamond]
+SeeAlso: [CausalSubstrate, CausalSubstrateStyle, CausalHeight, InfraCausalDiamond]
 RelatedGuides: [CausalSubstrates]
 ---
 
@@ -55,12 +55,12 @@ With[
   InfraSubstrateHighlight[g, {InfraCausalFuture[20] -> StandardOrange, 20}]]
 ```
 
-The universal foliation of a percolation of 60 events with *p* = 0.08.
+The height foliation of a percolation of 60 events with *p* = 0.08.
 
 ```wl
 With[
   {g = (SeedRandom[3]; RandomCausalGraph[60, Method -> {"Percolation", 0.08}])},
-  InfraSubstrateHighlight[g, UniversalFoliation[g]]]
+  InfraSubstrateHighlight[g, CausalHeightFoliation[g]]]
 ```
 
 The ordering fractions of ten sprinklings of 200 points in two and in three dimensions, beside the Myrheim–Meyer values 1/2 and 8/35.

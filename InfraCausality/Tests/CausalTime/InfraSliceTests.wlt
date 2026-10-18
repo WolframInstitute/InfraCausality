@@ -14,7 +14,7 @@ $cylinder = Graph[ Flatten @ Table[
 
 $fixtures = <| "TwoSource" -> $twoSource, "Diamond" -> $diamond, "Cylinder" -> $cylinder |>;
 
-$heights = g |-> Range[ 0, Max @ UniversalTime @ g ];
+$heights = g |-> Range[ 0, Max @ CausalHeight @ g ];
 
 $bandIsPastQ = { g, k } |-> Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ] === Keys @ InfraMeasurement[ g, InfraCausalPast[ Keys @ InfraMeasurement[ g, InfraSlice[ k ], "VertexDensity" ] ], "VertexDensity" ];
 
@@ -22,7 +22,7 @@ $everyEventBelowSliceQ = { g, k } |-> With[ { slice = Keys @ InfraMeasurement[ g
   AllTrue[ Keys @ InfraMeasurement[ g, InfraSlice[ { 0, k } ], "VertexDensity" ], e |-> IntersectingQ[ VertexOutComponent[ g, { e } ], slice ] ] ];
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> UniversalFoliation @ g === ( Keys @ InfraMeasurement[ g, InfraSlice[ # ], "VertexDensity" ] & /@ $heights @ g ) ],
+  AllTrue[ $fixtures, g |-> CausalHeightFoliation @ g === ( Keys @ InfraMeasurement[ g, InfraSlice[ # ], "VertexDensity" ] & /@ $heights @ g ) ],
   True,
   TestID -> "InfraSlice-All-slices-are-the-foliation"
 ]
@@ -100,7 +100,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  AllTrue[ $fixtures, g |-> With[ { band = InfraSlice[ { 0, Max @ UniversalTime @ g } ] },
+  AllTrue[ $fixtures, g |-> With[ { band = InfraSlice[ { 0, Max @ CausalHeight @ g } ] },
     InfraMeasurement[ g, band, "CountingMeasure" ] == VertexCount @ g && Length @ InfraMeasurement[ g, band, "EdgeDensity" ] == EdgeCount @ g ] ],
   True,
   TestID -> "InfraSlice-All-full-band-is-the-graph"

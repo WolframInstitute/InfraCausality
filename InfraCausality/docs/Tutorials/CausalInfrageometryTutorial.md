@@ -6,12 +6,12 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/tutorial/CausalInfrageometryTutorial
-Keywords: [causal graph, causal diamond, worldline, timelike geodesic, observer, universal time, message function, echo function, radar coordinates, radar domain, observer space, fibration, section, EPS axioms]
+Keywords: [causal graph, causal diamond, worldline, timelike geodesic, observer, causal height, message function, echo function, radar coordinates, radar domain, observer space, fibration, section, EPS axioms]
 RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrates]
 ---
 
 - A **causal graph** is a directed acyclic graph whose vertices are events and whose directed paths are the causal relation: *u* ≼ *v* when a path leads from *u* to *v*. Everything below is read off the graph alone.
-- The pipeline: causal graph → cones and diamonds → worldlines and timelike geodesics → universal time → message functions → radar coordinates → the observer space fibered over the chart.
+- The pipeline: causal graph → cones and diamonds → worldlines and timelike geodesics → causal height → message functions → radar coordinates → the observer space fibered over the chart.
 - Each construction is an inert head, such as `InfraCausalDiamond[p, q]` or `InfraRadarCoordinates[a]`, that holds its data and computes nothing; `InfraMeasurement` reads it on a graph, a `RandomInfra…` sampler draws the members of a chain head and `InfraSubstrateHighlight` draws it.
 - The running example is the diamond lattice at size "Small", the 7 × 7 light-cone lattice of 1 + 1 Minkowski space; a sprinkling and the cylinder lattice show where the lattice is special.
 
@@ -98,25 +98,25 @@ With[
   {InfraChainQ[g, diagonal], InfraWorldlineQ[g, diagonal], InfraTimelikeGeodesicQ[g, (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])]}]
 ```
 
-## Universal time
+## Causal height
 
-- The **universal time** of an event is the length of a longest chain from a source to it, and its level sets, the **slices**, are antichains that partition the events. They are the simultaneity surfaces that need no observer. On the lattice the slices are the antidiagonals; on the sprinkling they are ragged.
+- The **causal height** of an event is the length of a longest chain from a source to it, and its level sets, the **slices**, are antichains that partition the events. They are the simultaneity surfaces that need no observer. On the lattice the slices are the antidiagonals; on the sprinkling they are ragged.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    InfraSubstrateHighlight[g, UniversalFoliation[g]]],
+    InfraSubstrateHighlight[g, CausalHeightFoliation[g]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D"}}]
 ```
 
-- The ticks of a timelike geodesic from a source count universal time: the *m*-th tick of the geodesic *a* above lies on the slice *m* − 1.
+- The ticks of a timelike geodesic from a source count the causal height: the *m*-th tick of the geodesic *a* above lies on the slice *m* − 1.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
-  UniversalTime[g] /@ a]
+  CausalHeight[g] /@ a]
 ```
 
 ## Message functions

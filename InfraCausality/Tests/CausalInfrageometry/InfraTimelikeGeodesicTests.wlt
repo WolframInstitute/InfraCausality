@@ -60,7 +60,7 @@ $membersQ = g |-> AllTrue[ $comparablePairs @ g, pair |->
 $lengthQ = g |-> AllTrue[ $comparablePairs @ g, pair |->
   InfraMeasurement[ g, InfraTimelikeGeodesic @@ pair, "Length" ] == $negatedDistance[ g, First @ pair, Last @ pair ] ];
 
-$globalQ = g |-> With[ { height = Max @ UniversalTime @ g },
+$globalQ = g |-> With[ { height = Max @ CausalHeight @ g },
   InfraMeasurement[ g, InfraTimelikeGeodesic[ ], "Length" ] == height &&
     Sort @ RandomInfraTimelikeGeodesic[ g, All ] === Sort @ Select[ $sourceSinkPaths @ g, Length @ # - 1 == height & ] ];
 

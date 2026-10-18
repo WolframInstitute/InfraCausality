@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Experimental: viewer. The interface of the viewers may change.
 
-Definition: the frame at an event *v* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the causal future *J*⁺(*v*) in light orange, the causal past *J*⁻(*v*) in light blue, the future light cone *E*⁺(*v*) in orange, the past light cone *E*⁻(*v*) in blue and *v* in red. The label above the drawing gives *v*, its universal time, the causal volumes \|*J*⁺(*v*)\| and \|*J*⁻(*v*)\|, and the numbers of outgoing and incoming light rays.
+Definition: the frame at an event *v* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the causal future *J*⁺(*v*) in light orange, the causal past *J*⁻(*v*) in light blue, the future light cone *E*⁺(*v*) in orange, the past light cone *E*⁻(*v*) in blue and *v* in red. The label above the drawing gives *v*, its causal height, the causal volumes \|*J*⁺(*v*)\| and \|*J*⁻(*v*)\|, and the numbers of outgoing and incoming light rays.
 
 A click selects the event of *g* nearest to the click in the drawing; the viewer starts at an event of the graph centre. The result is a `Manipulate` with `SaveDefinitions -> True`, so it keeps working in a fresh session; clicking needs the Wolfram notebook front end.
 

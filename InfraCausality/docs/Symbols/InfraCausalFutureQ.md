@@ -107,7 +107,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {height = Max @ UniversalTime @ InfraMeasurement[g, InfraCausalFuture[v], "Subgraph"]},
+    {height = Max @ CausalHeight @ InfraMeasurement[g, InfraCausalFuture[v], "Subgraph"]},
     Table[InfraCausalFutureQ[g, Keys @ InfraMeasurement[g, InfraCausalFuture[v, t], "VertexDensity"]], {t, 0, height}] ===
       Append[ConstantArray[False, height], True]]]
 ```

@@ -54,7 +54,7 @@ GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q]])},
     InfraSubstrateHighlight[g, {InfraWalk[member], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -100,7 +100,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {members = RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Cardinality"] &&
       Union[Length /@ members] == {InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Length"] + 1} &&
@@ -124,7 +124,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {n = Min[3, InfraMeasurement[g, InfraTimelikeGeodesic[p, q], "Cardinality"]]},
     RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], n, "NextVertexFunction" -> Identity] === Take[Sort @ RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All], n] &&
       (SeedRandom[7]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], n]) === (SeedRandom[7]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], n])]]

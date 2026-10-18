@@ -16,7 +16,7 @@ $diamond = Graph[ Flatten @ Table[
 
 $fixtures = <| "Mech" -> $mechGraph, "TwoSource" -> $twoSource, "Diamond" -> $diamond |>;
 
-$heightsQ = { g, f } |-> Keys @ f @ g === Range[ 0, Max @ UniversalTime @ g ];
+$heightsQ = { g, f } |-> Keys @ f @ g === Range[ 0, Max @ CausalHeight @ g ];
 
 $inSlicesQ = { g, f } |-> AllTrue[ Normal @ f @ g, rule |-> Last @ rule =!= { } && SubsetQ[ Keys @ InfraMeasurement[ g, InfraSlice[ First @ rule ], "VertexDensity" ], Last @ rule ] ];
 

@@ -9,7 +9,7 @@ InfraCausalFuture /: InfraMeasurement[ graph_Graph, InfraCausalFuture[ anchor_ ]
 
 InfraCausalFuture /: InfraMeasurement[ graph_Graph, InfraCausalFuture[ anchor_, t_ ], "VertexDensity" ] :=
   With[ { future = Subgraph[ graph, VertexOutComponent[ graph, Keys @ InfraDensity[ graph, anchor ] ] ] },
-    AssociationThread[ Sort @ Keys @ Select[ UniversalTime @ future, LessEqualThan[ t ] ], 1 ] ]
+    AssociationThread[ Sort @ Keys @ Select[ CausalHeight @ future, LessEqualThan[ t ] ], 1 ] ]
 
 InfraCausalFuture /: InfraMeasurement[ graph_Graph, cone_InfraCausalFuture, "EdgeDensity" ] :=
   AssociationThread[ EdgeList @ Subgraph[ graph, Keys @ InfraMeasurement[ graph, cone, "VertexDensity" ] ], 1 ]

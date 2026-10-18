@@ -10,7 +10,7 @@ Options[ RandomInfraPastLightCone ] = { "NextVertexFunction" -> Automatic }
 
 InfraFutureLightCone /: InfraMeasurement[ graph_Graph, InfraFutureLightCone[ v_ ], "Graph" ] :=
   With[ { future = Subgraph[ graph, VertexOutComponent[ graph, { v } ] ] },
-    { tau = UniversalTime @ future },
+    { tau = CausalHeight @ future },
     { null = Select[ VertexList @ future, e |-> Length @ VertexInComponent[ future, { e } ] == tau[ e ] + 1 ] },
     TransitiveReductionGraph @ Subgraph[ future, null ] ]
 

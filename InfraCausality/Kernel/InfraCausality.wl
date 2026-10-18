@@ -39,8 +39,8 @@ PackageExport[FoliationViewer]
 
 (* CausalTime *)
 
-PackageExport[UniversalTime]
-PackageExport[UniversalFoliation]
+PackageExport[CausalHeight]
+PackageExport[CausalHeightFoliation]
 PackageExport[InfraSlice]
 PackageExport[InfraSliceQ]
 PackageExport[InfraAntichainQ]

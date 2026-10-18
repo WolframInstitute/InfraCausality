@@ -62,7 +62,7 @@ Every incoming light ray of the last event of the sprinkling.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = First @ Keys @ InfraMeasurement[g, InfraSlice[Max @ UniversalTime @ g], "VertexDensity"]},
+  {v = First @ Keys @ InfraMeasurement[g, InfraSlice[Max @ CausalHeight @ g], "VertexDensity"]},
   RandomInfraPastLightCone[g, v, All]]
 ```
 
