@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/ProperTimeScale
 Keywords: [proper time, arc length, Euclidean picture, Bondi k-calculus, Minkowski interval, radar coordinates]
-SeeAlso: [OutgoingRatio, IncomingRatio, KFactor, BondiRadarCoordinates, WorldlinePointAtProperTime, LorentzGamma, TimeDilationConstruction]
+SeeAlso: [OutgoingRatio, IncomingRatio, KFactor, BondiRadarCoordinates, LorentzGamma, TimeDilationConstruction]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -43,7 +43,7 @@ Plot[Evaluate @ Table[ProperTimeScale[v, phi], {phi, {Pi/6, Pi/4, Pi/3}}], {v, 0
 The radar interval of the event at arc length *s* on the worldline of velocity *v* is `ProperTimeScale` times *s*: proper time is linear in arc length.
 
 ```wl
-With[{interval = {v, phi, s} |-> With[{r = BondiRadarCoordinates[s WorldlineDirection[v, phi], phi]}, r["RadarTime"]^2 - r["RadarDistance"]^2]},
+With[{interval = {v, phi, s} |-> With[{r = BondiRadarCoordinates[s Through[{Sin, Cos}[WorldlineAngle[v, phi]]], phi]}, r["RadarTime"]^2 - r["RadarDistance"]^2]},
   FullSimplify[Sqrt[interval[3/5, Pi/3, s]] == ProperTimeScale[3/5, Pi/3] s, s > 0] &&
     Simplify[TrigExpand[interval[v, phi, s] == ProperTimeScale[v, phi]^2 s^2], 0 < v < 1 && 0 < phi < Pi/2]]
 ```

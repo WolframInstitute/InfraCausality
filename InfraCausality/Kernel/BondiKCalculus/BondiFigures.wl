@@ -4,6 +4,18 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: BondiKCalculus :: BondiFigures *)
 
+PackageScope[ WorldlineDirection ]
+
+PackageScope[ WorldlinePoint ]
+
+PackageScope[ WorldlineNormal ]
+
+PackageScope[ WorldlinePointAtProperTime ]
+
+PackageScope[ LightDirection ]
+
+PackageScope[ SimultaneityLine ]
+
 PackageScope[ bondiColor ]
 
 PackageScope[ bondiGraphics ]
@@ -351,7 +363,7 @@ VelocityAdditionConstruction[ v1_, v2_, opts : OptionsPattern[] ] :=
           emitArc = OptionValue[ "EmitArcLength" ] },
     { k1 = N @ KFactor[ v1, phi ],
       k2 = N @ KFactor[ v2, phi ] },
-    { vTotal = VelocityFromK[ k1 k2 ] },
+    { vTotal = ( ( k1 k2 )^2 - 1 ) / ( ( k1 k2 )^2 + 1 ) },
     { dir1 = WorldlineDirection[ v1, phi ],
       dirTotal = WorldlineDirection[ vTotal, phi ],
       bobArc = emitArc OutgoingRatio[ v1, phi ],

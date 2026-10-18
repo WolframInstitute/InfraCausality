@@ -55,10 +55,8 @@ CausalSubstrateCode::usage = "CausalSubstrateCode[name, size] gives the held cod
 RandomCausalGraph::usage = "RandomCausalGraph[n] gives the Hasse diagram of a transitive percolation on the events 1..n with link probability Log[n]/n, Method -> {\"Percolation\", p} with link probability p and Method -> {\"Sprinkling\", d} that of n points sprinkled into the causal diamond of d-dimensional Minkowski space; RandomCausalGraph[{n, m}] orients a random connected graph with m edges.";
 
 KFactor::usage = "KFactor[v] gives the Bondi factor Sqrt[(1 + v)/(1 - v)], and KFactor[v, phi] its angular form Sqrt[Sin[phi + alpha]/Sin[phi - alpha]] with alpha = WorldlineAngle[v, phi].";
-VelocityFromK::usage = "VelocityFromK[k] gives the velocity (k^2 - 1)/(k^2 + 1) of the Bondi factor k.";
 LorentzGamma::usage = "LorentzGamma[v] gives the Lorentz factor (k + 1/k)/2 with k = KFactor[v].";
 Rapidity::usage = "Rapidity[v] gives the rapidity ArcTanh[v] of the velocity v.";
-RapidityFromK::usage = "RapidityFromK[k] gives the rapidity Log[k] of the Bondi factor k.";
 WorldlineAngle::usage = "WorldlineAngle[v, phi] gives the Euclidean angle ArcTan[v Tan[phi]] between the worldline of velocity v and the time axis, for light at angle phi.";
 OutgoingRatio::usage = "OutgoingRatio[v, phi] gives the arc-length ratio Sin[phi]/Sin[phi - alpha] from an emission on the rest worldline to its reception on the worldline of velocity v.";
 IncomingRatio::usage = "IncomingRatio[v, phi] gives the arc-length ratio Sin[phi + alpha]/Sin[phi] from an emission on the worldline of velocity v to its reception on the rest worldline.";
@@ -73,12 +71,5 @@ SimultaneityConstruction::usage = "SimultaneityConstruction[v] draws the simulta
 LengthContractionConstruction::usage = "LengthContractionConstruction[v] draws the radar measurement of a rod moving at velocity v by the rest observer, illustrating the contracted length L/gamma.";
 VelocityAdditionConstruction::usage = "VelocityAdditionConstruction[v1, v2] draws three worldlines with Bondi factors k1, k2 and k1 k2, illustrating that composing velocities multiplies Bondi factors.";
 LightClockConstruction::usage = "LightClockConstruction[v, n] draws a transverse light clock carried by the observer of velocity v, with n bounces between observer and mirror.";
-
-WorldlineDirection::usage = "WorldlineDirection[v, phi] gives the unit direction {Sin[alpha], Cos[alpha]} of the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
-WorldlinePoint::usage = "WorldlinePoint[v, s, phi] gives the point at Euclidean arc length s from the origin on the worldline of velocity v.";
-WorldlineNormal::usage = "WorldlineNormal[v, phi] gives the unit normal {Cos[alpha], -Sin[alpha]} to the worldline of velocity v, with alpha = WorldlineAngle[v, phi].";
-WorldlinePointAtProperTime::usage = "WorldlinePointAtProperTime[v, tau, phi] gives the point at proper time tau on the worldline of velocity v.";
-LightDirection::usage = "LightDirection[phi, right] gives the unit direction of a light ray at angle phi to the time axis, pointing to positive x when right is True.";
-SimultaneityLine::usage = "SimultaneityLine[v, s, phi, extent] gives {left end, base point, right end} of the simultaneity line through the point at arc length s on the worldline of velocity v: the events whose radar midpoint on that worldline is the base point, along {Tan[phi], v} and extent to each side.";
 
 BondiViewer::usage = "BondiViewer[] gives a Manipulate over the seven Bondi k-calculus constructions with sliders for velocity, light angle, bounces and a second velocity.";

@@ -12,17 +12,11 @@ KFactor[ velocity_, lightAngle_ ] :=
     Sqrt[ Sin[ lightAngle + alpha ] / Sin[ lightAngle - alpha ] ]
   ]
 
-VelocityFromK[ k_ ] :=
-  ( k^2 - 1 ) / ( k^2 + 1 )
-
 WorldlineAngle[ velocity_, lightAngle_ : Pi/4 ] :=
   ArcTan[ velocity Tan[ lightAngle ] ]
 
 Rapidity[ velocity_ ] :=
   ArcTanh[ velocity ]
-
-RapidityFromK[ k_ ] :=
-  Log[ k ]
 
 LorentzGamma[ velocity_ ] :=
   With[ { k = KFactor[ velocity ] },

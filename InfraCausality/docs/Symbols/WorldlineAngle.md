@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/WorldlineAngle
 Keywords: [worldline, Euclidean picture, light angle, Bondi k-calculus, velocity]
-SeeAlso: [KFactor, OutgoingRatio, IncomingRatio, WorldlineDirection, LightDirection]
+SeeAlso: [KFactor, OutgoingRatio, IncomingRatio]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---

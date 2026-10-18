@@ -52,6 +52,6 @@ FullSimplify[LorentzGamma[v] == Cosh[Rapidity[v]], -1 < v < 1]
 On the worldline of velocity *v*, drawn with light at any angle *φ*, the radar time of the event at arc length *s* is γ times its proper time <code>[ProperTimeScale]()[*v*, *φ*] *s*</code>.
 
 ```wl
-Simplify[TrigExpand[With[{r = BondiRadarCoordinates[s WorldlineDirection[v, phi], phi]},
+Simplify[TrigExpand[With[{r = BondiRadarCoordinates[s Through[{Sin, Cos}[WorldlineAngle[v, phi]]], phi]},
   (r["RadarTime"]/(ProperTimeScale[v, phi] s))^2 == LorentzGamma[v]^2]], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
 ```

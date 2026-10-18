@@ -35,15 +35,15 @@ VerificationTest[
 ]
 
 VerificationTest[
-  FullSimplify[ VelocityFromK @ KFactor @ v == v, $velocity ],
+  FullSimplify[ ( KFactor[ v ]^2 - 1 ) / ( KFactor[ v ]^2 + 1 ) == v && KFactor[ ( k^2 - 1 ) / ( k^2 + 1 ) ] == k, $velocity && k > 0 ],
   True,
-  TestID -> "VelocityFromK-Symbolic-inverts-KFactor"
+  TestID -> "KFactor-Symbolic-inverts-the-velocity-of-k"
 ]
 
 VerificationTest[
-  FullSimplify[ RapidityFromK @ KFactor @ v == Rapidity[ v ], $velocity ],
+  FullSimplify[ Log @ KFactor @ v == Rapidity[ v ], $velocity ],
   True,
-  TestID -> "RapidityFromK-Symbolic-log-k-is-rapidity"
+  TestID -> "KFactor-Symbolic-log-k-is-rapidity"
 ]
 
 VerificationTest[
@@ -113,7 +113,7 @@ VerificationTest[
 ]
 
 $radarInterval = { v, phi, s } |->
-  With[ { r = BondiRadarCoordinates[ s WorldlineDirection[ v, phi ], phi ] },
+  With[ { r = BondiRadarCoordinates[ s Through[ { Sin, Cos }[ WorldlineAngle[ v, phi ] ] ], phi ] },
     r[ "RadarTime" ]^2 - r[ "RadarDistance" ]^2 ]
 
 VerificationTest[

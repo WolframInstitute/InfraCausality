@@ -73,10 +73,8 @@ PackageExport[RandomCausalGraph]
 (* BondiKCalculus *)
 
 PackageExport[KFactor]
-PackageExport[VelocityFromK]
 PackageExport[LorentzGamma]
 PackageExport[Rapidity]
-PackageExport[RapidityFromK]
 PackageExport[WorldlineAngle]
 PackageExport[OutgoingRatio]
 PackageExport[IncomingRatio]
@@ -93,15 +91,6 @@ PackageExport[SimultaneityConstruction]
 PackageExport[LengthContractionConstruction]
 PackageExport[VelocityAdditionConstruction]
 PackageExport[LightClockConstruction]
-
-(* Experimental: drawing helpers *)
-
-PackageExport[WorldlineDirection]
-PackageExport[WorldlinePoint]
-PackageExport[WorldlineNormal]
-PackageExport[WorldlinePointAtProperTime]
-PackageExport[LightDirection]
-PackageExport[SimultaneityLine]
 
 (* Experimental: viewers *)
 

@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/KFactor
 Keywords: [Bondi k-calculus, k-factor, Doppler factor, special relativity, velocity addition, light angle]
-SeeAlso: [VelocityFromK, LorentzGamma, RapidityFromK, OutgoingRatio, IncomingRatio, ProperTimeScale, DopplerConstruction]
+SeeAlso: [LorentzGamma, OutgoingRatio, IncomingRatio, ProperTimeScale, DopplerConstruction]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -71,8 +71,8 @@ The arc-length ratios of the outgoing and the incoming light multiply to *k*².
 Simplify[TrigExpand[OutgoingRatio[v, phi] IncomingRatio[v, phi]] == KFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
 ```
 
-The k-factor inverts [VelocityFromK]() and is the exponential of the rapidity.
+The k-factor inverts the velocity $v = (k^2 - 1)/(k^2 + 1)$ and is the exponential of the rapidity.
 
 ```wl
-FullSimplify[KFactor[VelocityFromK[k]] == k && KFactor[v] == Exp[Rapidity[v]], k > 0 && -1 < v < 1]
+FullSimplify[KFactor[(k^2 - 1)/(k^2 + 1)] == k && (KFactor[v]^2 - 1)/(KFactor[v]^2 + 1) == v && KFactor[v] == Exp[Rapidity[v]], k > 0 && -1 < v < 1]
 ```

@@ -44,8 +44,8 @@ The reception at arc length $k_{out}\, s$ lies on the rightgoing light ray from 
 
 ```wl
 AllTrue[Tuples[{{1/5, 3/5, 4/5}, {Pi/6, Pi/4, Pi/3}}], Apply[{v, phi} |->
-  With[{e = {0, s}, r = s OutgoingRatio[v, phi] WorldlineDirection[v, phi]},
-    FullSimplify[Det[{r - e, LightDirection[phi, True]}]] === 0]]]
+  With[{e = {0, s}, r = s OutgoingRatio[v, phi] Through[{Sin, Cos}[WorldlineAngle[v, phi]]]},
+    FullSimplify[Det[{r - e, {Sin[phi], Cos[phi]}}]] === 0]]]
 ```
 
 The ratio of proper times is the k-factor at every light angle.

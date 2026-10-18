@@ -20,9 +20,8 @@ Bondi's k-calculus derives special relativity from the ratio $k$ between the per
 ### The k-factor
 
 - `KFactor` the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$, or its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$
-- `VelocityFromK` the velocity $(k^2 - 1)/(k^2 + 1)$
 - `LorentzGamma` the Lorentz factor $(k + 1/k)/2$
-- `Rapidity`, `RapidityFromK` the rapidity $\operatorname{artanh} v = \log k$
+- `Rapidity` the rapidity $\operatorname{artanh} v = \log k$
 - `ArcTanh` (WL)
 
 ### Worldlines in the Euclidean picture
@@ -39,10 +38,6 @@ Bondi's k-calculus derives special relativity from the ratio $k$ between the per
 ### Experimental: figures
 
 - `BondiClock`, `DopplerConstruction`, `TimeDilationConstruction`, `SimultaneityConstruction`, `LengthContractionConstruction`, `VelocityAdditionConstruction`, `LightClockConstruction` the seven k-calculus constructions as graphics
-
-### Experimental: drawing helpers
-
-- `WorldlineDirection`, `WorldlinePoint`, `WorldlineNormal`, `WorldlinePointAtProperTime`, `LightDirection`, `SimultaneityLine` the plane geometry behind the figures
 
 ### Experimental: viewers
 

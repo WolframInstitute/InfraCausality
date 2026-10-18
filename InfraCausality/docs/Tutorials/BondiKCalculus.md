@@ -25,14 +25,14 @@ Needs["WolframInstitute`InfraCausality`"]
 
 ## The Euclidean picture
 
-- The rest observer, Alice, is the time axis {0, 1}. The observer of velocity *v*, Bob, is the ray at the angle *α* = arctan(*v* tan *φ*) of [WorldlineAngle](), with direction [WorldlineDirection](); light runs along the two directions of [LightDirection](). The light angle is a choice of drawing: *φ* = π/4 is the usual Minkowski diagram, and the other angles rescale the space axis.
+- The rest observer, Alice, is the time axis {0, 1}. The observer of velocity *v*, Bob, is the ray at the angle *α* = arctan(*v* tan *φ*) of [WorldlineAngle](), with direction (sin *α*, cos *α*); light runs along the two directions (±sin *φ*, cos *φ*). The light angle is a choice of drawing: *φ* = π/4 is the usual Minkowski diagram, and the other angles rescale the space axis.
 - Alice (blue), Bob at *v* = 0.6 (red) and the two light directions (yellow), at the light angles π/4 and π/3.
 
 ```wl
 GraphicsRow @ Table[
   Graphics[{{StandardBlue, AbsoluteThickness[2], Line[{{0, 0}, {0, 1}}]},
-    {StandardRed, AbsoluteThickness[2], Line[{{0, 0}, WorldlinePoint[0.6, 1, phi]}]},
-    {StandardYellow, Dashed, Line[{{0, 0}, LightDirection[phi, True]}], Line[{{0, 0}, LightDirection[phi, False]}]}},
+    {StandardRed, AbsoluteThickness[2], Line[{{0, 0}, Through[{Sin, Cos}[WorldlineAngle[0.6, phi]]]}]},
+    {StandardYellow, Dashed, Line[{{0, 0}, {Sin[phi], Cos[phi]}}], Line[{{0, 0}, {-Sin[phi], Cos[phi]}}]}},
     PlotLabel -> Row[{"\[Phi] = ", phi}]],
   {phi, {Pi/4, Pi/3}}]
 ```
@@ -64,17 +64,17 @@ With[{disks = Cases[DopplerConstruction[0.6], Disk[c_, _] :> c, Infinity]},
 - Bob's proper time is not his Euclidean arc length, but it is proportional to it: the event at arc length *s* on his worldline has proper time [ProperTimeScale]()[*v*, *φ*] *s*, with the scale $k / k_{out}$. This is the identity that makes the Euclidean picture honest; it is verified against the radar interval $\sqrt{t^2 - x^2}$ below.
 
 ```wl
-Simplify[TrigExpand[With[{r = BondiRadarCoordinates[s WorldlineDirection[v, phi], phi]},
+Simplify[TrigExpand[With[{r = BondiRadarCoordinates[s Through[{Sin, Cos}[WorldlineAngle[v, phi]]], phi]},
   r["RadarTime"]^2 - r["RadarDistance"]^2 == ProperTimeScale[v, phi]^2 s^2]], 0 < v < 1 && 0 < phi < Pi/2]
 ```
 
 ## Radar time and radar distance
 
 - Alice locates an event by radar: she sends light at her proper time $T_1$, it is echoed at the event and returns at $T_2$. The event's radar time is $(T_1 + T_2)/2$ and its radar distance $(T_2 - T_1)/2$ ([BondiRadarCoordinates]()).
-- Apply it to Bob. Alice sends at *T*; Bob receives at *kT* on his clock and echoes at once; Alice receives at $k \cdot kT = k^2 T$. So Bob's reflection has radar time $(k^2 + 1)T/2$ and radar distance $(k^2 - 1)T/2$, and Bob's velocity is their ratio $(k^2 - 1)/(k^2 + 1)$ ([VelocityFromK]()). With *k* = 2 and *T* = 1:
+- Apply it to Bob. Alice sends at *T*; Bob receives at *kT* on his clock and echoes at once; Alice receives at $k \cdot kT = k^2 T$. So Bob's reflection has radar time $(k^2 + 1)T/2$ and radar distance $(k^2 - 1)T/2$, and Bob's velocity is their ratio $(k^2 - 1)/(k^2 + 1)$, the inverse of [KFactor](). With *k* = 2 and *T* = 1:
 
 ```wl
-With[{k = 2, T = 1}, {(k^2 + 1) T/2, (k^2 - 1) T/2, VelocityFromK[k]}]
+With[{k = 2, T = 1}, {(k^2 + 1) T/2, (k^2 - 1) T/2, (k^2 - 1)/(k^2 + 1), KFactor[(k^2 - 1)/(k^2 + 1)]}]
 ```
 
 - The same numbers from the picture: the first reflection of a light zigzag ([LightZigzag]()) from Alice's arc length 1 to Bob at velocity 3/5 has radar time 5/2 and radar distance 3/2, and Bob's clock reads *kT* = 2 there.
@@ -90,7 +90,7 @@ With[{bounce = LightZigzag[3/5, 1, 1][[2]]},
 - In the computation above Bob's clock read *kT* at the reflection, while Alice's radar time of it is $(k^2 + 1)T/2$. Their ratio is the Lorentz factor $\gamma = (k + 1/k)/2 = 1/\sqrt{1 - v^2}$ ([LorentzGamma]()): Alice assigns every event on Bob's worldline γ times Bob's own reading. At *v* = 3/5, γ = (2 + 1/2)/2 = 5/4.
 
 ```wl
-{LorentzGamma[3/5], FullSimplify[BondiRadarCoordinates[WorldlinePointAtProperTime[3/5, tau, Pi/3], Pi/3]["RadarTime"] == 5/4 tau, tau > 0]}
+{LorentzGamma[3/5], FullSimplify[BondiRadarCoordinates[tau/ProperTimeScale[3/5, Pi/3] Through[{Sin, Cos}[WorldlineAngle[3/5, Pi/3]]], Pi/3]["RadarTime"] == 5/4 tau, tau > 0]}
 ```
 
 - [TimeDilationConstruction]() draws the radar measurement of one event *B* of Bob's. Both worldlines carry ticks at equal proper-time steps, a quarter of Bob's reading at *B*; Alice's ticks reach her radar time of *B* after γ times as many steps, and the dashed line is her simultaneity line through *B*.
@@ -101,7 +101,7 @@ TimeDilationConstruction[0.6]
 
 ## Simultaneity
 
-- Bob calls an event simultaneous with his event *B* when its radar emission and return on his worldline are equally far before and after *B*. These events form a line through *B*, along $(\tan\varphi, v)$ ([SimultaneityLine]()): horizontal for Alice, and of slope *v* at *φ* = π/4 for Bob. Events simultaneous for one observer are not simultaneous for the other.
+- Bob calls an event simultaneous with his event *B* when its radar emission and return on his worldline are equally far before and after *B*. These events form a line through *B*, along $(\tan\varphi, v)$: horizontal for Alice, and of slope *v* at *φ* = π/4 for Bob. Events simultaneous for one observer are not simultaneous for the other.
 
 ```wl
 SimultaneityConstruction[0.6]
@@ -110,8 +110,8 @@ SimultaneityConstruction[0.6]
 - Every point of Bob's line has its radar midpoint at *B*: here *B* is at arc length *s* and the point at the end of the line, for every velocity and light angle.
 
 ```wl
-With[{midpoint = {p, v, phi} |-> Mean[Map[right |-> First @ LinearSolve[Transpose[{WorldlineDirection[v, phi], LightDirection[phi, right]}], p], {True, False}]]},
-  FullSimplify[midpoint[SimultaneityLine[v, s, phi, c][[3]], v, phi] == s, 0 < v < 1 && 0 < phi < Pi/2 && s > 0 && c > 0]]
+With[{midpoint = {p, v, phi} |-> Mean[Map[right |-> First @ LinearSolve[Transpose[{Through[{Sin, Cos}[WorldlineAngle[v, phi]]], {If[right, 1, -1] Sin[phi], Cos[phi]}}], p], {True, False}]]},
+  FullSimplify[midpoint[s Through[{Sin, Cos}[WorldlineAngle[v, phi]]] + c Normalize[{Tan[phi], v}], v, phi] == s, 0 < v < 1 && 0 < phi < Pi/2 && s > 0 && c > 0]]
 ```
 
 ## Length contraction
@@ -133,10 +133,10 @@ LengthContractionConstruction[0.6]
 
 ## Velocity addition
 
-- Carol moves at $v_2$ relative to Bob, who moves at $v_1$ relative to Alice. A signal from Alice to Carol passing Bob is received by Bob at $k_1$ times its emission and by Carol at $k_2$ times Bob's reception, so the k-factor of Carol relative to Alice is $k_1 k_2$: k-factors multiply, and the composed velocity is <code>[VelocityFromK]()[*k*1 *k*2]</code> $= (v_1 + v_2)/(1 + v_1 v_2)$. The rapidities $\log k$ add ([RapidityFromK]()).
+- Carol moves at $v_2$ relative to Bob, who moves at $v_1$ relative to Alice. A signal from Alice to Carol passing Bob is received by Bob at $k_1$ times its emission and by Carol at $k_2$ times Bob's reception, so the k-factor of Carol relative to Alice is $k_1 k_2$: k-factors multiply, and the composed velocity is $((k_1 k_2)^2 - 1)/((k_1 k_2)^2 + 1) = (v_1 + v_2)/(1 + v_1 v_2)$. The rapidities $\log k$ add ([Rapidity]()).
 
 ```wl
-FullSimplify[VelocityFromK[KFactor[v1] KFactor[v2]] == (v1 + v2)/(1 + v1 v2) && Rapidity[(v1 + v2)/(1 + v1 v2)] == Rapidity[v1] + Rapidity[v2],
+FullSimplify[With[{k = KFactor[v1] KFactor[v2]}, (k^2 - 1)/(k^2 + 1)] == (v1 + v2)/(1 + v1 v2) && Rapidity[(v1 + v2)/(1 + v1 v2)] == Rapidity[v1] + Rapidity[v2],
   0 < v1 < 1 && 0 < v2 < 1]
 ```
 

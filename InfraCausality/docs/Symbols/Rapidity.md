@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/Rapidity
 Keywords: [rapidity, ArcTanh, velocity addition, Bondi k-calculus, k-factor, hyperbolic angle]
-SeeAlso: [RapidityFromK, KFactor, LorentzGamma, VelocityFromK]
+SeeAlso: [KFactor, LorentzGamma]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -46,5 +46,5 @@ FullSimplify[Rapidity[(v1 + v2)/(1 + v1 v2)] == Rapidity[v1] + Rapidity[v2], -1 
 The rapidity is the logarithm of the k-factor, and its hyperbolic tangent is the velocity.
 
 ```wl
-FullSimplify[RapidityFromK[KFactor[v]] == Rapidity[v] && Tanh[Rapidity[v]] == v, 0 < v < 1]
+FullSimplify[Log[KFactor[v]] == Rapidity[v] && Tanh[Rapidity[v]] == v, 0 < v < 1]
 ```

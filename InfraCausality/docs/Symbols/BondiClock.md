@@ -53,7 +53,7 @@ The reflections lie on the moving worldline, and their arc lengths grow by $k^2$
 ```wl
 AllTrue[Tuples[{{0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{bob = Select[Cases[BondiClock[v, 8, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity], c |-> c[[1]] > 0]},
-    Length[bob] == 4 && Max[Abs[bob - Map[Norm, bob] Table[WorldlineDirection[v, phi], 4]]] < 10^-9 &&
+    Length[bob] == 4 && Max[Abs[bob - Map[Norm, bob] Table[Through[{Sin, Cos}[WorldlineAngle[v, phi]]], 4]]] < 10^-9 &&
       Max[Abs[Ratios[Map[Norm, bob]] - KFactor[v, phi]^2]] < 10^-9]]]
 ```
 

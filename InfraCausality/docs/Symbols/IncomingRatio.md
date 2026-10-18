@@ -43,8 +43,8 @@ Plot[Evaluate @ Table[IncomingRatio[v, phi], {phi, {Pi/6, Pi/4, Pi/3}}], {v, 0, 
 The reception at arc length $k_{in}\, s$ lies on the leftgoing light ray from the emission on the moving worldline.
 
 ```wl
-FullSimplify[With[{e = s WorldlineDirection[v, phi], r = {0, s IncomingRatio[v, phi]}},
-  Det[{r - e, LightDirection[phi, False]}] == 0], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
+FullSimplify[With[{e = s Through[{Sin, Cos}[WorldlineAngle[v, phi]]], r = {0, s IncomingRatio[v, phi]}},
+  Det[{r - e, {-Sin[phi], Cos[phi]}}] == 0], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
 ```
 
 In proper times the incoming light is the k-factor again.

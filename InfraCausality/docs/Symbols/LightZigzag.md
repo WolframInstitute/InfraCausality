@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/LightZigzag
 Keywords: [light zigzag, light signal, reflection, radar, Bondi clock, k-factor, geometric growth, bounce count]
-SeeAlso: [OutgoingRatio, IncomingRatio, KFactor, BondiRadarCoordinates, RapidityFromK, BondiClock]
+SeeAlso: [OutgoingRatio, IncomingRatio, KFactor, BondiRadarCoordinates, BondiClock]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -42,7 +42,7 @@ The zigzag of velocity 3/5 at the light angle π/3, drawn from its points.
 ```wl
 With[{points = N @ Lookup[LightZigzag[3/5, 1/10, 6, Pi/3], "Point"]},
   Graphics[{{StandardBlue, AbsoluteThickness[2], Line[{{0, 0}, {0, 1.1 Max[points[[All, 2]]]}}]},
-    {StandardRed, AbsoluteThickness[2], Line[{{0, 0}, 1.1 Max[Norm /@ points] WorldlineDirection[3/5, Pi/3]}]},
+    {StandardRed, AbsoluteThickness[2], Line[{{0, 0}, 1.1 Max[Norm /@ points] Through[{Sin, Cos}[WorldlineAngle[3/5, Pi/3]]]}]},
     {StandardYellow, Line[points]}, {StandardPurple, Disk[#, 0.02] & /@ points}}, ImageSize -> 300]]
 ```
 
