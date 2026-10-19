@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Experimental: viewer. The interface of the viewers may change.
 
-Definition: the frame at an event *v* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the causal future *J*⁺(*v*) in light orange, the causal past *J*⁻(*v*) in light blue, the future light cone *E*⁺(*v*) in orange, the past light cone *E*⁻(*v*) in blue and *v* in red. The label above the drawing gives *v*, its causal height, the causal volumes \|*J*⁺(*v*)\| and \|*J*⁻(*v*)\|, and the numbers of outgoing and incoming light rays.
+Definition: the frame at an event *v* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the causal future *J*⁺(*v*) in light red, the causal past *J*⁻(*v*) in light blue, the future light cone *E*⁺(*v*) in red, the past light cone *E*⁻(*v*) in blue and *v* in magenta. The label above the drawing gives *v*, its causal height, the causal volumes \|*J*⁺(*v*)\| and \|*J*⁻(*v*)\|, and the numbers of outgoing and incoming light rays.
 
 A click selects the event of *g* nearest to the click in the drawing; the viewer starts at an event of the graph centre. The result is a `Manipulate` with `SaveDefinitions -> True`, so it keeps working in a fresh session; clicking needs the Wolfram notebook front end.
 
@@ -38,8 +38,8 @@ GraphicsRow @ Table[
     {g = CausalSubstrate[name, "Small"]},
     {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[3]])},
     InfraSubstrateHighlight[g, {
-      InfraCausalFuture[v] -> Lighter[StandardOrange, 0.6], InfraCausalPast[v] -> Lighter[StandardBlue, 0.6],
-      InfraFutureLightCone[v] -> StandardOrange, InfraPastLightCone[v] -> StandardBlue, {v} -> StandardRed}]],
+      InfraCausalFuture[v] -> Lighter[Red, 0.6], InfraCausalPast[v] -> Lighter[RGBColor[0.259, 0.576, 1], 0.6],
+      InfraFutureLightCone[v] -> Red, InfraPastLightCone[v] -> RGBColor[0.259, 0.576, 1], {v} -> StandardMagenta}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

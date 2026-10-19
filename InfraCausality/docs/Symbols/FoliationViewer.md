@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Experimental: viewer. The interface of the viewers may change.
 
-Definition: the frame at time *k* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the slice {*v* : *t*(*v*) = *k*} of the [CausalHeight]() *t* in orange over the band {*v* : *t*(*v*) < *k*} in light blue. The label gives *k* and the sizes of the slice and of the band. The slider runs from 0 to the height of *g*, the largest causal height.
+Definition: the frame at time *k* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the slice {*v* : *t*(*v*) = *k*} of the [CausalHeight]() *t* in red over the band {*v* : *t*(*v*) < *k*} in light blue. The label gives *k* and the sizes of the slice and of the band. The slider runs from 0 to the height of *g*, the largest causal height.
 
 The causal height *t*(*v*) is the length of a longest chain ending at *v*, and its level sets are the slices of [CausalHeightFoliation](). The result is a `Manipulate` with `SaveDefinitions -> True`; it needs the Wolfram notebook front end to move the slider.
 
@@ -36,7 +36,7 @@ The frame at time 3, drawn without the viewer, on the diamond lattice, a sprinkl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    InfraSubstrateHighlight[g, {InfraSlice[{0, 2}] -> Lighter[StandardBlue, 0.5], InfraSlice[3] -> StandardOrange}]],
+    InfraSubstrateHighlight[g, {InfraSlice[{0, 2}] -> Lighter[RGBColor[0.259, 0.576, 1], 0.5], InfraSlice[3] -> Red}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

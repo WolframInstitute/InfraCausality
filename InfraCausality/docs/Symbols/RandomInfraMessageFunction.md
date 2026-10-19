@@ -40,7 +40,7 @@ The number of members is the `"Cardinality"` of the head, computed by dynamic pr
 
 ## Basic Examples
 
-A random message function between an observer *a* (blue) and an observer *b* (red), drawn as the light rays from each tick to its image (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
+A random message function between an observer *a* (blue) and an observer *b* (green), drawn as the light rays from each tick to its image (red), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
 
 ```wl
 GraphicsRow @ Table[
@@ -50,8 +50,8 @@ GraphicsRow @ Table[
     {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {f = (SeedRandom[1]; RandomInfraMessageFunction[g, InfraMessageFunction[a, b]])},
     InfraSubstrateHighlight[g, Join[
-      KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> StandardOrange, f],
-      {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]]],
+      KeyValueMap[{v, w} |-> InfraMessageFunction[{v}, {w}] -> Red, f],
+      {InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

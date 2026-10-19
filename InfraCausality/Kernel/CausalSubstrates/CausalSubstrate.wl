@@ -99,23 +99,21 @@ CausalSubstrateCode[ name_String /; MemberQ[ CausalSubstrate[ All ], name ], siz
       HoldComplete[ body_ ] :> HoldForm @ body,
       HoldComplete[ body_, args__ ] :> HoldForm @ Graph[ body, args ] } ] ]
 
-CausalSubstrateStyle[ "Small" ] = {
-  EdgeStyle -> Directive[ StandardGray, Opacity[ 0.5 ], Arrowheads[ 0.02 ] ],
-  VertexStyle -> Directive[ StandardGray, Opacity[ 0.6 ], EdgeForm[ { Darker[ StandardGray, 0.6 ], Opacity[ 0.65 ] } ] ],
-  VertexSize -> { "Scaled", 0.015 },
-  GraphLayout -> { "LayeredDigraphEmbedding", "Orientation" -> Bottom } }
+substrateStyle[ opacity_, arrowhead_, vertexSize_ ] :=
+  {
+    EdgeStyle -> Directive[ $causalColors[ "Edge" ], Opacity[ opacity ], Arrowheads[ arrowhead ] ],
+    VertexStyle -> Directive[ $causalColors[ "Event" ], EdgeForm[ { $causalColors[ "Event" ], Opacity[ 1 ] } ] ],
+    VertexSize -> { "Scaled", vertexSize },
+    GraphLayout -> { "LayeredDigraphEmbedding", "Orientation" -> Bottom } }
 
-CausalSubstrateStyle[ "Medium" ] = {
-  EdgeStyle -> Directive[ StandardGray, Opacity[ 0.4 ], Arrowheads[ 0.012 ] ],
-  VertexStyle -> Directive[ StandardGray, Opacity[ 0.5 ], EdgeForm[ { Darker[ StandardGray, 0.6 ], Opacity[ 0.6 ] } ] ],
-  VertexSize -> { "Scaled", 0.01 },
-  GraphLayout -> { "LayeredDigraphEmbedding", "Orientation" -> Bottom } }
+CausalSubstrateStyle[ "Small" ] :=
+  substrateStyle[ 0.7, 0.02, 0.015 ]
 
-CausalSubstrateStyle[ "Large" ] = {
-  EdgeStyle -> Directive[ StandardGray, Opacity[ 0.3 ], Arrowheads[ 0.006 ] ],
-  VertexStyle -> Directive[ StandardGray, Opacity[ 0.4 ], EdgeForm[ { Darker[ StandardGray, 0.6 ], Opacity[ 0.45 ] } ] ],
-  VertexSize -> { "Scaled", 0.006 },
-  GraphLayout -> { "LayeredDigraphEmbedding", "Orientation" -> Bottom } }
+CausalSubstrateStyle[ "Medium" ] :=
+  substrateStyle[ 0.5, 0.012, 0.01 ]
+
+CausalSubstrateStyle[ "Large" ] :=
+  substrateStyle[ 0.35, 0.006, 0.006 ]
 
 CausalSubstrateStyle[ _String, size : "Small" | "Medium" | "Large" ] :=
   CausalSubstrateStyle @ size

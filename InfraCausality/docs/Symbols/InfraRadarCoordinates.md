@@ -50,14 +50,14 @@ Corresponding notions:
 
 ## Basic Examples
 
-A random timelike geodesic of the substrate (blue) and its radar coordinates (orange), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head by its radar domain, the events it charts.
+A random timelike geodesic of the substrate (blue) and its radar coordinates (purple), on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice. [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head by its radar domain, the events it charts.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
-    InfraSubstrateHighlight[g, {InfraRadarCoordinates[a] -> StandardOrange, InfraWalk[a] -> StandardBlue}]],
+    InfraSubstrateHighlight[g, {InfraRadarCoordinates[a] -> StandardPurple, InfraWalk[a] -> StandardBlue}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -67,7 +67,7 @@ A timelike geodesic between two inner events of the diamond lattice charts only 
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{1, 0}, {5, 4}]])},
-  InfraSubstrateHighlight[g, {InfraRadarCoordinates[a] -> StandardGreen, InfraWalk[a] -> StandardRed}]]
+  InfraSubstrateHighlight[g, {InfraRadarCoordinates[a] -> StandardGreen, InfraWalk[a] -> StandardBlue}]]
 ```
 
 The base graph of the chart, the order on its coordinate cells, drawn at distance across and time up.

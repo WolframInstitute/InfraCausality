@@ -24,13 +24,13 @@ An emitter is an event that can influence the most events: the event of its slic
 
 ## Basic Examples
 
-The maximal emitters of every slice (orange) on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
+The maximal emitters of every slice (red) on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    InfraSubstrateHighlight[g, {Catenate @ Values @ MaximalEmitter[g] -> StandardOrange}]],
+    InfraSubstrateHighlight[g, {Catenate @ Values @ MaximalEmitter[g] -> Red}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -48,7 +48,7 @@ The emitter of the slice at height 1 of the sprinkling with its causal future.
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   {v = First @ MaximalEmitter[g][1]},
-  InfraSubstrateHighlight[g, {InfraSlice[1] -> StandardGreen, InfraCausalFuture[v] -> StandardOrange, v}]]
+  InfraSubstrateHighlight[g, {InfraSlice[1] -> StandardGreen, InfraCausalFuture[v] -> Red, v}]]
 ```
 
 ## Properties and Relations

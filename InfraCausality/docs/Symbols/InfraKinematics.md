@@ -54,7 +54,7 @@ With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {ref = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
   {targets = Table[(SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[RandomInfraPoint[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
-  InfraSubstrateHighlight[g, Prepend[MapThread[InfraWalk[#1] -> #2 &, {targets, {StandardRed, StandardGreen, StandardOrange}}], InfraWalk[ref] -> StandardBlue]]]
+  InfraSubstrateHighlight[g, Prepend[MapThread[InfraWalk[#1] -> #2 &, {targets, {Red, StandardGreen, StandardPurple}}], InfraWalk[ref] -> StandardBlue]]]
 ```
 
 The projections of a longest chain onto two worldlines of the sprinkling and onto two of the cylinder lattice, with their mass and velocity.

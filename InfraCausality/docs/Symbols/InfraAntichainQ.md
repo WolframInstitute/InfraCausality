@@ -46,7 +46,7 @@ With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
   {pair = (SeedRandom[3]; RandomChoice @ Select[Tuples[{Keys @ InfraMeasurement[g, InfraSlice[1], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[3], "VertexDensity"]}], p |-> InfraAntichainQ[g, p]])},
   Labeled[
-    InfraSubstrateHighlight[g, {InfraCausalFuture[First @ pair] -> StandardOrange, InfraCausalFuture[Last @ pair] -> StandardBlue, pair -> StandardRed}],
+    InfraSubstrateHighlight[g, {InfraCausalFuture[First @ pair] -> Red, InfraCausalFuture[Last @ pair] -> StandardBlue, pair -> StandardMagenta}],
     InfraAntichainQ[g, pair]]]
 ```
 

@@ -52,7 +52,7 @@ A sprinkling of 100 points into the two-dimensional diamond, in its coordinates,
 ```wl
 With[
   {g = (SeedRandom[2]; RandomCausalGraph[100, Method -> {"Sprinkling", 2}])},
-  InfraSubstrateHighlight[g, {InfraCausalFuture[20] -> StandardOrange, 20}]]
+  InfraSubstrateHighlight[g, {InfraCausalFuture[20] -> Red, 20}]]
 ```
 
 The height foliation of a percolation of 60 events with *p* = 0.08.

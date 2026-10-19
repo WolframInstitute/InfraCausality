@@ -65,23 +65,7 @@ SimultaneityLine[ velocity_, arcLength_, lightAngle_ : Pi/4, extent_ : 1 ] :=
   ]
 
 bondiColor[ name_String ] :=
-  Lookup[
-    <|
-      "Alice" -> StandardBlue,
-      "Bob" -> StandardRed,
-      "Carol" -> StandardGreen,
-      "Light" -> StandardYellow,
-      "LightFaded" -> Lighter[ StandardYellow, 0.5 ],
-      "Event" -> StandardPurple,
-      "Simultaneity" -> StandardOrange,
-      "SimAlice" -> Lighter[ StandardBlue, 0.3 ],
-      "SimBob" -> Lighter[ StandardRed, 0.3 ],
-      "Tick" -> Darker[ StandardGray, 0.3 ],
-      "Label" -> Darker[ StandardGray, 0.6 ],
-      "Background" -> Lighter[ StandardGray, 0.95 ]
-    |>,
-    name
-  ]
+  $causalColors[ "Bondi", name ]
 
 bondiGraphics[ elements_List, size_, padding_ ] :=
   Graphics[ elements,

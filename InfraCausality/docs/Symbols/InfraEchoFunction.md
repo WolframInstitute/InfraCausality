@@ -46,7 +46,7 @@ Corresponding notions:
 
 ## Basic Examples
 
-The echoes of an observer *a* (blue) via an observer *b* (red), drawn as the outgoing and returning light rays (orange). The observer *a* is a random longest chain of the substrate and *b* a random longest chain of the rest of it. On the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice:
+The echoes of an observer *a* (blue) via an observer *b* (green), drawn as the outgoing and returning light rays (red). The observer *a* is a random longest chain of the substrate and *b* a random longest chain of the rest of it. On the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice:
 
 ```wl
 GraphicsRow @ Table[
@@ -54,7 +54,7 @@ GraphicsRow @ Table[
     {g = CausalSubstrate[name, "Small"]},
     {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
-    InfraSubstrateHighlight[g, {InfraEchoFunction[a, b] -> StandardOrange, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardRed}]],
+    InfraSubstrateHighlight[g, {InfraEchoFunction[a, b] -> Red, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 

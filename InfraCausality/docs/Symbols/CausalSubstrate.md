@@ -55,14 +55,14 @@ GraphicsGrid[
   ImageSize -> 720]
 ```
 
-The three doc substrates in their construction coordinates, with the causal future (orange) and past (blue) of an event at height 5.
+The three doc substrates in their construction coordinates, with the causal future (red) and past (blue) of an event at height 5.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small", "KeepCoordinates" -> True]},
     {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[5]])},
-    InfraSubstrateHighlight[g, {InfraCausalFuture[v] -> StandardOrange, InfraCausalPast[v] -> StandardBlue, v}]],
+    InfraSubstrateHighlight[g, {InfraCausalFuture[v] -> Red, InfraCausalPast[v] -> StandardBlue, v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
@@ -72,7 +72,7 @@ The two 2 + 1 dimensional entries in their coordinates, drawn by the cabinet pro
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small", "KeepCoordinates" -> True]},
-    InfraSubstrateHighlight[g, {InfraFutureLightCone[First @ VertexList[g]] -> StandardOrange}]],
+    InfraSubstrateHighlight[g, {InfraFutureLightCone[First @ VertexList[g]] -> Red}]],
   {name, {"CubicLatticeGraph", "MinkowskiSprinkling3D"}}]
 ```
 

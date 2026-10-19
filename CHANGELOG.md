@@ -20,7 +20,7 @@ An API review against InfraGeometry 2.7.4 and the PureMath naming conventions. T
 - **Breaking -- the EPS constructions are stable.** `RandomInfraMessageFunction`, `RandomInfraEchoFunction`, the joined `InfraRadarCoordinates[{a, b, ...}]`, the `"Fibration"` reading and the readings `"DomainDefect"`, `"FunctionDefect"`, `"InjectivityDefect"`, `"OrderDefect"` and `"KFactor"` leave their "Experimental:" sections; no EPS material is experimental. `RandomInfraEchoFunction` takes `"NextVertexFunction"` with the four values of the chain samplers (`Identity` the sorted order, `RandomSample` a random order, `RandomChoice` the composition of two random walks through the selection graphs, not with `All`) and keeps the count contract; it enumerates the distinct composites, which carry no path count of their own.
 - **New: the axiom predicates.** `EPSMessageAxiomQ[g, InfraMessageFunction[a, b]]`, also of `InfraEchoFunction[a, b]`, with the option `"Margin" -> k`, is axiom D1 exactly on the window of `a`: every tick has one image and the images strictly increase, equivalently the four defects vanish. `EPSRadarAxiomQ[g, InfraRadarCoordinates[a]]`, also of a list of observers, is axiom D2: the radar coordinates are injective on the radar domain, every fiber of the observer space a single event. They test the pair of observers, where `InfraMessageFunctionQ` and `InfraEchoFunctionQ` test a candidate map.
 - **Settled.** `"OrderDefect"` keeps the weak definition: a pair of ticks counts when some image of the earlier one lies after some image of the later one, so a tie of single images counts against `"InjectivityDefect"` and not against order, and strict monotonicity is the vanishing of both; the strict variant is not a reading. A meeting-point chart (`Method -> "Meeting"` of the radar coordinates) is not an EPS construction and is no longer planned.
-- **Tests:** 368 tests.
+- **Tests:** 370 tests.
 
 | 2.0.0 | 2.1.0 |
 |---|---|
@@ -50,6 +50,10 @@ An API review against InfraGeometry 2.7.4 and the PureMath naming conventions. T
 | `WorldlinePointAtProperTime[v, tau, phi]` | `tau/ProperTimeScale[v, phi] Through[{Sin, Cos}[WorldlineAngle[v, phi]]]` |
 | `LightDirection[phi, right]` | `{Sin[phi], Cos[phi]}` to the right, `{-Sin[phi], Cos[phi]}` to the left |
 | `SimultaneityLine[v, s, phi, c]` | the base point `s Through[{Sin, Cos}[WorldlineAngle[v, phi]]]` and its translates by `±c Normalize[{Tan[phi], v}]` |
+
+## 2.0.1 (2026-10-18)
+
+- Drawing follows the Wolfram Physics Project causal-graph style. `CausalSubstrateStyle` now draws events in `Hue[0.11, 1, 0.97]` and causal edges in `Hue[0, 1, 0.56]`, the values of SetReplace's `"CausalGraph"` style and of the causal graphs of the Technical Introduction; `CausalSubstrate`, `RandomCausalGraph` and the `"BaseGraph"` reading of `InfraRadarChart` carry it. The edge opacity (0.7, 0.5, 0.35) and the arrowheads still shrink with the size, and the layout is still layered with time upward. Highlights follow the Project's conventions where it has them: light cones, light rays and the current slice of a foliation in `Red`, the past in the Project's blue `RGBColor[0.259, 0.576, 1]`; the viewers and the documentation examples use them, with worldlines in `StandardBlue`, second observers in `StandardGreen`, images in `StandardPurple` and the selected event in `StandardMagenta`. The Bondi figures keep their palette, with the reflection events now in `StandardMagenta`.
 
 ## 2.0.0 (2026-10-18)
 
