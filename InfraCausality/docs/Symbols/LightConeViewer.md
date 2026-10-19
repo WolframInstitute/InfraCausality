@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 Experimental: viewer. The interface of the viewers may change.
 
-Definition: the frame at an event *v* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the causal future *J*⁺(*v*) in light red, the causal past *J*⁻(*v*) in light blue, the future light cone *E*⁺(*v*) in red, the past light cone *E*⁻(*v*) in blue and *v* in magenta. The label above the drawing gives *v*, its universal time, the causal volumes \|*J*⁺(*v*)\| and \|*J*⁻(*v*)\|, and the numbers of outgoing and incoming light rays.
+Definition: the frame at an event *v* draws, with <code>[`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight)</code>, the causal future *J*⁺(*v*) in light red, the causal past *J*⁻(*v*) in light blue, the future light cone *E*⁺(*v*) in red, the past light cone *E*⁻(*v*) in blue and *v* in magenta. The label above the drawing gives *v*, its causal height, the causal volumes \|*J*⁺(*v*)\| and \|*J*⁻(*v*)\|, and the numbers of outgoing and incoming light rays.
 
 A click selects the event of *g* nearest to the click in the drawing; the viewer starts at an event of the graph centre. The result is a `Manipulate` with `SaveDefinitions -> True`, so it keeps working in a fresh session; clicking needs the Wolfram notebook front end.
 
@@ -36,7 +36,7 @@ The frame at an event at height 3, drawn without the viewer, on the diamond latt
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[3]])},
+    {v = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[3]])},
     InfraSubstrateHighlight[g, {
       InfraCausalFuture[v] -> Lighter[Red, 0.6], InfraCausalPast[v] -> Lighter[RGBColor[0.259, 0.576, 1], 0.6],
       InfraFutureLightCone[v] -> Red, InfraPastLightCone[v] -> RGBColor[0.259, 0.576, 1], {v} -> StandardMagenta}]],
@@ -52,9 +52,9 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
   With[
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
-      SubsetQ[RandomInfraCausalFuture[g, v], Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] &&
-        SubsetQ[RandomInfraCausalPast[g, v], Keys @ InfraMeasurement[g, InfraPastLightCone[v], "VertexDensity"]] &&
-        Intersection[RandomInfraCausalFuture[g, v], RandomInfraCausalPast[g, v]] === {v}]]]
+      SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"]] &&
+        SubsetQ[Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraPastLightCone[v], "VertexDensity"]] &&
+        Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"]] === {v}]]]
 ```
 
 The ray counts in the label are the numbers of extremal events of the light cones: the leaves of the future tree and of the past tree.

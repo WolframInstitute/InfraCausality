@@ -6,8 +6,8 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraEchoFunctionQ
 Keywords: [echo function, radar, composition, message function, EPS axioms, Ehlers-Pirani-Schild, predicate]
-SeeAlso: [InfraEchoFunction, RandomInfraEchoFunction, InfraMessageFunctionQ, InfraMessageFunction, InfraRadarChart]
-RelatedGuides: [InfraObservers]
+SeeAlso: [InfraEchoFunction, RandomInfraEchoFunction, InfraMessageFunctionQ, EPSMessageAxiomQ, InfraMessageFunction, InfraRadarCoordinates]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage
@@ -20,7 +20,7 @@ Statement: an association *f* from ticks of *a* to ticks of *a* is an echo funct
 
 The domain of an echo function depends on the message function chosen: a tick whose light reaches *b* both at a tick that answers and at one that does not lies in the domain of some echo functions and not of others. The empty association is an echo function when some message function to *b* sends every tick to a tick with no return.
 
-Being a monotone selection of the echo relation, the `"Relation"` of [InfraEchoFunction](), is necessary and not sufficient. The predicate decides the composition without enumerating the message functions: it walks the ticks of *a* through the layers of admissible images on *b*, keeping only images that move forward along *b*, or stay at a tick of *b* whose return is already fixed. [`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) on the head is this predicate.
+Being a monotone selection of the echo relation, the `"Relation"` of [InfraEchoFunction](), is necessary and not sufficient. The predicate decides the composition without enumerating the message functions: it walks the ticks of *a* through the layers of admissible images on *b*, keeping only images that move forward along *b*, or stay at a tick of *b* whose return is already fixed. [`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) on the head is this predicate. It tests a candidate map against the pair of observers; [EPSMessageAxiomQ]() of the echo head tests the pair itself, whether every tick has one echo and the echoes strictly increase.
 
 ## Basic Examples
 
@@ -30,8 +30,8 @@ On the diamond lattice, a sprinkling into two-dimensional Minkowski space and th
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {f = (SeedRandom[1]; RandomChoice @ Select[RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All], e |-> e =!= <||>])},
     {InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f],
      InfraEchoFunctionQ[g, InfraEchoFunction[a, b], First /@ DeleteCases[InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"], {}]],
@@ -44,8 +44,8 @@ On the cylinder lattice the first two ticks of *a* reach *b* at ticks that answe
 ```wl
 With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]]
 ```
 
@@ -79,8 +79,8 @@ The echo functions are exactly the compositions of two message functions, enumer
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {compositions = DeleteDuplicates @ Catenate @ Outer[
       {s, t} |-> KeySort @ DeleteMissing[Lookup[t, Key[#]] & /@ s],
       RandomInfraMessageFunction[g, InfraMessageFunction[a, b], All], RandomInfraMessageFunction[g, InfraMessageFunction[b, a], All], 1]},
@@ -94,8 +94,8 @@ Among the compositions of arbitrary single-valued selections, the predicate acce
 AllTrue[{"MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {selections = {x, y} |-> With[{relation = DeleteCases[InfraMeasurement[g, InfraMessageFunction[x, y], "Relation"], {}]},
       AssociationThread[Keys @ relation, #] & /@ Tuples[Values @ relation]]},
     {members = KeySort /@ RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]},
@@ -109,8 +109,8 @@ AllTrue[{"MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {sample = (SeedRandom[1]; RandomInfraEchoFunction[g, InfraEchoFunction[a, b], UpTo[8]])},
     AllTrue[Join[sample, Map[f |-> Append[f, First[Keys @ f] -> First[Keys @ f]], Select[sample, f |-> f =!= <||>]]], f |->
       InfraMemberQ[g, InfraEchoFunction[a, b], f] === InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f]]]]

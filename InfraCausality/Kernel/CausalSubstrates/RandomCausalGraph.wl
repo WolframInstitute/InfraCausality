@@ -29,25 +29,22 @@ sprinklingPoints[ n_Integer, d_Integer ] :=
       n ],
     First ]
 
-RandomCausalGraph[ n_Integer?Positive, opts : OptionsPattern[ { RandomCausalGraph, Graph } ] ] :=
-  Replace[ OptionValue[ RandomCausalGraph, FilterRules[ { opts }, Options @ RandomCausalGraph ], Method ], {
-    Automatic | "Percolation" :> RandomCausalGraph[ { n, N[ Log[ n ] / n ] }, Sequence @@ FilterRules[ { opts }, Options @ Graph ] ],
-    "Sprinkling" :> RandomCausalGraph[ n, Method -> { "Sprinkling", 2 }, Sequence @@ FilterRules[ { opts }, Options @ Graph ] ],
-    { "Sprinkling", d_Integer /; d >= 2 } :> With[
-      { points = sprinklingPoints[ n, d ] },
-      causalGraph[ n,
-        Catenate @ Table[
-          If[ points[[ j, 1 ]] - points[[ i, 1 ]] > Norm[ Rest @ points[[ j ]] - Rest @ points[[ i ]] ], DirectedEdge[ i, j ], Nothing ],
-          { i, n }, { j, i + 1, n } ],
-        If[ d <= 3, Append[ Rest @ #, First @ # ] & /@ points, { #[[ 2 ]], #[[ 1 ]] } & /@ points ],
-        Sequence @@ FilterRules[ { opts }, Options @ Graph ] ] ] } ]
-
-RandomCausalGraph[ { n_Integer?Positive, p_?( NumericQ[ # ] && ! IntegerQ[ # ] && 0 <= # <= 1 & ) }, opts : OptionsPattern[ Graph ] ] :=
-  With[ { pairs = Subsets[ Range @ n, { 2 } ] },
-    causalGraph[ n,
-      DirectedEdge @@@ Pick[ pairs, UnitStep[ RandomReal[ 1, Length @ pairs ] - p ], 0 ],
-      None,
-      opts ] ]
+RandomCausalGraph[ n_Integer?Positive, opts : OptionsPattern[ { RandomCausalGraph, Graph } ] ] /;
+    MatchQ[ OptionValue[ RandomCausalGraph, FilterRules[ { opts }, Options @ RandomCausalGraph ], Method ],
+      Automatic | "Percolation" | "Sprinkling" | { "Percolation", _?( NumericQ[ # ] && 0 <= # <= 1 & ) } | { "Sprinkling", _Integer?( GreaterEqualThan[ 2 ] ) } ] :=
+  With[ { method = Replace[ OptionValue[ RandomCausalGraph, FilterRules[ { opts }, Options @ RandomCausalGraph ], Method ],
+            { Automatic | "Percolation" -> { "Percolation", N[ Log[ n ] / n ] }, "Sprinkling" -> { "Sprinkling", 2 } } ],
+          graphOptions = FilterRules[ { opts }, Options @ Graph ] },
+    Replace[ method, {
+      { "Percolation", p_ } :> With[ { pairs = Subsets[ Range @ n, { 2 } ] },
+        causalGraph[ n, DirectedEdge @@@ Pick[ pairs, UnitStep[ RandomReal[ 1, Length @ pairs ] - p ], 0 ], None, Sequence @@ graphOptions ] ],
+      { "Sprinkling", d_ } :> With[ { points = sprinklingPoints[ n, d ] },
+        causalGraph[ n,
+          Catenate @ Table[
+            If[ points[[ j, 1 ]] - points[[ i, 1 ]] > Norm[ Rest @ points[[ j ]] - Rest @ points[[ i ]] ], DirectedEdge[ i, j ], Nothing ],
+            { i, n }, { j, i + 1, n } ],
+          If[ d <= 3, Append[ Rest @ #, First @ # ] & /@ points, { #[[ 2 ]], #[[ 1 ]] } & /@ points ],
+          Sequence @@ graphOptions ] ] } ] ]
 
 RandomCausalGraph[ { n_Integer?Positive, m_Integer }, opts : OptionsPattern[ Graph ] ] :=
   With[ { count = Max[ n, 2 ] },

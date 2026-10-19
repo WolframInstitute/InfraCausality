@@ -10,7 +10,7 @@ $diamond = Graph[ Flatten @ Table[ { If[ i < 3, { i, j } -> { i + 1, j }, Nothin
 
 $fixtures = { $ladder, $twoSource, $diamond }
 
-$chains[ g_ ] := Take[ RandomInfraObserver[ g, All ], UpTo[ 6 ] ]
+$chains[ g_ ] := Take[ RandomInfraWorldline[ g, All ], UpTo[ 6 ] ]
 
 $futureOf[ g_, e_ ] := VertexOutComponent[ g, { e } ]
 
@@ -21,14 +21,14 @@ $lightConeOf[ g_, e_ ] :=
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ Tuples[ $chains[ g ], 2 ], ab |->
-    And @@ Map[ m |-> 0 <= ChainProjection[ g, First @ ab, Last @ ab, "Method" -> m ] <= 1, { "Cone", "LightRays" } ] ] ],
+    And @@ Map[ m |-> 0 <= ChainProjection[ g, First @ ab, Last @ ab, Method -> m ] <= 1, { "Cone", "LightRays" } ] ] ],
   True,
   TestID -> "ChainProjection-Fixtures-lies-in-unit-interval"
 ]
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ $chains[ g ], a |->
-    ChainProjection[ g, a, a ] == 1 && ChainProjection[ g, a, a, "Method" -> "LightRays" ] == 1 ] ],
+    ChainProjection[ g, a, a ] == 1 && ChainProjection[ g, a, a, Method -> "LightRays" ] == 1 ] ],
   True,
   TestID -> "ChainProjection-Fixtures-a-chain-onto-itself-is-one"
 ]
@@ -58,14 +58,14 @@ VerificationTest[
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ Tuples[ $chains[ g ], 2 ], ab |->
-    ChainProjection[ g, First @ ab, Last @ ab, "Method" -> "LightRays" ] <= ChainProjection[ g, First @ ab, Last @ ab ] ] ],
+    ChainProjection[ g, First @ ab, Last @ ab, Method -> "LightRays" ] <= ChainProjection[ g, First @ ab, Last @ ab ] ] ],
   True,
   TestID -> "ChainProjection-Fixtures-light-rays-at-most-cone"
 ]
 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ Tuples[ $chains[ g ], 2 ], ab |->
-    ChainProjection[ g, First @ ab, Last @ ab, "Method" -> "LightRays" ] ==
+    ChainProjection[ g, First @ ab, Last @ ab, Method -> "LightRays" ] ==
       Count[ First @ ab, e_ /; IntersectingQ[ $lightConeOf[ g, e ], Last @ ab ] ] / Length @ First @ ab ] ],
   True,
   TestID -> "ChainProjection-Fixtures-light-rays-is-the-fraction-of-events-whose-light-cone-meets-the-target"
@@ -73,7 +73,7 @@ VerificationTest[
 
 VerificationTest[
   { ChainProjection[ $ladder, { 1, 2, 3, 4 }, # ] & /@ { { 4 }, { 5 }, { 7 }, { 5, 6, 7, 8 } },
-    ChainProjection[ $ladder, { 1, 2, 3, 4 }, #, "Method" -> "LightRays" ] & /@ { { 4 }, { 5 }, { 7 }, { 5, 6, 7, 8 } } },
+    ChainProjection[ $ladder, { 1, 2, 3, 4 }, #, Method -> "LightRays" ] & /@ { { 4 }, { 5 }, { 7 }, { 5, 6, 7, 8 } } },
   { { 1, 0, 1/2, 3/4 }, { 1/2, 0, 1/4, 3/4 } },
   TestID -> "ChainProjection-Ladder-literal-values"
 ]
@@ -103,8 +103,8 @@ VerificationTest[
   AllTrue[ $fixtures, g |->
     With[ { chains = $chains[ g ] },
       AllTrue[ { "Cone", "LightRays" }, m |->
-        With[ { k = InfraKinematics[ g, First @ chains, Rest @ chains, "Method" -> m ] },
-          k[ "Projections" ] == Map[ b |-> ChainProjection[ g, First @ chains, b, "Method" -> m ], Rest @ chains ] &&
+        With[ { k = InfraKinematics[ g, First @ chains, Rest @ chains, Method -> m ] },
+          k[ "Projections" ] == Map[ b |-> ChainProjection[ g, First @ chains, b, Method -> m ], Rest @ chains ] &&
           k[ "Energy" ] == Map[ Mean, Subsets[ k[ "Projections" ], { 2 } ] ] &&
           k[ "Energy" ]^2 - k[ "Momentum" ]^2 == k[ "Interval" ] &&
           k[ "Mass" ]^2 == Abs @ k[ "Interval" ] &&
@@ -121,9 +121,9 @@ VerificationTest[
 
 VerificationTest[
   SeedRandom[ 17 ];
-  With[ { g = RandomCausalGraph[ { 20, 0.2 } ] },
-    With[ { chains = RandomInfraObserver[ g, UpTo[ 4 ] ] },
-      With[ { k = InfraKinematics[ g, First @ chains, Rest @ chains, "Method" -> "LightRays" ],
+  With[ { g = RandomCausalGraph[ 20, Method -> { "Percolation", 0.2 } ] },
+    With[ { chains = RandomInfraWorldline[ g, UpTo[ 4 ] ] },
+      With[ { k = InfraKinematics[ g, First @ chains, Rest @ chains, Method -> "LightRays" ],
               c = InfraKinematics[ g, First @ chains, Rest @ chains ] },
         AllTrue[ Join[ k[ "Projections" ], c[ "Projections" ] ], 0 <= # <= 1 & ] &&
         And @@ Thread[ k[ "Projections" ] <= c[ "Projections" ] ] &&

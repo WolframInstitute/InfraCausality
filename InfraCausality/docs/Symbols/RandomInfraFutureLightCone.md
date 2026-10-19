@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraFutureLightCone
 Keywords: [light ray, outgoing light ray, future light cone, null geodesic, uniform sampling, sampler, count contract]
-SeeAlso: [InfraFutureLightCone, RandomInfraPastLightCone, InfraLightRayQ, RandomInfraWorldline, ChainLightReach, InfraMeasurement, InfraMemberQ]
+SeeAlso: [InfraFutureLightCone, RandomInfraPastLightCone, InfraLightRayQ, RandomInfraTimelikeGeodesic, ChainLightReach, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -33,7 +33,7 @@ The count contract is the one every `RandomInfra…` sampler shares:
 | `UpTo[n]` | a `List` of min(*n*, `"Cardinality"`) distinct rays |
 | `All` | every ray, enumerated without drawing |
 
-The option `"NextVertexFunction"` replaces the uniform descent as it does for [RandomInfraWorldline](): `Identity` enumerates the rays in sorted order, `RandomSample` in shuffled order, `RandomChoice` draws random walks (not combined with `All`), and a function *f* of the sorted next events sets or prunes the search.
+The option `"NextVertexFunction"` replaces the uniform descent as it does for [RandomInfraTimelikeGeodesic](): `Identity` enumerates the rays in sorted order, `RandomSample` in shuffled order, `RandomChoice` draws random walks (not combined with `All`), and a function *f* of the sorted next events sets or prunes the search.
 
 [InfraLightRayQ]() recognises a ray.
 
@@ -45,7 +45,7 @@ One outgoing light ray of an event at height 1, on the diamond lattice, a sprink
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
+    {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
     {ray = (SeedRandom[5]; RandomInfraFutureLightCone[g, InfraFutureLightCone[v]])},
     InfraSubstrateHighlight[g, {InfraWalk[ray], v}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -62,7 +62,7 @@ Every outgoing light ray of the first event of the sprinkling. Most of them are 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {v = First @ RandomInfraSlice[g, InfraSlice[0]]},
+  {v = First @ Keys @ InfraMeasurement[g, InfraSlice[0], "VertexDensity"]},
   RandomInfraFutureLightCone[g, v, All]]
 ```
 

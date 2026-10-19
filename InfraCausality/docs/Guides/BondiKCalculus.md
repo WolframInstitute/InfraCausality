@@ -7,22 +7,21 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/BondiKCalculus
 Keywords: [Bondi k-calculus, k-factor, Doppler factor, special relativity, rapidity, Lorentz factor, radar coordinates, light zigzag, proper time, Bondi figures]
-RelatedGuides: [CausalInfrageometry, CausalTime, InfraObservers, CausalSubstrates]
+RelatedGuides: [CausalInfrageometry, CausalTime, EPSAxiomatics, CausalSubstrates]
 RelatedTutorials: [BondiKCalculus]
 ---
 
 ## Abstract
 
-Bondi's k-calculus derives special relativity from the ratio $k$ between the period of a light signal as sent and as received. Drawn in the Euclidean plane with two straight worldlines from a common origin and light at a fixed angle, the k-factor is a ratio of arc lengths, proper time is a fixed multiple of arc length on each worldline, and the bounces of a light zigzag grow geometrically, so their count is a logarithm of arc length. These functions are the continuum anchor of the paclet and take no graph; the graph analogue of the radar construction is the radar chart of the Infra Observers guide.
+Bondi's k-calculus derives special relativity from the ratio $k$ between the period of a light signal as sent and as received. Drawn in the Euclidean plane with two straight worldlines from a common origin and light at a fixed angle, the k-factor is a ratio of arc lengths, proper time is a fixed multiple of arc length on each worldline, and the bounces of a light zigzag grow geometrically, so their count is a logarithm of arc length. These functions are the continuum anchor of the paclet and take no graph; the graph analogue of the radar construction is `InfraRadarCoordinates` of the EPS Axiomatics guide.
 
 ## Functions
 
 ### The k-factor
 
-- `KFactor` the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$, or its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$
-- `VelocityFromK` the velocity $(k^2 - 1)/(k^2 + 1)$
-- `LorentzGamma` the Lorentz factor $(k + 1/k)/2$
-- `Rapidity`, `RapidityFromK` the rapidity $\operatorname{artanh} v = \log k$
+- `BondiKFactor` the Bondi factor $k = \sqrt{(1 + v)/(1 - v)}$, or its angular form $\sqrt{\sin(\varphi + \alpha)/\sin(\varphi - \alpha)}$
+- `LorentzFactor` the Lorentz factor $(k + 1/k)/2$
+- `Rapidity` the rapidity $\operatorname{artanh} v = \log k$
 - `ArcTanh` (WL)
 
 ### Worldlines in the Euclidean picture
@@ -39,10 +38,6 @@ Bondi's k-calculus derives special relativity from the ratio $k$ between the per
 ### Experimental: figures
 
 - `BondiClock`, `DopplerConstruction`, `TimeDilationConstruction`, `SimultaneityConstruction`, `LengthContractionConstruction`, `VelocityAdditionConstruction`, `LightClockConstruction` the seven k-calculus constructions as graphics
-
-### Experimental: drawing helpers
-
-- `WorldlineDirection`, `WorldlinePoint`, `WorldlineNormal`, `WorldlinePointAtProperTime`, `LightDirection`, `SimultaneityLine` the plane geometry behind the figures
 
 ### Experimental: viewers
 

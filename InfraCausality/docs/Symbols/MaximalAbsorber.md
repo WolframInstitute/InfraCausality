@@ -5,20 +5,20 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/MaximalAbsorber
-Keywords: [extremal events, causal past, absorber, slice, universal foliation, experimental]
-SeeAlso: [MaximalEmitter, InfraCausalPast, UniversalFoliation, InfraSlice, UniversalTime]
+Keywords: [extremal events, causal past, absorber, slice, height foliation, experimental]
+SeeAlso: [MaximalEmitter, InfraCausalPast, CausalHeightFoliation, InfraSlice, CausalHeight]
 RelatedGuides: [CausalTime]
 ---
 
 ## Usage
 
-<code>[MaximalAbsorber]()[*g*]</code> gives, for each slice *k* of the universal foliation, the sorted events of the slice whose causal past has the most vertices.
+<code>[MaximalAbsorber]()[*g*]</code> gives, for each slice *k* of the height foliation, the sorted events of the slice whose causal past has the most vertices.
 
 ## Details & Options
 
 Experimental: extremal events. The notion is unsettled; the function reads one count per event and may change.
 
-Definition: for each height *k* = 0, …, *h* of the universal time *t*, the maximal absorbers of the slice *S*(*k*) = {*v* : *t*(*v*) = *k*} are the events *v* of *S*(*k*) for which the number of events of the causal past *J*⁻(*v*), *v* included, is largest. The result is the association *k* → the sorted list of them, keys in increasing order; every list is nonempty, and ties keep all their events.
+Definition: for each height *k* = 0, …, *h* of the causal height *t*, the maximal absorbers of the slice *S*(*k*) = {*v* : *t*(*v*) = *k*} are the events *v* of *S*(*k*) for which the number of events of the causal past *J*⁻(*v*), *v* included, is largest. The result is the association *k* → the sorted list of them, keys in increasing order; every list is nonempty, and ties keep all their events.
 
 An absorber is an event that has received influence from the most events at its height: the event of the slice that sees most of the past. [MaximalEmitter]() is the time-reversed reading, the events of largest causal future.
 
@@ -53,15 +53,15 @@ With[
 
 ## Properties and Relations
 
-The keys are the heights of the universal time, and each value is a nonempty part of its slice.
+The keys are the causal heights, and each value is a nonempty part of its slice.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
     {absorbers = MaximalAbsorber[g]},
-    Keys[absorbers] === Range[0, Max @ UniversalTime[g]] &&
-      AllTrue[Normal @ absorbers, Apply[{k, vs} |-> vs =!= {} && SubsetQ[RandomInfraSlice[g, k], vs]]]]]
+    Keys[absorbers] === Range[0, Max @ CausalHeight[g]] &&
+      AllTrue[Normal @ absorbers, Apply[{k, vs} |-> vs =!= {} && SubsetQ[Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"], vs]]]]]
 ```
 
 The values are exactly the events of the slice with the largest causal past, by brute force.
@@ -72,7 +72,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {size = v |-> Length @ VertexInComponent[g, {v}]},
     AllTrue[Normal @ MaximalAbsorber[g], Apply[{k, vs} |->
-      With[{slice = RandomInfraSlice[g, k]}, vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
+      With[{slice = Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]}, vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
 ```
 
 On the diamond lattice the absorbers of slice *k* are the events (*i*, *j*) of the antidiagonal nearest the diagonal, |*i* − *j*| = 0 for even *k* and 1 for odd *k*, and on the cylinder lattice they are the whole rows.
@@ -80,8 +80,8 @@ On the diamond lattice the absorbers of slice *k* are the events (*i*, *j*) of t
 ```wl
 With[
   {diamond = CausalSubstrate["DiamondLatticeGraph", "Small"], cylinder = CausalSubstrate["CylinderLatticeGraph", "Small"]},
-  AllTrue[Normal @ MaximalAbsorber[diamond], Apply[{k, vs} |-> vs === Sort @ Select[RandomInfraSlice[diamond, k], v |-> Abs[First[v] - Last[v]] == Mod[k, 2]]]] &&
-    Values[MaximalAbsorber[cylinder]] === UniversalFoliation[cylinder]]
+  AllTrue[Normal @ MaximalAbsorber[diamond], Apply[{k, vs} |-> vs === Sort @ Select[Keys @ InfraMeasurement[diamond, InfraSlice[k], "VertexDensity"], v |-> Abs[First[v] - Last[v]] == Mod[k, 2]]]] &&
+    Values[MaximalAbsorber[cylinder]] === CausalHeightFoliation[cylinder]]
 ```
 
 On the diamond lattice, which its reflection (*i*, *j*) ↦ (6 − *i*, 6 − *j*) turns upside down, the absorbers and the emitters coincide.

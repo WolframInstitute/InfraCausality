@@ -5,24 +5,24 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/RandomInfraWorldline
-Keywords: [worldline, longest chain, timelike geodesic, uniform sampling, sampler, count contract, NextVertexFunction]
-SeeAlso: [InfraWorldline, InfraWorldlineQ, RandomInfraObserver, RandomInfraFutureLightCone, RandomInfraCausalDiamond, InfraMeasurement, InfraMemberQ]
+Keywords: [worldline, saturated chain, observer, uniform sampling, sampler, count contract, NextVertexFunction]
+SeeAlso: [InfraWorldline, InfraWorldlineQ, RandomInfraTimelikeGeodesic, InfraMessageFunction, InfraRadarCoordinates, InfraMeasurement, InfraMemberQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
 ## Usage
 
-<code>[RandomInfraWorldline]()[*g*, [InfraWorldline]()[*p*, *q*]]</code> gives one longest chain from *p* to *q* on *g*, drawn uniformly, as a vertex list.
+<code>[RandomInfraWorldline]()[*g*, [InfraWorldline]()[*p*, *q*]]</code> gives one saturated chain from *p* to *q* on *g*, drawn uniformly, as a vertex list.
 
-<code>[RandomInfraWorldline]()[*g*, [InfraWorldline]()[*p*, *q*], *n*]</code> gives a `List` of *n* distinct longest chains, or `{}` when there are fewer; `UpTo[n]` gives at most *n*; `All` gives every longest chain.
+<code>[RandomInfraWorldline]()[*g*, [InfraWorldline]()[*p*, *q*], *n*]</code> gives a `List` of *n* distinct saturated chains, or `{}` when there are fewer; `UpTo[n]` gives at most *n*; `All` gives every one.
 
-<code>[RandomInfraWorldline]()[*g*, *p*, *q*, *n*]</code> is the shortcut for <code>[InfraWorldline]()[*p*, *q*]</code>, and <code>[RandomInfraWorldline]()[*g*, *n*]</code> for the longest chains of the whole graph, <code>[InfraWorldline]()[]</code>.
+<code>[RandomInfraWorldline]()[*g*, *p*, *q*, *n*]</code> is the shortcut for <code>[InfraWorldline]()[*p*, *q*]</code>, and <code>[RandomInfraWorldline]()[*g*, *n*]</code> for the inextendible worldlines of the whole graph, <code>[InfraWorldline]()[]</code>.
 
 ## Details & Options
 
-Definition: the members of a worldline head are its longest chains, the paths from source to sink of <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, *w*, "Graph"]</code>. A member is a vertex list *p* = *e*0 ≺ … ≺ *ek* = *q* in causal order, with *k* = τ(*p*, *q*). The same sampler draws every form of [InfraWorldline](): the two-event form, the whole-graph form, and the experimental polyline and from-event forms.
+Definition: the members of a worldline head are its saturated chains, the paths from source to sink of <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, *w*, "Graph"]</code>, the Hasse diagram on the diamond [*p*, *q*]. A member is a vertex list in causal order whose consecutive events are covering pairs; read as an observer, its positions are the ticks of a clock. For <code>[InfraWorldline]()[]</code> the members are the saturated chains from a source of the graph to a sink, the worldlines that cannot be extended at either end.
 
-The default draw is uniform over the members. It descends the graph of the head from a source, choosing each next event with probability proportional to the number of members through it, which dynamic programming counts once; so each member is drawn with probability 1/`"Cardinality"`. Seed with `SeedRandom` to reproduce a draw.
+The default draw is uniform over the members: each next event is chosen with probability proportional to the number of members through it, counted once by dynamic programming. Worldlines between the same events can have different numbers of events, and the draw is uniform over worldlines, not over lengths. Seed with `SeedRandom` to reproduce a draw.
 
 The count contract is the one every `RandomInfra…` sampler shares:
 
@@ -43,7 +43,7 @@ The option `"NextVertexFunction"` replaces the uniform descent:
 | `RandomChoice` | independent random walks, each next event chosen with equal probability: distinct members, not uniform; not combined with `All` |
 | *f* | *f* is applied to the sorted list of next events; a list sets the order of the search, a single event prunes the search to it |
 
-[InfraWorldlineQ]() recognises a member of some worldline family, and <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)[*g*, *w*, *chain*]</code> a member of the family *w*.
+The members are the observers that [InfraMessageFunction]() and [InfraRadarCoordinates]() take as arguments, worldlines whose positions are read as clock ticks. [InfraWorldlineQ]() recognises one.
 
 ## Basic Examples
 
@@ -53,84 +53,79 @@ One worldline from an event at height 1 to an event of its future one slice belo
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {member = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
     InfraSubstrateHighlight[g, {InfraWalk[member], p, q}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-The count-less call is one vertex list; a count gives a list of distinct members.
-
-```wl
-With[
-  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {(SeedRandom[1]; RandomInfraWorldline[g, {0, 0}, {1, 2}]), (SeedRandom[1]; RandomInfraWorldline[g, {0, 0}, {1, 2}, 2])}]
-```
-
-There are three worldlines from {0, 0} to {1, 2}, so a strict count of 4 gives the empty list and `UpTo[4]` gives all three.
-
-```wl
-With[
-  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {(SeedRandom[1]; RandomInfraWorldline[g, {0, 0}, {1, 2}, 4]), (SeedRandom[1]; Length @ RandomInfraWorldline[g, {0, 0}, {1, 2}, UpTo[4]])}]
-```
-
-`"NextVertexFunction" -> Identity` gives the first members in sorted order, without randomness.
-
-```wl
-RandomInfraWorldline[CausalSubstrate["CylinderLatticeGraph", "Small"], {0, 0}, {2, 4}, 3, "NextVertexFunction" -> Identity]
-```
-
-Three of the longest chains of the whole sprinkling.
+Five worldlines between two events of the sprinkling, and their numbers of events.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
+  {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+  {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
+  {members = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q], 5])},
+  {members, Length /@ members}]
+```
+
+A strict count above the number of worldlines gives the empty list; `UpTo` gives them all.
+
+```wl
+With[
+  {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
+  {(SeedRandom[1]; RandomInfraWorldline[g, {0, 0}, {1, 2}, 3]), (SeedRandom[1]; RandomInfraWorldline[g, {0, 0}, {1, 2}, UpTo[3]])}]
+```
+
+Three inextendible worldlines of the cylinder lattice, from its bottom row to its top row.
+
+```wl
+With[
+  {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   {members = (SeedRandom[1]; RandomInfraWorldline[g, 3])},
   GraphicsRow @ Table[InfraSubstrateHighlight[g, {InfraWalk[member]}], {member, members}]]
 ```
 
 ## Properties and Relations
 
-`All` gives `"Cardinality"` distinct members, each a chain of τ(*p*, *q*) + 1 events that passes [InfraWorldlineQ]() and [`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ).
+`All` gives `"Cardinality"` distinct members, each passing [InfraWorldlineQ](), and the timelike geodesics between the same events are among them.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[Max[CausalHeight[g]] - 1]]])},
     {members = RandomInfraWorldline[g, InfraWorldline[p, q], All]},
     DuplicateFreeQ[members] && Length[members] == InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"] &&
-      Union[Length /@ members] == {InfraMeasurement[g, InfraWorldline[p, q], "Length"] + 1} &&
-      InfraWorldlineQ[g, members] && AllTrue[members, InfraMemberQ[g, InfraWorldline[p, q], #] &]]]
+      InfraWorldlineQ[g, members] && SubsetQ[members, RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], All]]]]
 ```
 
-The default draw is uniform: over 1500 draws each of the three worldlines from {0, 0} to {1, 2} of the diamond lattice appears with frequency within 0.05 of 1/3.
+The distinct numbers of edges of the members are the `"Length"` reading of the head.
+
+```wl
+AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
+  With[
+    {g = CausalSubstrate[name, "Small"]},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[6]]])},
+    Replace[Union[Length /@ RandomInfraWorldline[g, InfraWorldline[p, q], All] - 1], {one_} :> one] ===
+      InfraMeasurement[g, InfraWorldline[p, q], "Length"]]]
+```
+
+The default draw is uniform over worldlines: over 1500 draws each of the worldlines from {0, 0} to {1, 2} of the cylinder lattice appears with frequency within 0.05 of 1/2.
 
 ```wl
 With[
-  {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
+  {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   {draws = (SeedRandom[1]; Table[RandomInfraWorldline[g, {0, 0}, {1, 2}], 1500])},
   Sort[Keys @ Counts @ draws] === Sort @ RandomInfraWorldline[g, {0, 0}, {1, 2}, All] &&
-    AllTrue[Values @ Counts @ draws, Abs[#/1500 - 1/3] < 0.05 &]]
+    AllTrue[Values @ Counts @ draws, Abs[#/1500 - 1/2] < 0.05 &]]
 ```
 
-`"NextVertexFunction" -> Identity` takes the members in sorted order, and the same seed gives the same draw.
-
-```wl
-AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
-  With[
-    {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[Max[UniversalTime[g]] - 1]]])},
-    {n = Min[3, InfraMeasurement[g, InfraWorldline[p, q], "Cardinality"]]},
-    RandomInfraWorldline[g, InfraWorldline[p, q], n, "NextVertexFunction" -> Identity] === Take[Sort @ RandomInfraWorldline[g, InfraWorldline[p, q], All], n] &&
-      (SeedRandom[7]; RandomInfraWorldline[g, InfraWorldline[p, q], n]) === (SeedRandom[7]; RandomInfraWorldline[g, InfraWorldline[p, q], n])]]
-```
-
-Every worldline lies in the causal diamond of its endpoints, and the worldlines of the whole graph run from a source to a sink.
+The inextendible worldlines run from a source to a sink, and each one is a worldline between its own two ends.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -138,6 +133,6 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     {members = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[20]])},
     AllTrue[members, member |->
-      SubsetQ[RandomInfraCausalDiamond[g, First @ member, Last @ member], member] &&
-        VertexInDegree[g, First @ member] == 0 && VertexOutDegree[g, Last @ member] == 0]]]
+      VertexInDegree[g, First @ member] == 0 && VertexOutDegree[g, Last @ member] == 0 &&
+        InfraMemberQ[g, InfraWorldline[First @ member, Last @ member], member]]]]
 ```

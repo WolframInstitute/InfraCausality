@@ -10,7 +10,7 @@ Options[ RandomInfraPastLightCone ] = { "NextVertexFunction" -> Automatic }
 
 InfraFutureLightCone /: InfraMeasurement[ graph_Graph, InfraFutureLightCone[ v_ ], "Graph" ] :=
   With[ { future = Subgraph[ graph, VertexOutComponent[ graph, { v } ] ] },
-    { tau = UniversalTime @ future },
+    { tau = CausalHeight @ future },
     { null = Select[ VertexList @ future, e |-> Length @ VertexInComponent[ future, { e } ] == tau[ e ] + 1 ] },
     TransitiveReductionGraph @ Subgraph[ future, null ] ]
 
@@ -59,5 +59,5 @@ InfraLightRayQ[ graph_Graph, chains : { __List } ] /; ! AllTrue[ chains, VertexQ
   AllTrue[ chains, InfraLightRayQ[ graph, # ] & ]
 
 InfraLightRayQ[ graph_Graph, chain_List ] :=
-  InfraObserverQ[ graph, chain ] &&
+  InfraWorldlineQ[ graph, chain ] &&
     Length @ chain == Length @ Intersection[ VertexOutComponent[ graph, { First @ chain } ], VertexInComponent[ graph, { Last @ chain } ] ]

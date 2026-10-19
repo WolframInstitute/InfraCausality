@@ -5,22 +5,22 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/MaximalEmitter
-Keywords: [extremal events, causal future, emitter, slice, universal foliation, experimental]
-SeeAlso: [MaximalAbsorber, InfraCausalFuture, UniversalFoliation, InfraSlice, UniversalTime]
+Keywords: [extremal events, causal future, emitter, slice, height foliation, experimental]
+SeeAlso: [MaximalAbsorber, InfraCausalFuture, CausalHeightFoliation, InfraSlice, CausalHeight]
 RelatedGuides: [CausalTime]
 ---
 
 ## Usage
 
-<code>[MaximalEmitter]()[*g*]</code> gives, for each slice *k* of the universal foliation, the sorted events of the slice whose causal future has the most vertices.
+<code>[MaximalEmitter]()[*g*]</code> gives, for each slice *k* of the height foliation, the sorted events of the slice whose causal future has the most vertices.
 
 ## Details & Options
 
 Experimental: extremal events. The notion is unsettled; the function reads one count per event and may change.
 
-Definition: for each height *k* = 0, …, *h* of the universal time *t*, the maximal emitters of the slice *S*(*k*) are the events *v* of *S*(*k*) for which the number of events of the causal future *J*⁺(*v*), *v* included, is largest. The result is the association *k* → the sorted list of them, keys in increasing order; every list is nonempty, and ties keep all their events.
+Definition: for each height *k* = 0, …, *h* of the causal height *t*, the maximal emitters of the slice *S*(*k*) are the events *v* of *S*(*k*) for which the number of events of the causal future *J*⁺(*v*), *v* included, is largest. The result is the association *k* → the sorted list of them, keys in increasing order; every list is nonempty, and ties keep all their events.
 
-An emitter is an event that can influence the most events: the event of its slice whose light reaches furthest. [MaximalAbsorber]() is the time-reversed reading. The slices are those of the universal time, counted from the sources, so the emitters of *g* are not in general the absorbers of the reversed graph, whose slices are counted from the sinks; they are when every event lies on a longest chain, as on the two lattices.
+An emitter is an event that can influence the most events: the event of its slice whose light reaches furthest. [MaximalAbsorber]() is the time-reversed reading. The slices are those of the causal height, counted from the sources, so the emitters of *g* are not in general the absorbers of the reversed graph, whose slices are counted from the sinks; they are when every event lies on a longest chain, as on the two lattices.
 
 ## Basic Examples
 
@@ -53,16 +53,16 @@ With[
 
 ## Properties and Relations
 
-The keys are the heights of the universal time, and the values are exactly the events of each slice with the largest causal future, by brute force.
+The keys are the causal heights, and the values are exactly the events of each slice with the largest causal future, by brute force.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
     {size = v |-> Length @ VertexOutComponent[g, {v}]},
-    Keys[MaximalEmitter[g]] === Range[0, Max @ UniversalTime[g]] &&
+    Keys[MaximalEmitter[g]] === Range[0, Max @ CausalHeight[g]] &&
       AllTrue[Normal @ MaximalEmitter[g], Apply[{k, vs} |->
-        With[{slice = RandomInfraSlice[g, k]}, vs =!= {} && vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
+        With[{slice = Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]}, vs =!= {} && vs === Sort @ Select[slice, v |-> size[v] == Max[size /@ slice]]]]]]]
 ```
 
 The size of the causal future read by [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement) of [InfraCausalFuture]() is the same count.
@@ -80,6 +80,6 @@ When every event lies on a longest chain, as on the two lattices, the emitters o
 AllTrue[{"DiamondLatticeGraph", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {h = Max @ UniversalTime[g]},
+    {h = Max @ CausalHeight[g]},
     MaximalEmitter[g] === KeySort @ KeyMap[k |-> h - k, MaximalAbsorber[ReverseGraph[g]]]]]
 ```

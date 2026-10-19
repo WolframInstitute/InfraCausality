@@ -14,6 +14,6 @@ PackageScope[ extremalEvents ]
 
 extremalEvents[ graph_Graph, cone_ ] :=
   KeySort @ GroupBy[
-    Normal @ UniversalTime @ graph,
+    Normal @ CausalHeight @ graph,
     Last -> First,
     vs |-> Sort @ MaximalBy[ vs, v |-> InfraMeasurement[ graph, cone[ v ], "CountingMeasure" ] ] ]

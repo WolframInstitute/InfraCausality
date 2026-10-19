@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/LightClockConstruction
 Keywords: [light clock, time dilation, mirror, Lorentz factor, figure, Bondi k-calculus, experimental]
-SeeAlso: [LightDirection, WorldlineNormal, ProperTimeScale, LorentzGamma, TimeDilationConstruction, BondiViewer]
+SeeAlso: [ProperTimeScale, LorentzFactor, TimeDilationConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -21,7 +21,7 @@ RelatedTutorials: [BondiKCalculus]
 
 Experimental: figure. The figure's layout and options may change.
 
-Definition: the observer of velocity *v* (red) carries a mirror on the parallel worldline (faint red) at the Euclidean distance `"ClockLength"` along <code>[WorldlineNormal]()[*v*, *φ*]</code>. Light leaves the observer at arc length `"StartArcLength"`, runs along <code>[LightDirection]()[*φ*, True]</code> to the mirror and back along <code>[LightDirection]()[*φ*, False]</code>, *n* segments in all; each return to the observer (purple) is one tick. Because the two worldlines are parallel, every round trip is the same translate along the worldline, so the ticks are equally spaced in the observer's proper time; the rest observer (faint blue) sees the period γ times longer in radar time. At *v* = 0 the figure is the clock at rest.
+Definition: the observer of velocity *v* (red) carries a mirror on the parallel worldline (faint red) at the Euclidean distance `"ClockLength"` along the unit normal $(\cos\alpha, -\sin\alpha)$ of the worldline, α = <code>[WorldlineAngle]()[*v*, *φ*]</code>. Light leaves the observer at arc length `"StartArcLength"`, runs along the light direction $(\sin\varphi, \cos\varphi)$ to the mirror and back along $(-\sin\varphi, \cos\varphi)$, *n* segments in all; each return to the observer (purple) is one tick. Because the two worldlines are parallel, every round trip is the same translate along the worldline, so the ticks are equally spaced in the observer's proper time; the rest observer (faint blue) sees the period γ times longer in radar time. At *v* = 0 the figure is the clock at rest.
 
 | Option | Default | |
 |---|---|---|
@@ -51,7 +51,7 @@ The light segments run along the two light directions alternately.
 ```wl
 AllTrue[Tuples[{{0, 0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{ray = First @ Cases[LightClockConstruction[v, 8, "LightAngle" -> phi], Line[pts_ /; Length[pts] > 3] :> pts, Infinity]},
-    Max[Abs[Map[Normalize, Differences[ray]] - Map[i |-> LightDirection[phi, OddQ[i]], Range[8]]]] < 10^-9]]]
+    Max[Abs[Map[Normalize, Differences[ray]] - Map[i |-> {If[OddQ[i], 1, -1] Sin[phi], Cos[phi]}, Range[8]]]] < 10^-9]]]
 ```
 
 The ticks lie on the moving worldline at equal steps of its proper time, and the rest observer's radar time between ticks is γ times that step.
@@ -60,6 +60,6 @@ The ticks lie on the moving worldline at equal steps of its proper time, and the
 AllTrue[Tuples[{{0.3, 0.7}, {Pi/4, 1.1}}], Apply[{v, phi} |->
   With[{ticks = First[Cases[LightClockConstruction[v, 8, "LightAngle" -> phi], Line[pts_ /; Length[pts] > 3] :> pts, Infinity]][[1 ;; -1 ;; 2]]},
     {steps = Differences[ProperTimeScale[v, phi] Map[Norm, ticks]]},
-    Max[Abs[ticks - Map[Norm, ticks] Table[WorldlineDirection[v, phi], Length[ticks]]]] < 10^-9 &&
-      Max[Abs[steps - First[steps]]] < 10^-9 && Max[Abs[Differences[ticks[[All, 2]]]/steps - LorentzGamma[v]]] < 10^-9]]]
+    Max[Abs[ticks - Map[Norm, ticks] Table[Through[{Sin, Cos}[WorldlineAngle[v, phi]]], Length[ticks]]]] < 10^-9 &&
+      Max[Abs[steps - First[steps]]] < 10^-9 && Max[Abs[Differences[ticks[[All, 2]]]/steps - LorentzFactor[v]]] < 10^-9]]]
 ```

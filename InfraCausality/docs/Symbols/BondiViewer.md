@@ -55,7 +55,7 @@ Over the slider ranges the Bondi clock frame keeps its identity: the reflections
 ```wl
 AllTrue[Tuples[{{0.05, 0.4, 0.9}, {0.15, Pi/4, Pi/2 - 0.05}}], Apply[{v, phi} |->
   With[{bob = Select[Cases[BondiClock[v, 8, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity], c |-> c[[1]] > 0]},
-    Max[Abs[Ratios[Map[Norm, bob]] - KFactor[v]^2]] < 10^-6]]]
+    Max[Abs[Ratios[Map[Norm, bob]] - BondiKFactor[v]^2]] < 10^-6]]]
 ```
 
 Over the slider ranges the velocity addition frame composes the velocities: Carol's reception is $k_1 k_2$ times Alice's emission in proper time.
@@ -63,5 +63,5 @@ Over the slider ranges the velocity addition frame composes the velocities: Caro
 ```wl
 AllTrue[Tuples[{{0.05, 0.4, 0.9}, {0.05, 0.3, 0.85}, {0.15, Pi/4, Pi/2 - 0.05}}], Apply[{v1, v2, phi} |->
   With[{d = Cases[VelocityAdditionConstruction[v1, v2, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity]},
-    Abs[ProperTimeScale[(v1 + v2)/(1 + v1 v2), phi] Norm[d[[3]]]/d[[1, 2]] - KFactor[v1] KFactor[v2]] < 10^-6]]]
+    Abs[ProperTimeScale[(v1 + v2)/(1 + v1 v2), phi] Norm[d[[3]]]/d[[1, 2]] - BondiKFactor[v1] BondiKFactor[v2]] < 10^-6]]]
 ```

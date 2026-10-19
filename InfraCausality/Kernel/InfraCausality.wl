@@ -8,20 +8,17 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 PackageExport[InfraCausalFuture]
 PackageExport[InfraCausalPast]
-PackageExport[RandomInfraCausalFuture]
-PackageExport[RandomInfraCausalPast]
 PackageExport[InfraCausalFutureQ]
 PackageExport[InfraCausalPastQ]
 PackageExport[InfraCausalDiamond]
-PackageExport[RandomInfraCausalDiamond]
 PackageExport[InfraCausalDiamondQ]
 PackageExport[InfraWorldline]
 PackageExport[RandomInfraWorldline]
 PackageExport[InfraWorldlineQ]
 PackageExport[InfraChainQ]
-PackageExport[InfraObserver]
-PackageExport[RandomInfraObserver]
-PackageExport[InfraObserverQ]
+PackageExport[InfraTimelikeGeodesic]
+PackageExport[RandomInfraTimelikeGeodesic]
+PackageExport[InfraTimelikeGeodesicQ]
 PackageExport[InfraFutureLightCone]
 PackageExport[InfraPastLightCone]
 PackageExport[RandomInfraFutureLightCone]
@@ -42,10 +39,9 @@ PackageExport[FoliationViewer]
 
 (* CausalTime *)
 
-PackageExport[UniversalTime]
-PackageExport[UniversalFoliation]
+PackageExport[CausalHeight]
+PackageExport[CausalHeightFoliation]
 PackageExport[InfraSlice]
-PackageExport[RandomInfraSlice]
 PackageExport[InfraSliceQ]
 PackageExport[InfraAntichainQ]
 
@@ -54,18 +50,17 @@ PackageExport[InfraAntichainQ]
 PackageExport[MaximalAbsorber]
 PackageExport[MaximalEmitter]
 
-(* InfraObservers *)
+(* EPSAxiomatics *)
 
 PackageExport[InfraMessageFunction]
 PackageExport[InfraEchoFunction]
 PackageExport[InfraMessageFunctionQ]
 PackageExport[InfraEchoFunctionQ]
-PackageExport[InfraRadarChart]
-
-(* Experimental: selections *)
-
 PackageExport[RandomInfraMessageFunction]
 PackageExport[RandomInfraEchoFunction]
+PackageExport[EPSMessageAxiomQ]
+PackageExport[InfraRadarCoordinates]
+PackageExport[EPSRadarAxiomQ]
 
 (* CausalSubstrates *)
 
@@ -76,11 +71,9 @@ PackageExport[RandomCausalGraph]
 
 (* BondiKCalculus *)
 
-PackageExport[KFactor]
-PackageExport[VelocityFromK]
-PackageExport[LorentzGamma]
+PackageExport[BondiKFactor]
+PackageExport[LorentzFactor]
 PackageExport[Rapidity]
-PackageExport[RapidityFromK]
 PackageExport[WorldlineAngle]
 PackageExport[OutgoingRatio]
 PackageExport[IncomingRatio]
@@ -97,15 +90,6 @@ PackageExport[SimultaneityConstruction]
 PackageExport[LengthContractionConstruction]
 PackageExport[VelocityAdditionConstruction]
 PackageExport[LightClockConstruction]
-
-(* Experimental: drawing helpers *)
-
-PackageExport[WorldlineDirection]
-PackageExport[WorldlinePoint]
-PackageExport[WorldlineNormal]
-PackageExport[WorldlinePointAtProperTime]
-PackageExport[LightDirection]
-PackageExport[SimultaneityLine]
 
 (* Experimental: viewers *)
 

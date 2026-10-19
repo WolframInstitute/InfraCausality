@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/IncomingRatio
 Keywords: [arc-length ratio, incoming light, Euclidean picture, Bondi k-calculus, sine rule, light zigzag]
-SeeAlso: [OutgoingRatio, ProperTimeScale, KFactor, WorldlineAngle, LightZigzag]
+SeeAlso: [OutgoingRatio, ProperTimeScale, BondiKFactor, WorldlineAngle, LightZigzag]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -43,18 +43,18 @@ Plot[Evaluate @ Table[IncomingRatio[v, phi], {phi, {Pi/6, Pi/4, Pi/3}}], {v, 0, 
 The reception at arc length $k_{in}\, s$ lies on the leftgoing light ray from the emission on the moving worldline.
 
 ```wl
-FullSimplify[With[{e = s WorldlineDirection[v, phi], r = {0, s IncomingRatio[v, phi]}},
-  Det[{r - e, LightDirection[phi, False]}] == 0], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
+FullSimplify[With[{e = s Through[{Sin, Cos}[WorldlineAngle[v, phi]]], r = {0, s IncomingRatio[v, phi]}},
+  Det[{r - e, {-Sin[phi], Cos[phi]}}] == 0], 0 < v < 1 && 0 < phi < Pi/2 && s > 0]
 ```
 
 In proper times the incoming light is the k-factor again.
 
 ```wl
-Simplify[TrigExpand[IncomingRatio[v, phi]^2 == (KFactor[v] ProperTimeScale[v, phi])^2], 0 < v < 1 && 0 < phi < Pi/2]
+Simplify[TrigExpand[IncomingRatio[v, phi]^2 == (BondiKFactor[v] ProperTimeScale[v, phi])^2], 0 < v < 1 && 0 < phi < Pi/2]
 ```
 
 The two ratios multiply to *k*² at every light angle.
 
 ```wl
-Simplify[TrigExpand[OutgoingRatio[v, phi] IncomingRatio[v, phi]] == KFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
+Simplify[TrigExpand[OutgoingRatio[v, phi] IncomingRatio[v, phi]] == BondiKFactor[v]^2, 0 < v < 1 && 0 < phi < Pi/2]
 ```

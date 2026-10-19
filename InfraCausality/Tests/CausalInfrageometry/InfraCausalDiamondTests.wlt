@@ -19,14 +19,14 @@ $comparablePairs = g |-> Select[ Tuples[ VertexList @ g, 2 ], pair |-> MemberQ[ 
 $between = { g, u, w } |-> Intersection[ VertexOutComponent[ g, { u } ], VertexInComponent[ g, { w } ] ];
 
 $convexQ = g |-> AllTrue[ $comparablePairs @ g, pair |->
-  With[ { diamond = RandomInfraCausalDiamond[ g, First @ pair, Last @ pair ] },
+  With[ { diamond = Keys @ InfraMeasurement[ g, InfraCausalDiamond[ First @ pair, Last @ pair ], "VertexDensity" ] },
     AllTrue[ Tuples[ diamond, 2 ], uw |-> SubsetQ[ diamond, $between[ g, First @ uw, Last @ uw ] ] ] ] ];
 
 $intersectionQ = g |-> AllTrue[ Tuples[ VertexList @ g, 2 ], pair |->
-  RandomInfraCausalDiamond[ g, First @ pair, Last @ pair ] ===
-    Intersection[ RandomInfraCausalFuture[ g, First @ pair ], RandomInfraCausalPast[ g, Last @ pair ] ] ];
+  Keys @ InfraMeasurement[ g, InfraCausalDiamond[ First @ pair, Last @ pair ], "VertexDensity" ] ===
+    Intersection[ Keys @ InfraMeasurement[ g, InfraCausalFuture[ First @ pair ], "VertexDensity" ], Keys @ InfraMeasurement[ g, InfraCausalPast[ Last @ pair ], "VertexDensity" ] ] ];
 
-$diamondQAcceptsQ = g |-> AllTrue[ $comparablePairs @ g, pair |-> InfraCausalDiamondQ[ g, RandomInfraCausalDiamond[ g, First @ pair, Last @ pair ] ] ];
+$diamondQAcceptsQ = g |-> AllTrue[ $comparablePairs @ g, pair |-> InfraCausalDiamondQ[ g, Keys @ InfraMeasurement[ g, InfraCausalDiamond[ First @ pair, Last @ pair ], "VertexDensity" ] ] ];
 
 $chainHullQ = { g, p, q } |-> AllTrue[ FindPath[ g, p, q, Infinity, All ], chain |->
   InfraMeasurement[ g, InfraCausalDiamond[ chain ], "VertexDensity" ] === InfraMeasurement[ g, InfraCausalDiamond[ p, q ], "VertexDensity" ] ];
@@ -65,10 +65,19 @@ VerificationTest[ $chainHullQ[ $cylinder, { 0, 0 }, { 0, 3 } ], True, TestID -> 
 VerificationTest[
   AllTrue[ $fixtures, g |-> AllTrue[ $comparablePairs @ g, pair |->
     With[ { diamond = InfraCausalDiamond @@ pair },
-      InfraMemberQ[ g, diamond, Reverse @ RandomInfraCausalDiamond[ g, diamond ] ] &&
-        RandomInfraCausalDiamond[ g, diamond, All ] === { RandomInfraCausalDiamond[ g, diamond ] } ] ] ],
+      InfraMemberQ[ g, diamond, Reverse @ Keys @ InfraMeasurement[ g, diamond, "VertexDensity" ] ] &&
+        InfraMeasurement[ g, diamond, "Cardinality" ] == 1 ] ] ],
   True,
   TestID -> "InfraCausalDiamond-All-single-member-is-the-support"
+]
+
+VerificationTest[
+  AllTrue[ $fixtures, g |-> AllTrue[ $comparablePairs @ g, pair |->
+    With[ { support = Keys @ InfraMeasurement[ g, InfraCausalDiamond @@ pair, "VertexDensity" ] },
+      { points = RandomInfraPoint[ g, InfraCausalDiamond @@ pair, Min[ 3, Length @ support ] ] },
+      Length @ points == Min[ 3, Length @ support ] && DuplicateFreeQ @ points && SubsetQ[ support, points ] ] ] ],
+  True,
+  TestID -> "InfraCausalDiamond-All-random-points-are-distinct-events-of-the-support"
 ]
 
 EndTestSection[]

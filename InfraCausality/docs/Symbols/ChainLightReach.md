@@ -20,19 +20,19 @@ Experimental: Knuth kinematics. The light reach is the set on which the `"LightR
 
 Definition: for a chain *c* = (*c*1, …, *cn*) of *g* the light reach is *E*⁺(*c*1) ∪ … ∪ *E*⁺(*cn*), the events reached from some event of *c* along a light ray, the vertex sets of the outgoing light rays of the events of *c*.
 
-The light reach contains *c*, since every event lies on its own light cone, and it lies in the causal future *J*⁺(*c*1) of the first event, since each light cone lies in the causal future of its apex and the futures shrink along the chain. A chain *b* meets the light reach of *a* exactly when <code>[ChainProjection]()[*g*, *a*, *b*, "Method" -> "LightRays"]</code> is positive.
+The light reach contains *c*, since every event lies on its own light cone, and it lies in the causal future *J*⁺(*c*1) of the first event, since each light cone lies in the causal future of its apex and the futures shrink along the chain. A chain *b* meets the light reach of *a* exactly when <code>[ChainProjection]()[*g*, *a*, *b*, Method -> "LightRays"]</code> is positive.
 
 ## Basic Examples
 
-The light reach of a worldline from an event at height 1 to an event at height 5, on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
+The light reach of a timelike geodesic from an event at height 1 to an event at height 5, on the diamond lattice, a sprinkling into two-dimensional Minkowski space and the cylinder lattice.
 
 ```wl
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {p = (SeedRandom[1]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {q = (SeedRandom[1]; RandomChoice @ Intersection[RandomInfraCausalFuture[g, p], RandomInfraSlice[g, InfraSlice[5]]])},
-    {c = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[p, q]])},
+    {p = (SeedRandom[1]; RandomInfraPoint[g, InfraSlice[1]])},
+    {q = (SeedRandom[1]; RandomInfraPoint[g, InfraIntersection[InfraCausalFuture[p], InfraSlice[5]]])},
+    {c = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q]])},
     InfraSubstrateHighlight[g, {ChainLightReach[g, c], InfraWalk[c]}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -51,7 +51,7 @@ The light reach is the union of the vertex sets of the outgoing light rays of th
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[chains, c |-> ChainLightReach[g, c] === Union @@ Catenate[RandomInfraFutureLightCone[g, #, All] & /@ c]]]]
 ```
 
@@ -61,8 +61,8 @@ The light reach contains the chain and lies in the causal future of its first ev
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
-    AllTrue[chains, c |-> SubsetQ[ChainLightReach[g, c], c] && SubsetQ[RandomInfraCausalFuture[g, First @ c], ChainLightReach[g, c]]]]]
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
+    AllTrue[chains, c |-> SubsetQ[ChainLightReach[g, c], c] && SubsetQ[Keys @ InfraMeasurement[g, InfraCausalFuture[First @ c], "VertexDensity"], ChainLightReach[g, c]]]]]
 ```
 
 A chain meets the light reach of another exactly when the light-ray projection onto it is positive.
@@ -71,7 +71,7 @@ A chain meets the light reach of another exactly when the light-ray projection o
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {chains = (SeedRandom[1]; RandomInfraObserver[g, UpTo[6]])},
+    {chains = (SeedRandom[1]; RandomInfraWorldline[g, UpTo[6]])},
     AllTrue[Tuples[chains, 2], Apply[{a, b} |->
-      IntersectingQ[ChainLightReach[g, a], b] === (ChainProjection[g, a, b, "Method" -> "LightRays"] > 0)]]]]
+      IntersectingQ[ChainLightReach[g, a], b] === (ChainProjection[g, a, b, Method -> "LightRays"] > 0)]]]]
 ```

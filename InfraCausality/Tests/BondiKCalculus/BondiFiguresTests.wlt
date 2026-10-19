@@ -12,12 +12,12 @@ $movingGrid = Select[ $grid, vp |-> vp[[ 1 ]] != 0 ]
 
 $near = { x, y } |-> Max[ Abs[ N[ x - y ] ] ] < 10^-9
 
-$onWorldline = { point, v, phi } |-> N[ point[[ 1 ]] ] > 0 && $near[ point, Norm[ point ] WorldlineDirection[ v, phi ] ]
+$onWorldline = { point, v, phi } |-> N[ point[[ 1 ]] ] > 0 && $near[ point, Norm[ point ] Through[ { Sin, Cos }[ WorldlineAngle[ v, phi ] ] ] ]
 
 $disks = g |-> Cases[ g, Disk[ c_, _ ] :> c, Infinity ]
 
-$radarMidpoint = { point, v, phi } |-> With[ { d = WorldlineDirection[ v, phi ] },
-  Mean[ Map[ right |-> First @ LinearSolve[ Transpose[ { d, LightDirection[ phi, right ] } ], point ], { True, False } ] ] ]
+$radarMidpoint = { point, v, phi } |-> With[ { d = Through[ { Sin, Cos }[ WorldlineAngle[ v, phi ] ] ] },
+  Mean[ Map[ right |-> First @ LinearSolve[ Transpose[ { d, { If[ right, 1, -1 ] Sin[ phi ], Cos[ phi ] } } ], point ], { True, False } ] ] ]
 
 VerificationTest[
   With[ { m = BondiViewer[] },
@@ -73,7 +73,7 @@ VerificationTest[
     { v = vp[[ 1 ]], phi = vp[[ 2 ]] },
     { bob = Select[ $disks @ BondiClock[ v, 8, "LightAngle" -> phi ], c |-> N[ c[[ 1 ]] ] > 0 ] },
     Length[ bob ] == 4 && AllTrue[ bob, c |-> $onWorldline[ c, v, phi ] ] &&
-      $near[ Ratios[ Map[ Norm, bob ] ], ConstantArray[ KFactor[ v, phi ]^2, 3 ] ] ] ],
+      $near[ Ratios[ Map[ Norm, bob ] ], ConstantArray[ BondiKFactor[ v, phi ]^2, 3 ] ] ] ],
   True,
   TestID -> "BondiClock-reflections-on-moving-worldline-grow-by-k-squared"
 ]
@@ -85,14 +85,14 @@ VerificationTest[
     { alice = Select[ disks, c |-> N[ c[[ 1 ]] ] == 0 ],
       bob = Select[ disks, c |-> N[ c[[ 1 ]] ] > 0 ] },
     Length[ bob ] == 6 && AllTrue[ bob, c |-> $onWorldline[ c, v, phi ] ] &&
-      $near[ Differences[ ProperTimeScale[ v, phi ] Map[ Norm, bob ] ], KFactor[ v, phi ] Differences[ alice[[ All, 2 ]] ] ] ] ],
+      $near[ Differences[ ProperTimeScale[ v, phi ] Map[ Norm, bob ] ], BondiKFactor[ v, phi ] Differences[ alice[[ All, 2 ]] ] ] ] ],
   True,
   TestID -> "DopplerConstruction-receptions-on-moving-worldline-spaced-by-k"
 ]
 
 $ticks = { g, v, phi } |-> Sort @ Map[ Norm, Select[
   Map[ pq |-> Mean[ pq ], Select[ Cases[ g, Line[ pq : { _, _ } ] :> pq, Infinity ],
-    pq |-> Abs[ N[ ( pq[[ 2 ]] - pq[[ 1 ]] ) . WorldlineDirection[ v, phi ] ] ] < 10^-9 ] ],
+    pq |-> Abs[ N[ ( pq[[ 2 ]] - pq[[ 1 ]] ) . Through[ { Sin, Cos }[ WorldlineAngle[ v, phi ] ] ] ] ] < 10^-9 ] ],
   mid |-> If[ v == 0, Abs[ N @ First @ mid ] < 10^-9 && N[ Last @ mid ] > 0, $onWorldline[ mid, v, phi ] ] ] ]
 
 $drawnLength = { g, v, phi } |-> Max @ Map[ Norm, Select[ Cases[ g, Line[ { { 0 | 0., 0 | 0. }, q_ } ] :> q, Infinity ],
@@ -163,8 +163,8 @@ VerificationTest[
     { rodAndBar = $rodAndBar[ v, phi ] },
     { rod = rodAndBar[[ 1, 1 ]], bars = Last @ rodAndBar },
     Length[ bars ] == 1 && $exact[ bars[[ 1, 1 ]], rod[[ 1 ]] ] &&
-      $exact[ $spacelikeLength[ First @ bars, phi ], 3 / ( 20 LorentzGamma[ v ] ) ] &&
-      $parallel[ bars[[ 1, 2 ]] - rod[[ 2 ]], WorldlineDirection[ v, phi ] ] ] ],
+      $exact[ $spacelikeLength[ First @ bars, phi ], 3 / ( 20 LorentzFactor[ v ] ) ] &&
+      $parallel[ bars[[ 1, 2 ]] - rod[[ 2 ]], Through[ { Sin, Cos }[ WorldlineAngle[ v, phi ] ] ] ] ] ],
   True,
   TestID -> "LengthContractionConstruction-measured-at-one-radar-time-has-length-L-over-gamma"
 ]
@@ -173,7 +173,7 @@ VerificationTest[
   AllTrue[ $grid, vp |-> With[
     { phi = vp[[ 2 ]] },
     { light = First @ Cases[ LightClockConstruction[ vp[[ 1 ]], 8, "LightAngle" -> phi ], Line[ pts_ /; Length[ pts ] > 3 ] :> pts, Infinity ] },
-    $near[ Map[ Normalize, Differences[ light ] ], Map[ i |-> LightDirection[ phi, OddQ[ i ] ], Range[ 8 ] ] ] ] ],
+    $near[ Map[ Normalize, Differences[ light ] ], Map[ i |-> { If[ OddQ[ i ], 1, -1 ] Sin[ phi ], Cos[ phi ] }, Range[ 8 ] ] ] ] ],
   True,
   TestID -> "LightClockConstruction-light-segments-at-light-directions"
 ]

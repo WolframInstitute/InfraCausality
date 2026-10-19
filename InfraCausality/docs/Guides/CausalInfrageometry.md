@@ -6,14 +6,14 @@ Context: WolframInstitute`InfraCausality`
 ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/guide/CausalInfrageometry
-Keywords: [causal structure, causal set, directed acyclic graph, causal future, causal past, causal diamond, Alexandrov interval, worldline, observer, light cone, light ray, chain, infrageometry, Knuth kinematics, polyline worldline, causal-set estimators, Myrheim-Meyer dimension, Benincasa-Dowker action]
-RelatedGuides: [CausalTime, InfraObservers, CausalSubstrates, BondiKCalculus]
+Keywords: [causal structure, causal set, directed acyclic graph, causal future, causal past, causal diamond, Alexandrov interval, worldline, observer, light cone, light ray, chain, timelike geodesic, infrageometry, Knuth kinematics, piecewise geodesic, causal-set estimators, Myrheim-Meyer dimension, Benincasa-Dowker action]
+RelatedGuides: [CausalTime, EPSAxiomatics, CausalSubstrates, BondiKCalculus]
 RelatedTutorials: [CausalInfrageometryTutorial]
 ---
 
 ## Abstract
 
-Causal infrageometry studies the causal structure of a finite directed acyclic graph the way Euclidean infrageometry studies the metric structure of an undirected one. Events are vertices and the causal order is reachability; the objects are the causal future and past of an event, the causal diamond between two events, the worldlines between them (all longest chains at once, the timelike geodesics), the observers (all saturated chains), and the light cones, whose members are the light rays: the chains $[v, e]$ that admit no second route. Every object is an inert head that takes no graph. `InfraMeasurement[g, obj, property]` of InfraGeometry reads it on a causal graph, a named `RandomInfra...` sampler draws its members, an `Infra...Q` predicate recognises one, and `InfraSubstrateHighlight` draws it. The heads of two kinds follow the two InfraGeometry shapes: a cone, a diamond or a slice is a set, read by its vertex density; a worldline, an observer family or a light cone is a family of chains, read by the directed acyclic graph whose source-to-sink paths are exactly its members, so that cardinalities and densities come from one dynamic programme and never from enumeration.
+Causal infrageometry studies the causal structure of a finite directed acyclic graph the way Euclidean infrageometry studies the metric structure of an undirected one. Events are vertices and the causal order is reachability; the objects are the causal future and past of an event, the causal diamond between two events, the worldlines between them (all saturated chains at once), the timelike geodesics among them (the longest chains), and the light cones, whose members are the light rays: the chains $[v, e]$ that admit no second route. Every object is an inert head that takes no graph. `InfraMeasurement[g, obj, property]` of InfraGeometry reads it on a causal graph, a named `RandomInfra...` sampler draws the members of a chain head, an `Infra...Q` predicate recognises one, and `InfraSubstrateHighlight` draws it. The heads of two kinds follow the two InfraGeometry shapes: a cone, a diamond or a slice is a set, read by its vertex density; a worldline family, a timelike-geodesic family or a light cone is a family of chains, read by the directed acyclic graph whose source-to-sink paths are exactly its members, so that cardinalities and densities come from one dynamic programme and never from enumeration.
 
 ## Functions
 
@@ -21,7 +21,6 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 
 - `InfraCausalFuture` the causal future $J^+(v) = \{e : v \preceq e\}$ of an event or an event set, or its events within proper time $t$
 - `InfraCausalPast` the causal past $J^-(v) = \{e : e \preceq v\}$
-- `RandomInfraCausalFuture`, `RandomInfraCausalPast` the support of a cone as a sorted vertex list
 - `VertexOutComponent` (WL), `VertexInComponent` (WL), `TransitiveReductionGraph` (WL)
 
 - `InfraCausalFutureQ`, `InfraCausalPastQ`, `InfraChainQ`, `AcyclicGraphQ` (WL)
@@ -29,19 +28,18 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 ### Causal diamonds
 
 - `InfraCausalDiamond` the Alexandrov interval $[p, q] = J^+(p) \cap J^-(q)$, or the causal hull $J^+(S) \cap J^-(S)$ of a set
-- `RandomInfraCausalDiamond` the support of a diamond as a sorted vertex list
 
 - `InfraCausalDiamondQ`
 
-### Worldlines and observers
+### Worldlines and timelike geodesics
 
-- `InfraWorldline` the timelike geodesics from $p$ to $q$, every longest chain between them at once; with no arguments, the longest chains of the graph
-- `RandomInfraWorldline` random longest chains from $p$ to $q$ as vertex lists
-- `InfraObserver` the observers from $p$ to $q$, every saturated chain between them; with no arguments, every inextendible chain
-- `RandomInfraObserver` random saturated chains as vertex lists, their positions the ticks of a clock
+- `InfraWorldline` the worldlines from $p$ to $q$, every saturated chain between them; with no arguments, every inextendible worldline
+- `RandomInfraWorldline` random worldlines as vertex lists; read as observers, their positions are the ticks of a clock
+- `InfraTimelikeGeodesic` the timelike geodesics from $p$ to $q$, every longest chain between them at once; with no arguments, the longest chains of the graph
+- `RandomInfraTimelikeGeodesic` random longest chains from $p$ to $q$ as vertex lists
 - `FindPath` (WL), `TopologicalSort` (WL)
 
-- `InfraWorldlineQ`, `InfraObserverQ`
+- `InfraWorldlineQ`, `InfraTimelikeGeodesicQ`
 
 ### Light cones and light rays
 
@@ -53,10 +51,11 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 
 ### Reading a construction on a graph
 
-- `InfraMeasurement` (InfraGeometry) a property of a causal head on a graph: "Graph", "Cardinality", "Length", "VertexDensity", "EdgeDensity", "Subgraph", "CountingMeasure"
+- `InfraMeasurement` (InfraGeometry) a property of a causal head on a graph: "Graph", "Cardinality", "Length", "VertexDensity", "EdgeDensity", "Subgraph", "CountingMeasure"; `Keys @ InfraMeasurement[g, head, "VertexDensity"]` is the sorted vertex list of a set head, its only member
 - `InfraDensity` (InfraGeometry) the vertex multiplicities of a vertex, vertex list or chain graph
 - `InfraMemberQ` (InfraGeometry) whether a vertex list is a member of a causal head on a graph
-- `InfraSubgraph` (InfraGeometry) the subgraph induced on the support of a head
+- `InfraSubgraph` (InfraGeometry) the subgraph induced on the support of a head: the first reading of a set head (a cone, a diamond or a slice)
+- `RandomInfraPoint` (InfraGeometry) random events of a set head, `RandomInfraPoint[g, head, n]`
 
 ### Substrates and drawing
 
@@ -64,9 +63,9 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 - `RandomCausalGraph` a random causal set: transitive percolation, a random acyclic orientation or a sprinkling
 - `InfraSubstrateHighlight` (InfraGeometry) the densities of a list of causal heads drawn on a causal graph, one palette colour each
 
-### Experimental: polyline worldlines
+### Experimental: piecewise geodesics
 
-- `InfraWorldline` through $p_1, \dots, p_k$, the piecewise geodesics, and from one event $p$, the longest chains starting at $p$
+- `InfraTimelikeGeodesic` through $p_1, \dots, p_k$, the piecewise geodesics, and from one event $p$, the longest chains starting at $p$
 
 ### Experimental: causal-set estimators
 
@@ -80,4 +79,4 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 
 ### Experimental: viewers
 
-- `LightConeViewer`, `MessageFunctionViewer`, `FoliationViewer` interactive viewers for the cones and light cones of an event, the messages of a tick and the universal foliation
+- `LightConeViewer`, `MessageFunctionViewer`, `FoliationViewer` interactive viewers for the cones and light cones of an event, the messages of a tick and the height foliation

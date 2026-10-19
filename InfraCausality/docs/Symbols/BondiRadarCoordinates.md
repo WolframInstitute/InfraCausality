@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/BondiRadarCoordinates
 Keywords: [radar coordinates, radar time, radar distance, Bondi k-calculus, Einstein synchronisation, Euclidean picture]
-SeeAlso: [ProperTimeScale, WorldlineAngle, LightZigzag, KFactor, SimultaneityLine, InfraRadarChart]
+SeeAlso: [ProperTimeScale, WorldlineAngle, LightZigzag, BondiKFactor, InfraRadarCoordinates]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -30,7 +30,7 @@ The result is an association:
 | `"EmitArcLength"` | *e* |
 | `"ReturnArcLength"` | *r* |
 
-A negative *x* gives a negative radar distance, the event on the left. The graph counterpart is the radar chart <code>[InfraRadarChart]()</code> of the Infra Observers guide, which reads the same two numbers off the emission and reception ticks of an observer chain.
+A negative *x* gives a negative radar distance, the event on the left. The graph counterpart is <code>[InfraRadarCoordinates]()</code> of the EPS Axiomatics guide, which reads the same two numbers off the emission and reception ticks of an observer chain.
 
 ## Basic Examples
 
@@ -66,13 +66,13 @@ AllTrue[Tuples[{{0, 1, 7/2}, {Pi/6, Pi/4, Pi/3}}], Apply[{y, phi} |->
 The worldline of velocity *v* has radar distance *v* times radar time, and its radar interval is its proper time.
 
 ```wl
-FullSimplify[With[{r = BondiRadarCoordinates[s WorldlineDirection[3/5, Pi/3], Pi/3]},
+FullSimplify[With[{r = BondiRadarCoordinates[s Through[{Sin, Cos}[WorldlineAngle[3/5, Pi/3]]], Pi/3]},
   {r["RadarDistance"] == 3/5 r["RadarTime"], Sqrt[r["RadarTime"]^2 - r["RadarDistance"]^2] == ProperTimeScale[3/5, Pi/3] s}], s > 0] === {True, True}
 ```
 
 Moving along a rightgoing light ray keeps the emission arc length, and along a leftgoing one the return arc length.
 
 ```wl
-FullSimplify[{BondiRadarCoordinates[{x, y} + l LightDirection[phi, True], phi]["EmitArcLength"] == BondiRadarCoordinates[{x, y}, phi]["EmitArcLength"],
-  BondiRadarCoordinates[{x, y} + l LightDirection[phi, False], phi]["ReturnArcLength"] == BondiRadarCoordinates[{x, y}, phi]["ReturnArcLength"]}, 0 < phi < Pi/2] === {True, True}
+FullSimplify[{BondiRadarCoordinates[{x, y} + l {Sin[phi], Cos[phi]}, phi]["EmitArcLength"] == BondiRadarCoordinates[{x, y}, phi]["EmitArcLength"],
+  BondiRadarCoordinates[{x, y} + l {-Sin[phi], Cos[phi]}, phi]["ReturnArcLength"] == BondiRadarCoordinates[{x, y}, phi]["ReturnArcLength"]}, 0 < phi < Pi/2] === {True, True}
 ```

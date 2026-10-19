@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/DopplerConstruction
 Keywords: [Doppler effect, k-factor, light pulses, figure, Bondi k-calculus, experimental]
-SeeAlso: [KFactor, OutgoingRatio, ProperTimeScale, BondiClock, BondiViewer]
+SeeAlso: [BondiKFactor, OutgoingRatio, ProperTimeScale, BondiClock, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -52,8 +52,8 @@ The receptions lie on the moving worldline, and their spacing in proper time is 
 AllTrue[Tuples[{{0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{disks = Cases[DopplerConstruction[v, 6, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity]},
     {alice = Select[disks, c |-> c[[1]] == 0], bob = Select[disks, c |-> c[[1]] > 0]},
-    Length[bob] == 6 && Max[Abs[bob - Map[Norm, bob] Table[WorldlineDirection[v, phi], 6]]] < 10^-9 &&
-      Max[Abs[Differences[ProperTimeScale[v, phi] Map[Norm, bob]] - KFactor[v] Differences[alice[[All, 2]]]]] < 10^-9]]]
+    Length[bob] == 6 && Max[Abs[bob - Map[Norm, bob] Table[Through[{Sin, Cos}[WorldlineAngle[v, phi]]], 6]]] < 10^-9 &&
+      Max[Abs[Differences[ProperTimeScale[v, phi] Map[Norm, bob]] - BondiKFactor[v] Differences[alice[[All, 2]]]]] < 10^-9]]]
 ```
 
 Each pulse runs along the rightgoing light direction.
@@ -61,5 +61,5 @@ Each pulse runs along the rightgoing light direction.
 ```wl
 AllTrue[Tuples[{{0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{disks = Cases[DopplerConstruction[v, 6, "LightAngle" -> phi], Disk[c_, _] :> c, Infinity]},
-    Max[Abs[Map[Normalize, Select[disks, c |-> c[[1]] > 0] - Select[disks, c |-> c[[1]] == 0]] - Table[LightDirection[phi, True], 6]]] < 10^-9]]]
+    Max[Abs[Map[Normalize, Select[disks, c |-> c[[1]] > 0] - Select[disks, c |-> c[[1]] == 0]] - Table[{Sin[phi], Cos[phi]}, 6]]] < 10^-9]]]
 ```

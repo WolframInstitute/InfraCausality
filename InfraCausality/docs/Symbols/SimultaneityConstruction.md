@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/SimultaneityConstruction
 Keywords: [relativity of simultaneity, simultaneity line, radar time, Einstein synchronisation, figure, Bondi k-calculus, experimental]
-SeeAlso: [SimultaneityLine, BondiRadarCoordinates, TimeDilationConstruction, LightDirection, BondiViewer]
+SeeAlso: [BondiRadarCoordinates, TimeDilationConstruction, BondiViewer]
 RelatedGuides: [BondiKCalculus]
 RelatedTutorials: [BondiKCalculus]
 ---
@@ -19,7 +19,7 @@ RelatedTutorials: [BondiKCalculus]
 
 Experimental: figure. The figure's layout and options may change.
 
-Definition: on each worldline the figure marks the event at arc length `"ArcLength"` and draws through it the observer's line of simultaneity ([SimultaneityLine]()), the events whose radar emission and return are equally far before and after it on that worldline. For the rest observer ("Alice's now") the line is horizontal; for the observer of velocity *v* ("Bob's now") it runs along $(\tan\varphi, v)$, the slope *v* at *φ* = π/4: the mirror image of the worldline in the light direction. The two observers disagree on which events are simultaneous.
+Definition: on each worldline the figure marks the event at arc length `"ArcLength"` and draws through it the observer's line of simultaneity, the events whose radar emission and return are equally far before and after it on that worldline. For the rest observer ("Alice's now") the line is horizontal; for the observer of velocity *v* ("Bob's now") it runs along $(\tan\varphi, v)$, the slope *v* at *φ* = π/4: the mirror image of the worldline in the light direction. The two observers disagree on which events are simultaneous.
 
 | Option | Default | |
 |---|---|---|
@@ -49,7 +49,7 @@ Every point of each drawn line has its radar midpoint on that observer's worldli
 ```wl
 AllTrue[Tuples[{{0, 0.2, 0.5, 0.8}, {0.3, Pi/4, 1.2}}], Apply[{v, phi} |->
   With[{lines = Cases[SimultaneityConstruction[v, "LightAngle" -> phi], Line[pts : {_, _, _}] :> pts, Infinity]},
-    {midpoint = {p, u} |-> Mean[Map[right |-> First @ LinearSolve[Transpose[{WorldlineDirection[u, phi], LightDirection[phi, right]}], p], {True, False}]]},
+    {midpoint = {p, u} |-> Mean[Map[right |-> First @ LinearSolve[Transpose[{Through[{Sin, Cos}[WorldlineAngle[u, phi]]], {If[right, 1, -1] Sin[phi], Cos[phi]}}], p], {True, False}]]},
     Length[lines] == 2 && AllTrue[Transpose[{lines, {0, v}}], Apply[{pts, u} |->
       AllTrue[pts, p |-> Abs[midpoint[p, u] - 0.7] < 10^-9]]]]]]
 ```

@@ -4,6 +4,18 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
 (* WolframInstitute`InfraCausality` :: BondiKCalculus :: BondiFigures *)
 
+PackageScope[ WorldlineDirection ]
+
+PackageScope[ WorldlinePoint ]
+
+PackageScope[ WorldlineNormal ]
+
+PackageScope[ WorldlinePointAtProperTime ]
+
+PackageScope[ LightDirection ]
+
+PackageScope[ SimultaneityLine ]
+
 PackageScope[ bondiColor ]
 
 PackageScope[ bondiGraphics ]
@@ -137,7 +149,7 @@ BondiClock[ velocity_, nBounces_ : 8, opts : OptionsPattern[] ] :=
   With[ { phi = OptionValue[ "LightAngle" ],
           ticks = TrueQ @ OptionValue[ "ShowTicks" ],
           tickLabels = TrueQ @ OptionValue[ "ShowTickLabels" ] },
-    { k = N @ KFactor[ velocity, phi ] },
+    { k = N @ BondiKFactor[ velocity, phi ] },
     { emitArc = Replace[ OptionValue[ "EmitArcLength" ], Automatic -> Max[ 0.05, 1.0 / k^( nBounces / 2 ) ] ] },
     { events = LightZigzag[ velocity, emitArc, nBounces, phi ] },
     { maxArc = 1.1 Max[ Lookup[ events, "ArcLength" ] ] },
@@ -207,7 +219,7 @@ Options[ TimeDilationConstruction ] = {
 TimeDilationConstruction[ velocity_, opts : OptionsPattern[] ] :=
   With[ { phi = OptionValue[ "LightAngle" ],
           eventArc = OptionValue[ "EventArcLength" ] },
-    { k = N @ KFactor[ velocity, phi ],
+    { k = N @ BondiKFactor[ velocity, phi ],
       pScale = ProperTimeScale[ velocity, phi ],
       dir = WorldlineDirection[ velocity, phi ],
       normal = WorldlineNormal[ velocity, phi ],
@@ -285,7 +297,7 @@ LengthContractionConstruction[ velocity_, opts : OptionsPattern[] ] :=
   With[ { phi = OptionValue[ "LightAngle" ],
           rodLength = OptionValue[ "RodRestLength" ],
           measureArc = OptionValue[ "MeasureArcLength" ] },
-    { gamma = LorentzGamma[ velocity ],
+    { gamma = LorentzFactor[ velocity ],
       dir = WorldlineDirection[ velocity, phi ] },
     { rodOffset = rodLength gamma { Tan[ phi ], velocity },
       frontPoint = measureArc dir },
@@ -333,9 +345,9 @@ Options[ VelocityAdditionConstruction ] = {
 VelocityAdditionConstruction[ v1_, v2_, opts : OptionsPattern[] ] :=
   With[ { phi = OptionValue[ "LightAngle" ],
           emitArc = OptionValue[ "EmitArcLength" ] },
-    { k1 = N @ KFactor[ v1, phi ],
-      k2 = N @ KFactor[ v2, phi ] },
-    { vTotal = VelocityFromK[ k1 k2 ] },
+    { k1 = N @ BondiKFactor[ v1, phi ],
+      k2 = N @ BondiKFactor[ v2, phi ] },
+    { vTotal = ( ( k1 k2 )^2 - 1 ) / ( ( k1 k2 )^2 + 1 ) },
     { dir1 = WorldlineDirection[ v1, phi ],
       dirTotal = WorldlineDirection[ vTotal, phi ],
       bobArc = emitArc OutgoingRatio[ v1, phi ],

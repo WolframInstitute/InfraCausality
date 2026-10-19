@@ -1,5 +1,56 @@
 # Changelog
 
+## 2.1.0 (unreleased)
+
+An API review against InfraGeometry 2.7.4 and the PureMath naming conventions. The 71 exports of 2.0.0 become 61: twelve are removed or folded into readings, and two axiom predicates are new. No alias is kept for a removed or renamed name; the table below gives the replacement of each one.
+
+- **Breaking -- renames.** `InfraObserver`, `RandomInfraObserver` and `InfraObserverQ` become `InfraWorldline`, `RandomInfraWorldline` and `InfraWorldlineQ`, and the 2.0.0 `InfraWorldline`, `RandomInfraWorldline` and `InfraWorldlineQ` become `InfraTimelikeGeodesic`, `RandomInfraTimelikeGeodesic` and `InfraTimelikeGeodesicQ`: a worldline is any saturated chain, a timelike geodesic is a longest one, and an observer is the role a worldline plays when its positions are read as clock ticks (the message, echo and radar pages keep the word). `InfraRadarChart` becomes `InfraRadarCoordinates`, since a radar chart is a plot type and the head gives the radar coordinates of an observer, pairing with `BondiRadarCoordinates`. `UniversalTime` and `UniversalFoliation` become `CausalHeight` and `CausalHeightFoliation`, since "universal time" reads as UTC and the function is the height of an event, the number of edges of a longest chain from a source. `KFactor` and `LorentzGamma` become `BondiKFactor` and `LorentzFactor`, English terms over letters. The kernel files, test files and documentation pages move with their heads; the `"KFactor"` reading of the message and echo heads keeps its name.
+- **Breaking -- set heads have no sampler.** A set head (a cone, a diamond or a slice) has one member, its support, so the four set samplers `RandomInfraCausalFuture`, `RandomInfraCausalPast`, `RandomInfraCausalDiamond` and `RandomInfraSlice` drew nothing and are gone. The three readings of a set head are `InfraSubgraph[g, head]`, the induced subgraph; `Keys @ InfraMeasurement[g, head, "VertexDensity"]`, the sorted vertex list; and `RandomInfraPoint[g, head, n]`, random events of the set. The samplers `RandomInfra<Name>[g, obj, count]` remain for the chain heads.
+- **Breaking -- the Bondi drops.** The one-line inverses `VelocityFromK` and `RapidityFromK` are removed; their identities are stated on `BondiKFactor` and `Rapidity`. The six plane-geometry helpers behind the Bondi figures (`WorldlineDirection`, `WorldlinePoint`, `WorldlineNormal`, `WorldlinePointAtProperTime`, `LightDirection`, `SimultaneityLine`) are package-scoped, not exported; the docs and tests spell the geometry inline.
+- **Breaking -- `RandomCausalGraph` forms align with `RandomGraph`.** The second entry of a pair is always an edge count, as in `RandomGraph`, so `{10, 1}` and `{10, 1.}` no longer name different models; 2.0.0 read a non-integer `{n, p}` as a percolation. The forms are:
+  - `RandomCausalGraph[n]` is transitive percolation with $p = \log n / n$, also `Method -> "Percolation"`;
+  - `RandomCausalGraph[n, Method -> {"Percolation", p}]` is transitive percolation with link probability `p`;
+  - `RandomCausalGraph[{n, m}]` orients a random connected graph with `m` edges, as `RandomGraph[{n, m}]`, transitively reduced;
+  - `RandomCausalGraph[n, Method -> {"Sprinkling", d}]` sprinkles `n` points into the unit causal diamond of $d$-dimensional Minkowski space, `Method -> "Sprinkling"` with $d = 2$.
+- **Breaking -- `ChainProjection` takes the System symbol `Method`.** The option is `Method`, as in `RandomCausalGraph`, not the string `"Method"`, with the allow-list `"Cone" | "LightRays"`; under any other value the call stays unevaluated (2.0.0 fell back to `"Cone"`). `InfraKinematics` takes the same option.
+- **Breaking -- the defect window option is `"Margin"`.** The EPS defects of `InfraMessageFunction` and `InfraEchoFunction` are read on the window of $a$ left by `"Margin" -> b` (a fourth argument of `InfraMeasurement`, default 0, which drops $b$ ticks at each end of $a$); 2.0.0 called it `"Boundary"`.
+- **New: the selection graph of a message head.** `InfraMeasurement[g, InfraMessageFunction[a, b], "SelectionGraph"]` is the directed acyclic graph whose source-to-sink paths are exactly the members, one layer of nodes per tick of $a$ with a message and one edge between consecutive layers for each pair of images that does not reverse the order of $b$; it is the graph that `"Cardinality"` and `RandomInfraMessageFunction` read. `"Graph"` stays the graph of the relation.
+- **New: radar coordinates read as a set head on their domain.** `InfraRadarCoordinates` (`InfraRadarChart` in 2.0.0) gets `"VertexDensity"` and `"EdgeDensity"`, 1 on the events and edges of the radar domain, and `InfraMemberQ` on them, so `InfraSubgraph` and `InfraSubstrateHighlight` read it like a cone.
+- **Breaking -- the Infra Observers category is EPS Axiomatics.** The category holds the discrete EPS constructions, not observers: an observer is a worldline read as a clock and lives with the chains in Causal Infrageometry. `Kernel/InfraObservers/` and `Tests/InfraObservers/` become `Kernel/EPSAxiomatics/` and `Tests/EPSAxiomatics/`, the guide is `EPSAxiomatics` ("EPS Axiomatics"), organised by axiom: D1 (message and echo functions), D2 (radar coordinates), the observer space, and the distance from the axioms. Light cones (axiom L) and timelike geodesics (axiom P) stay in Causal Infrageometry; the compatibility axiom C has no construction yet.
+- **Breaking -- the EPS constructions are stable.** `RandomInfraMessageFunction`, `RandomInfraEchoFunction`, the joined `InfraRadarCoordinates[{a, b, ...}]`, the `"Fibration"` reading and the readings `"DomainDefect"`, `"FunctionDefect"`, `"InjectivityDefect"`, `"OrderDefect"` and `"KFactor"` leave their "Experimental:" sections; no EPS material is experimental. `RandomInfraEchoFunction` takes `"NextVertexFunction"` with the four values of the chain samplers (`Identity` the sorted order, `RandomSample` a random order, `RandomChoice` the composition of two random walks through the selection graphs, not with `All`) and keeps the count contract; it enumerates the distinct composites, which carry no path count of their own.
+- **New: the axiom predicates.** `EPSMessageAxiomQ[g, InfraMessageFunction[a, b]]`, also of `InfraEchoFunction[a, b]`, with the option `"Margin" -> k`, is axiom D1 exactly on the window of `a`: every tick has one image and the images strictly increase, equivalently the four defects vanish. `EPSRadarAxiomQ[g, InfraRadarCoordinates[a]]`, also of a list of observers, is axiom D2: the radar coordinates are injective on the radar domain, every fiber of the observer space a single event. They test the pair of observers, where `InfraMessageFunctionQ` and `InfraEchoFunctionQ` test a candidate map.
+- **Settled.** `"OrderDefect"` keeps the weak definition: a pair of ticks counts when some image of the earlier one lies after some image of the later one, so a tie of single images counts against `"InjectivityDefect"` and not against order, and strict monotonicity is the vanishing of both; the strict variant is not a reading. A meeting-point chart (`Method -> "Meeting"` of the radar coordinates) is not an EPS construction and is no longer planned.
+- **Tests:** 370 tests.
+
+| 2.0.0 | 2.1.0 |
+|---|---|
+| `InfraWorldline[p, q]`, `InfraWorldline[]`, `InfraWorldline[p1, ..., pk]`, `InfraWorldline[p]` | `InfraTimelikeGeodesic[p, q]`, `InfraTimelikeGeodesic[]`, `InfraTimelikeGeodesic[p1, ..., pk]`, `InfraTimelikeGeodesic[p]` |
+| `RandomInfraWorldline[g, InfraWorldline[p, q], n]` | `RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[p, q], n]` |
+| `InfraWorldlineQ[g, chain]` (a longest chain) | `InfraTimelikeGeodesicQ[g, chain]` |
+| `InfraObserver[p, q]`, `InfraObserver[]` | `InfraWorldline[p, q]`, `InfraWorldline[]` |
+| `RandomInfraObserver[g, InfraObserver[p, q], n]` | `RandomInfraWorldline[g, InfraWorldline[p, q], n]` |
+| `InfraObserverQ[g, chain]` | `InfraWorldlineQ[g, chain]` (a saturated chain) |
+| `InfraRadarChart[a]`, `InfraRadarChart[{a, b, ...}]` | `InfraRadarCoordinates[a]`, `InfraRadarCoordinates[{a, b, ...}]` |
+| `UniversalTime[g]` | `CausalHeight[g]` |
+| `UniversalFoliation[g]` | `CausalHeightFoliation[g]` |
+| `KFactor[v]`, `KFactor[v, phi]` | `BondiKFactor[v]`, `BondiKFactor[v, phi]` |
+| `LorentzGamma[v]` | `LorentzFactor[v]` |
+| `RandomInfraCausalFuture[g, v]` | `Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"]`; random events: `RandomInfraPoint[g, InfraCausalFuture[v], n]` |
+| `RandomInfraCausalPast[g, v]` | `Keys @ InfraMeasurement[g, InfraCausalPast[v], "VertexDensity"]` |
+| `RandomInfraCausalDiamond[g, InfraCausalDiamond[p, q]]` | `Keys @ InfraMeasurement[g, InfraCausalDiamond[p, q], "VertexDensity"]` |
+| `RandomInfraSlice[g, InfraSlice[k]]` | `Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]` |
+| `RandomCausalGraph[{n, p}]`, `p` non-integer | `RandomCausalGraph[n, Method -> {"Percolation", p}]` |
+| `ChainProjection[g, a, b, "Method" -> m]` | `ChainProjection[g, a, b, Method -> m]` |
+| `InfraMeasurement[g, head, defect, "Boundary" -> b]` | `InfraMeasurement[g, head, defect, "Margin" -> b]` |
+| `VelocityFromK[k]` | `(k^2 - 1)/(k^2 + 1)`; `BondiKFactor` inverts it |
+| `RapidityFromK[k]` | `Log[k]`, which is `Rapidity[v]` at `k = BondiKFactor[v]` |
+| `WorldlineDirection[v, phi]` | `Through[{Sin, Cos}[WorldlineAngle[v, phi]]]` |
+| `WorldlinePoint[v, s, phi]` | `s Through[{Sin, Cos}[WorldlineAngle[v, phi]]]` |
+| `WorldlineNormal[v, phi]` | `{Cos[a], -Sin[a]}` with `a = WorldlineAngle[v, phi]` |
+| `WorldlinePointAtProperTime[v, tau, phi]` | `tau/ProperTimeScale[v, phi] Through[{Sin, Cos}[WorldlineAngle[v, phi]]]` |
+| `LightDirection[phi, right]` | `{Sin[phi], Cos[phi]}` to the right, `{-Sin[phi], Cos[phi]}` to the left |
+| `SimultaneityLine[v, s, phi, c]` | the base point `s Through[{Sin, Cos}[WorldlineAngle[v, phi]]]` and its translates by `±c Normalize[{Tan[phi], v}]` |
+
 ## 2.0.1 (2026-10-18)
 
 - Drawing follows the Wolfram Physics Project causal-graph style. `CausalSubstrateStyle` now draws events in `Hue[0.11, 1, 0.97]` and causal edges in `Hue[0, 1, 0.56]`, the values of SetReplace's `"CausalGraph"` style and of the causal graphs of the Technical Introduction; `CausalSubstrate`, `RandomCausalGraph` and the `"BaseGraph"` reading of `InfraRadarChart` carry it. The edge opacity (0.7, 0.5, 0.35) and the arrowheads still shrink with the size, and the layout is still layered with time upward. Highlights follow the Project's conventions where it has them: light cones, light rays and the current slice of a foliation in `Red`, the past in the Project's blue `RGBColor[0.259, 0.576, 1]`; the viewers and the documentation examples use them, with worldlines in `StandardBlue`, second observers in `StandardGreen`, images in `StandardPurple` and the selected event in `StandardMagenta`. The Bondi figures keep their palette, with the reflection events now in `StandardMagenta`.

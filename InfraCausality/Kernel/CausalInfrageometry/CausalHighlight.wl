@@ -10,8 +10,8 @@ PackageScope[ rayGraph ]
 
 $causalHead =
   _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice |
-  _InfraWorldline | _InfraObserver | _InfraFutureLightCone | _InfraPastLightCone |
-  _InfraMessageFunction | _InfraEchoFunction | _InfraRadarChart
+  _InfraTimelikeGeodesic | _InfraWorldline | _InfraFutureLightCone | _InfraPastLightCone |
+  _InfraMessageFunction | _InfraEchoFunction | _InfraRadarCoordinates
 
 cabinet[ { x_, y_, t_ } ] :=
   { x + y / ( 2 Sqrt[ 2 ] ), t + y / ( 2 Sqrt[ 2 ] ) }
@@ -22,10 +22,10 @@ rayGraph[ graph_Graph, pairs_List ] :=
       pairs ] },
     Graph[ DeleteDuplicates @ Catenate @ paths, DeleteDuplicates @ Catenate[ ( DirectedEdge @@@ Partition[ #, 2, 1 ] ) & /@ paths ] ] ]
 
-causalInk[ graph_Graph, head : _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice ] :=
+causalInk[ graph_Graph, head : _InfraCausalFuture | _InfraCausalPast | _InfraCausalDiamond | _InfraSlice | _InfraRadarCoordinates ] :=
   InfraMeasurement[ graph, head, "VertexDensity" ]
 
-causalInk[ graph_Graph, head : _InfraWorldline | _InfraObserver | _InfraFutureLightCone | _InfraPastLightCone ] :=
+causalInk[ graph_Graph, head : _InfraTimelikeGeodesic | _InfraWorldline | _InfraFutureLightCone | _InfraPastLightCone ] :=
   InfraMeasurement[ graph, head, "Graph" ]
 
 causalInk[ graph_Graph, head : InfraMessageFunction[ _List, _List ] ] :=
@@ -38,9 +38,6 @@ causalInk[ graph_Graph, InfraEchoFunction[ a_List, b_List ] ] :=
         pair |-> Lookup[ ba, Key @ Last @ pair, { } ] =!= { } ] },
     rayGraph[ graph, Join[ returning,
       Catenate @ Map[ w |-> ( { w, # } & /@ Lookup[ ba, Key @ w ] ), DeleteDuplicates[ Last /@ returning ] ] ] ] ]
-
-causalInk[ graph_Graph, chart_InfraRadarChart ] :=
-  AssociationThread[ InfraMeasurement[ graph, chart, "Domain" ], 1 ]
 
 InfraSubstrateHighlight[ graph_Graph, items_List, opts : OptionsPattern[ InfraSubstrateHighlight ] ] /;
     MatchQ[ Dimensions @ GraphEmbedding @ graph, { _, 3 } ] :=

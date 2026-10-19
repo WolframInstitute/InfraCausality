@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraKinematics
 Keywords: [Knuth kinematics, energy, momentum, mass, interval, velocity, chain projection, light-cone coordinates, experimental]
-SeeAlso: [ChainProjection, ChainLightReach, RandomInfraWorldline, RandomInfraObserver, KFactor]
+SeeAlso: [ChainProjection, ChainLightReach, RandomInfraTimelikeGeodesic, RandomInfraWorldline, BondiKFactor]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -33,17 +33,17 @@ The scalars satisfy the relations of special-relativistic kinematics in light-co
 
 | Option | Default | Values |
 |---|---|---|
-| `"Method"` | `"Cone"` | passed to [ChainProjection](): `"Cone"` or `"LightRays"` |
+| `Method` | `"Cone"` | passed to [ChainProjection](): `"Cone"` or `"LightRays"` |
 
 ## Basic Examples
 
-A longest chain of the diamond lattice, three worldlines from the bottom that end at {3, 3}, {1, 5} and {5, 1}, and the kinematics of the three pairs of targets.
+A longest chain of the diamond lattice, three timelike geodesics from the bottom that end at {3, 3}, {1, 5} and {5, 1}, and the kinematics of the three pairs of targets.
 
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
-  {targets = Table[(SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[RandomChoice @ RandomInfraSlice[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
+  {ref = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
+  {targets = Table[(SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[RandomInfraPoint[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
   InfraKinematics[g, ref, targets]]
 ```
 
@@ -52,19 +52,19 @@ The same reference chain and targets drawn on the lattice.
 ```wl
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
-  {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
-  {targets = Table[(SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[RandomChoice @ RandomInfraSlice[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
+  {ref = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
+  {targets = Table[(SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[RandomInfraPoint[g, InfraSlice[1]], end]]), {end, {{3, 3}, {1, 5}, {5, 1}}}]},
   InfraSubstrateHighlight[g, Prepend[MapThread[InfraWalk[#1] -> #2 &, {targets, {Red, StandardGreen, StandardPurple}}], InfraWalk[ref] -> StandardBlue]]]
 ```
 
-The projections of a longest chain onto two observers of the sprinkling and onto two of the cylinder lattice, with their mass and velocity.
+The projections of a longest chain onto two worldlines of the sprinkling and onto two of the cylinder lattice, with their mass and velocity.
 
 ```wl
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]])},
-    {targets = (SeedRandom[3]; RandomInfraObserver[g, InfraObserver[], 2])},
+    {ref = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]])},
+    {targets = (SeedRandom[3]; RandomInfraWorldline[g, InfraWorldline[], 2])},
     KeyTake[InfraKinematics[g, ref, targets], {"Projections", "Mass", "Velocity"}]],
   {name, {"MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -77,10 +77,10 @@ The projections are those of [ChainProjection](), and the scalars satisfy *E*² 
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]]), targets = (SeedRandom[2]; RandomInfraObserver[g, UpTo[5]])},
+    {ref = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]]), targets = (SeedRandom[2]; RandomInfraWorldline[g, UpTo[5]])},
     AllTrue[{"Cone", "LightRays"}, method |->
-      With[{k = InfraKinematics[g, ref, targets, "Method" -> method]},
-        k["Projections"] == (ChainProjection[g, ref, #, "Method" -> method] & /@ targets) &&
+      With[{k = InfraKinematics[g, ref, targets, Method -> method]},
+        k["Projections"] == (ChainProjection[g, ref, #, Method -> method] & /@ targets) &&
           k["Energy"]^2 - k["Momentum"]^2 == k["Interval"] && k["Mass"]^2 == Abs[k["Interval"]] &&
           And @@ MapThread[{e, p, b} |-> e == 0 || b == p/e, {k["Energy"], k["Momentum"], k["Velocity"]}]]]]]
 ```
@@ -91,7 +91,7 @@ The energy of a pair is the mean of its projections, and every projection lies i
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {ref = (SeedRandom[1]; RandomInfraWorldline[g, InfraWorldline[]]), targets = (SeedRandom[2]; RandomInfraObserver[g, UpTo[5]])},
+    {ref = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[]]), targets = (SeedRandom[2]; RandomInfraWorldline[g, UpTo[5]])},
     {k = InfraKinematics[g, ref, targets]},
     k["Energy"] == Mean /@ Subsets[k["Projections"], {2}] && AllTrue[k["Energy"], 0 <= # <= 1 &] &&
       AllTrue[DeleteCases[k["Velocity"], Indeterminate], -1 <= # <= 1 &]]]

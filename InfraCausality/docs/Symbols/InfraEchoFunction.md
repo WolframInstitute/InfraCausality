@@ -6,8 +6,8 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraEchoFunction
 Keywords: [echo function, radar, round trip, light signal, EPS axioms, Ehlers-Pirani-Schild, observer, EPS defects, k-factor, Bondi factor, symbolic object]
-SeeAlso: [InfraEchoFunctionQ, InfraMessageFunction, RandomInfraEchoFunction, InfraRadarChart, InfraFutureLightCone, InfraObserver]
-RelatedGuides: [InfraObservers]
+SeeAlso: [InfraEchoFunctionQ, EPSMessageAxiomQ, InfraMessageFunction, RandomInfraEchoFunction, InfraRadarCoordinates, InfraFutureLightCone, InfraWorldline]
+RelatedGuides: [EPSAxiomatics]
 ---
 
 ## Usage
@@ -31,9 +31,9 @@ The head holds its two observers and computes nothing. [`InfraMeasurement`](pacl
 | `"Cardinality"` | the number of distinct echo functions, by enumeration of the two sets of message functions; at most the product of the two message cardinalities |
 | `"Faithful"` | `True` |
 
-A member is an association from ticks of *a* to ticks of *a*. [InfraEchoFunctionQ]() decides membership, and [InfraMemberQ](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) is the same test; the experimental [RandomInfraEchoFunction]() draws members or enumerates them. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the outgoing and returning light rays.
+A member is an association from ticks of *a* to ticks of *a*. [InfraEchoFunctionQ]() decides membership, and [InfraMemberQ](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ) is the same test; [RandomInfraEchoFunction]() draws members or enumerates them. [InfraSubstrateHighlight](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws the head as the outgoing and returning light rays.
 
-Experimental: the EPS defects of the echo relation are the four defects of [InfraMessageFunction]() read on the relation *v* → Echo(*v*), on the window of *a* left by the option `"Boundary" -> b` (a fourth argument, default 0), with the echoes anywhere on *a*: `"DomainDefect"` the fraction of window ticks without an echo, `"FunctionDefect"` the mean of max(0, \|Echo(*v*)\| − 1) / max(1, \|Echo(*v*)\|), `"InjectivityDefect"` 1 − ν / *n* with ν a maximum matching of the relation, and `"OrderDefect"` the fraction of ordered window pairs *v* before *w* with an echo of *v* after an echo of *w*. In Minkowski space the echo of an inertial observer via another is a monotone injection of its clock into itself, and all four vanish.
+The EPS defects of the echo relation are the four defects of [InfraMessageFunction]() read on the relation *v* → Echo(*v*), on the window of *a* left by the option `"Margin" -> b` (a fourth argument, default 0), with the echoes anywhere on *a*: `"DomainDefect"` the fraction of window ticks without an echo, `"FunctionDefect"` the mean of max(0, \|Echo(*v*)\| − 1) / max(1, \|Echo(*v*)\|), `"InjectivityDefect"` 1 − ν / *n* with ν a maximum matching of the relation, and `"OrderDefect"` the fraction of ordered window pairs *v* before *w* with an echo of *v* after an echo of *w*, a tie of single echoes counting against injectivity and not against order. In Minkowski space the echo of an inertial observer via another is a monotone injection of its clock into itself, and all four vanish; on a graph they vanish together exactly when every window tick has one echo and the echoes strictly increase along *a*, which is what [EPSMessageAxiomQ]() of the echo head tests.
 
 `"KFactor"` is the square root of the ratio of echo to tick spans of the earliest-echo selection: with *v*, *w* the first and last window ticks that have an echo, √((pos *e*(*w*) − pos *e*(*v*)) / (pos *w* − pos *v*)), positions counted on *a*. In Minkowski space an observer receding at speed *v* returns the radar signal of another after *k*² times the sending time, with *k* = √((1 + *v*)/(1 − *v*)) the Bondi factor, so the square root is the Bondi factor under reciprocity, *k*ab = *k*ba. The reading uses the clock of *a* alone: on the diamond lattice the resting chain {(*m*, *m*)} echoed by the chain {((*p* + 1)*m*, *pm*)} of velocity 1/(2*p* + 1) reads exactly √((*p* + 1)/*p*), the Bondi factor, although the moving chain's ticks are not its proper time. On sprinklings the longest chains between two events wander, so two observers with a given endpoint velocity share stretches of their worldlines and the reading scatters widely at a few hundred events.
 
@@ -52,8 +52,8 @@ The echoes of an observer *a* (blue) via an observer *b* (green), drawn as the o
 GraphicsRow @ Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraSubstrateHighlight[g, {InfraEchoFunction[a, b] -> Red, InfraWalk[a] -> StandardBlue, InfraWalk[b] -> StandardGreen}]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -64,8 +64,8 @@ The number of echo functions for the same observers.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     InfraMeasurement[g, InfraEchoFunction[a, b], "Cardinality"]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
@@ -75,16 +75,16 @@ The echo relation on the sprinkling, and its echo functions.
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"]]
 ```
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Normal /@ RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]]
 ```
 
@@ -93,8 +93,8 @@ The graph of the echo relation on the sprinkling, an arrow from each tick to its
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Graph[InfraMeasurement[g, InfraEchoFunction[a, b], "Graph"], VertexLabels -> Automatic]]
 ```
 
@@ -109,7 +109,7 @@ With[
 
 ## Scope
 
-### Experimental readings
+### Defects and the k-factor
 
 The lattice observers at rest, {(*m*, *m*)} and {(*m*, *m* + 2)}, echo each other tick for tick: the four echo defects vanish on the interior window and the k-factor is 1.
 
@@ -117,7 +117,7 @@ The lattice observers at rest, {(*m*, *m*)} and {(*m*, *m* + 2)}, echo each othe
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = Table[{m, m}, {m, 0, 6}], b = Table[{m, m + 2}, {m, 0, 4}]},
-  Table[InfraMeasurement[g, InfraEchoFunction[a, b], p, "Boundary" -> 2],
+  Table[InfraMeasurement[g, InfraEchoFunction[a, b], p, "Margin" -> 2],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect", "KFactor"}}]]
 ```
 
@@ -134,13 +134,13 @@ With[
     {p, 2}]]
 ```
 
-The echo defects of two random worldlines on the sprinkling, where few ticks get an echo.
+The echo defects of two random timelike geodesics on the sprinkling, where few ticks get an echo.
 
 ```wl
 With[
   {g = CausalSubstrate["MinkowskiSprinkling2D", "Small"]},
-  {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-  {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+  {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+  {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
   Table[InfraMeasurement[g, InfraEchoFunction[a, b], p],
     {p, {"DomainDefect", "FunctionDefect", "InjectivityDefect", "OrderDefect"}}]]
 ```
@@ -153,8 +153,8 @@ Every echo of a tick lies strictly after the tick on *a*.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     AllTrue[Normal @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"], Apply[{v, echoes} |->
       AllTrue[echoes, u |-> First[FirstPosition[a, u]] > First[FirstPosition[a, v]]]]]],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
@@ -166,8 +166,8 @@ The echo relation is the composition of the two message relations.
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {there = InfraMeasurement[g, InfraMessageFunction[a, b], "Relation"], back = InfraMeasurement[g, InfraMessageFunction[b, a], "Relation"]},
     AllTrue[Normal @ InfraMeasurement[g, InfraEchoFunction[a, b], "Relation"], Apply[{v, echoes} |->
       Sort[echoes] === Union @@ Prepend[back /@ there[v], {}]]]],
@@ -180,8 +180,8 @@ The cardinality is the number of members, every member passes [InfraEchoFunction
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {a = (SeedRandom[1]; RandomInfraWorldline[g])},
-    {b = (SeedRandom[1]; RandomInfraWorldline[VertexDelete[g, a]])},
+    {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
+    {b = (SeedRandom[1]; RandomInfraTimelikeGeodesic[VertexDelete[g, a]])},
     {members = RandomInfraEchoFunction[g, InfraEchoFunction[a, b], All]},
     Length[members] == InfraMeasurement[g, InfraEchoFunction[a, b], "Cardinality"] &&
       AllTrue[members, f |-> InfraEchoFunctionQ[g, InfraEchoFunction[a, b], f]] &&
@@ -201,7 +201,7 @@ With[
     Sort[KeySort /@ RandomInfraEchoFunction[g, InfraEchoFunction[b, a], All]]]
 ```
 
-On the diamond lattice, the staircase worldline and its shift by two steps exchange 81 message functions each way, and the shifted observer has 699 echo functions via the staircase while the staircase has 2584 via the shifted observer.
+On the diamond lattice, the staircase observer and its shift by two steps exchange 81 message functions each way, and the shifted observer has 699 echo functions via the staircase while the staircase has 2584 via the shifted observer.
 
 ```wl
 With[

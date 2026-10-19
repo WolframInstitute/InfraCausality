@@ -6,7 +6,7 @@ ContextPath: [WolframInstitute`InfraGeometry`]
 Paclet: WolframInstitute/InfraCausality
 URI: WolframInstitute/InfraCausality/ref/InfraLightRayQ
 Keywords: [light ray, null geodesic, null separation, light cone, predicate, chain hierarchy]
-SeeAlso: [InfraFutureLightCone, InfraPastLightCone, RandomInfraFutureLightCone, RandomInfraPastLightCone, InfraWorldlineQ, InfraObserverQ, InfraChainQ]
+SeeAlso: [InfraFutureLightCone, InfraPastLightCone, RandomInfraFutureLightCone, RandomInfraPastLightCone, InfraTimelikeGeodesicQ, InfraWorldlineQ, InfraChainQ]
 RelatedGuides: [CausalInfrageometry]
 ---
 
@@ -18,7 +18,7 @@ RelatedGuides: [CausalInfrageometry]
 
 ## Details & Options
 
-Statement: a vertex list *e*0, …, *ek* is a light ray when it is a saturated chain of *g*, as [InfraObserverQ]() tests, and the diamond [*e*0, *ek*] has exactly *k* + 1 events: no event lies between *e*0 and *ek* off the chain, so the chain is the only route from *e*0 to *ek*.
+Statement: a vertex list *e*0, …, *ek* is a light ray when it is a saturated chain of *g*, as [InfraWorldlineQ]() tests, and the diamond [*e*0, *ek*] has exactly *k* + 1 events: no event lies between *e*0 and *ek* off the chain, so the chain is the only route from *e*0 to *ek*.
 
 This is the discrete analogue of null separation: there is no room beside the ray for a second path. Equivalently, the chain is saturated and *ek* lies on the future light cone *E*⁺(*e*0); then every event of the chain lies on *E*⁺(*e*0) and on the past light cone *E*⁻(*ek*). A light ray need not be inextendible: an initial segment of a member of [InfraFutureLightCone]() is a light ray too.
 
@@ -29,27 +29,27 @@ A light ray is the strongest condition of the chain hierarchy, each condition st
 | Predicate | A chain *e*0 ≺ … ≺ *ek* such that |
 |---|---|
 | [InfraLightRayQ]() | the diamond [*e*0, *ek*] is the chain itself |
-| [InfraWorldlineQ]() | *k* = τ(*e*0, *ek*) |
-| [InfraObserverQ]() | each consecutive pair is a covering pair |
+| [InfraTimelikeGeodesicQ]() | *k* = τ(*e*0, *ek*) |
+| [InfraWorldlineQ]() | each consecutive pair is a covering pair |
 | [InfraChainQ]() | each event precedes the next |
 
 ## Basic Examples
 
-On each substrate: an outgoing light ray passes, and a worldline from the same event to the event four slices up with the largest diamond fails, since the diamond of its ends is larger than the chain.
+On each substrate: an outgoing light ray passes, and a timelike geodesic from the same event to the event four slices up with the largest diamond fails, since the diamond of its ends is larger than the chain.
 
 ```wl
 Table[
   With[
     {g = CausalSubstrate[name, "Small"]},
-    {v = (SeedRandom[5]; RandomChoice @ RandomInfraSlice[g, InfraSlice[1]])},
-    {w = First @ MaximalBy[Intersection[RandomInfraCausalFuture[g, v], RandomInfraSlice[g, InfraSlice[5]]], e |-> Length @ RandomInfraCausalDiamond[g, v, e]]},
+    {v = (SeedRandom[5]; RandomInfraPoint[g, InfraSlice[1]])},
+    {w = First @ MaximalBy[Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[5], "VertexDensity"]], e |-> Length @ Keys @ InfraMeasurement[g, InfraCausalDiamond[v, e], "VertexDensity"]]},
     {ray = (SeedRandom[5]; RandomInfraFutureLightCone[g, v])},
-    {member = (SeedRandom[5]; RandomInfraWorldline[g, v, w])},
-    {InfraLightRayQ[g, ray], InfraLightRayQ[g, member], Length[RandomInfraCausalDiamond[g, v, w]] == Length[member]}],
+    {member = (SeedRandom[5]; RandomInfraTimelikeGeodesic[g, v, w])},
+    {InfraLightRayQ[g, ray], InfraLightRayQ[g, member], Length[Keys @ InfraMeasurement[g, InfraCausalDiamond[v, w], "VertexDensity"]] == Length[member]}],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```
 
-On the diamond lattice a null line is a light ray; a staircase between the same rows is a worldline but not a light ray, since its diamond is a rectangle.
+On the diamond lattice a null line is a light ray; a staircase between the same rows is a timelike geodesic but not a light ray, since its diamond is a rectangle.
 
 ```wl
 With[
@@ -58,7 +58,7 @@ With[
   GraphicsRow @ Table[
     Labeled[
       InfraSubstrateHighlight[g, {InfraCausalDiamond[First @ chain, Last @ chain], InfraWalk[chain]}],
-      {InfraWorldlineQ[g, chain], InfraLightRayQ[g, chain]}],
+      {InfraTimelikeGeodesicQ[g, chain], InfraLightRayQ[g, chain]}],
     {chain, {null, stair}}]]
 ```
 
@@ -78,13 +78,13 @@ A saturated chain is a light ray exactly when its last event lies on the future 
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
   With[
     {g = CausalSubstrate[name, "Small"]},
-    AllTrue[RandomInfraSlice[g, InfraSlice[1]], v |->
-      AllTrue[Intersection[RandomInfraCausalFuture[g, v], RandomInfraSlice[g, InfraSlice[4]]], w |->
+    AllTrue[Keys @ InfraMeasurement[g, InfraSlice[1], "VertexDensity"], v |->
+      AllTrue[Intersection[Keys @ InfraMeasurement[g, InfraCausalFuture[v], "VertexDensity"], Keys @ InfraMeasurement[g, InfraSlice[4], "VertexDensity"]], w |->
         AllTrue[FindPath[g, v, w, Infinity, All], chain |->
           InfraLightRayQ[g, chain] === MemberQ[Keys @ InfraMeasurement[g, InfraFutureLightCone[v], "VertexDensity"], w]]]]]]
 ```
 
-Every light ray is a worldline: the only chain between its ends is also the longest.
+Every light ray is a timelike geodesic: the only chain between its ends is also the longest.
 
 ```wl
 AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}, name |->
@@ -92,7 +92,7 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
       AllTrue[RandomInfraFutureLightCone[g, v, All], ray |->
-        InfraWorldlineQ[g, ray] && InfraMeasurement[g, InfraWorldline[First @ ray, Last @ ray], "Cardinality"] == 1]]]]
+        InfraTimelikeGeodesicQ[g, ray] && InfraMeasurement[g, InfraTimelikeGeodesic[First @ ray, Last @ ray], "Cardinality"] == 1]]]]
 ```
 
 The events of a light ray form a causal diamond.
@@ -103,5 +103,5 @@ AllTrue[{"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}
     {g = CausalSubstrate[name, "Small"]},
     AllTrue[VertexList[g], v |->
       AllTrue[Join[RandomInfraFutureLightCone[g, v, All], RandomInfraPastLightCone[g, v, All]], ray |->
-        RandomInfraCausalDiamond[g, First @ ray, Last @ ray] === Sort[ray] && InfraCausalDiamondQ[g, ray]]]]]
+        Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ ray, Last @ ray], "VertexDensity"] === Sort[ray] && InfraCausalDiamondQ[g, ray]]]]]
 ```
