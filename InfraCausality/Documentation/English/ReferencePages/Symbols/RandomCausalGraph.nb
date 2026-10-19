@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    318559,       7065]
-NotebookOptionsPosition[    308769,       6883]
-NotebookOutlinePosition[    310089,       6921]
-CellTagsIndexPosition[    310008,       6916]
+NotebookDataLength[    314124,       7052]
+NotebookOptionsPosition[    304334,       6870]
+NotebookOutlinePosition[    305654,       6908]
+CellTagsIndexPosition[    305573,       6903]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,7 @@ Cell["RandomCausalGraph", "ObjectName",
  CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
 
 Cell[TextData[{
- Cell["   ", "ModInfo",ExpressionUUID->"6e66c547-bbf3-4458-9e05-d965a3316315"],
+ Cell["   ", "ModInfo",ExpressionUUID->"8c71c6ae-5166-433a-8757-0a75b0521287"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -36,7 +36,7 @@ Cell[TextData[{
     BaseStyle->"InlineFormula"], "[", 
    StyleBox["n", "TI"], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "6ac8960a-d1f3-4903-828b-02a1617376f8"],
+  "9764a2cb-9a86-4481-aa26-15fa07169f94"],
  "\[LineSeparator]",
  "gives the Hasse diagram of a transitive percolation on the events 1, \
 \[Ellipsis], ",
@@ -47,7 +47,7 @@ Cell[TextData[{
  StyleBox["n", "TI"],
  ".",
  "\n",
- Cell["   ", "ModInfo",ExpressionUUID->"1bd91ccf-ada9-4622-bbca-073efd4a81fe"],
+ Cell["   ", "ModInfo",ExpressionUUID->"199e394e-839c-4af5-803d-d126d94aba6a"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -62,7 +62,7 @@ Cell[TextData[{
      StyleBox["n", "TI"], ",", " ", 
      StyleBox["m", "TI"]}], "}"}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "bbd32439-0119-4524-999b-4eae8f4a7454"],
+  "534b7b2e-2124-4914-a547-84a541173b4b"],
  "\[LineSeparator]",
  "gives the Hasse diagram of an acyclic orientation of a random connected \
 graph with ",
@@ -75,10 +75,10 @@ graph with ",
    RowBox[{"{", 
     RowBox[{"n", ",", " ", "m"}], "}"}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "23df615b-c2fa-477f-8e1e-0675b03afa22"],
+  "adcbbea9-2ff5-448b-8a10-91a09c469c64"],
  ".",
  "\n",
- Cell["   ", "ModInfo",ExpressionUUID->"33474b95-ac19-4f4d-bafd-c6ba3a0f8d72"],
+ Cell["   ", "ModInfo",ExpressionUUID->"2982d155-d017-4b1b-8620-01c5c05c8672"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -97,14 +97,14 @@ graph with ",
       RowBox[{"\"\<Percolation\>\"", ",", " ", 
        StyleBox["p", "TI"]}], "}"}]}]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "09c57fda-6ee7-4da4-99e6-17a2886c2cf1"],
+  "a5458ba8-328f-4da0-8eff-cd8195651ab6"],
  "\[LineSeparator]",
  "gives the Hasse diagram of a transitive percolation with link probability \
 ",
  StyleBox["p", "TI"],
  ".",
  "\n",
- Cell["   ", "ModInfo",ExpressionUUID->"9f8525b8-c8c8-4748-9d44-eb97c7e7a236"],
+ Cell["   ", "ModInfo",ExpressionUUID->"ec7b4bbb-1e85-44c6-b25d-e91b1641534a"],
  Cell[BoxData[
   RowBox[{
    TemplateBox[{
@@ -123,14 +123,14 @@ graph with ",
       RowBox[{"\"\<Sprinkling\>\"", ",", " ", 
        StyleBox["d", "TI"]}], "}"}]}]}], "]"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "08ca08f3-43f1-4de1-a081-630c480b5871"],
+  "4f7ce8c2-ff7c-42ea-a32d-d1fdb406be2f"],
  "\[LineSeparator]",
  "gives the Hasse diagram of ",
  StyleBox["n", "TI"],
  " points sprinkled into the unit causal diamond of ",
  StyleBox["d", "TI"],
  "-dimensional Minkowski space."
-}], "Usage",ExpressionUUID->"e3431d4f-bc53-4a72-a784-b8ce11ecd0a9"],
+}], "Usage",ExpressionUUID->"96acefee-8428-484e-9000-312292078f3e"],
 
 Cell[TextData[{
  "Every form returns a random finite order as its Hasse diagram, a \
@@ -153,30 +153,30 @@ transitively reduced directed acyclic graph on the events 1, \[Ellipsis], ",
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "d3519d69-59c2-4033-b176-dd6264d99ac7"],
+  "e067debb-ec2f-46c0-a172-e4a62f209fe8"],
  " of its size. Randomness comes from the ambient generator: ",
  Cell[BoxData["SeedRandom"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "f8b2ba2d-ebec-4583-beea-6146c6626152"],
+  "2c4002fe-a3df-4e37-aa23-921fd72d291f"],
  " before the call fixes the graph. ",
  Cell[BoxData["Graph"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "c528c5bc-8f89-4101-8c33-8fccf3359699"],
+  "bc1b46fa-8e1a-4d3e-b183-09b1b682a77e"],
  " options pass through. The second entry of the pair form is always an edge \
 count, as in ",
  Cell[BoxData["RandomGraph"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "0434a018-dd2c-4598-908f-b0539feeb309"],
+  "8593b448-5b75-4b52-a213-11525f3210fb"],
  ": a probability is given through ",
  Cell[BoxData["Method"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "fac5504b-a0fc-4b20-b9ae-81fe64693e22"],
+  "7f892c41-dd55-4680-9117-bc608de18908"],
  ", so ",
  Cell[BoxData[
   RowBox[{"{", 
    RowBox[{"n", ",", " ", "1"}], "}"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "94fe0e9c-fcf4-4331-91d5-39e4e3227779"],
+  "70151192-d6a8-424b-8ee3-8d688693c4ad"],
  " is a tree and ",
  Cell[BoxData[
   RowBox[{"Method", " ", "->", " ", 
@@ -184,24 +184,24 @@ count, as in ",
     RowBox[{"\"\<Percolation\>\"", ",", " ", "1"}], "}"}]}]], "InlineFormula",
   
   FontSize->0.9 Inherited,ExpressionUUID->
-  "a98ef9ae-b4b9-4eb8-a40e-7187e801d0b5"],
+  "855f44fe-bcd4-44d2-a1bf-f88cc4bcfecb"],
  " a chain. An unknown ",
  Cell[BoxData["Method"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "3e9b9a07-59fc-409a-aa75-cd4478d878f8"],
+  "31483754-aa9b-44c1-9abb-fd609e6fb154"],
  " leaves the call unevaluated."
-}], "Notes",ExpressionUUID->"042d4374-d183-4367-8496-4322fbf2c247"],
+}], "Notes",ExpressionUUID->"1356b205-c496-45fb-9d46-249c3f8aa53b"],
 
 Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "ac0425ed-dedf-422b-b880-5cda69eedef4"], Cell["Form", "TableText",
-     FontWeight->Bold,ExpressionUUID->"b9a3d1a9-667e-4743-a871-b06ea4042446"],
+     "4ae5ea77-1069-490c-a634-d4ee70b3083a"], Cell["Form", "TableText",
+     FontWeight->Bold,ExpressionUUID->"fb7a1c1d-c842-471d-b36c-2b29ece0af97"],
      Cell["Order", "TableText",
-     FontWeight->Bold,ExpressionUUID->"9d57a4fc-d3fd-4eb5-9322-21bc44ff08ee"]},
+     FontWeight->Bold,ExpressionUUID->"3a450200-f5f2-429d-8769-907c3db71bf8"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "2d7f2450-fead-4eff-a95e-84ab0acac547"], Cell[TextData[StyleBox[
+     "7919427a-ca26-4087-b801-510742d0f8dd"], Cell[TextData[StyleBox[
     "n", "TI"]], "TableText",ExpressionUUID->
-     "84ffe7a2-77fd-4caa-96aa-01f9902b80c3"], Cell[TextData[{
+     "0a459290-c279-4744-82e3-c543b46fc250"], Cell[TextData[{
      "transitive percolation (Rideout\[Dash]Sorkin) with ",
      StyleBox["p", "TI"],
      " = log ",
@@ -213,10 +213,10 @@ Cell[BoxData[GridBox[{
       RowBox[{"Method", " ", "->", " ", "\"\<Percolation\>\""}]], 
       "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "49f3eca7-e0ab-4daf-bdb8-89db628f4a21"]
-    }], "TableText",ExpressionUUID->"a04a89e2-d8da-4de7-8911-c7a7de5a4308"]},
+      "186aaccf-2593-49da-81b9-167bad8b9f75"]
+    }], "TableText",ExpressionUUID->"5f656eed-6bca-4f2d-8886-d607c166f52f"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "773ad2b6-89a6-4fd7-962c-37c056efa3e8"], Cell[TextData[{
+     "94937089-0fd8-4a41-86c4-64e4851b3736"], Cell[TextData[{
      StyleBox["n", "TI"],
      ", ",
      Cell[BoxData[
@@ -225,8 +225,8 @@ Cell[BoxData[GridBox[{
         RowBox[{"\"\<Percolation\>\"", ",", " ", "p"}], "}"}]}]], 
       "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "1b821c3d-a512-4ef7-92cd-2b87ed53f894"]
-    }], "TableText",ExpressionUUID->"b464cdac-fa5c-4e8c-ab9f-abf25fdbc3c1"], 
+      "3437cddb-b85b-4786-898a-0518a843ad33"]
+    }], "TableText",ExpressionUUID->"c08edb95-1883-4dfc-af43-de35e32ebdd7"], 
     Cell[TextData[{
      "each pair ",
      StyleBox["i", "TI"],
@@ -237,15 +237,15 @@ Cell[BoxData[GridBox[{
      ", 0 \[LessEqual] ",
      StyleBox["p", "TI"],
      " \[LessEqual] 1, and the order is the transitive closure of the links"
-    }], "TableText",ExpressionUUID->"3c2bbdce-72f6-41d5-b1d6-568e8b3a50de"]},
+    }], "TableText",ExpressionUUID->"751514ed-8148-49b1-a689-aabffc5b3af4"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "c8d797e2-cd3e-45fb-b52d-d4c23ad9f057"], Cell[TextData[{
+     "9e648b24-f85e-4619-bc93-14c17d2ba965"], Cell[TextData[{
      "{",
      StyleBox["n", "TI"],
      ", ",
      StyleBox["m", "TI"],
      "}"
-    }], "TableText",ExpressionUUID->"a823d4f4-beeb-41d0-bee6-aee9e15e2f03"], 
+    }], "TableText",ExpressionUUID->"222db854-87ef-4a85-928f-6ab3e0ce9f3d"], 
     Cell[TextData[{
      "a random connected graph with ",
      StyleBox["n", "TI"],
@@ -263,13 +263,13 @@ Cell[BoxData[GridBox[{
        RowBox[{"{", 
         RowBox[{"n", ",", " ", "m"}], "}"}], "]"}]], "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "fde90514-f971-4afd-8152-eb364a0dae50"],
+      "25e33ddf-a3f1-4d48-a74f-045fc520a2ce"],
      "; the Hasse diagram keeps fewer than ",
      StyleBox["m", "TI"],
      " edges when some are implied"
-    }], "TableText",ExpressionUUID->"80ceb1da-cea5-4a76-8998-02d71043d4bd"]},
+    }], "TableText",ExpressionUUID->"465b55bc-dae2-4465-9765-7dbc729c9447"]},
    {Cell["      ", "ModInfo",ExpressionUUID->
-     "064d39c8-a474-4831-b6b2-7749b88430a6"], Cell[TextData[{
+     "7d145916-ede6-4259-8e88-e669b1e5096e"], Cell[TextData[{
      StyleBox["n", "TI"],
      ", ",
      Cell[BoxData[
@@ -278,8 +278,8 @@ Cell[BoxData[GridBox[{
         RowBox[{"\"\<Sprinkling\>\"", ",", " ", "d"}], "}"}]}]], 
       "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "6191cc5b-88c0-43cc-a89d-db891e8bcde2"]
-    }], "TableText",ExpressionUUID->"231ea8d6-56b6-4dba-9ada-f74394f754a5"], 
+      "cc077a46-9682-4638-a263-345250de0092"]
+    }], "TableText",ExpressionUUID->"8e20275c-e9e3-492a-bc0e-6d963af7c394"], 
     Cell[TextData[{
      StyleBox["n", "TI"],
      " points uniform in the diamond {(",
@@ -323,13 +323,13 @@ Cell[BoxData[GridBox[{
       RowBox[{"Method", " ", "->", " ", "\"\<Sprinkling\>\""}]], 
       "InlineFormula",
       FontSize->0.9 Inherited,ExpressionUUID->
-      "5f8c3508-679f-41ea-9073-14c64ff809b9"],
+      "24fc759e-312f-4949-ab50-b65980ae2b50"],
      " is ",
      StyleBox["d", "TI"],
      " = 2"
-    }], "TableText",ExpressionUUID->"6a27a823-1587-41e1-baeb-8ba90579028e"]}
-  }]], "2ColumnTableMod",ExpressionUUID->"1c2df511-3181-4fcc-9bfd-\
-0f6b0e947851"],
+    }], "TableText",ExpressionUUID->"f8296757-2264-430e-bbca-d7890cb2ee52"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"3e11c6b8-6367-4cb5-96b4-\
+d0416df13037"],
 
 Cell[TextData[{
  "In a transitive percolation the probability that 1 \[Precedes] 2 is ",
@@ -342,7 +342,7 @@ Cell[TextData[{
  "\.b2), a direct link or a path through 2. A sprinkling has ",
  Cell[BoxData["VertexCoordinates"], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "07aeb278-0c97-48fe-b82b-f2596fa71706"],
+  "a9fdf88a-c399-4518-870e-de7e9f10148b"],
  " the sprinkled point {",
  StyleBox["x", "TI"],
  "1, \[Ellipsis], ",
@@ -359,7 +359,7 @@ Cell[TextData[{
  StyleBox["t", "TI"],
  "} beyond; a sprinkling is the standard model of a causal set that is \
 faithfully embedded in Minkowski space."
-}], "Notes",ExpressionUUID->"f297f5b3-e50c-4c1b-8207-8dc57ab97c5d"],
+}], "Notes",ExpressionUUID->"b5d0bdfa-e889-4dbf-9d6e-77e1a4c4338b"],
 
 Cell[TextData[{
  "The ordering fraction ",
@@ -388,7 +388,7 @@ Myrheim and Meyer showed that its expectation in the causal diamond of ",
  " = 4. The experimental reading ",
  Cell[BoxData["\"\<OrderingFraction\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "6bdc2e41-02d5-4f28-922d-4b45d9b22f1c"],
+  "af647cce-9416-4607-9558-d54f48afdb6e"],
  " of ",
  Cell[BoxData[
   TemplateBox[{
@@ -398,13 +398,13 @@ Myrheim and Meyer showed that its expectation in the causal diamond of ",
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "53d3e7aa-bdc1-41df-9dcf-d5eed605990f"],
+  "65a2df35-ae25-4ac9-9191-7b63f1c00b03"],
  " computes it, and ",
  Cell[BoxData["\"\<MyrheimMeyerDimension\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "597dbd60-0504-403b-ae10-4d5a5ad26354"],
+  "13093378-81b8-47ba-be82-ff5eb2b375d8"],
  " inverts the formula."
-}], "Notes",ExpressionUUID->"167dda29-2b55-4877-b4fc-82165fe6aeef"]
+}], "Notes",ExpressionUUID->"04dba6fc-ba62-4b39-b899-208cd85a95b0"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -433,7 +433,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "eaf3d1a9-a883-4fd7-8118-0de7c9cdf3f3"],
+  "46ca57e6-d1eb-4a36-b8d5-033b2d0eb583"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -443,7 +443,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "d3d66884-833d-4a4b-b670-f8ca5b118713"],
+  "8f0ba774-7a7f-4915-90d3-2579c2db288e"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -453,7 +453,7 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "e1c30136-c0e0-46d8-a6a7-dfa5fc0b2603"],
+  "803783be-3cd5-4fde-a18c-4db8cfff31f1"],
  " \[FilledVerySmallSquare] ",
  Cell[BoxData[
   TemplateBox[{
@@ -463,8 +463,8 @@ Cell[TextData[{
     "WolframInstitute/InfraCausality Package Symbol"},
    "PackageLink",
    BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
-  "f1c5fedd-7cd4-45d9-b545-ace114c33483"]
-}], "SeeAlso",ExpressionUUID->"66042feb-b2fe-433b-bdd9-f525f9a79750"]
+  "24d3ed95-a7d4-43ba-9d58-ef0723bb479f"]
+}], "SeeAlso",ExpressionUUID->"1ea0d0b4-3209-4d01-9b82-09cb143d7777"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -491,8 +491,8 @@ Cell[TextData[Cell[BoxData[
   BaseStyle->"Link",
   ButtonData->
    "paclet:WolframInstitute/InfraCausality/guide/CausalSubstrates"]], \
-"InlineFormula",ExpressionUUID->"aab758b8-331c-486c-b01e-b406319293d7"]], \
-"MoreAbout",ExpressionUUID->"4af9e3f7-9a63-4df5-9649-c11d533ee0fd"]
+"InlineFormula",ExpressionUUID->"dc3418d5-f29d-4aca-8e8a-2c605d166caa"]], \
+"MoreAbout",ExpressionUUID->"4cb663e7-3164-445c-ab97-917a6f2c0e33"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -556,7 +556,7 @@ Cell[TextData[{
  StyleBox["p", "TI"],
  " = 0.2, an orientation of a graph with 40 edges and a two-dimensional \
 sprinkling."
-}], "ExampleText",ExpressionUUID->"a844ae16-b65c-4592-ba50-a76ac3b2e179"],
+}], "ExampleText",ExpressionUUID->"43d145de-f361-4c14-97fa-63e7044d4bd4"],
 
 Cell[CellGroupData[{
 
@@ -593,7 +593,7 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"\"\<Sprinkling\>\"", ",", " ", "2"}], "}"}]}]}], "]"}]}], 
      ")"}]}], "}"}], "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"ec61cbae-f021-4cf7-b6bf-18aaf01c887f"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"b328966b-0ee0-41dd-86db-36a9e6a01fd5"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {InsetBox[
@@ -611,20 +611,19 @@ Cell[BoxData[
             15, 17}, {16, 24}, {17, 21}, {18, 20}, {18, 21}, {18, 24}, {24, 
             25}}, Null}, {EdgeStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.5], 
+               Hue[0, 1, 0.56], 
+               Opacity[0.7], 
                Arrowheads[0.02]]}, 
             GraphLayout -> {
              "LayeredDigraphEmbedding", "Orientation" -> Bottom}, 
             VertexSize -> {{"Scaled", 0.015}}, VertexStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.6], 
+               Hue[0.11, 1, 0.97], 
                EdgeForm[{
-                 RGBColor[0.248, 0.248, 0.248], 
-                 Opacity[0.65]}]]}}]]}, 
+                 Hue[0.11, 1, 0.97], 
+                 Opacity[1]}]]}}]]}, 
          TagBox[GraphicsGroupBox[{
-            {GrayLevel[0.62], Opacity[0.5], CapForm["Round"], Arrowheads[
+            {Hue[0, 1, 0.56], Opacity[0.7], CapForm["Round"], Arrowheads[
              0.02], ArrowBox[{
               DynamicLocation["VertexID$1", Automatic, Center], 
                DynamicLocation["VertexID$3", Automatic, Center]}], 
@@ -845,8 +844,7 @@ Cell[BoxData[
              ArrowBox[{
               DynamicLocation["VertexID$24", Automatic, Center], 
                DynamicLocation["VertexID$25", Automatic, Center]}]}, 
-            {GrayLevel[0.62], Opacity[0.6], EdgeForm[{RGBColor[
-             0.248, 0.248, 0.248], Opacity[0.65]}], 
+            {Hue[0.11, 1, 0.97], EdgeForm[{Hue[0.11, 1, 0.97], Opacity[1]}], 
              
              TagBox[DiskBox[{9.470588221108576, 2.470587981530686}, 
                0.09062284573333496],
@@ -996,20 +994,19 @@ Cell[BoxData[
             18, 20}, {18, 21}, {18, 24}, {21, 23}, {24, 25}}, Null}, {
            EdgeStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.5], 
+               Hue[0, 1, 0.56], 
+               Opacity[0.7], 
                Arrowheads[0.02]]}, 
             GraphLayout -> {
              "LayeredDigraphEmbedding", "Orientation" -> Bottom}, 
             VertexSize -> {{"Scaled", 0.015}}, VertexStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.6], 
+               Hue[0.11, 1, 0.97], 
                EdgeForm[{
-                 RGBColor[0.248, 0.248, 0.248], 
-                 Opacity[0.65]}]]}}]]}, 
+                 Hue[0.11, 1, 0.97], 
+                 Opacity[1]}]]}}]]}, 
          TagBox[GraphicsGroupBox[{
-            {GrayLevel[0.62], Opacity[0.5], CapForm["Round"], Arrowheads[
+            {Hue[0, 1, 0.56], Opacity[0.7], CapForm["Round"], Arrowheads[
              0.02], ArrowBox[
               BezierCurveBox[{
                DynamicLocation[
@@ -1359,8 +1356,7 @@ Cell[BoxData[
              ArrowBox[{
               DynamicLocation["VertexID$24", Automatic, Center], 
                DynamicLocation["VertexID$25", Automatic, Center]}]}, 
-            {GrayLevel[0.62], Opacity[0.6], EdgeForm[{RGBColor[
-             0.248, 0.248, 0.248], Opacity[0.65]}], 
+            {Hue[0.11, 1, 0.97], EdgeForm[{Hue[0.11, 1, 0.97], Opacity[1]}], 
              
              TagBox[DiskBox[{-4.247097489201348, 0.04444455824498217}, 
                0.08485281486037054],
@@ -1508,20 +1504,19 @@ Cell[BoxData[
             14, 18}, {15, 19}, {15, 22}, {16, 19}, {18, 24}, {23, 25}}, 
             Null}, {EdgeStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.5], 
+               Hue[0, 1, 0.56], 
+               Opacity[0.7], 
                Arrowheads[0.02]]}, 
             GraphLayout -> {
              "LayeredDigraphEmbedding", "Orientation" -> Bottom}, 
             VertexSize -> {{"Scaled", 0.015}}, VertexStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.6], 
+               Hue[0.11, 1, 0.97], 
                EdgeForm[{
-                 RGBColor[0.248, 0.248, 0.248], 
-                 Opacity[0.65]}]]}}]]}, 
+                 Hue[0.11, 1, 0.97], 
+                 Opacity[1]}]]}}]]}, 
          TagBox[GraphicsGroupBox[{
-            {GrayLevel[0.62], Opacity[0.5], CapForm["Round"], Arrowheads[
+            {Hue[0, 1, 0.56], Opacity[0.7], CapForm["Round"], Arrowheads[
              0.02], ArrowBox[{
               DynamicLocation["VertexID$1", Automatic, Center], 
                DynamicLocation["VertexID$3", Automatic, Center]}], 
@@ -1637,8 +1632,7 @@ Cell[BoxData[
              ArrowBox[{
               DynamicLocation["VertexID$23", Automatic, Center], 
                DynamicLocation["VertexID$25", Automatic, Center]}]}, 
-            {GrayLevel[0.62], Opacity[0.6], EdgeForm[{RGBColor[
-             0.248, 0.248, 0.248], Opacity[0.65]}], 
+            {Hue[0.11, 1, 0.97], EdgeForm[{Hue[0.11, 1, 0.97], Opacity[1]}], 
              
              TagBox[DiskBox[{-3.103448497612935, -1.2758619858089353`}, 
                0.06914658473753814],
@@ -1699,8 +1693,8 @@ Cell[BoxData[
                0.06914658473753814],
               "DynamicName",
               BoxID -> "VertexID$12"], 
-             TagBox[
-              DiskBox[{-0.10344817607418033`, 4.724137853421677}, 
+             
+             TagBox[DiskBox[{-0.10344817607418033`, 4.724137853421677}, 
                0.06914658473753814],
               "DynamicName",
               BoxID -> "VertexID$13"], 
@@ -1788,8 +1782,8 @@ Cell[BoxData[
             25}, {16, 18}, {16, 25}, {17, 22}, {17, 24}, {18, 21}, {18, 24}, {
             19, 23}, {22, 25}}, Null}, {EdgeStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.5], 
+               Hue[0, 1, 0.56], 
+               Opacity[0.7], 
                Arrowheads[0.02]]}, 
             GraphLayout -> {
              "LayeredDigraphEmbedding", "Orientation" -> Bottom}, 
@@ -1806,13 +1800,12 @@ IBj+UQ/As79SoiRtXqLlP+CjN5ZKr9K/RvJ0XWY75j9QUbtuWJ+6v6LOAqCB
 aOY/UEUR7Hz7sz+WuSsv66rqP5w0zzw=
              "], VertexSize -> {{"Scaled", 0.015}}, VertexStyle -> {
               Directive[
-               GrayLevel[0.62], 
-               Opacity[0.6], 
+               Hue[0.11, 1, 0.97], 
                EdgeForm[{
-                 RGBColor[0.248, 0.248, 0.248], 
-                 Opacity[0.65]}]]}}]]}, 
+                 Hue[0.11, 1, 0.97], 
+                 Opacity[1]}]]}}]]}, 
          TagBox[GraphicsGroupBox[{
-            {GrayLevel[0.62], Opacity[0.5], CapForm["Round"], Arrowheads[
+            {Hue[0, 1, 0.56], Opacity[0.7], CapForm["Round"], Arrowheads[
              0.02], ArrowBox[{
               DynamicLocation["VertexID$1", Automatic, Center], 
                DynamicLocation["VertexID$2", Automatic, Center]}], 
@@ -1942,8 +1935,7 @@ aOY/UEUR7Hz7sz+WuSsv66rqP5w0zzw=
              ArrowBox[{
               DynamicLocation["VertexID$22", Automatic, Center], 
                DynamicLocation["VertexID$25", Automatic, Center]}]}, 
-            {GrayLevel[0.62], Opacity[0.6], EdgeForm[{RGBColor[
-             0.248, 0.248, 0.248], Opacity[0.65]}], 
+            {Hue[0.11, 1, 0.97], EdgeForm[{Hue[0.11, 1, 0.97], Opacity[1]}], 
              
              TagBox[DiskBox[{-0.041097823641551345`, 0.11722479640123873`}, 
                0.007402221484335105],
@@ -2081,13 +2073,13 @@ aOY/UEUR7Hz7sz+WuSsv66rqP5w0zzw=
   Method->{"IgnoreImageSizeAutomaticLimit" -> True},
   PlotRange->{{0, 648.}, {-185.06448754207995`, 0}},
   PlotRangePadding->Automatic]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"ac728d16-ead8-4f74-ab56-56c482eb0d42"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"4cda9f16-b680-4969-8533-4047ea60cdcc"]
 }, Open  ]],
 
 Cell["\<\
 A sprinkling of 100 points into the two-dimensional diamond, in its \
 coordinates, with the causal future of event 20.\
-\>", "ExampleText",ExpressionUUID->"138b7d46-d919-44dd-8a0e-6cc1476c835e"],
+\>", "ExampleText",ExpressionUUID->"2ed1241a-8544-43a9-b270-24b5414820e8"],
 
 Cell[CellGroupData[{
 
@@ -2111,9 +2103,8 @@ Cell[BoxData[
       RowBox[{
        RowBox[{
         RowBox[{"InfraCausalFuture", "[", "20", "]"}], " ", "->", " ", 
-        "StandardOrange"}], ",", " ", "20"}], "}"}]}], "]"}]}], 
-  "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"b7e92c2d-bc30-4431-a19f-717c6ec71741"],
+        "Red"}], ",", " ", "20"}], "}"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"a72077ff-a9f4-4134-9a40-742d02e5875d"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -2142,502 +2133,502 @@ PnaH/XX/Otzcq/s6Po7P8/38OL+8p/e6/Pzcfl7X+/Vxfz5/X7//AFfZjHo=
 
        "], Null}, {EdgeStyle -> {
          Directive[
-          GrayLevel[0.62], 
-          Opacity[0.5], 
+          Hue[0, 1, 0.56], 
+          Opacity[0.7], 
           Arrowheads[0.02]], DirectedEdge[57, 73] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[65, 78] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[73, 82] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[56, 77] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[48, 73] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[83, 96] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[50, 86] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[73, 87] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[66, 86] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[68, 79] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[79, 94] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[24, 45] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[90, 99] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[99, 100] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[61, 80] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[78, 87] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[61, 78] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[63, 74] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[54, 67] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[70, 79] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[46, 58] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[60, 80] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 60] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[50, 70] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[91, 98] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[45, 48] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[77, 87] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[65, 80] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 56] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[47, 60] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[34, 74] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[60, 83] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[34, 46] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[66, 71] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[62, 77] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 45] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[61, 95] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[90, 96] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[87, 94] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[67, 81] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[74, 83] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[85, 94] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[80, 88] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[56, 67] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[46, 50] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[54, 73] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[88, 98] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[48, 91] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[47, 71] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[64, 80] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[47, 59] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[66, 70] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[85, 99] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[62, 95] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[63, 79] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[45, 61] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 59] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[86, 95] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[59, 65] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[68, 78] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 57] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[66, 87] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[20, 25] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[78, 90] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[59, 79] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[46, 59] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[73, 81] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[74, 86] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[79, 91] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[62, 78] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[51, 69] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[87, 99] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[80, 87] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[51, 67] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[66, 88] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[94, 97] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[25, 45] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[51, 73] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[81, 97] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[67, 88] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[58, 66] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[71, 85] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[50, 64] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[67, 99] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[83, 91] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[73, 88] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[51, 90] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[55, 58] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[64, 68] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[61, 91] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[78, 88] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[69, 77] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[34, 73] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[84, 86] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[45, 65] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[57, 67] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[62, 80] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[70, 83] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[83, 97] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[78, 85] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[25, 54] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[47, 69] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[80, 85] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[20, 24] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[24, 63] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[62, 91] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[57, 72] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[45, 51] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[61, 77] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[20, 30] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[59, 62] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[62, 81] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[25, 57] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[34, 47] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[83, 92] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[77, 88] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 54] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[71, 79] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[81, 89] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[24, 54] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[54, 77] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[71, 83] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[67, 82] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[45, 62] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[47, 70] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[69, 80] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[79, 92] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[91, 99] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[65, 91] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[98, 100] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[65, 77] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[48, 95] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[79, 90] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[77, 89] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[96, 98] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[34, 55] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[94, 96] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[64, 89] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[24, 56] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[81, 100] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[50, 60] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[25, 34] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[69, 81] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[65, 92] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[93, 99] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[60, 68] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[59, 61] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[50, 71] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[67, 94] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[92, 93] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[48, 78] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[47, 64] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[48, 69] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[90, 97] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[70, 85] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[30, 64] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[82, 89] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[63, 84] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[88, 97] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[25, 56] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[25, 84] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[93, 95] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[24, 34] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[56, 73] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]], DirectedEdge[45, 79] -> Directive[
-           RGBColor[0.98, 0.56, 0.17], 
+           RGBColor[1, 0, 0], 
            Opacity[0.4], 
            AbsoluteThickness[1.]]}, 
        GraphLayout -> {"LayeredDigraphEmbedding", "Orientation" -> Bottom}, 
@@ -2679,182 +2670,181 @@ GJkBKekGD4huQPFkEHcC41evH283acOaZpZ3ScokOFEams6BHDzv/XWVy5oC
 Y9t/OltuPSQrcirULHMKrGHvyQ5RIYJ1csxyONOwkan3Zj98BDk/7MpyzjRY
 RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         "], VertexShapeFunction -> {99 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 100 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 61 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 78 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 82 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 92 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 71 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 51 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 64 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 95 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 66 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 88 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 45 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 72 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 67 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 59 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 57 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 63 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 87 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 90 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 96 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 97 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 47 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 80 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 79 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 34 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 69 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 86 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 30 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 83 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 70 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 54 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 81 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 50 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 56 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 93 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 68 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 62 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 24 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 85 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 91 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 77 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 48 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 65 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 89 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 25 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 55 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 60 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 94 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 20 -> (Append[{
             RGBColor[0.192157, 0.388235, 0.807843], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 84 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 74 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 46 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 73 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 98 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& ), 58 -> (Append[{
-            RGBColor[0.98, 0.56, 0.17], 
+            RGBColor[1, 0, 0], 
             Opacity[1.]}, 
            Disk[#, 1 #3]]& )}, VertexSize -> {{"Scaled", 0.015}}, VertexStyle -> {
          Directive[
-          GrayLevel[0.62], 
-          Opacity[0.6], 
+          Hue[0.11, 1, 0.97], 
           EdgeForm[{
-            RGBColor[0.248, 0.248, 0.248], 
-            Opacity[0.65]}]]}}]]}, 
+            Hue[0.11, 1, 0.97], 
+            Opacity[1]}]]}}]]}, 
     TagBox[GraphicsGroupBox[{
-       {GrayLevel[0.62], Opacity[0.5], CapForm["Round"], Arrowheads[0.02], 
+       {Hue[0, 1, 0.56], Opacity[0.7], CapForm["Round"], Arrowheads[0.02], 
         ArrowBox[{
          DynamicLocation["VertexID$1", Automatic, Center], DynamicLocation[
           "VertexID$7", Automatic, Center]}], 
@@ -3116,15 +3106,15 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$19", Automatic, Center], DynamicLocation[
           "VertexID$27", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$20", Automatic, Center], DynamicLocation[
            "VertexID$24", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$20", Automatic, Center], DynamicLocation[
            "VertexID$25", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$20", Automatic, Center], DynamicLocation[
            "VertexID$30", Automatic, Center]}]}, 
@@ -3158,47 +3148,47 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$23", Automatic, Center], DynamicLocation[
           "VertexID$41", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$24", Automatic, Center], DynamicLocation[
            "VertexID$34", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$24", Automatic, Center], DynamicLocation[
            "VertexID$45", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$24", Automatic, Center], DynamicLocation[
            "VertexID$54", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$24", Automatic, Center], DynamicLocation[
            "VertexID$56", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$24", Automatic, Center], DynamicLocation[
            "VertexID$63", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$25", Automatic, Center], DynamicLocation[
            "VertexID$34", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$25", Automatic, Center], DynamicLocation[
            "VertexID$45", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$25", Automatic, Center], DynamicLocation[
            "VertexID$54", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$25", Automatic, Center], DynamicLocation[
            "VertexID$56", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$25", Automatic, Center], DynamicLocation[
            "VertexID$57", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$25", Automatic, Center], DynamicLocation[
            "VertexID$84", Automatic, Center]}]}, 
@@ -3235,31 +3225,31 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$29", Automatic, Center], DynamicLocation[
           "VertexID$31", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$45", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$54", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$56", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$57", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$59", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$60", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$30", Automatic, Center], DynamicLocation[
            "VertexID$64", Automatic, Center]}]}, 
@@ -3314,23 +3304,23 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$33", Automatic, Center], DynamicLocation[
           "VertexID$87", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$34", Automatic, Center], DynamicLocation[
            "VertexID$46", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$34", Automatic, Center], DynamicLocation[
            "VertexID$47", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$34", Automatic, Center], DynamicLocation[
            "VertexID$55", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$34", Automatic, Center], DynamicLocation[
            "VertexID$73", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$34", Automatic, Center], DynamicLocation[
            "VertexID$74", Automatic, Center]}]}, 
@@ -3460,83 +3450,83 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$44", Automatic, Center], DynamicLocation[
           "VertexID$80", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$45", Automatic, Center], DynamicLocation[
            "VertexID$48", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$45", Automatic, Center], DynamicLocation[
            "VertexID$51", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$45", Automatic, Center], DynamicLocation[
            "VertexID$61", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$45", Automatic, Center], DynamicLocation[
            "VertexID$62", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$45", Automatic, Center], DynamicLocation[
            "VertexID$65", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$45", Automatic, Center], DynamicLocation[
            "VertexID$79", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$46", Automatic, Center], DynamicLocation[
            "VertexID$50", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$46", Automatic, Center], DynamicLocation[
            "VertexID$58", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$46", Automatic, Center], DynamicLocation[
            "VertexID$59", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$47", Automatic, Center], DynamicLocation[
            "VertexID$59", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$47", Automatic, Center], DynamicLocation[
            "VertexID$60", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$47", Automatic, Center], DynamicLocation[
            "VertexID$64", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$47", Automatic, Center], DynamicLocation[
            "VertexID$69", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$47", Automatic, Center], DynamicLocation[
            "VertexID$70", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$47", Automatic, Center], DynamicLocation[
            "VertexID$71", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$48", Automatic, Center], DynamicLocation[
            "VertexID$69", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$48", Automatic, Center], DynamicLocation[
            "VertexID$73", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$48", Automatic, Center], DynamicLocation[
            "VertexID$78", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$48", Automatic, Center], DynamicLocation[
            "VertexID$91", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$48", Automatic, Center], DynamicLocation[
            "VertexID$95", Automatic, Center]}]}, 
@@ -3546,39 +3536,39 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$49", Automatic, Center], DynamicLocation[
           "VertexID$82", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$50", Automatic, Center], DynamicLocation[
            "VertexID$60", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$50", Automatic, Center], DynamicLocation[
            "VertexID$64", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$50", Automatic, Center], DynamicLocation[
            "VertexID$70", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$50", Automatic, Center], DynamicLocation[
            "VertexID$71", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$50", Automatic, Center], DynamicLocation[
            "VertexID$86", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$51", Automatic, Center], DynamicLocation[
            "VertexID$67", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$51", Automatic, Center], DynamicLocation[
            "VertexID$69", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$51", Automatic, Center], DynamicLocation[
            "VertexID$73", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$51", Automatic, Center], DynamicLocation[
            "VertexID$90", Automatic, Center]}]}, 
@@ -3609,271 +3599,271 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$53", Automatic, Center], DynamicLocation[
           "VertexID$94", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$54", Automatic, Center], DynamicLocation[
            "VertexID$67", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$54", Automatic, Center], DynamicLocation[
            "VertexID$73", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$54", Automatic, Center], DynamicLocation[
            "VertexID$77", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$55", Automatic, Center], DynamicLocation[
            "VertexID$58", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$56", Automatic, Center], DynamicLocation[
            "VertexID$67", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$56", Automatic, Center], DynamicLocation[
            "VertexID$73", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$56", Automatic, Center], DynamicLocation[
            "VertexID$77", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$57", Automatic, Center], DynamicLocation[
            "VertexID$67", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$57", Automatic, Center], DynamicLocation[
            "VertexID$72", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$57", Automatic, Center], DynamicLocation[
            "VertexID$73", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$58", Automatic, Center], DynamicLocation[
            "VertexID$66", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$59", Automatic, Center], DynamicLocation[
            "VertexID$61", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$59", Automatic, Center], DynamicLocation[
            "VertexID$62", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$59", Automatic, Center], DynamicLocation[
            "VertexID$65", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$59", Automatic, Center], DynamicLocation[
            "VertexID$79", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$60", Automatic, Center], DynamicLocation[
            "VertexID$68", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$60", Automatic, Center], DynamicLocation[
            "VertexID$80", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$60", Automatic, Center], DynamicLocation[
            "VertexID$83", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$61", Automatic, Center], DynamicLocation[
            "VertexID$77", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$61", Automatic, Center], DynamicLocation[
            "VertexID$78", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$61", Automatic, Center], DynamicLocation[
            "VertexID$80", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$61", Automatic, Center], DynamicLocation[
            "VertexID$91", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$61", Automatic, Center], DynamicLocation[
            "VertexID$95", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$62", Automatic, Center], DynamicLocation[
            "VertexID$77", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$62", Automatic, Center], DynamicLocation[
            "VertexID$78", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$62", Automatic, Center], DynamicLocation[
            "VertexID$80", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$62", Automatic, Center], DynamicLocation[
            "VertexID$81", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$62", Automatic, Center], DynamicLocation[
            "VertexID$91", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$62", Automatic, Center], DynamicLocation[
            "VertexID$95", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$63", Automatic, Center], DynamicLocation[
            "VertexID$74", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$63", Automatic, Center], DynamicLocation[
            "VertexID$79", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$63", Automatic, Center], DynamicLocation[
            "VertexID$84", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$64", Automatic, Center], DynamicLocation[
            "VertexID$68", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$64", Automatic, Center], DynamicLocation[
            "VertexID$80", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$64", Automatic, Center], DynamicLocation[
            "VertexID$89", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$65", Automatic, Center], DynamicLocation[
            "VertexID$77", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$65", Automatic, Center], DynamicLocation[
            "VertexID$78", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$65", Automatic, Center], DynamicLocation[
            "VertexID$80", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$65", Automatic, Center], DynamicLocation[
            "VertexID$91", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$65", Automatic, Center], DynamicLocation[
            "VertexID$92", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$66", Automatic, Center], DynamicLocation[
            "VertexID$70", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$66", Automatic, Center], DynamicLocation[
            "VertexID$71", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$66", Automatic, Center], DynamicLocation[
            "VertexID$86", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$66", Automatic, Center], DynamicLocation[
            "VertexID$87", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$66", Automatic, Center], DynamicLocation[
            "VertexID$88", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$67", Automatic, Center], DynamicLocation[
            "VertexID$81", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$67", Automatic, Center], DynamicLocation[
            "VertexID$82", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$67", Automatic, Center], DynamicLocation[
            "VertexID$88", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$67", Automatic, Center], DynamicLocation[
            "VertexID$94", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$67", Automatic, Center], DynamicLocation[
            "VertexID$99", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$68", Automatic, Center], DynamicLocation[
            "VertexID$78", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$68", Automatic, Center], DynamicLocation[
            "VertexID$79", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$69", Automatic, Center], DynamicLocation[
            "VertexID$77", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$69", Automatic, Center], DynamicLocation[
            "VertexID$80", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$69", Automatic, Center], DynamicLocation[
            "VertexID$81", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$70", Automatic, Center], DynamicLocation[
            "VertexID$79", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$70", Automatic, Center], DynamicLocation[
            "VertexID$83", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$70", Automatic, Center], DynamicLocation[
            "VertexID$85", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$71", Automatic, Center], DynamicLocation[
            "VertexID$79", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$71", Automatic, Center], DynamicLocation[
            "VertexID$83", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$71", Automatic, Center], DynamicLocation[
            "VertexID$85", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$73", Automatic, Center], DynamicLocation[
            "VertexID$81", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$73", Automatic, Center], DynamicLocation[
            "VertexID$82", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$73", Automatic, Center], DynamicLocation[
            "VertexID$87", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$73", Automatic, Center], DynamicLocation[
            "VertexID$88", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$74", Automatic, Center], DynamicLocation[
            "VertexID$83", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$74", Automatic, Center], DynamicLocation[
            "VertexID$86", Automatic, Center]}]}, 
@@ -3883,180 +3873,179 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
         ArrowBox[{
          DynamicLocation["VertexID$76", Automatic, Center], DynamicLocation[
           "VertexID$84", Automatic, Center]}], 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$77", Automatic, Center], DynamicLocation[
            "VertexID$87", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$77", Automatic, Center], DynamicLocation[
            "VertexID$88", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$77", Automatic, Center], DynamicLocation[
            "VertexID$89", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$78", Automatic, Center], DynamicLocation[
            "VertexID$85", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$78", Automatic, Center], DynamicLocation[
            "VertexID$87", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$78", Automatic, Center], DynamicLocation[
            "VertexID$88", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$78", Automatic, Center], DynamicLocation[
            "VertexID$90", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$79", Automatic, Center], DynamicLocation[
            "VertexID$90", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$79", Automatic, Center], DynamicLocation[
            "VertexID$91", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$79", Automatic, Center], DynamicLocation[
            "VertexID$92", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$79", Automatic, Center], DynamicLocation[
            "VertexID$94", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$80", Automatic, Center], DynamicLocation[
            "VertexID$85", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$80", Automatic, Center], DynamicLocation[
            "VertexID$87", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$80", Automatic, Center], DynamicLocation[
            "VertexID$88", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$81", Automatic, Center], DynamicLocation[
            "VertexID$89", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$81", Automatic, Center], DynamicLocation[
            "VertexID$97", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$81", Automatic, Center], DynamicLocation[
            "VertexID$100", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$82", Automatic, Center], DynamicLocation[
            "VertexID$89", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$83", Automatic, Center], DynamicLocation[
            "VertexID$91", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$83", Automatic, Center], DynamicLocation[
            "VertexID$92", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$83", Automatic, Center], DynamicLocation[
            "VertexID$96", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$83", Automatic, Center], DynamicLocation[
            "VertexID$97", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$84", Automatic, Center], DynamicLocation[
            "VertexID$86", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$85", Automatic, Center], DynamicLocation[
            "VertexID$94", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$85", Automatic, Center], DynamicLocation[
            "VertexID$99", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$86", Automatic, Center], DynamicLocation[
            "VertexID$95", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$87", Automatic, Center], DynamicLocation[
            "VertexID$94", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$87", Automatic, Center], DynamicLocation[
            "VertexID$99", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$88", Automatic, Center], DynamicLocation[
            "VertexID$97", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$88", Automatic, Center], DynamicLocation[
            "VertexID$98", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$90", Automatic, Center], DynamicLocation[
            "VertexID$96", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$90", Automatic, Center], DynamicLocation[
            "VertexID$97", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$90", Automatic, Center], DynamicLocation[
            "VertexID$99", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$91", Automatic, Center], DynamicLocation[
            "VertexID$98", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$91", Automatic, Center], DynamicLocation[
            "VertexID$99", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$92", Automatic, Center], DynamicLocation[
            "VertexID$93", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$93", Automatic, Center], DynamicLocation[
            "VertexID$95", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$93", Automatic, Center], DynamicLocation[
            "VertexID$99", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$94", Automatic, Center], DynamicLocation[
            "VertexID$96", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$94", Automatic, Center], DynamicLocation[
            "VertexID$97", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$96", Automatic, Center], DynamicLocation[
            "VertexID$98", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$98", Automatic, Center], DynamicLocation[
            "VertexID$100", Automatic, Center]}]}, 
-        {RGBColor[0.98, 0.56, 0.17], AbsoluteThickness[1.], Opacity[0.4], 
+        {RGBColor[1, 0, 0], AbsoluteThickness[1.], Opacity[0.4], 
          ArrowBox[{
           DynamicLocation["VertexID$99", Automatic, Center], DynamicLocation[
            "VertexID$100", Automatic, Center]}]}}, 
-       {GrayLevel[0.62], Opacity[0.6], EdgeForm[{RGBColor[
-        0.248, 0.248, 0.248], Opacity[0.65]}], 
+       {Hue[0.11, 1, 0.97], EdgeForm[{Hue[0.11, 1, 0.97], Opacity[1]}], 
         TagBox[
          DiskBox[{-0.10246098232669687`, 0.1539657065016904}, 
           0.008650489000675476],
@@ -4174,13 +4163,13 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$23"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.07014111329503514, 0.3130646366332457}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$24"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.09748298738813244, 0.3236847745957101}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4206,7 +4195,7 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$29"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.16703742901536356`, 0.3624403570171335}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4227,7 +4216,7 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$33"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.032243286847289054`, 0.3962244735955396}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4283,25 +4272,25 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$44"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.16511302844277886`, 0.43576389965187823`}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$45"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.0035304052688109877`, 0.43933926709934545`}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$46"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.03201012527906544, 0.45381085975542135`}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$47"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.17218118804210691`, 0.47388280875837796`}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4312,13 +4301,13 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$49"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.014924284612790384`, 0.4869861109937119}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$50"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.2202612889768567, 0.5016766783437305}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4334,127 +4323,127 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$53"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.2514360256561663, 0.5157211018878398}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$54"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.08739778387978525, 0.5170492217504432}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$55"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.2613484904598782, 0.5173909431951911}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$56"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.2810512476046019, 0.51741916868056}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$57"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.08486036227785965, 0.5244181545637352}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$58"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.07394510519932562, 0.525846256359711}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$59"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.0013593552766126837`, 0.5355538243727982}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$60"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.08053891163811966, 0.5391517592914588}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$61"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.08376901870889619, 0.5403145634423081}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$62"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.1559622203712281, 0.5409294890624352}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$63"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.029297277616806117`, 0.5414710555326931}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$64"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.0638878799245397, 0.5418199009650215}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$65"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.08317764770608727, 0.546607360860135}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$66"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.26249047402270675`, 0.5598963358907532}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$67"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.0006867278512592279, 0.5780722931543623}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$68"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.14959123068323366`, 0.5920493737433525}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$69"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.07636195146298186, 0.5963666474929823}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$70"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.09224215149044634, 0.599202817197328}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$71"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.3619554776471752, 0.6037651850154628}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$72"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.20633871835149065`, 0.6051473414353734}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$73"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.1777587841809134, 0.6063018006257914}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4470,145 +4459,145 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
          "DynamicName",
          BoxID -> "VertexID$76"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.15079766477197243`, 0.6446232334876976}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$77"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.06636213160276028, 0.6506763560898872}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$78"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.052361730788282435`, 0.6563892899840238}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$79"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.08761586847068226, 0.6636484458576206}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$80"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.2060575775116329, 0.6639912501433385}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$81"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.2773454090936205, 0.6778910291782476}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$82"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.11661603520381947`, 0.6822491099746435}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$83"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.2727497109581525, 0.6993695340372437}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$84"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.03506031971652379, 0.7282789925281445}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$85"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.25421757575540127`, 0.7343882498243026}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$86"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.07630319049408718, 0.7390880432123825}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$87"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.1101247838444217, 0.7410749157042873}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$88"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.21132669376949442`, 0.7441514284566402}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$89"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.027364786100946947`, 0.751667264711428}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$90"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.10215101206467536`, 0.784664504052959}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$91"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.1734079473640222, 0.7862884247951665}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$92"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.17351283380745186`, 0.7875062749416988}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$93"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.04314853382928896, 0.7978949149061536}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$94"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.16497127503955444`, 0.8295475460329838}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$95"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.007976986730618973, 0.8555340722220643}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$96"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{-0.05583011503545188, 0.8618327953215892}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$97"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.034750280237807685`, 0.8906975436842788}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$98"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.06903981185026065, 0.893673174794368}, 
            0.008650489000675476]},
          "DynamicName",
          BoxID -> "VertexID$99"], 
         TagBox[
-         {RGBColor[0.98, 0.56, 0.17], Opacity[1.], 
+         {RGBColor[1, 0, 0], Opacity[1.], 
           DiskBox[{0.035581825385926136`, 0.9292738911851877}, 
            0.008650489000675476]},
          "DynamicName",
@@ -4618,14 +4607,14 @@ RY3z7fvuIfJozK/5/Bn8A7NyKhs=
   DefaultBaseStyle->"NetworkGraphics",
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"2cadf213-f250-48a6-91d7-35233c04869e"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"07574bbb-6c73-4d93-a10f-0e2ef378f692"]
 }, Open  ]],
 
 Cell[TextData[{
  "The height foliation of a percolation of 60 events with ",
  StyleBox["p", "TI"],
  " = 0.08."
-}], "ExampleText",ExpressionUUID->"689a3f87-2d62-4f78-91aa-e38425f75f01"],
+}], "ExampleText",ExpressionUUID->"9550ec84-48c4-41a4-85bb-593f4b505ae1"],
 
 Cell[CellGroupData[{
 
@@ -4647,7 +4636,7 @@ Cell[BoxData[
     RowBox[{"g", ",", " ", 
      RowBox[{"CausalHeightFoliation", "[", "g", "]"}]}], "]"}]}], 
   "]"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"1e38dd43-ffbe-4bf3-a8ee-a77c2a006926"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"547faf2a-b8ad-49cc-9299-71a7e39b44c1"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -4672,8 +4661,8 @@ Cell[BoxData[
        48}, {40, 52}, {41, 42}, {41, 47}, {43, 52}, {43, 60}, {44, 58}, {46, 
        57}, {47, 54}, {55, 58}, {57, 60}}, Null}, {EdgeStyle -> {
          Directive[
-          GrayLevel[0.62], 
-          Opacity[0.5], 
+          Hue[0, 1, 0.56], 
+          Opacity[0.7], 
           Arrowheads[0.02]]}, 
        GraphLayout -> {"LayeredDigraphEmbedding", "Orientation" -> Bottom}, 
        VertexShapeFunction -> {32 -> (Append[{
@@ -4859,13 +4848,12 @@ Cell[BoxData[
             Opacity[1.]}, 
            Disk[#, 1 #3]]& )}, VertexSize -> {{"Scaled", 0.015}}, VertexStyle -> {
          Directive[
-          GrayLevel[0.62], 
-          Opacity[0.6], 
+          Hue[0.11, 1, 0.97], 
           EdgeForm[{
-            RGBColor[0.248, 0.248, 0.248], 
-            Opacity[0.65]}]]}}]]}, 
+            Hue[0.11, 1, 0.97], 
+            Opacity[1]}]]}}]]}, 
     TagBox[GraphicsGroupBox[{
-       {GrayLevel[0.62], Opacity[0.5], CapForm["Round"], Arrowheads[0.02], 
+       {Hue[0, 1, 0.56], Opacity[0.7], CapForm["Round"], Arrowheads[0.02], 
         ArrowBox[{
          DynamicLocation["VertexID$1", Automatic, Center], DynamicLocation[
           "VertexID$3", Automatic, Center]}], 
@@ -5864,8 +5852,7 @@ Cell[BoxData[
         ArrowBox[{
          DynamicLocation["VertexID$57", Automatic, Center], DynamicLocation[
           "VertexID$60", Automatic, Center]}]}, 
-       {GrayLevel[0.62], Opacity[0.6], EdgeForm[{RGBColor[
-        0.248, 0.248, 0.248], Opacity[0.65]}], 
+       {Hue[0.11, 1, 0.97], EdgeForm[{Hue[0.11, 1, 0.97], Opacity[1]}], 
         TagBox[
          {RGBColor[0.790588, 0.201176, 0.], Opacity[1.], 
           DiskBox[{17.416666149903396`, -9.18751004337419}, 
@@ -6232,13 +6219,13 @@ Cell[BoxData[
   DefaultBaseStyle->"NetworkGraphics",
   FormatType->TraditionalForm,
   FrameTicks->None]], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"870fb251-6775-4a66-a4b6-7f4dd9b3a9bb"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"ed5caaba-8752-4900-94da-43fcfcc2667c"]
 }, Open  ]],
 
 Cell["\<\
 The ordering fractions of ten sprinklings of 200 points in two and in three \
 dimensions, beside the Myrheim\[Dash]Meyer values 1/2 and 8/35.\
-\>", "ExampleText",ExpressionUUID->"e09572a8-3540-43eb-bd90-7a718967e7d7"],
+\>", "ExampleText",ExpressionUUID->"25ef1a62-2a22-4d87-bcf3-58e1a98ed382"],
 
 Cell[CellGroupData[{
 
@@ -6274,13 +6261,13 @@ Cell[BoxData[
     RowBox[{"d", ",", " ", 
      RowBox[{"{", 
       RowBox[{"2", ",", " ", "3"}], "}"}]}], "}"}]}], "]"}]], "Input",
- CellLabel->"In[4]:= ",ExpressionUUID->"6ee126a7-c2a8-48fa-a053-4eff91d63068"],
+ CellLabel->"In[4]:= ",ExpressionUUID->"18d5ee83-ae53-4c9e-b321-6ad67cb0a9e1"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"0.4909045226130653`", ",", "0.22872864321608039`"}], 
   "}"}]], "Output",
- CellLabel->"Out[4]= ",ExpressionUUID->"dd1da1ce-c16c-454e-80f7-b60ed1d3077e"]
+ CellLabel->"Out[4]= ",ExpressionUUID->"8d7b71cd-093a-46e1-b347-17a5c74b6d8e"]
 }, Open  ]]
 }, Open  ]],
 
@@ -6326,26 +6313,26 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Method", "ExampleSubsection",ExpressionUUID->"d2b51190-03fe-4b73-9227-859e0160a6e0"],
+Cell["Method", "ExampleSubsection",ExpressionUUID->"6cd877b7-d6c9-4a06-8ecf-a0fc6c6f2b1c"],
 
 Cell[TextData[{
  Cell[BoxData[
   RowBox[{"Method", " ", "->", " ", "\"\<Percolation\>\""}]], "InlineFormula",
   
   FontSize->0.9 Inherited,ExpressionUUID->
-  "489d3af0-df4c-461c-ae1f-e9d7be164011"],
+  "f13cdec7-d108-473d-ad14-664f75ca81de"],
  " is the default form, ",
  Cell[BoxData[
   RowBox[{"{", 
    RowBox[{"\"\<Percolation\>\"", ",", " ", "p"}], "}"}]], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "604fce3f-eefd-43a5-8d8f-95375bcab28d"],
+  "a749e464-2260-4fb8-a4da-e9640a29dacb"],
  " sets the link probability, and ",
  Cell[BoxData["\"\<Sprinkling\>\""], "InlineFormula",
   FontSize->0.9 Inherited,ExpressionUUID->
-  "aa4afbe0-f1cd-4e15-bae3-981f140bca94"],
+  "9cfde9d5-638a-4075-adc1-f81df2d20030"],
  " is the two-dimensional sprinkling."
-}], "ExampleText",ExpressionUUID->"8465a709-61cd-468c-b664-f00914b515c5"],
+}], "ExampleText",ExpressionUUID->"c151989d-4b11-4ebc-99a4-698bebc70f73"],
 
 Cell[CellGroupData[{
 
@@ -6399,12 +6386,12 @@ Cell[BoxData[
           RowBox[{"{", 
            RowBox[{"\"\<Sprinkling\>\"", ",", " ", "2"}], "}"}]}]}], 
         "]"}]}]}], ")"}]}]}], "}"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"e9705dd8-da32-42c3-9e40-1ad8441700d9"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"b1d08192-259c-4768-a6c5-f780c939dc2b"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"True", ",", "True"}], "}"}]], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"c0fd1432-6f6f-4f7a-8273-5bc6de73de13"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"c60cb7ff-9cd6-4e32-8b4c-92580cb8b477"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -6429,7 +6416,7 @@ Cell[TextData[{
  "Every form gives a transitively reduced acyclic graph on 1, \[Ellipsis], ",
  StyleBox["n", "TI"],
  " with every edge going up in the numbering."
-}], "ExampleText",ExpressionUUID->"c83fe0b5-09fa-470f-b806-f9ca2a0ff44a"],
+}], "ExampleText",ExpressionUUID->"1689074a-de85-48df-83b4-88fce3464bac"],
 
 Cell[CellGroupData[{
 
@@ -6489,10 +6476,10 @@ Cell[BoxData[
             RowBox[{"First", "[", "e", "]"}], " ", "<", " ", 
             RowBox[{"Last", "[", "e", "]"}]}]}]}], "]"}]}]}]}], "]"}]}]}], 
   "]"}]], "Input",
- CellLabel->"In[1]:= ",ExpressionUUID->"6f06b619-0e48-4c5a-8893-968445615735"],
+ CellLabel->"In[1]:= ",ExpressionUUID->"d71f84b0-8628-44fd-90c7-66caf0a52a27"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[1]= ",ExpressionUUID->"983b0b48-5591-45ae-a573-f8cbe504ba23"]
+ CellLabel->"Out[1]= ",ExpressionUUID->"453b56a4-c1f9-4429-a32e-69f079ae1d4a"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -6506,7 +6493,7 @@ within 0.04 of ",
  ")(1 \[Minus] ",
  StyleBox["p", "TI"],
  "\.b2) = 0.363."
-}], "ExampleText",ExpressionUUID->"4acdf399-21cf-4c1c-b9e1-6d789eca8772"],
+}], "ExampleText",ExpressionUUID->"4b8d24d1-b397-46fa-876d-5ee56311d7d6"],
 
 Cell[CellGroupData[{
 
@@ -6563,10 +6550,10 @@ Cell[BoxData[
            RowBox[{"1", " ", "-", " ", 
             RowBox[{"p", "^", "2"}]}], ")"}]}]}], ")"}]}], "]"}], " ", "<", 
      " ", "0.04"}]}]}], "]"}]], "Input",
- CellLabel->"In[2]:= ",ExpressionUUID->"9fcdab88-52be-4927-b62b-5ed55096b9b4"],
+ CellLabel->"In[2]:= ",ExpressionUUID->"2cf7ce10-b793-41bc-a0b5-d0cb6502aca4"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[2]= ",ExpressionUUID->"17dae47e-a768-4110-ba0b-0bae0555bd16"]
+ CellLabel->"Out[2]= ",ExpressionUUID->"bc90d5dd-7700-41a6-ba82-acc6f21a1532"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -6576,7 +6563,7 @@ Cell[TextData[{
  StyleBox["p", "TI"],
  " = 0 an antichain; the pair {6, 1} is a tree with one edge count, not a \
 percolation."
-}], "ExampleText",ExpressionUUID->"863df141-edf9-46d5-be10-56a27079204c"],
+}], "ExampleText",ExpressionUUID->"d52ddac7-46f7-46dc-95fc-4978c6ab8968"],
 
 Cell[CellGroupData[{
 
@@ -6607,18 +6594,18 @@ Cell[BoxData[
     RowBox[{"RandomCausalGraph", "[", 
      RowBox[{"{", 
       RowBox[{"6", ",", " ", "1"}], "}"}], "]"}], "]"}]}], "}"}]], "Input",
- CellLabel->"In[3]:= ",ExpressionUUID->"0c4831e6-d7e6-425c-919e-4029b568c2a0"],
+ CellLabel->"In[3]:= ",ExpressionUUID->"8dfa4dc5-f602-4370-890e-ff39203d86f1"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"True", ",", "0", ",", "5"}], "}"}]], "Output",
- CellLabel->"Out[3]= ",ExpressionUUID->"6cc9a89b-ee5e-4164-8e12-46ce22e72ddf"]
+ CellLabel->"Out[3]= ",ExpressionUUID->"e4e8cbf4-d219-44bb-83c3-b357eaa2a3e6"]
 }, Open  ]],
 
 Cell["\<\
 The sprinkled order is the light-cone order of the sprinkled points, in two \
 and in three dimensions.\
-\>", "ExampleText",ExpressionUUID->"adca9d9c-ab8e-4957-af47-a676e2aad1f5"],
+\>", "ExampleText",ExpressionUUID->"6323b7d7-96fa-4bf9-92d4-84ee83b992a4"],
 
 Cell[CellGroupData[{
 
@@ -6679,17 +6666,17 @@ Cell[BoxData[
                RowBox[{"Most", "[", 
                 RowBox[{"c", "[", "u", "]"}], "]"}]}], "]"}]}], ")"}]}]}], 
          "]"}]}], "]"}]}], "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[4]:= ",ExpressionUUID->"cc74e36e-5d2a-41ab-9349-4ac7a46b1f0f"],
+ CellLabel->"In[4]:= ",ExpressionUUID->"20e3ca8f-388a-416d-9127-ed0fc46b8e7e"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[4]= ",ExpressionUUID->"6e0bdbae-cc69-45ed-b960-1d6a3d130e9f"]
+ CellLabel->"Out[4]= ",ExpressionUUID->"29a2986a-72ea-4667-90bd-5375740bd66b"]
 }, Open  ]],
 
 Cell["\<\
 The Myrheim\[Dash]Meyer ordering fractions: the mean ordering fraction of ten \
 sprinklings of 200 points is within 0.02 of 1/2 in two dimensions and of 8/35 \
 in three.\
-\>", "ExampleText",ExpressionUUID->"3f250207-5f3a-464f-b6e2-17ebc27ed244"],
+\>", "ExampleText",ExpressionUUID->"68946355-711b-433f-bad2-a0e9a57a9577"],
 
 Cell[CellGroupData[{
 
@@ -6736,17 +6723,17 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{"seed", ",", " ", "10"}], "}"}]}], "]"}]}]}], "]"}], " ", 
       "<", " ", "0.02"}]}], "]"}]}], "]"}]], "Input",
- CellLabel->"In[5]:= ",ExpressionUUID->"d60633c1-c2a2-43ac-b0bc-c59f4d940fb4"],
+ CellLabel->"In[5]:= ",ExpressionUUID->"b3e58005-9b67-4fd4-977e-7755dcbd8ca2"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[5]= ",ExpressionUUID->"54c929cd-469c-474f-b88e-7f3523a12854"]
+ CellLabel->"Out[5]= ",ExpressionUUID->"7fd3a940-e0bb-448e-a9f5-73dc0eb97e0f"]
 }, Open  ]],
 
 Cell[TextData[{
  "The orientation form is connected, and its Hasse diagram has at most ",
  StyleBox["m", "TI"],
  " edges."
-}], "ExampleText",ExpressionUUID->"e0292088-64b3-41d0-8ebd-3cd910161a6d"],
+}], "ExampleText",ExpressionUUID->"868e12d6-2caa-4f9c-ab95-c89b97f896eb"],
 
 Cell[CellGroupData[{
 
@@ -6774,10 +6761,10 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"EdgeCount", "[", "g", "]"}], " ", "<=", " ", "40"}]}]}], 
      "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[6]:= ",ExpressionUUID->"1a94813c-8c5f-4b35-9d54-95282af8f8f0"],
+ CellLabel->"In[6]:= ",ExpressionUUID->"03807700-9ea1-403f-900e-4078c83410a2"],
 
 Cell[BoxData["True"], "Output",
- CellLabel->"Out[6]= ",ExpressionUUID->"a8a0fbbd-2558-4ce9-99b1-d761678d109d"]
+ CellLabel->"Out[6]= ",ExpressionUUID->"0ac70cce-881e-4d79-80ac-3f6436f71a69"]
 }, Open  ]]
 }, Open  ]],
 
@@ -6852,7 +6839,7 @@ Cell["WolframInstitute`InfraCausality`", "Categorization",
  CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
 
 Cell["WolframInstitute/InfraCausality/ref/RandomCausalGraph", "Categorization",
- CellLabel->"URI",ExpressionUUID->"1c43a473-07b7-459e-a761-10187dfbd7c8"]
+ CellLabel->"URI",ExpressionUUID->"e0f3abe1-50c5-40dc-ab51-de3c64560096"]
 }, Closed]],
 
 Cell["Keywords", "KeywordsSection",
@@ -6908,14 +6895,14 @@ ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
 (*CellTagsOutline
 CellTagsIndex->{
  "ExtendedExamples"->{
-  Cell[287878, 6288, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+  Cell[283443, 6275, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
    CellTags->"ExtendedExamples",
    CellID->533848431]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"ExtendedExamples", 309812, 6909}
+ {"ExtendedExamples", 305377, 6896}
  }
 *)
 (*NotebookFileOutline
@@ -6923,23 +6910,23 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 115, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
  CellID->1224892054],
-Cell[694, 25, 3523, 107, 70, "Usage",ExpressionUUID->"e3431d4f-bc53-4a72-a784-b8ce11ecd0a9"],
-Cell[4220, 134, 2189, 58, 70, "Notes",ExpressionUUID->"042d4374-d183-4367-8496-4322fbf2c247"],
-Cell[6412, 194, 4701, 137, 70, "2ColumnTableMod",ExpressionUUID->"1c2df511-3181-4fcc-9bfd-0f6b0e947851"],
-Cell[11116, 333, 948, 28, 70, "Notes",ExpressionUUID->"f297f5b3-e50c-4c1b-8207-8dc57ab97c5d"],
-Cell[12067, 363, 1451, 43, 70, "Notes",ExpressionUUID->"167dda29-2b55-4877-b4fc-82165fe6aeef"]
+Cell[694, 25, 3523, 107, 70, "Usage",ExpressionUUID->"96acefee-8428-484e-9000-312292078f3e"],
+Cell[4220, 134, 2189, 58, 70, "Notes",ExpressionUUID->"1356b205-c496-45fb-9d46-249c3f8aa53b"],
+Cell[6412, 194, 4701, 137, 70, "2ColumnTableMod",ExpressionUUID->"3e11c6b8-6367-4cb5-96b4-d0416df13037"],
+Cell[11116, 333, 948, 28, 70, "Notes",ExpressionUUID->"b5d0bdfa-e889-4dbf-9d6e-77e1a4c4338b"],
+Cell[12067, 363, 1451, 43, 70, "Notes",ExpressionUUID->"04dba6fc-ba62-4b39-b899-208cd85a95b0"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[13555, 411, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
  CellID->1559318232],
-Cell[14017, 426, 1491, 40, 70, "SeeAlso",ExpressionUUID->"66042feb-b2fe-433b-bdd9-f525f9a79750"]
+Cell[14017, 426, 1491, 40, 70, "SeeAlso",ExpressionUUID->"1ea0d0b4-3209-4d01-9b82-09cb143d7777"]
 }, Open  ]],
 Cell[15523, 469, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
  CellID->792424486],
 Cell[CellGroupData[{
 Cell[15983, 485, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
  CellID->38303248],
-Cell[16102, 488, 310, 6, 70, "MoreAbout",ExpressionUUID->"4af9e3f7-9a63-4df5-9649-c11d533ee0fd"]
+Cell[16102, 488, 310, 6, 70, "MoreAbout",ExpressionUUID->"4cb663e7-3164-445c-ab97-917a6f2c0e33"]
 }, Open  ]],
 Cell[16427, 497, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
  CellID->47113304],
@@ -6952,118 +6939,118 @@ Cell[17457, 530, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-5
 Cell[CellGroupData[{
 Cell[17768, 539, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
  CellID->880084151],
-Cell[18213, 553, 276, 5, 70, "ExampleText",ExpressionUUID->"a844ae16-b65c-4592-ba50-a76ac3b2e179"],
+Cell[18213, 553, 276, 5, 70, "ExampleText",ExpressionUUID->"43d145de-f361-4c14-97fa-63e7044d4bd4"],
 Cell[CellGroupData[{
-Cell[18514, 562, 1249, 33, 70, "Input",ExpressionUUID->"ec61cbae-f021-4cf7-b6bf-18aaf01c887f"],
-Cell[19766, 597, 73187, 1486, 70, "Output",ExpressionUUID->"ac728d16-ead8-4f74-ab56-56c482eb0d42"]
+Cell[18514, 562, 1249, 33, 70, "Input",ExpressionUUID->"b328966b-0ee0-41dd-86db-36a9e6a01fd5"],
+Cell[19766, 597, 72866, 1478, 70, "Output",ExpressionUUID->"4cda9f16-b680-4969-8533-4047ea60cdcc"]
 }, Open  ]],
-Cell[92968, 2086, 204, 3, 70, "ExampleText",ExpressionUUID->"138b7d46-d919-44dd-8a0e-6cc1476c835e"],
+Cell[92647, 2078, 204, 3, 70, "ExampleText",ExpressionUUID->"2ed1241a-8544-43a9-b270-24b5414820e8"],
 Cell[CellGroupData[{
-Cell[93197, 2093, 820, 22, 70, "Input",ExpressionUUID->"b7e92c2d-bc30-4431-a19f-717c6ec71741"],
-Cell[94020, 2117, 116227, 2503, 70, "Output",ExpressionUUID->"2cadf213-f250-48a6-91d7-35233c04869e"]
+Cell[92876, 2085, 806, 21, 70, "Input",ExpressionUUID->"a72077ff-a9f4-4134-9a40-742d02e5875d"],
+Cell[93685, 2108, 112197, 2501, 70, "Output",ExpressionUUID->"07574bbb-6c73-4d93-a10f-0e2ef378f692"]
 }, Open  ]],
-Cell[210262, 4623, 184, 4, 70, "ExampleText",ExpressionUUID->"689a3f87-2d62-4f78-91aa-e38425f75f01"],
+Cell[205897, 4612, 184, 4, 70, "ExampleText",ExpressionUUID->"9550ec84-48c4-41a4-85bb-593f4b505ae1"],
 Cell[CellGroupData[{
-Cell[210471, 4631, 705, 18, 70, "Input",ExpressionUUID->"1e38dd43-ffbe-4bf3-a8ee-a77c2a006926"],
-Cell[211179, 4651, 74910, 1583, 70, "Output",ExpressionUUID->"870fb251-6775-4a66-a4b6-7f4dd9b3a9bb"]
+Cell[206106, 4620, 705, 18, 70, "Input",ExpressionUUID->"547faf2a-b8ad-49cc-9299-71a7e39b44c1"],
+Cell[206814, 4640, 74840, 1581, 70, "Output",ExpressionUUID->"ed5caaba-8752-4900-94da-43fcfcc2667c"]
 }, Open  ]],
-Cell[286104, 6237, 227, 3, 70, "ExampleText",ExpressionUUID->"e09572a8-3540-43eb-bd90-7a718967e7d7"],
+Cell[281669, 6224, 227, 3, 70, "ExampleText",ExpressionUUID->"25ef1a62-2a22-4d87-bcf3-58e1a98ed382"],
 Cell[CellGroupData[{
-Cell[286356, 6244, 1278, 32, 70, "Input",ExpressionUUID->"6ee126a7-c2a8-48fa-a053-4eff91d63068"],
-Cell[287637, 6278, 192, 4, 70, "Output",ExpressionUUID->"dd1da1ce-c16c-454e-80f7-b60ed1d3077e"]
+Cell[281921, 6231, 1278, 32, 70, "Input",ExpressionUUID->"18d5ee83-ae53-4c9e-b321-6ad67cb0a9e1"],
+Cell[283202, 6265, 192, 4, 70, "Output",ExpressionUUID->"8d7b71cd-093a-46e1-b347-17a5c74b6d8e"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[287878, 6288, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+Cell[283443, 6275, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
  CellTags->"ExtendedExamples",
  CellID->533848431],
-Cell[288368, 6303, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+Cell[283933, 6290, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
  CellID->1293636265],
-Cell[288613, 6310, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+Cell[284178, 6297, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
  CellID->1020263627],
 Cell[CellGroupData[{
-Cell[288903, 6319, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+Cell[284468, 6306, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
  CellID->2061341341],
 Cell[CellGroupData[{
-Cell[289172, 6328, 90, 0, 70, "ExampleSubsection",ExpressionUUID->"d2b51190-03fe-4b73-9227-859e0160a6e0"],
-Cell[289265, 6330, 708, 17, 70, "ExampleText",ExpressionUUID->"8465a709-61cd-468c-b664-f00914b515c5"],
+Cell[284737, 6315, 90, 0, 70, "ExampleSubsection",ExpressionUUID->"6cd877b7-d6c9-4a06-8ecf-a0fc6c6f2b1c"],
+Cell[284830, 6317, 708, 17, 70, "ExampleText",ExpressionUUID->"c151989d-4b11-4ebc-99a4-698bebc70f73"],
 Cell[CellGroupData[{
-Cell[289998, 6351, 1905, 50, 70, "Input",ExpressionUUID->"e9705dd8-da32-42c3-9e40-1ad8441700d9"],
-Cell[291906, 6403, 158, 3, 70, "Output",ExpressionUUID->"c0fd1432-6f6f-4f7a-8273-5bc6de73de13"]
+Cell[285563, 6338, 1905, 50, 70, "Input",ExpressionUUID->"b1d08192-259c-4768-a6c5-f780c939dc2b"],
+Cell[287471, 6390, 158, 3, 70, "Output",ExpressionUUID->"c60cb7ff-9cd6-4e32-8b4c-92580cb8b477"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[292103, 6411, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+Cell[287668, 6398, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
  CellID->258228157],
 Cell[CellGroupData[{
-Cell[292376, 6420, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+Cell[287941, 6407, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
  CellID->2123667759],
-Cell[292638, 6427, 236, 4, 70, "ExampleText",ExpressionUUID->"c83fe0b5-09fa-470f-b806-f9ca2a0ff44a"],
+Cell[288203, 6414, 236, 4, 70, "ExampleText",ExpressionUUID->"1689074a-de85-48df-83b4-88fce3464bac"],
 Cell[CellGroupData[{
-Cell[292899, 6435, 2342, 56, 70, "Input",ExpressionUUID->"6f06b619-0e48-4c5a-8893-968445615735"],
-Cell[295244, 6493, 110, 1, 70, "Output",ExpressionUUID->"983b0b48-5591-45ae-a573-f8cbe504ba23"]
+Cell[288464, 6422, 2342, 56, 70, "Input",ExpressionUUID->"d71f84b0-8628-44fd-90c7-66caf0a52a27"],
+Cell[290809, 6480, 110, 1, 70, "Output",ExpressionUUID->"453b56a4-c1f9-4429-a32e-69f079ae1d4a"]
 }, Open  ]],
-Cell[295369, 6497, 423, 11, 70, "ExampleText",ExpressionUUID->"4acdf399-21cf-4c1c-b9e1-6d789eca8772"],
+Cell[290934, 6484, 423, 11, 70, "ExampleText",ExpressionUUID->"4b8d24d1-b397-46fa-876d-5ee56311d7d6"],
 Cell[CellGroupData[{
-Cell[295817, 6512, 1926, 53, 70, "Input",ExpressionUUID->"9fcdab88-52be-4927-b62b-5ed55096b9b4"],
-Cell[297746, 6567, 110, 1, 70, "Output",ExpressionUUID->"17dae47e-a768-4110-ba0b-0bae0555bd16"]
+Cell[291382, 6499, 1926, 53, 70, "Input",ExpressionUUID->"2cf7ce10-b793-41bc-a0b5-d0cb6502aca4"],
+Cell[293311, 6554, 110, 1, 70, "Output",ExpressionUUID->"bc90d5dd-7700-41a6-ba82-acc6f21a1532"]
 }, Open  ]],
-Cell[297871, 6571, 286, 7, 70, "ExampleText",ExpressionUUID->"863df141-edf9-46d5-be10-56a27079204c"],
+Cell[293436, 6558, 286, 7, 70, "ExampleText",ExpressionUUID->"d52ddac7-46f7-46dc-95fc-4978c6ab8968"],
 Cell[CellGroupData[{
-Cell[298182, 6582, 1022, 27, 70, "Input",ExpressionUUID->"0c4831e6-d7e6-425c-919e-4029b568c2a0"],
-Cell[299207, 6611, 165, 3, 70, "Output",ExpressionUUID->"6cc9a89b-ee5e-4164-8e12-46ce22e72ddf"]
+Cell[293747, 6569, 1022, 27, 70, "Input",ExpressionUUID->"8dfa4dc5-f602-4370-890e-ff39203d86f1"],
+Cell[294772, 6598, 165, 3, 70, "Output",ExpressionUUID->"e4e8cbf4-d219-44bb-83c3-b357eaa2a3e6"]
 }, Open  ]],
-Cell[299387, 6617, 188, 3, 70, "ExampleText",ExpressionUUID->"adca9d9c-ab8e-4957-af47-a676e2aad1f5"],
+Cell[294952, 6604, 188, 3, 70, "ExampleText",ExpressionUUID->"6323b7d7-96fa-4bf9-92d4-84ee83b992a4"],
 Cell[CellGroupData[{
-Cell[299600, 6624, 2252, 57, 70, "Input",ExpressionUUID->"cc74e36e-5d2a-41ab-9349-4ac7a46b1f0f"],
-Cell[301855, 6683, 110, 1, 70, "Output",ExpressionUUID->"6e0bdbae-cc69-45ed-b960-1d6a3d130e9f"]
+Cell[295165, 6611, 2252, 57, 70, "Input",ExpressionUUID->"20e3ca8f-388a-416d-9127-ed0fc46b8e7e"],
+Cell[297420, 6670, 110, 1, 70, "Output",ExpressionUUID->"29a2986a-72ea-4667-90bd-5375740bd66b"]
 }, Open  ]],
-Cell[301980, 6687, 255, 4, 70, "ExampleText",ExpressionUUID->"3f250207-5f3a-464f-b6e2-17ebc27ed244"],
+Cell[297545, 6674, 255, 4, 70, "ExampleText",ExpressionUUID->"68946355-711b-433f-bad2-a0e9a57a9577"],
 Cell[CellGroupData[{
-Cell[302260, 6695, 1704, 43, 70, "Input",ExpressionUUID->"d60633c1-c2a2-43ac-b0bc-c59f4d940fb4"],
-Cell[303967, 6740, 110, 1, 70, "Output",ExpressionUUID->"54c929cd-469c-474f-b88e-7f3523a12854"]
+Cell[297825, 6682, 1704, 43, 70, "Input",ExpressionUUID->"b3e58005-9b67-4fd4-977e-7755dcbd8ca2"],
+Cell[299532, 6727, 110, 1, 70, "Output",ExpressionUUID->"7fd3a940-e0bb-448e-a9f5-73dc0eb97e0f"]
 }, Open  ]],
-Cell[304092, 6744, 196, 4, 70, "ExampleText",ExpressionUUID->"e0292088-64b3-41d0-8ebd-3cd910161a6d"],
+Cell[299657, 6731, 196, 4, 70, "ExampleText",ExpressionUUID->"868e12d6-2caa-4f9c-ab95-c89b97f896eb"],
 Cell[CellGroupData[{
-Cell[304313, 6752, 933, 24, 70, "Input",ExpressionUUID->"1a94813c-8c5f-4b35-9d54-95282af8f8f0"],
-Cell[305249, 6778, 110, 1, 70, "Output",ExpressionUUID->"a8a0fbbd-2558-4ce9-99b1-d761678d109d"]
+Cell[299878, 6739, 933, 24, 70, "Input",ExpressionUUID->"03807700-9ea1-403f-900e-4078c83410a2"],
+Cell[300814, 6765, 110, 1, 70, "Output",ExpressionUUID->"0ac70cce-881e-4d79-80ac-3f6436f71a69"]
 }, Open  ]]
 }, Open  ]],
-Cell[305386, 6783, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+Cell[300951, 6770, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
  CellID->1305812373],
-Cell[305641, 6790, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+Cell[301206, 6777, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
  CellID->1653164318],
-Cell[305901, 6797, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+Cell[301466, 6784, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
  CellID->589267740]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[306187, 6807, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+Cell[301752, 6794, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
  CellID->311882160],
-Cell[306300, 6810, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+Cell[301865, 6797, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
  CellID->341476719],
 Cell[CellGroupData[{
-Cell[306801, 6826, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+Cell[302366, 6813, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
  CellID->1755438392],
-Cell[307289, 6841, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+Cell[302854, 6828, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
  CellID->686433507],
-Cell[307426, 6845, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+Cell[302991, 6832, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
  CellID->605800465],
-Cell[307588, 6849, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+Cell[303153, 6836, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
  CellID->468444828],
-Cell[307747, 6853, 153, 1, 70, "Categorization",ExpressionUUID->"1c43a473-07b7-459e-a761-10187dfbd7c8"]
+Cell[303312, 6840, 153, 1, 70, "Categorization",ExpressionUUID->"e0f3abe1-50c5-40dc-ab51-de3c64560096"]
 }, Closed]],
-Cell[307915, 6857, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+Cell[303480, 6844, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
  CellID->477174294],
 Cell[CellGroupData[{
-Cell[308050, 6862, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+Cell[303615, 6849, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
  CellID->1872225408],
-Cell[308173, 6865, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+Cell[303738, 6852, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
  CellID->1562036412],
-Cell[308325, 6869, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+Cell[303890, 6856, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
  CellID->158391909],
-Cell[308465, 6873, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+Cell[304030, 6860, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
  CellID->1360575930],
-Cell[308604, 6877, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+Cell[304169, 6864, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
  CellID->793782254]
 }, Closed]]
 }, Open  ]]
