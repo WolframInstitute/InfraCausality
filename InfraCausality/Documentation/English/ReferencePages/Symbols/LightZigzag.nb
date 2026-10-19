@@ -1,0 +1,996 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     36675,        987]
+NotebookOptionsPosition[     29334,        844]
+NotebookOutlinePosition[     30539,        879]
+CellTagsIndexPosition[     30460,        874]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["LightZigzag", "ObjectName",
+ CellID->1224892054,ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"4fe6ec5d-e32f-4424-a9f1-ce38aa61a704"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["LightZigzag"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/LightZigzag", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["v", "TI"], ",", " ", 
+    StyleBox["s0", "TI"], ",", " ", 
+    StyleBox["n", "TI"], ",", " ", 
+    StyleBox["\[CurlyPhi]", "TR"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "6d6e9c08-5b81-49d2-af0d-b04550e08df4"],
+ "\[LineSeparator]",
+ "gives the ",
+ StyleBox["n", "TI"],
+ " + 1 reflection events of light bouncing between the rest worldline and the \
+worldline of velocity ",
+ StyleBox["v", "TI"],
+ ", starting at arc length ",
+ StyleBox["s", "TI"],
+ "0 on the rest worldline, as associations.",
+ "\n",
+ Cell["   ", "ModInfo",ExpressionUUID->"1d2211e2-b44a-4ff6-a02b-d3b7accd30ff"],
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["LightZigzag"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/LightZigzag", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["v", "TI"], ",", " ", 
+    StyleBox["s0", "TI"], ",", " ", 
+    StyleBox["n", "TI"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "3223b93b-522a-4ef4-b4b9-defb8acaf8e0"],
+ "\[LineSeparator]",
+ "takes ",
+ StyleBox["\[CurlyPhi]", "TI"],
+ " = \[Pi]/4."
+}], "Usage",ExpressionUUID->"772d4ba2-e3c1-4317-8d5f-362629e79c0e"],
+
+Cell[TextData[{
+ "Definition: the first event is the emission at arc length ",
+ StyleBox["s", "TI"],
+ "0 on the rest worldline (\"Alice\"); each further event is the reception of \
+the previous one's light on the other worldline, rightgoing from Alice to the \
+moving observer (\"Bob\") and leftgoing back. Each event is an association \
+with the keys:"
+}], "Notes",ExpressionUUID->"4edf373f-b83a-4d90-8341-8c2a31534e68"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "2343e3a6-fa0c-412e-94ac-7be7598cc853"], Cell["Key", "TableText",
+     FontWeight->Bold,ExpressionUUID->"5bf93b43-9270-4b6d-841f-60e3c4b4bf1b"],
+     Cell["Value", "TableText",
+     FontWeight->Bold,ExpressionUUID->"6437a68d-f0e8-4caf-a4da-b8bf0aced7e1"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "e7a9bc03-8810-4ff0-8ab1-54f873be3255"], Cell[TextData[Cell[
+    BoxData["\"\<Observer\>\""], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "ce83e609-ef99-45e3-a2da-7ce25bce5212"]], "TableText",ExpressionUUID->
+     "9cd95e26-c6c1-4551-a521-2879fd24882a"], Cell[TextData[{
+     Cell[BoxData["\"\<Alice\>\""], "InlineFormula",
+      FontSize->0.9 Inherited,ExpressionUUID->
+      "15dc4df7-df5b-4854-889f-583a9d696195"],
+     " or ",
+     Cell[BoxData["\"\<Bob\>\""], "InlineFormula",
+      FontSize->0.9 Inherited,ExpressionUUID->
+      "4848f94a-716c-435f-a097-a675a6bf3162"],
+     ", alternating from ",
+     Cell[BoxData["\"\<Alice\>\""], "InlineFormula",
+      FontSize->0.9 Inherited,ExpressionUUID->
+      "f1bb67ac-1524-43b0-a346-22ccbdfaa411"]
+    }], "TableText",ExpressionUUID->"3b3faa52-cf6a-4ee3-8767-4b9313c2a449"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "a515e8b4-7e92-461f-84fb-f8d5488b0405"], Cell[TextData[Cell[
+    BoxData["\"\<ArcLength\>\""], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "49610d09-d9c1-41d2-914b-1b0a78647199"]], "TableText",ExpressionUUID->
+     "61aeeef2-d396-463e-b66f-d0a8ab4d852b"], Cell["\<\
+the Euclidean arc length of the event from the origin on its worldline\
+\>", "TableText",ExpressionUUID->"afae37dc-80ba-4624-905c-9815851531be"]},
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "a9d11593-663c-450c-9428-fb9995411cc3"], Cell[TextData[Cell[
+    BoxData["\"\<Point\>\""], "InlineFormula",
+     FontSize->0.9 Inherited,ExpressionUUID->
+     "10762657-5eed-41a4-bb68-ba04246479cd"]], "TableText",ExpressionUUID->
+     "c0ebc760-6e6f-4822-9680-b4e0c8bfd242"], Cell[
+    "the plane point of the event", "TableText",ExpressionUUID->
+     "66490092-2049-4cb0-93ae-26aaff6b926c"]}
+  }]], "2ColumnTableMod",ExpressionUUID->"d5890720-3c3b-45f1-ac0a-\
+9140cc0dab03"],
+
+Cell[TextData[{
+ "The arc length grows by ",
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["OutgoingRatio"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/OutgoingRatio", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["v", "TI"], ",", " ", 
+    StyleBox["\[CurlyPhi]", "TR"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "929727b5-9b84-445d-b5c7-1e12d421689f"],
+ " on the way out and by ",
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["IncomingRatio"]], 
+     "paclet:WolframInstitute/InfraCausality/ref/IncomingRatio", 
+     "WolframInstitute/InfraCausality Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFormula"], "[", 
+   RowBox[{
+    StyleBox["v", "TI"], ",", " ", 
+    StyleBox["\[CurlyPhi]", "TR"]}], "]"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "6e059c51-dd78-484b-8527-d7289f870da5"],
+ " on the way back, so Alice's arc lengths grow geometrically by the \
+round-trip factor ",
+ Cell[BoxData[
+  RowBox[{
+   SubscriptBox[
+    StyleBox["k", "TI"], 
+    StyleBox[
+     RowBox[{"o", "u", "t"}], "TI"]], 
+   SubscriptBox[
+    StyleBox["k", "TI"], 
+    StyleBox[
+     RowBox[{"i", "n"}], "TI"]], "=", 
+   SuperscriptBox[
+    StyleBox["k", "TI"], "2"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "0d95334b-05c1-4da2-b2a3-a8a94410a5f0"],
+ ". The bounce count up to arc length ",
+ StyleBox["s", "TI"],
+ " is therefore ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["log",
+    FontSlant->"Plain"], "\[ThinSpace]", 
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    StyleBox["s", "TI"], "/", 
+    SubscriptBox[
+     StyleBox["s", "TI"], "0"]}], 
+   StyleBox[")",
+    SpanMaxSize->1], "/", 
+   StyleBox["log",
+    FontSlant->"Plain"], "\[ThinSpace]", 
+   SuperscriptBox[
+    StyleBox["k", "TI"], "2"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "62a90af9-8b57-4d15-abda-34ccdc662d32"],
+ ", logarithmic in ",
+ StyleBox["s", "TI"],
+ ", while the proper time (",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["ProperTimeScale"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/ProperTimeScale", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "74a8167a-2d3f-4e2c-bf70-b3fd032dbfb9"],
+ ") is linear in it. Every reflection on Bob's worldline is the radar event \
+of the emission before it and the return after it."
+}], "Notes",ExpressionUUID->"19c2aaa4-925f-4130-ad92-2a283b7a753d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "See Also",
+ Cell[BoxData[
+  TemplateBox[{"SeeAlso", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related reference (function) pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "b7caa910-e086-4d39-871e-e78bfb02a4b9"]
+}], "SeeAlsoSection",
+ CellID->1559318232,ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["OutgoingRatio"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/OutgoingRatio", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "d6489848-6c00-4335-868e-6f9bb91833ed"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["IncomingRatio"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/IncomingRatio", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "4784f450-456a-401e-ae0c-44be1e4c482a"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["KFactor"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/KFactor", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "643dc2e6-eac3-402f-a7f0-7177b853150d"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BondiRadarCoordinates"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/BondiRadarCoordinates", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "dae491e7-c2a0-4fa8-9df2-2934a74309dc"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RapidityFromK"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/RapidityFromK", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "b668d1b8-9ebe-4e2f-a57d-c17cfb167479"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["BondiClock"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/BondiClock", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",ExpressionUUID->
+  "c1bd9eda-3802-4da1-9c19-53058ed87a5a"]
+}], "SeeAlso",ExpressionUUID->"2c088e9c-973e-4a17-931b-6f2554c116eb"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Tech Notes",
+ Cell[BoxData[
+  TemplateBox[{"TechNotes", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Insert links to related tech notes.", "MoreInfoText"], BaseStyle -> 
+       "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "a0027a76-2f69-4270-bf06-cff364aa09d7"]
+}], "TechNotesSection",
+ CellID->792424486,ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74"],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "MoreAboutSection",
+ CellID->38303248,ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5"],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["BondiKCalculus",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:WolframInstitute/InfraCausality/guide/BondiKCalculus"]], \
+"InlineFormula",ExpressionUUID->"8a4fddf1-5568-46ad-8bec-41593e0166d3"]], \
+"MoreAbout",ExpressionUUID->"07262add-ce03-4dbe-af3a-2604229a3849"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Related Links",
+ Cell[BoxData[
+  TemplateBox[{"RelatedLinks", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related page, including web pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "88f916ad-99d1-4784-a15f-dfa2faf44f02"]
+}], "RelatedLinksSection",
+ CellID->47113304,ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Examples Initialization",
+ Cell[BoxData[
+  TemplateBox[{"ExamplesInitialization", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Input that is to be evaluated before any examples are run, e.g. \
+Needs[\[Ellipsis]].", "MoreInfoText"], BaseStyle -> "IFrameBox"]], 
+     "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "1ca4d14a-308f-4a68-bbf6-e6901ce2ab4c"]
+}], "ExamplesInitializationSection",
+ CellID->1718580883,ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5"],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraCausality`\>\"", "]"}], "\n", 
+ RowBox[{"Needs", "[", "\"\<WolframInstitute`InfraGeometry`\>\"", 
+  "]"}]}], "ExampleInitialization",
+ CellID->1969679695,ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox[
+      RowBox[{"Basic", " ", "Examples"}], "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151,ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42"],
+
+Cell[TextData[{
+ "The first four bounces between the rest observer and the observer of \
+velocity 3/5, from arc length 1; Alice's arc lengths are 1, 4, 16, since ",
+ Cell[BoxData[
+  RowBox[{
+   SuperscriptBox[
+    StyleBox["k", "TI"], "2"], "=", "4"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "2d331caa-f8a8-494b-9484-c17268a65e67"],
+ "."
+}], "ExampleText",ExpressionUUID->"06c9b010-9fd7-4acf-9854-09a8ca29733f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Lookup", "[", 
+   RowBox[{
+    RowBox[{"LightZigzag", "[", 
+     RowBox[{
+      RowBox[{"3", "/", "5"}], ",", " ", "1", ",", " ", "4"}], "]"}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Observer\>\"", ",", " ", "\"\<ArcLength\>\""}], "}"}]}], 
+   "]"}], " ", "//", " ", "FullSimplify"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"3d9a6de4-818b-4740-a984-fdcb650a9427"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Alice\"\>", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Bob\"\>", ",", 
+     SqrtBox[
+      FractionBox["17", "2"]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Alice\"\>", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Bob\"\>", ",", 
+     RowBox[{"2", " ", 
+      SqrtBox["34"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Alice\"\>", ",", "16"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"2d56d750-9c0f-457e-8005-f1ceb0b414e3"]
+}, Open  ]],
+
+Cell["\<\
+The zigzag of velocity 3/5 at the light angle \[Pi]/3, drawn from its points.\
+\
+\>", "ExampleText",ExpressionUUID->"52495005-393e-4d69-a7ac-6bdb13e65a9d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"points", " ", "=", " ", 
+     RowBox[{"N", " ", "@", " ", 
+      RowBox[{"Lookup", "[", 
+       RowBox[{
+        RowBox[{"LightZigzag", "[", 
+         RowBox[{
+          RowBox[{"3", "/", "5"}], ",", " ", 
+          RowBox[{"1", "/", "10"}], ",", " ", "6", ",", " ", 
+          RowBox[{"Pi", "/", "3"}]}], "]"}], ",", " ", "\"\<Point\>\""}], 
+       "]"}]}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"StandardBlue", ",", " ", 
+         RowBox[{"AbsoluteThickness", "[", "2", "]"}], ",", " ", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", 
+              RowBox[{"1.1", " ", 
+               RowBox[{"Max", "[", 
+                RowBox[{"points", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"All", ",", " ", "2"}], "]"}], "]"}], "]"}]}]}], 
+             "}"}]}], "}"}], "]"}]}], "}"}], ",", "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"StandardRed", ",", " ", 
+         RowBox[{"AbsoluteThickness", "[", "2", "]"}], ",", " ", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+            RowBox[{"1.1", " ", 
+             RowBox[{"Max", "[", 
+              RowBox[{"Norm", " ", "/@", " ", "points"}], "]"}], " ", 
+             RowBox[{"WorldlineDirection", "[", 
+              RowBox[{
+               RowBox[{"3", "/", "5"}], ",", " ", 
+               RowBox[{"Pi", "/", "3"}]}], "]"}]}]}], "}"}], "]"}]}], "}"}], ",",
+        "\n", "    ", 
+       RowBox[{"{", 
+        RowBox[{"StandardYellow", ",", " ", 
+         RowBox[{"Line", "[", "points", "]"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"StandardPurple", ",", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Disk", "[", 
+            RowBox[{"#", ",", " ", "0.02"}], "]"}], " ", "&"}], " ", "/@", 
+          " ", "points"}]}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"ImageSize", " ", "->", " ", "300"}]}], "]"}]}], "]"}]], "Input",\
+
+ CellLabel->"In[2]:= ",ExpressionUUID->"bc49f72a-2439-418e-8a63-d8159b58b569"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.4, 0.6, 1], AbsoluteThickness[2], 
+    LineBox[{{0, 0}, {0, 7.039999999999981}}]}, 
+   {RGBColor[0.93, 0.27, 0.27], AbsoluteThickness[2], 
+    LineBox[{{0, 0}, {5.072859912545147, 4.8813617267820035`}}]}, 
+   {RGBColor[1, 0.75, 0], 
+    LineBox[{{0., 0.1}, {0.2598076211353314, 0.24999999999999978`}, {0., 
+     0.3999999999999997}, {1.0392304845413245`, 0.9999999999999981}, {0., 
+     1.599999999999997}, {4.156921938165294, 3.999999999999989}, {0., 
+     6.399999999999983}}]}, 
+   {RGBColor[0.8, 0.3, 0.8], DiskBox[{0., 0.1}, 0.02], 
+    DiskBox[{0.2598076211353314, 0.24999999999999978`}, 0.02], 
+    DiskBox[{0., 0.3999999999999997}, 0.02], 
+    DiskBox[{1.0392304845413245`, 0.9999999999999981}, 0.02], 
+    DiskBox[{0., 1.599999999999997}, 0.02], 
+    DiskBox[{4.156921938165294, 3.999999999999989}, 0.02], 
+    DiskBox[{0., 6.399999999999983}, 0.02]}},
+  ImageSize->300]], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"4b998265-61be-4ade-9052-d86c2001517d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "More Examples",
+ Cell[BoxData[
+  TemplateBox[{"MoreExamples", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Extended examples in standardized sections.", "MoreInfoText"], 
+       BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "352b6acf-a93b-4224-8779-658881cdabd0"]
+}], "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->533848431,ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "32e79d70-f7af-47ff-bb41-513374ef55db"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265,ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "a148ce84-caec-4483-aa99-5b7bd6d55bf1"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627,ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "b26b6366-7922-4236-a426-38c0f5de13f0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341,ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "d5715ee2-1cae-4f33-89b2-0e99ea9caa6e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157,ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "d18b1e1f-4c4c-49a5-bb54-1e5e145ddf4e"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759,ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438"],
+
+Cell[TextData[{
+ "Alice's arc lengths grow by exactly ",
+ Cell[BoxData[
+  SuperscriptBox[
+   StyleBox["k", "TI"], "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "2c865a3f-dce1-4693-a4bd-a03264a45c1b"],
+ " per round trip, at every light angle."
+}], "ExampleText",ExpressionUUID->"f38c4f06-5da0-4bbf-8cd2-8516f9dc3d3e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AllTrue", "[", 
+  RowBox[{
+   RowBox[{"Tuples", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "/", "5"}], ",", " ", 
+        RowBox[{"3", "/", "5"}], ",", " ", 
+        RowBox[{"4", "/", "5"}]}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Pi", "/", "6"}], ",", " ", 
+        RowBox[{"Pi", "/", "4"}], ",", " ", 
+        RowBox[{"Pi", "/", "3"}]}], "}"}]}], "}"}], "]"}], ",", " ", 
+   RowBox[{"Apply", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v", ",", " ", "phi"}], "}"}], " ", "|->", "\n", "  ", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"arcs", " ", "=", " ", 
+         RowBox[{"Lookup", "[", 
+          RowBox[{
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"LightZigzag", "[", 
+              RowBox[{"v", ",", " ", "1", ",", " ", "8", ",", " ", "phi"}], 
+              "]"}], ",", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", "\"\<Observer\>\"", "]"}], " ", "===", 
+               " ", "\"\<Alice\>\""}], " ", "&"}]}], "]"}], ",", 
+           " ", "\"\<ArcLength\>\""}], "]"}]}], "}"}], ",", "\n", "    ", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{"Ratios", "[", "arcs", "]"}], " ", "-", " ", 
+          RowBox[{
+           RowBox[{"KFactor", "[", "v", "]"}], "^", "2"}]}], "]"}], " ", "===",
+         " ", 
+        RowBox[{"ConstantArray", "[", 
+         RowBox[{"0", ",", " ", "4"}], "]"}]}]}], "]"}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:= ",ExpressionUUID->"8c25bd50-fddc-474e-b27f-96463dfe2c1d"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[1]= ",ExpressionUUID->"e50caa62-bcd9-40fc-94c8-03b0a6261023"]
+}, Open  ]],
+
+Cell["\<\
+The events alternate between the observers and lie at their arc lengths from \
+the origin.\
+\>", "ExampleText",ExpressionUUID->"ab5d7142-9b79-46f9-b771-417458c49980"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"events", " ", "=", " ", 
+     RowBox[{"LightZigzag", "[", 
+      RowBox[{
+       RowBox[{"3", "/", "5"}], ",", " ", "1", ",", " ", "5"}], "]"}]}], 
+    "}"}], ",", "\n", "  ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Lookup", "[", 
+      RowBox[{"events", ",", " ", "\"\<Observer\>\""}], "]"}], " ", "===", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Alice\>\"", ",", " ", "\"\<Bob\>\"", ",", 
+       " ", "\"\<Alice\>\"", ",", " ", "\"\<Bob\>\"", ",", 
+       " ", "\"\<Alice\>\"", ",", " ", "\"\<Bob\>\""}], "}"}]}], " ", "&&", 
+    "\n", "    ", 
+    RowBox[{
+     RowBox[{"FullSimplify", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", "[", "\"\<Point\>\"", "]"}], " ", ".", " ", 
+           RowBox[{"#", "[", "\"\<Point\>\"", "]"}]}], " ", "-", " ", 
+          RowBox[{
+           RowBox[{"#", "[", "\"\<ArcLength\>\"", "]"}], "^", "2"}]}], ")"}], 
+        " ", "&"}], " ", "/@", " ", "events"}], "]"}], " ", "===", " ", 
+     RowBox[{"ConstantArray", "[", 
+      RowBox[{"0", ",", " ", "6"}], "]"}]}]}]}], "]"}]], "Input",
+ CellLabel->"In[2]:= ",ExpressionUUID->"fd3414ac-52e9-4409-b4e3-c221e1d59286"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[2]= ",ExpressionUUID->"2e8acbd3-0bad-4e32-9d25-8e7c7b7742fa"]
+}, Open  ]],
+
+Cell["\<\
+Each reflection on the moving worldline has its radar emission and return at \
+the neighbouring events of the zigzag.\
+\>", "ExampleText",ExpressionUUID->"387a2534-12fd-49c6-a68d-c8e0a181fb86"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"events", " ", "=", " ", 
+     RowBox[{"LightZigzag", "[", 
+      RowBox[{
+       RowBox[{"3", "/", "5"}], ",", " ", "2", ",", " ", "6", ",", " ", 
+       RowBox[{"Pi", "/", "3"}]}], "]"}]}], "}"}], ",", "\n", "  ", 
+   RowBox[{
+    RowBox[{"FullSimplify", " ", "@", " ", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"With", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"r", " ", "=", " ", 
+           RowBox[{"BondiRadarCoordinates", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"events", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", "\"\<Point\>\"", "]"}], ",",
+              " ", 
+             RowBox[{"Pi", "/", "3"}]}], "]"}]}], "}"}], ",", "\n", "    ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"r", "[", "\"\<EmitArcLength\>\"", "]"}], " ", "-", " ", 
+            RowBox[{
+             RowBox[{"events", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", " ", "-", " ", "1"}], "]"}], "]"}], 
+             "[", "\"\<ArcLength\>\"", "]"}]}], ",", " ", 
+           RowBox[{
+            RowBox[{"r", "[", "\"\<ReturnArcLength\>\"", "]"}], " ", "-", " ", 
+            RowBox[{
+             RowBox[{"events", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", " ", "+", " ", "1"}], "]"}], "]"}], 
+             "[", "\"\<ArcLength\>\"", "]"}]}]}], "}"}]}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", " ", "4", ",", " ", "6"}], "}"}]}], "}"}]}], 
+      "]"}]}], " ", "===", "\n", "    ", 
+    RowBox[{"ConstantArray", "[", 
+     RowBox[{"0", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", " ", "2"}], "}"}]}], "]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[3]:= ",ExpressionUUID->"3a107b5f-3ba9-4c90-9ea3-cb5713940a80"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[3]= ",ExpressionUUID->"97809884-3be6-44c0-926e-49337ad9f548"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "dda06a82-eb41-4b48-8510-6cb821647761"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373,ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "e1fe5ce4-66df-44f8-b96d-14ea9265eaf2"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318,ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "898193c6-0d9f-4097-90dd-7bc455972e43"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740,ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"c83e5b59-d200-4539-afdc-500ed06d3c87"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"d4e38c0c-d937-44f2-85a5-7c0e8fc755ab"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "4c68d818-8923-4121-80f8-cf0eabb4c0de"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Categorization",
+ Cell[BoxData[
+  TemplateBox[{"Metadata", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Metadata such as page URI, context, and type of documentation page.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "4b3d4122-3cd4-481f-a8ff-5aefbb03e00d"]
+}], "CategorizationSection",
+ CellID->1755438392,ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191"],
+
+Cell["WolframInstitute/InfraCausality/ref/LightZigzag", "Categorization",
+ CellLabel->"URI",ExpressionUUID->"8d3a2d78-5727-4baf-a8df-bb25b756ad8c"]
+}, Closed]],
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294,ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6"],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408,ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412,ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909,ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930,ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254,ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{5, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "LightZigzag", "context" -> "WolframInstitute`InfraCausality`", 
+    "keywords" -> {
+     "light zigzag", "light signal", "reflection", "radar", "Bondi clock", 
+      "k-factor", "geometric growth", "bounce count"}, "summary" -> "", 
+    "paclet" -> "WolframInstitute/InfraCausality", "uri" -> 
+    "WolframInstitute/InfraCausality/ref/LightZigzag", "type" -> "Symbol", 
+    "index" -> True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"c207366e-060a-406b-a297-9e30e1628f43"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[18118, 519, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+   CellTags->"ExtendedExamples",
+   CellID->533848431]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 30266, 867}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 109, 1, 70, "ObjectName",ExpressionUUID->"8393d601-4014-44ba-afc9-60862df940ec",
+ CellID->1224892054],
+Cell[688, 25, 1634, 48, 70, "Usage",ExpressionUUID->"772d4ba2-e3c1-4317-8d5f-362629e79c0e"],
+Cell[2325, 75, 421, 7, 70, "Notes",ExpressionUUID->"4edf373f-b83a-4d90-8341-8c2a31534e68"],
+Cell[2749, 84, 2248, 41, 70, "2ColumnTableMod",ExpressionUUID->"d5890720-3c3b-45f1-ac0a-9140cc0dab03"],
+Cell[5000, 127, 2631, 82, 70, "Notes",ExpressionUUID->"19c2aaa4-925f-4130-ad92-2a283b7a753d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7668, 214, 459, 13, 70, "SeeAlsoSection",ExpressionUUID->"6019c63b-8124-433f-bd7e-253812d6da0e",
+ CellID->1559318232],
+Cell[8130, 229, 2169, 60, 70, "SeeAlso",ExpressionUUID->"2c088e9c-973e-4a17-931b-6f2554c116eb"]
+}, Open  ]],
+Cell[10314, 292, 435, 12, 70, "TechNotesSection",ExpressionUUID->"fc30b7bb-1c24-4df4-b93c-2a46876a3e74",
+ CellID->792424486],
+Cell[CellGroupData[{
+Cell[10774, 308, 116, 1, 70, "MoreAboutSection",ExpressionUUID->"090ecd4e-77ab-48e0-ba7a-1f9acccd0dd5",
+ CellID->38303248],
+Cell[10893, 311, 306, 6, 70, "MoreAbout",ExpressionUUID->"07262add-ce03-4dbe-af3a-2604229a3849"]
+}, Open  ]],
+Cell[11214, 320, 471, 13, 70, "RelatedLinksSection",ExpressionUUID->"c8e1cebd-677a-4282-8b17-38a138b1b0ea",
+ CellID->47113304],
+Cell[CellGroupData[{
+Cell[11710, 337, 531, 14, 70, "ExamplesInitializationSection",ExpressionUUID->"6961daab-c21b-4e4b-b6ac-a9a47f06ffa5",
+ CellID->1718580883],
+Cell[12244, 353, 274, 4, 70, "ExampleInitialization",ExpressionUUID->"7dcb178c-574f-4ea8-8531-ff0dec195502",
+ CellID->1969679695]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12555, 362, 442, 12, 70, "PrimaryExamplesSection",ExpressionUUID->"4d971e0b-a467-44b1-b908-78f8a7482a42",
+ CellID->880084151],
+Cell[13000, 376, 435, 10, 70, "ExampleText",ExpressionUUID->"06c9b010-9fd7-4acf-9854-09a8ca29733f"],
+Cell[CellGroupData[{
+Cell[13460, 390, 421, 11, 70, "Input",ExpressionUUID->"3d9a6de4-818b-4740-a984-fdcb650a9427"],
+Cell[13884, 403, 568, 17, 70, "Output",ExpressionUUID->"2d56d750-9c0f-457e-8005-f1ceb0b414e3"]
+}, Open  ]],
+Cell[14467, 423, 165, 3, 70, "ExampleText",ExpressionUUID->"52495005-393e-4d69-a7ac-6bdb13e65a9d"],
+Cell[CellGroupData[{
+Cell[14657, 430, 2395, 62, 70, "Input",ExpressionUUID->"bc49f72a-2439-418e-8a63-d8159b58b569"],
+Cell[17055, 494, 1014, 19, 70, "Output",ExpressionUUID->"4b998265-61be-4ade-9052-d86c2001517d"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18118, 519, 487, 13, 70, "ExtendedExamplesSection",ExpressionUUID->"a6228140-1981-46f0-88fc-4d129033136d",
+ CellTags->"ExtendedExamples",
+ CellID->533848431],
+Cell[18608, 534, 242, 5, 70, "ExampleSection",ExpressionUUID->"6d08f999-4c69-4709-9b28-82906be6ee75",
+ CellID->1293636265],
+Cell[18853, 541, 265, 5, 70, "ExampleSection",ExpressionUUID->"85bb6475-fccb-4f83-9c4c-95411a492aa7",
+ CellID->1020263627],
+Cell[19121, 548, 244, 5, 70, "ExampleSection",ExpressionUUID->"3276b1d7-cf51-4f3b-970a-56b0e7c469f0",
+ CellID->2061341341],
+Cell[19368, 555, 248, 5, 70, "ExampleSection",ExpressionUUID->"1cd6234d-1e3c-431d-9989-71f3025eee95",
+ CellID->258228157],
+Cell[CellGroupData[{
+Cell[19641, 564, 259, 5, 70, "ExampleSection",ExpressionUUID->"0e0d5f37-f3c9-4474-a22b-9f10dcc8b438",
+ CellID->2123667759],
+Cell[19903, 571, 339, 8, 70, "ExampleText",ExpressionUUID->"f38c4f06-5da0-4bbf-8cd2-8516f9dc3d3e"],
+Cell[CellGroupData[{
+Cell[20267, 583, 1687, 46, 70, "Input",ExpressionUUID->"8c25bd50-fddc-474e-b27f-96463dfe2c1d"],
+Cell[21957, 631, 110, 1, 70, "Output",ExpressionUUID->"e50caa62-bcd9-40fc-94c8-03b0a6261023"]
+}, Open  ]],
+Cell[22082, 635, 176, 3, 70, "ExampleText",ExpressionUUID->"ab5d7142-9b79-46f9-b771-417458c49980"],
+Cell[CellGroupData[{
+Cell[22283, 642, 1262, 33, 70, "Input",ExpressionUUID->"fd3414ac-52e9-4409-b4e3-c221e1d59286"],
+Cell[23548, 677, 110, 1, 70, "Output",ExpressionUUID->"2e8acbd3-0bad-4e32-9d25-8e7c7b7742fa"]
+}, Open  ]],
+Cell[23673, 681, 203, 3, 70, "ExampleText",ExpressionUUID->"387a2534-12fd-49c6-a68d-c8e0a181fb86"],
+Cell[CellGroupData[{
+Cell[23901, 688, 1916, 49, 70, "Input",ExpressionUUID->"3a107b5f-3ba9-4c90-9ea3-cb5713940a80"],
+Cell[25820, 739, 110, 1, 70, "Output",ExpressionUUID->"97809884-3be6-44c0-926e-49337ad9f548"]
+}, Open  ]]
+}, Open  ]],
+Cell[25957, 744, 252, 5, 70, "ExampleSection",ExpressionUUID->"9397dd0b-9de4-443a-9371-be2b75148f2f",
+ CellID->1305812373],
+Cell[26212, 751, 257, 5, 70, "ExampleSection",ExpressionUUID->"c5507407-1b71-491f-84b6-3f5747264ef7",
+ CellID->1653164318],
+Cell[26472, 758, 249, 5, 70, "ExampleSection",ExpressionUUID->"ce9d5678-57c6-4712-bdd3-87904919f71e",
+ CellID->589267740]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26758, 768, 110, 1, 70, "MetadataSection",ExpressionUUID->"2b9a20c0-4684-4af0-ae90-008bcb3cd5bd",
+ CellID->311882160],
+Cell[26871, 771, 476, 12, 70, "History",ExpressionUUID->"0647d953-178d-43da-935e-923bdb2c5046",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[27372, 787, 485, 13, 70, "CategorizationSection",ExpressionUUID->"a29a9a03-1747-4a1c-b242-c8059c9e5329",
+ CellID->1755438392],
+Cell[27860, 802, 134, 2, 70, "Categorization",ExpressionUUID->"d3672960-eef7-49f2-a47e-fce423fec36a",
+ CellID->686433507],
+Cell[27997, 806, 159, 2, 70, "Categorization",ExpressionUUID->"e9337bb6-80d8-4427-9444-53c8416845ec",
+ CellID->605800465],
+Cell[28159, 810, 156, 2, 70, "Categorization",ExpressionUUID->"a09e9c4d-8ab9-4ae7-b585-c517016e8191",
+ CellID->468444828],
+Cell[28318, 814, 147, 1, 70, "Categorization",ExpressionUUID->"8d3a2d78-5727-4baf-a8df-bb25b756ad8c"]
+}, Closed]],
+Cell[28480, 818, 110, 1, 70, "KeywordsSection",ExpressionUUID->"ef06640c-42c9-4c00-9a6c-9b632e3752b6",
+ CellID->477174294],
+Cell[CellGroupData[{
+Cell[28615, 823, 120, 1, 70, "TemplatesSection",ExpressionUUID->"119176c2-887f-409f-a0c9-b72561b7624c",
+ CellID->1872225408],
+Cell[28738, 826, 149, 2, 70, "Template",ExpressionUUID->"1b15e1f4-90c6-45fb-bbe0-ea52939f5d72",
+ CellID->1562036412],
+Cell[28890, 830, 137, 2, 70, "Template",ExpressionUUID->"9e18a772-50d9-48d2-8436-649cdc9f97ec",
+ CellID->158391909],
+Cell[29030, 834, 136, 2, 70, "Template",ExpressionUUID->"1e946dbb-3373-40d7-b302-c6d742eac1b9",
+ CellID->1360575930],
+Cell[29169, 838, 137, 2, 70, "Template",ExpressionUUID->"aee0c783-3703-4eff-afcc-bcf11e35c648",
+ CellID->793782254]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

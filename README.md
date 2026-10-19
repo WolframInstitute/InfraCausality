@@ -2,30 +2,63 @@
 
 # ⏳ InfraCausality
 
-Minimal model of special relativity on oriented graphs and hypergraphs.
+Causal structure and special relativity on finite directed acyclic graphs: **causal infrageometry**.
 
-## 🎯 Goals
+Causal infrageometry studies the causal structure of a finite DAG the way Euclidean infrageometry studies the metric structure of an undirected graph. Events are vertices, and the causal order is reachability. The objects are:
 
-- observers related by transformations
-- inertial observers and the Unruh effect
-- observer's time and Lorentz transformations
-- event horizons, black holes, and white holes
-- functions and tests for the EPS (Ehlers-Pirani-Schild) axioms
-- mass, energy, and momentum from Knuth's dynamics
-- visualizations and interactive constructions for Minkowski geometry and Bondi k-calculus
+- the causal future and past of an event;
+- the causal diamond between two events;
+- the worldlines between two events, every longest chain at once (the timelike geodesics);
+- the observers, every saturated chain;
+- the light cones, whose members are the light rays;
+- the slices of the universal time.
+
+Every object is an inert head that takes no graph. A graph evaluates it through the protocol of [InfraGeometry](https://github.com/WolframInstitute/InfraGeometry), on which this paclet depends:
+
+- `InfraMeasurement[g, obj, property]` reads it;
+- a named `RandomInfra...` sampler draws its members;
+- an `Infra...Q` predicate recognises one;
+- `InfraSubstrateHighlight` draws it.
+
+From observers the paclet builds the discrete Ehlers–Pirani–Schild construction. The message and echo relations between two observers come first. Next is the radar chart of an observer, which gives every event between its ticks a radar time and a radar distance. Last is the observer space, the causal graph fibered over the chart and handed to InfraGeometry's fiber-bundle machinery.
+
+The continuum anchor is Bondi's k-calculus drawn as Euclidean geometry: two straight worldlines from a common origin, with light zigzagging between them at a fixed angle.
+
+## 🧭 Guides
+
+| Guide | Contents |
+|---|---|
+| **Causal Infrageometry** (main) | cones, diamonds, worldlines, observers, light cones and light rays; reading and drawing them |
+| Causal Time | the universal time, its foliation, slices and antichains |
+| Infra Observers | message and echo relations (EPS), radar charts |
+| Causal Substrates | named causal graphs (lattices, Minkowski sprinklings, spray graphs, Wolfram model universes) and random causal graphs |
+| Bondi k-Calculus | the k-factor, rapidity, proper time in the Euclidean picture of worldlines, radar coordinates |
+
+Each guide lists its settled, elementary functions first; experimental material (polyline worldlines, causal-set estimators, Knuth kinematics, extremal events, message and echo selections, joined charts, the observer space, EPS defects and the graph k-factor, the Wolfram model universes, the Bondi figures, the viewers) sits at the bottom of the same guide, in sections titled "Experimental: <topic>".
+
+Version 2.0.0 is a breaking rewrite of 1.2.0. [CHANGELOG.md](CHANGELOG.md) maps every removed name to its replacement.
 
 ## ✨ Usage
 
-Install from the Wolfram Cloud:
+InfraCausality requires `WolframInstitute/InfraGeometry` 2.7.2 or later. Install both from the Wolfram Cloud:
 
 ```wolfram
+PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/InfraGeometry.paclet", ForceVersionInstall -> True]
 PacletInstall["https://www.wolframcloud.com/obj/hajek_pavel/InfraCausality.paclet", ForceVersionInstall -> True]
+Needs["WolframInstitute`InfraGeometry`"]
 Needs["WolframInstitute`InfraCausality`"]
 ```
 
-Explore the paclet in the **[LLM-generated presentation notebook](https://www.wolframcloud.com/obj/hajek_pavel/InfraCausality/Presentation.nb)** (runs on the Wolfram Cloud).
+Explore the [research documentation](https://www.wolframcloud.com/obj/hajek_pavel/DeployedResources/Paclet/WolframInstitute/InfraCausality).
 
-Ready-made example substrates and ambient styles for the analyses: **[LLM-generated example-graphs notebook](https://www.wolframcloud.com/obj/hajek_pavel/ExampleGraphs.nb)** (runs on the Wolfram Cloud).
+Load InfraGeometry as well, because the readers `InfraMeasurement`, `InfraMemberQ` and `InfraSubstrateHighlight` live in its context.
+
+```wolfram
+With[ { g = CausalSubstrate[ "DiamondLatticeGraph", "Small" ] },
+  InfraSubstrateHighlight[ g, { InfraCausalFuture[ { 2, 1 } ] -> Lighter[ Red, 0.6 ], InfraFutureLightCone[ { 2, 1 } ] -> Red } ] ]
+```
+
+Causal substrates are drawn in the causal-graph style of the [Wolfram Physics Project](https://www.wolframphysics.org/technical-introduction/): events in `Hue[0.11, 1, 0.97]`, causal edges in `Hue[0, 1, 0.56]`, light cones and foliation slices highlighted in red.
 
 ## 📓 Research Notebooks — "Math from code"
 

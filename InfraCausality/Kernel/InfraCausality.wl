@@ -1,83 +1,95 @@
-Package["WolframInstitute`InfraCausality`"]
+Package[ "WolframInstitute`InfraCausality`" ]
 
-(* Colors.wl *)
-PackageExport[$CausalColors]
-PackageExport[CausalGraphStyle]
+PackageImport[ "WolframInstitute`InfraGeometry`" ]
 
-(* Tools.wl *)
-PackageExport[GetSources]
-PackageExport[GetSinks]
-PackageExport[RandomCausalGraph]
-PackageExport[FindChain]
+(* WolframInstitute`InfraCausality` :: Kernel :: InfraCausality *)
 
-(* InfraObjects.wl *)
-PackageExport[InfraChain]
-PackageExport[InfraLightRay]
-PackageExport[InfraLightCone]
-PackageExport[InfraCausalInterval]
-PackageExport[InfraEvent]
+(* CausalInfrageometry *)
+
+PackageExport[InfraCausalFuture]
+PackageExport[InfraCausalPast]
+PackageExport[RandomInfraCausalFuture]
+PackageExport[RandomInfraCausalPast]
+PackageExport[InfraCausalFutureQ]
+PackageExport[InfraCausalPastQ]
+PackageExport[InfraCausalDiamond]
+PackageExport[RandomInfraCausalDiamond]
+PackageExport[InfraCausalDiamondQ]
+PackageExport[InfraWorldline]
+PackageExport[RandomInfraWorldline]
+PackageExport[InfraWorldlineQ]
 PackageExport[InfraChainQ]
+PackageExport[InfraObserver]
+PackageExport[RandomInfraObserver]
+PackageExport[InfraObserverQ]
+PackageExport[InfraFutureLightCone]
+PackageExport[InfraPastLightCone]
+PackageExport[RandomInfraFutureLightCone]
+PackageExport[RandomInfraPastLightCone]
 PackageExport[InfraLightRayQ]
-PackageExport[InfraLightConeQ]
-PackageExport[InfraCausalIntervalQ]
-PackageExport[InfraEventQ]
 
-(* RelativisticMechanics.wl *)
-PackageExport[ForwardLightCone]
-PackageExport[BackwardLightCone]
-PackageExport[CausalInterval]
-PackageExport[ChainCausalInterval]
-PackageExport[UniversalFoliation]
-PackageExport[UniversalTime]
-PackageExport[MaximalAbsorber]
-PackageExport[MaximalEmitter]
-PackageExport[OutgoingLightRays]
-PackageExport[IncomingLightRays]
+(* Experimental: Knuth kinematics *)
 
-(* RelativisticDynamics.wl *)
 PackageExport[ChainProjection]
 PackageExport[ChainLightReach]
-PackageExport[InfraEnergy]
-PackageExport[InfraMomentum]
-PackageExport[InfraMass]
-PackageExport[InfraInterval]
-PackageExport[InfraVelocity]
 PackageExport[InfraKinematics]
 
-(* EPSAxiomatics.wl *)
-PackageExport[MultiMessageFunction]
-PackageExport[FindMessageFunction]
-PackageExport[MultiEchoFunction]
-PackageExport[FindEchoFunction]
-PackageExport[EchoGraph]
-PackageExport[MonotoneQ]
+(* Experimental: viewers *)
 
-(* Visualization.wl *)
-PackageExport[VisualizeLightRays]
-PackageExport[VisualizeFoliatedCausalGraph]
-PackageExport[VisualizeMessageFunction]
-PackageExport[VisualizeEchoFunction]
+PackageExport[LightConeViewer]
+PackageExport[MessageFunctionViewer]
+PackageExport[FoliationViewer]
 
-(* BondiKCalculus.wl *)
+(* CausalTime *)
+
+PackageExport[UniversalTime]
+PackageExport[UniversalFoliation]
+PackageExport[InfraSlice]
+PackageExport[RandomInfraSlice]
+PackageExport[InfraSliceQ]
+PackageExport[InfraAntichainQ]
+
+(* Experimental: extremal events *)
+
+PackageExport[MaximalAbsorber]
+PackageExport[MaximalEmitter]
+
+(* InfraObservers *)
+
+PackageExport[InfraMessageFunction]
+PackageExport[InfraEchoFunction]
+PackageExport[InfraMessageFunctionQ]
+PackageExport[InfraEchoFunctionQ]
+PackageExport[InfraRadarChart]
+
+(* Experimental: selections *)
+
+PackageExport[RandomInfraMessageFunction]
+PackageExport[RandomInfraEchoFunction]
+
+(* CausalSubstrates *)
+
+PackageExport[CausalSubstrate]
+PackageExport[CausalSubstrateStyle]
+PackageExport[CausalSubstrateCode]
+PackageExport[RandomCausalGraph]
+
+(* BondiKCalculus *)
+
 PackageExport[KFactor]
 PackageExport[VelocityFromK]
-PackageExport[WorldlineAngle]
+PackageExport[LorentzGamma]
 PackageExport[Rapidity]
 PackageExport[RapidityFromK]
-PackageExport[LorentzGamma]
+PackageExport[WorldlineAngle]
 PackageExport[OutgoingRatio]
 PackageExport[IncomingRatio]
-PackageExport[WorldlineDirection]
-PackageExport[WorldlinePoint]
-PackageExport[WorldlineNormal]
 PackageExport[ProperTimeScale]
-PackageExport[WorldlinePointAtProperTime]
-PackageExport[LightDirection]
 PackageExport[LightZigzag]
-PackageExport[RadarCoordinatesFromAlice]
-PackageExport[SimultaneityLine]
+PackageExport[BondiRadarCoordinates]
 
-(* BondiVisualization.wl *)
+(* Experimental: figures *)
+
 PackageExport[BondiClock]
 PackageExport[DopplerConstruction]
 PackageExport[TimeDilationConstruction]
@@ -86,8 +98,18 @@ PackageExport[LengthContractionConstruction]
 PackageExport[VelocityAdditionConstruction]
 PackageExport[LightClockConstruction]
 
-(* BondiExplorer.wl *)
-PackageExport[BondiExplorer]
+(* Experimental: drawing helpers *)
+
+PackageExport[WorldlineDirection]
+PackageExport[WorldlinePoint]
+PackageExport[WorldlineNormal]
+PackageExport[WorldlinePointAtProperTime]
+PackageExport[LightDirection]
+PackageExport[SimultaneityLine]
+
+(* Experimental: viewers *)
+
+PackageExport[BondiViewer]
 
 
 ClearAll["WolframInstitute`InfraCausality`**`*", "WolframInstitute`InfraCausality`*"]

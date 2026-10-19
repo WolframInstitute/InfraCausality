@@ -19,17 +19,33 @@ esac
 
 pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9._/-]+\))?!?: .+'
 
-if printf '%s' "$subject" | grep -Eq "$pattern"; then
-  len=$(printf '%s' "$subject" | wc -c | tr -d ' ')
-  [ "$len" -le 72 ] && exit 0
-  echo "✗ Commit subject exceeds 72 characters ($len)." >&2
-else
-  echo "✗ Commit subject must follow Conventional Commits." >&2
-fi
-
-cat >&2 <<'EOF'
+# Mirrors the CI commitlint rules (.commitlintrc.yml + config-conventional):
+# header <= 72, description not starting upper-case, body lines <= 100.
+fail() {
+  echo "✗ $1" >&2
+  cat >&2 <<'EOF'
   Format:  type(scope): subject        (scope optional, ! marks breaking)
   Types:   feat fix docs style refactor perf test build ci chore revert
+  Subject: starts lower-case (CI subject-case); ≤ 72 chars
+  Body:    lines ≤ 100 chars (CI body-max-line-length); wrap at 72
   Example: fix(cr3bp): correct docs typos and guard failures
 EOF
-exit 1
+  exit 1
+}
+
+printf '%s' "$subject" | grep -Eq "$pattern" \
+  || fail "Commit subject must follow Conventional Commits."
+
+len=$(printf '%s' "$subject" | wc -c | tr -d ' ')
+[ "$len" -le 72 ] || fail "Commit subject exceeds 72 characters ($len)."
+
+description=$(printf '%s' "$subject" | sed -E 's/^[a-z]+(\([^)]*\))?!?: //')
+printf '%s' "$description" | grep -Eq '^[A-Z]' \
+  && fail "Commit subject must start lower-case: \"$description\"."
+
+long=$(sed -n '/^# -\{24\} >8 -\{24\}$/q;p' "$msg_file" | grep -v '^#' \
+  | awk 'seen && length > 100 { print "  (" length ") " substr($0, 1, 60) "..." } /[^[:space:]]/ { seen = 1 }')
+[ -z "$long" ] || fail "Commit body lines exceed 100 characters:
+$long"
+
+exit 0

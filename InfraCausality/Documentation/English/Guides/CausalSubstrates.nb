@@ -1,0 +1,513 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     18932,        504]
+NotebookOptionsPosition[     13196,        392]
+NotebookOutlinePosition[     14224,        422]
+CellTagsIndexPosition[     14181,        419]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Causal Substrates", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3"],
+
+Cell[TextData[{
+ "A causal substrate is the directed acyclic graph the observer lives in. The \
+named substrates come at three sizes with the style they are drawn in and the \
+code that builds them: the light-cone lattices (the ",
+ Cell[BoxData[
+  SuperscriptBox["\:2124", "2"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "88f1c5d5-5621-4f3f-aa70-c3620810ee88"],
+ " product order cut to a diamond, the cylinder lattice of constant width and \
+the ",
+ Cell[BoxData[
+  SuperscriptBox["\:2124", "3"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "af9a78c9-475b-4b04-b865-b3a36bc0d892"],
+ " cube), fixed-seed Poisson sprinklings into a Minkowski diamond, the spray \
+graphs of InfraGeometry's Riemannian substrates, and a fixed-seed \
+percolation. Random causal graphs are drawn by transitive percolation, by an \
+acyclic orientation of a random graph or by a sprinkling."
+}], "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230,ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774"],
+
+Cell[CellGroupData[{
+
+Cell["Named causal graphs", "GuideFunctionsSubsection",ExpressionUUID->"477b5aad-5488-4a2d-b3fd-1702bb0acb1e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CausalSubstrate"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalSubstrate", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ccf79720-9f09-4c8d-ae2c-f56b2cae9505"],
+ " \[LongDash] ",
+ "the named causal graph at size \"Small\", \"Medium\" or \"Large\""
+}], "GuideText",ExpressionUUID->"629e3e83-de61-4b49-a4e9-1d7f555084ba"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CausalSubstrateStyle"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalSubstrateStyle", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "8b5ab953-8b7b-41f5-82cf-008912cd0b86"],
+ " \[LongDash] ",
+ "the options a causal substrate is drawn with at a given size"
+}], "GuideText",ExpressionUUID->"5ecc62e8-e666-4225-9fb4-6b2800d1671c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CausalSubstrateCode"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalSubstrateCode", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2dd74a61-42be-4fbd-b376-d17db788e310"],
+ " \[LongDash] ",
+ "the held code that builds a named causal substrate"
+}], "GuideText",ExpressionUUID->"40bc7bd8-57fc-4253-9057-aa73ea93d4a5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random causal graphs", "GuideFunctionsSubsection",ExpressionUUID->"8288ec91-5d4e-4ef0-8985-0175e959f470"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["RandomCausalGraph"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/RandomCausalGraph", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "2e663d5c-98c3-49ac-b7e8-a182f7ce3982"],
+ " \[LongDash] ",
+ "a random causal set of ",
+ Cell[BoxData[
+  StyleBox["n", "TI"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "f40af568-ca8b-402c-b1c2-1e9bacbb7ddf"],
+ " events: the Hasse diagram of a transitive percolation with link \
+probability ",
+ Cell[BoxData[
+  StyleBox["p", "TI"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "3ecfc9de-5eb0-4bf2-ac61-d47ba6e3bc1c"],
+ ", of a random acyclic orientation with ",
+ Cell[BoxData[
+  StyleBox["m", "TI"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "9c8a5cd7-ac4b-492d-b569-946859834b5d"],
+ " edges, or of a sprinkling into ",
+ Cell[BoxData[
+  StyleBox["d", "TI"]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "1e6489c6-8e94-4bc3-9173-6547d4125dc7"],
+ "-dimensional Minkowski space"
+}], "GuideText",ExpressionUUID->"b543abc1-f1fc-4c23-8539-2513595ccc70"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData[
+      StyleBox["RandomGraph", FontSlant -> "Italic"]]], 
+    "paclet:ref/RandomGraph"},
+   "RefLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "3e0b35f0-9994-4417-b451-4cd4f67b6838"],
+ " (WL)",
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData[
+      StyleBox["DirectedGraph", FontSlant -> "Italic"]]], 
+    "paclet:ref/DirectedGraph"},
+   "RefLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "1266141f-27a6-4d22-a82c-83dcb461b436"],
+ " (WL)"
+}], "GuideText",ExpressionUUID->"aee8c7b0-c40b-44f8-b130-a696994c4fd9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Causal graphs from Riemannian substrates", "GuideFunctionsSubsection",ExpressionUUID->"939011cd-2826-460e-baf6-f949757e695f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["SprayGraph"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/SprayGraph", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "477f4505-4ed5-4287-90ce-f80f02642147"],
+ " (InfraGeometry)",
+ " \[LongDash] ",
+ "the rank DAG of an undirected substrate from a base point, ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["u", "TI"], "\[Rule]", 
+   StyleBox["v", "TI"]}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "9f6b3d08-8164-44f7-9096-ac171418d676"],
+ " iff ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["d", "TI"], 
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    StyleBox["c", "TI"], ",", 
+    StyleBox["v", "TI"]}], 
+   StyleBox[")",
+    SpanMaxSize->1], "=", 
+   StyleBox["d", "TI"], 
+   StyleBox["(",
+    SpanMaxSize->1], 
+   RowBox[{
+    StyleBox["c", "TI"], ",", 
+    StyleBox["u", "TI"]}], 
+   StyleBox[")",
+    SpanMaxSize->1], "+", "1"}]], "InlineFormula",
+  FontSize->0.9 Inherited,ExpressionUUID->
+  "a1250c26-6771-4f96-9eb6-931417e6b0df"]
+}], "GuideText",ExpressionUUID->"e8b7f9a9-5784-4ca0-9df3-7bd884046735"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["InfraSubstrate"]], 
+    "paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrate", 
+    "WolframInstitute/InfraGeometry Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "ab5d7b7c-3647-49a3-9618-bfc3e9731ea1"],
+ " (InfraGeometry)",
+ " \[LongDash] ",
+ "the named undirected substrates"
+}], "GuideText",ExpressionUUID->"280e4525-71d6-4d66-9b07-139079850a32"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Experimental: Wolfram model universes", "GuideFunctionsSubsection",ExpressionUUID->"e29901ac-ca07-465a-b2eb-594b2d1e0642"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["CausalSubstrate"]], 
+    "paclet:WolframInstitute/InfraCausality/ref/CausalSubstrate", 
+    "WolframInstitute/InfraCausality Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineGuideFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "8d33c44f-2a66-4524-b5ee-f14468f0ea84"],
+ " \[LongDash] ",
+ "with a name \"wm3467\", \"wm7978\", \"wm4735\", \"wm1529\", \"wm3975\" or \
+\"wm2216\": the causal graph of a notable Wolfram model universe of the \
+registry, from bundled data"
+}], "GuideText",ExpressionUUID->"51ceeaf9-b5ba-4009-a458-4c3868d99aaa"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Tech Notes", "GuideTutorialsSection",
+ CellID->415694126,ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8"],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "GuideMoreAboutSection",
+ CellChangeTimes->{{3.8430423939366693`*^9, 3.843042395176153*^9}},
+ CellID->23220180,ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["CausalInfrageometry"]], 
+   "paclet:WolframInstitute/InfraCausality/guide/CausalInfrageometry"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"e72e7a9c-da15-4727-827a-0427965a17f5"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["CausalTime"]], 
+   "paclet:WolframInstitute/InfraCausality/guide/CausalTime"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"e4a5341e-1818-4b44-b472-879ef723d30c"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["InfraObservers"]], 
+   "paclet:WolframInstitute/InfraCausality/guide/InfraObservers"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"f179c7aa-2cfd-4eb5-8ad2-0169cfff627f"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"],
+
+Cell[TextData[Cell[BoxData[
+ TemplateBox[{
+   Cell[
+    TextData["BondiKCalculus"]], 
+   "paclet:WolframInstitute/InfraCausality/guide/BondiKCalculus"},
+  "RefLinkPlain",
+  BaseStyle->{
+   "InlineFormula"}]], \
+"InlineFormula",ExpressionUUID->"0a4e29e3-c39b-4721-802c-2d8d6a0af6c9"]], \
+"GuideMoreAbout",
+ CellID->1567025153,ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69"]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148,ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049"],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->311882160,ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"8042be5c-0c76-46b3-86b4-3979f9a7592e"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"33838997-9c86-4f7e-a86c-465a8baa0509"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->
+  "f4a6f470-53c8-4e44-a786-272e7e70dce6"]
+}], "History",
+ CellID->341476719,ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449,ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b"],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507,ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475"],
+
+Cell["WolframInstitute/InfraCausality", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465,ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c"],
+
+Cell["WolframInstitute`InfraCausality`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828,ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e"],
+
+Cell["WolframInstitute/InfraCausality/guide/CausalSubstrates", \
+"Categorization",
+ CellLabel->"URI",ExpressionUUID->"49322d03-e94c-44b1-b198-d69cfc62c4da"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552,ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead"],
+
+Cell["causal substrate", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["causal graph", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["causal set", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["lattice", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["sprinkling", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Minkowski space", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["transitive percolation", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["spray graph", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"],
+
+Cell["Wolfram model", "Keywords",
+ CellID->1251852827,ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+TaggingRules->{
+ "Metadata" -> {
+   "title" -> "CausalSubstrates", "context" -> 
+    "WolframInstitute`InfraCausality`", 
+    "keywords" -> {
+     "causal substrate", "causal graph", "causal set", "lattice", 
+      "sprinkling", "Minkowski space", "transitive percolation", 
+      "spray graph", "Wolfram model"}, "summary" -> "", "paclet" -> 
+    "WolframInstitute/InfraCausality", "uri" -> 
+    "WolframInstitute/InfraCausality/guide/CausalSubstrates", "type" -> 
+    "Guide", "index" -> True, "language" -> "en"}},
+CreateCellID->True,
+CellContext->CellGroup,
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (July 2, 2026)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"4f3dd705-9635-4464-b348-9b4dec79eac8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 114, 1, 70, "GuideTitle",ExpressionUUID->"a3a3c038-ca24-47b7-9945-83f1c1312fe3",
+ CellID->942062912],
+Cell[693, 25, 1003, 19, 70, "GuideAbstract",ExpressionUUID->"ef0ab37b-2e0d-4399-8f7e-82603ccbe925",
+ CellID->2001916300]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1733, 49, 109, 1, 70, "GuideFunctionsSection",ExpressionUUID->"a0ea3657-4c83-4862-93c8-ecf80cebc774",
+ CellID->1866139230],
+Cell[CellGroupData[{
+Cell[1867, 54, 110, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"477b5aad-5488-4a2d-b3fd-1702bb0acb1e"],
+Cell[1980, 56, 550, 13, 70, "GuideText",ExpressionUUID->"629e3e83-de61-4b49-a4e9-1d7f555084ba"],
+Cell[2533, 71, 555, 13, 70, "GuideText",ExpressionUUID->"5ecc62e8-e666-4225-9fb4-6b2800d1671c"],
+Cell[3091, 86, 543, 13, 70, "GuideText",ExpressionUUID->"40bc7bd8-57fc-4253-9057-aa73ea93d4a5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3671, 104, 111, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"8288ec91-5d4e-4ef0-8985-0175e959f470"],
+Cell[3785, 106, 1278, 34, 70, "GuideText",ExpressionUUID->"b543abc1-f1fc-4c23-8539-2513595ccc70"],
+Cell[5066, 142, 751, 24, 70, "GuideText",ExpressionUUID->"aee8c7b0-c40b-44f8-b130-a696994c4fd9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5854, 171, 131, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"939011cd-2826-460e-baf6-f949757e695f"],
+Cell[5988, 173, 1249, 41, 70, "GuideText",ExpressionUUID->"e8b7f9a9-5784-4ca0-9df3-7bd884046735"],
+Cell[7240, 216, 533, 14, 70, "GuideText",ExpressionUUID->"280e4525-71d6-4d66-9b07-139079850a32"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7810, 235, 128, 0, 70, "GuideFunctionsSubsection",ExpressionUUID->"e29901ac-ca07-465a-b2eb-594b2d1e0642"],
+Cell[7941, 237, 662, 15, 70, "GuideText",ExpressionUUID->"51ceeaf9-b5ba-4009-a458-4c3868d99aaa"]
+}, Open  ]]
+}, Open  ]],
+Cell[8630, 256, 118, 1, 70, "GuideTutorialsSection",ExpressionUUID->"90fbef20-ae74-4ea3-a50b-de22929861f8",
+ CellID->415694126],
+Cell[CellGroupData[{
+Cell[8773, 261, 189, 2, 70, "GuideMoreAboutSection",ExpressionUUID->"0c9c7cc7-143a-48e7-bf27-45dd9029bd50",
+ CellID->23220180],
+Cell[8965, 265, 390, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153],
+Cell[9358, 277, 372, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153],
+Cell[9733, 289, 380, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153],
+Cell[10116, 301, 380, 10, 70, "GuideMoreAbout",ExpressionUUID->"e0ff5a6e-1488-40e3-9571-e445309cac69",
+ CellID->1567025153]
+}, Open  ]],
+Cell[10511, 314, 124, 1, 70, "GuideRelatedLinksSection",ExpressionUUID->"f8d14542-737b-4330-8523-975dc2960049",
+ CellID->415694148],
+Cell[CellGroupData[{
+Cell[10660, 319, 110, 1, 70, "MetadataSection",ExpressionUUID->"1e562958-8f54-4854-b782-f4766015b2b2",
+ CellID->311882160],
+Cell[10773, 322, 476, 12, 70, "History",ExpressionUUID->"6e43ae3a-1f84-4ca3-8250-559a053a9513",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[11274, 338, 123, 1, 70, "CategorizationSection",ExpressionUUID->"cbe57f1c-788c-4a86-8338-08191b5d7b7b",
+ CellID->1122911449],
+Cell[11400, 341, 133, 2, 70, "Categorization",ExpressionUUID->"4bb65dd8-004f-4758-b626-8984c4a9f475",
+ CellID->686433507],
+Cell[11536, 345, 159, 2, 70, "Categorization",ExpressionUUID->"ea3b4732-cbcc-4f28-9e20-bfabae54c52c",
+ CellID->605800465],
+Cell[11698, 349, 156, 2, 70, "Categorization",ExpressionUUID->"52afa833-5422-4969-8c91-b9af19a42a2e",
+ CellID->468444828],
+Cell[11857, 353, 156, 2, 70, "Categorization",ExpressionUUID->"49322d03-e94c-44b1-b198-d69cfc62c4da"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12050, 360, 111, 1, 70, "KeywordsSection",ExpressionUUID->"99169e92-9e69-4982-8b71-ac9518fe5ead",
+ CellID->1427428552],
+Cell[12164, 363, 112, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12279, 366, 108, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12390, 369, 106, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12499, 372, 103, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12605, 375, 106, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12714, 378, 111, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12828, 381, 118, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[12949, 384, 107, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827],
+Cell[13059, 387, 109, 1, 70, "Keywords",ExpressionUUID->"90374130-df8e-4799-aaa2-c8b32eecdde9",
+ CellID->1251852827]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
