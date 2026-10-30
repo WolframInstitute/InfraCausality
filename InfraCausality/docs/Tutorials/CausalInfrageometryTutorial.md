@@ -193,7 +193,7 @@ With[
 
 ## The observer space
 
-- The **observer space** is the radar domain fibered over the chart: an [`InfraFibration`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibration) whose total graph is the undirected radar domain and whose projection is the chart. Its fibers are the coordinate cells, the events the observer cannot tell apart, and the bundle functions of InfraGeometry apply to it unchanged. A **section** picks one event in every fiber; it is continuous when it maps base edges to edges.
+- The **observer space** is the radar domain fibered over the chart: an [`InfraFiberedGraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraFiberedGraph) whose total graph is the undirected radar domain and whose projection is the chart. Its fibers are the coordinate cells, the events the observer cannot tell apart, and the bundle functions of InfraGeometry apply to it unchanged. A **section** picks one event in every fiber; it is continuous when it maps base edges to edges.
 - For the observer *a* every fiber is a single event: the fibration is a fiber bundle with a point as fiber, and it has exactly one continuous section, the inverse of the chart.
 
 ```wl
@@ -201,7 +201,7 @@ With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g, InfraTimelikeGeodesic[{0, 0}, {6, 6}]])},
   {fib = InfraMeasurement[g, InfraRadarCoordinates[a], "Fibration"]},
-  {Union[VertexCount /@ Values @ InfraFibers[fib]], InfraFibrationQ[fib], InfraFiberBundleQ[fib], Length @ FindInfraSection[fib, All],
+  {Union[VertexCount /@ Values @ InfraFibers[fib]], InfraFibrationQ[fib], InfraFiberBundleQ[fib], Length @ RandomInfraSection[fib, All, Properties -> {"Continuous"}, "NextVertexFunction" -> Identity],
    InfraSectionQ[fib, (SeedRandom[1]; RandomInfraSection[fib])]}]
 ```
 
@@ -224,7 +224,7 @@ With[
 With[
   {g = CausalSubstrate["DiamondLatticeGraph", "Small"]},
   {fib = InfraMeasurement[g, InfraRadarCoordinates[Table[{m, m}, {m, 0, 6}]], "Fibration"]},
-  {sides = Sort[Sort @ Values @ First @ #] & /@ FindInfraSection[fib, All]},
+  {sides = Sort[Sort @ Values @ First @ #] & /@ RandomInfraSection[fib, All, Properties -> {"Continuous"}, "NextVertexFunction" -> Identity]},
   {Union[VertexCount /@ Values @ InfraFibers[fib]], InfraFibrationQ[fib], InfraFiberBundleQ[fib],
    Sort[sides] === Sort[{Select[VertexList[g], v |-> First[v] >= Last[v]], Select[VertexList[g], v |-> First[v] <= Last[v]]}]}]
 ```
@@ -268,7 +268,7 @@ With[
   {g = CausalSubstrate["CylinderLatticeGraph", "Small"]},
   {fib = InfraMeasurement[g, InfraRadarCoordinates[Table[{0, t}, {t, 0, 6}]], "Fibration"]},
   {loop = VertexList @ InfraFibers[fib][{4, 3}]},
-  {Sort[loop], InfraFibrationQ[fib], Select[loop, v |-> EdgeQ[InfraTotalGraph[fib], UndirectedEdge[{0, 0}, v]]]}]
+  {Sort[loop], InfraFibrationQ[fib], Select[loop, v |-> EdgeQ[InfraTotalSpace[fib], UndirectedEdge[{0, 0}, v]]]}]
 ```
 
 - Being a fibration is thus a property of the substrate as well as of the observer. On the sprinkling, too, the chart of a longest chain identifies events, 23 events on 15 cells, and is no fibration.

@@ -12,7 +12,7 @@ RelatedGuides: [CausalInfrageometry, EPSAxiomatics, CausalSubstrates, BondiKCalc
 
 ## Abstract
 
-A time function on a causal graph is a map to the integers that increases along every edge. The causal height of an event is the least such function: the number of edges of a longest chain from a source to the event, zero on the sources. Its level sets, the slices of the height foliation, are antichains that partition the events, and the slice through an event is the discrete analogue of a simultaneity surface. A slice is an inert set head read like a ball: `InfraSubgraph[g, InfraSlice[k]]` is its induced subgraph, `Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]` its support as a sorted vertex list, and `RandomInfraPoint[g, InfraSlice[k], n]` draws random events of it.
+A time function on a causal graph is a map to the integers that increases along every edge. The causal height of an event is the least such function: the number of edges of a longest chain from a source to the event, zero on the sources. Its level sets, the slices of the height foliation, are antichains that partition the events, and the slice through an event is the discrete analogue of a simultaneity surface. A slice is an inert set head read like a ball: `InfraMeasurement[g, InfraSlice[k], "Subgraph"]` is its induced subgraph, `Keys @ InfraMeasurement[g, InfraSlice[k], "VertexDensity"]` its support as a sorted vertex list, and `RandomInfraPoint[g, InfraSlice[k], n]` draws random events of it.
 
 ## Functions
 

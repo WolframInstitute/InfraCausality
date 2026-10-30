@@ -5,10 +5,10 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 (* WolframInstitute`InfraCausality` :: CausalInfrageometry :: InfraCausalFuture *)
 
 InfraCausalFuture /: InfraMeasurement[ graph_Graph, InfraCausalFuture[ anchor_ ], "VertexDensity" ] :=
-  AssociationThread[ Sort @ VertexOutComponent[ graph, Keys @ InfraDensity[ graph, anchor ] ], 1 ]
+  AssociationThread[ Sort @ VertexOutComponent[ graph, Keys @ InfraMeasurement[ graph, anchor, "VertexDensity" ] ], 1 ]
 
 InfraCausalFuture /: InfraMeasurement[ graph_Graph, InfraCausalFuture[ anchor_, t_ ], "VertexDensity" ] :=
-  With[ { future = Subgraph[ graph, VertexOutComponent[ graph, Keys @ InfraDensity[ graph, anchor ] ] ] },
+  With[ { future = Subgraph[ graph, VertexOutComponent[ graph, Keys @ InfraMeasurement[ graph, anchor, "VertexDensity" ] ] ] },
     AssociationThread[ Sort @ Keys @ Select[ CausalHeight @ future, LessEqualThan[ t ] ], 1 ] ]
 
 InfraCausalFuture /: InfraMeasurement[ graph_Graph, cone_InfraCausalFuture, "EdgeDensity" ] :=
@@ -28,7 +28,7 @@ InfraCausalFuture /: InfraMemberQ[ graph_Graph, cone_InfraCausalFuture, set_List
   Sort @ set === Keys @ InfraMeasurement[ graph, cone, "VertexDensity" ]
 
 InfraCausalPast /: InfraMeasurement[ graph_Graph, InfraCausalPast[ anchor_ ], "VertexDensity" ] :=
-  AssociationThread[ Sort @ VertexInComponent[ graph, Keys @ InfraDensity[ graph, anchor ] ], 1 ]
+  AssociationThread[ Sort @ VertexInComponent[ graph, Keys @ InfraMeasurement[ graph, anchor, "VertexDensity" ] ], 1 ]
 
 InfraCausalPast /: InfraMeasurement[ graph_Graph, InfraCausalPast[ anchor_, t_ ], "VertexDensity" ] :=
   InfraMeasurement[ ReverseGraph @ graph, InfraCausalFuture[ anchor, t ], "VertexDensity" ]

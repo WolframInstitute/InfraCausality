@@ -33,10 +33,10 @@ The head holds its observers and computes nothing. [`InfraMeasurement`](paclet:W
 | `"EdgeDensity"` | 1 on every edge of the subgraph induced on the radar domain |
 | `"Subgraph"` | the directed subgraph on the domain, laid out at {distance, time} |
 | `"BaseGraph"` | the directed graph on the coordinate cells, *c* → *c'* when an edge of the domain joins them, laid out at {distance, time} in the style of a "Small" substrate |
-| `"Fibration"` | the observer space: an [`InfraFibration`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibration) of the undirected domain over the cells |
+| `"Fibration"` | the observer space: an [`InfraFiberedGraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraFiberedGraph) of the undirected domain over the cells |
 | `"Faithful"` | `True` |
 
-The radar domain is the set the chart is defined on: <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)[*g*, [InfraRadarCoordinates]()[*a*], *e*]</code> is `True` exactly on its events, <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraRadarCoordinates]()[*a*]]</code> is the subgraph induced on it, and [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws it by its vertex density.
+The radar domain is the set the chart is defined on: <code>[`InfraMemberQ`](paclet:WolframInstitute/InfraGeometry/ref/InfraMemberQ)[*g*, [InfraRadarCoordinates]()[*a*], *e*]</code> is `True` exactly on its events, <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraRadarCoordinates]()[*a*], "Subgraph"]</code> is the subgraph induced on it, and [`InfraSubstrateHighlight`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubstrateHighlight) draws it by its vertex density.
 
 The fibers of the observer space are the events the observers cannot tell apart; [`InfraFibers`](paclet:WolframInstitute/InfraGeometry/ref/InfraFibers) lists them and the fiber-bundle functions of InfraGeometry read sections, connections and holonomy on them. The coordinates are a chart of the domain, axiom D2, exactly when every fiber is one event; [EPSRadarAxiomQ]() tests it for one observer or for a list.
 
@@ -159,7 +159,7 @@ Table[
     {a = (SeedRandom[1]; RandomInfraTimelikeGeodesic[g])},
     {domain = InfraMeasurement[g, InfraRadarCoordinates[a], "Domain"]},
     domain === Keys @ InfraMeasurement[g, InfraCausalDiamond[First @ a, Last @ a], "VertexDensity"] === Keys @ InfraMeasurement[g, InfraRadarCoordinates[a], "VertexDensity"] &&
-      Sort @ VertexList @ InfraSubgraph[g, InfraRadarCoordinates[a]] === domain && AllTrue[VertexList[g], e |-> InfraMemberQ[g, InfraRadarCoordinates[a], e] === MemberQ[domain, e]] &&
+      Sort @ VertexList @ InfraMeasurement[g, InfraRadarCoordinates[a], "Subgraph"] === domain && AllTrue[VertexList[g], e |-> InfraMemberQ[g, InfraRadarCoordinates[a], e] === MemberQ[domain, e]] &&
       Sort[Join @@ Values[VertexList /@ InfraFibers @ InfraMeasurement[g, InfraRadarCoordinates[a], "Fibration"]]] === domain],
   {name, {"DiamondLatticeGraph", "MinkowskiSprinkling2D", "CylinderLatticeGraph"}}]
 ```

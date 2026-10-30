@@ -37,7 +37,7 @@ The head holds its anchor and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the causal past is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-A set head has one member, its support, so no sampler draws it. The three readings of the causal past on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraCausalPast]()[*v*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalPast]()[*v*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalPast]()[*v*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalPastQ]() recognises a vertex set that is the causal past of one of its events.
+A set head has one member, its support, so no sampler draws it. The three readings of the causal past on a graph are <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalPast]()[*v*], "Subgraph"]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalPast]()[*v*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalPast]()[*v*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalPastQ]() recognises a vertex set that is the causal past of one of its events.
 
 Corresponding notions:
 

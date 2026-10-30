@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.1 (2026-10-30)
+
+Runs again against the current InfraGeometry; requires InfraGeometry 2.12.16 or later.
+
+- **Fix -- removed InfraGeometry names.** The cones and the diamond read their anchor with `InfraMeasurement[g, anchor, "VertexDensity"]` instead of `InfraDensity`, which InfraGeometry removed; 76 tests failed on it. `InfraRadarCoordinates` gives an `InfraFiberedGraph` instead of an `InfraFibration`.
+- **Docs.** The pages use `InfraMeasurement[g, head, "Subgraph"]` for the induced subgraph, `InfraTotalSpace` and `InfraBaseSpace` for the fibered graph, and `RandomInfraSection[fib, All, Properties -> {"Continuous"}, "NextVertexFunction" -> Identity]` for the sections; the guide drops the `InfraDensity` and `InfraSubgraph` bullets.
+
 ## 2.1.0 (unreleased)
 
 An API review against InfraGeometry 2.7.4 and the PureMath naming conventions. The 71 exports of 2.0.0 become 61: twelve are removed or folded into readings, and two axiom predicates are new. No alias is kept for a removed or renamed name; the table below gives the replacement of each one.

@@ -52,9 +52,7 @@ Causal infrageometry studies the causal structure of a finite directed acyclic g
 ### Reading a construction on a graph
 
 - `InfraMeasurement` (InfraGeometry) a property of a causal head on a graph: "Graph", "Cardinality", "Length", "VertexDensity", "EdgeDensity", "Subgraph", "CountingMeasure"; `Keys @ InfraMeasurement[g, head, "VertexDensity"]` is the sorted vertex list of a set head, its only member
-- `InfraDensity` (InfraGeometry) the vertex multiplicities of a vertex, vertex list or chain graph
 - `InfraMemberQ` (InfraGeometry) whether a vertex list is a member of a causal head on a graph
-- `InfraSubgraph` (InfraGeometry) the subgraph induced on the support of a head: the first reading of a set head (a cone, a diamond or a slice)
 - `RandomInfraPoint` (InfraGeometry) random events of a set head, `RandomInfraPoint[g, head, n]`
 
 ### Substrates and drawing

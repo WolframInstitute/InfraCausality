@@ -26,7 +26,7 @@ The causal order *u* ≼ *e* is reachability, so the causal future is the out-co
 
 The cut <code>[InfraCausalFuture]()[*v*, *t*]</code> keeps the events *e* of *J*⁺(*v*) whose longest chain from *v* has at most *t* edges. The number of edges of a longest chain is the proper time of the graph, so the cut is the cone of proper-time height *t*: the events of the causal future that *v* reaches within proper time *t*. On the diamond lattice the longest chain from {*i*, *j*} to {*i'*, *j'*} has (*i'* − *i*) + (*j'* − *j*) edges, and the cut is a triangle.
 
-The head holds its anchor and computes nothing. [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement) reads it on a graph, and the anchor is read through [`InfraDensity`](paclet:WolframInstitute/InfraGeometry/ref/InfraDensity), so a vertex, a vertex list or a chain all serve:
+The head holds its anchor and computes nothing. [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement) reads it on a graph, and the anchor is read through its vertex density, <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, *anchor*, "VertexDensity"]</code>, so a vertex, a vertex list or a chain all serve:
 
 | Property | Value |
 |---|---|
@@ -37,7 +37,7 @@ The head holds its anchor and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the causal future is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-A set head has one member, its support, so no sampler draws it. The three readings of the causal future on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraCausalFuture]()[*v*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalFuture]()[*v*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalFuture]()[*v*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalFutureQ]() recognises a vertex set that is the causal future of one of its events.
+A set head has one member, its support, so no sampler draws it. The three readings of the causal future on a graph are <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalFuture]()[*v*], "Subgraph"]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraCausalFuture]()[*v*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraCausalFuture]()[*v*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraCausalFutureQ]() recognises a vertex set that is the causal future of one of its events.
 
 Corresponding notions:
 

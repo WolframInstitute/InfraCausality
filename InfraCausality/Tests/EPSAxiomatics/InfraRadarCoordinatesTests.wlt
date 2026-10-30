@@ -159,7 +159,7 @@ VerificationTest[
 
 VerificationTest[
   AllTrue[ $cases, Apply[ { g, a } |-> With[ { fib = $fibration[ g, a ] },
-    UndirectedGraphQ @ InfraTotalGraph @ fib && Sort @ VertexList @ InfraTotalGraph @ fib === $domain[ g, a ] &&
+    UndirectedGraphQ @ InfraTotalSpace @ fib && Sort @ VertexList @ InfraTotalSpace @ fib === $domain[ g, a ] &&
       InfraSectionQ[ fib, RandomInfraSection @ fib ] ] ] ],
   True,
   TestID -> "InfraRadarCoordinates-all-random-section-of-the-undirected-domain-passes-InfraSectionQ"
@@ -180,8 +180,8 @@ VerificationTest[
 VerificationTest[
   With[ { fib = $fibration[ $cylinder, $column ], coords = $coordinates[ $cylinder, $column ] },
     { Sort[ Sort /@ Values[ VertexList /@ InfraFibers @ fib ] ], coords[ { 1, 1 } ], InfraFibrationQ @ fib,
-      MemberQ[ EdgeList @ InfraBaseGraph @ fib, UndirectedEdge[ { 5 / 2, 3 / 2 }, { 4, 0 } ] ],
-      EdgeQ[ InfraTotalGraph @ fib, UndirectedEdge[ { 1, 1 }, { 0, 3 } ] ] } ],
+      MemberQ[ EdgeList @ InfraBaseSpace @ fib, UndirectedEdge[ { 5 / 2, 3 / 2 }, { 4, 0 } ] ],
+      EdgeQ[ InfraTotalSpace @ fib, UndirectedEdge[ { 1, 1 }, { 0, 3 } ] ] } ],
   { { { { 0, 0 } }, { { 0, 1 } }, { { 0, 2 } }, { { 0, 3 } }, { { 1, 1 }, { 2, 2 } } }, { 5 / 2, 3 / 2 }, False, True, False },
   TestID -> "InfraRadarCoordinates-cylinder-column-base-edge-does-not-lift-at-every-fiber-point"
 ]
@@ -197,9 +197,9 @@ VerificationTest[
 
 VerificationTest[
   AllTrue[ $cases, Apply[ { g, a } |->
-    $edgeSet @ InfraMeasurement[ g, InfraRadarCoordinates[ a ], "BaseGraph" ] === $edgeSet @ InfraBaseGraph @ $fibration[ g, a ] ] ],
+    $edgeSet @ InfraMeasurement[ g, InfraRadarCoordinates[ a ], "BaseGraph" ] === $edgeSet @ InfraBaseSpace @ $fibration[ g, a ] ] ],
   True,
-  TestID -> "InfraRadarCoordinates-all-base-graph-forgets-direction-to-InfraBaseGraph"
+  TestID -> "InfraRadarCoordinates-all-base-graph-forgets-direction-to-InfraBaseSpace"
 ]
 
 VerificationTest[
@@ -241,7 +241,7 @@ VerificationTest[
   AllTrue[ $cases, Apply[ { g, a } |-> With[ { domain = $domain[ g, a ], chart = InfraRadarCoordinates[ a ] },
     Keys @ InfraMeasurement[ g, chart, "VertexDensity" ] === domain && Union @ Values @ InfraMeasurement[ g, chart, "VertexDensity" ] === { 1 } &&
       Sort @ Keys @ InfraMeasurement[ g, chart, "EdgeDensity" ] === Sort @ EdgeList @ Subgraph[ g, domain ] &&
-      Sort @ VertexList @ InfraSubgraph[ g, chart ] === domain ] ] ],
+      Sort @ VertexList @ InfraMeasurement[ g, chart, "Subgraph" ] === domain ] ] ],
   True,
   TestID -> "InfraRadarCoordinates-all-densities-and-subgraph-are-the-domain"
 ]

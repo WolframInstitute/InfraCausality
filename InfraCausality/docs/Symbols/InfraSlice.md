@@ -33,7 +33,7 @@ The head holds its height and computes nothing. [`InfraMeasurement`](paclet:Wolf
 | `"Cardinality"` | 1: the slice is a set, and its support is its only member |
 | `"Faithful"` | `True` |
 
-A set head has one member, its support, so no sampler draws it. The three readings of the slice on a graph are <code>[`InfraSubgraph`](paclet:WolframInstitute/InfraGeometry/ref/InfraSubgraph)[*g*, [InfraSlice]()[*k*]]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraSlice]()[*k*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraSliceQ]() recognises a nonempty level set of the causal height.
+A set head has one member, its support, so no sampler draws it. The three readings of the slice on a graph are <code>[`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "Subgraph"]</code> (InfraGeometry), the induced subgraph; <code>Keys @ [`InfraMeasurement`](paclet:WolframInstitute/InfraGeometry/ref/InfraMeasurement)[*g*, [InfraSlice]()[*k*], "VertexDensity"]</code>, the sorted vertex list; and <code>[`RandomInfraPoint`](paclet:WolframInstitute/InfraGeometry/ref/RandomInfraPoint)[*g*, [InfraSlice]()[*k*], *n*]</code> (InfraGeometry), *n* distinct random events of it. [InfraSliceQ]() recognises a nonempty level set of the causal height.
 
 Corresponding notions:
 

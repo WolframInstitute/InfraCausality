@@ -7,8 +7,8 @@ PackageImport[ "WolframInstitute`InfraGeometry`" ]
 InfraCausalDiamond /: InfraMeasurement[ graph_Graph, InfraCausalDiamond[ p_, q_ ], "VertexDensity" ] :=
   AssociationThread[
     Intersection[
-      VertexOutComponent[ graph, Keys @ InfraDensity[ graph, p ] ],
-      VertexInComponent[ graph, Keys @ InfraDensity[ graph, q ] ] ],
+      VertexOutComponent[ graph, Keys @ InfraMeasurement[ graph, p, "VertexDensity" ] ],
+      VertexInComponent[ graph, Keys @ InfraMeasurement[ graph, q, "VertexDensity" ] ] ],
     1 ]
 
 InfraCausalDiamond /: InfraMeasurement[ graph_Graph, InfraCausalDiamond[ anchor_ ], "VertexDensity" ] :=

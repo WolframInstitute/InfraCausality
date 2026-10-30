@@ -68,7 +68,7 @@ InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordina
       Sequence @@ FilterRules[ CausalSubstrateStyle[ "Small" ], { VertexStyle, EdgeStyle, VertexSize } ] ] ]
 
 InfraRadarCoordinates /: InfraMeasurement[ graph_Graph, chart_InfraRadarCoordinates, "Fibration" ] :=
-  InfraFibration[ UndirectedGraph @ InfraMeasurement[ graph, chart, "Subgraph" ], InfraMeasurement[ graph, chart, "Coordinates" ] ]
+  InfraFiberedGraph[ UndirectedGraph @ InfraMeasurement[ graph, chart, "Subgraph" ], InfraMeasurement[ graph, chart, "Coordinates" ] ]
 
 InfraRadarCoordinates /: InfraMeasurement[ _Graph, _InfraRadarCoordinates, "Faithful" ] :=
   True

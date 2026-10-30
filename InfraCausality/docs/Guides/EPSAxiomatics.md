@@ -38,7 +38,7 @@ This guide holds the constructions of the axioms D on the observers. Two observe
 ### The observer space
 
 - `InfraMeasurement` (InfraGeometry) of a chart: "Fibration", the observer space, the undirected radar domain fibered over the chart, whose fibers are the events the observers cannot tell apart, singletons exactly under axiom D2
-- `InfraFibration` (InfraGeometry), `InfraFibers` (InfraGeometry), `InfraBaseGraph` (InfraGeometry), `InfraSection` (InfraGeometry), `InfraConnection` (InfraGeometry), `InfraHolonomy` (InfraGeometry)
+- `InfraFiberedGraph` (InfraGeometry), `InfraFibers` (InfraGeometry), `InfraBaseSpace` (InfraGeometry), `InfraSection` (InfraGeometry), `InfraConnection` (InfraGeometry), `InfraHolonomy` (InfraGeometry)
 
 - `InfraFibrationQ` (InfraGeometry), `InfraFiberBundleQ` (InfraGeometry)
 
